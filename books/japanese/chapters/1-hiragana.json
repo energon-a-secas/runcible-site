@@ -1,0 +1,712 @@
+{
+  "format": "neo-chapter/1",
+  "id": "1-hiragana",
+  "title": { "en": "Hiragana", "es": "Hiragana" },
+  "goal": {
+    "statement": {
+      "en": "Read any hiragana word aloud, with no romaji on the screen",
+      "es": "Leer en voz alta cualquier palabra en hiragana, sin romaji en pantalla"
+    },
+    "evidence": { "skill": "kana.hiragana.read", "accuracy": 0.9, "min": 40, "window": 60 }
+  },
+  "requires": ["0-sounds"],
+  "state": "ready",
+  "estimate": {
+    "minutes": 240,
+    "note": {
+      "en": "Tofugu reports a day to a week. Four hours is the optimistic end of that and it is a real number, not encouragement.",
+      "es": null
+    }
+  },
+  "data": ["data/kana/hiragana.json", "data/kana/ladder.json", "data/kanji/strokes-kana.json"],
+  "rungs": [
+    {
+      "id": "vowels",
+      "title": { "en": "The five vowels", "es": "Las cinco vocales" },
+      "unlocks": {
+        "en": "every other row, because every row is one consonant plus one of these five",
+        "es": "todas las demás filas, porque cada fila es una consonante más una de estas cinco"
+      },
+      "pages": [
+        {
+          "id": "p-vowels",
+          "kind": "prose",
+          "title": { "en": "Five sounds, and everything else is built from them", "es": null },
+          "body": {
+            "en": [
+              "Japanese has five vowel sounds and they do not change. a as in father, i as in machine, u as in flute, e as in bet, o as in for.",
+              "Every other kana in the table is one consonant plus one of these five, in that order, always. Learn the five and you have learned the second half of forty more."
+            ],
+            "es": null
+          }
+        },
+        {
+          "id": "p-order",
+          "kind": "prose",
+          "title": { "en": "Why this order and not the common ones first", "es": null },
+          "body": {
+            "en": [
+              "This is gojuon order, the order the table itself is in, five to a row. No guide in the research recommended frequency order for kana and no study was found comparing the two.",
+              "The reason to keep gojuon is that dakuten, yoon and the whole romanisation system are column rules. Column order is therefore the rule-teaching order, and shuffling forty-six items by frequency throws that structure away to save nothing."
+            ],
+            "es": null
+          },
+          "figure": {
+            "kind": "svg",
+            "src": "data/kanji/strokes-kana.json#あ",
+            "render": "stroke-order",
+            "caption": {
+              "en": "a, three strokes. Stroke order is shown throughout this Book and graded nowhere in it.",
+              "es": null
+            }
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-vowels-read",
+          "type": "choice",
+          "skill": "kana.hiragana.read",
+          "title": { "en": "Which sound is this?", "es": "¿Qué sonido es este?" },
+          "items": "data/kana/hiragana.json#rows.vowels",
+          "prompt": "glyph",
+          "answer": "romaji",
+          "distractors": { "n": 3 },
+          "count": 5,
+          "pass": { "accuracy": 0.8 }
+        },
+        {
+          "id": "e-vowels-type",
+          "type": "typed",
+          "skill": "kana.hiragana.write",
+          "title": { "en": "Type it in kana", "es": "Escríbelo en kana" },
+          "items": "data/kana/hiragana.json#rows.vowels",
+          "prompt": "romaji",
+          "answer": "glyph",
+          "transform": "kana",
+          "compare": "trim|kana",
+          "count": 5,
+          "pass": { "accuracy": 0.8 }
+        }
+      ]
+    },
+    {
+      "id": "k-s-t",
+      "title": { "en": "k, s and t, and the three cells that lie", "es": null },
+      "unlocks": {
+        "en": "most of the words you will meet first, and the habit of reading a row rather than a character",
+        "es": null
+      },
+      "pages": [
+        {
+          "id": "p-kst",
+          "kind": "prose",
+          "title": { "en": "Three rows, three exceptions", "es": null },
+          "body": {
+            "en": [
+              "The k row is regular: ka ki ku ke ko.",
+              "The s row is not. The i cell is shi, not si. The t row breaks twice: the i cell is chi and the u cell is tsu.",
+              "Those three are the reason romaji arguments exist, and they are also the reason chapter 0 spent its time on beats. Japanese tu is physically tsu, which is why a stranded t in a foreign word takes an o instead."
+            ],
+            "es": null
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-k-read",
+          "type": "choice",
+          "skill": "kana.hiragana.read",
+          "title": { "en": "The k row", "es": null },
+          "items": "data/kana/hiragana.json#rows.k",
+          "prompt": "glyph",
+          "answer": "romaji",
+          "distractors": { "n": 3 },
+          "count": 5,
+          "pass": { "accuracy": 0.8 }
+        },
+        {
+          "id": "e-s-read",
+          "type": "choice",
+          "skill": "kana.hiragana.read",
+          "title": { "en": "The s row", "es": null },
+          "items": "data/kana/hiragana.json#rows.s",
+          "prompt": "glyph",
+          "answer": "romaji",
+          "distractors": { "n": 3 },
+          "count": 5,
+          "pass": { "accuracy": 0.8 }
+        },
+        {
+          "id": "e-t-read",
+          "type": "choice",
+          "skill": "kana.hiragana.read",
+          "title": { "en": "The t row", "es": null },
+          "items": "data/kana/hiragana.json#rows.t",
+          "prompt": "glyph",
+          "answer": "romaji",
+          "distractors": { "n": 3 },
+          "count": 5,
+          "pass": { "accuracy": 0.8 }
+        },
+        {
+          "id": "e-t-type",
+          "type": "typed",
+          "skill": "kana.hiragana.write",
+          "title": { "en": "Type the t row, including the two that lie", "es": null },
+          "items": "data/kana/hiragana.json#rows.t",
+          "prompt": "romaji",
+          "answer": "glyph",
+          "transform": "kana",
+          "compare": "trim|kana",
+          "count": 5,
+          "pass": { "accuracy": 0.8 }
+        }
+      ]
+    },
+    {
+      "id": "n-h-m",
+      "title": { "en": "n, h and m", "es": null },
+      "unlocks": {
+        "en": "the h row, which is where the b and p rows come from later",
+        "es": null
+      },
+      "pages": [
+        {
+          "id": "p-nhm",
+          "kind": "prose",
+          "title": { "en": "One more cell that lies", "es": null },
+          "body": {
+            "en": [
+              "The n and m rows are regular. The h row breaks once: the u cell is fu, and the sound is neither an English f nor an English h but a breath between the lips.",
+              "Hold on to the h row. Add two dots and it becomes the b row. Add a small circle and it becomes the p row. Twenty of the marked kana you meet next come out of these five."
+            ],
+            "es": null
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-n-read",
+          "type": "choice",
+          "skill": "kana.hiragana.read",
+          "title": { "en": "The n row", "es": null },
+          "items": "data/kana/hiragana.json#rows.n",
+          "prompt": "glyph",
+          "answer": "romaji",
+          "distractors": { "n": 3 },
+          "count": 5,
+          "pass": { "accuracy": 0.8 }
+        },
+        {
+          "id": "e-h-read",
+          "type": "choice",
+          "skill": "kana.hiragana.read",
+          "title": { "en": "The h row", "es": null },
+          "items": "data/kana/hiragana.json#rows.h",
+          "prompt": "glyph",
+          "answer": "romaji",
+          "distractors": { "n": 3 },
+          "count": 5,
+          "pass": { "accuracy": 0.8 }
+        },
+        {
+          "id": "e-m-read",
+          "type": "choice",
+          "skill": "kana.hiragana.read",
+          "title": { "en": "The m row", "es": null },
+          "items": "data/kana/hiragana.json#rows.m",
+          "prompt": "glyph",
+          "answer": "romaji",
+          "distractors": { "n": 3 },
+          "count": 5,
+          "pass": { "accuracy": 0.8 }
+        },
+        {
+          "id": "e-h-type",
+          "type": "typed",
+          "skill": "kana.hiragana.write",
+          "title": { "en": "Type the h row", "es": null },
+          "items": "data/kana/hiragana.json#rows.h",
+          "prompt": "romaji",
+          "answer": "glyph",
+          "transform": "kana",
+          "compare": "trim|kana",
+          "count": 5,
+          "pass": { "accuracy": 0.8 }
+        }
+      ]
+    },
+    {
+      "id": "y-r-w",
+      "title": { "en": "y, r, w, and the one that stands alone", "es": null },
+      "unlocks": {
+        "en": "the whole basic table, all forty-six of it",
+        "es": null
+      },
+      "pages": [
+        {
+          "id": "p-yrw",
+          "kind": "prose",
+          "title": { "en": "The short rows", "es": null },
+          "body": {
+            "en": [
+              "The y row has three, not five: ya, yu, yo. yi and ye never existed as standard kana. The r row is full, and its sound sits between an English r, l and d.",
+              "The w row has two left: wa, and wo. The second is read o and is used for exactly one thing, which the particles rung covers.",
+              "Then there is n, which sits outside the grid entirely. It is the nasal from chapter 0, it takes a whole beat, and no standard Japanese word begins with it."
+            ],
+            "es": null
+          }
+        },
+        {
+          "id": "p-moraic-n",
+          "kind": "callout",
+          "tone": "note",
+          "title": { "en": "n is a beat, not a letter", "es": null },
+          "body": {
+            "en": [
+              "It has no exercise here because there is nothing to choose between: there is one of it. It gets drilled inside every word that contains it, which is most of them.",
+              "This is why Gundam is four beats. ga, n, da, mu."
+            ],
+            "es": null
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-y-read",
+          "type": "choice",
+          "skill": "kana.hiragana.read",
+          "title": { "en": "The y row", "es": null },
+          "items": "data/kana/hiragana.json#rows.y",
+          "prompt": "glyph",
+          "answer": "romaji",
+          "distractors": { "n": 2 },
+          "count": 3,
+          "pass": { "accuracy": 0.8 }
+        },
+        {
+          "id": "e-r-read",
+          "type": "choice",
+          "skill": "kana.hiragana.read",
+          "title": { "en": "The r row", "es": null },
+          "items": "data/kana/hiragana.json#rows.r",
+          "prompt": "glyph",
+          "answer": "romaji",
+          "distractors": { "n": 3 },
+          "count": 5,
+          "pass": { "accuracy": 0.8 }
+        },
+        {
+          "id": "e-r-type",
+          "type": "typed",
+          "skill": "kana.hiragana.write",
+          "title": { "en": "Type the r row", "es": null },
+          "items": "data/kana/hiragana.json#rows.r",
+          "prompt": "romaji",
+          "answer": "glyph",
+          "transform": "kana",
+          "compare": "trim|kana",
+          "count": 5,
+          "pass": { "accuracy": 0.8 }
+        }
+      ]
+    },
+    {
+      "id": "dakuten",
+      "title": { "en": "Two dots, and a small circle", "es": null },
+      "unlocks": {
+        "en": "most native vocabulary, and the full sound inventory",
+        "es": null
+      },
+      "pages": [
+        {
+          "id": "p-dakuten",
+          "kind": "prose",
+          "title": { "en": "Twenty-five more characters, and no new shapes", "es": null },
+          "body": {
+            "en": [
+              "Two small dots voice the consonant. k becomes g, s becomes z, t becomes d, h becomes b. A small circle in the same corner turns h into p instead.",
+              "Nothing here is a new shape. It is the same forty-six with a mark, which is why this rung comes after all of them and not woven through."
+            ],
+            "es": null
+          }
+        },
+        {
+          "id": "p-rare",
+          "kind": "prose",
+          "title": { "en": "The two you can almost ignore", "es": null },
+          "body": {
+            "en": [
+              "The d row's i and u cells sound identical to the z row's, and the 1986 Cabinet Notice restricts them to two cases: a repeated sound in the same word, and a compound where the second word's consonant voiced.",
+              "So a word like inazuma takes the z row by default, and hanaji takes the d row because it is hana plus chi. Recognise them and move on."
+            ],
+            "es": null
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-g-read",
+          "type": "choice",
+          "skill": "kana.hiragana.read",
+          "title": { "en": "The g row", "es": null },
+          "items": "data/kana/hiragana.json#dakuten.g",
+          "prompt": "glyph",
+          "answer": "romaji",
+          "distractors": { "n": 3 },
+          "count": 5,
+          "pass": { "accuracy": 0.8 }
+        },
+        {
+          "id": "e-z-read",
+          "type": "choice",
+          "skill": "kana.hiragana.read",
+          "title": { "en": "The z row", "es": null },
+          "items": "data/kana/hiragana.json#dakuten.z",
+          "prompt": "glyph",
+          "answer": "romaji",
+          "distractors": { "n": 3 },
+          "count": 5,
+          "pass": { "accuracy": 0.8 }
+        },
+        {
+          "id": "e-b-read",
+          "type": "choice",
+          "skill": "kana.hiragana.read",
+          "title": { "en": "The b row", "es": null },
+          "items": "data/kana/hiragana.json#dakuten.b",
+          "prompt": "glyph",
+          "answer": "romaji",
+          "distractors": { "n": 3 },
+          "count": 5,
+          "pass": { "accuracy": 0.8 }
+        },
+        {
+          "id": "e-p-type",
+          "type": "typed",
+          "skill": "kana.hiragana.write",
+          "title": { "en": "Type the p row", "es": null },
+          "items": "data/kana/hiragana.json#dakuten.p",
+          "prompt": "romaji",
+          "answer": "glyph",
+          "transform": "kana",
+          "compare": "trim|kana",
+          "count": 5,
+          "pass": { "accuracy": 0.8 }
+        }
+      ]
+    },
+    {
+      "id": "yoon",
+      "title": { "en": "Small ya, yu and yo", "es": null },
+      "unlocks": {
+        "en": "counting beats correctly, which is the difference between two words",
+        "es": null
+      },
+      "pages": [
+        {
+          "id": "p-yoon",
+          "kind": "prose",
+          "title": { "en": "Two characters, one beat", "es": null },
+          "body": {
+            "en": [
+              "An i-row kana followed by a small ya, yu or yo is one beat, not two. kyou, meaning today, is two beats. kiyou, meaning skillful, is three, and it is written with a full-size yo.",
+              "Size is the whole distinction. If the second character is small it joins the one before it; if it is full size it stands on its own."
+            ],
+            "es": null
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-yoon-read",
+          "type": "choice",
+          "skill": "kana.hiragana.read",
+          "title": { "en": "Read the pair as one beat", "es": null },
+          "items": "data/kana/hiragana.json#yoon",
+          "prompt": "glyph",
+          "answer": "romaji",
+          "distractors": { "n": 3 },
+          "count": 12,
+          "pass": { "accuracy": 0.8 }
+        },
+        {
+          "id": "e-yoon-type",
+          "type": "typed",
+          "skill": "kana.hiragana.write",
+          "title": { "en": "Type the pair", "es": null },
+          "items": "data/kana/hiragana.json#yoon",
+          "prompt": "romaji",
+          "answer": "glyph",
+          "transform": "kana",
+          "compare": "trim|kana",
+          "count": 8,
+          "pass": { "accuracy": 0.8 }
+        }
+      ]
+    },
+    {
+      "id": "sokuon-and-long",
+      "title": { "en": "Small tsu, and long vowels", "es": null },
+      "unlocks": {
+        "en": "spelling a word you can already say, which is where hiragana stops being a decoder ring",
+        "es": null
+      },
+      "pages": [
+        {
+          "id": "p-sokuon",
+          "kind": "prose",
+          "title": { "en": "A beat of silence", "es": null },
+          "body": {
+            "en": [
+              "The small tsu makes no sound. It holds the following consonant for one beat: saka is a hill, sakka is an author.",
+              "It never starts a word and never comes before a vowel. In native words it never precedes g, z, d, b or h. Loanwords are the licensed exception, which is exactly why beddo and baggu exist and look wrong."
+            ],
+            "es": null
+          }
+        },
+        {
+          "id": "p-long",
+          "kind": "prose",
+          "title": { "en": "Hiragana has no bar", "es": null },
+          "body": {
+            "en": [
+              "Katakana writes a long vowel with a bar. Hiragana does not: it adds a vowel kana. a takes a, i takes i, u takes u, e takes e.",
+              "The o row is the one that trips people. The default is to add u, not another o: otousan, toudai, kyou, happyou.",
+              "The exception list is closed, short, and worth reading once. It is the words whose historical spelling had ho or wo after the o-row kana."
+            ],
+            "es": null
+          }
+        },
+        {
+          "id": "p-oo-list",
+          "kind": "table",
+          "title": { "en": "The complete oo exception list", "es": null },
+          "columns": [{ "en": "Written with a second o, not with u", "es": null }],
+          "items": "data/kana/hiragana.json#long_vowels.oo_exceptions.words",
+          "note": {
+            "en": [
+              "Twenty-two words, from the 1986 Cabinet Notice. Everything else with a long o takes u. There is no rule behind the list, only history, so it is a list and it is short on purpose."
+            ],
+            "es": null
+          }
+        },
+        {
+          "id": "p-ei",
+          "kind": "callout",
+          "tone": "note",
+          "title": { "en": "And the e row does the same thing with i", "es": null },
+          "body": {
+            "en": [
+              "The Notice's appendix writes a long e with i whether it is said as a long e or as ei: eiga, tokei, teinei, hei, mei, rei.",
+              "So tokei is spelled tokei and commonly said tokee. neesan and ee are counter-examples and sit in the main rule rather than the appendix."
+            ],
+            "es": null
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-long-o",
+          "type": "choice",
+          "skill": "kana.hiragana.read",
+          "title": { "en": "u or a second o?", "es": null },
+          "items": [
+            { "id": "lv:おとうさん", "word": "otousan, father", "spelling": "おとうさん, with u" },
+            { "id": "lv:きょう", "word": "kyou, today", "spelling": "きょう, with u" },
+            { "id": "lv:とうだい", "word": "toudai, lighthouse", "spelling": "とうだい, with u" },
+            { "id": "lv:はっぴょう", "word": "happyou, announcement", "spelling": "はっぴょう, with u" },
+            { "id": "lv:こおり", "word": "koori, ice", "spelling": "こおり, on the exception list" },
+            { "id": "lv:おおきい", "word": "ookii, big", "spelling": "おおきい, on the exception list" },
+            { "id": "lv:とおい", "word": "tooi, far", "spelling": "とおい, on the exception list" },
+            { "id": "lv:おおかみ", "word": "ookami, wolf", "spelling": "おおかみ, on the exception list" }
+          ],
+          "prompt": "word",
+          "answer": "spelling",
+          "distractors": { "n": 3 },
+          "count": 8,
+          "pass": { "accuracy": 0.75 }
+        }
+      ]
+    },
+    {
+      "id": "particles",
+      "title": { "en": "The three that are read wrong on purpose", "es": null },
+      "unlocks": {
+        "en": "reading a real sentence rather than a word list",
+        "es": null
+      },
+      "pages": [
+        {
+          "id": "p-particles",
+          "kind": "prose",
+          "title": { "en": "Three leftovers from before 1946", "es": null },
+          "body": {
+            "en": [
+              "Modern kana is otherwise one character to one sound. These three are not, and they are the only three.",
+              "ha is read wa when it marks the topic. he is read e when it marks a direction. wo is read o, and in contemporary Japanese it is used for nothing except marking the direct object.",
+              "The trap the Notice flags itself: a wa inside a word is a real wa, not the particle. Two of the commonest greetings you will meet, konnichiha and konbanha, end in the particle and are said with wa."
+            ],
+            "es": null
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-particles",
+          "type": "choice",
+          "skill": "kana.hiragana.read",
+          "title": { "en": "How is it read here?", "es": null },
+          "items": "data/kana/hiragana.json#particles",
+          "prompt": "written",
+          "answer": "read",
+          "distractors": { "n": 2 },
+          "count": 3,
+          "pass": { "accuracy": 0.8 }
+        }
+      ]
+    },
+    {
+      "id": "confusables",
+      "title": { "en": "The pairs that catch everyone", "es": null },
+      "unlocks": {
+        "en": "reading at speed, which is where a near-miss stops being harmless",
+        "es": null
+      },
+      "pages": [
+        {
+          "id": "p-confusables",
+          "kind": "prose",
+          "title": { "en": "Learn them as contrasts, never one at a time", "es": null },
+          "body": {
+            "en": [
+              "sa against ki: ki has two crossbars, sa has one.",
+              "nu against me: nu ends in a loop, me does not.",
+              "wa, re and ne: the tail decides. wa curves in, re hooks out, ne loops.",
+              "ru against ro: ru closes into a loop, ro does not.",
+              "The list of hiragana pairs is the researcher's own. No source enumerating them was found, which is worth knowing before you treat it as complete."
+            ],
+            "es": null
+          }
+        },
+        {
+          "id": "p-sa",
+          "kind": "figure",
+          "figure": {
+            "kind": "svg",
+            "src": "data/kanji/strokes-kana.json#さ",
+            "render": "stroke-order",
+            "caption": { "en": "sa. One crossbar.", "es": null }
+          }
+        },
+        {
+          "id": "p-ki",
+          "kind": "figure",
+          "figure": {
+            "kind": "svg",
+            "src": "data/kanji/strokes-kana.json#き",
+            "render": "stroke-order",
+            "caption": { "en": "ki. Two crossbars. The difference is the whole of it.", "es": null }
+          }
+        },
+        {
+          "id": "p-speed",
+          "kind": "callout",
+          "tone": "note",
+          "title": { "en": "About timed rounds", "es": null },
+          "body": {
+            "en": [
+              "Every answer you give anywhere in this Book records how long it took, so speed is measured. Nothing here enforces it: there is no countdown and no round that fails you for being slow.",
+              "That is a gap rather than a decision, and it is named here rather than dressed up. What exists today is the measurement."
+            ],
+            "es": null
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-contrast-flip",
+          "type": "read",
+          "skill": "kana.hiragana.read",
+          "title": { "en": "One contrast at a time", "es": null },
+          "pages": [
+            {
+              "id": "c-sa-ki",
+              "kind": "prose",
+              "title": { "en": "sa against ki", "es": null },
+              "body": {
+                "en": [
+                  "Both start with a horizontal stroke and both curve away to the left underneath it. ki has two crossbars where sa has one.",
+                  "Say them next to each other now: sa, ki, sa, ki. Learning them apart is what makes them fuse later."
+                ],
+                "es": null
+              }
+            },
+            {
+              "id": "c-nu-me",
+              "kind": "prose",
+              "title": { "en": "nu against me", "es": null },
+              "body": {
+                "en": [
+                  "The same body, and one of them ties a knot. nu finishes with a loop, me does not.",
+                  "nu, me, nu, me."
+                ],
+                "es": null
+              }
+            },
+            {
+              "id": "c-wa-re-ne",
+              "kind": "prose",
+              "title": { "en": "wa, re and ne", "es": null },
+              "body": {
+                "en": [
+                  "Three characters, one left-hand stroke, and the whole difference is what the tail does. wa curves back in. re hooks out. ne loops.",
+                  "This is the trio that costs beginners the most time, and it is the one where reading them as a set rather than one at a time actually pays."
+                ],
+                "es": null
+              }
+            },
+            {
+              "id": "c-ru-ro",
+              "kind": "prose",
+              "title": { "en": "ru against ro", "es": null },
+              "body": {
+                "en": [
+                  "ru closes into a loop at the bottom. ro stops.",
+                  "Nothing is scored on these four pages. They are here to be looked at slowly, which is a different activity from being tested."
+                ],
+                "es": null
+              }
+            }
+          ]
+        },
+        {
+          "id": "e-mixed-read",
+          "type": "choice",
+          "skill": "kana.hiragana.read",
+          "title": { "en": "Mixed, from the marked rows", "es": null },
+          "items": "data/kana/hiragana.json#dakuten.d",
+          "prompt": "glyph",
+          "answer": "romaji",
+          "distractors": { "n": 3 },
+          "count": 5,
+          "pass": { "accuracy": 0.8 }
+        },
+        {
+          "id": "e-mixed-type",
+          "type": "typed",
+          "skill": "kana.hiragana.write",
+          "title": { "en": "Type the s row from memory", "es": null },
+          "items": "data/kana/hiragana.json#rows.s",
+          "prompt": "romaji",
+          "answer": "glyph",
+          "transform": "kana",
+          "compare": "trim|kana",
+          "count": 5,
+          "pass": { "accuracy": 0.8 }
+        }
+      ]
+    }
+  ]
+}

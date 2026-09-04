@@ -1,0 +1,61 @@
+{
+  "_note": [
+    "Input to tools/build-decks.mjs. The decks themselves are generated from",
+    "data/vocab, data/kanji and data/sentences, so a deck can never contain a",
+    "word the corpus does not contain.",
+    "Card identity is noteId + ':' + templateId (CONTRACTS C4.2 rule 1). The note",
+    "id is derived from the source item id, which is derived from the selection",
+    "order, so re-running this script on the same corpus produces the same ids.",
+    "That is the whole point: the ledger's foreign key is that string, and an id",
+    "that moves discards a person's study history.",
+    "Each deck is written twice, once under books/japanese/decks/ for the",
+    "Runcible chapter that uses it and once under rappel-site/data/decks/ for",
+    "Rappel's own library. Same generator, so they cannot drift."
+  ],
+  "decks": [
+    {
+      "id": "jp-first-words",
+      "kind": "vocab",
+      "from": "vocab/ch4.json",
+      "chapter": "4-first-words",
+      "name": { "en": "First words", "es": "Primeras palabras" },
+      "skill_read": "vocab.first-words.read",
+      "skill_write": "vocab.first-words.write",
+      "budget_kb": 150
+    },
+    {
+      "id": "jp-grammar-words",
+      "kind": "vocab",
+      "from": "vocab/ch5.json",
+      "chapter": "5-grammar",
+      "name": { "en": "Grammar words", "es": "Palabras de gramática" },
+      "skill_read": "vocab.grammar.read",
+      "skill_write": "vocab.grammar.write",
+      "budget_kb": 150
+    },
+    {
+      "id": "jp-kanji-grade1",
+      "kind": "kanji",
+      "from": "kanji/kanjidic-grade1.json",
+      "chapter": "6-kanji",
+      "name": { "en": "The first eighty kanji", "es": "Los primeros ochenta kanji" },
+      "skill_read": "kanji.grade1.read",
+      "skill_meaning": "kanji.grade1.meaning",
+      "budget_kb": 150
+    },
+    {
+      "id": "jp-sentences-basic",
+      "kind": "sentences",
+      "from": "sentences/ch5.json",
+      "chapter": "5-grammar",
+      "name": { "en": "Short sentences", "es": "Frases cortas" },
+      "skill_read": "sentence.grammar.read",
+      "skill_recall": "sentence.grammar.recall",
+      "budget_kb": 150
+    }
+  ],
+  "targets": {
+    "runcible_book": "japanese",
+    "rappel_library": true
+  }
+}

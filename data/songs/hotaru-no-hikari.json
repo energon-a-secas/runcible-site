@@ -1,0 +1,69 @@
+{
+  "_licence": {
+    "source": "ja.wikipedia 蛍の光",
+    "url": "https://ja.wikipedia.org/wiki/蛍の光",
+    "spdx": "public-domain",
+    "derived": false,
+    "id": null,
+    "acknowledgement": null,
+    "links": [
+      "https://ja.wikipedia.org/wiki/蛍の光"
+    ],
+    "screen": "none",
+    "japan": {
+      "pd": true,
+      "basis": "lyricist 稲垣千穎 Inagaki Chikai (1913); composer Scottish trad. (Auld Lang Syne). The later of the two deaths is 1913.",
+      "test": "Japan: both authors died 1967 or earlier, or the work is anonymous and published 1967 or earlier.",
+      "confidence": "high"
+    },
+    "us": {
+      "pd": true,
+      "basis": "first published 1881, 小学唱歌集初編.",
+      "test": "US: published 1930 or earlier, or published later with every author dead in 1945 or earlier, because the URAA restored anything still protected in its source country on 1996-01-01.",
+      "confidence": "high"
+    },
+    "confidence_text": "High",
+    "verses_permitted": 1,
+    "verses_permitted_note": "One. Verses 3 and 4 are nationalist Meiji territorial copy and are not sung today, per the report.",
+    "generated_by": "transcribed by workstream Ca from docs/delivery/research/japanese-open-data-and-songs.md sections D and E. No Japanese character was typed.",
+    "generated_at": "2026-09-04",
+    "note": "Verdict transcribed from the open-data report's song table. The two tests it applies are section C of that report."
+  },
+  "format": "neo-data/1",
+  "id": "hotaru-no-hikari",
+  "title": {
+    "ja": "蛍の光",
+    "romaji": "Hotaru no Hikari",
+    "en": null,
+    "qualifier": null,
+    "note": "The research report gives no English title. The gloss on each verse is the meaning."
+  },
+  "credits": {
+    "lyricist": "稲垣千穎 Inagaki Chikai (1913)",
+    "composer": "Scottish trad. (Auld Lang Syne)",
+    "first_published": "1881, 小学唱歌集初編"
+  },
+  "transcription": "Hiragana as sung, in modern kana usage. Where the printed source uses historical kana the report says so and the note is carried below. The romaji and the gloss are the researcher's, not a source's.",
+  "verses": [
+    {
+      "n": 1,
+      "lines": [
+        "ほたるのひかり まどのゆき",
+        "ふみよむつきひ かさねつつ",
+        "いつしかとしも すぎのとを",
+        "あけてぞけさは わかれゆく"
+      ],
+      "romaji_lines": [
+        "hotaru no hikari, mado no yuki",
+        "fumi yomu tsukihi kasane tsutsu",
+        "itsushika toshi mo sugi no to o",
+        "akete zo kesa wa wakare yuku"
+      ],
+      "gloss": "By firefly light and snow at the window we piled up days of study; the years slipped by, and this morning we open the cedar door and part."
+    }
+  ],
+  "verse_count": 1,
+  "notes": [
+    "(Verses 3 and 4 are nationalist Meiji territorial copy and are not sung today.)"
+  ]
+}

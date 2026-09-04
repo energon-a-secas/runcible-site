@@ -1,0 +1,276 @@
+{
+  "format": "neo-chapter/1",
+  "id": "engine-fixture",
+  "title": {
+    "en": "Exercise engine fixture",
+    "es": "Prueba del motor de ejercicios"
+  },
+  "goal": {
+    "statement": {
+      "en": "Answer one of every generic exercise type and see the attempt it wrote"
+    },
+    "evidence": {
+      "skill": "fixture.atlas.read",
+      "accuracy": 0.8,
+      "min": 10,
+      "window": 40
+    }
+  },
+  "requires": [],
+  "state": "ready",
+  "data": [
+    "fixtures/data/atlas.json"
+  ],
+  "rungs": [
+    {
+      "id": "all-nine",
+      "title": {
+        "en": "One of each"
+      },
+      "exercises": [
+        {
+          "id": "fx-read",
+          "type": "read",
+          "skill": "fixture.atlas.read",
+          "itemIdPrefix": "atlas",
+          "title": {
+            "en": "read: pages, never graded"
+          },
+          "pages": [
+            {
+              "id": "p-intro",
+              "kind": "prose",
+              "title": {
+                "en": "What this exercise is for"
+              },
+              "body": {
+                "en": [
+                  "A read exercise turns pages and records that they were turned. It never grades.",
+                  "Every attempt it writes carries correct: null, which counts toward nothing, so turning pages cannot pass a chapter."
+                ],
+                "es": [
+                  "Un ejercicio de lectura pasa paginas y registra que fueron pasadas. Nunca califica.",
+                  "Cada intento lleva correct: null, que no cuenta para nada, asi que pasar paginas no aprueba un capitulo."
+                ]
+              },
+              "note": {
+                "en": "The time on the page is the ms of the attempt."
+              }
+            },
+            {
+              "id": "p-table",
+              "kind": "table",
+              "title": {
+                "en": "A table page pointed at data"
+              },
+              "columns": [
+                {
+                  "en": "Name"
+                },
+                {
+                  "en": "Code"
+                },
+                {
+                  "en": "Position"
+                },
+                {
+                  "en": "Moons"
+                }
+              ],
+              "items": "fixtures/data/atlas.json#planets",
+              "fields": [
+                "name",
+                "code",
+                "order",
+                "moons"
+              ]
+            },
+            {
+              "id": "p-callout",
+              "kind": "callout",
+              "tone": "warn",
+              "body": {
+                "en": [
+                  "A callout carries one point. This one carries the point that nothing on this page knows what it is about."
+                ]
+              }
+            },
+            {
+              "id": "p-figure",
+              "kind": "figure",
+              "title": {
+                "en": "A figure page"
+              },
+              "figure": {
+                "kind": "svg",
+                "src": "fixtures/data/atlas.json#planets",
+                "render": "orbit",
+                "caption": {
+                  "en": "Figures are the shell renderer's job, not the engine's."
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "fx-choice",
+          "type": "choice",
+          "skill": "fixture.atlas.recognise",
+          "itemIdPrefix": "atlas",
+          "title": {
+            "en": "choice: which name has this code?"
+          },
+          "items": "fixtures/data/atlas.json#planets",
+          "prompt": "code",
+          "answer": "name",
+          "distractors": {
+            "from": "siblings",
+            "by": "group",
+            "n": 3
+          },
+          "count": 4,
+          "pass": {
+            "accuracy": 0.75
+          }
+        },
+        {
+          "id": "fx-typed",
+          "type": "typed",
+          "skill": "fixture.atlas.produce",
+          "itemIdPrefix": "atlas",
+          "title": {
+            "en": "typed: type the code, lower case is converted as you type"
+          },
+          "items": "fixtures/data/atlas.json#planets",
+          "prompt": "name",
+          "answer": "code",
+          "transform": "demo.upper",
+          "compare": "trim",
+          "count": 3,
+          "pass": {
+            "accuracy": 0.66
+          }
+        },
+        {
+          "id": "fx-match",
+          "type": "match",
+          "skill": "fixture.atlas.recognise",
+          "itemIdPrefix": "atlas",
+          "title": {
+            "en": "match: pair each name with its code"
+          },
+          "items": "fixtures/data/atlas.json#planets",
+          "left": "name",
+          "right": "code",
+          "n": 4
+        },
+        {
+          "id": "fx-order",
+          "type": "order",
+          "skill": "fixture.atlas.sequence",
+          "itemIdPrefix": "atlas",
+          "title": {
+            "en": "order: put them in order of distance"
+          },
+          "items": "fixtures/data/atlas.json#runs",
+          "prompt": "label",
+          "sequence": "sequence",
+          "count": 1
+        },
+        {
+          "id": "fx-listen",
+          "type": "listen",
+          "skill": "fixture.atlas.hear",
+          "itemIdPrefix": "atlas",
+          "title": {
+            "en": "listen: hear the name, pick the code"
+          },
+          "items": "fixtures/data/atlas.json#planets",
+          "speak": "name",
+          "answer": "code",
+          "respond": "choice",
+          "distractors": {
+            "from": "siblings",
+            "n": 3
+          },
+          "lang": "en-US",
+          "count": 3
+        },
+        {
+          "id": "fx-listen-degraded",
+          "type": "listen",
+          "skill": "fixture.atlas.hear",
+          "itemIdPrefix": "atlas",
+          "title": {
+            "en": "listen, degraded: a language with no voice, answer is a different field"
+          },
+          "items": "fixtures/data/atlas.json#planets",
+          "speak": "name",
+          "answer": "code",
+          "respond": "choice",
+          "distractors": {
+            "from": "siblings",
+            "n": 3
+          },
+          "lang": "zz-ZZ",
+          "count": 2
+        },
+        {
+          "id": "fx-listen-skipped",
+          "type": "listen",
+          "skill": "fixture.atlas.hear",
+          "itemIdPrefix": "atlas",
+          "title": {
+            "en": "listen, unanswerable: audio is the only prompt and there is no voice"
+          },
+          "items": "fixtures/data/atlas.json#planets",
+          "speak": "name",
+          "answer": "name",
+          "respond": "typed",
+          "lang": "zz-ZZ",
+          "count": 2
+        },
+        {
+          "id": "fx-speak",
+          "type": "speak",
+          "skill": "fixture.atlas.say",
+          "itemIdPrefix": "atlas",
+          "title": {
+            "en": "speak: never graded, whatever happens"
+          },
+          "items": "fixtures/data/atlas.json#planets",
+          "expect": "name",
+          "lang": "en-US",
+          "count": 2
+        },
+        {
+          "id": "fx-deck",
+          "type": "deck",
+          "skill": "fixture.atlas.recall",
+          "title": {
+            "en": "deck: an embedded Rappel session"
+          },
+          "src": "http://127.0.0.1:8879/data/decks/fixture.json",
+          "mode": "review",
+          "limit": 10
+        },
+        {
+          "id": "fx-custom",
+          "type": "custom",
+          "skill": "fixture.atlas.recall",
+          "itemIdPrefix": "atlas",
+          "title": {
+            "en": "custom: a Book supplied module owns the host"
+          },
+          "module": "demo.reveal",
+          "props": {
+            "items": "fixtures/data/atlas.json#planets",
+            "front": "name",
+            "back": "code",
+            "count": 3
+          }
+        }
+      ]
+    }
+  ]
+}

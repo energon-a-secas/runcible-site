@@ -1,0 +1,71 @@
+{
+  "_licence": {
+    "source": "ja.wikipedia ずいずいずっころばし",
+    "url": "https://ja.wikipedia.org/wiki/ずいずいずっころばし",
+    "spdx": "public-domain",
+    "derived": false,
+    "id": null,
+    "acknowledgement": null,
+    "links": [
+      "https://ja.wikipedia.org/wiki/ずいずいずっころばし"
+    ],
+    "screen": "none",
+    "japan": {
+      "pd": true,
+      "basis": "no named author (trad. warabe uta, unknown; unknown), first published Edo period.",
+      "test": "Japan: both authors died 1967 or earlier, or the work is anonymous and published 1967 or earlier.",
+      "confidence": "high"
+    },
+    "us": {
+      "pd": true,
+      "basis": "first published Edo period.",
+      "test": "US: published 1930 or earlier, or published later with every author dead in 1945 or earlier, because the URAA restored anything still protected in its source country on 1996-01-01.",
+      "confidence": "high"
+    },
+    "confidence_text": "High",
+    "verses_permitted": 1,
+    "verses_permitted_note": "The report transcribes the first verse only, so this file carries one verse. More verses need a fresh trip to the source, not a memory.",
+    "generated_by": "transcribed by workstream Ca from docs/delivery/research/japanese-open-data-and-songs.md sections D and E. No Japanese character was typed.",
+    "generated_at": "2026-09-04",
+    "note": "Verdict transcribed from the open-data report's song table. The two tests it applies are section C of that report."
+  },
+  "format": "neo-data/1",
+  "id": "zui-zui-zukkorobashi",
+  "title": {
+    "ja": "ずいずいずっころばし",
+    "romaji": "Zui Zui Zukkorobashi",
+    "en": null,
+    "qualifier": null,
+    "note": "The research report gives no English title. The gloss on each verse is the meaning."
+  },
+  "credits": {
+    "lyricist": "trad. warabe uta, unknown",
+    "composer": "unknown",
+    "first_published": "Edo period"
+  },
+  "transcription": "Hiragana as sung, in modern kana usage. Where the printed source uses historical kana the report says so and the note is carried below. The romaji and the gloss are the researcher's, not a source's.",
+  "verses": [
+    {
+      "n": 1,
+      "lines": [
+        "ずいずいずっころばし ごまみそずい",
+        "ちゃつぼにおわれて とっぴんしゃん",
+        "ぬけたら どんどこしょ",
+        "たわらのねずみが こめくってちゅう ちゅうちゅうちゅう",
+        "おっとさんがよんでも おっかさんがよんでも いきっこなしよ",
+        "いどのまわりで おちゃわんかいたの だぁれ"
+      ],
+      "romaji_lines": [
+        "zui zui zukkorobashi, goma miso zui",
+        "chatsubo ni owarete toppinshan",
+        "nuketara dondokosho",
+        "tawara no nezumi ga kome kutte chuu, chuu chuu chuu",
+        "ottosan ga yondemo, okkasan ga yondemo, ikikko nashi yo",
+        "ido no mawari de ochawan kaita no daare"
+      ],
+      "gloss": "Nonsense finger-game: chased by the tea jar, slam the door; once it has gone by, off we go. The mouse in the rice bale eats and squeaks. Father may call, mother may call, we are not coming. Who chipped the teacup by the well?"
+    }
+  ],
+  "verse_count": 1,
+  "notes": []
+}

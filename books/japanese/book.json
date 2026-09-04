@@ -1,0 +1,173 @@
+{
+  "format": "neo-book/1",
+  "id": "japanese",
+  "version": "2026-09-04",
+  "title": { "en": "Japanese", "es": "Japonés" },
+  "tagline": {
+    "en": "From why they say gandamu to reading a song line",
+    "es": "Desde por qué dicen gandamu hasta leer una línea de canción"
+  },
+  "glyph": "あ",
+  "lang": { "content": "ja", "ui": ["en", "es"] },
+  "goal": {
+    "en": "Read hiragana and katakana without romaji, and hold the first hundred words",
+    "es": "Leer hiragana y katakana sin romaji, y sostener las primeras cien palabras"
+  },
+  "tracks": [
+    {
+      "id": "textbook",
+      "label": { "en": "Textbook order", "es": "Orden de libro de texto" },
+      "description": {
+        "en": "Grammar from lesson one, kana only, kanji later. The Genki shape.",
+        "es": "Gramática desde la lección uno, solo kana, kanji después. La forma de Genki."
+      },
+      "default": true
+    },
+    {
+      "id": "kanji-first",
+      "label": { "en": "Kanji first", "es": "Kanji primero" },
+      "description": {
+        "en": "Kanji and vocabulary before grammar, so grammar arrives with words in it. The Tofugu shape.",
+        "es": "Kanji y vocabulario antes de la gramática, para que la gramática llegue con palabras dentro. La forma de Tofugu."
+      }
+    },
+    {
+      "id": "immersion",
+      "label": { "en": "Immersion", "es": "Inmersión" },
+      "description": {
+        "en": "Kana, grammar and listening in the same week, reading early and often. The TheMoeWay shape.",
+        "es": "Kana, gramática y escucha en la misma semana, leyendo pronto y a menudo. La forma de TheMoeWay."
+      }
+    }
+  ],
+  "chapters": [
+    { "id": "0-sounds", "src": "chapters/0-sounds.json", "requires": [], "state": "ready" },
+    { "id": "1-hiragana", "src": "chapters/1-hiragana.json", "requires": ["0-sounds"], "state": "ready" },
+    { "id": "2-katakana", "src": "chapters/2-katakana.json", "requires": ["1-hiragana"], "state": "ready" },
+    { "id": "3-songs", "src": "chapters/3-songs.json", "requires": ["1-hiragana"], "state": "ready" },
+    { "id": "4-first-words", "src": "chapters/4-first-words.json", "requires": ["2-katakana"], "state": "ready" },
+    {
+      "id": "5-grammar",
+      "src": "chapters/5-grammar.json",
+      "requires": {
+        "textbook": ["4-first-words"],
+        "kanji-first": ["6-kanji"],
+        "immersion": ["1-hiragana"]
+      },
+      "state": "ready"
+    },
+    { "id": "6-kanji", "src": "chapters/6-kanji.json", "requires": ["4-first-words"], "state": "ready" },
+    {
+      "id": "7-listening-speaking",
+      "src": "chapters/7-listening-speaking.json",
+      "requires": {
+        "textbook": ["5-grammar"],
+        "kanji-first": ["5-grammar"],
+        "immersion": ["4-first-words"]
+      },
+      "state": "ready"
+    },
+    { "id": "8-study-plan", "src": "chapters/8-study-plan.json", "requires": [], "state": "ready" },
+    {
+      "id": "9-graded-reading",
+      "src": null,
+      "requires": ["5-grammar"],
+      "state": "planned",
+      "title": { "en": "Graded reading", "es": "Lectura graduada" },
+      "note": {
+        "en": "Finish a Tadoku level 0 booklet with no lookups. Not built yet: Tadoku publishes its readers free but states no licence, so this site can link and track, never rehost, until the terms are confirmed.",
+        "es": "Terminar un librito Tadoku de nivel 0 sin buscar nada. Todavía no existe: Tadoku publica sus lecturas gratis pero no declara licencia, así que este sitio puede enlazar y registrar, nunca rehospedar, hasta confirmar los términos."
+      }
+    },
+    {
+      "id": "10-kanji-beyond",
+      "src": null,
+      "requires": ["6-kanji"],
+      "state": "planned",
+      "title": { "en": "The rest of the kanji", "es": "El resto de los kanji" },
+      "note": {
+        "en": "Grade 2 onward, toward the 317 kanji Genki I and II claim and then past them. Not built yet: this chapter is a corpus job, not a design job.",
+        "es": "Desde segundo grado en adelante, hacia los 317 kanji que declaran Genki I y II y luego más allá. Todavía no existe: este capítulo es trabajo de corpus, no de diseño."
+      }
+    },
+    {
+      "id": "11-conversation",
+      "src": null,
+      "requires": ["7-listening-speaking"],
+      "state": "planned",
+      "title": { "en": "Conversation, and the intermediate wall", "es": "Conversación, y el muro intermedio" },
+      "note": {
+        "en": "Hold a simple exchange on a daily topic, which is the JLPT N4 descriptor. Not built yet, and a browser is the wrong tool for most of it: this is the phase where the guides agree that a person is worth paying for.",
+        "es": "Sostener un intercambio simple sobre un tema cotidiano, que es el descriptor de N4. Todavía no existe, y un navegador es la herramienta equivocada para casi todo: esta es la fase donde las guías coinciden en que vale la pena pagar por una persona."
+      }
+    },
+    {
+      "id": "12-handwriting",
+      "src": null,
+      "requires": ["2-katakana"],
+      "state": "planned",
+      "title": { "en": "Handwriting, the opt-in track", "es": "Escritura a mano, la ruta opcional" },
+      "note": {
+        "en": "Write kana and the first kanji by hand. Deliberately optional and deliberately last: learning to write doubles or triples the time, and a browser cannot grade a stroke. Stroke order is shown throughout this Book. Grading it is what is missing.",
+        "es": "Escribir kana y los primeros kanji a mano. Opcional a propósito y último a propósito: aprender a escribir duplica o triplica el tiempo, y un navegador no puede calificar un trazo. El orden de trazos se muestra en todo este libro. Lo que falta es calificarlo."
+      }
+    }
+  ],
+  "modules": [
+    { "path": "exercises/kana-input.js", "provides": { "transforms": ["kana", "kana-katakana"] } },
+    { "path": "exercises/loanword.js", "provides": { "exercises": ["jp.loanword"] } },
+    { "path": "exercises/song.js", "provides": { "exercises": ["jp.song"] } },
+    { "path": "exercises/lyrics.js", "provides": { "exercises": ["jp.lyrics"] } },
+    { "path": "exercises/namer.js", "provides": { "exercises": ["jp.namer"] } },
+    { "path": "exercises/pitch.js", "provides": { "exercises": ["jp.pitch"] } }
+  ],
+  "data": [
+    {"src":"data/kana/hiragana.json","licence":"public-domain","screen":"none"},
+    {"src":"data/kana/katakana.json","licence":"public-domain","screen":"none"},
+    {"src":"data/kana/ladder.json","licence":"public-domain","screen":"none"},
+    {"src":"data/loanwords/seed.json","licence":"CC-BY-SA-4.0","screen":"required","attribution":"edrdg"},
+    {"src":"data/loanwords/rules.json","licence":"CC-BY-SA-4.0","screen":"required","attribution":"wikipedia"},
+    {"src":"data/songs/index.json","licence":"public-domain","screen":"none"},
+    {"src":"data/songs/aka-tombo.json","licence":"public-domain","screen":"none"},
+    {"src":"data/songs/chatsumi.json","licence":"public-domain","screen":"none"},
+    {"src":"data/songs/donguri-korokoro.json","licence":"public-domain","screen":"none"},
+    {"src":"data/songs/furusato.json","licence":"public-domain","screen":"none"},
+    {"src":"data/songs/hamabe-no-uta.json","licence":"public-domain","screen":"none"},
+    {"src":"data/songs/haru-ga-kita.json","licence":"public-domain","screen":"none"},
+    {"src":"data/songs/haru-no-ogawa.json","licence":"public-domain","screen":"none"},
+    {"src":"data/songs/hotaru-no-hikari.json","licence":"public-domain","screen":"none"},
+    {"src":"data/songs/kagome-kagome.json","licence":"public-domain","screen":"none"},
+    {"src":"data/songs/kojo-no-tsuki.json","licence":"public-domain","screen":"none"},
+    {"src":"data/songs/momiji.json","licence":"public-domain","screen":"none"},
+    {"src":"data/songs/nanatsu-no-ko.json","licence":"public-domain","screen":"none"},
+    {"src":"data/songs/oborozukiyo.json","licence":"public-domain","screen":"none"},
+    {"src":"data/songs/sakura-sakura.json","licence":"public-domain","screen":"none"},
+    {"src":"data/songs/toryanse.json","licence":"public-domain","screen":"none"},
+    {"src":"data/songs/usagi.json","licence":"public-domain","screen":"none"},
+    {"src":"data/songs/ware-wa-umi-no-ko.json","licence":"public-domain","screen":"none"},
+    {"src":"data/songs/yuki.json","licence":"public-domain","screen":"none"},
+    {"src":"data/songs/zui-zui-zukkorobashi.json","licence":"public-domain","screen":"none"},
+    {"src":"data/kanji/strokes-kana.json","licence":"CC-BY-SA-3.0","screen":"required","attribution":"kanjivg"},
+    {"src":"data/kanji/strokes-numbers.json","licence":"CC-BY-SA-3.0","screen":"required","attribution":"kanjivg"},
+    {"src":"data/kanji/strokes-days.json","licence":"CC-BY-SA-3.0","screen":"required","attribution":"kanjivg"},
+    {"src":"data/kanji/strokes-grade1.json","licence":"CC-BY-SA-3.0","screen":"required","attribution":"kanjivg"},
+    {"src":"data/kanji/kanjidic-numbers.json","licence":"CC-BY-SA-4.0","screen":"required","attribution":"edrdg"},
+    {"src":"data/kanji/kanjidic-days.json","licence":"CC-BY-SA-4.0","screen":"required","attribution":"edrdg"},
+    {"src":"data/kanji/kanjidic-grade1.json","licence":"CC-BY-SA-4.0","screen":"required","attribution":"edrdg"},
+    {"src":"data/vocab/ch4.json","licence":"CC-BY-SA-4.0","screen":"required","attribution":"edrdg"},
+    {"src":"data/vocab/ch5.json","licence":"CC-BY-SA-4.0","screen":"required","attribution":"edrdg"},
+    {"src":"data/vocab/ch6.json","licence":"CC-BY-SA-4.0","screen":"required","attribution":"edrdg"},
+    {"src":"data/sentences/ch4.json","licence":"CC-BY-2.0-FR","screen":"required","attribution":"tatoeba"},
+    {"src":"data/sentences/ch5.json","licence":"CC-BY-2.0-FR","screen":"required","attribution":"tatoeba"},
+    {"src":"books/japanese/decks/jp-first-words.json","licence":"CC-BY-SA-4.0","screen":"required","attribution":"edrdg"},
+    {"src":"books/japanese/decks/jp-grammar-words.json","licence":"CC-BY-SA-4.0","screen":"required","attribution":"edrdg"},
+    {"src":"books/japanese/decks/jp-kanji-grade1.json","licence":"CC-BY-SA-4.0","screen":"required","attribution":"edrdg"},
+    {"src":"books/japanese/decks/jp-sentences-basic.json","licence":"CC-BY-2.0-FR","screen":"required","attribution":"tatoeba"}
+  ],
+  "credits": [
+    { "id": "edrdg", "name": "JMdict / KANJIDIC, Electronic Dictionary Research and Development Group" },
+    { "id": "kanjivg", "name": "KanjiVG, Ulrich Apel" },
+    { "id": "tatoeba", "name": "Tatoeba Project" },
+    { "id": "wikipedia", "name": "Wikipedia contributors, and the Agency for Cultural Affairs notices it quotes" }
+  ]
+}

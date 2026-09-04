@@ -1,0 +1,305 @@
+{
+  "format": "neo-chapter/1",
+  "id": "0-sounds",
+  "title": { "en": "Why gandamu", "es": "Por qué gandamu" },
+  "goal": {
+    "statement": {
+      "en": "Hear an English word the way Japanese hears it: count its beats, and say where a vowel will be glued on",
+      "es": "Oír una palabra inglesa como la oye el japonés: contar sus tiempos, y decir dónde se le pegará una vocal"
+    },
+    "evidence": { "skill": "jp.sounds.mora", "accuracy": 0.8, "min": 12, "window": 30 }
+  },
+  "requires": [],
+  "state": "ready",
+  "estimate": {
+    "minutes": 45,
+    "note": {
+      "en": "One sitting. Nothing here is memorisation.",
+      "es": "Una sesión. Aquí no hay nada que memorizar."
+    }
+  },
+  "data": ["data/loanwords/seed.json", "data/loanwords/rules.json"],
+  "rungs": [
+    {
+      "id": "mora",
+      "title": { "en": "Japanese counts beats, not syllables", "es": "El japonés cuenta tiempos, no sílabas" },
+      "unlocks": {
+        "en": "everything else in this chapter, because every other rule is about fitting a foreign word into beats",
+        "es": "todo lo demás de este capítulo, porque cada regla siguiente trata de meter una palabra extranjera en tiempos"
+      },
+      "pages": [
+        {
+          "id": "p-language-note",
+          "kind": "callout",
+          "tone": "note",
+          "title": { "en": "About the two languages", "es": "Sobre los dos idiomas" },
+          "body": {
+            "en": [
+              "This chapter and the study plan are written in English and in Spanish. The other chapters are English only for now, and the page tells you so when you meet one.",
+              "The drills are a separate matter: their prompts and options come from the word lists, which carry English glosses and no Spanish ones. So an exercise screen is in English even here. That is a gap in the data rather than a decision, and it is said out loud rather than hidden."
+            ],
+            "es": [
+              "Este capítulo y el plan de estudio están escritos en inglés y en español. Los demás capítulos están solo en inglés por ahora, y la página te lo dice cuando llegas a uno.",
+              "Los ejercicios son otra cosa: sus preguntas y opciones salen de las listas de palabras, que llevan glosas en inglés y ninguna en español. Así que una pantalla de ejercicio está en inglés incluso aquí. Eso es un hueco en los datos y no una decisión, y se dice en voz alta en vez de esconderlo."
+            ]
+          }
+        },
+        {
+          "id": "p-mora",
+          "kind": "prose",
+          "title": { "en": "One kana, one beat", "es": "Un kana, un tiempo" },
+          "body": {
+            "en": [
+              "The unit of timing in Japanese is the mora: a single beat that every speaker gives roughly the same length. Osaka is three syllables to an English ear and four beats to a Japanese one, because the long o takes two of them.",
+              "That single fact explains this whole chapter. A foreign word arriving in Japanese is not re-spelled. It is re-timed."
+            ],
+            "es": [
+              "La unidad de tiempo en japonés es la mora: un solo tiempo al que todo hablante da más o menos la misma duración. Osaka son tres sílabas para un oído inglés y cuatro tiempos para uno japonés, porque la o larga se lleva dos.",
+              "Ese único hecho explica todo este capítulo. Una palabra extranjera que llega al japonés no se reescribe. Se vuelve a medir en el tiempo."
+            ]
+          }
+        },
+        {
+          "id": "p-gundam",
+          "kind": "prose",
+          "title": { "en": "Gundam, beat by beat", "es": "Gundam, tiempo a tiempo" },
+          "body": {
+            "en": [
+              "Gundam is two syllables in English. In Japanese it is ga, n, da, mu: four beats, gandamu.",
+              "The n in the middle survives on its own, because a nasal is one of exactly two things allowed to close a beat. The m at the end is not on that list, so it picks up a vowel and becomes a beat of its own."
+            ],
+            "es": [
+              "Gundam son dos sílabas en inglés. En japonés son ga, n, da, mu: cuatro tiempos, gandamu.",
+              "La n del medio sobrevive sola, porque una nasal es una de las dos únicas cosas que pueden cerrar un tiempo. La m final no está en esa lista, así que recoge una vocal y se convierte en un tiempo propio."
+            ]
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-beats",
+          "type": "choice",
+          "skill": "jp.sounds.mora",
+          "title": { "en": "How many beats does Japanese need?", "es": "¿Cuántos tiempos necesita el japonés?" },
+          "items": [
+            { "id": "mora:バス", "en": "bus", "romaji": "basu", "beats": "2" },
+            { "id": "mora:ペン", "en": "pen", "romaji": "pen", "beats": "2" },
+            { "id": "mora:ドア", "en": "door", "romaji": "doa", "beats": "2" },
+            { "id": "mora:カメラ", "en": "camera", "romaji": "kamera", "beats": "3" },
+            { "id": "mora:ミルク", "en": "milk", "romaji": "miruku", "beats": "3" },
+            { "id": "mora:バッグ", "en": "bag", "romaji": "baggu", "beats": "3" },
+            { "id": "mora:ガンダム", "en": "Gundam", "romaji": "gandamu", "beats": "4" },
+            { "id": "mora:ロボット", "en": "robot", "romaji": "robotto", "beats": "4" },
+            { "id": "mora:テキスト", "en": "text", "romaji": "tekisuto", "beats": "4" },
+            { "id": "mora:チョコレート", "en": "chocolate", "romaji": "chokoreeto", "beats": "5" },
+            { "id": "mora:マクドナルド", "en": "McDonald's", "romaji": "makudonarudo", "beats": "6" },
+            { "id": "mora:ハンバーガー", "en": "hamburger", "romaji": "hanbaagaa", "beats": "6" },
+            { "id": "mora:アイスクリーム", "en": "ice cream", "romaji": "aisukuriimu", "beats": "7" },
+            { "id": "mora:スーパーマーケット", "en": "supermarket", "romaji": "suupaamaaketto", "beats": "9" }
+          ],
+          "prompt": "en",
+          "answer": "beats",
+          "distractors": { "values": ["2", "3", "4", "5", "6", "7", "9"], "n": 3 },
+          "count": 8,
+          "pass": { "accuracy": 0.75 }
+        }
+      ]
+    },
+    {
+      "id": "shape",
+      "title": { "en": "The shape of a beat, and the two ways to close one", "es": "La forma de un tiempo, y las dos formas de cerrarlo" },
+      "unlocks": {
+        "en": "predicting the Japanese form of a word nobody has taught you",
+        "es": "predecir la forma japonesa de una palabra que nadie te ha enseñado"
+      },
+      "pages": [
+        {
+          "id": "p-shape",
+          "kind": "prose",
+          "title": { "en": "A consonant and a vowel, and that is the whole inventory", "es": "Una consonante y una vocal, y ese es todo el inventario" },
+          "body": {
+            "en": [
+              "A beat is either a vowel on its own, or one consonant followed by one vowel. It cannot be a bare consonant and it cannot start with two stacked consonants.",
+              "English stacks freely. Spring opens with three. Japanese unpacks them one beat at a time, so spring becomes supuringu: five beats where English had one syllable."
+            ],
+            "es": [
+              "Un tiempo es una vocal sola, o una consonante seguida de una vocal. No puede ser una consonante desnuda y no puede empezar con dos consonantes apiladas.",
+              "El inglés las apila sin límite. Spring empieza con tres. El japonés las desempaqueta de tiempo en tiempo, así que spring se vuelve supuringu: cinco tiempos donde el inglés tenía una sílaba."
+            ]
+          }
+        },
+        {
+          "id": "p-codas",
+          "kind": "prose",
+          "title": { "en": "Exactly two things may close a beat", "es": "Exactamente dos cosas pueden cerrar un tiempo" },
+          "body": {
+            "en": [
+              "The first is the nasal n, which takes a beat of its own. The second is the small tsu, which makes no sound at all and instead holds the following consonant, doubling it.",
+              "Nothing else is permitted at the end of a beat. That is why the n in Gundam stands and the m does not."
+            ],
+            "es": [
+              "La primera es la nasal n, que se lleva un tiempo propio. La segunda es el tsu pequeño, que no suena y en su lugar sostiene la consonante siguiente, duplicandola.",
+              "Nada más puede cerrar un tiempo. Por eso la n de Gundam se sostiene y la m no."
+            ]
+          }
+        },
+        {
+          "id": "p-epenthesis",
+          "kind": "prose",
+          "title": { "en": "Any other stranded consonant gets a vowel glued on", "es": "Cualquier otra consonante suelta recibe una vocal pegada" },
+          "body": {
+            "en": [
+              "The technical name is vowel epenthesis, which means inserting a vowel that was never there. The default vowel is u.",
+              "It is not always u. After t and after d, u is avoided, because Japanese tu comes out as tsu and du comes out as dzu, which would destroy the original consonant. Those two take o instead, which is why robot ends in to. After ch and j the inserted vowel is i.",
+              "A corpus of 1,714 loanwords found u in 72.7 percent of insertions and o in 20 percent, with o used after t, d and h for exactly this reason."
+            ],
+            "es": [
+              "El nombre técnico es epéntesis vocálica, que significa insertar una vocal que nunca estuvo ahí. La vocal por defecto es u.",
+              "No siempre es u. Tras t y tras d se evita la u, porque el japonés tu suena tsu y du suena dzu, lo que destruiría la consonante original. Esas dos toman o, y por eso robot termina en to. Tras ch y j la vocal insertada es i.",
+              "Un corpus de 1.714 préstamos encontró u en el 72,7 por ciento de las inserciones y o en el 20 por ciento, con o tras t, d y h por exactamente esta razón."
+            ]
+          }
+        },
+        {
+          "id": "p-long",
+          "kind": "prose",
+          "title": { "en": "And a long vowel is two beats, not one", "es": "Y una vocal larga son dos tiempos, no uno" },
+          "body": {
+            "en": [
+              "A stressed English vowel, and any vowel written before an r as in car, four or earth, is heard as long and held for two beats.",
+              "That is the last piece of robotto. English robot has a short o before its final t, and English speakers cut that t off sharply. Japanese hears the sharpness as the small tsu, so the t doubles: ro, small tsu, to. Four beats, robotto."
+            ],
+            "es": [
+              "Una vocal inglesa acentuada, y cualquier vocal escrita antes de una r como en car, four o earth, se oye larga y se sostiene dos tiempos.",
+              "Esa es la última pieza de robotto. El inglés robot tiene una o breve antes de su t final, y el hablante inglés corta esa t en seco. El japonés oye ese corte como el tsu pequeño, así que la t se duplica: ro, tsu pequeño, to. Cuatro tiempos, robotto."
+            ]
+          }
+        },
+        {
+          "id": "p-rules-summary",
+          "kind": "prose",
+          "title": { "en": "The four insertions worth knowing by heart", "es": "Las cuatro inserciones que vale la pena saber de memoria" },
+          "body": {
+            "en": [
+              "Anything stranded, by default, takes u. golf becomes gorufu.",
+              "A stranded t or d takes o instead. robot becomes robotto, bed becomes beddo.",
+              "A stranded ch or j takes i. match becomes matchi, orange becomes orenji.",
+              "A final n takes nothing at all, because it is one of the two permitted closers. pen stays pen."
+            ],
+            "es": [
+              "Cualquier consonante suelta toma u por defecto. golf se vuelve gorufu.",
+              "Una t o una d suelta toma o en su lugar. robot se vuelve robotto, bed se vuelve beddo.",
+              "Una ch o una j suelta toma i. match se vuelve matchi, orange se vuelve orenji.",
+              "Una n final no toma nada, porque es uno de los dos cierres permitidos. pen se queda en pen."
+            ]
+          },
+          "note": {
+            "en": [
+              "The full rule table is data/loanwords/rules.json, thirty rows, each one labelled deterministic, convention, or mostly deterministic. Only the deterministic ones are safe to reason from."
+            ],
+            "es": [
+              "La tabla completa está en data/loanwords/rules.json, treinta filas, cada una etiquetada como determinista, convención, o casi determinista. Solo se puede razonar con seguridad desde las deterministas."
+            ]
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-epenthesis",
+          "type": "match",
+          "skill": "jp.sounds.mora",
+          "title": { "en": "Which vowel gets glued on?", "es": "¿Qué vocal se pega?" },
+          "items": [
+            { "id": "ep:default", "sound": "risk, ending in k", "vowel": "u, so risuku" },
+            { "id": "ep:t", "sound": "robot, ending in t", "vowel": "o, so robotto" },
+            { "id": "ep:d", "sound": "card, ending in d", "vowel": "o, so kaado" },
+            { "id": "ep:ch", "sound": "match, ending in ch", "vowel": "i, so matchi" },
+            { "id": "ep:j", "sound": "orange, ending in j", "vowel": "i, so orenji" },
+            { "id": "ep:n", "sound": "pen, ending in n", "vowel": "nothing, so pen" }
+          ],
+          "left": "sound",
+          "right": "vowel",
+          "n": 6,
+          "pass": { "accuracy": 0.8 }
+        },
+        {
+          "id": "e-codas",
+          "type": "choice",
+          "skill": "jp.sounds.mora",
+          "title": { "en": "Does this consonant survive on its own?", "es": "¿Sobrevive sola esta consonante?" },
+          "items": [
+            { "id": "coda:pen-n", "sound": "the n at the end of pen", "verdict": "yes, a nasal may close a beat" },
+            { "id": "coda:gundam-n", "sound": "the n in the middle of Gundam", "verdict": "yes, a nasal may close a beat" },
+            { "id": "coda:gundam-m", "sound": "the m at the end of Gundam", "verdict": "no, it takes a vowel" },
+            { "id": "coda:golf-f", "sound": "the f at the end of golf", "verdict": "no, it takes a vowel" },
+            { "id": "coda:bed-d", "sound": "the d at the end of bed", "verdict": "no, it takes a vowel" },
+            { "id": "coda:robot-t", "sound": "the sharp t at the end of robot", "verdict": "it doubles first, then takes a vowel" }
+          ],
+          "prompt": "sound",
+          "answer": "verdict",
+          "distractors": {
+            "values": ["yes, a nasal may close a beat", "no, it takes a vowel", "it doubles first, then takes a vowel"],
+            "n": 2
+          },
+          "count": 6,
+          "pass": { "accuracy": 0.8 }
+        }
+      ]
+    },
+    {
+      "id": "first-win",
+      "title": { "en": "You already know forty Japanese words", "es": "Ya sabes cuarenta palabras japonesas" },
+      "unlocks": {
+        "en": "the reason to keep going, on day one, before a single character has been learned",
+        "es": "la razón para seguir, el primer día, antes de aprender un solo carácter"
+      },
+      "pages": [
+        {
+          "id": "p-win",
+          "kind": "prose",
+          "title": { "en": "The words came from your language and went home again", "es": "Las palabras salieron de tu idioma y volvieron a casa" },
+          "body": {
+            "en": [
+              "Everything in the game below is a word Japanese borrowed and re-timed. You are not learning them. You are recognising them through the re-timing, which is the only skill this chapter taught.",
+              "Every one of these forty was checked against the JMdict dictionary before it was allowed into the list. The game grades against that list and against nothing else, because the rules above explain a word after the fact and cannot generate one reliably."
+            ],
+            "es": [
+              "Todo lo que hay en el juego de abajo es una palabra que el japonés tomó prestada y volvió a medir en el tiempo. No las estás aprendiendo. Las estás reconociendo a través de esa nueva medida, que es la única habilidad que enseñó este capítulo.",
+              "Cada una de estas cuarenta se comprobó contra el diccionario JMdict antes de entrar en la lista. El juego califica contra esa lista y contra nada más, porque las reglas de arriba explican una palabra después de los hechos y no pueden generarla de forma fiable."
+            ]
+          }
+        },
+        {
+          "id": "p-not-a-rule",
+          "kind": "callout",
+          "tone": "warn",
+          "title": { "en": "Why the rules do not grade", "es": "Por qué las reglas no califican" },
+          "body": {
+            "en": [
+              "Because they are not all rules. Whether a word doubles a consonant, whether a final long vowel keeps its bar, and every borrowing older than about 1950 are convention rather than rule.",
+              "Camera is kamera, not kameera. Cake is keeki, not keeku. Bread is pan, from Portuguese, and never went through English at all. A rule engine would mark all three wrong, confidently."
+            ],
+            "es": [
+              "Porque no todas son reglas. Si una palabra duplica una consonante, si una vocal larga final conserva su barra, y todo préstamo anterior a 1950 más o menos son convención, no regla.",
+              "Camera es kamera, no kameera. Cake es keeki, no keeku. Bread es pan, del portugués, y nunca pasó por el inglés. Un motor de reglas marcaria las tres como incorrectas, con total seguridad."
+            ]
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-hear-loanwords",
+          "type": "choice",
+          "skill": "jp.loanword.hear",
+          "title": { "en": "Say it out loud. What is it?", "es": "Dilo en voz alta. ¿Qué es?" },
+          "items": "data/loanwords/seed.json#entries",
+          "prompt": "romaji",
+          "answer": "en",
+          "distractors": { "n": 3 },
+          "count": 12,
+          "pass": { "accuracy": 0.75 }
+        }
+      ]
+    }
+  ]
+}

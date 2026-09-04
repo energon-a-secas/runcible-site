@@ -1,0 +1,46 @@
+{
+  "_licence": {
+    "source": "Runcible song catalog, built from docs/delivery/research/japanese-open-data-and-songs.md sections D and E",
+    "url": "docs/delivery/research/japanese-open-data-and-songs.md",
+    "spdx": "public-domain",
+    "derived": false,
+    "id": null,
+    "acknowledgement": null,
+    "links": [
+      "https://commons.wikimedia.org/wiki/Commons:Copyright_rules_by_territory/Japan",
+      "https://guides.library.cornell.edu/copyright/publicdomain"
+    ],
+    "screen": "none",
+    "generated_by": "workstream Ca",
+    "generated_at": "2026-09-04",
+    "note": "A static site cannot list a directory, so the catalog is a file. Nineteen songs, and the count is the check: the research verified nineteen of twenty-four candidates as public domain in both Japan and the US. Two more were excluded by the architect and are not here. Adding a twentieth means redoing the copyright work, not editing this file."
+  },
+  "format": "neo-data/1",
+  "id": "song-index",
+  "count": 19,
+  "tests": {
+    "japan": "Japan: both authors died 1967 or earlier, or the work is anonymous and published 1967 or earlier.",
+    "us": "US: published 1930 or earlier, or published later with every author dead in 1945 or earlier, because the URAA restored anything still protected in its source country on 1996-01-01."
+  },
+  "songs": [
+    {"id": "sakura-sakura", "src": "data/songs/sakura-sakura.json", "title": "さくらさくら", "romaji": "Sakura Sakura", "qualifier": null, "verses": 1, "verses_permitted": 1, "japan_pd": true, "us_pd": true, "us_confidence": "high"},
+    {"id": "furusato", "src": "data/songs/furusato.json", "title": "故郷", "romaji": "Furusato", "qualifier": null, "verses": 1, "verses_permitted": 1, "japan_pd": true, "us_pd": true, "us_confidence": "high"},
+    {"id": "oborozukiyo", "src": "data/songs/oborozukiyo.json", "title": "朧月夜", "romaji": "Oborozukiyo", "qualifier": null, "verses": 1, "verses_permitted": 1, "japan_pd": true, "us_pd": true, "us_confidence": "high"},
+    {"id": "momiji", "src": "data/songs/momiji.json", "title": "もみじ", "romaji": "Momiji", "qualifier": null, "verses": 1, "verses_permitted": 1, "japan_pd": true, "us_pd": true, "us_confidence": "high"},
+    {"id": "haru-ga-kita", "src": "data/songs/haru-ga-kita.json", "title": "春が来た", "romaji": "Haru ga Kita", "qualifier": null, "verses": 1, "verses_permitted": 1, "japan_pd": true, "us_pd": true, "us_confidence": "high"},
+    {"id": "haru-no-ogawa", "src": "data/songs/haru-no-ogawa.json", "title": "春の小川", "romaji": "Haru no Ogawa", "qualifier": "1912 text only", "verses": 1, "verses_permitted": 1, "japan_pd": true, "us_pd": true, "us_confidence": "high"},
+    {"id": "hotaru-no-hikari", "src": "data/songs/hotaru-no-hikari.json", "title": "蛍の光", "romaji": "Hotaru no Hikari", "qualifier": null, "verses": 1, "verses_permitted": 1, "japan_pd": true, "us_pd": true, "us_confidence": "high"},
+    {"id": "aka-tombo", "src": "data/songs/aka-tombo.json", "title": "赤とんぼ", "romaji": "Aka Tombo", "qualifier": null, "verses": 1, "verses_permitted": 1, "japan_pd": true, "us_pd": true, "us_confidence": "medium-high"},
+    {"id": "kojo-no-tsuki", "src": "data/songs/kojo-no-tsuki.json", "title": "荒城の月", "romaji": "Kojo no Tsuki", "qualifier": null, "verses": 1, "verses_permitted": 1, "japan_pd": true, "us_pd": true, "us_confidence": "high"},
+    {"id": "hamabe-no-uta", "src": "data/songs/hamabe-no-uta.json", "title": "浜辺の歌", "romaji": "Hamabe no Uta", "qualifier": null, "verses": 1, "verses_permitted": 1, "japan_pd": true, "us_pd": true, "us_confidence": "high"},
+    {"id": "yuki", "src": "data/songs/yuki.json", "title": "雪", "romaji": "Yuki", "qualifier": null, "verses": 1, "verses_permitted": 1, "japan_pd": true, "us_pd": true, "us_confidence": "high"},
+    {"id": "usagi", "src": "data/songs/usagi.json", "title": "うさぎ", "romaji": "Usagi", "qualifier": null, "verses": 1, "verses_permitted": 1, "japan_pd": true, "us_pd": true, "us_confidence": "high"},
+    {"id": "toryanse", "src": "data/songs/toryanse.json", "title": "通りゃんせ", "romaji": "Toryanse", "qualifier": null, "verses": 1, "verses_permitted": 1, "japan_pd": true, "us_pd": true, "us_confidence": "high"},
+    {"id": "zui-zui-zukkorobashi", "src": "data/songs/zui-zui-zukkorobashi.json", "title": "ずいずいずっころばし", "romaji": "Zui Zui Zukkorobashi", "qualifier": null, "verses": 1, "verses_permitted": 1, "japan_pd": true, "us_pd": true, "us_confidence": "high"},
+    {"id": "nanatsu-no-ko", "src": "data/songs/nanatsu-no-ko.json", "title": "七つの子", "romaji": "Nanatsu no Ko", "qualifier": null, "verses": 1, "verses_permitted": 1, "japan_pd": true, "us_pd": true, "us_confidence": "high"},
+    {"id": "donguri-korokoro", "src": "data/songs/donguri-korokoro.json", "title": "どんぐりころころ", "romaji": "Donguri Korokoro", "qualifier": "verses 1 and 2 only", "verses": 2, "verses_permitted": 2, "japan_pd": true, "us_pd": true, "us_confidence": "high"},
+    {"id": "chatsumi", "src": "data/songs/chatsumi.json", "title": "茶摘み", "romaji": "Chatsumi", "qualifier": null, "verses": 1, "verses_permitted": 1, "japan_pd": true, "us_pd": true, "us_confidence": "high"},
+    {"id": "kagome-kagome", "src": "data/songs/kagome-kagome.json", "title": "かごめかごめ", "romaji": "Kagome Kagome", "qualifier": "the most common variant", "verses": 1, "verses_permitted": 1, "japan_pd": true, "us_pd": true, "us_confidence": "high"},
+    {"id": "ware-wa-umi-no-ko", "src": "data/songs/ware-wa-umi-no-ko.json", "title": "われは海の子", "romaji": "Ware wa Umi no Ko", "qualifier": "verses 1 to 3", "verses": 1, "verses_permitted": 3, "japan_pd": true, "us_pd": true, "us_confidence": "high"}
+  ]
+}

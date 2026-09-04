@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" data-season="off">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exercise engine harness | Runcible</title>
+<link rel="stylesheet" href="https://cdn.neorgon.org/v1.0.0/styles/base.css">
+<link rel="stylesheet" href="../../../css/style.css">
+<style>
+  /* Harness chrome only. Nothing here styles an exercise: the types render with
+     the site's own .btn and .card classes so what is seen here is what the
+     shell will see. This block never ships inside a page a visitor reaches. */
+  body { padding: var(--space-6); gap: var(--space-6); }
+  .hz-grid { display: grid; grid-template-columns: minmax(220px, 280px) 1fr; gap: var(--space-6); align-items: start; }
+  .hz-panel { border: 1px solid var(--border); border-radius: var(--radius); padding: var(--space-4); }
+  #picker { display: flex; flex-direction: column; gap: var(--space-2); }
+  .hz-pick { justify-content: flex-start; text-align: left; font-family: ui-monospace, monospace; }
+  #host { min-height: 340px; }
+  .hz-row { display: flex; gap: var(--space-2); padding: 2px 0; align-items: baseline; font-size: var(--text-xs); }
+  .hz-row code { font-family: ui-monospace, monospace; word-break: break-all; color: var(--text-secondary); }
+  .hz-tag { flex: 0 0 auto; min-width: 62px; color: var(--text-muted); text-transform: uppercase; }
+  .hz-row[data-kind="ok"] .hz-tag { color: #34d399; }
+  .hz-row[data-kind="bad"] .hz-tag, .hz-row[data-kind="FAIL"] .hz-tag,
+  .hz-row[data-kind="BAD ATTEMPT"] .hz-tag, .hz-row[data-kind="LOAD ERROR"] .hz-tag,
+  .hz-row[data-kind="BOOT FAILED"] .hz-tag { color: #fb7185; }
+  .hz-row[data-kind="attempt"] .hz-tag { color: var(--accent-bright); }
+  #log { max-height: 340px; overflow: auto; }
+  .rx-options, .rx-line, .rx-bank { display: flex; flex-wrap: wrap; gap: var(--space-2); list-style: none; }
+  .rx-options { flex-direction: column; align-items: flex-start; }
+  .rx-match { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
+  .rx-col { display: flex; flex-direction: column; gap: var(--space-2); list-style: none; }
+  .rx-cue { font-size: var(--text-2xl); }
+  .rx-input { height: 40px; padding: 0 var(--space-3); border-radius: var(--radius-sm); border: 1px solid var(--border-strong); background: var(--surface-2); color: var(--text-primary); }
+  .rx-table { border-collapse: collapse; }
+  .rx-table th, .rx-table td { border: 1px solid var(--border); padding: 4px 10px; text-align: left; }
+  [data-state="correct"] { outline: 2px solid #34d399; }
+  [data-state="wrong"] { outline: 2px solid #fb7185; }
+  .rx-line { min-height: 44px; border: 1px dashed var(--border-strong); border-radius: var(--radius-sm); padding: var(--space-2); }
+</style>
+</head>
+<body>
+  <header>
+    <h1 class="section__title">Exercise engine harness</h1>
+    <p class="section__lead">
+      Contract C2, version <code id="version">?</code>. Every type below is the shipped engine;
+      only <code>api.data</code> and <code>api.t</code> are the harness standing in for the shell.
+      Serve with <code>make serve P=runcible-site</code> and open
+      <code>/js/exercises/fixtures/harness.html</code>.
+    </p>
+  </header>
+
+  <div class="hz-grid">
+    <div class="hz-panel">
+      <h2 class="section__title">Exercises</h2>
+      <div id="picker"></div>
+      <p class="section__lead">
+        <label for="lang">Language</label>
+        <select id="lang">
+          <option value="en">en</option>
+          <option value="es">es</option>
+        </select>
+      </p>
+      <div class="toolbar">
+        <button type="button" class="btn btn--ghost btn--sm" id="unmount">Unmount</button>
+        <button type="button" class="btn btn--ghost btn--sm" id="clear">Clear log</button>
+      </div>
+    </div>
+
+    <div class="hz-panel">
+      <div id="host"></div>
+    </div>
+  </div>
+
+  <div class="hz-panel">
+    <h2 class="section__title">Attempts recorded: <span id="count">0</span></h2>
+    <p class="section__lead">Every <code>api.attempt</code> and <code>api.done</code> call, newest first. A row tagged BAD ATTEMPT is the engine breaking C2.3.</p>
+    <div id="log"></div>
+  </div>
+
+  <div class="hz-panel">
+    <h2 class="section__title">What the contract refuses, and what it must accept</h2>
+    <p class="section__lead">Run at boot. Every line must be tagged ok.</p>
+    <div id="checks"></div>
+  </div>
+
+  <script type="module" src="harness.js"></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+{
+  "_licence": {
+    "source": "ja.wikipedia 通りゃんせ, 通りゃんせ原文",
+    "url": "https://ja.wikipedia.org/wiki/通りゃんせ",
+    "spdx": "public-domain",
+    "derived": false,
+    "id": null,
+    "acknowledgement": null,
+    "links": [
+      "https://ja.wikipedia.org/wiki/通りゃんせ"
+    ],
+    "screen": "none",
+    "japan": {
+      "pd": true,
+      "basis": "lyricist trad. warabe uta, Edo period, unknown; composer anonymous; 本居長世 Motoori Nagayo (1945) arranged. The later of the two deaths is 1945.",
+      "test": "Japan: both authors died 1967 or earlier, or the work is anonymous and published 1967 or earlier.",
+      "confidence": "high"
+    },
+    "us": {
+      "pd": true,
+      "basis": "first published Edo period.",
+      "test": "US: published 1930 or earlier, or published later with every author dead in 1945 or earlier, because the URAA restored anything still protected in its source country on 1996-01-01.",
+      "confidence": "high"
+    },
+    "confidence_text": "High. Even the Motoori arrangement clears both tests.",
+    "verses_permitted": 1,
+    "verses_permitted_note": "The report transcribes the first verse only, so this file carries one verse. More verses need a fresh trip to the source, not a memory.",
+    "generated_by": "transcribed by workstream Ca from docs/delivery/research/japanese-open-data-and-songs.md sections D and E. No Japanese character was typed.",
+    "generated_at": "2026-09-04",
+    "note": "Verdict transcribed from the open-data report's song table. The two tests it applies are section C of that report."
+  },
+  "format": "neo-data/1",
+  "id": "toryanse",
+  "title": {
+    "ja": "通りゃんせ",
+    "romaji": "Toryanse",
+    "en": null,
+    "qualifier": null,
+    "note": "The research report gives no English title. The gloss on each verse is the meaning."
+  },
+  "credits": {
+    "lyricist": "trad. warabe uta, Edo period, unknown",
+    "composer": "anonymous; 本居長世 Motoori Nagayo (1945) arranged",
+    "first_published": "Edo period"
+  },
+  "transcription": "Hiragana as sung, in modern kana usage. Where the printed source uses historical kana the report says so and the note is carried below. The romaji and the gloss are the researcher's, not a source's.",
+  "verses": [
+    {
+      "n": 1,
+      "lines": [
+        "とおりゃんせ とおりゃんせ",
+        "ここはどこの ほそみちじゃ",
+        "てんじんさまの ほそみちじゃ",
+        "ちっととおして くだしゃんせ",
+        "ごようのないもの とおしゃせぬ",
+        "このこのななつの おいわいに",
+        "おふだをおさめに まいります",
+        "いきはよいよい かえりはこわい",
+        "こわいながらも とおりゃんせ とおりゃんせ"
+      ],
+      "romaji_lines": [
+        "tooryanse, tooryanse",
+        "koko wa doko no hosomichi ja",
+        "tenjin-sama no hosomichi ja",
+        "chitto tooshite kudashanse",
+        "goyou no nai mono tooshasenu",
+        "kono ko no nanatsu no oiwai ni",
+        "ofuda o osame ni mairimasu",
+        "iki wa yoi yoi, kaeri wa kowai",
+        "kowai nagara mo, tooryanse, tooryanse"
+      ],
+      "gloss": "Pass through, pass through. Whose narrow path is this? The path to the Tenjin shrine. Please let us by a moment. None without business may pass. We come to place a charm for this child's seventh birthday. Going is easy, returning is fearful; fearful all the same, pass through."
+    }
+  ],
+  "verse_count": 1,
+  "notes": []
+}

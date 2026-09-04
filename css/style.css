@@ -16,12 +16,15 @@
 
 :root {
   /* Per-site identity: set to this site's hub card accent (PROJECTS.md section 4) */
-  --accent: #0063e5;
+  --accent: #e11d48;
+  --accent-bright: #f43f5e;
 
   /* Site extras base.css does not define */
   --surface-toast: #1a1730;
-  --danger: #e11d48;
-  --danger-hover: #f43f5e;
+  /* Destructive stays a different red from the accent, or "reset progress"
+     reads as the primary action on every screen it appears on. */
+  --danger: #dc2626;
+  --danger-hover: #ef4444;
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --control-height: 44px;
   --control-height-sm: 36px;
@@ -277,7 +280,8 @@ nav {
   color: #fff;
   border-color: transparent;
 }
-.btn--primary:hover { background: var(--accent-bright); }
+/* Derived from the accent, not a third literal: --accent-bright under white text is 3.67:1. */
+.btn--primary:hover { background: color-mix(in srgb, var(--accent) 85%, black); }
 .btn--secondary {
   background: var(--surface-2);
   color: var(--text-primary);
@@ -677,3 +681,310 @@ button:active,
     max-width: none;
   }
 }
+
+/* ── Runcible ──────────────────────────────────────────────────
+ * Site-owned classes only. The header and the footer are the kits'
+ * (css/neorgon-header.css, css/neorgon-footer.css); nothing here styles
+ * .header-* or .neo-footer-*. Everything below is prefixed rn- except
+ * .neo-attrib, whose name is fixed by C11.3.
+ */
+
+.rn-sub {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.rn-row-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-3);
+}
+.rn-row-head h2, .rn-row-head h3, .rn-row-head h4 { font-size: var(--text-lg); font-weight: 600; }
+
+.rn-glyph {
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--accent-bright);
+}
+.rn-glyph--lg { font-size: 3.5rem; }
+
+.rn-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--space-4);
+}
+.rn-book {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: 0;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+.rn-book--planned { opacity: 0.55; }
+
+/* Chapter and Book state. The colour carries no meaning on its own: every
+   badge also spells its state, because a red dot is not a message. */
+.rn-badge {
+  display: inline-block;
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-strong);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+.rn-badge--passed { border-color: var(--accent); color: var(--accent-bright); }
+.rn-badge--available, .rn-badge--ready { border-color: var(--border-strong); color: var(--text-primary); }
+.rn-badge--locked, .rn-badge--planned, .rn-badge--stub { color: var(--text-muted); }
+.rn-badge--opened { border-style: dashed; }
+
+.rn-book-head, .rn-chapter-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+.rn-goal {
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+  max-width: 64ch;
+}
+
+.rn-ladder, .rn-list { list-style: none; display: flex; flex-direction: column; gap: var(--space-3); }
+.rn-chapter {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--border-strong);
+  border-radius: var(--radius);
+  background: var(--surface-1);
+}
+.rn-chapter--passed { border-left-color: var(--accent); }
+.rn-chapter--locked { opacity: 0.72; }
+.rn-chapter--planned { opacity: 0.5; }
+
+.rn-meter { display: flex; flex-direction: column; gap: var(--space-1); }
+.rn-meter-track {
+  height: 6px;
+  border-radius: 3px;
+  background: var(--surface-2);
+  overflow: hidden;
+}
+.rn-meter-bar { height: 100%; background: var(--accent); }
+.rn-meter-label { font-size: var(--text-xs); color: var(--text-muted); }
+
+.rn-rung {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--border-subtle);
+}
+.rn-page { display: flex; flex-direction: column; gap: var(--space-3); max-width: 68ch; }
+.rn-page h4 { font-size: var(--text-lg); font-weight: 600; }
+.rn-page p { line-height: 1.65; color: var(--text-secondary); }
+
+.rn-callout {
+  padding: var(--space-4);
+  border-radius: var(--radius);
+  border-left: 3px solid var(--border-strong);
+  background: var(--surface-1);
+}
+.rn-callout--warn { border-left-color: var(--danger); }
+.rn-callout--win { border-left-color: var(--accent); }
+
+.rn-note { font-size: var(--text-sm); color: var(--text-muted); }
+.rn-warn { font-size: var(--text-sm); color: var(--danger-hover); }
+.rn-detail {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  white-space: pre-wrap;
+}
+
+.rn-table { border-collapse: collapse; font-size: var(--text-sm); }
+.rn-table th, .rn-table td {
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--border-subtle);
+  text-align: left;
+}
+.rn-table th { color: var(--text-muted); font-weight: 600; }
+
+.rn-figure { display: flex; flex-direction: column; gap: var(--space-2); align-items: flex-start; }
+.rn-svg {
+  width: 120px;
+  height: 120px;
+  fill: none;
+  stroke: var(--text-primary);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.rn-figure figcaption { font-size: var(--text-sm); color: var(--text-muted); }
+
+.rn-ex {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.rn-type {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+}
+.rn-ex-host:empty { display: none; }
+
+.rn-tracks { display: flex; flex-direction: column; gap: var(--space-2); }
+
+/* The Rappel embed. The escape link sits beside every deck, always: a link to
+   the unpartitioned top-level origin is the one path that always works (C6.5). */
+.rn-deck-wrap { display: flex; flex-direction: column; gap: var(--space-2); width: 100%; }
+.rn-deck {
+  width: 100%;
+  height: 420px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-1);
+}
+.rn-deck-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+.rn-deck-status { font-size: var(--text-sm); color: var(--text-muted); }
+.rn-deck-out { font-size: var(--text-sm); color: var(--accent-bright); }
+.rn-deck-warn { font-size: var(--text-sm); color: var(--danger-hover); }
+
+/* C11.3: the licence acknowledgement, at the foot of the main content region,
+   in this site's own copy. Not in the footer kit, which is shared by 60 sites
+   and budgeted at one line, and not behind a modal, because a link to a modal
+   is not the acknowledgement. */
+.neo-attrib {
+  margin-top: var(--space-8);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border-subtle);
+  font-size: var(--text-xs);
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+/* A licence URL is one unbreakable token and some of them are long: the bunka.go.jp
+   one is 78 characters. Without this it runs off the right edge of the page, and
+   an acknowledgement that is partly off screen is not on screen. */
+.neo-attrib a {
+  color: var(--text-muted);
+  margin-left: var(--space-2);
+  overflow-wrap: anywhere;
+}
+
+html[data-reduce-motion] *, html[data-reduce-motion] *::before, html[data-reduce-motion] *::after {
+  animation-duration: 0.01ms !important;
+  transition-duration: 0.01ms !important;
+}
+
+/* ── Exercises (rx-) ───────────────────────────────────────────
+ * The exercise engine (js/exercises/, workstream A1b) owns the markup and
+ * reuses .btn, .card, .stack and .toolbar from above. These are the structure
+ * classes it adds. They live here because css/style.css is the site's only
+ * stylesheet: an engine that shipped its own would be a second one.
+ */
+.rx { display: flex; flex-direction: column; gap: var(--space-4); }
+.rx-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+.rx-title { font-size: var(--text-lg); }
+.rx-progress { font-size: var(--text-xs); color: var(--text-muted); }
+
+.rx-stage { min-height: 0; }
+/* The thing being asked about. Large, because on a reading drill it is often a
+   single glyph and the whole exercise is looking at it. */
+.rx-prompt, .rx-cue { color: var(--text-secondary); }
+.rx-prompt { font-size: var(--text-2xl); line-height: 1.3; color: var(--text-primary); }
+.rx-cue { font-size: var(--text-sm); }
+/* The engine puts the item being asked about inside .rx-prompt as an .rx-cue,
+   and uses the same class for an instruction line elsewhere. So the size comes
+   from the position, not from the class: a cue in the prompt is the question. */
+.rx-prompt > .rx-cue, .rx-prompt > * { font-size: inherit; color: inherit; }
+
+.rx-options { list-style: none; display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.rx-option-row { display: block; }
+.rx-option[data-state="correct"] { border-color: var(--accent); color: var(--accent-bright); }
+.rx-option[data-state="wrong"] { border-color: var(--danger); color: var(--danger-hover); }
+.rx-option[disabled] { opacity: 0.75; }
+
+.rx-form { display: flex; flex-wrap: wrap; gap: var(--space-2); align-items: center; }
+.rx-input {
+  flex: 1 1 12rem;
+  min-height: var(--control-height);
+  padding: 0 var(--space-3);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--surface-1);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: var(--text-base);
+}
+.rx-feedback:empty { display: none; }
+.rx-feedback { font-size: var(--text-sm); color: var(--text-secondary); }
+.rx-hint, .rx-hintline, .rx-note, .rx-skip, .rx-degraded, .rx-transcript {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+.rx-degraded { color: var(--danger-hover); }
+.rx-foot { justify-content: flex-end; }
+
+.rx-summary { font-size: var(--text-lg); color: var(--text-primary); }
+.rx-summary-pass { font-size: var(--text-sm); color: var(--accent-bright); }
+.rx-error { color: var(--danger-hover); font-weight: 600; }
+.rx-error-detail, .rx-figure-missing {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  overflow-wrap: anywhere;
+}
+
+/* match: two columns that stack on a phone rather than shrinking to nothing. */
+.rx-match { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: var(--space-4); }
+.rx-col { list-style: none; display: flex; flex-direction: column; gap: var(--space-2); }
+
+/* order: a line being built, and the bank it is built from. */
+.rx-line, .rx-bank { display: flex; flex-wrap: wrap; gap: var(--space-2); align-items: center; min-height: var(--control-height); }
+.rx-line {
+  padding: var(--space-2);
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius-sm);
+}
+.rx-line-empty { font-size: var(--text-sm); color: var(--text-muted); }
+.rx-token--placed { border-color: var(--accent); }
+
+.rx-page { max-width: 68ch; }
+.rx-page-title { font-size: var(--text-lg); font-weight: 600; }
+.rx-para { line-height: 1.65; color: var(--text-secondary); }
+.rx-figure { display: flex; flex-direction: column; gap: var(--space-2); }
+.rx-figure-caption { font-size: var(--text-sm); color: var(--text-muted); }
+.rx-table { border-collapse: collapse; font-size: var(--text-sm); }
+.rx-table th, .rx-table td { padding: var(--space-2) var(--space-3); border: 1px solid var(--border-subtle); text-align: left; }
+.rx-callout { padding: var(--space-3); border-left: 3px solid var(--border-strong); border-radius: var(--radius-sm); background: var(--surface-1); }
+.rx-teardown { font-size: var(--text-sm); color: var(--text-muted); }
+.rx--deck { gap: var(--space-2); }
+
+/* The one auth class the template does not style: the sheet's one-line note. */
+.auth-note { margin: 0; color: var(--text-muted, #9aa3b2); font-size: 0.9rem; }
+/* The template caps the open sheet at 300px with overflow hidden, which clips Clerk's form. */
+.auth-panel.open { max-height: min(80vh, 640px); overflow: auto; }

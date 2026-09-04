@@ -1,0 +1,356 @@
+{
+  "format": "neo-chapter/1",
+  "id": "8-study-plan",
+  "title": { "en": "The study plan", "es": "El plan de estudio" },
+  "goal": {
+    "statement": {
+      "en": "Know what the whole road looks like, pick your track, and stop deciding every day what to study",
+      "es": "Saber cómo es todo el camino, elegir tu ruta, y dejar de decidir cada día qué estudiar"
+    }
+  },
+  "requires": [],
+  "state": "ready",
+  "estimate": {
+    "minutes": 30,
+    "note": {
+      "en": "Read it once now and once again in a month. It is a map, not a lesson.",
+      "es": "Léelo una vez ahora y otra vez dentro de un mes. Es un mapa, no una lección."
+    }
+  },
+  "rungs": [
+    {
+      "id": "not-a-lesson",
+      "title": { "en": "This chapter cannot be passed", "es": "Este capítulo no se puede superar" },
+      "unlocks": {
+        "en": "nothing, and it is open from the first day for that reason",
+        "es": "nada, y por eso está abierto desde el primer día"
+      },
+      "pages": [
+        {
+          "id": "p-open",
+          "kind": "callout",
+          "tone": "note",
+          "title": { "en": "Open from the start, and never marked", "es": "Abierto desde el principio, y nunca calificado" },
+          "body": {
+            "en": [
+              "Every other chapter is opened by evidence: a number of answers at a level of accuracy. This one has no exercises, so it records nothing and it can never be marked passed.",
+              "That is deliberate. A plan you cannot read until you have earned it is not a plan, it is a reward."
+            ],
+            "es": [
+              "Los demás capítulos se abren con evidencia: un número de respuestas a un nivel de acierto. Este no tiene ejercicios, así que no registra nada y nunca puede marcarse como superado.",
+              "Es a propósito. Un plan que no puedes leer hasta ganártelo no es un plan, es un premio."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "the-ladder",
+      "title": { "en": "Seven phases, and honest times", "es": "Siete fases, y tiempos honestos" },
+      "unlocks": {
+        "en": "seeing how far away the end is, which is the thing most guides refuse to say",
+        "es": "ver lo lejos que está el final, que es lo que casi ninguna guía quiere decir"
+      },
+      "pages": [
+        {
+          "id": "p-phase-0",
+          "kind": "prose",
+          "title": { "en": "Phase 0. First contact, about a week", "es": "Fase 0. Primer contacto, una semana" },
+          "body": {
+            "en": [
+              "Greet someone, give your name, count, and recognise that Japanese is being spoken to you rather than at you. Set phrases, numbers, greetings, and the sound system.",
+              "The one week is inferred rather than sourced. The advice that is sourced is about dose: thirty to forty-five minutes daily beats three hours once a week."
+            ],
+            "es": [
+              "Saludar a alguien, decir tu nombre, contar, y reconocer que te están hablando en japonés y no lanzándotelo. Frases hechas, números, saludos, y el sistema de sonidos.",
+              "Esa semana es una estimación, no un dato. Lo que sí está documentado es la dosis: treinta a cuarenta y cinco minutos diarios ganan a tres horas una vez por semana."
+            ]
+          }
+        },
+        {
+          "id": "p-phase-1",
+          "kind": "prose",
+          "title": { "en": "Phase 1. Hiragana, one day to one week", "es": "Fase 1. Hiragana, de un día a una semana" },
+          "body": {
+            "en": [
+              "Read any hiragana word aloud, slowly, with no romaji anywhere on the screen. Forty-six characters, then the marks, then the small pairs, then the small tsu.",
+              "The named pitfall at this phase is learning to write them, which doubles or triples the time for very little real benefit. Reading is the product."
+            ],
+            "es": [
+              "Leer en voz alta cualquier palabra en hiragana, despacio, sin romaji en pantalla. Cuarenta y seis caracteres, luego las marcas, luego los pares pequeños, luego el tsu pequeño.",
+              "El error típico de esta fase es aprender a escribirlos, que duplica o triplica el tiempo a cambio de muy poco. Leer es el producto."
+            ]
+          }
+        },
+        {
+          "id": "p-phase-2",
+          "kind": "prose",
+          "title": { "en": "Phase 2. Katakana, two days to two weeks", "es": "Fase 2. Katakana, de dos días a dos semanas" },
+          "body": {
+            "en": [
+              "Read a menu, a loanword sign, a product name. The same forty-six sounds with new shapes, plus the long vowel bar and the extended foreign-sound characters.",
+              "It is slower to stick than hiragana for one reason: it turns up less often, so there is less accidental practice. Three or four hours here is framed as saving twenty later."
+            ],
+            "es": [
+              "Leer un menú, un cartel con un préstamo, el nombre de un producto. Los mismos cuarenta y seis sonidos con formas nuevas, más la barra de vocal larga y los dígrafos para sonidos extranjeros.",
+              "Cuesta más que el hiragana por una razón: aparece menos, así que hay menos práctica accidental. Tres o cuatro horas aquí ahorran veinte más adelante."
+            ]
+          }
+        },
+        {
+          "id": "p-phase-3",
+          "kind": "prose",
+          "title": { "en": "Phase 3. First grammar and first words, six to twelve weeks", "es": "Fase 3. Primera gramática y primeras palabras, de seis a doce semanas" },
+          "body": {
+            "en": [
+              "Build and understand simple sentences: X is Y, the particles, present and past, adjectives. Ten new words a day and two grammar points a day is the pace one guide names.",
+              "The six to twelve weeks is inferred. The sourced number next to it is that a textbook allots six hours of grammar plus three of reading per lesson, over six lessons."
+            ],
+            "es": [
+              "Construir y entender frases simples: X es Y, las partículas, presente y pasado, adjetivos. Diez palabras nuevas al día y dos puntos de gramática al día es el ritmo que propone una guía.",
+              "Las seis a doce semanas son una estimación. El número documentado que va al lado es que un libro de texto asigna seis horas de gramática más tres de lectura por lección, en seis lecciones."
+            ]
+          }
+        },
+        {
+          "id": "p-phase-4",
+          "kind": "prose",
+          "title": { "en": "Phase 4. The kanji and vocabulary engine, one to three months to the first three hundred", "es": "Fase 4. El motor de kanji y vocabulario, de uno a tres meses hasta los primeros trescientos" },
+          "body": {
+            "en": [
+              "Recognise a few hundred kanji inside real words rather than in isolation, at twenty to thirty kanji and about a hundred words a week. The full two thousand takes very much longer.",
+              "The pitfall here is burnout, and both of the guides that name it give the same advice: slow down, cut the new cards when the review pile grows, and do not over-study an individual card."
+            ],
+            "es": [
+              "Reconocer unos cientos de kanji dentro de palabras reales y no aislados, a veinte o treinta kanji y unas cien palabras por semana. Los dos mil completos tardan muchísimo más.",
+              "El riesgo aquí es quemarse, y las dos guías que lo mencionan dan el mismo consejo: bajar el ritmo, cortar las tarjetas nuevas cuando crece la pila de repasos, y no machacar una tarjeta suelta."
+            ]
+          }
+        },
+        {
+          "id": "p-phase-5",
+          "kind": "prose",
+          "title": { "en": "Phase 5. Extensive reading, from month two or three, and it never ends", "es": "Fase 5. Lectura extensiva, desde el mes dos o tres, y no termina nunca" },
+          "body": {
+            "en": [
+              "Finish a graded reader with no lookups, and a page of a manga with them. Volume over difficulty, and lookups rationed on purpose.",
+              "The thing to expect, and not to treat as failure: some sentences stay incomprehensible for a long time. That is not a signal to go back and restudy."
+            ],
+            "es": [
+              "Terminar una lectura graduada sin buscar nada, y una página de manga buscando. Volumen antes que dificultad, y búsquedas racionadas a propósito.",
+              "Lo que hay que esperar, y no tomarse como fracaso: algunas frases siguen siendo incomprensibles mucho tiempo. Eso no es una señal para volver atrás a reestudiar."
+            ]
+          }
+        },
+        {
+          "id": "p-phase-6",
+          "kind": "prose",
+          "title": { "en": "Phase 6. Listening and simple conversation, twelve to twenty-four months in", "es": "Fase 6. Escucha y conversación simple, entre doce y veinticuatro meses" },
+          "body": {
+            "en": [
+              "Follow slow conversation on daily topics and hold a simple exchange. This is an official exam descriptor rather than a feeling: understand conversations encountered in daily life, provided they are spoken slowly.",
+              "Two textbooks together claim to reach it in about two hundred hours of class time, with three hundred and seventeen kanji and about seventeen hundred terms. For a self-taught adult the calendar time is the inferred twelve to twenty-four months, and this is the phase where a tutor is worth paying for."
+            ],
+            "es": [
+              "Seguir una conversación lenta sobre temas cotidianos y sostener un intercambio simple. Esto es un descriptor oficial de examen y no una sensación: entender conversaciones de la vida diaria, siempre que se hablen despacio.",
+              "Dos libros de texto juntos dicen llegar ahí en unas doscientas horas de clase, con trescientos diecisiete kanji y unos mil setecientos términos. Para un adulto autodidacta el tiempo de calendario son los doce a veinticuatro meses estimados, y esta es la fase donde vale la pena pagar por una persona."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "the-tracks",
+      "title": { "en": "Phases 3 to 5 are a choice, not an order", "es": "Las fases 3 a 5 son una elección, no un orden" },
+      "unlocks": {
+        "en": "the ladder rearranging itself around the way you actually want to study",
+        "es": "que la escalera se reordene según cómo quieres estudiar de verdad"
+      },
+      "pages": [
+        {
+          "id": "p-disagree",
+          "kind": "prose",
+          "title": { "en": "The three best guides disagree, and all three work", "es": "Las tres mejores guías no se ponen de acuerdo, y las tres funcionan" },
+          "body": {
+            "en": [
+              "One gates grammar behind roughly three hundred kanji and a thousand words, because grammar without vocabulary is abstract. One starts grammar in lesson one with kana only. One starts grammar on day three, beside listening, and starts reading manga in week two.",
+              "All three take real learners to the same level. So this Book refuses to pick one and hide the other two. It models the disagreement as a track you choose, on the Book page, and the chapter ladder rearranges around your choice.",
+              "Phases 1 and 2 are fixed in every track. Kana is kana."
+            ],
+            "es": [
+              "Una guía bloquea la gramática detrás de unos trescientos kanji y mil palabras, porque la gramática sin vocabulario es abstracta. Otra empieza la gramática en la lección uno, solo con kana. Otra la empieza el tercer día, junto a la escucha, y empieza a leer manga en la segunda semana.",
+              "Las tres llevan a aprendices reales al mismo nivel. Así que este libro se niega a elegir una y esconder las otras dos. Modela el desacuerdo como una ruta que eliges, en la página del libro, y la escalera de capítulos se reordena segun tu elección.",
+              "Las fases 1 y 2 son fijas en todas las rutas. El kana es el kana."
+            ]
+          }
+        },
+        {
+          "id": "p-track-textbook",
+          "kind": "prose",
+          "title": { "en": "Textbook order", "es": "Orden de libro de texto" },
+          "body": {
+            "en": [
+              "Grammar right after the first words, kanji later. This is the shape of a classroom course, and its advantage is that you can build a sentence in week three.",
+              "Its named cost is that a textbook teaches the polite form first and decides, as one critic puts it, behind your back that you would rather be polite than understood."
+            ],
+            "es": [
+              "Gramática justo después de las primeras palabras, kanji más tarde. Es la forma de un curso de aula, y su ventaja es que puedes construir una frase en la tercera semana.",
+              "Su coste declarado es que un libro de texto enseña primero la forma cortés y decide, como dice un crítico, a tus espaldas que prefieres ser cortés a que te entiendan."
+            ]
+          }
+        },
+        {
+          "id": "p-track-kanji",
+          "kind": "prose",
+          "title": { "en": "Kanji first", "es": "Kanji primero" },
+          "body": {
+            "en": [
+              "Kanji and vocabulary before grammar, so that grammar arrives with words already in it. On this track chapter 5 stays locked until chapter 6 is passed.",
+              "Its cost is months before your first sentence. Its argument is that the sentence you eventually build will be made of things you actually know."
+            ],
+            "es": [
+              "Kanji y vocabulario antes que gramática, para que la gramática llegue con palabras ya dentro. En esta ruta el capítulo 5 sigue bloqueado hasta superar el capítulo 6.",
+              "Su coste son meses antes de tu primera frase. Su argumento es que la frase que acabes construyendo estará hecha de cosas que de verdad conoces."
+            ]
+          }
+        },
+        {
+          "id": "p-track-immersion",
+          "kind": "prose",
+          "title": { "en": "Immersion", "es": "Inmersión" },
+          "body": {
+            "en": [
+              "Kana, grammar and listening in the same week. On this track chapter 5 opens straight after hiragana and chapter 7 opens straight after the first words.",
+              "Its cost is that a great deal of what you meet is incomprehensible for a long time, on purpose. Its argument is that decision paralysis kills more learners than difficulty does."
+            ],
+            "es": [
+              "Kana, gramática y escucha en la misma semana. En esta ruta el capítulo 5 se abre justo después del hiragana y el capítulo 7 justo después de las primeras palabras.",
+              "Su coste es que gran parte de lo que encuentras es incomprensible durante mucho tiempo, a propósito. Su argumento es que la parálisis por decisión mata más aprendices que la dificultad."
+            ]
+          }
+        },
+        {
+          "id": "p-override",
+          "kind": "callout",
+          "tone": "win",
+          "title": { "en": "Every lock has a key, and it is on the outside", "es": "Cada cerradura tiene llave, y está por fuera" },
+          "body": {
+            "en": [
+              "Any locked chapter carries a control that opens it anyway. It is recorded, it shows up in the Today view, and it never marks the chapter passed.",
+              "That is there for one specific person: the self-taught adult who already owns a textbook and a kanji ladder and is missing only a scheduler. Locking that person out of chapter 5 until they prove ninety percent on hiragana they learned two years ago is the exact failure a ladder is supposed to prevent.",
+              "A gate a person cannot open is a wall."
+            ],
+            "es": [
+              "Cualquier capítulo bloqueado lleva un control que lo abre igual. Queda registrado, aparece en la vista de Hoy, y nunca marca el capítulo como superado.",
+              "Eso está ahí para una persona concreta: el adulto autodidacta que ya tiene un libro de texto y una escalera de kanji y a quien solo le falta un planificador. Dejar a esa persona fuera del capítulo 5 hasta que demuestre un noventa por ciento en hiragana que aprendió hace dos años es exactamente el fracaso que una escalera debería evitar.",
+              "Una puerta que una persona no puede abrir es un muro."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "today",
+      "title": { "en": "What Today does for you", "es": "Qué hace Hoy por ti" },
+      "unlocks": {
+        "en": "not having to decide, which is the thing the paid apps are really selling",
+        "es": "no tener que decidir, que es lo que venden de verdad las aplicaciones de pago"
+      },
+      "pages": [
+        {
+          "id": "p-today",
+          "kind": "prose",
+          "title": { "en": "One lesson, the reviews that are due, and one game", "es": "Una lección, los repasos pendientes, y un juego" },
+          "body": {
+            "en": [
+              "The Today view answers what do I do now, without you choosing. The lesson is the first chapter you have open. The reviews are whatever the scheduler says is due. The game is a drill from a chapter you have already opened, chosen to hit your weakest skill.",
+              "Weakest is measured rather than guessed: every answer you give anywhere records which skill it exercised, whether it was right, and how long it took. On a first visit, with nothing measured, the game is simply the first drill available."
+            ],
+            "es": [
+              "La vista de Hoy responde a qué hago ahora, sin que elijas. La lección es el primer capítulo que tienes abierto. Los repasos son lo que el planificador diga que toca. El juego es un ejercicio de un capítulo ya abierto, elegido para atacar tu habilidad más débil.",
+              "Lo más débil se mide, no se adivina: cada respuesta que das en cualquier parte registra qué habilidad ejercitaba, si fue correcta, y cuánto tardaste. En la primera visita, sin nada medido, el juego es simplemente el primer ejercicio disponible."
+            ]
+          }
+        },
+        {
+          "id": "p-three-features",
+          "kind": "prose",
+          "title": { "en": "The three features worth copying, and this site has two of them", "es": "Las tres funciones que vale la pena copiar, y este sitio tiene dos" },
+          "body": {
+            "en": [
+              "A scheduler over your own item list. A curriculum ordered by prerequisite so you never pick the next thing. And typing the answer rather than choosing it, because typing forces recall and choosing only forces recognition.",
+              "The first two are here. The third is here in part: the kana, the loanwords, the song lines and the compound readings are typed, and everything else is still multiple choice.",
+              "The fourth thing those products sell is a fourth kind of item: their own mnemonics, and recorded native audio. Neither can be copied. The mnemonics are explicitly proprietary and the audio has no blanket licence, so this site has neither rather than having a cheap imitation of both."
+            ],
+            "es": [
+              "Un planificador sobre tu propia lista de ítems. Un temario ordenado por prerrequisitos para que nunca elijas lo siguiente. Y escribir la respuesta en vez de elegirla, porque escribir obliga a recordar y elegir solo obliga a reconocer.",
+              "Las dos primeras están aquí. La tercera está a medias: el kana, los préstamos, las líneas de canción y las lecturas de compuestos se escriben, y el resto sigue siendo elección múltiple.",
+              "Lo cuarto que venden esos productos es otro tipo de ítem: sus propios trucos de memoria, y audio nativo grabado. Ninguno se puede copiar. Los trucos son propiedad declarada y el audio no tiene licencia general, así que este sitio no tiene ninguno de los dos en vez de tener una imitación barata de ambos."
+            ]
+          }
+        },
+        {
+          "id": "p-local",
+          "kind": "prose",
+          "title": { "en": "It all works with no account", "es": "Todo funciona sin cuenta" },
+          "body": {
+            "en": [
+              "Progress is stored in this browser. Signing in is optional and exists only to copy it to another device. Nothing is gated behind an account and nothing expires.",
+              "The one thing that is never uploaded, whether you sign in or not, is any song lyrics you paste in yourself. There is no table for them on the other side."
+            ],
+            "es": [
+              "El progreso se guarda en este navegador. Iniciar sesión es opcional y existe solo para copiarlo a otro dispositivo. Nada está cerrado detrás de una cuenta y nada caduca.",
+              "Lo único que no se sube nunca, inicies sesión o no, son las letras de canciones que pegues tú mismo. No hay tabla para ellas al otro lado."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "what-is-not-known",
+      "title": { "en": "What nobody could establish", "es": "Lo que nadie pudo establecer" },
+      "unlocks": {
+        "en": "the ability to tell this plan apart from a confident one",
+        "es": "poder distinguir este plan de uno seguro de sí mismo"
+      },
+      "pages": [
+        {
+          "id": "p-unknown",
+          "kind": "prose",
+          "title": { "en": "Four things this plan does not know", "es": "Cuatro cosas que este plan no sabe" },
+          "body": {
+            "en": [
+              "There are no official study-hour estimates for the Japanese proficiency exam. Level descriptors and test composition are published, hours are not. Any hour figure attributed to the exam in a roundup is somebody's guess wearing an official coat.",
+              "The often-quoted figure putting Japanese at around two thousand two hundred hours for an English speaker comes from a government source that could not be read directly in this research, so it is not quoted here at all.",
+              "Nobody has compared teaching kana in table order against teaching it in frequency order. The order this Book uses is reasoned, not demonstrated.",
+              "Nothing supports or refutes songs as a confidence device. Chapter 3 exists because it seemed obviously right, which is the weakest reason in this whole Book and is worth knowing."
+            ],
+            "es": [
+              "No existen estimaciones oficiales de horas de estudio para el examen de aptitud japonesa. Se publican los descriptores de nivel y la composición del examen, las horas no. Cualquier cifra de horas atribuida al examen en un resumen es la suposición de alguien con abrigo oficial.",
+              "La cifra que se repite mucho y sitúa el japonés en unas dos mil doscientas horas para un hablante de inglés viene de una fuente gubernamental que no se pudo leer directamente en esta investigación, así que aquí no se cita en absoluto.",
+              "Nadie ha comparado enseñar el kana en orden de tabla contra enseñarlo en orden de frecuencia. El orden que usa este libro está razonado, no demostrado.",
+              "Nada apoya ni desmiente las canciones como recurso de confianza. El capítulo 3 existe porque parecía obviamente correcto, que es la razón más débil de todo este libro y conviene saberlo."
+            ]
+          }
+        },
+        {
+          "id": "p-blocked",
+          "kind": "prose",
+          "title": { "en": "And three things that could not be included", "es": "Y tres cosas que no se pudieron incluir" },
+          "body": {
+            "en": [
+              "The most recommended beginner flashcard deck ships with no licence file at all, and its own description says its sentences came from other decks. Excellent deck, unsafe to redistribute, so this site links to nothing and rebuilt its own from the open dictionary instead.",
+              "The free graded readers everyone recommends publish no licence terms, so they can be linked and tracked and not rehosted, which is why extensive reading is a locked chapter rather than a built one.",
+              "One guide's mnemonics and prose have no open licence. Its structure and its timings are facts and are used here. Its words are not."
+            ],
+            "es": [
+              "La baraja de tarjetas para principiantes más recomendada se publica sin ningún archivo de licencia, y su propia descripción dice que sus frases salieron de otras barajas. Excelente baraja, insegura de redistribuir, así que este sitio no enlaza nada y reconstruyó la suya desde el diccionario abierto.",
+              "Las lecturas graduadas gratuitas que todo el mundo recomienda no publican términos de licencia, así que se pueden enlazar y registrar pero no rehospedar, y por eso la lectura extensiva es un capítulo bloqueado y no uno construido.",
+              "Los trucos de memoria y la prosa de una guía no tienen licencia abierta. Su estructura y sus tiempos son hechos y se usan aquí. Sus palabras no."
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

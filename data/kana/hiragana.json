@@ -1,0 +1,391 @@
+{
+  "_licence": {
+    "source": "Runcible curated kana table, transcribed from docs/delivery/research/japanese-phonology-kana.md section D, which cites the 1986 and 1991 Cabinet Notices, the MEXT elementary curriculum and Wikipedia",
+    "url": "docs/delivery/research/japanese-phonology-kana.md",
+    "spdx": "public-domain",
+    "derived": false,
+    "id": null,
+    "acknowledgement": null,
+    "links": [
+      "https://en.wikipedia.org/wiki/Hiragana",
+      "https://www.bunka.go.jp/kokugo_nihongo/sisaku/joho/joho/kijun/naikaku/gendaikana/honbun_dai1.html",
+      "https://www.bunka.go.jp/kokugo_nihongo/sisaku/joho/joho/kijun/naikaku/gendaikana/honbun_dai2.html"
+    ],
+    "screen": "none",
+    "generated_by": "curated by workstream Ca from docs/delivery/research/japanese-phonology-kana.md sections D1 to D8. Every kana was resolved with a Unicode character-name lookup and then asserted equal to the character in the report's table, so no character in this file was typed by hand.",
+    "generated_at": "2026-09-04",
+    "note": "The character inventory is a fact and carries no licence, and the prose in this file is our own. Nothing here derives from a share-alike dataset, which is why screen is none."
+  },
+  "format": "neo-data/1",
+  "script": "hiragana",
+  "fields": {
+    "id": "the value a C2.3 attempt carries as itemId",
+    "romaji": "Hepburn, exactly as the report's table spells it",
+    "pair": "the same sound in the other script",
+    "accept": "every romaji spelling that grades as correct here. Present only on the direct-object particle, whose cell the report writes as (w)o, which licenses both readings.",
+    "irregular": "the report bolds this cell: the row consonant does not hold",
+    "rare": "the report parenthesises this romaji. It sounds identical to the z-row character, and the 1986 Notice restricts it to same-sound repetition and to compounds where voicing was triggered.",
+    "table": "1 is the 1991 Notice general set, 2 stays close to the original",
+    "base, small": "a yoon record is two characters and one beat"
+  },
+  "row_order": [
+    "vowels",
+    "k",
+    "s",
+    "t",
+    "n",
+    "h",
+    "m",
+    "y",
+    "r",
+    "w",
+    "moraic-n"
+  ],
+  "rows": {
+    "vowels": [
+      {"id": "kana:あ", "glyph": "あ", "romaji": "a", "row": "vowels", "pair": "ア"},
+      {"id": "kana:い", "glyph": "い", "romaji": "i", "row": "vowels", "pair": "イ"},
+      {"id": "kana:う", "glyph": "う", "romaji": "u", "row": "vowels", "pair": "ウ"},
+      {"id": "kana:え", "glyph": "え", "romaji": "e", "row": "vowels", "pair": "エ"},
+      {"id": "kana:お", "glyph": "お", "romaji": "o", "row": "vowels", "pair": "オ"}
+    ],
+    "k": [
+      {"id": "kana:か", "glyph": "か", "romaji": "ka", "row": "k", "pair": "カ"},
+      {"id": "kana:き", "glyph": "き", "romaji": "ki", "row": "k", "pair": "キ"},
+      {"id": "kana:く", "glyph": "く", "romaji": "ku", "row": "k", "pair": "ク"},
+      {"id": "kana:け", "glyph": "け", "romaji": "ke", "row": "k", "pair": "ケ"},
+      {"id": "kana:こ", "glyph": "こ", "romaji": "ko", "row": "k", "pair": "コ"}
+    ],
+    "s": [
+      {"id": "kana:さ", "glyph": "さ", "romaji": "sa", "row": "s", "pair": "サ"},
+      {"id": "kana:し", "glyph": "し", "romaji": "shi", "row": "s", "pair": "シ", "irregular": true},
+      {"id": "kana:す", "glyph": "す", "romaji": "su", "row": "s", "pair": "ス"},
+      {"id": "kana:せ", "glyph": "せ", "romaji": "se", "row": "s", "pair": "セ"},
+      {"id": "kana:そ", "glyph": "そ", "romaji": "so", "row": "s", "pair": "ソ"}
+    ],
+    "t": [
+      {"id": "kana:た", "glyph": "た", "romaji": "ta", "row": "t", "pair": "タ"},
+      {"id": "kana:ち", "glyph": "ち", "romaji": "chi", "row": "t", "pair": "チ", "irregular": true},
+      {"id": "kana:つ", "glyph": "つ", "romaji": "tsu", "row": "t", "pair": "ツ", "irregular": true},
+      {"id": "kana:て", "glyph": "て", "romaji": "te", "row": "t", "pair": "テ"},
+      {"id": "kana:と", "glyph": "と", "romaji": "to", "row": "t", "pair": "ト"}
+    ],
+    "n": [
+      {"id": "kana:な", "glyph": "な", "romaji": "na", "row": "n", "pair": "ナ"},
+      {"id": "kana:に", "glyph": "に", "romaji": "ni", "row": "n", "pair": "ニ"},
+      {"id": "kana:ぬ", "glyph": "ぬ", "romaji": "nu", "row": "n", "pair": "ヌ"},
+      {"id": "kana:ね", "glyph": "ね", "romaji": "ne", "row": "n", "pair": "ネ"},
+      {"id": "kana:の", "glyph": "の", "romaji": "no", "row": "n", "pair": "ノ"}
+    ],
+    "h": [
+      {"id": "kana:は", "glyph": "は", "romaji": "ha", "row": "h", "pair": "ハ"},
+      {"id": "kana:ひ", "glyph": "ひ", "romaji": "hi", "row": "h", "pair": "ヒ"},
+      {"id": "kana:ふ", "glyph": "ふ", "romaji": "fu", "row": "h", "pair": "フ", "irregular": true},
+      {"id": "kana:へ", "glyph": "へ", "romaji": "he", "row": "h", "pair": "ヘ"},
+      {"id": "kana:ほ", "glyph": "ほ", "romaji": "ho", "row": "h", "pair": "ホ"}
+    ],
+    "m": [
+      {"id": "kana:ま", "glyph": "ま", "romaji": "ma", "row": "m", "pair": "マ"},
+      {"id": "kana:み", "glyph": "み", "romaji": "mi", "row": "m", "pair": "ミ"},
+      {"id": "kana:む", "glyph": "む", "romaji": "mu", "row": "m", "pair": "ム"},
+      {"id": "kana:め", "glyph": "め", "romaji": "me", "row": "m", "pair": "メ"},
+      {"id": "kana:も", "glyph": "も", "romaji": "mo", "row": "m", "pair": "モ"}
+    ],
+    "y": [
+      {"id": "kana:や", "glyph": "や", "romaji": "ya", "row": "y", "pair": "ヤ"},
+      {"id": "kana:ゆ", "glyph": "ゆ", "romaji": "yu", "row": "y", "pair": "ユ"},
+      {"id": "kana:よ", "glyph": "よ", "romaji": "yo", "row": "y", "pair": "ヨ"}
+    ],
+    "r": [
+      {"id": "kana:ら", "glyph": "ら", "romaji": "ra", "row": "r", "pair": "ラ"},
+      {"id": "kana:り", "glyph": "り", "romaji": "ri", "row": "r", "pair": "リ"},
+      {"id": "kana:る", "glyph": "る", "romaji": "ru", "row": "r", "pair": "ル"},
+      {"id": "kana:れ", "glyph": "れ", "romaji": "re", "row": "r", "pair": "レ"},
+      {"id": "kana:ろ", "glyph": "ろ", "romaji": "ro", "row": "r", "pair": "ロ"}
+    ],
+    "w": [
+      {"id": "kana:わ", "glyph": "わ", "romaji": "wa", "row": "w", "pair": "ワ"},
+      {"id": "kana:を", "glyph": "を", "romaji": "o", "row": "w", "pair": "ヲ", "accept": ["o", "wo"]}
+    ],
+    "moraic-n": [
+      {"id": "kana:ん", "glyph": "ん", "romaji": "n", "row": "moraic-n", "pair": "ン"}
+    ]
+  },
+  "dakuten_order": [
+    "g",
+    "z",
+    "d",
+    "b",
+    "p"
+  ],
+  "dakuten_meta": [
+    {
+      "base": "k",
+      "marked": "g",
+      "kind": "dakuten"
+    },
+    {
+      "base": "s",
+      "marked": "z",
+      "kind": "dakuten"
+    },
+    {
+      "base": "t",
+      "marked": "d",
+      "kind": "dakuten"
+    },
+    {
+      "base": "h",
+      "marked": "b",
+      "kind": "dakuten"
+    },
+    {
+      "base": "h",
+      "marked": "p",
+      "kind": "handakuten"
+    }
+  ],
+  "dakuten": {
+    "g": [
+      {"id": "kana:が", "glyph": "が", "romaji": "ga", "row": "g", "kind": "dakuten", "pair": "ガ"},
+      {"id": "kana:ぎ", "glyph": "ぎ", "romaji": "gi", "row": "g", "kind": "dakuten", "pair": "ギ"},
+      {"id": "kana:ぐ", "glyph": "ぐ", "romaji": "gu", "row": "g", "kind": "dakuten", "pair": "グ"},
+      {"id": "kana:げ", "glyph": "げ", "romaji": "ge", "row": "g", "kind": "dakuten", "pair": "ゲ"},
+      {"id": "kana:ご", "glyph": "ご", "romaji": "go", "row": "g", "kind": "dakuten", "pair": "ゴ"}
+    ],
+    "z": [
+      {"id": "kana:ざ", "glyph": "ざ", "romaji": "za", "row": "z", "kind": "dakuten", "pair": "ザ"},
+      {"id": "kana:じ", "glyph": "じ", "romaji": "ji", "row": "z", "kind": "dakuten", "pair": "ジ", "irregular": true},
+      {"id": "kana:ず", "glyph": "ず", "romaji": "zu", "row": "z", "kind": "dakuten", "pair": "ズ"},
+      {"id": "kana:ぜ", "glyph": "ぜ", "romaji": "ze", "row": "z", "kind": "dakuten", "pair": "ゼ"},
+      {"id": "kana:ぞ", "glyph": "ぞ", "romaji": "zo", "row": "z", "kind": "dakuten", "pair": "ゾ"}
+    ],
+    "d": [
+      {"id": "kana:だ", "glyph": "だ", "romaji": "da", "row": "d", "kind": "dakuten", "pair": "ダ"},
+      {"id": "kana:ぢ", "glyph": "ぢ", "romaji": "ji", "row": "d", "kind": "dakuten", "pair": "ヂ", "rare": true},
+      {"id": "kana:づ", "glyph": "づ", "romaji": "zu", "row": "d", "kind": "dakuten", "pair": "ヅ", "rare": true},
+      {"id": "kana:で", "glyph": "で", "romaji": "de", "row": "d", "kind": "dakuten", "pair": "デ"},
+      {"id": "kana:ど", "glyph": "ど", "romaji": "do", "row": "d", "kind": "dakuten", "pair": "ド"}
+    ],
+    "b": [
+      {"id": "kana:ば", "glyph": "ば", "romaji": "ba", "row": "b", "kind": "dakuten", "pair": "バ"},
+      {"id": "kana:び", "glyph": "び", "romaji": "bi", "row": "b", "kind": "dakuten", "pair": "ビ"},
+      {"id": "kana:ぶ", "glyph": "ぶ", "romaji": "bu", "row": "b", "kind": "dakuten", "pair": "ブ"},
+      {"id": "kana:べ", "glyph": "べ", "romaji": "be", "row": "b", "kind": "dakuten", "pair": "ベ"},
+      {"id": "kana:ぼ", "glyph": "ぼ", "romaji": "bo", "row": "b", "kind": "dakuten", "pair": "ボ"}
+    ],
+    "p": [
+      {"id": "kana:ぱ", "glyph": "ぱ", "romaji": "pa", "row": "p", "kind": "handakuten", "pair": "パ"},
+      {"id": "kana:ぴ", "glyph": "ぴ", "romaji": "pi", "row": "p", "kind": "handakuten", "pair": "ピ"},
+      {"id": "kana:ぷ", "glyph": "ぷ", "romaji": "pu", "row": "p", "kind": "handakuten", "pair": "プ"},
+      {"id": "kana:ぺ", "glyph": "ぺ", "romaji": "pe", "row": "p", "kind": "handakuten", "pair": "ペ"},
+      {"id": "kana:ぽ", "glyph": "ぽ", "romaji": "po", "row": "p", "kind": "handakuten", "pair": "ポ"}
+    ]
+  },
+  "yoon": [
+    {"id": "kana:きゃ", "glyph": "きゃ", "romaji": "kya", "base": "き", "small": "ゃ", "pair": "キャ"},
+    {"id": "kana:きゅ", "glyph": "きゅ", "romaji": "kyu", "base": "き", "small": "ゅ", "pair": "キュ"},
+    {"id": "kana:きょ", "glyph": "きょ", "romaji": "kyo", "base": "き", "small": "ょ", "pair": "キョ"},
+    {"id": "kana:しゃ", "glyph": "しゃ", "romaji": "sha", "base": "し", "small": "ゃ", "pair": "シャ"},
+    {"id": "kana:しゅ", "glyph": "しゅ", "romaji": "shu", "base": "し", "small": "ゅ", "pair": "シュ"},
+    {"id": "kana:しょ", "glyph": "しょ", "romaji": "sho", "base": "し", "small": "ょ", "pair": "ショ"},
+    {"id": "kana:ちゃ", "glyph": "ちゃ", "romaji": "cha", "base": "ち", "small": "ゃ", "pair": "チャ"},
+    {"id": "kana:ちゅ", "glyph": "ちゅ", "romaji": "chu", "base": "ち", "small": "ゅ", "pair": "チュ"},
+    {"id": "kana:ちょ", "glyph": "ちょ", "romaji": "cho", "base": "ち", "small": "ょ", "pair": "チョ"},
+    {"id": "kana:にゃ", "glyph": "にゃ", "romaji": "nya", "base": "に", "small": "ゃ", "pair": "ニャ"},
+    {"id": "kana:にゅ", "glyph": "にゅ", "romaji": "nyu", "base": "に", "small": "ゅ", "pair": "ニュ"},
+    {"id": "kana:にょ", "glyph": "にょ", "romaji": "nyo", "base": "に", "small": "ょ", "pair": "ニョ"},
+    {"id": "kana:ひゃ", "glyph": "ひゃ", "romaji": "hya", "base": "ひ", "small": "ゃ", "pair": "ヒャ"},
+    {"id": "kana:ひゅ", "glyph": "ひゅ", "romaji": "hyu", "base": "ひ", "small": "ゅ", "pair": "ヒュ"},
+    {"id": "kana:ひょ", "glyph": "ひょ", "romaji": "hyo", "base": "ひ", "small": "ょ", "pair": "ヒョ"},
+    {"id": "kana:みゃ", "glyph": "みゃ", "romaji": "mya", "base": "み", "small": "ゃ", "pair": "ミャ"},
+    {"id": "kana:みゅ", "glyph": "みゅ", "romaji": "myu", "base": "み", "small": "ゅ", "pair": "ミュ"},
+    {"id": "kana:みょ", "glyph": "みょ", "romaji": "myo", "base": "み", "small": "ょ", "pair": "ミョ"},
+    {"id": "kana:りゃ", "glyph": "りゃ", "romaji": "rya", "base": "り", "small": "ゃ", "pair": "リャ"},
+    {"id": "kana:りゅ", "glyph": "りゅ", "romaji": "ryu", "base": "り", "small": "ゅ", "pair": "リュ"},
+    {"id": "kana:りょ", "glyph": "りょ", "romaji": "ryo", "base": "り", "small": "ょ", "pair": "リョ"},
+    {"id": "kana:ぎゃ", "glyph": "ぎゃ", "romaji": "gya", "base": "ぎ", "small": "ゃ", "pair": "ギャ"},
+    {"id": "kana:ぎゅ", "glyph": "ぎゅ", "romaji": "gyu", "base": "ぎ", "small": "ゅ", "pair": "ギュ"},
+    {"id": "kana:ぎょ", "glyph": "ぎょ", "romaji": "gyo", "base": "ぎ", "small": "ょ", "pair": "ギョ"},
+    {"id": "kana:じゃ", "glyph": "じゃ", "romaji": "ja", "base": "じ", "small": "ゃ", "pair": "ジャ"},
+    {"id": "kana:じゅ", "glyph": "じゅ", "romaji": "ju", "base": "じ", "small": "ゅ", "pair": "ジュ"},
+    {"id": "kana:じょ", "glyph": "じょ", "romaji": "jo", "base": "じ", "small": "ょ", "pair": "ジョ"},
+    {"id": "kana:びゃ", "glyph": "びゃ", "romaji": "bya", "base": "び", "small": "ゃ", "pair": "ビャ"},
+    {"id": "kana:びゅ", "glyph": "びゅ", "romaji": "byu", "base": "び", "small": "ゅ", "pair": "ビュ"},
+    {"id": "kana:びょ", "glyph": "びょ", "romaji": "byo", "base": "び", "small": "ょ", "pair": "ビョ"},
+    {"id": "kana:ぴゃ", "glyph": "ぴゃ", "romaji": "pya", "base": "ぴ", "small": "ゃ", "pair": "ピャ"},
+    {"id": "kana:ぴゅ", "glyph": "ぴゅ", "romaji": "pyu", "base": "ぴ", "small": "ゅ", "pair": "ピュ"},
+    {"id": "kana:ぴょ", "glyph": "ぴょ", "romaji": "pyo", "base": "ぴ", "small": "ょ", "pair": "ピョ"}
+  ],
+  "sokuon": {
+    "id": "kana:っ",
+    "glyph": "っ",
+    "romaji": "double the following consonant",
+    "rules": [
+      "holds the following consonant for one silent beat",
+      "never starts a word",
+      "never precedes a vowel",
+      "in native words never precedes g, z, d, b or h; loanwords are the licensed exception",
+      "Hepburn writes geminate ch as tch"
+    ]
+  },
+  "long_vowels": {
+    "rule": "Hiragana does not use the prolonged sound mark; it adds a vowel kana. The 1986 Notice sets the rules exactly.",
+    "rows": [
+      {
+        "row": "a-row",
+        "add": "あ",
+        "default": false,
+        "examples": [
+          "おかあさん",
+          "おばあさん"
+        ]
+      },
+      {
+        "row": "i-row",
+        "add": "い",
+        "default": false,
+        "examples": [
+          "にいさん",
+          "おじいさん"
+        ]
+      },
+      {
+        "row": "u-row",
+        "add": "う",
+        "default": false,
+        "examples": [
+          "くうき",
+          "ふうふ",
+          "ちゅうもん"
+        ]
+      },
+      {
+        "row": "e-row",
+        "add": "え",
+        "default": false,
+        "examples": [
+          "ねえさん",
+          "ええ"
+        ]
+      },
+      {
+        "row": "o-row",
+        "add": "う",
+        "default": true,
+        "examples": [
+          "おとうさん",
+          "とうだい",
+          "きょう",
+          "はっぴょう"
+        ]
+      }
+    ],
+    "oo_exceptions": {
+      "rule": "The closed and short exception list the Notice enumerates: words whose historical spelling had ho or wo after the o-row kana. Everything else takes u.",
+      "words": [
+        "おおかみ",
+        "おおせ",
+        "おおやけ",
+        "こおり",
+        "こおろぎ",
+        "ほお",
+        "ほおずき",
+        "ほのお",
+        "とお",
+        "いきどおる",
+        "おおう",
+        "こおる",
+        "しおおせる",
+        "とおる",
+        "とどこおる",
+        "もよおす",
+        "いとおしい",
+        "おおい",
+        "おおきい",
+        "とおい",
+        "おおむね",
+        "おおよそ"
+      ]
+    },
+    "ei_appendix": {
+      "rule": "The Notice appendix writes an e-row long vowel with i whether it is pronounced long e or as ei.",
+      "words": [
+        "えいが",
+        "とけい",
+        "ていねい",
+        "へい",
+        "めい",
+        "れい",
+        "かせいで",
+        "まねいて"
+      ]
+    }
+  },
+  "particles": [
+    {
+      "written": "は",
+      "read": "wa",
+      "function": "topic particle",
+      "examples": [
+        "今日は日曜です",
+        "こんにちは",
+        "こんばんは"
+      ]
+    },
+    {
+      "written": "へ",
+      "read": "e",
+      "function": "direction particle",
+      "examples": [
+        "故郷へ帰る",
+        "母への便り"
+      ]
+    },
+    {
+      "written": "を",
+      "read": "o",
+      "function": "direct object particle",
+      "examples": [
+        "本を読む",
+        "やむをえない"
+      ]
+    }
+  ],
+  "particle_note": "Modern kana is otherwise one character to one sound; these three are leftovers from the pre-1946 system. The Notice flags the trap itself: some words contain the kana wa or wo without being the particle.",
+  "confusables": [
+    {
+      "glyphs": [
+        "さ",
+        "き"
+      ],
+      "tell": "き has two crossbars, さ has one",
+      "attribution": "the report's own list, D7: the researcher found no source enumerating the hiragana pairs"
+    },
+    {
+      "glyphs": [
+        "ぬ",
+        "め"
+      ],
+      "tell": "ぬ ends in a loop, め does not",
+      "attribution": "the report's own list, D7: the researcher found no source enumerating the hiragana pairs"
+    },
+    {
+      "glyphs": [
+        "わ",
+        "れ",
+        "ね"
+      ],
+      "tell": "the tail: わ curves in, れ hooks out, ね loops",
+      "attribution": "the report's own list, D7: the researcher found no source enumerating the hiragana pairs"
+    },
+    {
+      "glyphs": [
+        "る",
+        "ろ"
+      ],
+      "tell": "る closes into a loop",
+      "attribution": "the report's own list, D7: the researcher found no source enumerating the hiragana pairs"
+    }
+  ]
+}

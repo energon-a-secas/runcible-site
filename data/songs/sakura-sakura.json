@@ -1,0 +1,65 @@
+{
+  "_licence": {
+    "source": "ja.wikisource さくらさくら, 『箏曲集』1888",
+    "url": "https://ja.wikisource.org/wiki/さくらさくら",
+    "spdx": "public-domain",
+    "derived": false,
+    "id": null,
+    "acknowledgement": null,
+    "links": [
+      "https://ja.wikisource.org/wiki/さくらさくら"
+    ],
+    "screen": "none",
+    "japan": {
+      "pd": true,
+      "basis": "no named author (unknown (Edo koto piece 咲いた桜); unknown), first published 1888, 音楽取調掛『箏曲集』.",
+      "test": "Japan: both authors died 1967 or earlier, or the work is anonymous and published 1967 or earlier.",
+      "confidence": "high"
+    },
+    "us": {
+      "pd": true,
+      "basis": "first published 1888, 音楽取調掛『箏曲集』.",
+      "test": "US: published 1930 or earlier, or published later with every author dead in 1945 or earlier, because the URAA restored anything still protected in its source country on 1996-01-01.",
+      "confidence": "high"
+    },
+    "confidence_text": "High. Use the 1888 「弥生の空は」 text, not the 1941 「野山も里も」 rewrite.",
+    "verses_permitted": 1,
+    "verses_permitted_note": "The report transcribes the first verse only, so this file carries one verse. More verses need a fresh trip to the source, not a memory.",
+    "generated_by": "transcribed by workstream Ca from docs/delivery/research/japanese-open-data-and-songs.md sections D and E. No Japanese character was typed.",
+    "generated_at": "2026-09-04",
+    "note": "Verdict transcribed from the open-data report's song table. The two tests it applies are section C of that report."
+  },
+  "format": "neo-data/1",
+  "id": "sakura-sakura",
+  "title": {
+    "ja": "さくらさくら",
+    "romaji": "Sakura Sakura",
+    "en": null,
+    "qualifier": null,
+    "note": "The research report gives no English title. The gloss on each verse is the meaning."
+  },
+  "credits": {
+    "lyricist": "unknown (Edo koto piece 咲いた桜)",
+    "composer": "unknown",
+    "first_published": "1888, 音楽取調掛『箏曲集』"
+  },
+  "transcription": "Hiragana as sung, in modern kana usage. Where the printed source uses historical kana the report says so and the note is carried below. The romaji and the gloss are the researcher's, not a source's.",
+  "verses": [
+    {
+      "n": 1,
+      "lines": [
+        "さくら さくら やよいのそらは みわたすかぎり",
+        "かすみかくもか においぞいずる いざや いざや みにゆかん"
+      ],
+      "romaji_lines": [
+        "sakura sakura, yayoi no sora wa, miwatasu kagiri",
+        "kasumi ka kumo ka, nioi zo izuru, izaya izaya, mi ni yukan"
+      ],
+      "gloss": "Cherry blossoms, the March sky as far as the eye can see: mist or cloud, a fragrance drifting out. Come, come, let us go and look."
+    }
+  ],
+  "verse_count": 1,
+  "notes": [
+    "(Printed as にほひぞいづる in historical kana.)"
+  ]
+}

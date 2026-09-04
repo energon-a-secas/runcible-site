@@ -1,0 +1,84 @@
+---
+config:
+  theme: base
+  themeVariables:
+    primaryColor: "#0f172a"
+    primaryTextColor: "#e2e8f0"
+    primaryBorderColor: "#e11d48"
+    lineColor: "#f43f5e"
+    secondaryColor: "#1e293b"
+    tertiaryColor: "#1e293b"
+    clusterBkg: "#fff1f2"
+    clusterBorder: "#fda4af"
+    edgeLabelBackground: "#ffe4e6"
+    mainBkg: "#0f172a"
+    nodeBorder: "#e11d48"
+    titleColor: "#4c0519"
+    fontFamily: "ui-sans-serif, system-ui, -apple-system, sans-serif"
+    fontSize: "13px"
+---
+flowchart TB
+    User([Learner]) --> HTML["index.html\nHeader kit, #view, footer kit"]
+
+    subgraph Shell["Shell: ES modules, zero build, knows no subject"]
+        HTML --> app["app.js\n19 lines: loadSaved, initSyncBridge, bindEvents"]
+        app --> events["events.js\none delegated data-action handler"]
+        events --> router["router.js\n#/ #/books #/b/id #/b/id/ch #/settings"]
+        events --> render["render.js + utils.js\nToday, catalog, Book ladder, chapter, settings;\nh() builds text nodes only, no innerHTML"]
+        render --> today["today.js\nnext lesson, due decks, one game"]
+        render --> books["books.js\ncatalog, manifest, data[] permission list,\npointer resolver, attributions, module loader"]
+        render --> progress["progress.js\nrecordAttempt, evidenceStatus,\nchapterState, ladder, override"]
+        today --> progress
+        books --> i18n["i18n.js\n{en,es} resolver, UI copy"]
+        render --> state["state.js\nprefs + progress stores, sync bridge"]
+        progress --> state
+        state --> sync["sync.js\nbrokered Convex client, dormant"]
+    end
+
+    subgraph Engine["Exercise engine: js/exercises/ (runcible-exercise/1)"]
+        books --> registry["index.js / registry.js\ncreateExerciseRegistry, mount, registerBookModule"]
+        registry --> spec["spec.js\nGENERIC_TYPES, REQUIRED_FIELDS, validateExerciseSpec"]
+        registry --> types["types/\nread choice typed match order listen speak deck custom"]
+        types --> session["session.js\none attempt path, summary, api.done"]
+        types --> items["items.js + compare.js\npointer lists, itemId, distractors, fold tokens"]
+        types --> speech["speech.js\nvoiceschanged wait, degrade or skip"]
+    end
+
+    subgraph Books["Book packages: books/ (neo-book/1, neo-chapter/1)"]
+        catalog[("books/index.json")]
+        jp[("japanese/\nbook.json, 9 chapters + 4 planned,\nexercises/*.js modules, decks/*.json")]
+        piano[("piano/\nbook.json, 3 chapters + 2 planned,\nno modules, no data")]
+    end
+
+    subgraph Corpus["Corpus: data/ (every file opens with _licence)"]
+        data[("kana, loanwords, songs,\nvocab, kanji, sentences")]
+    end
+
+    validator["tools/validate-book.mjs\nimported by the shell at load\nand run by make validate"]
+    books -->|"fetch + validate"| catalog
+    books -->|"fetch + validate"| jp
+    books -->|"fetch + validate"| piano
+    books -->|"import default register()"| jp
+    books -.->|imports| validator
+    validator -.-> spec
+    books -->|"only paths declared in data[]"| data
+
+    types -->|"types/deck.js"| embed["embed.js\niframe host, rappel:hello,\nrappel:answer to attempt"]
+    embed -->|"?embed=1&src=...&mode&limit"| Rappel[("rappel.neorgon.com\n(localhost:8879 in dev)\npostMessage v:1")]
+    Rappel -->|"rappel:answer"| embed
+    embed --> progress
+
+    state <-->|"runcible:prefs:v1\nruncible:progress:v1"| Storage[("localStorage\nvia Persist kit")]
+    jp -.->|"jp.lyrics: runcible:lyrics:v1\nnever synced"| Storage
+    sync -.->|"only with a clerk-publishable-key meta"| Convex[("Convex\nprogress, evidence, prefs")]
+
+    subgraph Tools["tools/: manual data step, never run by the site"]
+        build["build-vocab, build-kanji, build-strokes,\nbuild-sentences, build-decks, vendor-wanakana"]
+        gates["check-licence.mjs (banned songs, _licence)\nvalidate-corpus.mjs (formats, 150 KB cap)"]
+    end
+    Upstream[("JMdict, KANJIDIC2, KanjiVG,\nTatoeba, wanakana 5.3.1")] --> build
+    build --> data
+    build --> jp
+    gates -.checks.-> data
+
+    HTML --> CDN[("cdn.neorgon.org\nbase.css tokens, season.css")]

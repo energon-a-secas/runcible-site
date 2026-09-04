@@ -1,0 +1,546 @@
+{
+  "format": "neo-chapter/1",
+  "id": "2-katakana",
+  "title": { "en": "Katakana", "es": "Katakana" },
+  "goal": {
+    "statement": {
+      "en": "Read a menu, a sign and a product name, and write a foreign word yourself",
+      "es": "Leer un menú, un cartel y el nombre de un producto, y escribir tú mismo una palabra extranjera"
+    },
+    "evidence": { "skill": "kana.katakana.read", "accuracy": 0.9, "min": 40, "window": 60 }
+  },
+  "requires": ["1-hiragana"],
+  "state": "ready",
+  "estimate": {
+    "minutes": 180,
+    "note": {
+      "en": "Tofugu reports two days to two weeks, and frames three or four hours here as saving twenty later.",
+      "es": null
+    }
+  },
+  "data": [
+    "data/kana/katakana.json",
+    "data/kanji/strokes-kana.json",
+    "data/loanwords/seed.json",
+    "data/loanwords/rules.json"
+  ],
+  "rungs": [
+    {
+      "id": "re-skin",
+      "title": { "en": "The same forty-six sounds, wearing different shapes", "es": null },
+      "unlocks": {
+        "en": "everything foreign, which is most of what a beginner can actually read in public",
+        "es": null
+      },
+      "pages": [
+        {
+          "id": "p-reskin",
+          "kind": "prose",
+          "title": { "en": "Nothing new is being learned here", "es": null },
+          "body": {
+            "en": [
+              "Katakana is the same table in the same order with the same exceptions. shi, chi, tsu and fu still break their rows. The y row still has three. n still stands outside the grid.",
+              "This is why hiragana comes first everywhere. The second script is a re-skin, and it costs hours rather than days.",
+              "It is also slower to stick, for one reason worth knowing in advance: katakana shows up less often, so there is less incidental practice. The drilling has to make up the difference."
+            ],
+            "es": null
+          }
+        },
+        {
+          "id": "p-when",
+          "kind": "prose",
+          "title": { "en": "When a word is written in katakana", "es": null },
+          "body": {
+            "en": [
+              "Foreign words and foreign names. Onomatopoeia. The names of animals and plants in scientific writing. Emphasis, roughly where English would use italics.",
+              "For a beginner the first of those is the one that pays. It is the whole of chapter 0's win, made readable."
+            ],
+            "es": null
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-kata-vowels",
+          "type": "choice",
+          "skill": "kana.katakana.read",
+          "title": { "en": "The five vowels again", "es": null },
+          "items": "data/kana/katakana.json#rows.vowels",
+          "prompt": "glyph",
+          "answer": "romaji",
+          "distractors": { "n": 3 },
+          "count": 5,
+          "pass": { "accuracy": 0.8 }
+        },
+        {
+          "id": "e-kata-k",
+          "type": "choice",
+          "skill": "kana.katakana.read",
+          "title": { "en": "The k row", "es": null },
+          "items": "data/kana/katakana.json#rows.k",
+          "prompt": "glyph",
+          "answer": "romaji",
+          "distractors": { "n": 3 },
+          "count": 5,
+          "pass": { "accuracy": 0.8 }
+        },
+        {
+          "id": "e-kata-vowels-type",
+          "type": "typed",
+          "skill": "kana.katakana.write",
+          "title": { "en": "Type them in katakana", "es": null },
+          "items": "data/kana/katakana.json#rows.vowels",
+          "prompt": "romaji",
+          "answer": "glyph",
+          "transform": "kana-katakana",
+          "compare": "trim",
+          "count": 5,
+          "pass": { "accuracy": 0.8 }
+        }
+      ]
+    },
+    {
+      "id": "middle-rows",
+      "title": { "en": "s, t, n, h and m", "es": null },
+      "unlocks": {
+        "en": "the middle of every borrowed word",
+        "es": null
+      },
+      "pages": [
+        {
+          "id": "p-pairs",
+          "kind": "prose",
+          "title": { "en": "Read them against the hiragana you already have", "es": null },
+          "body": {
+            "en": [
+              "Each of these characters carries the hiragana with the same sound alongside it in the data, because that pairing is the fastest way in. You are not learning sa, you are learning a second way to write sa.",
+              "Four shapes are close enough to their hiragana to feel free: ka, se, mo and ya. The rest are not, and pretending otherwise wastes the hour."
+            ],
+            "es": null
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-kata-s",
+          "type": "choice",
+          "skill": "kana.katakana.read",
+          "title": { "en": "The s row", "es": null },
+          "items": "data/kana/katakana.json#rows.s",
+          "prompt": "glyph",
+          "answer": "romaji",
+          "distractors": { "n": 3 },
+          "count": 5,
+          "pass": { "accuracy": 0.8 }
+        },
+        {
+          "id": "e-kata-t",
+          "type": "choice",
+          "skill": "kana.katakana.read",
+          "title": { "en": "The t row", "es": null },
+          "items": "data/kana/katakana.json#rows.t",
+          "prompt": "glyph",
+          "answer": "romaji",
+          "distractors": { "n": 3 },
+          "count": 5,
+          "pass": { "accuracy": 0.8 }
+        },
+        {
+          "id": "e-kata-n",
+          "type": "choice",
+          "skill": "kana.katakana.read",
+          "title": { "en": "The n row", "es": null },
+          "items": "data/kana/katakana.json#rows.n",
+          "prompt": "glyph",
+          "answer": "romaji",
+          "distractors": { "n": 3 },
+          "count": 5,
+          "pass": { "accuracy": 0.8 }
+        },
+        {
+          "id": "e-kata-h",
+          "type": "choice",
+          "skill": "kana.katakana.read",
+          "title": { "en": "The h row", "es": null },
+          "items": "data/kana/katakana.json#rows.h",
+          "prompt": "glyph",
+          "answer": "romaji",
+          "distractors": { "n": 3 },
+          "count": 5,
+          "pass": { "accuracy": 0.8 }
+        },
+        {
+          "id": "e-kata-m",
+          "type": "choice",
+          "skill": "kana.katakana.read",
+          "title": { "en": "The m row", "es": null },
+          "items": "data/kana/katakana.json#rows.m",
+          "prompt": "glyph",
+          "answer": "romaji",
+          "distractors": { "n": 3 },
+          "count": 5,
+          "pass": { "accuracy": 0.8 }
+        }
+      ]
+    },
+    {
+      "id": "kata-y-r-w",
+      "title": { "en": "y, r, w, and the four that look alike", "es": null },
+      "unlocks": {
+        "en": "reading at speed without guessing from context",
+        "es": null
+      },
+      "pages": [
+        {
+          "id": "p-confusable",
+          "kind": "prose",
+          "title": { "en": "shi, tsu, so and n", "es": null },
+          "body": {
+            "en": [
+              "These four are the reason katakana feels harder than it is. In print they differ only by the slant of the short strokes and by the direction the long stroke is drawn.",
+              "shi's short strokes come in low and flat, and its long stroke sweeps up from the bottom left. tsu's come down steep from the top, and its long stroke sweeps down from the top right.",
+              "so and n are the same contrast with one short stroke instead of two. Wikipedia states this case explicitly and adds that the difference is much clearer written with a brush than set in type.",
+              "wo exists in katakana and is almost never used. The particle is written in hiragana."
+            ],
+            "es": null
+          }
+        },
+        {
+          "id": "p-shi",
+          "kind": "figure",
+          "figure": {
+            "kind": "svg",
+            "src": "data/kanji/strokes-kana.json#シ",
+            "render": "stroke-order",
+            "caption": { "en": "shi. Short strokes low and flat, long stroke upward.", "es": null }
+          }
+        },
+        {
+          "id": "p-tsu",
+          "kind": "figure",
+          "figure": {
+            "kind": "svg",
+            "src": "data/kanji/strokes-kana.json#ツ",
+            "render": "stroke-order",
+            "caption": { "en": "tsu. Short strokes steep from above, long stroke downward.", "es": null }
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-kata-y",
+          "type": "choice",
+          "skill": "kana.katakana.read",
+          "title": { "en": "The y row", "es": null },
+          "items": "data/kana/katakana.json#rows.y",
+          "prompt": "glyph",
+          "answer": "romaji",
+          "distractors": { "n": 2 },
+          "count": 3,
+          "pass": { "accuracy": 0.8 }
+        },
+        {
+          "id": "e-kata-r",
+          "type": "choice",
+          "skill": "kana.katakana.read",
+          "title": { "en": "The r row", "es": null },
+          "items": "data/kana/katakana.json#rows.r",
+          "prompt": "glyph",
+          "answer": "romaji",
+          "distractors": { "n": 3 },
+          "count": 5,
+          "pass": { "accuracy": 0.8 }
+        },
+        {
+          "id": "e-kata-t-type",
+          "type": "typed",
+          "skill": "kana.katakana.write",
+          "title": { "en": "Type the t row, where two of the four live", "es": null },
+          "items": "data/kana/katakana.json#rows.t",
+          "prompt": "romaji",
+          "answer": "glyph",
+          "transform": "kana-katakana",
+          "compare": "trim",
+          "count": 5,
+          "pass": { "accuracy": 0.8 }
+        }
+      ]
+    },
+    {
+      "id": "kata-marked",
+      "title": { "en": "Marks, pairs, and the one katakana has that hiragana does not", "es": null },
+      "unlocks": {
+        "en": "ordinary loanwords, the ones on a menu",
+        "es": null
+      },
+      "pages": [
+        {
+          "id": "p-v",
+          "kind": "prose",
+          "title": { "en": "The v row exists here and nowhere else", "es": null },
+          "body": {
+            "en": [
+              "Dakuten and handakuten work exactly as they do in hiragana. Katakana adds one character hiragana has no use for: u with two dots, which writes a v.",
+              "It is optional in practice. The same word is often written with the b row instead, and both spellings are correct: violin is baiorin or vaiorin, and the dictionary lists both."
+            ],
+            "es": null
+          }
+        },
+        {
+          "id": "p-bar",
+          "kind": "prose",
+          "title": { "en": "The long vowel bar", "es": null },
+          "body": {
+            "en": [
+              "Katakana writes a long vowel with a bar rather than by adding a vowel kana. It is one beat of its own, so coffee is four beats and not two.",
+              "The bar is a kana character in its own right. It is not a dash and it is not punctuation, and it does not turn into one when a text checker sweeps a file."
+            ],
+            "es": null
+          }
+        },
+        {
+          "id": "p-sokuon-kata",
+          "kind": "callout",
+          "tone": "note",
+          "title": { "en": "Small tsu, again", "es": null },
+          "body": {
+            "en": [
+              "Same character, same silent beat, same doubling. In katakana it turns up constantly, because English words end in sharp consonants and Japanese hears them as a hold.",
+              "beddo, baggu, netto, poketto. In native words a small tsu never precedes g, z, d or b. Loanwords are the exception the writing system grants itself."
+            ],
+            "es": null
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-kata-g",
+          "type": "choice",
+          "skill": "kana.katakana.read",
+          "title": { "en": "The g row", "es": null },
+          "items": "data/kana/katakana.json#dakuten.g",
+          "prompt": "glyph",
+          "answer": "romaji",
+          "distractors": { "n": 3 },
+          "count": 5,
+          "pass": { "accuracy": 0.8 }
+        },
+        {
+          "id": "e-kata-b",
+          "type": "choice",
+          "skill": "kana.katakana.read",
+          "title": { "en": "The b row", "es": null },
+          "items": "data/kana/katakana.json#dakuten.b",
+          "prompt": "glyph",
+          "answer": "romaji",
+          "distractors": { "n": 3 },
+          "count": 5,
+          "pass": { "accuracy": 0.8 }
+        },
+        {
+          "id": "e-kata-p",
+          "type": "choice",
+          "skill": "kana.katakana.read",
+          "title": { "en": "The p row", "es": null },
+          "items": "data/kana/katakana.json#dakuten.p",
+          "prompt": "glyph",
+          "answer": "romaji",
+          "distractors": { "n": 3 },
+          "count": 5,
+          "pass": { "accuracy": 0.8 }
+        },
+        {
+          "id": "e-kata-yoon",
+          "type": "choice",
+          "skill": "kana.katakana.read",
+          "title": { "en": "Small ya, yu and yo", "es": null },
+          "items": "data/kana/katakana.json#yoon",
+          "prompt": "glyph",
+          "answer": "romaji",
+          "distractors": { "n": 3 },
+          "count": 10,
+          "pass": { "accuracy": 0.8 }
+        },
+        {
+          "id": "e-kata-yoon-type",
+          "type": "typed",
+          "skill": "kana.katakana.write",
+          "title": { "en": "Type the pair", "es": null },
+          "items": "data/kana/katakana.json#yoon",
+          "prompt": "romaji",
+          "answer": "glyph",
+          "transform": "kana-katakana",
+          "compare": "trim",
+          "count": 6,
+          "pass": { "accuracy": 0.8 }
+        }
+      ]
+    },
+    {
+      "id": "extended",
+      "title": { "en": "The digraphs that only exist for foreign sounds", "es": null },
+      "unlocks": {
+        "en": "converting an unknown English word yourself, which is the last rung of the whole kana ladder",
+        "es": null
+      },
+      "pages": [
+        {
+          "id": "p-extended",
+          "kind": "prose",
+          "title": { "en": "A full-size kana plus a small vowel", "es": null },
+          "body": {
+            "en": [
+              "Japanese has no fa, fi, fe or fo beat, no ti, no di, no wi, no we. Katakana builds them: a full-size kana that has the right consonant, followed by a small vowel that overrides its own.",
+              "fu plus a small a is fa. te plus a small i is ti. u plus a small i is wi. That is the whole mechanism, and once you see it the table stops needing to be memorised.",
+              "The 1991 Cabinet Notice splits them in two. Table 1 is the general-purpose set that ordinary writing uses. Table 2 is for writing as close to the original as possible, and the Notice explicitly sanctions falling back to table 1."
+            ],
+            "es": null
+          }
+        },
+        {
+          "id": "p-extended-table",
+          "kind": "table",
+          "title": { "en": "The ones worth recognising", "es": null },
+          "columns": [
+            { "en": "Built from", "es": null },
+            { "en": "Reads as", "es": null },
+            { "en": "In a word you know", "es": null }
+          ],
+          "rows": [
+            ["fu plus small a, i, e, o", "fa, fi, fe, fo", "fooku, a fork"],
+            ["te plus small i", "ti", "paatii, a party"],
+            ["de plus small i", "di", "dijitaru, digital"],
+            ["shi plus small e", "she", "shefu, a chef"],
+            ["chi plus small e", "che", "chesu, chess"],
+            ["ji plus small e", "je", "jetto, a jet"],
+            ["u plus small i, e, o", "wi, we, wo", "uisukii or wisukii, whisky"],
+            ["u with two dots", "v", "baiorin or vaiorin, a violin"]
+          ],
+          "note": {
+            "en": [
+              "The data file carries thirty-three of these with no romaji at all, because the research report lists the characters and never spells them. That is left as it is rather than filled in from memory, so this table is the smaller, sourced half."
+            ],
+            "es": null
+          }
+        },
+        {
+          "id": "p-both-right",
+          "kind": "callout",
+          "tone": "win",
+          "title": { "en": "Sometimes two spellings are both correct", "es": null },
+          "body": {
+            "en": [
+              "whisky is uisukii and wisukii. violin is baiorin and vaiorin. computer is konpyuutaa in general use and konpyuuta in industry style.",
+              "The game below accepts every spelling the dictionary lists. A grader that took only the first would be marking correct Japanese wrong."
+            ],
+            "es": null
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-kata-read-words",
+          "type": "choice",
+          "skill": "kana.katakana.read",
+          "title": { "en": "Read the word, pick the meaning", "es": null },
+          "items": "data/loanwords/seed.json#entries",
+          "prompt": "katakana",
+          "answer": "en",
+          "distractors": { "n": 3 },
+          "count": 12,
+          "pass": { "accuracy": 0.8 }
+        }
+      ]
+    },
+    {
+      "id": "write-it",
+      "title": { "en": "Write this English word in katakana", "es": null },
+      "unlocks": {
+        "en": "the reverse direction, which is the one that proves you have it",
+        "es": null
+      },
+      "pages": [
+        {
+          "id": "p-write",
+          "kind": "prose",
+          "title": { "en": "Producing it is a different skill from reading it", "es": null },
+          "body": {
+            "en": [
+              "Recognition is cheap and typing it back is not. Every guide that charges money makes the same bet: typed production recall, not multiple choice, is what makes an item stick.",
+              "Type romaji and it turns into katakana as you go. The keyboard is the same one you already have, and no operating system input method is needed.",
+              "Two things the converter needs from you. A long vowel bar is typed as a hyphen, so coffee is ko-hi-. And a lone n has to be typed twice, because a single n might still be the start of na or ni, so pen is penn."
+            ],
+            "es": null
+          }
+        },
+        {
+          "id": "p-hints",
+          "kind": "prose",
+          "title": { "en": "The hints come from the rules, the marking does not", "es": null },
+          "body": {
+            "en": [
+              "Press Hint and the rules that apply to the word are shown: which vowel gets inserted, whether a consonant doubles, whether a long vowel appears.",
+              "The marking is against the verified word list only. That is not a shortcut, it is the finding: about eighty percent of the mapping is deterministic and the rest is convention, so a rule engine would confidently mark camera and cake and bread wrong."
+            ],
+            "es": null
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-loanword-write",
+          "type": "custom",
+          "module": "jp.loanword",
+          "skill": "jp.loanword.write",
+          "title": { "en": "Write it in katakana", "es": null },
+          "items": "data/loanwords/seed.json#entries",
+          "count": 10,
+          "props": { "rules": "data/loanwords/rules.json#rules" }
+        },
+        {
+          "id": "e-loanword-write-hard",
+          "type": "custom",
+          "module": "jp.loanword",
+          "skill": "jp.loanword.write",
+          "title": { "en": "The harder list, including the two with two right answers", "es": null },
+          "items": "data/loanwords/seed.json#verified.entries",
+          "count": 8,
+          "props": { "rules": "data/loanwords/rules.json#rules" }
+        }
+      ]
+    },
+    {
+      "id": "your-name",
+      "title": { "en": "Your name in katakana", "es": null },
+      "unlocks": {
+        "en": "nothing measurable. It is the thing everyone wants on the first day and it is not a test.",
+        "es": null
+      },
+      "pages": [
+        {
+          "id": "p-name",
+          "kind": "prose",
+          "title": { "en": "You supply the sounds, it supplies the kana", "es": null },
+          "body": {
+            "en": [
+              "Do not type your name. Type how it sounds, one beat at a time, exactly as chapter 0 taught: Luciano is ru-shi-a-no, Smith is su-mi-su, Kate is ke-i-to.",
+              "That split is not a limitation being apologised for. Turning a spelling into a pronunciation needs a pronunciation dictionary, and this site does not carry one, so a converter fed raw letters produces confident nonsense. Feeding it beats is the half of the job that is genuinely deterministic.",
+              "Nothing here is scored. There is no dictionary entry to grade a name against, a Japanese speaker would write it by ear, and two people spelled the same can end up written differently and both be right."
+            ],
+            "es": null
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-namer",
+          "type": "custom",
+          "module": "jp.namer",
+          "skill": "kana.katakana.write",
+          "title": { "en": "Your name in katakana", "es": null },
+          "props": { "rules": "data/loanwords/rules.json#rules" }
+        }
+      ]
+    }
+  ]
+}

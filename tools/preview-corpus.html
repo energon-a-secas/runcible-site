@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Corpus preview | Runcible tools</title>
+<style>
+  body { font: 15px/1.5 system-ui, sans-serif; margin: 24px; color: #16181d; background: #fff; }
+  h1 { font-size: 20px; } h2 { font-size: 16px; margin-top: 28px; }
+  table { border-collapse: collapse; font-size: 13px; }
+  td, th { border: 1px solid #d6d9e0; padding: 4px 8px; text-align: left; }
+  .ok { color: #0a7d3f; } .bad { color: #c3113a; font-weight: 600; }
+  .strokes { display: flex; flex-wrap: wrap; gap: 10px; }
+  .strokes figure { margin: 0; text-align: center; }
+  .strokes svg { width: 72px; height: 72px; border: 1px solid #e4e6ec; border-radius: 6px; }
+  .strokes figcaption { font-size: 12px; color: #5b6070; }
+  path { fill: none; stroke: #16181d; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+  text { font-size: 8px; fill: #c11f4a; }
+  .attrib { margin-top: 28px; font-size: 12px; color: #5b6070; max-width: 62ch; }
+</style>
+</head>
+<body>
+<h1>Corpus preview</h1>
+<p>A dev-only page for the manual data step. It is not linked from the site, is
+marked <code>noindex</code>, and exists so a person can see what
+<code>tools/build-*.mjs</code> emitted without writing throwaway code. Serve the
+project and open <code>/tools/preview-corpus.html</code>.</p>
+
+<h2>Files</h2>
+<table id="files"><thead><tr><th>File</th><th>Status</th><th>Bytes</th><th>Records</th></tr></thead><tbody></tbody></table>
+
+<h2>Stroke order, rendered from the derived paths</h2>
+<div class="strokes" id="strokes"></div>
+
+<h2>wanakana, vendored</h2>
+<table id="kana"><thead><tr><th>Input</th><th>Output</th></tr></thead><tbody></tbody></table>
+
+<div class="attrib" id="attrib"></div>
+
+<script type="module">
+const FILES = [
+  ['../data/vocab/ch4.json', 'count'],
+  ['../data/vocab/ch5.json', 'count'],
+  ['../data/vocab/ch6.json', 'count'],
+  ['../data/kanji/kanjidic-numbers.json', 'count'],
+  ['../data/kanji/kanjidic-days.json', 'count'],
+  ['../data/kanji/kanjidic-grade1.json', 'count'],
+  ['../data/kanji/strokes-numbers.json', 'count'],
+  ['../data/kanji/strokes-days.json', 'count'],
+  ['../data/kanji/strokes-grade1.json', 'count'],
+  ['../data/kanji/strokes-kana.json', 'count'],
+  ['../data/sentences/ch4.json', 'count'],
+  ['../data/sentences/ch5.json', 'count'],
+  ['../books/japanese/decks/jp-first-words.json', 'notes'],
+  ['../books/japanese/decks/jp-grammar-words.json', 'notes'],
+  ['../books/japanese/decks/jp-kanji-grade1.json', 'notes'],
+  ['../books/japanese/decks/jp-sentences-basic.json', 'notes'],
+];
+const SHOW = ['あ', 'い', 'き', 'ん', 'ア', 'ソ', 'ン', 'ー'];
+
+const rows = document.querySelector('#files tbody');
+const acks = new Map();
+let strokes = null;
+
+function cell(row, text, cls) {
+  const td = document.createElement('td');
+  td.textContent = text;
+  if (cls) td.className = cls;
+  row.appendChild(td);
+}
+
+for (const [path, countKey] of FILES) {
+  const row = document.createElement('tr');
+  cell(row, path.replace('../', ''));
+  try {
+    const res = await fetch(path);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const text = await res.text();
+    const doc = JSON.parse(text);
+    cell(row, 'parsed', 'ok');
+    cell(row, new Blob([text]).size.toLocaleString());
+    const n = countKey === 'notes' ? (doc.notes || []).length : doc[countKey];
+    cell(row, String(n ?? ''));
+    if (doc._licence?.screen === 'required') acks.set(doc._licence.id, doc._licence);
+    if (doc.screen === 'required' && doc.attribution) acks.set(doc.licence, { acknowledgement: doc.attribution });
+    if (path.endsWith('strokes-kana.json')) strokes = doc;
+  } catch (err) {
+    cell(row, String(err.message), 'bad');
+    cell(row, '');
+    cell(row, '');
+  }
+  rows.appendChild(row);
+}
+
+const NS = 'http://www.w3.org/2000/svg';
+const box = document.getElementById('strokes');
+if (strokes) {
+  for (const char of SHOW) {
+    const entry = strokes[char];
+    const figure = document.createElement('figure');
+    const svg = document.createElementNS(NS, 'svg');
+    svg.setAttribute('viewBox', strokes.viewBox);
+    if (entry) {
+      entry.s.forEach((d, i) => {
+        const p = document.createElementNS(NS, 'path');
+        p.setAttribute('d', d);
+        svg.appendChild(p);
+        const at = entry.at?.[i];
+        if (at) {
+          const t = document.createElementNS(NS, 'text');
+          t.setAttribute('x', at[0]);
+          t.setAttribute('y', at[1]);
+          t.textContent = String(i + 1);
+          svg.appendChild(t);
+        }
+      });
+    }
+    figure.appendChild(svg);
+    const cap = document.createElement('figcaption');
+    cap.textContent = entry ? `${char} ${entry.n} strokes` : `${char} not in the set`;
+    figure.appendChild(cap);
+    box.appendChild(figure);
+  }
+}
+
+const { toKana, toRomaji, isKana } = await import('../js/vendor/wanakana.js');
+const kana = document.querySelector('#kana tbody');
+for (const [input, output] of [
+  ['konnichiha', toKana('konnichiha')],
+  ['nihongo', toKana('nihongo')],
+  ['gakkou', toKana('gakkou')],
+  ['こんにちは', toRomaji('こんにちは')],
+  ['isKana("あ")', String(isKana('あ'))],
+]) {
+  const row = document.createElement('tr');
+  cell(row, input);
+  cell(row, output);
+  kana.appendChild(row);
+}
+
+// CONTRACTS C11.3: the acknowledgement renders at the foot of the main content
+// region on every screen whose data declares screen: "required". This page is
+// not the shell, but it shows what the shell must render, from the data.
+const attrib = document.getElementById('attrib');
+for (const licence of acks.values()) {
+  const p = document.createElement('p');
+  p.textContent = licence.acknowledgement;
+  attrib.appendChild(p);
+}
+</script>
+</body>
+</html>

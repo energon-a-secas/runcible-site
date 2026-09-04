@@ -1,0 +1,309 @@
+{
+  "_licence": {
+    "source": "Runcible curated kana table, transcribed from docs/delivery/research/japanese-phonology-kana.md section D, which cites the 1986 and 1991 Cabinet Notices, the MEXT elementary curriculum and Wikipedia",
+    "url": "docs/delivery/research/japanese-phonology-kana.md",
+    "spdx": "public-domain",
+    "derived": false,
+    "id": null,
+    "acknowledgement": null,
+    "links": [
+      "https://en.wikipedia.org/wiki/Katakana",
+      "https://en.wikipedia.org/wiki/Ch%C5%8Donpu",
+      "https://ja.wikipedia.org/wiki/外来語の表記"
+    ],
+    "screen": "none",
+    "generated_by": "curated by workstream Ca from docs/delivery/research/japanese-phonology-kana.md sections D1 to D8. Every kana was resolved with a Unicode character-name lookup and then asserted equal to the character in the report's table, so no character in this file was typed by hand.",
+    "generated_at": "2026-09-04",
+    "note": "The character inventory is a fact and carries no licence, and the prose in this file is our own. Nothing here derives from a share-alike dataset, which is why screen is none."
+  },
+  "format": "neo-data/1",
+  "script": "katakana",
+  "fields": {
+    "id": "the value a C2.3 attempt carries as itemId",
+    "romaji": "Hepburn, exactly as the report's table spells it",
+    "pair": "the same sound in the other script",
+    "accept": "every romaji spelling that grades as correct here. Present only on the direct-object particle, whose cell the report writes as (w)o, which licenses both readings.",
+    "irregular": "the report bolds this cell: the row consonant does not hold",
+    "rare": "the report parenthesises this romaji. It sounds identical to the z-row character, and the 1986 Notice restricts it to same-sound repetition and to compounds where voicing was triggered.",
+    "table": "1 is the 1991 Notice general set, 2 stays close to the original",
+    "base, small": "a yoon record is two characters and one beat"
+  },
+  "row_order": [
+    "vowels",
+    "k",
+    "s",
+    "t",
+    "n",
+    "h",
+    "m",
+    "y",
+    "r",
+    "w",
+    "moraic-n"
+  ],
+  "rows": {
+    "vowels": [
+      {"id": "kana:ア", "glyph": "ア", "romaji": "a", "row": "vowels", "pair": "あ"},
+      {"id": "kana:イ", "glyph": "イ", "romaji": "i", "row": "vowels", "pair": "い"},
+      {"id": "kana:ウ", "glyph": "ウ", "romaji": "u", "row": "vowels", "pair": "う"},
+      {"id": "kana:エ", "glyph": "エ", "romaji": "e", "row": "vowels", "pair": "え"},
+      {"id": "kana:オ", "glyph": "オ", "romaji": "o", "row": "vowels", "pair": "お"}
+    ],
+    "k": [
+      {"id": "kana:カ", "glyph": "カ", "romaji": "ka", "row": "k", "pair": "か"},
+      {"id": "kana:キ", "glyph": "キ", "romaji": "ki", "row": "k", "pair": "き"},
+      {"id": "kana:ク", "glyph": "ク", "romaji": "ku", "row": "k", "pair": "く"},
+      {"id": "kana:ケ", "glyph": "ケ", "romaji": "ke", "row": "k", "pair": "け"},
+      {"id": "kana:コ", "glyph": "コ", "romaji": "ko", "row": "k", "pair": "こ"}
+    ],
+    "s": [
+      {"id": "kana:サ", "glyph": "サ", "romaji": "sa", "row": "s", "pair": "さ"},
+      {"id": "kana:シ", "glyph": "シ", "romaji": "shi", "row": "s", "pair": "し", "irregular": true},
+      {"id": "kana:ス", "glyph": "ス", "romaji": "su", "row": "s", "pair": "す"},
+      {"id": "kana:セ", "glyph": "セ", "romaji": "se", "row": "s", "pair": "せ"},
+      {"id": "kana:ソ", "glyph": "ソ", "romaji": "so", "row": "s", "pair": "そ"}
+    ],
+    "t": [
+      {"id": "kana:タ", "glyph": "タ", "romaji": "ta", "row": "t", "pair": "た"},
+      {"id": "kana:チ", "glyph": "チ", "romaji": "chi", "row": "t", "pair": "ち", "irregular": true},
+      {"id": "kana:ツ", "glyph": "ツ", "romaji": "tsu", "row": "t", "pair": "つ", "irregular": true},
+      {"id": "kana:テ", "glyph": "テ", "romaji": "te", "row": "t", "pair": "て"},
+      {"id": "kana:ト", "glyph": "ト", "romaji": "to", "row": "t", "pair": "と"}
+    ],
+    "n": [
+      {"id": "kana:ナ", "glyph": "ナ", "romaji": "na", "row": "n", "pair": "な"},
+      {"id": "kana:ニ", "glyph": "ニ", "romaji": "ni", "row": "n", "pair": "に"},
+      {"id": "kana:ヌ", "glyph": "ヌ", "romaji": "nu", "row": "n", "pair": "ぬ"},
+      {"id": "kana:ネ", "glyph": "ネ", "romaji": "ne", "row": "n", "pair": "ね"},
+      {"id": "kana:ノ", "glyph": "ノ", "romaji": "no", "row": "n", "pair": "の"}
+    ],
+    "h": [
+      {"id": "kana:ハ", "glyph": "ハ", "romaji": "ha", "row": "h", "pair": "は"},
+      {"id": "kana:ヒ", "glyph": "ヒ", "romaji": "hi", "row": "h", "pair": "ひ"},
+      {"id": "kana:フ", "glyph": "フ", "romaji": "fu", "row": "h", "pair": "ふ", "irregular": true},
+      {"id": "kana:ヘ", "glyph": "ヘ", "romaji": "he", "row": "h", "pair": "へ"},
+      {"id": "kana:ホ", "glyph": "ホ", "romaji": "ho", "row": "h", "pair": "ほ"}
+    ],
+    "m": [
+      {"id": "kana:マ", "glyph": "マ", "romaji": "ma", "row": "m", "pair": "ま"},
+      {"id": "kana:ミ", "glyph": "ミ", "romaji": "mi", "row": "m", "pair": "み"},
+      {"id": "kana:ム", "glyph": "ム", "romaji": "mu", "row": "m", "pair": "む"},
+      {"id": "kana:メ", "glyph": "メ", "romaji": "me", "row": "m", "pair": "め"},
+      {"id": "kana:モ", "glyph": "モ", "romaji": "mo", "row": "m", "pair": "も"}
+    ],
+    "y": [
+      {"id": "kana:ヤ", "glyph": "ヤ", "romaji": "ya", "row": "y", "pair": "や"},
+      {"id": "kana:ユ", "glyph": "ユ", "romaji": "yu", "row": "y", "pair": "ゆ"},
+      {"id": "kana:ヨ", "glyph": "ヨ", "romaji": "yo", "row": "y", "pair": "よ"}
+    ],
+    "r": [
+      {"id": "kana:ラ", "glyph": "ラ", "romaji": "ra", "row": "r", "pair": "ら"},
+      {"id": "kana:リ", "glyph": "リ", "romaji": "ri", "row": "r", "pair": "り"},
+      {"id": "kana:ル", "glyph": "ル", "romaji": "ru", "row": "r", "pair": "る"},
+      {"id": "kana:レ", "glyph": "レ", "romaji": "re", "row": "r", "pair": "れ"},
+      {"id": "kana:ロ", "glyph": "ロ", "romaji": "ro", "row": "r", "pair": "ろ"}
+    ],
+    "w": [
+      {"id": "kana:ワ", "glyph": "ワ", "romaji": "wa", "row": "w", "pair": "わ"},
+      {"id": "kana:ヲ", "glyph": "ヲ", "romaji": "o", "row": "w", "pair": "を", "accept": ["o", "wo"]}
+    ],
+    "moraic-n": [
+      {"id": "kana:ン", "glyph": "ン", "romaji": "n", "row": "moraic-n", "pair": "ん"}
+    ]
+  },
+  "dakuten_order": [
+    "g",
+    "z",
+    "d",
+    "b",
+    "p",
+    "v"
+  ],
+  "dakuten_meta": [
+    {
+      "base": "k",
+      "marked": "g",
+      "kind": "dakuten"
+    },
+    {
+      "base": "s",
+      "marked": "z",
+      "kind": "dakuten"
+    },
+    {
+      "base": "t",
+      "marked": "d",
+      "kind": "dakuten"
+    },
+    {
+      "base": "h",
+      "marked": "b",
+      "kind": "dakuten"
+    },
+    {
+      "base": "h",
+      "marked": "p",
+      "kind": "handakuten"
+    },
+    {
+      "base": null,
+      "marked": "v",
+      "kind": "dakuten"
+    }
+  ],
+  "dakuten": {
+    "g": [
+      {"id": "kana:ガ", "glyph": "ガ", "romaji": "ga", "row": "g", "kind": "dakuten", "pair": "が"},
+      {"id": "kana:ギ", "glyph": "ギ", "romaji": "gi", "row": "g", "kind": "dakuten", "pair": "ぎ"},
+      {"id": "kana:グ", "glyph": "グ", "romaji": "gu", "row": "g", "kind": "dakuten", "pair": "ぐ"},
+      {"id": "kana:ゲ", "glyph": "ゲ", "romaji": "ge", "row": "g", "kind": "dakuten", "pair": "げ"},
+      {"id": "kana:ゴ", "glyph": "ゴ", "romaji": "go", "row": "g", "kind": "dakuten", "pair": "ご"}
+    ],
+    "z": [
+      {"id": "kana:ザ", "glyph": "ザ", "romaji": "za", "row": "z", "kind": "dakuten", "pair": "ざ"},
+      {"id": "kana:ジ", "glyph": "ジ", "romaji": "ji", "row": "z", "kind": "dakuten", "pair": "じ", "irregular": true},
+      {"id": "kana:ズ", "glyph": "ズ", "romaji": "zu", "row": "z", "kind": "dakuten", "pair": "ず"},
+      {"id": "kana:ゼ", "glyph": "ゼ", "romaji": "ze", "row": "z", "kind": "dakuten", "pair": "ぜ"},
+      {"id": "kana:ゾ", "glyph": "ゾ", "romaji": "zo", "row": "z", "kind": "dakuten", "pair": "ぞ"}
+    ],
+    "d": [
+      {"id": "kana:ダ", "glyph": "ダ", "romaji": "da", "row": "d", "kind": "dakuten", "pair": "だ"},
+      {"id": "kana:ヂ", "glyph": "ヂ", "romaji": "ji", "row": "d", "kind": "dakuten", "pair": "ぢ", "rare": true},
+      {"id": "kana:ヅ", "glyph": "ヅ", "romaji": "zu", "row": "d", "kind": "dakuten", "pair": "づ", "rare": true},
+      {"id": "kana:デ", "glyph": "デ", "romaji": "de", "row": "d", "kind": "dakuten", "pair": "で"},
+      {"id": "kana:ド", "glyph": "ド", "romaji": "do", "row": "d", "kind": "dakuten", "pair": "ど"}
+    ],
+    "b": [
+      {"id": "kana:バ", "glyph": "バ", "romaji": "ba", "row": "b", "kind": "dakuten", "pair": "ば"},
+      {"id": "kana:ビ", "glyph": "ビ", "romaji": "bi", "row": "b", "kind": "dakuten", "pair": "び"},
+      {"id": "kana:ブ", "glyph": "ブ", "romaji": "bu", "row": "b", "kind": "dakuten", "pair": "ぶ"},
+      {"id": "kana:ベ", "glyph": "ベ", "romaji": "be", "row": "b", "kind": "dakuten", "pair": "べ"},
+      {"id": "kana:ボ", "glyph": "ボ", "romaji": "bo", "row": "b", "kind": "dakuten", "pair": "ぼ"}
+    ],
+    "p": [
+      {"id": "kana:パ", "glyph": "パ", "romaji": "pa", "row": "p", "kind": "handakuten", "pair": "ぱ"},
+      {"id": "kana:ピ", "glyph": "ピ", "romaji": "pi", "row": "p", "kind": "handakuten", "pair": "ぴ"},
+      {"id": "kana:プ", "glyph": "プ", "romaji": "pu", "row": "p", "kind": "handakuten", "pair": "ぷ"},
+      {"id": "kana:ペ", "glyph": "ペ", "romaji": "pe", "row": "p", "kind": "handakuten", "pair": "ぺ"},
+      {"id": "kana:ポ", "glyph": "ポ", "romaji": "po", "row": "p", "kind": "handakuten", "pair": "ぽ"}
+    ],
+    "v": [
+      {"id": "kana:ヴ", "glyph": "ヴ", "romaji": "vu", "row": "v", "kind": "dakuten", "pair": null}
+    ]
+  },
+  "yoon": [
+    {"id": "kana:キャ", "glyph": "キャ", "romaji": "kya", "base": "キ", "small": "ャ", "pair": "きゃ"},
+    {"id": "kana:キュ", "glyph": "キュ", "romaji": "kyu", "base": "キ", "small": "ュ", "pair": "きゅ"},
+    {"id": "kana:キョ", "glyph": "キョ", "romaji": "kyo", "base": "キ", "small": "ョ", "pair": "きょ"},
+    {"id": "kana:シャ", "glyph": "シャ", "romaji": "sha", "base": "シ", "small": "ャ", "pair": "しゃ"},
+    {"id": "kana:シュ", "glyph": "シュ", "romaji": "shu", "base": "シ", "small": "ュ", "pair": "しゅ"},
+    {"id": "kana:ショ", "glyph": "ショ", "romaji": "sho", "base": "シ", "small": "ョ", "pair": "しょ"},
+    {"id": "kana:チャ", "glyph": "チャ", "romaji": "cha", "base": "チ", "small": "ャ", "pair": "ちゃ"},
+    {"id": "kana:チュ", "glyph": "チュ", "romaji": "chu", "base": "チ", "small": "ュ", "pair": "ちゅ"},
+    {"id": "kana:チョ", "glyph": "チョ", "romaji": "cho", "base": "チ", "small": "ョ", "pair": "ちょ"},
+    {"id": "kana:ニャ", "glyph": "ニャ", "romaji": "nya", "base": "ニ", "small": "ャ", "pair": "にゃ"},
+    {"id": "kana:ニュ", "glyph": "ニュ", "romaji": "nyu", "base": "ニ", "small": "ュ", "pair": "にゅ"},
+    {"id": "kana:ニョ", "glyph": "ニョ", "romaji": "nyo", "base": "ニ", "small": "ョ", "pair": "にょ"},
+    {"id": "kana:ヒャ", "glyph": "ヒャ", "romaji": "hya", "base": "ヒ", "small": "ャ", "pair": "ひゃ"},
+    {"id": "kana:ヒュ", "glyph": "ヒュ", "romaji": "hyu", "base": "ヒ", "small": "ュ", "pair": "ひゅ"},
+    {"id": "kana:ヒョ", "glyph": "ヒョ", "romaji": "hyo", "base": "ヒ", "small": "ョ", "pair": "ひょ"},
+    {"id": "kana:ミャ", "glyph": "ミャ", "romaji": "mya", "base": "ミ", "small": "ャ", "pair": "みゃ"},
+    {"id": "kana:ミュ", "glyph": "ミュ", "romaji": "myu", "base": "ミ", "small": "ュ", "pair": "みゅ"},
+    {"id": "kana:ミョ", "glyph": "ミョ", "romaji": "myo", "base": "ミ", "small": "ョ", "pair": "みょ"},
+    {"id": "kana:リャ", "glyph": "リャ", "romaji": "rya", "base": "リ", "small": "ャ", "pair": "りゃ"},
+    {"id": "kana:リュ", "glyph": "リュ", "romaji": "ryu", "base": "リ", "small": "ュ", "pair": "りゅ"},
+    {"id": "kana:リョ", "glyph": "リョ", "romaji": "ryo", "base": "リ", "small": "ョ", "pair": "りょ"},
+    {"id": "kana:ギャ", "glyph": "ギャ", "romaji": "gya", "base": "ギ", "small": "ャ", "pair": "ぎゃ"},
+    {"id": "kana:ギュ", "glyph": "ギュ", "romaji": "gyu", "base": "ギ", "small": "ュ", "pair": "ぎゅ"},
+    {"id": "kana:ギョ", "glyph": "ギョ", "romaji": "gyo", "base": "ギ", "small": "ョ", "pair": "ぎょ"},
+    {"id": "kana:ジャ", "glyph": "ジャ", "romaji": "ja", "base": "ジ", "small": "ャ", "pair": "じゃ"},
+    {"id": "kana:ジュ", "glyph": "ジュ", "romaji": "ju", "base": "ジ", "small": "ュ", "pair": "じゅ"},
+    {"id": "kana:ジョ", "glyph": "ジョ", "romaji": "jo", "base": "ジ", "small": "ョ", "pair": "じょ"},
+    {"id": "kana:ビャ", "glyph": "ビャ", "romaji": "bya", "base": "ビ", "small": "ャ", "pair": "びゃ"},
+    {"id": "kana:ビュ", "glyph": "ビュ", "romaji": "byu", "base": "ビ", "small": "ュ", "pair": "びゅ"},
+    {"id": "kana:ビョ", "glyph": "ビョ", "romaji": "byo", "base": "ビ", "small": "ョ", "pair": "びょ"},
+    {"id": "kana:ピャ", "glyph": "ピャ", "romaji": "pya", "base": "ピ", "small": "ャ", "pair": "ぴゃ"},
+    {"id": "kana:ピュ", "glyph": "ピュ", "romaji": "pyu", "base": "ピ", "small": "ュ", "pair": "ぴゅ"},
+    {"id": "kana:ピョ", "glyph": "ピョ", "romaji": "pyo", "base": "ピ", "small": "ョ", "pair": "ぴょ"}
+  ],
+  "extended": {
+    "note": "Romaji is null on every entry here: the research report lists these digraphs but gives no romaji for them, and workstream Ca does not supply Japanese from its own knowledge. The example words on the matching rule in loanwords/rules.json (B16 for table 1, B17 for table 2) are the sourced way to read them.",
+    "tables": {
+      "1": "the 1991 Notice general-purpose set, rule B16",
+      "2": "for writing as close as possible to the original, rule B17"
+    },
+    "entries": [
+      {"id": "kana:ティ", "glyph": "ティ", "romaji": null, "table": 1},
+      {"id": "kana:ディ", "glyph": "ディ", "romaji": null, "table": 1},
+      {"id": "kana:トゥ", "glyph": "トゥ", "romaji": null, "table": 2},
+      {"id": "kana:ドゥ", "glyph": "ドゥ", "romaji": null, "table": 2},
+      {"id": "kana:ファ", "glyph": "ファ", "romaji": null, "table": 1},
+      {"id": "kana:フィ", "glyph": "フィ", "romaji": null, "table": 1},
+      {"id": "kana:フェ", "glyph": "フェ", "romaji": null, "table": 1},
+      {"id": "kana:フォ", "glyph": "フォ", "romaji": null, "table": 1},
+      {"id": "kana:ウィ", "glyph": "ウィ", "romaji": null, "table": 2},
+      {"id": "kana:ウェ", "glyph": "ウェ", "romaji": null, "table": 2},
+      {"id": "kana:ウォ", "glyph": "ウォ", "romaji": null, "table": 2},
+      {"id": "kana:シェ", "glyph": "シェ", "romaji": null, "table": 1},
+      {"id": "kana:ジェ", "glyph": "ジェ", "romaji": null, "table": 1},
+      {"id": "kana:チェ", "glyph": "チェ", "romaji": null, "table": 1},
+      {"id": "kana:ツァ", "glyph": "ツァ", "romaji": null, "table": 1},
+      {"id": "kana:ツィ", "glyph": "ツィ", "romaji": null, "table": 2},
+      {"id": "kana:ツェ", "glyph": "ツェ", "romaji": null, "table": 1},
+      {"id": "kana:ツォ", "glyph": "ツォ", "romaji": null, "table": 1},
+      {"id": "kana:デュ", "glyph": "デュ", "romaji": null, "table": 1},
+      {"id": "kana:テュ", "glyph": "テュ", "romaji": null, "table": 2},
+      {"id": "kana:フュ", "glyph": "フュ", "romaji": null, "table": 2},
+      {"id": "kana:イェ", "glyph": "イェ", "romaji": null, "table": 2},
+      {"id": "kana:クァ", "glyph": "クァ", "romaji": null, "table": 2},
+      {"id": "kana:クィ", "glyph": "クィ", "romaji": null, "table": 2},
+      {"id": "kana:クェ", "glyph": "クェ", "romaji": null, "table": 2},
+      {"id": "kana:クォ", "glyph": "クォ", "romaji": null, "table": 2},
+      {"id": "kana:グァ", "glyph": "グァ", "romaji": null, "table": 2},
+      {"id": "kana:ヴァ", "glyph": "ヴァ", "romaji": null, "table": 2},
+      {"id": "kana:ヴィ", "glyph": "ヴィ", "romaji": null, "table": 2},
+      {"id": "kana:ヴ", "glyph": "ヴ", "romaji": null, "table": 2},
+      {"id": "kana:ヴェ", "glyph": "ヴェ", "romaji": null, "table": 2},
+      {"id": "kana:ヴォ", "glyph": "ヴォ", "romaji": null, "table": 2},
+      {"id": "kana:ヴュ", "glyph": "ヴュ", "romaji": null, "table": 2}
+    ]
+  },
+  "sokuon": {
+    "id": "kana:ッ",
+    "glyph": "ッ",
+    "romaji": "double the following consonant",
+    "rules": [
+      "holds the following consonant for one silent beat",
+      "never starts a word",
+      "never precedes a vowel",
+      "in native words never precedes g, z, d, b or h; loanwords are the licensed exception",
+      "Hepburn writes geminate ch as tch"
+    ]
+  },
+  "chouonpu": {
+    "id": "kana:ー",
+    "glyph": "ー",
+    "unicode": "U+30FC",
+    "name": "KATAKANA-HIRAGANA PROLONGED SOUND MARK",
+    "rule": "Katakana writes a long vowel with this bar. Hiragana does not: it adds a vowel kana instead.",
+    "note": "This is the prolonged sound mark, not a dash. It is a kana character and must never be swept by an em dash check."
+  },
+  "confusables": [
+    {
+      "glyphs": [
+        "シ",
+        "ツ"
+      ],
+      "tell": "シ's strokes come in low and flat, ツ's come down steep",
+      "attribution": "Wikipedia, quoted in report section D7"
+    },
+    {
+      "glyphs": [
+        "ソ",
+        "ン"
+      ],
+      "tell": "same contrast, one stroke fewer",
+      "attribution": "Wikipedia, quoted in report section D7"
+    }
+  ]
+}

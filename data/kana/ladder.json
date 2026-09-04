@@ -1,0 +1,83 @@
+{
+  "_licence": {
+    "source": "Runcible curated kana table, transcribed from docs/delivery/research/japanese-phonology-kana.md section D, which cites the 1986 and 1991 Cabinet Notices, the MEXT elementary curriculum and Wikipedia",
+    "url": "docs/delivery/research/japanese-phonology-kana.md",
+    "spdx": "public-domain",
+    "derived": false,
+    "id": null,
+    "acknowledgement": null,
+    "links": [
+      "https://www.mext.go.jp/a_menu/shotou/cs/1320015.htm",
+      "docs/delivery/research/japanese-study-structure.md"
+    ],
+    "screen": "none",
+    "generated_by": "curated by workstream Ca from docs/delivery/research/japanese-phonology-kana.md sections D1 to D8. Every kana was resolved with a Unicode character-name lookup and then asserted equal to the character in the report's table, so no character in this file was typed by hand.",
+    "generated_at": "2026-09-04",
+    "note": "The character inventory is a fact and carries no licence, and the prose in this file is our own. Nothing here derives from a share-alike dataset, which is why screen is none."
+  },
+  "format": "neo-data/1",
+  "id": "kana-ladder",
+  "title": {
+    "en": "The kana ladder",
+    "es": "La escalera de kana"
+  },
+  "order": {
+    "statement": "Hiragana before katakana, gojuon order, in groups of five, then dakuten and handakuten, then yoon, then small tsu and long vowels, then the three particles, then katakana as a re-skin, then the extended digraphs.",
+    "verified": [
+      "japanese-study-structure.md section D: hiragana before katakana, verified across Tofugu, Genki and Tae Kim; the one dissent is the immersion camp, which teaches kana beside listening rather than the two scripts together",
+      "japanese-study-structure.md section D: gojuon order in groups of five, verified against Tofugu",
+      "japanese-study-structure.md section D: dakuten and handakuten first, then yoon, then small tsu last, verified against Tofugu",
+      "japanese-phonology-kana.md section D8: MEXT groups the writing-system items as steps 1 to 5"
+    ],
+    "ours": [
+      "japanese-phonology-kana.md section D8 states that the step boundaries and the unlocks column are the researcher's, not a source's",
+      "japanese-study-structure.md section D states that keeping gojuon rather than frequency order is the researcher's reasoning: dakuten, yoon and romanisation are column rules, so column order is the rule-teaching order",
+      "japanese-study-structure.md section D: reading is the product and writing is an opt-in track is the researcher's call, because a browser cannot grade a stroke"
+    ],
+    "unresolved": [
+      "japanese-phonology-kana.md section F: no controlled comparison of hiragana-first against katakana-first or simultaneous teaching was found. Treat the order as settled convention, not a demonstrated result."
+    ]
+  },
+  "steps": [
+    {
+      "step": 1,
+      "content": "46 basic hiragana, gojūon order, in 5-character rows",
+      "unlocks": "reading any hiragana word aloud, even one you do not know"
+    },
+    {
+      "step": 2,
+      "content": "dakuten and handakuten (25 more)",
+      "unlocks": "most native vocabulary; the full sound inventory"
+    },
+    {
+      "step": 3,
+      "content": "yōon, small tsu, hiragana long vowels (おう vs おお, えい)",
+      "unlocks": "correct beat counting; きょう against きよう"
+    },
+    {
+      "step": 4,
+      "content": "the three particles は へ を",
+      "unlocks": "reading a real sentence rather than a word list"
+    },
+    {
+      "step": 5,
+      "content": "46 basic katakana, same order, taught as a re-skin of step 1",
+      "unlocks": "writing your own name, and reading a menu"
+    },
+    {
+      "step": 6,
+      "content": "katakana dakuten, yōon, ー, ッ",
+      "unlocks": "ordinary loanwords: メニュー, コーヒー, サッカー"
+    },
+    {
+      "step": 7,
+      "content": "the extended digraphs (ティ ファ ウィ ヴ シェ ジェ チェ) plus section B",
+      "unlocks": "converting an unknown English word yourself, which is the game"
+    }
+  ],
+  "confusables_note": "The confusable pairs are taught as contrasts rather than in isolation. They live beside the rows they belong to, in hiragana.json and katakana.json.",
+  "reading_before_writing": {
+    "position": "Reading is the product. Writing practice is an opt-in track.",
+    "source": "japanese-study-structure.md section D, labelled there as the researcher's call for a website"
+  }
+}

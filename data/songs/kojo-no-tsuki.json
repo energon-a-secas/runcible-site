@@ -1,0 +1,67 @@
+{
+  "_licence": {
+    "source": "ja.wikipedia 荒城の月",
+    "url": "https://ja.wikipedia.org/wiki/荒城の月",
+    "spdx": "public-domain",
+    "derived": false,
+    "id": null,
+    "acknowledgement": null,
+    "links": [
+      "https://ja.wikipedia.org/wiki/荒城の月"
+    ],
+    "screen": "none",
+    "japan": {
+      "pd": true,
+      "basis": "lyricist 土井晩翠 Doi Bansui (1952); composer 瀧廉太郎 Taki Rentaro (1903). The later of the two deaths is 1952.",
+      "test": "Japan: both authors died 1967 or earlier, or the work is anonymous and published 1967 or earlier.",
+      "confidence": "high"
+    },
+    "us": {
+      "pd": true,
+      "basis": "first published 1901, 中学唱歌.",
+      "test": "US: published 1930 or earlier, or published later with every author dead in 1945 or earlier, because the URAA restored anything still protected in its source country on 1996-01-01.",
+      "confidence": "high"
+    },
+    "confidence_text": "High. Yamada's 1917 arrangement is also clear (d. 1965, pub. 1917).",
+    "verses_permitted": 1,
+    "verses_permitted_note": "The report transcribes the first verse only, so this file carries one verse. More verses need a fresh trip to the source, not a memory.",
+    "generated_by": "transcribed by workstream Ca from docs/delivery/research/japanese-open-data-and-songs.md sections D and E. No Japanese character was typed.",
+    "generated_at": "2026-09-04",
+    "note": "Verdict transcribed from the open-data report's song table. The two tests it applies are section C of that report."
+  },
+  "format": "neo-data/1",
+  "id": "kojo-no-tsuki",
+  "title": {
+    "ja": "荒城の月",
+    "romaji": "Kojo no Tsuki",
+    "en": null,
+    "qualifier": null,
+    "note": "The research report gives no English title. The gloss on each verse is the meaning."
+  },
+  "credits": {
+    "lyricist": "土井晩翠 Doi Bansui (1952)",
+    "composer": "瀧廉太郎 Taki Rentaro (1903)",
+    "first_published": "1901, 中学唱歌"
+  },
+  "transcription": "Hiragana as sung, in modern kana usage. Where the printed source uses historical kana the report says so and the note is carried below. The romaji and the gloss are the researcher's, not a source's.",
+  "verses": [
+    {
+      "n": 1,
+      "lines": [
+        "はるこうろうの はなのえん",
+        "めぐるさかずき かげさして",
+        "ちよのまつがえ わけいでし",
+        "むかしのひかり いまいずこ"
+      ],
+      "romaji_lines": [
+        "haru kourou no hana no en",
+        "meguru sakazuki kage sashite",
+        "chiyo no matsugae wakeideshi",
+        "mukashi no hikari ima izuko"
+      ],
+      "gloss": "Spring, a blossom banquet in the high tower; moonlight fell across the cups as they passed, breaking through thousand-year pine boughs. Where is that old light now?"
+    }
+  ],
+  "verse_count": 1,
+  "notes": []
+}

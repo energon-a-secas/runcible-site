@@ -1,0 +1,301 @@
+{
+  "format": "neo-chapter/1",
+  "id": "6-kanji",
+  "title": { "en": "Kanji beginnings", "es": "Comienzos de kanji" },
+  "goal": {
+    "statement": {
+      "en": "Recognise the first hundred kanji inside real words rather than in isolation, and read their commonest compounds",
+      "es": "Reconocer los primeros cien kanji dentro de palabras reales y no aislados, y leer sus compuestos más comunes"
+    },
+    "evidence": { "skill": "jp.kanji.read", "accuracy": 0.8, "min": 30, "window": 60 }
+  },
+  "requires": ["4-first-words"],
+  "state": "ready",
+  "estimate": {
+    "minutes": 3600,
+    "note": {
+      "en": "One to three months for the first three hundred kanji at twenty to thirty a week. The full two thousand takes far longer and is chapter 10.",
+      "es": null
+    }
+  },
+  "data": [
+    "data/vocab/ch6.json",
+    "data/kanji/kanjidic-numbers.json",
+    "data/kanji/kanjidic-days.json",
+    "data/kanji/kanjidic-grade1.json",
+    "data/kanji/strokes-numbers.json",
+    "data/kanji/strokes-days.json",
+    "data/kanji/strokes-grade1.json",
+    "books/japanese/decks/jp-kanji-grade1.json"
+  ],
+  "rungs": [
+    {
+      "id": "in-words",
+      "title": { "en": "Never one at a time", "es": null },
+      "unlocks": {
+        "en": "the only version of kanji study that survives contact with reading",
+        "es": null
+      },
+      "pages": [
+        {
+          "id": "p-in-words",
+          "kind": "prose",
+          "title": { "en": "A kanji on its own has no reading", "es": null },
+          "body": {
+            "en": [
+              "Most kanji have at least two readings and often more. The character for day is hi on its own, ka in a date, nichi in one compound and jitsu in another. Asked what it says, in isolation, the honest answer is that the question is malformed.",
+              "So every drill in this chapter shows a whole word. What is being learned is not the character, it is the word it appears in, and the character comes along for free.",
+              "That is also the finding behind the whole phase: grammar taught before vocabulary is abstract, and kanji taught before words is worse than abstract, it is unusable."
+            ],
+            "es": null
+          }
+        },
+        {
+          "id": "p-two-ladders",
+          "kind": "prose",
+          "title": { "en": "Two ways to order the first few hundred", "es": null },
+          "body": {
+            "en": [
+              "The English guides order kanji by frequency or by how they are built out of parts. The Japanese school system orders them by school grade, and the Kanken exam has twelve levels, the tenth being exactly the eighty characters taught in the first year.",
+              "This chapter uses the school-grade order, all eighty of grade one, plus the numbers and the days. It is the order a Spanish-language guide sends learners to, and it has the useful property of being a finite published list rather than somebody's ranking."
+            ],
+            "es": null
+          }
+        },
+        {
+          "id": "p-numbers-list",
+          "kind": "table",
+          "title": { "en": "The number kanji", "es": null },
+          "columns": [{ "en": "The fourteen", "es": null }],
+          "items": "data/kanji/kanjidic-numbers.json#order"
+        },
+        {
+          "id": "p-days-list",
+          "kind": "table",
+          "title": { "en": "The days and the time words", "es": null },
+          "columns": [{ "en": "The fifteen", "es": null }],
+          "items": "data/kanji/kanjidic-days.json#order"
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-singles-meaning",
+          "type": "choice",
+          "skill": "jp.kanji.read",
+          "title": { "en": "What does this word mean?", "es": null },
+          "items": "data/vocab/ch6.json#groups.singles",
+          "prompt": "word",
+          "answer": "gloss.0",
+          "distractors": { "n": 3 },
+          "count": 12,
+          "pass": { "accuracy": 0.75 }
+        },
+        {
+          "id": "e-singles-reading",
+          "type": "choice",
+          "skill": "jp.kanji.read",
+          "title": { "en": "How is it read here?", "es": null },
+          "items": "data/vocab/ch6.json#groups.singles",
+          "prompt": "word",
+          "answer": "kana",
+          "distractors": { "n": 3 },
+          "count": 12,
+          "pass": { "accuracy": 0.75 }
+        }
+      ]
+    },
+    {
+      "id": "strokes",
+      "title": { "en": "Stroke order, shown and not graded", "es": null },
+      "unlocks": {
+        "en": "reading handwriting, and looking a character up in a paper dictionary",
+        "es": null
+      },
+      "pages": [
+        {
+          "id": "p-strokes",
+          "kind": "prose",
+          "title": { "en": "Why it is here at all if nothing marks it", "es": null },
+          "body": {
+            "en": [
+              "Stroke order is not decoration. It is what makes handwriting legible to a reader, it is how a character is counted for a dictionary lookup, and it is the reason two characters that look alike in print are obviously different by hand.",
+              "It is also the thing a browser cannot mark. Judging a stroke needs the stroke, and there is no honest way to collect one here. So the order is drawn, and drilling it is chapter 12, which is deliberately optional and deliberately last.",
+              "The research is blunt about the trade: learning to write doubles or triples the time for very little real benefit. Reading is the product."
+            ],
+            "es": null
+          }
+        },
+        {
+          "id": "p-one",
+          "kind": "figure",
+          "figure": {
+            "kind": "svg",
+            "src": "data/kanji/strokes-numbers.json#一",
+            "render": "stroke-order",
+            "caption": { "en": "one. A single stroke, left to right, which is the first rule.", "es": null }
+          }
+        },
+        {
+          "id": "p-three",
+          "kind": "figure",
+          "figure": {
+            "kind": "svg",
+            "src": "data/kanji/strokes-numbers.json#三",
+            "render": "stroke-order",
+            "caption": { "en": "three. Top to bottom, which is the second rule.", "es": null }
+          }
+        },
+        {
+          "id": "p-day",
+          "kind": "figure",
+          "figure": {
+            "kind": "svg",
+            "src": "data/kanji/strokes-days.json#日",
+            "render": "stroke-order",
+            "caption": { "en": "sun, or day. Outside before inside, and the box is closed last.", "es": null }
+          }
+        },
+        {
+          "id": "p-mountain",
+          "kind": "figure",
+          "figure": {
+            "kind": "svg",
+            "src": "data/kanji/strokes-grade1.json#山",
+            "render": "stroke-order",
+            "caption": { "en": "mountain. Centre before the sides, which is the rule that surprises people.", "es": null }
+          }
+        },
+        {
+          "id": "p-kanjivg",
+          "kind": "callout",
+          "tone": "note",
+          "title": { "en": "Where the strokes come from", "es": null },
+          "body": {
+            "en": [
+              "KanjiVG, an open project that publishes every character as ordered stroke paths, under a share-alike licence that asks to be named. It is named at the foot of this page.",
+              "The same one grant covers the kana in chapters 1 and 2 and the kanji here, which is why every stroke file in this project lives in one directory under one licence."
+            ],
+            "es": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "radicals",
+      "title": { "en": "The parts characters are made of", "es": null },
+      "unlocks": {
+        "en": "guessing at a character you have never seen, which is what fluent readers actually do",
+        "es": null
+      },
+      "pages": [
+        {
+          "id": "p-radicals",
+          "kind": "prose",
+          "title": { "en": "Almost every kanji is other kanji, stacked", "es": null },
+          "body": {
+            "en": [
+              "Tree is a single character. Two of them side by side is grove. Three is forest. That is not a mnemonic somebody invented, it is how the characters are built.",
+              "The recurring parts are called radicals, and the dictionary indexes every character by one of them. A character's radical often carries its rough meaning while another part carries its sound, which is why a character you have never seen can still be half readable.",
+              "This is the part of kanji study that compounds. Learn a hundred characters and the next hundred are cheaper, because most of their parts are already in the first hundred."
+            ],
+            "es": null
+          }
+        },
+        {
+          "id": "p-radical-table",
+          "kind": "table",
+          "title": { "en": "Four you can see happening", "es": null },
+          "columns": [
+            { "en": "Built from", "es": null },
+            { "en": "Gives", "es": null },
+            { "en": "Meaning", "es": null }
+          ],
+          "rows": [
+            ["tree, twice", "林", "grove"],
+            ["tree, three times", "森", "forest"],
+            ["sun and moon together", "明", "bright, and it is not in grade one"],
+            ["a person leaning on a tree", "休", "rest"]
+          ],
+          "note": {
+            "en": [
+              "The four readings above are the author's summary of how these characters are built, not a quotation from the dictionary file. The dictionary file carries the radical number for every character in this chapter, which is the sourced version of the same fact."
+            ],
+            "es": null
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-grade1-meaning",
+          "type": "choice",
+          "skill": "jp.kanji.read",
+          "title": { "en": "The grade one characters, in words", "es": null },
+          "items": "data/vocab/ch6.json#groups.singles",
+          "prompt": "word",
+          "answer": "gloss.0",
+          "distractors": { "n": 3 },
+          "count": 15,
+          "pass": { "accuracy": 0.75 }
+        }
+      ]
+    },
+    {
+      "id": "compounds",
+      "title": { "en": "Two characters, one word", "es": null },
+      "unlocks": {
+        "en": "reading a sign, a headline and a menu, where compounds are most of the text",
+        "es": null
+      },
+      "pages": [
+        {
+          "id": "p-compounds",
+          "kind": "prose",
+          "title": { "en": "The readings change when they pair up", "es": null },
+          "body": {
+            "en": [
+              "The character for sun read on its own is hi. Put it in front of the character for origin and the pair is nihon, Japan. Add the character for language and it is nihongo, the Japanese language.",
+              "Compounds usually take the readings borrowed from Chinese, and single characters usually take the native ones. Usually is doing real work in that sentence, and there are enough exceptions that the reliable route is to learn the word rather than the rule."
+            ],
+            "es": null
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-compounds-meaning",
+          "type": "choice",
+          "skill": "jp.kanji.read",
+          "title": { "en": "What does the compound mean?", "es": null },
+          "items": "data/vocab/ch6.json#groups.compounds",
+          "prompt": "word",
+          "answer": "gloss.0",
+          "distractors": { "n": 3 },
+          "count": 12,
+          "pass": { "accuracy": 0.75 }
+        },
+        {
+          "id": "e-compounds-reading",
+          "type": "typed",
+          "skill": "jp.kanji.read",
+          "title": { "en": "Type the reading in kana", "es": null },
+          "items": "data/vocab/ch6.json#groups.compounds",
+          "prompt": "word",
+          "answer": "kana",
+          "transform": "kana",
+          "compare": "trim|kana",
+          "count": 8,
+          "pass": { "accuracy": 0.7 }
+        },
+        {
+          "id": "e-deck-kanji",
+          "type": "deck",
+          "skill": "jp.kanji.read",
+          "title": { "en": "Review the grade one kanji", "es": null },
+          "src": "books/japanese/decks/jp-kanji-grade1.json",
+          "mode": "review",
+          "limit": 20
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "_licence": {
+    "source": "Runcible curated katakana adaptation rules, transcribed from docs/delivery/research/japanese-phonology-kana.md section B, which synthesises the 1991 Cabinet Notice on writing loanwords, the English Wikipedia articles on transcription into Japanese, Japanese phonology, sokuon and chouonpu, two Tofugu guides and Balan 2015",
+    "url": "docs/delivery/research/japanese-phonology-kana.md",
+    "spdx": "CC-BY-SA-4.0",
+    "derived": true,
+    "id": "wikipedia",
+    "acknowledgement": "Katakana adaptation rules after English Wikipedia (CC BY-SA 4.0), the Agency for Cultural Affairs Cabinet Notices, and Tofugu.",
+    "links": [
+      "https://en.wikipedia.org/wiki/Transcription_into_Japanese",
+      "https://en.wikipedia.org/wiki/Japanese_phonology",
+      "https://www.bunka.go.jp/kokugo_nihongo/sisaku/joho/joho/kijun/naikaku/gairai/honbun02.html"
+    ],
+    "screen": "required",
+    "generated_by": "curated by workstream Ca from the phonology report section B, all thirty rows, verbatim.",
+    "generated_at": "2026-09-04",
+    "note": "Conservative on purpose. The rule wording is our researcher's synthesis and the example words are facts, so share-alike arguably does not attach at all. It is declared anyway, because the synthesis leans on CC BY-SA text and the cheaper error is one extra line at the foot of a screen.",
+    "kind_classification": "The D, C and M classification is the researcher's own synthesis, stated as theirs in section B. No source grades a rule by implementability."
+  },
+  "format": "neo-data/1",
+  "id": "loanword-rules",
+  "title": {
+    "en": "Katakana adaptation rules",
+    "es": "Reglas de adaptacion al katakana"
+  },
+  "purpose": "Hints and explanations only. These rules never grade an answer: data/loanwords/seed.json does that.",
+  "kinds": {
+    "D": "deterministic, safe to compute",
+    "C": "convention, must come from a word list",
+    "M": "mostly deterministic with a named exception class"
+  },
+  "pipeline": "Two stages, not a spelling-to-katakana map. Stage one turns the English word into a phoneme string. Stage two applies these rewrites. English spelling does not predict katakana.",
+  "background": [
+    "Japanese counts beats, not syllables. The unit of timing is the mora and one kana is one beat, so a foreign word is not re-spelled, it is re-timed.",
+    "Almost every beat is a vowel alone or one consonant plus one vowel. It cannot be a bare consonant and cannot begin with two stacked consonants.",
+    "Exactly two things may close a beat: the moraic n, and the small tsu, which holds the next consonant. Any other stranded consonant gets a vowel glued on."
+  ],
+  "counts": {
+    "rules": 30
+  },
+  "rules": [
+    {"id": "B1", "kind": "D", "pattern": "stranded consonant, default", "outcome": "+ ウ vowel", "rule": "insert u", "examples": [{"en": "risk", "katakana": ["リスク"], "romaji": "risuku"}, {"en": "bus", "katakana": ["バス"], "romaji": "basu"}, {"en": "golf", "katakana": ["ゴルフ"], "romaji": "gorufu"}], "examples_text": "risk リスク *risuku*; bus バス *basu*; golf ゴルフ *gorufu*"},
+    {"id": "B2", "kind": "D", "pattern": "stranded /t/ /d/", "outcome": "ト ド", "rule": "insert o, not u, so the stop survives (tu→*tsu*, du→*dzu*)", "examples": [{"en": "robot", "katakana": ["ロボット"], "romaji": "robotto"}, {"en": "card", "katakana": ["カード"], "romaji": "kādo"}, {"en": "bed", "katakana": ["ベッド"], "romaji": "beddo"}], "examples_text": "robot ロボット *robotto*; card カード *kādo*; bed ベッド *beddo*"},
+    {"id": "B3", "kind": "D", "pattern": "stranded /tʃ/ /dʒ/", "outcome": "チ ジ", "rule": "insert i", "examples": [{"en": "match", "katakana": ["マッチ"], "romaji": "matchi"}, {"en": "orange", "katakana": ["オレンジ"], "romaji": "orenji"}, {"en": "bridge", "katakana": ["ブリッジ"], "romaji": "burijji"}], "examples_text": "match マッチ *matchi*; orange オレンジ *orenji*; bridge ブリッジ *burijji*"},
+    {"id": "B4", "kind": "M", "pattern": "stranded /ʃ/", "outcome": "シュ usually, シ sometimes", "rule": "u outnumbers i after ʃ; i is only 16% of tokens", "examples": [{"en": "flash", "katakana": ["フラッシュ"], "romaji": "furasshu"}, {"en": "brush", "katakana": ["ブラシ"], "romaji": "burashi"}, {"en": "ship", "katakana": ["シップ"], "romaji": "shippu"}], "examples_text": "flash フラッシュ *furasshu*; brush ブラシ *burashi*; ship シップ *shippu*"},
+    {"id": "B5", "kind": "C", "pattern": "final /k/ in older loans", "outcome": "キ", "rule": "i by vowel harmony when a front vowel is adjacent; pre-war borrowings only", "examples": [{"en": "cake", "katakana": ["ケーキ"], "romaji": "kēki"}, {"en": "steak", "katakana": ["ステーキ"], "romaji": "sutēki"}, {"en": "strike", "katakana": ["ストライキ"], "romaji": "sutoraiki"}], "examples_text": "cake ケーキ *kēki*; steak ステーキ *sutēki*; strike ストライキ *sutoraiki*"},
+    {"id": "B6", "kind": "D", "pattern": "consonant cluster", "outcome": "split, one kana per consonant", "rule": "apply B1 to B3 to each stranded consonant", "examples": [{"en": "spring", "katakana": ["スプリング"], "romaji": "supuringu"}, {"en": "Christmas", "katakana": ["クリスマス"], "romaji": "kurisumasu"}, {"en": "text", "katakana": ["テキスト"], "romaji": "tekisuto"}], "examples_text": "spring スプリング *supuringu*; Christmas クリスマス *kurisumasu*; text テキスト *tekisuto*"},
+    {"id": "B7", "kind": "D", "pattern": "/l/ and /r/", "outcome": "ラ リ ル レ ロ", "rule": "one series serves both; the distinction is lost", "examples": [{"en": "London", "katakana": ["ロンドン"], "romaji": "rondon"}, {"en": "hotel", "katakana": ["ホテル"], "romaji": "hoteru"}, {"en": "level", "katakana": ["レベル"], "romaji": "reberu"}], "examples_text": "London ロンドン *rondon*; hotel ホテル *hoteru*; level レベル *reberu*"},
+    {"id": "B8", "kind": "C", "pattern": "/v/", "outcome": "バ ビ ブ ベ ボ, or ヴァ ヴィ ヴ ヴェ ヴォ", "rule": "b is the table-1 form, ヴ the table-2 form used when closeness matters", "examples": [{"en": "violin", "katakana": ["バイオリン", "ヴァイオリン"]}, {"en": "love", "katakana": ["ラブ", "ラヴ"]}, {"en": "Viking", "katakana": ["バイキング"]}], "examples_text": "violin バイオリン / ヴァイオリン; love ラブ / ラヴ; Viking バイキング"},
+    {"id": "B9", "kind": "D", "pattern": "/θ/", "outcome": "サ シ ス セ ソ", "rule": "voiceless th becomes s", "examples": [{"en": "three", "katakana": ["スリー"], "romaji": "surī"}, {"en": "thank you", "katakana": ["サンキュー"], "romaji": "sankyū"}, {"en": "thief", "katakana": ["シーフ"], "romaji": "shīfu"}], "examples_text": "three スリー *surī*; thank you サンキュー *sankyū*; thief シーフ *shīfu*"},
+    {"id": "B10", "kind": "D", "pattern": "/ð/", "outcome": "ザ ジ ズ ゼ ゾ", "rule": "voiced th becomes z", "examples": [{"en": "mother", "katakana": ["マザー"], "romaji": "mazā"}, {"en": "then", "katakana": ["ゼン"], "romaji": "zen"}, {"en": "algorithm", "katakana": ["アルゴリズム"], "romaji": "arugorizumu"}], "examples_text": "mother マザー *mazā*; then ゼン *zen*; algorithm アルゴリズム *arugorizumu*"},
+    {"id": "B11", "kind": "D", "pattern": "/f/", "outcome": "フ + small vowel: ファ フィ フ フェ フォ", "rule": "フ is the only native f-beat; the rest are digraphs", "examples": [{"en": "photo", "katakana": ["フォト"], "romaji": "foto"}, {"en": "fan", "katakana": ["ファン"], "romaji": "fan"}, {"en": "fork", "katakana": ["フォーク"], "romaji": "fōku"}], "examples_text": "photo フォト *foto*; fan ファン *fan*; fork フォーク *fōku*"},
+    {"id": "B12", "kind": "C", "pattern": "/w/", "outcome": "ワ, or ウ + small vowel: ウィ ウェ ウォ", "rule": "ワ for *wa*; ウィ/ウェ/ウォ are table-2 and table-1 allows ウイ/ウエ/ウオ", "examples": [{"en": "wine", "katakana": ["ワイン"], "romaji": "wain"}, {"en": "whisky", "katakana": ["ウイスキー", "ウィスキー"]}, {"en": "sandwich", "katakana": ["サンドイッチ", "サンドウィッチ"]}], "examples_text": "wine ワイン *wain*; whisky ウイスキー / ウィスキー; sandwich サンドイッチ / サンドウィッチ"},
+    {"id": "B13", "kind": "M", "pattern": "/hw/ (spelled wh)", "outcome": "ホワ / ホ", "rule": "rendered as *how-* or *ho-*", "examples": [{"en": "white", "katakana": ["ホワイト"], "romaji": "howaito"}, {"en": "whale", "katakana": ["ホエール"], "romaji": "hoēru"}, {"en": "wheel", "katakana": ["ホイール"], "romaji": "hoīru"}], "examples_text": "white ホワイト *howaito*; whale ホエール *hoēru*; wheel ホイール *hoīru*"},
+    {"id": "B14", "kind": "D", "pattern": "/j/ + vowel, palatal beats", "outcome": "i-row kana + small ャ ュ ョ", "rule": "one beat, not two", "examples": [{"en": "juice", "katakana": ["ジュース"], "romaji": "jūsu"}, {"en": "chocolate", "katakana": ["チョコレート"], "romaji": "chokorēto"}, {"en": "new", "katakana": ["ニュー"], "romaji": "nyū"}], "examples_text": "juice ジュース *jūsu*; chocolate チョコレート *chokorēto*; new ニュー *nyū*"},
+    {"id": "B15", "kind": "C", "pattern": "/kæ/ /gæ/", "outcome": "キャ ギャ, sometimes カ ガ", "rule": "the \"cat\" vowel palatalises k and g", "examples": [{"en": "cat", "katakana": ["キャット"], "romaji": "kyatto"}, {"en": "gap", "katakana": ["ギャップ"], "romaji": "gyappu"}, {"en": "camera", "katakana": ["カメラ"]}, {"en": "Kansas", "katakana": ["カンザス"]}], "examples_text": "cat キャット *kyatto*; gap ギャップ *gyappu*; but camera カメラ, Kansas カンザス"},
+    {"id": "B16", "kind": "D", "pattern": "table-1 digraphs", "outcome": "シェ チェ ツァ ツェ ツォ ティ ファ フィ フェ フォ ジェ ディ デュ", "rule": "the 1991 notice's general-purpose set", "examples": [{"en": "party", "katakana": ["パーティー"], "romaji": "pātī"}, {"en": "chess", "katakana": ["チェス"], "romaji": "chesu"}, {"en": "jet", "katakana": ["ジェット"], "romaji": "jetto"}], "examples_text": "party パーティー *pātī*; chess チェス *chesu*; jet ジェット *jetto*"},
+    {"id": "B17", "kind": "C", "pattern": "table-2 digraphs", "outcome": "イェ ウィ ウェ ウォ クァ クィ クェ クォ ツィ トゥ グァ ドゥ ヴァ ヴィ ヴ ヴェ ヴォ テュ フュ ヴュ", "rule": "for writing \"as close as possible to the original\"; table-1 fallbacks are sanctioned (ヴァ→バ, トゥ→ツ/ト, ウォ→ウオ, イェ→イエ)", "examples": [{"en": "Venezia", "katakana": ["ヴェネツィア", "ベネチア"]}, {"en": "quark", "katakana": ["クォーク", "クオーク"]}, {"en": "cartoon", "katakana": ["カートゥーン"]}], "examples_text": "Venezia ヴェネツィア / ベネチア; quark クォーク / クオーク; cartoon カートゥーン"},
+    {"id": "B18", "kind": "M", "pattern": "stressed long vowel", "outcome": "ー after the vowel kana", "rule": "one bar, one extra beat", "examples": [{"en": "cheese", "katakana": ["チーズ"], "romaji": "chīzu"}, {"en": "bacon", "katakana": ["ベーコン"], "romaji": "bēkon"}, {"en": "pool", "katakana": ["プール"]}], "examples_text": "cheese チーズ *chīzu*; bacon ベーコン *bēkon*; pool プール vs pull プル"},
+    {"id": "B19", "kind": "D", "pattern": "-er -or -ar -ur, vowel+r", "outcome": "ー", "rule": "the r is not pronounced, it lengthens the vowel, as in non-rhotic English", "examples": [{"en": "car", "katakana": ["カー"], "romaji": "kā"}, {"en": "motor", "katakana": ["モーター"], "romaji": "mōtā"}, {"en": "earth", "katakana": ["アース"], "romaji": "āsu"}, {"en": "computer", "katakana": ["コンピューター"]}], "examples_text": "car カー *kā*; motor モーター *mōtā*; earth アース *āsu*; computer コンピューター"},
+    {"id": "B20", "kind": "C", "pattern": "final long vowel, keep the ー?", "outcome": "varies", "rule": "general use writes コンピューター, JIS and industry style コンピュータ; both attested", "examples": [{"en": "computer", "katakana": ["コンピューター", "コンピュータ"]}, {"en": "printer", "katakana": ["プリンター", "プリンタ"]}], "examples_text": "computer コンピューター / コンピュータ; printer プリンター / プリンタ"},
+    {"id": "B21", "kind": "D", "pattern": "diphthongs /aɪ aʊ ɔɪ/", "outcome": "アイ アウ オイ", "rule": "written as two vowels, never with ー", "examples": [{"en": "high", "katakana": ["ハイ"], "romaji": "hai"}, {"en": "town", "katakana": ["タウン"], "romaji": "taun"}, {"en": "coin", "katakana": ["コイン"], "romaji": "koin"}], "examples_text": "high ハイ *hai*; town タウン *taun*; coin コイン *koin*"},
+    {"id": "B22", "kind": "C", "pattern": "/eɪ/ and /oʊ/", "outcome": "エー/エイ, オー/オウ", "rule": "genuinely split; both attested for the same word", "examples": [{"en": "name", "katakana": ["ネーム"], "romaji": "nēmu"}, {"en": "eight", "katakana": ["エイト"], "romaji": "eito"}, {"en": "show", "katakana": ["ショー"], "romaji": "shō"}, {"en": "shadow", "katakana": ["シャドー", "シャドウ"]}], "examples_text": "name ネーム *nēmu*; eight エイト *eito*; show ショー *shō*; shadow シャドー / シャドウ"},
+    {"id": "B23", "kind": "M", "pattern": "gemination っ", "outcome": "small ッ before the consonant", "rule": "double the stops /p b ch j t d k g/ when they end the word after a short vowel; last syllable only. Wikipedia calls the same pattern \"not universal\", with kick キック vs extra エクストラ, キャッスル vs バトル", "examples": [{"en": "dip", "katakana": ["ディップ"]}, {"en": "look", "katakana": ["ルック"]}, {"en": "picnic", "katakana": ["ピクニック"]}], "examples_text": "dip ディップ; look ルック; picnic ピクニック, not *pikkunikku*"},
+    {"id": "B24", "kind": "D", "pattern": "voiced gemination", "outcome": "ッ before g z d b", "rule": "native words forbid this; loanwords are the licensed exception", "examples": [{"en": "bed", "katakana": ["ベッド"]}, {"en": "bag", "katakana": ["バッグ"]}, {"en": "egg", "katakana": ["エッグ"]}], "examples_text": "bed ベッド; bag バッグ; egg エッグ"},
+    {"id": "B25", "kind": "D", "pattern": "-ing", "outcome": "ング", "rule": "ŋ becomes ン + グ", "examples": [{"en": "shopping", "katakana": ["ショッピング"]}, {"en": "ring", "katakana": ["リング"]}, {"en": "spring", "katakana": ["スプリング"]}], "examples_text": "shopping ショッピング; ring リング; spring スプリング"},
+    {"id": "B26", "kind": "D", "pattern": "-tion -sion", "outcome": "ション", "rule": "/ʃən/ becomes ション; the preceding consonant follows B6", "examples": [{"en": "action", "katakana": ["アクション"]}, {"en": "connection", "katakana": ["コネクション"]}, {"en": "television", "katakana": ["テレビジョン"]}], "examples_text": "action アクション; connection コネクション; television テレビジョン"},
+    {"id": "B27", "kind": "M", "pattern": "plural -s", "outcome": "ス / ズ / ツ", "rule": "after voiceless, voiced, and t respectively", "examples": [{"en": "six", "katakana": ["シックス"]}, {"en": "kids", "katakana": ["キッズ"]}, {"en": "sports", "katakana": ["スポーツ"]}], "examples_text": "six シックス; kids キッズ; sports スポーツ"},
+    {"id": "B28", "kind": "D", "pattern": "final /n/", "outcome": "ン, not ヌ", "rule": "n is a legal coda, so no vowel is inserted (French loans excepted)", "examples": [{"en": "pen", "katakana": ["ペン"]}, {"en": "open", "katakana": ["オープン"]}, {"en": "fan", "katakana": ["ファン"]}], "examples_text": "pen ペン; open オープン; fan ファン"},
+    {"id": "B29", "kind": "C", "pattern": "truncation of long loans", "outcome": "clip to about four beats", "rule": "commonest pattern takes the first two beats of each element of a compound", "examples": [{"en": null, "katakana": ["パソコン"]}, {"en": null, "katakana": ["リモコン"]}, {"en": null, "katakana": ["コンビニ"]}, {"en": null, "katakana": ["ファミレス"]}], "examples_text": "パソコン; リモコン; コンビニ; ファミレス"},
+    {"id": "B30", "kind": "C", "pattern": "pre-1950 borrowings", "outcome": "unpredictable", "rule": "\"older loanwords are often the way they are for customary reasons, you'll need to remember how to spell them\"", "examples": [{"en": "cake", "katakana": ["ケーキ"]}, {"en": "radio", "katakana": ["ラジオ"]}, {"en": null, "katakana": ["カリフォルニア"]}], "examples_text": "cake ケーキ not *ケーク*; radio ラジオ not *レイディオ*; カリフォルニア"}
+  ],
+  "caveats": [
+    "The 1991 Cabinet Notice contradicts the idea of one right spelling, deliberately. Its first set of notes declines to choose between the two attested spellings of handkerchief and of glove, and defers to established usage within a field. A game marking one of an attested pair wrong contradicts the notice it implicitly cites, so accept both the table 1 and the table 2 form.",
+    "Tofugu states gemination as a rule and Wikipedia states it as a tendency, giving counter-examples in both directions. Implement the rule as a hint generator and treat the word list as the answer.",
+    "Roughly 80 percent of the mapping is deterministic. The rest is convention: gemination, whether a final long vowel keeps its bar, whether a word takes the conservative or the closer-to-original spelling, and every pre-1950 borrowing.",
+    "The rules are stated over sounds, not spelling, so a general converter would need a pronunciation dictionary. English spelling does not give you phonemes."
+  ]
+}

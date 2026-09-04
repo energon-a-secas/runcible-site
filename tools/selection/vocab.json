@@ -1,0 +1,280 @@
+{
+  "_note": [
+    "Input to tools/build-vocab.mjs. NOT shipped content: the shipped content is",
+    "data/vocab/*.json, which this file selects out of jmdict-eng-common.",
+    "Each word is a lookup, not a translation. `q` matches a kanji or kana form",
+    "exactly; `pos` disambiguates when a form has several entries (は is a",
+    "particle and also a tooth); `reading` picks one kana form when JMdict lists",
+    "several and the first is not the one a beginner should learn (four is よん,",
+    "not し, in a counting drill). `senses` caps how many glosses are kept.",
+    "A word that resolves to nothing is reported by name and the run fails, so a",
+    "typo here can never become a silently shorter deck."
+  ],
+  "slices": [
+    {
+      "file": "ch4.json",
+      "chapter": "4-first-words",
+      "title": { "en": "First words", "es": "Primeras palabras" },
+      "budget_kb": 120,
+      "groups": [
+        {
+          "id": "greetings",
+          "label": { "en": "Greetings", "es": "Saludos" },
+          "words": [
+            { "q": "こんにちは", "pos": "int" },
+            { "q": "おはよう", "pos": "int" },
+            { "q": "おはようございます", "pos": "int" },
+            { "q": "こんばんは", "pos": "int" },
+            { "q": "おやすみなさい", "pos": "exp" },
+            { "q": "さようなら", "pos": "int" },
+            { "q": "ありがとう", "pos": "int" },
+            { "q": "ありがとうございます", "pos": "exp" },
+            { "q": "すみません", "pos": "exp" },
+            { "q": "ごめん", "pos": "int" },
+            { "q": "はい", "pos": "int" },
+            { "q": "いいえ", "pos": "int" },
+            { "q": "お願いします", "pos": "exp" },
+            { "q": "いただきます", "pos": "exp" },
+            { "q": "ごちそうさま", "pos": "int" },
+            { "q": "はじめまして", "pos": "exp" },
+            { "q": "よろしく", "pos": "exp" },
+            { "q": "いってきます", "pos": "exp" },
+            { "q": "いってらっしゃい", "pos": "int" },
+            { "q": "ただいま", "pos": "int" },
+            { "q": "お帰りなさい", "pos": "int" },
+            { "q": "失礼します", "pos": "exp" }
+          ]
+        },
+        {
+          "id": "numbers",
+          "label": { "en": "Numbers", "es": "Numeros" },
+          "words": [
+            { "q": "ゼロ", "pos": "n" },
+            { "q": "一", "pos": "num", "reading": "いち" },
+            { "q": "二", "pos": "num", "reading": "に" },
+            { "q": "三", "pos": "num", "reading": "さん" },
+            { "q": "四", "pos": "num", "reading": "よん" },
+            { "q": "五", "pos": "num", "reading": "ご" },
+            { "q": "六", "pos": "num", "reading": "ろく" },
+            { "q": "七", "pos": "num", "reading": "なな" },
+            { "q": "八", "pos": "num", "reading": "はち" },
+            { "q": "九", "pos": "num", "reading": "きゅう" },
+            { "q": "十", "pos": "num", "reading": "じゅう" },
+            { "q": "百", "pos": "num", "reading": "ひゃく" },
+            { "q": "千", "pos": "num", "reading": "せん" },
+            { "q": "万", "pos": "num", "reading": "まん" }
+          ]
+        },
+        {
+          "id": "days",
+          "label": { "en": "Days and when", "es": "Dias y cuando" },
+          "words": [
+            { "q": "月曜日", "pos": "n" },
+            { "q": "火曜日", "pos": "n" },
+            { "q": "水曜日", "pos": "n" },
+            { "q": "木曜日", "pos": "n" },
+            { "q": "金曜日", "pos": "n" },
+            { "q": "土曜日", "pos": "n" },
+            { "q": "日曜日", "pos": "n" },
+            { "q": "今日", "pos": "n", "reading": "きょう" },
+            { "q": "明日", "pos": "n", "reading": "あした" },
+            { "q": "昨日", "pos": "n", "reading": "きのう" },
+            { "q": "毎日", "pos": "n" },
+            { "q": "今週", "pos": "n" },
+            { "q": "来週", "pos": "n" },
+            { "q": "週末", "pos": "n" }
+          ]
+        },
+        {
+          "id": "counters",
+          "label": { "en": "Counters", "es": "Contadores" },
+          "words": [
+            { "q": "個", "pos": "ctr", "reading": "こ" },
+            { "q": "人", "pos": "ctr", "reading": "にん" },
+            { "q": "本", "pos": "ctr", "reading": "ほん" },
+            { "q": "枚", "pos": "ctr", "reading": "まい" },
+            { "q": "台", "pos": "ctr", "reading": "だい" },
+            { "q": "冊", "pos": "ctr", "reading": "さつ" },
+            { "q": "匹", "pos": "ctr", "reading": "ひき" },
+            { "q": "歳", "pos": "ctr", "reading": "さい" },
+            { "q": "円", "pos": "n", "reading": "えん" },
+            { "q": "時間", "pos": "n" },
+            { "q": "分", "pos": "n", "reading": "ふん" }
+          ]
+        },
+        {
+          "id": "everyday",
+          "label": { "en": "Everyday nouns", "es": "Sustantivos de cada dia" },
+          "words": [
+            { "q": "水", "pos": "n" },
+            { "q": "お茶", "pos": "n" },
+            { "q": "ご飯", "pos": "n" },
+            { "q": "名前", "pos": "n" },
+            { "q": "先生", "pos": "n" },
+            { "q": "学生", "pos": "n" },
+            { "q": "学校", "pos": "n" },
+            { "q": "友達", "pos": "n" },
+            { "q": "家", "pos": "n", "reading": "いえ" },
+            { "q": "駅", "pos": "n" },
+            { "q": "電車", "pos": "n" },
+            { "q": "車", "pos": "n" },
+            { "q": "犬", "pos": "n" },
+            { "q": "猫", "pos": "n" }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "ch5.json",
+      "chapter": "5-grammar",
+      "title": { "en": "Grammar first steps", "es": "Primeros pasos de gramatica" },
+      "budget_kb": 120,
+      "groups": [
+        {
+          "id": "particles",
+          "label": { "en": "Particles", "es": "Particulas" },
+          "words": [
+            { "q": "は", "pos": "prt", "reading": "は" },
+            { "q": "が", "pos": "prt" },
+            { "q": "を", "pos": "prt" },
+            { "q": "に", "pos": "prt" },
+            { "q": "で", "pos": "prt" },
+            { "q": "へ", "pos": "prt", "reading": "へ" },
+            { "q": "と", "pos": "prt" },
+            { "q": "も", "pos": "prt" },
+            { "q": "の", "pos": "prt", "reading": "の" },
+            { "q": "か", "pos": "prt" },
+            { "q": "ね", "pos": "prt" },
+            { "q": "よ", "pos": "prt" },
+            { "q": "から", "pos": "prt" },
+            { "q": "まで", "pos": "prt" }
+          ]
+        },
+        {
+          "id": "copula",
+          "label": { "en": "To be", "es": "Ser y estar" },
+          "words": [
+            { "q": "です", "pos": "cop" },
+            { "q": "だ", "pos": "cop" }
+          ]
+        },
+        {
+          "id": "verbs",
+          "label": { "en": "First verbs", "es": "Primeros verbos" },
+          "words": [
+            { "q": "食べる" },
+            { "q": "飲む" },
+            { "q": "見る" },
+            { "q": "行く", "reading": "いく" },
+            { "q": "来る", "reading": "くる" },
+            { "q": "する", "pos": "vs-i" },
+            { "q": "いる", "pos": "v1", "jmdict": "1577980" },
+            { "q": "ある", "pos": "v5r-i" },
+            { "q": "話す" },
+            { "q": "読む" },
+            { "q": "書く" },
+            { "q": "買う" },
+            { "q": "分かる" },
+            { "q": "聞く" },
+            { "q": "待つ" },
+            { "q": "帰る", "reading": "かえる" }
+          ]
+        },
+        {
+          "id": "adjectives",
+          "label": { "en": "First adjectives", "es": "Primeros adjetivos" },
+          "words": [
+            { "q": "大きい" },
+            { "q": "小さい" },
+            { "q": "新しい" },
+            { "q": "古い" },
+            { "q": "高い" },
+            { "q": "安い" },
+            { "q": "いい", "pos": "adj-ix" },
+            { "q": "悪い", "reading": "わるい" },
+            { "q": "面白い" },
+            { "q": "難しい" },
+            { "q": "楽しい" },
+            { "q": "忙しい" }
+          ]
+        },
+        {
+          "id": "pointing",
+          "label": { "en": "Pointing and asking", "es": "Senalar y preguntar" },
+          "words": [
+            { "q": "私", "pos": "pn", "reading": "わたし" },
+            { "q": "あなた", "pos": "pn" },
+            { "q": "これ", "pos": "pn" },
+            { "q": "それ", "pos": "pn" },
+            { "q": "あれ", "pos": "pn" },
+            { "q": "ここ", "pos": "pn" },
+            { "q": "そこ", "pos": "pn" },
+            { "q": "あそこ", "pos": "pn" },
+            { "q": "誰", "pos": "pn" },
+            { "q": "何", "pos": "pn", "reading": "なに" },
+            { "q": "どこ", "pos": "pn" },
+            { "q": "いつ", "pos": "pn" },
+            { "q": "どう", "pos": "adv" },
+            { "q": "どうして", "pos": "adv" }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "ch6.json",
+      "chapter": "6-kanji",
+      "title": { "en": "Kanji beginnings", "es": "Comienzos de kanji" },
+      "budget_kb": 120,
+      "groups": [
+        {
+          "id": "singles",
+          "label": { "en": "One kanji, one word", "es": "Un kanji, una palabra" },
+          "auto": {
+            "single_kanji_from_set": "grade1",
+            "_note": "One word per grade 1 kanji, taken from JMdict rather than hand-listed, so the vocabulary and the kanji table cannot disagree about which characters exist. JMdict orders senses by frequency of the entry, not by what a beginner should meet first, so a handful are steered by hand below and three are dropped. Everything not named here is whatever JMdict says.",
+            "overrides": {
+              "本": { "reading": "ほん", "pos": "n" },
+              "空": { "reading": "そら", "pos": "n" },
+              "字": { "reading": "じ", "pos": "n" },
+              "文": { "reading": "ぶん", "pos": "n" },
+              "四": { "reading": "よん", "pos": "num" },
+              "七": { "reading": "なな", "pos": "num" }
+            },
+            "exclude": ["出", "早", "正"],
+            "exclude_note": "The standalone JMdict entry for each of these is not a word a beginner meets: 出 as で is a nominalised verb stem, 早 as はや is adverbial and dated, and 正 as せい is the logic term. The kanji still ship in the kanji table and the stroke set; only the one word drill drops them."
+          }
+        },
+        {
+          "id": "compounds",
+          "label": { "en": "Two kanji together", "es": "Dos kanji juntos" },
+          "words": [
+            { "q": "日本", "pos": "n" },
+            { "q": "日本語", "pos": "n" },
+            { "q": "一人", "pos": "n" },
+            { "q": "二人", "pos": "n" },
+            { "q": "大人", "pos": "n" },
+            { "q": "子供", "pos": "n" },
+            { "q": "男の子", "pos": "n" },
+            { "q": "女の子", "pos": "n" },
+            { "q": "小学校", "pos": "n" },
+            { "q": "中学校", "pos": "n" },
+            { "q": "先月", "pos": "n" },
+            { "q": "来月", "pos": "n" },
+            { "q": "今年", "pos": "n" },
+            { "q": "去年", "pos": "n" },
+            { "q": "半分", "pos": "n" },
+            { "q": "上手", "pos": "adj-na" },
+            { "q": "下手", "pos": "adj-na" },
+            { "q": "天気", "pos": "n" },
+            { "q": "元気", "pos": "adj-na" },
+            { "q": "空気", "pos": "n" },
+            { "q": "花火", "pos": "n" },
+            { "q": "山田", "pos": "n", "optional": true },
+            { "q": "入口", "pos": "n" },
+            { "q": "出口", "pos": "n" }
+          ]
+        }
+      ]
+    }
+  ]
+}

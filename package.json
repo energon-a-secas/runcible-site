@@ -1,0 +1,15 @@
+{
+  "name": "runcible-site",
+  "version": "1.0.0",
+  "description": "Learn a subject from a book that teaches back: graded chapters, drills and games with progress that follows you, starting with Japanese",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "convex": "convex dev",
+    "test": "node --test convex/merge.test.ts"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "convex": "^1.43.0"
+  }
+}

@@ -1,0 +1,224 @@
+# Runcible
+
+> A learning book at https://runcible.neorgon.com/. A Book is a directory of
+> JSON: a manifest, chapters made of rungs, pages and exercises. The shell
+> provides nine generic exercise types and knows no subject. This file is the
+> Book package format, derived from tools/validate-book.mjs and
+> js/exercises/spec.js, which are what decides whether a Book loads.
+
+## Conventions that apply everywhere
+
+- Bilingual value: a bare string, or { "en": "...", "es": "..." }. Only en and
+  es exist. At least one is required where the field is required. English is
+  the fallback, then Spanish. Page body and note may be arrays of paragraphs.
+- No inline HTML in any content field. A "<tag>" anywhere is an error.
+- Slug: lowercase, [a-z0-9-], starting with a letter or digit.
+- Path: same-origin, relative to the site root, no scheme, no leading slash,
+  no ".." segment. Example: "data/kana/hiragana.json".
+- Data pointer: "<path>#<dotted.path>". The path must appear in the manifest's
+  data[]. The fragment is a dotted lookup into the loaded JSON; a bare
+  top-level key (including a non-Latin one) also resolves. Where a list is
+  expected, an object resolves to its values.
+- Validate with `make validate` (or `node tools/validate-book.mjs`). It exits 0
+  or names the file and the field. The shell imports the same validator at
+  load time, so a chapter that fails at the command line fails in the browser.
+
+## 1. The catalog: books/index.json (neo-book-index/1)
+
+    { "format": "neo-book-index/1",
+      "books": [ { "id": "japanese", "title": { "en": "Japanese", "es": "Japones" },
+                   "glyph": "あ", "state": "ready" } ] }
+
+- format (required) "neo-book-index/1"
+- books[].id (required) slug, unique, the directory name under books/
+- books[].title (required) bilingual
+- books[].glyph (required) one string. It is how a Book identifies itself
+- books[].state (required) "ready" | "stub" | "planned". A stub opens and shows
+  its ladder; a planned Book is a locked card and is never fetched
+
+Adding a Book is one entry here plus one directory. No file under js/ changes.
+
+## 2. The manifest: books/<id>/book.json (neo-book/1)
+
+    { "format": "neo-book/1", "id": "piano", "version": "2026-09-04",
+      "title": { "en": "Piano" }, "tagline": { "en": "..." }, "glyph": "♪",
+      "lang": { "content": "en", "ui": ["en", "es"] },
+      "goal": { "en": "Play a short piece to the end at a steady tempo" },
+      "tracks": [], "chapters": [ ... ], "modules": [], "data": [], "credits": [] }
+
+- format (required) "neo-book/1"
+- id (required) slug equal to the directory name
+- version (required) YYYY-MM-DD, bumped on any content change
+- title (required), tagline, goal: bilingual
+- glyph (required) one string
+- accent, colour, color: FORBIDDEN. A Book may not set a colour
+- lang.content (required) BCP 47 tag of what is taught; filled into every
+  listen and speak exercise that does not state its own lang
+- lang.ui (required) array of UI language codes
+- tracks[] (optional) { id (slug), label (bilingual), description, default }.
+  At most one default; with none, the first track is used
+- chapters[] (required), in ladder order:
+  - id (required, unique), state (required) "ready" | "stub" | "planned"
+  - src: "chapters/<file>.json" relative to the Book directory. Must be null
+    when state is "planned", required otherwise
+  - requires: an array of chapter ids (all tracks), or an object keyed by
+    track id whose keys are exactly the declared tracks. The first three
+    chapters must use the array form. Every id must exist; no cycles
+  - a planned chapter also carries title and note (bilingual) inline, so the
+    ladder shows what is not built and why
+- modules[] (optional) { path: "exercises/<file>.js" inside the Book directory,
+  provides: { exercises: [...], transforms: [...] } }. provides is required
+  and is exact: the module must register every id listed and nothing else
+- data[] (optional, but see rule below) { src (path), licence (SPDX id or
+  "public-domain"), screen "required" | "none", attribution (a credits[] id,
+  required when screen is "required") }. No src twice
+- credits[] { id, name }. Every attribution must name one of these
+
+data[] is a permission list. The shell resolves a pointer, a table's items,
+a figure's src or a deck's src ONLY if its path is declared here. An
+undeclared path is a load error naming book.json. A data file's own _licence
+block can raise the obligation (screen "required" wins over "none") and never
+lower it; the validator names any disagreement.
+
+## 3. A chapter: books/<id>/chapters/<file>.json (neo-chapter/1)
+
+    { "format": "neo-chapter/1", "id": "1-hiragana",
+      "title": { "en": "Hiragana" },
+      "goal": { "statement": { "en": "Read any hiragana word aloud, with no romaji" },
+                "evidence": { "skill": "kana.hiragana.read", "accuracy": 0.9,
+                              "min": 40, "window": 60 } },
+      "state": "ready",
+      "data": ["data/kana/hiragana.json"],
+      "rungs": [ { "id": "vowels", "title": { "en": "The five vowels" },
+                   "unlocks": { "en": "every other row" },
+                   "pages": [ ... ], "exercises": [ ... ] } ] }
+
+- format (required) "neo-chapter/1"
+- id (required) must equal the manifest entry's id
+- title (required) bilingual
+- goal (required) with goal.statement (required, bilingual): something the
+  learner can do, never a topic name
+- goal.evidence: { skill (dotted string, must contain a dot), accuracy (> 0
+  and <= 1), min (positive integer), window (positive integer, >= min) }.
+  THE GOAL RULE: the chapter is passed when, over the most recent `window`
+  graded attempts carrying `skill`, at least `min` exist and at least
+  `accuracy` of them were correct. Ungraded attempts (correct: null) do not
+  enter the window. A chapter with no evidence can never be passed and cannot
+  gate a later one; the validator warns
+- state (optional) "ready" | "stub" | "planned"
+- data[] (optional) the files to fetch when the chapter opens. Each must be
+  declared in the manifest. A pointer used but not listed here warns: the file
+  resolves late or not at all
+- estimate, requires: accepted and not validated. Prerequisites are read from
+  the manifest, not from here
+- rungs[] (required): { id (required, unique), title (required), unlocks
+  (bilingual, optional), pages[], exercises[] }
+
+### Pages (rung.pages[])
+
+Every page has id (required) and kind (required), plus optional title.
+
+- prose: body (required; string, array, or { en: [...], es: [...] }), note,
+  figure
+- callout: body (required), tone (required) "note" | "warn" | "win"
+- table: columns (required, array of bilingual values), and rows (array of
+  arrays) or items (a data pointer to a list). With items, each column is
+  matched to a field by the column string, or by column.en when the column
+  is an { en, es } object
+- figure: figure (required), with caption (bilingual)
+
+figure: { kind: "svg", src (pointer), render (required string), caption } or
+{ kind: "viz", builder (required), caption }. The shell draws an svg figure
+only when the pointer resolves to an array of path strings, or an object
+with `paths` or `s`, with a viewBox on the record, the file, or the figure.
+Anything else renders a visible warning line naming what was expected
+("needs path strings"); a viz figure renders "no renderer for a viz figure".
+viz is not implemented.
+
+### Exercises (rung.exercises[])
+
+Common to every exercise: id (required, unique in the chapter), type
+(required, one of the nine), skill (required, dotted string: every attempt is
+recorded under it), title (bilingual, optional). Optional on any type:
+count (number of items to ask; default all), pass: { accuracy } (the tick
+beside the drill, never the chapter gate; forbidden on read and speak),
+compare, itemIdPrefix, itemIdField, lang (BCP 47; defaults to
+book.lang.content).
+
+items is a data pointer to a list, or an inline array of objects. Field names
+in the spec (prompt, answer, left, ...) name fields of those objects; dotted
+paths are allowed. An answer field may hold an array: any member matches.
+
+The nine types and their required fields (from spec.js, verbatim):
+
+| type   | required fields                    | graded | notes |
+|--------|------------------------------------|--------|-------|
+| read   | pages                              | no     | whole page objects, not ids. Records correct: null per page with dwell ms |
+| choice | items, prompt, answer, distractors | yes    | distractors: { n (default 3), by (a grouping field, distractors come from siblings), values (explicit list) }. `from` is ignored |
+| typed  | items, prompt, answer              | yes    | transform (a Book-registered id), compare, hint: false to remove the first-letter hint |
+| match  | items, left, right, n              | yes    | n pairs shown; one attempt per pairing, keyed on the left item |
+| order  | items, sequence                    | yes    | sequence names a field holding an array, or a string split on whitespace; prompt optional |
+| listen | items, speak, answer, respond      | yes    | respond "choice" or "typed"; speak is the field read aloud; audioOnly: true; transform allowed with respond typed |
+| speak  | items, expect                      | never  | correct: null always. A transcript is shown as feedback, not a score |
+| deck   | src                                | yes    | limit (positive integer), mode is review, cram or browse |
+| custom | module                             | module decides | props passed through. module is an id the Book registered |
+
+compare: pipe-separated tokens applied in order, from the closed set trim,
+casefold, strip-accents, collapse-space, kana (folds katakana onto hiragana).
+Default "trim|casefold". An unknown token is an error.
+
+itemId (what stored progress is keyed by) is taken in order from: item.id
+(prefixed by itemIdPrefix), the field named by itemIdField, the type's
+identity field (prompt, speak, left, expect), else exercise id plus position,
+which moves when the data file is edited. Give items an id.
+
+### The deck exercise and its skill
+
+    { "id": "e-deck-first-words", "type": "deck", "skill": "jp.vocab.read",
+      "src": "books/japanese/decks/jp-first-words.json", "mode": "review",
+      "limit": 20, "title": { "en": "First words, spaced" } }
+
+src is a neo-deck/1 document (format: rappel.neorgon.com/llms.txt) on this
+origin, declared in the manifest's data[]. The shell embeds Rappel in an
+iframe and turns every rappel:answer into an attempt recorded under the
+SPEC's skill, not the deck template's. THE SKILL RULE: a deck's skill must be
+this chapter's goal.evidence.skill (the intended shape), or a skill some other
+goal or non-deck exercise in the Book reads (allowed, and warned so the choice
+is visible). A skill nothing in the Book reads is an error: reviews would land
+nowhere with no message. A deck with no skill is an error.
+
+### Custom exercises and transforms (modules[])
+
+A module default-exports one function and receives a frozen object with
+exactly registerExercise(id, impl), registerTransform(id, fn) and version.
+
+    export default function register(runcible) {
+      runcible.registerTransform('kana', live);          // live.settle optional
+      runcible.registerExercise('jp.loanword', {
+        mount(host, spec, api) { /* ... */ return { destroy() {} }; } });
+    }
+
+- an exercise id must contain a dot and its first segment must not be a
+  generic type name (read, choice, typed, match, order, listen, speak, deck,
+  custom). A chapter uses it as { "type": "custom", "module": "jp.loanword" }
+- a transform id is any non-empty string. It runs on every keystroke of a
+  typed input and may carry fn.settle(value), run once at submit before
+  compare. A live half must leave an unfinished syllable alone; settle
+  finishes it. The shell ships no transforms
+- api is { attempt, t, tList, lang, data, tts, done }. attempt({ itemId,
+  skill, correct: true|false|null, ms, answer?, expected?, hintUsed? }) is the
+  only way progress is recorded. api.data(pointer) resolves a declared
+  pointer. api.done(summary) ends the exercise
+- a module must import nothing from js/exercises/. It may import
+  js/vendor/wanakana.js and, for a Book-owned store, js/neorgon-persist.js
+  (jp.lyrics does, under C8.2). Prefer a generic type; add a module only when
+  none of the eight others can express the drill, and say why in a comment
+
+### Licences
+
+A Book never invents licensed content. It declares a data[] entry and a
+pointer, and names the file a person must produce. Every file under data/
+opens with a _licence block { source, url, spdx, derived, id, acknowledgement,
+links, screen, generated_by, generated_at }; when screen is "required" the
+acknowledgement is required and renders at the foot of every screen that
+shows the file. The data/README.md in the repository is the corpus contract.

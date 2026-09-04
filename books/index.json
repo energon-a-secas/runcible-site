@@ -1,0 +1,17 @@
+{
+  "format": "neo-book-index/1",
+  "books": [
+    {
+      "id": "japanese",
+      "title": { "en": "Japanese", "es": "Japonés" },
+      "glyph": "あ",
+      "state": "ready"
+    },
+    {
+      "id": "piano",
+      "title": { "en": "Piano", "es": "Piano" },
+      "glyph": "♪",
+      "state": "stub"
+    }
+  ]
+}

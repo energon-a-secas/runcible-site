@@ -1,0 +1,92 @@
+{
+  "format": "neo-chapter/1",
+  "id": "2-notation",
+  "title": { "en": "Notation", "es": null },
+  "goal": {
+    "statement": {
+      "en": "Read a note on the grand staff without counting up from middle C",
+      "es": null
+    }
+  },
+  "requires": ["1-keyboard-geography"],
+  "state": "ready",
+  "estimate": {
+    "minutes": 600,
+    "note": {
+      "en": "Hoffman unit two is lessons 21 to 40. The hours are inferred from the lesson count, not stated by the source.",
+      "es": null
+    }
+  },
+  "rungs": [
+    {
+      "id": "guide-notes",
+      "title": { "en": "Guide notes, not counting", "es": null },
+      "unlocks": {
+        "en": "sight reading at speed, because counting lines from middle C does not survive a tempo",
+        "es": null
+      },
+      "pages": [
+        {
+          "id": "p-grand-staff",
+          "kind": "prose",
+          "title": { "en": "Two staves, one instrument", "es": null },
+          "body": {
+            "en": [
+              "The grand staff is a treble staff and a bass staff braced together, with middle C sitting on a short ledger line between them. Hoffman's unit two introduces both clefs and a small set of guide notes.",
+              "A guide note is a landmark you know instantly, so every other note is read as one or two steps from a landmark rather than counted up from middle C. Counting works at rest and collapses at tempo, which is the same reason a kana learner is drilled on recognition rather than on reciting the gojuon table."
+            ],
+            "es": null
+          }
+        },
+        {
+          "id": "p-theory-basics",
+          "kind": "prose",
+          "title": { "en": "The free notation course", "es": null },
+          "body": {
+            "en": [
+              "musictheory.net publishes The Basics as six free lessons covering the staff, note duration, measures and time signature, rest duration, dots and ties, and steps and accidentals.",
+              "It is free to read online and carries a plain copyright notice with no licence grant, so this Book links to it and never rehosts it. That is the same rule the Japanese Book applies to Tofugu and to Tadoku."
+            ],
+            "es": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "what-a-drill-would-be",
+      "title": { "en": "What the drill would be, once there is one", "es": null },
+      "unlocks": {
+        "en": "nothing today. This rung is a design note that happens to be readable.",
+        "es": null
+      },
+      "pages": [
+        {
+          "id": "p-would-be",
+          "kind": "prose",
+          "title": { "en": "A note on the staff is an item like any other", "es": null },
+          "body": {
+            "en": [
+              "A staff reading drill is the choice exercise the shell already ships: an item list of notes, a prompt field holding the notated position, an answer field holding the letter name, and distractors drawn from neighbouring notes rather than from the whole set.",
+              "None of that needs a line of new shell code. What it needs is an item file, and the item file is where the work actually is: a note on the staff has to be drawn, and the shell draws geometry rather than markup, so the data would have to arrive as path strings the way the kana stroke data does.",
+              "That is the honest reason this chapter has no exercise. Not a missing feature, a missing corpus."
+            ],
+            "es": null
+          }
+        },
+        {
+          "id": "p-no-exercises",
+          "kind": "callout",
+          "tone": "warn",
+          "title": { "en": "Nothing here is graded", "es": null },
+          "body": {
+            "en": [
+              "This Book records no attempts, so no chapter of it can ever be passed and none of its chapters gates another. Every chapter you can see is open, including the one below this.",
+              "The two chapters at the bottom of the ladder are marked as coming and carry no file at all. They are listed so the ladder is visible where it is not built."
+            ],
+            "es": null
+          }
+        }
+      ]
+    }
+  ]
+}

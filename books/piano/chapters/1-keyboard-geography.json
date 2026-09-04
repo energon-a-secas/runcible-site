@@ -1,0 +1,100 @@
+{
+  "format": "neo-chapter/1",
+  "id": "1-keyboard-geography",
+  "title": { "en": "Keyboard geography", "es": null },
+  "goal": {
+    "statement": {
+      "en": "Name any white key on sight, sit at the instrument correctly, and play a five note pattern by rote in two keys",
+      "es": null
+    }
+  },
+  "requires": [],
+  "state": "ready",
+  "estimate": {
+    "minutes": 600,
+    "note": {
+      "en": "Hoffman Academy spends its first twenty lessons here. Hours, not minutes, and the figure is inferred from the lesson count rather than stated by the source.",
+      "es": null
+    }
+  },
+  "rungs": [
+    {
+      "id": "why-this-book-exists",
+      "title": { "en": "Why this Book exists", "es": null },
+      "unlocks": {
+        "en": "nothing you can play yet. It tells you what this second Book is for.",
+        "es": null
+      },
+      "pages": [
+        {
+          "id": "p-stub",
+          "kind": "callout",
+          "tone": "note",
+          "title": { "en": "This Book is a stub, on purpose", "es": null },
+          "body": {
+            "en": [
+              "Piano ships with a ladder, three chapters of prose and no exercises at all. It is here to answer one question about the software rather than one question about music: is the shell shaped like Japanese?",
+              "Adding this Book was one entry in books/index.json and one directory. No file under js/ changed. If that ever stops being true, the shell has learned a subject, and a shell that knows a subject cannot carry a second one."
+            ],
+            "es": null
+          }
+        },
+        {
+          "id": "p-parallel",
+          "kind": "prose",
+          "title": { "en": "The two ladders are the same shape", "es": null },
+          "body": {
+            "en": [
+              "Every domain worth a Book seems to have four layers. A small closed notation layer learned in days or weeks. An item inventory that rewards spaced repetition. A graded corpus for volume practice. And a production skill practised apart from the decoding skill.",
+              "Kana maps to staff reading. Kanji and vocabulary map to scales, chords and intervals. Graded readers map to graded repertoire. Speaking maps to performing.",
+              "So the model is: symbol set, then a prerequisite-graphed item inventory, then a graded corpus, then production drills. Nothing in that sentence is Japanese-shaped, which is the whole argument for keeping content in data files."
+            ],
+            "es": null
+          },
+          "note": {
+            "en": [
+              "Source: docs/delivery/research/japanese-study-structure.md, section E. That appendix says plainly that the piano evidence base is thinner than the Japanese one and was not cross-checked to the same depth. Read every figure in this Book as a sketch."
+            ],
+            "es": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "keys-before-notes",
+      "title": { "en": "Playing before reading", "es": null },
+      "unlocks": {
+        "en": "the pentascale patterns, which are the first thing your hands can do without a page",
+        "es": null
+      },
+      "pages": [
+        {
+          "id": "p-unit-one",
+          "kind": "prose",
+          "title": { "en": "Twenty lessons before a single note is read", "es": null },
+          "body": {
+            "en": [
+              "Hoffman Academy's free curriculum runs eighteen units and three hundred and sixty lessons. Unit one, lessons 1 to 20, is posture, the names of the white keys, and the C and D major pentascales. Staff reading does not begin until unit two.",
+              "Name the white keys off the black key groups, not by counting from the left edge. Two blacks together sit around D. Three blacks together hold G and A between them. C is the white key just left of a pair of blacks, and it is the anchor everything else is measured from."
+            ],
+            "es": null
+          }
+        },
+        {
+          "id": "p-mirror",
+          "kind": "callout",
+          "tone": "win",
+          "title": { "en": "The two subjects resolve the same tension in opposite directions", "es": null },
+          "body": {
+            "en": [
+              "Japanese teaching says read before you write, because writing triples the time for very little real benefit and a browser cannot grade a stroke anyway.",
+              "Piano teaching says play before you read. Hoffman puts twenty lessons of playing ahead of the first note on a staff.",
+              "Both are the same decision: put the skill that pays first, and let the notation follow it. They only look opposite because in one subject the notation is the product and in the other it is the packaging."
+            ],
+            "es": null
+          }
+        }
+      ]
+    }
+  ]
+}

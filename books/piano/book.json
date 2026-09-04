@@ -1,0 +1,61 @@
+{
+  "format": "neo-book/1",
+  "id": "piano",
+  "version": "2026-09-04",
+  "title": { "en": "Piano", "es": "Piano" },
+  "tagline": {
+    "en": "The same ladder, in a subject the shell has never heard of",
+    "es": "La misma escalera, en un tema que el armazón no conoce"
+  },
+  "glyph": "♪",
+  "lang": { "content": "en", "ui": ["en", "es"] },
+  "goal": {
+    "en": "Play a short public-domain piece to the end at a steady tempo, reading it off the staff",
+    "es": "Tocar una pieza corta de dominio público hasta el final a tempo estable, leyéndola del pentagrama"
+  },
+  "chapters": [
+    {
+      "id": "1-keyboard-geography",
+      "src": "chapters/1-keyboard-geography.json",
+      "requires": [],
+      "state": "ready"
+    },
+    {
+      "id": "2-notation",
+      "src": "chapters/2-notation.json",
+      "requires": ["1-keyboard-geography"],
+      "state": "ready"
+    },
+    {
+      "id": "3-rhythm-and-theory",
+      "src": "chapters/3-rhythm-and-theory.json",
+      "requires": ["2-notation"],
+      "state": "ready"
+    },
+    {
+      "id": "4-repertoire",
+      "src": null,
+      "requires": ["3-rhythm-and-theory"],
+      "state": "planned",
+      "title": { "en": "Repertoire, graded", "es": "Repertorio, graduado" },
+      "note": {
+        "en": "Play a short public-domain piece to the end at a steady tempo. Not built yet: the research could not reach IMSLP or the ABRSM syllabus in this pass, so there is no verified score list to build on.",
+        "es": "Tocar una pieza corta de dominio público hasta el final a tempo estable. Todavía no existe: la investigación no pudo llegar a IMSLP ni al temario de ABRSM, así que no hay lista de partituras verificada."
+      }
+    },
+    {
+      "id": "5-harmony",
+      "src": null,
+      "requires": ["4-repertoire"],
+      "state": "planned",
+      "title": { "en": "Harmony and independence", "es": "Armonía e independencia" },
+      "note": {
+        "en": "Harmonise a melody, read a chord progression, and play hands independently. Not built yet.",
+        "es": "Armonizar una melodía, leer una progresión de acordes y tocar con las manos independientes. Todavía no existe."
+      }
+    }
+  ],
+  "modules": [],
+  "data": [],
+  "credits": []
+}

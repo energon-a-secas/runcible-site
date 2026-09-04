@@ -1,0 +1,345 @@
+{
+  "format": "neo-chapter/1",
+  "id": "4-first-words",
+  "title": { "en": "First words", "es": "Primeras palabras" },
+  "goal": {
+    "statement": {
+      "en": "Greet someone, count, say what day it is, and count objects with the right counter",
+      "es": "Saludar a alguien, contar, decir qué día es, y contar objetos con el contador correcto"
+    },
+    "evidence": { "skill": "jp.vocab.read", "accuracy": 0.85, "min": 30, "window": 60 }
+  },
+  "requires": ["2-katakana"],
+  "state": "ready",
+  "estimate": {
+    "minutes": 600,
+    "note": {
+      "en": "Two to three weeks at ten new words a day. The scheduler decides the pace, not this number.",
+      "es": null
+    }
+  },
+  "data": ["data/vocab/ch4.json", "data/sentences/ch4.json", "books/japanese/decks/jp-first-words.json"],
+  "rungs": [
+    {
+      "id": "greetings",
+      "title": { "en": "Greetings", "es": "Saludos" },
+      "unlocks": {
+        "en": "the first exchange you can actually have, which every guide except one puts before the alphabet",
+        "es": null
+      },
+      "pages": [
+        {
+          "id": "p-greetings",
+          "kind": "prose",
+          "title": { "en": "Two of these end in a particle", "es": null },
+          "body": {
+            "en": [
+              "konnichiha and konbanha are written with the topic particle on the end and said with wa. They are the leftover of a sentence nobody finishes any more.",
+              "That is the rule from chapter 1 turning up in the first two words you learn, which is the reason the particles rung came before this chapter rather than after it."
+            ],
+            "es": null
+          }
+        },
+        {
+          "id": "p-spanish-route",
+          "kind": "callout",
+          "tone": "note",
+          "title": { "en": "If you came from a Spanish guide", "es": "Si vienes de una guía en español" },
+          "body": {
+            "en": [
+              "The Spanish-language route into Japanese starts here rather than at kana: greetings and numbers by ear, from NHK's free spoken course, with the writing system second.",
+              "That order is defensible and it is not the one this Book takes. If you already have the greetings, open this chapter, skim it, and let the scheduler find the gaps."
+            ],
+            "es": [
+              "La ruta en español hacia el japonés empieza aquí y no en el kana: saludos y números de oído, con el curso hablado gratuito de NHK, y el sistema de escritura después.",
+              "Ese orden es defendible y no es el que toma este libro. Si ya tienes los saludos, abre este capítulo, ojéalo, y deja que el planificador encuentre los huecos."
+            ]
+          }
+        },
+        {
+          "id": "p-no-typed-greetings",
+          "kind": "callout",
+          "tone": "note",
+          "title": { "en": "Why you are not asked to type these", "es": null },
+          "body": {
+            "en": [
+              "Two of the greetings here share one English gloss: the plain good morning and the polite one. A drill that showed you good morning and asked you to type it back would have two right answers and accept only one, and marking correct Japanese wrong is worse than not asking.",
+              "So this rung recognises and listens rather than produces. The politeness level is the real content of that pair, and no English prompt can carry it."
+            ],
+            "es": null
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-greetings-read",
+          "type": "choice",
+          "skill": "jp.vocab.read",
+          "title": { "en": "What does it mean?", "es": null },
+          "items": "data/vocab/ch4.json#groups.greetings",
+          "prompt": "kana",
+          "answer": "gloss.0",
+          "distractors": { "n": 3 },
+          "count": 10,
+          "pass": { "accuracy": 0.8 }
+        },
+        {
+          "id": "e-greetings-listen",
+          "type": "listen",
+          "skill": "jp.vocab.listen",
+          "title": { "en": "Hear it and pick it", "es": null },
+          "items": "data/vocab/ch4.json#groups.greetings",
+          "speak": "kana",
+          "answer": "gloss.0",
+          "respond": "choice",
+          "lang": "ja",
+          "distractors": { "n": 3 },
+          "count": 6,
+          "pass": { "accuracy": 0.75 }
+        }
+      ]
+    },
+    {
+      "id": "numbers",
+      "title": { "en": "Numbers", "es": "Números" },
+      "unlocks": {
+        "en": "prices, times, dates and every counter in the rung after this one",
+        "es": null
+      },
+      "pages": [
+        {
+          "id": "p-numbers",
+          "kind": "prose",
+          "title": { "en": "Two words for four, seven and nine", "es": null },
+          "body": {
+            "en": [
+              "Japanese kept two counting systems and uses both. Four is shi or yon, seven is shichi or nana, nine is ku or kyuu, and which one you use depends on what follows.",
+              "Learn both readings from the start. Choosing between them is a habit that comes from hearing them, not from a rule you can apply in advance."
+            ],
+            "es": null
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-numbers-read",
+          "type": "choice",
+          "skill": "jp.vocab.read",
+          "title": { "en": "Which number?", "es": null },
+          "items": "data/vocab/ch4.json#groups.numbers",
+          "prompt": "kana",
+          "answer": "gloss.0",
+          "distractors": { "n": 3 },
+          "count": 10,
+          "pass": { "accuracy": 0.8 }
+        }
+      ]
+    },
+    {
+      "id": "days",
+      "title": { "en": "Days, and when", "es": "Días, y cuándo" },
+      "unlocks": {
+        "en": "arranging to do something, which is the first sentence with a reason to exist",
+        "es": null
+      },
+      "pages": [
+        {
+          "id": "p-days",
+          "kind": "prose",
+          "title": { "en": "The week is named after the elements", "es": null },
+          "body": {
+            "en": [
+              "Monday is moon, Tuesday is fire, Wednesday is water, Thursday is wood, Friday is metal, Saturday is earth, Sunday is sun. Every one of them ends in the same two beats, youbi.",
+              "The kanji for these are in chapter 6. Here they are kana, and the kana is enough to say them."
+            ],
+            "es": null
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-days-read",
+          "type": "choice",
+          "skill": "jp.vocab.read",
+          "title": { "en": "Which day, or which word for when?", "es": null },
+          "items": "data/vocab/ch4.json#groups.days",
+          "prompt": "kana",
+          "answer": "gloss.0",
+          "distractors": { "n": 3 },
+          "count": 10,
+          "pass": { "accuracy": 0.8 }
+        },
+        {
+          "id": "e-days-type",
+          "type": "typed",
+          "skill": "jp.vocab.write",
+          "title": { "en": "Type the day", "es": null },
+          "items": "data/vocab/ch4.json#groups.days",
+          "prompt": "gloss.0",
+          "answer": "kana",
+          "transform": "kana",
+          "compare": "trim|kana",
+          "count": 6,
+          "pass": { "accuracy": 0.7 }
+        }
+      ]
+    },
+    {
+      "id": "counters",
+      "title": { "en": "Counters", "es": "Contadores" },
+      "unlocks": {
+        "en": "counting anything at all, which Japanese will not let you do with a bare number",
+        "es": null
+      },
+      "pages": [
+        {
+          "id": "p-counters",
+          "kind": "prose",
+          "title": { "en": "A number alone is not a quantity", "es": null },
+          "body": {
+            "en": [
+              "Japanese puts a classifier between the number and the thing, chosen by the shape or the kind of the thing. Flat things take one counter, long thin things take another, machines take another, people take another.",
+              "English does this too and only for some nouns: two sheets of paper, three head of cattle. Japanese does it for all of them.",
+              "The one to learn first is the general-purpose counter for small objects, which is the escape hatch when you do not know the right one."
+            ],
+            "es": null
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-counters-read",
+          "type": "choice",
+          "skill": "jp.vocab.read",
+          "title": { "en": "What does this counter count?", "es": null },
+          "items": "data/vocab/ch4.json#groups.counters",
+          "prompt": "kana",
+          "answer": "gloss.0",
+          "distractors": { "n": 3 },
+          "count": 8,
+          "pass": { "accuracy": 0.75 }
+        }
+      ]
+    },
+    {
+      "id": "everyday",
+      "title": { "en": "Everyday nouns", "es": "Sustantivos de cada día" },
+      "unlocks": {
+        "en": "sentences with something in them, once chapter 5 supplies the frame",
+        "es": null
+      },
+      "pages": [
+        {
+          "id": "p-everyday",
+          "kind": "prose",
+          "title": { "en": "Fourteen nouns, chosen for turning up", "es": null },
+          "body": {
+            "en": [
+              "Water, book, person, house, and the rest. They are here because they appear in the example sentences and in the grammar chapter, not because any frequency list was consulted.",
+              "The one honest frequency claim in the research is Refold's: the most frequent thousand words make up around seventy percent of the language. This is not that thousand. It is the handful this Book needs next."
+            ],
+            "es": null
+          }
+        },
+        {
+          "id": "p-sentences",
+          "kind": "prose",
+          "title": { "en": "Where the example sentences come from", "es": null },
+          "body": {
+            "en": [
+              "Tatoeba, a public sentence corpus under a Creative Commons licence, cut down to the words in this chapter. Each sentence names the word it was picked for and the Tatoeba ids it came from, so any of them can be traced back.",
+              "They are real sentences written by people rather than generated, which means some of them are odd. That is the trade and it is worth it."
+            ],
+            "es": null
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-everyday-read",
+          "type": "choice",
+          "skill": "jp.vocab.read",
+          "title": { "en": "What is it?", "es": null },
+          "items": "data/vocab/ch4.json#groups.everyday",
+          "prompt": "kana",
+          "answer": "gloss.0",
+          "distractors": { "n": 3 },
+          "count": 10,
+          "pass": { "accuracy": 0.8 }
+        },
+        {
+          "id": "e-everyday-type",
+          "type": "typed",
+          "skill": "jp.vocab.write",
+          "title": { "en": "Say it back, in kana", "es": null },
+          "items": "data/vocab/ch4.json#groups.everyday",
+          "prompt": "gloss.0",
+          "answer": "kana",
+          "transform": "kana",
+          "compare": "trim|kana",
+          "count": 8,
+          "pass": { "accuracy": 0.7 }
+        },
+        {
+          "id": "e-sentence-read",
+          "type": "choice",
+          "skill": "jp.reading.sentence",
+          "title": { "en": "Read the whole sentence", "es": null },
+          "items": "data/sentences/ch4.json#groups.greetings",
+          "prompt": "ja",
+          "answer": "en",
+          "distractors": { "n": 3 },
+          "count": 8,
+          "pass": { "accuracy": 0.75 }
+        }
+      ]
+    },
+    {
+      "id": "the-deck",
+      "title": { "en": "The deck", "es": "La baraja" },
+      "unlocks": {
+        "en": "the one mechanic the entire paid market is built on, over the words you just met",
+        "es": null
+      },
+      "pages": [
+        {
+          "id": "p-deck",
+          "kind": "prose",
+          "title": { "en": "This is the part people pay for", "es": null },
+          "body": {
+            "en": [
+              "A scheduler decides which of these seventy-five words you see today, and how long until you see each one again. Get it right and the gap widens. Get it wrong and it shrinks.",
+              "It runs in a separate site, Rappel, embedded in the frame below. It keeps its own record of your reviews, and every answer you give in it counts toward this chapter's goal exactly as an answer given here does.",
+              "If the frame does not save your progress, it says so and offers a link that opens Rappel directly. That is not a fallback pretending nothing happened: a browser that partitions storage between sites can stop the frame from keeping anything, and being told is better than finding out in a month."
+            ],
+            "es": null
+          }
+        },
+        {
+          "id": "p-attrib",
+          "kind": "callout",
+          "tone": "note",
+          "title": { "en": "Where the words came from", "es": null },
+          "body": {
+            "en": [
+              "The dictionary definitions in this chapter and in the deck are from JMdict, published by the Electronic Dictionary Research and Development Group under a share-alike licence.",
+              "That licence asks for the acknowledgement to appear on every screen that shows the words, which is why it is at the foot of this page. It is printed there because the data file says the licence requires it, not because anyone remembered to add it."
+            ],
+            "es": null
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-deck-first-words",
+          "type": "deck",
+          "skill": "jp.vocab.read",
+          "title": { "en": "Review the first words", "es": null },
+          "src": "books/japanese/decks/jp-first-words.json",
+          "mode": "review",
+          "limit": 20
+        }
+      ]
+    }
+  ]
+}

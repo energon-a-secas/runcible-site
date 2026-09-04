@@ -1,0 +1,184 @@
+{
+  "format": "neo-chapter/1",
+  "id": "3-songs",
+  "title": { "en": "Songs", "es": "Canciones" },
+  "goal": {
+    "statement": {
+      "en": "Read a line of a song in kana, with the romaji switched off, and type it back",
+      "es": "Leer una línea de canción en kana, con el romaji apagado, y escribirla de vuelta"
+    },
+    "evidence": { "skill": "jp.reading.kana", "accuracy": 0.7, "min": 12, "window": 40 }
+  },
+  "requires": ["1-hiragana"],
+  "state": "ready",
+  "estimate": {
+    "minutes": 90,
+    "note": {
+      "en": "No source in the research supports songs as a confidence device, and none refutes it either. This chapter is a judgment call, labelled as one.",
+      "es": null
+    }
+  },
+  "data": ["data/songs/index.json"],
+  "rungs": [
+    {
+      "id": "why-songs",
+      "title": { "en": "Nineteen songs, and why not twenty", "es": null },
+      "unlocks": {
+        "en": "real Japanese sentences that repeat, rhyme and stay in your head, at a point where nothing else can",
+        "es": null
+      },
+      "pages": [
+        {
+          "id": "p-why",
+          "kind": "prose",
+          "title": { "en": "A song is the first text that repeats itself on purpose", "es": null },
+          "body": {
+            "en": [
+              "After chapter 1 you can decode kana and you know almost no words. A song is the one kind of text where that is enough: the lines are short, the vocabulary repeats, and you already have a tune to hang it on.",
+              "Be warned that this is a judgment rather than a finding. The research looked for evidence that songs build early confidence and found none either way. What the guides actually use are dice, timers and a first hundred words."
+            ],
+            "es": null
+          }
+        },
+        {
+          "id": "p-copyright",
+          "kind": "callout",
+          "tone": "warn",
+          "title": { "en": "Why the list is exactly nineteen", "es": null },
+          "body": {
+            "en": [
+              "Song lyrics are copyrighted, and a childhood song being famous is not the same as it being free. Twenty-four candidates were checked against two different laws. Nineteen are out of copyright in Japan and in the United States, and those nineteen are the whole of what this site carries.",
+              "Five failed. Two have lyricists who died in the 1970s, so they stay under Japanese copyright until 2043 and 2046. One was restored in the United States by a treaty. One is a wartime rewrite of a song whose original text is fine, and the original is what ships. One is a single verse of a song whose other two verses are clear.",
+              "None of the five appears anywhere in this project, including in a comment. A checker in tools/ fails the build if one ever does, and it does not spell the titles out either, because a detector that wrote them down would be the first thing to break its own rule."
+            ],
+            "es": null
+          }
+        },
+        {
+          "id": "p-verdicts",
+          "kind": "prose",
+          "title": { "en": "The judgment travels with the data", "es": null },
+          "body": {
+            "en": [
+              "Every song file carries its own verdict for each country, the basis for it, and a confidence level. One of the nineteen is medium-high rather than high for the United States, and the file says so and says why: its verdict rests on a 1927 publication date, and a later one would restore it until 2027.",
+              "That is recorded next to the lyrics rather than in a spreadsheet somebody has to remember to check."
+            ],
+            "es": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "read-along",
+      "title": { "en": "Read along", "es": null },
+      "unlocks": {
+        "en": "reading kana in a line rather than a character at a time",
+        "es": null
+      },
+      "pages": [
+        {
+          "id": "p-toggles",
+          "kind": "prose",
+          "title": { "en": "Both switches start off", "es": null },
+          "body": {
+            "en": [
+              "Kana is always shown. Romaji and the English are behind switches, and both begin turned off, because a romaji line the eye can reach is a romaji line the eye reads.",
+              "Turn them on when you are stuck. Turn them off before you go again.",
+              "The speak button uses the voice built into your browser. It is synthetic and it is not a singer, so treat it as a pronunciation check and not as a recording. If your browser has no Japanese voice, the line says so rather than doing nothing."
+            ],
+            "es": null
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-read-along",
+          "type": "custom",
+          "module": "jp.song",
+          "skill": "jp.reading.kana",
+          "title": { "en": "Pick a song and read it", "es": null },
+          "items": "data/songs/index.json#songs",
+          "props": { "mode": "read" }
+        }
+      ]
+    },
+    {
+      "id": "type-the-line",
+      "title": { "en": "Type the line", "es": null },
+      "unlocks": {
+        "en": "the chapter goal. Reading a line back is what proves the kana is yours.",
+        "es": null
+      },
+      "pages": [
+        {
+          "id": "p-type",
+          "kind": "prose",
+          "title": { "en": "Romaji in, kana out", "es": null },
+          "body": {
+            "en": [
+              "You are shown a line in romaji with its English, and you type it back in hiragana. Spaces are ignored when it is marked, because the printed sources break the lines differently from each other.",
+              "The eight songs offered here are the ones with the shortest lines. Ten kana is a reasonable first line to type. Twenty-seven is not, and one of the nineteen has a line that long."
+            ],
+            "es": null
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-type-line",
+          "type": "custom",
+          "module": "jp.song",
+          "skill": "jp.reading.kana",
+          "title": { "en": "Type the line back in kana", "es": null },
+          "items": "data/songs/index.json#songs",
+          "count": 6,
+          "props": {
+            "mode": "type",
+            "songs": [
+              "furusato",
+              "haru-ga-kita",
+              "usagi",
+              "yuki",
+              "aka-tombo",
+              "hamabe-no-uta",
+              "kojo-no-tsuki",
+              "ware-wa-umi-no-ko"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "your-own",
+      "title": { "en": "Bring your own song", "es": null },
+      "unlocks": {
+        "en": "the only material anyone actually keeps studying: the thing they were going to listen to anyway",
+        "es": null
+      },
+      "pages": [
+        {
+          "id": "p-own",
+          "kind": "prose",
+          "title": { "en": "Paste the song you are actually listening to", "es": null },
+          "body": {
+            "en": [
+              "Nineteen public-domain songs is a small shelf, and none of them is what is in your headphones. So paste what is.",
+              "It stays in this browser. It is never uploaded, it is never put into a link, and it is not included when you sign in and sync. The database on the other side has no table for it, which is a design decision rather than an oversight.",
+              "That is not a privacy flourish. Lyrics you paste are somebody else's copyright, and the only version of this feature that is clearly lawful is the one where the text never leaves your machine."
+            ],
+            "es": null
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-own-lyrics",
+          "type": "custom",
+          "module": "jp.lyrics",
+          "skill": "jp.reading.kana",
+          "title": { "en": "Your own lyrics", "es": null }
+        }
+      ]
+    }
+  ]
+}

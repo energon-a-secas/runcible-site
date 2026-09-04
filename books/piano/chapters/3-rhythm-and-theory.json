@@ -1,0 +1,67 @@
+{
+  "format": "neo-chapter/1",
+  "id": "3-rhythm-and-theory",
+  "title": { "en": "Rhythm and theory items", "es": null },
+  "goal": {
+    "statement": {
+      "en": "Clap a bar in simple and in compound meter, and name any key signature, interval and triad on sight",
+      "es": null
+    }
+  },
+  "requires": ["2-notation"],
+  "state": "ready",
+  "rungs": [
+    {
+      "id": "the-item-inventory",
+      "title": { "en": "The item inventory", "es": null },
+      "unlocks": {
+        "en": "everything a scheduler can hold, which is the layer the whole paid market is built on",
+        "es": null
+      },
+      "pages": [
+        {
+          "id": "p-groups",
+          "kind": "prose",
+          "title": { "en": "Four groups of items, all closed sets", "es": null },
+          "body": {
+            "en": [
+              "musictheory.net groups two to five are rhythm and meter, scales and key signatures, intervals, and chords. All four are closed sets, all four are small, and all four reward being asked at increasing intervals rather than being read once.",
+              "This is the piano equivalent of the kanji and vocabulary engine: a few hundred items with a prerequisite order, where the value is that the learner never decides what to practise today."
+            ],
+            "es": null
+          }
+        },
+        {
+          "id": "p-table",
+          "kind": "table",
+          "title": { "en": "The five phases, and what each one lets you do", "es": null },
+          "columns": [
+            { "en": "Phase", "es": null },
+            { "en": "What you can do at the end of it", "es": null }
+          ],
+          "rows": [
+            ["1. Keyboard geography", "Name any white key, sit correctly, play a five note pattern by rote in two keys"],
+            ["2. Notation", "Read a note on the grand staff without counting up from middle C"],
+            ["3. Rhythm and theory items", "Clap a bar in simple and compound meter, name any key signature, interval and triad"],
+            ["4. Repertoire, graded", "Play a short public-domain piece to the end at a steady tempo"],
+            ["5. Harmony and independence", "Harmonise a melody, read chord progressions, play hands independently"]
+          ]
+        },
+        {
+          "id": "p-thin",
+          "kind": "callout",
+          "tone": "warn",
+          "title": { "en": "How much to trust this ladder", "es": null },
+          "body": {
+            "en": [
+              "Less than the Japanese one. The research pass that produced it says so in its own words: the evidence base for piano is thinner and was not cross-checked to the same depth.",
+              "Two specific gaps. Hoffman Academy states neither its premium price nor which of the 360 lessons are free. The ABRSM syllabus refused the fetch, so the grade structure is unverified, and IMSLP was never fetched at all, which is why chapter 4 has no score list.",
+              "A ladder built on unread sources is a guess with a table around it. It is published here as a sketch of a Book, not as a course."
+            ],
+            "es": null
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,440 @@
+{
+  "format": "neo-chapter/1",
+  "id": "5-grammar",
+  "title": { "en": "Grammar first steps", "es": "Primeros pasos de gramática" },
+  "goal": {
+    "statement": {
+      "en": "Build and understand a simple sentence: mark the topic, the subject and the object, ask a question, and say it did not happen and that it already did",
+      "es": "Construir y entender una frase simple: marcar el tema, el sujeto y el objeto, hacer una pregunta, y decir que no pasó y que ya pasó"
+    },
+    "evidence": { "skill": "jp.grammar.particles", "accuracy": 0.8, "min": 25, "window": 50 }
+  },
+  "requires": {
+    "textbook": ["4-first-words"],
+    "kanji-first": ["6-kanji"],
+    "immersion": ["1-hiragana"]
+  },
+  "state": "ready",
+  "estimate": {
+    "minutes": 1800,
+    "note": {
+      "en": "Six to twelve weeks. Genki allots six hours of grammar per lesson plus three of reading, over six lessons.",
+      "es": null
+    }
+  },
+  "data": ["data/vocab/ch5.json", "data/sentences/ch5.json", "books/japanese/decks/jp-grammar-words.json"],
+  "rungs": [
+    {
+      "id": "where-this-came-from",
+      "title": { "en": "Where this chapter is on firm ground and where it is not", "es": null },
+      "unlocks": {
+        "en": "knowing which parts of this chapter to check against a textbook",
+        "es": null
+      },
+      "pages": [
+        {
+          "id": "p-sourcing",
+          "kind": "callout",
+          "tone": "warn",
+          "title": { "en": "Read this before the grammar", "es": null },
+          "body": {
+            "en": [
+              "The word lists in this chapter are from JMdict and every definition is traceable to a dictionary entry. The conjugation tables are not. They are the author's, written from ordinary knowledge, and no source in this project's research verifies them.",
+              "The research covered which order to study grammar in and named the free books that teach it. It did not cover the grammar itself. So treat the tables here as a sketch to be checked, and check them against Tae Kim's guide, which is complete, free, and openly licensed, or against Genki lessons 1 to 6.",
+              "The chapter says this rather than looking authoritative, because a plausible conjugation table is worse than none."
+            ],
+            "es": null
+          }
+        },
+        {
+          "id": "p-when-grammar",
+          "kind": "prose",
+          "title": { "en": "The guides disagree about when you should be here at all", "es": null },
+          "body": {
+            "en": [
+              "Genki starts grammar in lesson one with kana only. Tofugu gates it behind roughly three hundred kanji and a thousand words. TheMoeWay starts it on day three.",
+              "All three ship real learners to the same level, so this Book does not pick. The track selector on the Book page decides whether this chapter opens after the first words, after the kanji, or straight after hiragana.",
+              "Tae Kim's own criticism of the textbook route is worth carrying with you: textbooks teach the polite form first and decide behind your back that you want to be polite before you want to be understood."
+            ],
+            "es": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "desu",
+      "title": { "en": "X is Y", "es": null },
+      "unlocks": {
+        "en": "the first complete sentence, and it is two words long",
+        "es": null
+      },
+      "pages": [
+        {
+          "id": "p-desu",
+          "kind": "prose",
+          "title": { "en": "The sentence ends with the verb, always", "es": null },
+          "body": {
+            "en": [
+              "Japanese puts the verb last. Everything else is arranged in front of it by particles, and the particles rather than the order tell you what each piece is doing.",
+              "The simplest sentence is a noun, the topic particle, another noun, and desu: watashi wa gakusei desu, I am a student. desu is the polite copula. In plain speech it is da, and in casual speech it is often nothing at all.",
+              "There is no verb to be in the English sense here, and there are no articles. gakusei is student, a student, and the student."
+            ],
+            "es": null
+          }
+        },
+        {
+          "id": "p-desu-table",
+          "kind": "table",
+          "title": { "en": "The four forms of the copula", "es": null },
+          "columns": [
+            { "en": "Meaning", "es": null },
+            { "en": "Polite", "es": null },
+            { "en": "Plain", "es": null }
+          ],
+          "rows": [
+            ["it is", "desu", "da"],
+            ["it is not", "dewa arimasen, or ja nai desu", "ja nai"],
+            ["it was", "deshita", "datta"],
+            ["it was not", "dewa arimasen deshita", "ja nakatta"]
+          ]
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-copula",
+          "type": "choice",
+          "skill": "jp.grammar.particles",
+          "title": { "en": "Which form of the copula?", "es": null },
+          "items": [
+            { "id": "cop:desu", "en": "it is, politely", "form": "です" },
+            { "id": "cop:da", "en": "it is, plainly", "form": "だ" },
+            { "id": "cop:janai", "en": "it is not, casually", "form": "じゃないです" },
+            { "id": "cop:deshita", "en": "it was, politely", "form": "でした" },
+            { "id": "cop:datta", "en": "it was, plainly", "form": "だった" },
+            { "id": "cop:janakatta", "en": "it was not, plainly", "form": "じゃなかった" }
+          ],
+          "prompt": "en",
+          "answer": "form",
+          "distractors": { "n": 3 },
+          "count": 6,
+          "pass": { "accuracy": 0.75 }
+        }
+      ]
+    },
+    {
+      "id": "particles",
+      "title": { "en": "The particles", "es": "Las partículas" },
+      "unlocks": {
+        "en": "moving words around a sentence without changing what it means",
+        "es": null
+      },
+      "pages": [
+        {
+          "id": "p-wa-ga",
+          "kind": "prose",
+          "title": { "en": "wa and ga, which is the famous one", "es": null },
+          "body": {
+            "en": [
+              "wa marks the topic: what the sentence is about, often something already in the conversation. ga marks the subject: who or what is doing the verb, often something new.",
+              "watashi wa is as for me. watashi ga is I am the one who. The difference is real and it is not a beginner's problem to solve today. Learn the shapes now and let the feel arrive from reading.",
+              "wa is written with the ha character, which is the first of chapter 1's three particle exceptions turning up again."
+            ],
+            "es": null
+          }
+        },
+        {
+          "id": "p-particle-table",
+          "kind": "table",
+          "title": { "en": "The six that carry most sentences", "es": null },
+          "columns": [
+            { "en": "Particle", "es": null },
+            { "en": "Marks", "es": null },
+            { "en": "In a sentence", "es": null }
+          ],
+          "rows": [
+            ["wa, written ha", "the topic", "watashi wa, as for me"],
+            ["ga", "the subject", "neko ga iru, there is a cat"],
+            ["wo, written wo and said o", "the direct object", "mizu wo nomu, drink water"],
+            ["ni", "a destination, a time, an indirect object", "gakkou ni iku, go to school"],
+            ["de", "where an action happens, or by what means", "ie de yomu, read at home"],
+            ["ka", "a question, at the very end", "gakusei desu ka, are you a student"]
+          ],
+          "note": {
+            "en": [
+              "ni and de both translate as at and in, which is why they are the pair that gets confused. The rough split: ni is where something is or where it goes, de is where something happens."
+            ],
+            "es": null
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-particles-read",
+          "type": "choice",
+          "skill": "jp.grammar.particles",
+          "title": { "en": "What does this particle mark?", "es": null },
+          "items": "data/vocab/ch5.json#groups.particles",
+          "prompt": "kana",
+          "answer": "gloss.0",
+          "distractors": { "n": 3 },
+          "count": 12,
+          "pass": { "accuracy": 0.8 }
+        },
+        {
+          "id": "e-particles-order",
+          "type": "order",
+          "skill": "jp.grammar.particles",
+          "title": { "en": "Put the sentence in order", "es": null },
+          "items": [
+            { "id": "ord:water", "en": "I drink water", "sequence": "わたし は みず を のみます" },
+            { "id": "ord:school", "en": "I go to school", "sequence": "わたし は がっこう に いきます" },
+            { "id": "ord:read", "en": "I read a book at home", "sequence": "いえ で ほん を よみます" },
+            { "id": "ord:student", "en": "Are you a student?", "sequence": "あなた は がくせい です か" },
+            { "id": "ord:tanaka", "en": "I am Tanaka", "sequence": "わたし は たなか です" },
+            { "id": "ord:friend", "en": "My friend eats bread", "sequence": "わたし の ともだち は パン を たべます" }
+          ],
+          "prompt": "en",
+          "sequence": "sequence",
+          "count": 5,
+          "pass": { "accuracy": 0.7 }
+        },
+        {
+          "id": "e-particles-pick",
+          "type": "choice",
+          "skill": "jp.grammar.particles",
+          "title": { "en": "Which particle goes in the gap?", "es": null },
+          "items": [
+            { "id": "gap:wo", "en": "mizu ___ nomu, to drink water", "particle": "を" },
+            { "id": "gap:ni", "en": "gakkou ___ iku, to go to school", "particle": "に" },
+            { "id": "gap:de", "en": "ie ___ yomu, to read at home", "particle": "で" },
+            { "id": "gap:ka", "en": "gakusei desu ___, are you a student", "particle": "か" },
+            { "id": "gap:wa", "en": "watashi ___ tanaka desu, I am Tanaka", "particle": "は" },
+            { "id": "gap:no", "en": "watashi ___ hon, my book", "particle": "の" },
+            { "id": "gap:mo", "en": "watashi ___, me too", "particle": "も" },
+            { "id": "gap:kara", "en": "ichiji ___, from one o'clock", "particle": "から" }
+          ],
+          "prompt": "en",
+          "answer": "particle",
+          "distractors": { "n": 3 },
+          "count": 8,
+          "pass": { "accuracy": 0.75 }
+        }
+      ]
+    },
+    {
+      "id": "questions",
+      "title": { "en": "Asking", "es": "Preguntar" },
+      "unlocks": {
+        "en": "the half of a conversation you can have before you can answer one",
+        "es": null
+      },
+      "pages": [
+        {
+          "id": "p-ka",
+          "kind": "prose",
+          "title": { "en": "A question is a statement with ka on the end", "es": null },
+          "body": {
+            "en": [
+              "The word order does not change and nothing is inverted. gakusei desu becomes gakusei desu ka. In writing the question mark is often left off entirely, because ka has already done the job.",
+              "The question words go where the answer would go, not at the front: nani wo tabemasu ka is literally what do you eat, with nani sitting exactly where the food would."
+            ],
+            "es": null
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-question-words",
+          "type": "choice",
+          "skill": "jp.grammar.particles",
+          "title": { "en": "The pointing and asking words", "es": null },
+          "items": "data/vocab/ch5.json#groups.pointing",
+          "prompt": "kana",
+          "answer": "gloss.0",
+          "distractors": { "n": 3 },
+          "count": 12,
+          "pass": { "accuracy": 0.8 }
+        }
+      ]
+    },
+    {
+      "id": "verbs",
+      "title": { "en": "Verbs, and saying it did not happen", "es": null },
+      "unlocks": {
+        "en": "half of everything, since the verb is the word the whole sentence points at",
+        "es": null
+      },
+      "pages": [
+        {
+          "id": "p-verbs",
+          "kind": "prose",
+          "title": { "en": "One polite ending, four shapes", "es": null },
+          "body": {
+            "en": [
+              "The polite present is masu. The polite negative is masen. The polite past is mashita. The polite past negative is masen deshita.",
+              "taberu becomes tabemasu, tabemasen, tabemashita, tabemasen deshita. Nothing about the ending changes between verbs. What changes is the stem it attaches to, and that is where verb groups come in.",
+              "Two verbs are irregular and they are the two you need most: suru, to do, becomes shimasu. kuru, to come, becomes kimasu."
+            ],
+            "es": null
+          }
+        },
+        {
+          "id": "p-verb-table",
+          "kind": "table",
+          "title": { "en": "One verb through the four", "es": null },
+          "columns": [
+            { "en": "Meaning", "es": null },
+            { "en": "Polite", "es": null },
+            { "en": "Plain", "es": null }
+          ],
+          "rows": [
+            ["eats, will eat", "tabemasu", "taberu"],
+            ["does not eat", "tabemasen", "tabenai"],
+            ["ate", "tabemashita", "tabeta"],
+            ["did not eat", "tabemasen deshita", "tabenakatta"]
+          ],
+          "note": {
+            "en": [
+              "There is no separate future tense. tabemasu is both eats and will eat, and the time is carried by a word like tomorrow rather than by the verb."
+            ],
+            "es": null
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-verbs-read",
+          "type": "choice",
+          "skill": "jp.vocab.read",
+          "title": { "en": "What does this verb mean?", "es": null },
+          "items": "data/vocab/ch5.json#groups.verbs",
+          "prompt": "kana",
+          "answer": "gloss.0",
+          "distractors": { "n": 3 },
+          "count": 12,
+          "pass": { "accuracy": 0.8 }
+        },
+        {
+          "id": "e-conjugate",
+          "type": "choice",
+          "skill": "jp.grammar.particles",
+          "title": { "en": "Which polite form?", "es": null },
+          "items": [
+            { "id": "conj:tabemasu", "en": "eats, politely", "form": "たべます" },
+            { "id": "conj:tabemasen", "en": "does not eat, politely", "form": "たべません" },
+            { "id": "conj:tabemashita", "en": "ate, politely", "form": "たべました" },
+            { "id": "conj:tabemasendeshita", "en": "did not eat, politely", "form": "たべませんでした" },
+            { "id": "conj:nomimasu", "en": "drinks, politely", "form": "のみます" },
+            { "id": "conj:ikimasu", "en": "goes, politely", "form": "いきます" },
+            { "id": "conj:shimasu", "en": "does, politely, and it is irregular", "form": "します" },
+            { "id": "conj:kimasu", "en": "comes, politely, and it is irregular", "form": "きます" }
+          ],
+          "prompt": "en",
+          "answer": "form",
+          "distractors": { "n": 3 },
+          "count": 8,
+          "pass": { "accuracy": 0.75 }
+        }
+      ]
+    },
+    {
+      "id": "adjectives",
+      "title": { "en": "Adjectives, which conjugate too", "es": null },
+      "unlocks": {
+        "en": "describing anything, and the surprise that an adjective can be past tense",
+        "es": null
+      },
+      "pages": [
+        {
+          "id": "p-adjectives",
+          "kind": "prose",
+          "title": { "en": "The ones ending in i are verbs in disguise", "es": null },
+          "body": {
+            "en": [
+              "ookii, big, does not need a copula to be a sentence. ookii desu is polite, but ookii on its own is already a complete statement.",
+              "It also has a past tense. ookii becomes ookikatta, was big. The negative is ookikunai, and the past negative is ookikunakatta.",
+              "The other family, the na-adjectives, behaves like a noun instead and takes the copula: kirei desu, kirei deshita."
+            ],
+            "es": null
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-adjectives-read",
+          "type": "choice",
+          "skill": "jp.vocab.read",
+          "title": { "en": "What does this adjective mean?", "es": null },
+          "items": "data/vocab/ch5.json#groups.adjectives",
+          "prompt": "kana",
+          "answer": "gloss.0",
+          "distractors": { "n": 3 },
+          "count": 10,
+          "pass": { "accuracy": 0.8 }
+        },
+        {
+          "id": "e-adjective-forms",
+          "type": "choice",
+          "skill": "jp.grammar.particles",
+          "title": { "en": "Which form of ookii?", "es": null },
+          "items": [
+            { "id": "adj:ookii", "en": "is big", "form": "おおきい" },
+            { "id": "adj:ookikunai", "en": "is not big", "form": "おおきくない" },
+            { "id": "adj:ookikatta", "en": "was big", "form": "おおきかった" },
+            { "id": "adj:ookikunakatta", "en": "was not big", "form": "おおきくなかった" }
+          ],
+          "prompt": "en",
+          "answer": "form",
+          "distractors": { "n": 3 },
+          "count": 4,
+          "pass": { "accuracy": 0.75 }
+        }
+      ]
+    },
+    {
+      "id": "sentences",
+      "title": { "en": "Whole sentences, and the deck", "es": null },
+      "unlocks": {
+        "en": "the point of the chapter, which was never the tables",
+        "es": null
+      },
+      "pages": [
+        {
+          "id": "p-sentences",
+          "kind": "prose",
+          "title": { "en": "Read them before you can parse them", "es": null },
+          "body": {
+            "en": [
+              "These are real sentences from the Tatoeba corpus, cut down to the words in this chapter. Some are three characters long.",
+              "Not all of them will come apart cleanly with what you have. That is expected rather than a signal to go back: the immersion guides put it as everything is not i plus one yet, and treat the incomprehensible ones as scenery."
+            ],
+            "es": null
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-sentences-verbs",
+          "type": "choice",
+          "skill": "jp.reading.sentence",
+          "title": { "en": "What does the sentence say?", "es": null },
+          "items": "data/sentences/ch5.json#groups.verbs",
+          "prompt": "ja",
+          "answer": "en",
+          "distractors": { "n": 3 },
+          "count": 10,
+          "pass": { "accuracy": 0.75 }
+        },
+        {
+          "id": "e-deck-grammar",
+          "type": "deck",
+          "skill": "jp.grammar.particles",
+          "title": { "en": "Review the grammar words", "es": null },
+          "src": "books/japanese/decks/jp-grammar-words.json",
+          "mode": "review",
+          "limit": 20
+        }
+      ]
+    }
+  ]
+}

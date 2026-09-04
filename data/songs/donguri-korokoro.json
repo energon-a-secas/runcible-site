@@ -1,0 +1,85 @@
+{
+  "_licence": {
+    "source": "ja.wikisource どんぐりころころ",
+    "url": "https://ja.wikisource.org/wiki/どんぐりころころ",
+    "spdx": "public-domain",
+    "derived": false,
+    "id": null,
+    "acknowledgement": null,
+    "links": [
+      "https://ja.wikisource.org/wiki/どんぐりころころ"
+    ],
+    "screen": "none",
+    "japan": {
+      "pd": true,
+      "basis": "lyricist 青木存義 Aoki Nagayoshi (1935); composer 梁田貞 Yanada Tadashi (1959). The later of the two deaths is 1959.",
+      "test": "Japan: both authors died 1967 or earlier, or the work is anonymous and published 1967 or earlier.",
+      "confidence": "high"
+    },
+    "us": {
+      "pd": true,
+      "basis": "first published 1921 or 1922.",
+      "test": "US: published 1930 or earlier, or published later with every author dead in 1945 or earlier, because the URAA restored anything still protected in its source country on 1996-01-01.",
+      "confidence": "high"
+    },
+    "confidence_text": "High. ja.wikipedia states outright that both terms expired and the work is public domain. Verses 1 and 2 only: an editorial note says the third verse is not public domain.",
+    "verses_permitted": 2,
+    "verses_permitted_note": "Two, and the reason is copyright, not transcription. The third verse of this song is not public domain, per the editorial note on its ja.wikipedia article. It must never be added to this file.",
+    "generated_by": "transcribed by workstream Ca from docs/delivery/research/japanese-open-data-and-songs.md sections D and E. No Japanese character was typed.",
+    "generated_at": "2026-09-04",
+    "note": "Verdict transcribed from the open-data report's song table. The two tests it applies are section C of that report."
+  },
+  "format": "neo-data/1",
+  "id": "donguri-korokoro",
+  "title": {
+    "ja": "どんぐりころころ",
+    "romaji": "Donguri Korokoro",
+    "en": null,
+    "qualifier": "verses 1 and 2 only",
+    "note": "The research report gives no English title. The gloss on each verse is the meaning."
+  },
+  "credits": {
+    "lyricist": "青木存義 Aoki Nagayoshi (1935)",
+    "composer": "梁田貞 Yanada Tadashi (1959)",
+    "first_published": "1921 or 1922"
+  },
+  "transcription": "Hiragana as sung, in modern kana usage. Where the printed source uses historical kana the report says so and the note is carried below. The romaji and the gloss are the researcher's, not a source's.",
+  "verses": [
+    {
+      "n": 1,
+      "lines": [
+        "どんぐりころころ どんぶりこ",
+        "おいけにはまって さあたいへん",
+        "どじょうがでてきて こんにちは",
+        "ぼっちゃんいっしょに あそびましょう"
+      ],
+      "romaji_lines": [
+        "donguri korokoro donburiko",
+        "oike ni hamatte saa taihen",
+        "dojou ga dete kite konnichiwa",
+        "bocchan issho ni asobimashou"
+      ],
+      "gloss": "An acorn rolls along and plop, into the pond: what a to-do. A loach comes up and says hello, young master, let us play together."
+    },
+    {
+      "n": 2,
+      "lines": [
+        "どんぐりころころ よろこんで",
+        "しばらくいっしょに あそんだが",
+        "やっぱりおやまが こいしいと",
+        "ないてはどじょうを こまらせた"
+      ],
+      "romaji_lines": [
+        "donguri korokoro yorokonde",
+        "shibaraku issho ni asonda ga",
+        "yappari oyama ga koishii to",
+        "naite wa dojou o komaraseta"
+      ],
+      "gloss": "The acorn was delighted and played a while, but it missed the hillside after all, and its crying troubled the loach."
+    }
+  ],
+  "verse_count": 2,
+  "notes": [
+    "Do not add the third verse: ja.wikipedia's editorial note says it is not public domain."
+  ]
+}

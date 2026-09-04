@@ -1,0 +1,65 @@
+{
+  "_licence": {
+    "source": "ja.wikipedia 七つの子",
+    "url": "https://ja.wikipedia.org/wiki/七つの子",
+    "spdx": "public-domain",
+    "derived": false,
+    "id": null,
+    "acknowledgement": null,
+    "links": [
+      "https://ja.wikipedia.org/wiki/七つの子"
+    ],
+    "screen": "none",
+    "japan": {
+      "pd": true,
+      "basis": "lyricist 野口雨情 Noguchi Ujo (1945); composer 本居長世 Motoori Nagayo (1945). The later of the two deaths is 1945.",
+      "test": "Japan: both authors died 1967 or earlier, or the work is anonymous and published 1967 or earlier.",
+      "confidence": "high"
+    },
+    "us": {
+      "pd": true,
+      "basis": "first published 1921, 雑誌『金の船』7月号.",
+      "test": "US: published 1930 or earlier, or published later with every author dead in 1945 or earlier, because the URAA restored anything still protected in its source country on 1996-01-01.",
+      "confidence": "high"
+    },
+    "confidence_text": "High. ja.wikipedia notes the copyright lapsed in 1995.",
+    "verses_permitted": 1,
+    "verses_permitted_note": "The report transcribes the first verse only, so this file carries one verse. More verses need a fresh trip to the source, not a memory.",
+    "generated_by": "transcribed by workstream Ca from docs/delivery/research/japanese-open-data-and-songs.md sections D and E. No Japanese character was typed.",
+    "generated_at": "2026-09-04",
+    "note": "Verdict transcribed from the open-data report's song table. The two tests it applies are section C of that report."
+  },
+  "format": "neo-data/1",
+  "id": "nanatsu-no-ko",
+  "title": {
+    "ja": "七つの子",
+    "romaji": "Nanatsu no Ko",
+    "en": null,
+    "qualifier": null,
+    "note": "The research report gives no English title. The gloss on each verse is the meaning."
+  },
+  "credits": {
+    "lyricist": "野口雨情 Noguchi Ujo (1945)",
+    "composer": "本居長世 Motoori Nagayo (1945)",
+    "first_published": "1921, 雑誌『金の船』7月号"
+  },
+  "transcription": "Hiragana as sung, in modern kana usage. Where the printed source uses historical kana the report says so and the note is carried below. The romaji and the gloss are the researcher's, not a source's.",
+  "verses": [
+    {
+      "n": 1,
+      "lines": [
+        "からす なぜなくの",
+        "からすはやまに",
+        "かわいい ななつの こがあるからよ"
+      ],
+      "romaji_lines": [
+        "karasu, naze naku no",
+        "karasu wa yama ni",
+        "kawaii nanatsu no ko ga aru kara yo"
+      ],
+      "gloss": "Crow, why do you cry? Because up in the mountain the crow has seven dear little ones."
+    }
+  ],
+  "verse_count": 1,
+  "notes": []
+}

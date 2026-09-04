@@ -1,0 +1,49 @@
+{
+  "_note": [
+    "Input to tools/build-kanji.mjs and tools/build-strokes.mjs.",
+    "`grade1` is derived, not listed: KANJIDIC2 already knows which 80 kanji are",
+    "grade 1, so hand-listing them here would be a second source of truth that",
+    "goes stale. `numbers` and `days` are hand-ordered because teaching order is",
+    "not a property of the dictionary.",
+    "`kana` is the 176 codepoints U+3041 to U+3096 and U+30A1 to U+30FA. KanjiVG",
+    "ships all 176, HEAD-checked by the research report and re-checked by",
+    "build-strokes.mjs on every run."
+  ],
+  "sets": [
+    {
+      "id": "numbers",
+      "title": { "en": "Number kanji", "es": "Kanji de numeros" },
+      "chapter": "6-kanji",
+      "budget_kb": 120,
+      "strokes_budget_kb": 120,
+      "literals": "一二三四五六七八九十百千万円"
+    },
+    {
+      "id": "days",
+      "title": { "en": "Day and time kanji", "es": "Kanji de dias y tiempo" },
+      "chapter": "6-kanji",
+      "budget_kb": 120,
+      "strokes_budget_kb": 120,
+      "literals": "日月火水木金土曜年時分半今毎週"
+    },
+    {
+      "id": "grade1",
+      "title": { "en": "The first eighty", "es": "Los primeros ochenta" },
+      "chapter": "6-kanji",
+      "budget_kb": 120,
+      "strokes_budget_kb": 150,
+      "grade": 1
+    }
+  ],
+  "kana_set": {
+    "id": "kana",
+    "title": { "en": "Kana stroke order", "es": "Orden de trazos del kana" },
+    "chapter": "1-hiragana",
+    "budget_kb": 120,
+    "out": "kanji/strokes-kana.json",
+    "out_note": "CONTRACTS C11.1 and data/README.md both name this file kana/strokes.json, and CONTRACTS C1.2 and C3.1 point at that path. PLAN's ownership table gives data/kana/** to workstream Ca and data/kanji/** to Cb, and Cb owns the KanjiVG pipeline, so the contract and the ownership table disagree about one file. Cb emitted it inside its own tree and asked delivery-lead to rule. Moving it is this one line plus a re-run; no code changes.",
+    "ranges": [["3041", "3096"], ["30A1", "30FA"]],
+    "extra": ["\u30fc"],
+    "extra_note": "U+30FC, the long vowel mark. It is not in the two kana ranges, so the research report's verified 176 of 176 stays exactly 176. It is added by name because a katakana chapter that cannot show the stroke for the bar in koohii has a hole in it. KanjiVG ships it as kanji/030fc.svg."
+  }
+}

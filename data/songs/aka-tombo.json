@@ -1,0 +1,64 @@
+{
+  "_licence": {
+    "source": "ja.wikipedia 赤とんぼ (童謡)",
+    "url": "https://ja.wikipedia.org/wiki/赤とんぼ_(童謡)",
+    "spdx": "public-domain",
+    "derived": false,
+    "id": null,
+    "acknowledgement": null,
+    "links": [
+      "https://ja.wikipedia.org/wiki/赤とんぼ_(童謡)"
+    ],
+    "screen": "none",
+    "japan": {
+      "pd": true,
+      "basis": "Miki Rofu d.1964, Yamada Kosaku d.1965, both before 1968",
+      "test": "Japan: both authors died 1967 or earlier, or the work is anonymous and published 1967 or earlier.",
+      "confidence": "high"
+    },
+    "us": {
+      "pd": true,
+      "basis": "melody published 1927, which is 1930 or earlier",
+      "test": "US: published 1930 or earlier, or published later with every author dead in 1945 or earlier, because the URAA restored anything still protected in its source country on 1996-01-01.",
+      "confidence": "medium-high",
+      "note": "rests on the 1927 date. A first publication in 1931 or later would restore it via URAA until 2027."
+    },
+    "confidence_text": "High for Japan (both died before 1968). Medium-high for the US: rests on the melody being published 1927, which is 1930 or earlier.",
+    "verses_permitted": 1,
+    "verses_permitted_note": "The report transcribes the first verse only, so this file carries one verse. More verses need a fresh trip to the source, not a memory.",
+    "generated_by": "transcribed by workstream Ca from docs/delivery/research/japanese-open-data-and-songs.md sections D and E. No Japanese character was typed.",
+    "generated_at": "2026-09-04",
+    "note": "This is the one song of the nineteen that is not High confidence for the US. The report's own reasoning, carried here so the judgment travels with the data: 赤とんぼ's exact US publication date. ja.wikipedia says Yamada set the poem in 1927 but does not cite the first printed edition. If the melody was in fact first published in 1931 or later, the URAA analysis would restore it (Yamada died 1965, so it was protected in Japan on 1996-01-01) and it would not be US public domain until 2027 at the earliest. I rate this medium-high, not high. PLAN records it as open question U2: whether a copyright-sensitive chapter may carry a medium-high item at all is the user's call, and dropping it costs one song out of nineteen."
+  },
+  "format": "neo-data/1",
+  "id": "aka-tombo",
+  "title": {
+    "ja": "赤とんぼ",
+    "romaji": "Aka Tombo",
+    "en": null,
+    "qualifier": null,
+    "note": "The research report gives no English title. The gloss on each verse is the meaning."
+  },
+  "credits": {
+    "lyricist": "三木露風 Miki Rofu (1964)",
+    "composer": "山田耕筰 Yamada Kosaku (1965)",
+    "first_published": "poem 1921 『樫の木』; melody 1927"
+  },
+  "transcription": "Hiragana as sung, in modern kana usage. Where the printed source uses historical kana the report says so and the note is carried below. The romaji and the gloss are the researcher's, not a source's.",
+  "verses": [
+    {
+      "n": 1,
+      "lines": [
+        "ゆうやけ こやけの あかとんぼ",
+        "おわれてみたのは いつのひか"
+      ],
+      "romaji_lines": [
+        "yuuyake, koyake no, akatonbo",
+        "owarete mita no wa, itsu no hi ka"
+      ],
+      "gloss": "A red dragonfly in the last of the sunset: when was it I saw it, carried on someone's back?"
+    }
+  ],
+  "verse_count": 1,
+  "notes": []
+}

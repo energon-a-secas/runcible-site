@@ -1,0 +1,310 @@
+{
+  "format": "neo-chapter/1",
+  "id": "7-listening-speaking",
+  "title": { "en": "Listening and speaking", "es": "Escuchar y hablar" },
+  "goal": {
+    "statement": {
+      "en": "Understand a short everyday sentence heard rather than read, and say one back at a steady speed",
+      "es": "Entender una frase cotidiana corta oída en vez de leída, y decir una de vuelta a velocidad estable"
+    },
+    "evidence": { "skill": "jp.listening.pick", "accuracy": 0.8, "min": 15, "window": 40 }
+  },
+  "requires": {
+    "textbook": ["5-grammar"],
+    "kanji-first": ["5-grammar"],
+    "immersion": ["4-first-words"]
+  },
+  "state": "ready",
+  "estimate": {
+    "minutes": 900,
+    "note": {
+      "en": "Open ended. This chapter is a habit rather than a syllabus, and the level it points at takes twelve to twenty-four months of it.",
+      "es": null
+    }
+  },
+  "data": ["data/vocab/ch4.json", "data/sentences/ch4.json", "data/sentences/ch5.json", "books/japanese/decks/jp-sentences-basic.json"],
+  "rungs": [
+    {
+      "id": "what-ships",
+      "title": { "en": "What this chapter can and cannot do", "es": null },
+      "unlocks": {
+        "en": "knowing which half of it to trust",
+        "es": null
+      },
+      "pages": [
+        {
+          "id": "p-two-apis",
+          "kind": "prose",
+          "title": { "en": "Two speech features, and only one of them is solid", "es": null },
+          "body": {
+            "en": [
+              "Making the browser speak is safe. It works on every platform that matters, back to very old versions, and Japanese voices are present everywhere. Everything graded in this chapter rests on it.",
+              "Making the browser listen is not safe. The reference sources contradict each other about two of the four major browsers: one authority records Safari as unsupported while Apple's own engineering blog announces the feature, and two others disagree about Edge. It also sends your audio to a server, needs a secure connection, and on Safari needs Siri switched on.",
+              "So recognition is here and it never scores anything. Where it exists, the drill shows you what it heard, as your own feedback. Where it does not, the drill says so in one line and gives you the model to compare against. A chapter gate resting on an API two authorities disagree about would be a gate that opens on some machines and not others."
+            ],
+            "es": null
+          }
+        },
+        {
+          "id": "p-voices",
+          "kind": "callout",
+          "tone": "note",
+          "title": { "en": "If nothing speaks", "es": null },
+          "body": {
+            "en": [
+              "Some browsers report their voice list asynchronously and return an empty list at first. Every drill here waits for the list to arrive before deciding anything, so give a silent page a second before assuming it is broken.",
+              "If there really is no Japanese voice, a drill whose question is text and whose answer is audio degrades to text and says so. A drill whose only prompt is the audio is skipped rather than shown unanswerable, and a skipped question is not a wrong one."
+            ],
+            "es": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "listen-and-pick",
+      "title": { "en": "Hear it, then pick it", "es": null },
+      "unlocks": {
+        "en": "the chapter goal, and the habit of not reading along",
+        "es": null
+      },
+      "pages": [
+        {
+          "id": "p-listen",
+          "kind": "prose",
+          "title": { "en": "The point is the gap between reading and hearing", "es": null },
+          "body": {
+            "en": [
+              "A word you can read at a glance can be completely opaque spoken at speed, because reading gives you the boundaries between words for free and listening does not.",
+              "These drills close that gap by removing the text. Press replay as often as you like: there is no penalty for it and the time is recorded rather than scored."
+            ],
+            "es": null
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-listen-words",
+          "type": "listen",
+          "skill": "jp.listening.pick",
+          "title": { "en": "Which greeting was that?", "es": null },
+          "items": "data/vocab/ch4.json#groups.greetings",
+          "speak": "kana",
+          "answer": "gloss.0",
+          "respond": "choice",
+          "lang": "ja",
+          "distractors": { "n": 3 },
+          "count": 8,
+          "pass": { "accuracy": 0.75 }
+        },
+        {
+          "id": "e-listen-sentences",
+          "type": "listen",
+          "skill": "jp.listening.pick",
+          "title": { "en": "What did the sentence say?", "es": null },
+          "items": "data/sentences/ch4.json#groups.everyday",
+          "speak": "ja",
+          "answer": "en",
+          "respond": "choice",
+          "lang": "ja",
+          "distractors": { "n": 3 },
+          "count": 8,
+          "pass": { "accuracy": 0.75 }
+        },
+        {
+          "id": "e-listen-type",
+          "type": "listen",
+          "skill": "jp.listening.write",
+          "title": { "en": "Write down what you heard", "es": null },
+          "items": "data/vocab/ch4.json#groups.days",
+          "speak": "kana",
+          "answer": "kana",
+          "respond": "typed",
+          "lang": "ja",
+          "transform": "kana",
+          "compare": "trim|kana",
+          "count": 6,
+          "pass": { "accuracy": 0.7 }
+        }
+      ]
+    },
+    {
+      "id": "shadowing",
+      "title": { "en": "Shadowing", "es": null },
+      "unlocks": {
+        "en": "the mouth catching up with the ear, which is the whole of what shadowing is for",
+        "es": null
+      },
+      "pages": [
+        {
+          "id": "p-shadow",
+          "kind": "prose",
+          "title": { "en": "Say it over the top of it, not after it", "es": null },
+          "body": {
+            "en": [
+              "Shadowing means speaking along with the audio while it plays, a fraction behind, rather than waiting for it to finish. It trains rhythm and timing rather than vocabulary, which is exactly the thing chapter 0 said Japanese counts.",
+              "Nothing here is scored, on any browser, whatever you say. Play the model, say it back, play it again. If your browser can hear you, what it heard is shown underneath as information and nothing more."
+            ],
+            "es": null
+          }
+        },
+        {
+          "id": "p-synthetic",
+          "kind": "callout",
+          "tone": "warn",
+          "title": { "en": "The voice is synthetic", "es": null },
+          "body": {
+            "en": [
+              "It is your operating system's Japanese voice, not a recording of a person. It is good enough for rhythm and for individual words and it is not a model of natural intonation.",
+              "Recorded native audio is the one thing the paid apps have that a free static site genuinely cannot copy: the licensing on community-recorded audio is chosen per contributor, so there is no blanket permission to redistribute it."
+            ],
+            "es": null
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-speak-greetings",
+          "type": "speak",
+          "skill": "jp.speaking.say",
+          "title": { "en": "Say the greeting back", "es": null },
+          "items": "data/vocab/ch4.json#groups.greetings",
+          "expect": "kana",
+          "lang": "ja",
+          "count": 6
+        },
+        {
+          "id": "e-speak-sentences",
+          "type": "speak",
+          "skill": "jp.speaking.say",
+          "title": { "en": "Shadow the sentence", "es": null },
+          "items": "data/sentences/ch5.json#groups.adjectives",
+          "expect": "ja",
+          "lang": "ja",
+          "count": 6
+        }
+      ]
+    },
+    {
+      "id": "pitch",
+      "title": { "en": "Pitch accent, mentioned once", "es": null },
+      "unlocks": {
+        "en": "knowing that it exists, which is all a beginner needs and more than most get",
+        "es": null
+      },
+      "pages": [
+        {
+          "id": "p-pitch",
+          "kind": "prose",
+          "title": { "en": "The drop, not the stress", "es": null },
+          "body": {
+            "en": [
+              "English separates words by which syllable is louder. Japanese separates them by where the pitch falls. A phrase of n beats has n places the fall can happen, plus the option of no fall at all, and those collapse into four named shapes.",
+              "You should know it exists from day one and you should not drill it from day one. The textbook example is chopsticks against bridge, and in isolation those two are audibly identical: the contrast only appears once a particle follows, because one has its drop on the last beat and the other has no drop at all.",
+              "So a beginner with no particles cannot hear the thing the example is meant to teach. Read the shapes, listen to the pair once with the particle attached, and come back to it in a year."
+            ],
+            "es": null
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-pitch",
+          "type": "custom",
+          "module": "jp.pitch",
+          "skill": "jp.speaking.pitch",
+          "title": { "en": "The four shapes", "es": null },
+          "props": {
+            "patterns": [
+              {
+                "id": "heiban",
+                "name": "heiban",
+                "ja": "平板型",
+                "word": "はなが",
+                "levels": [0, 1, 1],
+                "gloss": "flat. Low on the first beat, high after it, and it never comes back down.",
+                "note": "Any length. The commonest shape."
+              },
+              {
+                "id": "atamadaka",
+                "name": "atamadaka",
+                "ja": "頭高型",
+                "word": "はしが",
+                "levels": [1, 0, 0],
+                "gloss": "head high. The drop is straight after the first beat.",
+                "note": "This is chopsticks."
+              },
+              {
+                "id": "nakadaka",
+                "name": "nakadaka",
+                "ja": "中高型",
+                "word": "こころが",
+                "levels": [0, 1, 0, 0],
+                "gloss": "middle high. The drop is somewhere in the middle.",
+                "note": "Needs at least three beats to exist at all."
+              },
+              {
+                "id": "odaka",
+                "name": "odaka",
+                "ja": "尾高型",
+                "word": "はしが",
+                "levels": [0, 1, 0],
+                "gloss": "tail high. The drop lands on the particle.",
+                "note": "This is bridge. It is audible only because something follows it."
+              }
+            ],
+            "contrast": [
+              {
+                "id": "hashi-chopsticks",
+                "name": "chopsticks, with the subject particle",
+                "word": "はしが",
+                "levels": [1, 0, 0],
+                "gloss": "high then low. The drop is after the first beat."
+              },
+              {
+                "id": "hashi-bridge",
+                "name": "bridge, with the subject particle",
+                "word": "はしが",
+                "levels": [0, 1, 0],
+                "gloss": "low then high then low. The drop is on the particle."
+              }
+            ],
+            "closing": "There is a third word with the same two beats, meaning edge, which has no drop at all. It is identical to chopsticks in isolation and differs only once something follows. That is the whole reason this is a page and not a drill."
+          }
+        }
+      ]
+    },
+    {
+      "id": "sentence-deck",
+      "title": { "en": "The sentence deck", "es": null },
+      "unlocks": {
+        "en": "sentences coming back on their own schedule instead of when you remember them",
+        "es": null
+      },
+      "pages": [
+        {
+          "id": "p-sentence-deck",
+          "kind": "prose",
+          "title": { "en": "Whole sentences, scheduled", "es": null },
+          "body": {
+            "en": [
+              "The same scheduler as the earlier decks, over the Tatoeba sentences rather than over single words. One of its card types blanks out a word and asks for it, which is the closest this site gets to production practice you can mark.",
+              "These sentences are under a different licence from the dictionary words, and the acknowledgement at the foot of this page says so and names both."
+            ],
+            "es": null
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-deck-sentences",
+          "type": "deck",
+          "skill": "jp.reading.sentence",
+          "title": { "en": "Review the sentences", "es": null },
+          "src": "books/japanese/decks/jp-sentences-basic.json",
+          "mode": "review",
+          "limit": 15
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "_note": [
+    "Input to tools/build-sentences.mjs.",
+    "The target words are not listed here. They are read out of the already",
+    "generated data/vocab/<file>, so a chapter's example sentences can only ever",
+    "contain words that chapter teaches. Listing them twice would let the two",
+    "files disagree, and the symptom would be an example sentence for a word the",
+    "learner has not met.",
+    "Run tools/build-vocab.mjs first. build-sentences.mjs says so and stops if",
+    "the slice is not there."
+  ],
+  "slices": [
+    {
+      "file": "ch4.json",
+      "chapter": "4-first-words",
+      "vocab": "ch4.json",
+      "title": { "en": "First words in a sentence", "es": "Primeras palabras en una frase" },
+      "budget_kb": 120,
+      "groups": ["greetings", "days", "everyday"],
+      "max_chars": 24,
+      "per_word": 2,
+      "max_per_group": 40
+    },
+    {
+      "file": "ch5.json",
+      "chapter": "5-grammar",
+      "vocab": "ch5.json",
+      "title": { "en": "Grammar in a sentence", "es": "Gramatica en una frase" },
+      "budget_kb": 120,
+      "groups": ["verbs", "adjectives", "pointing"],
+      "max_chars": 22,
+      "per_word": 2,
+      "max_per_group": 40
+    }
+  ]
+}
