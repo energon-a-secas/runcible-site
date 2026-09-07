@@ -152,6 +152,24 @@
           }
         },
         {
+          "id": "fx-typed-accept",
+          "type": "typed",
+          "skill": "fixture.atlas.produce",
+          "itemIdPrefix": "atlas",
+          "title": {
+            "en": "typed, two accepted answers: type the code or the symbol",
+            "es": "escrito, dos respuestas aceptadas: escribe el código o el símbolo"
+          },
+          "items": "fixtures/data/atlas.json#planets",
+          "prompt": "name",
+          "answer": "accept",
+          "compare": "trim|casefold",
+          "count": 3,
+          "pass": {
+            "accuracy": 0.66
+          }
+        },
+        {
           "id": "fx-match",
           "type": "match",
           "skill": "fixture.atlas.recognise",

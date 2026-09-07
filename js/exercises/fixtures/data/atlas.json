@@ -1,14 +1,15 @@
 {
   "_note": "Engine fixture, not site content. Deliberately about nothing this fleet ships, because the nine generic types must not know their topic. Public facts, no licence to inherit.",
+  "_accept": "Two ways of writing one designation, so a typed drill can accept either. Stands in for a word with two readings, which is what the Japanese Book's accept lists carry.",
   "planets": [
-    { "id": "mercury", "name": "Mercury", "symbol": "M1", "code": "ME", "order": 1, "group": "inner", "moons": 0 },
-    { "id": "venus",   "name": "Venus",   "symbol": "V1", "code": "VE", "order": 2, "group": "inner", "moons": 0 },
-    { "id": "earth",   "name": "Earth",   "symbol": "E1", "code": "EA", "order": 3, "group": "inner", "moons": 1 },
-    { "id": "mars",    "name": "Mars",    "symbol": "M2", "code": "MA", "order": 4, "group": "inner", "moons": 2 },
-    { "id": "jupiter", "name": "Jupiter", "symbol": "J1", "code": "JU", "order": 5, "group": "outer", "moons": 95 },
-    { "id": "saturn",  "name": "Saturn",  "symbol": "S1", "code": "SA", "order": 6, "group": "outer", "moons": 146 },
-    { "id": "uranus",  "name": "Uranus",  "symbol": "U1", "code": "UR", "order": 7, "group": "outer", "moons": 28 },
-    { "id": "neptune", "name": "Neptune", "symbol": "N1", "code": "NE", "order": 8, "group": "outer", "moons": 16 }
+    { "id": "mercury", "name": "Mercury", "symbol": "M1", "code": "ME", "order": 1, "group": "inner", "moons": 0, "accept": ["ME", "M1"] },
+    { "id": "venus",   "name": "Venus",   "symbol": "V1", "code": "VE", "order": 2, "group": "inner", "moons": 0, "accept": ["VE", "V1"] },
+    { "id": "earth",   "name": "Earth",   "symbol": "E1", "code": "EA", "order": 3, "group": "inner", "moons": 1, "accept": ["EA", "E1"] },
+    { "id": "mars",    "name": "Mars",    "symbol": "M2", "code": "MA", "order": 4, "group": "inner", "moons": 2, "accept": ["MA", "M2"] },
+    { "id": "jupiter", "name": "Jupiter", "symbol": "J1", "code": "JU", "order": 5, "group": "outer", "moons": 95, "accept": ["JU", "J1"] },
+    { "id": "saturn",  "name": "Saturn",  "symbol": "S1", "code": "SA", "order": 6, "group": "outer", "moons": 146, "accept": ["SA", "S1"] },
+    { "id": "uranus",  "name": "Uranus",  "symbol": "U1", "code": "UR", "order": 7, "group": "outer", "moons": 28, "accept": ["UR", "U1"] },
+    { "id": "neptune", "name": "Neptune", "symbol": "N1", "code": "NE", "order": 8, "group": "outer", "moons": 16, "accept": ["NE", "N1"] }
   ],
   "runs": [
     { "id": "inner-run", "label": "The inner four, closest first", "sequence": ["Mercury", "Venus", "Earth", "Mars"] },

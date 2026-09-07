@@ -1202,6 +1202,25 @@ a.rn-toc-line:hover { color: var(--text-primary); }
 @media (max-width: 799px) {
   .rn-open > .rn-spine { height: 1px; background: var(--border-subtle); }
 }
+/* A book only lies open flat on a surface wider than it is tall. Held upright
+   it shows one page at a time, and a tablet in portrait is a book held upright:
+   at 820x1180 the spread was two 378px columns of text that ran out 285px above
+   the footer, with the bottom quarter of the screen empty. Between 800 and the
+   rail's 1180 a portrait viewport stacks the two pages instead, each at the
+   full measure, so the same words fill the height rather than being centred in
+   it or padded out with something invented to sit there.
+
+   Orientation, not height, because it is the shape of the surface that decides:
+   1280x800 is landscape and keeps its spread, and below 800 the pages were
+   already stacked, so both ends of the range are untouched. */
+@media (min-width: 800px) and (max-width: 1179px) and (orientation: portrait) {
+  /* One page at a time, and the page keeps a page's margins: 68rem of view for
+     a single 66ch column would leave the words pinned to the left edge with a
+     third of the screen blank beside them. */
+  .rn-view[data-view="today"] { max-width: 52rem; }
+  .rn-open { grid-template-columns: minmax(0, 1fr); }
+  .rn-open > .rn-spine { align-self: auto; height: 1px; background: var(--border-subtle); }
+}
 
 /* ── The shelf, and a Book's contents page ───────────────────── */
 

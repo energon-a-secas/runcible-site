@@ -79,6 +79,12 @@ export const STRINGS = Object.freeze({
     en: 'Both spellings are right; the dictionary lists both.',
     es: 'Las dos grafías son correctas; el diccionario recoge ambas.',
   },
+  // An item may accept more than one reading of the same word: 日本 is にほん
+  // and にっぽん. The answer line names them as a list, "にほん, or にっぽん",
+  // rather than running them together into a word nobody wrote. {first} is
+  // every reading but the last, already comma joined; the joining word is the
+  // only part of the sentence that is language, which is why it lives here.
+  orAccepted: { en: '{first}, or {last}', es: '{first}, o {last}' },
 
   // match
   promptColumn: { en: 'Prompts', es: 'Enunciados' },

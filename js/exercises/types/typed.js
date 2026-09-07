@@ -15,7 +15,7 @@
 import { createSession } from '../session.js';
 import { questionFrame, advance } from '../ask.js';
 import { el, append, button, focus } from '../dom.js';
-import { resolveList, pickItems, fieldValue, displayValue, itemIdOf } from '../items.js';
+import { resolveList, pickItems, fieldValue, displayValue, itemIdOf, acceptedValues } from '../items.js';
 import { explainWrong, explainRight } from '../feedback.js';
 import { isCorrect } from '../compare.js';
 
@@ -42,15 +42,44 @@ function settleValue(transform, value) {
 }
 
 /**
+ * Name every accepted answer, as a list.
+ *
+ * One item can accept several readings of the same word, and compare.js marks
+ * any of them right. The panel has to say all of them, and saying them as
+ * "にほん にっぽん" invents a word: the space is a join, not a reading. So the
+ * readings stay a list (items.js) and the word between them comes from the
+ * engine's own copy, which is the only part of the sentence that is language.
+ *
+ * @param {object} session
+ * @param {string[]} accepted
+ * @returns {string} "にほん, or にっぽん", or the single reading, or ''
+ */
+function acceptedLabel(session, accepted) {
+  if (accepted.length < 2) return accepted[0] || '';
+  return session.s('orAccepted', {
+    first: accepted.slice(0, -1).join(', '),
+    last: accepted[accepted.length - 1],
+  });
+}
+
+/**
  * Ask one typed question.
  * @param {object} session
  * @param {object} spec
  * @param {object} q { itemId, expected, expectedLabel, renderPrompt, transform } plus,
  *   when the caller can supply them, the fields the explanation panel reads:
  *   spec, ctx, api, item, expectedRaw, pool, promptField, answerField, promptValue
+ *   `expectedRaw` is the unflattened answer field, so a caller that passes it
+ *   gets the accepted readings named one by one; a caller that passes only
+ *   `expectedLabel` behaves exactly as it did.
  * @returns {Promise<void>}
  */
 export function askTyped(session, spec, q) {
+  // What is graded is any one of these (compare.js); what is shown is all of
+  // them. The first is the canonical reading, which is what a hint opens.
+  const accepted = acceptedValues(q.expectedRaw === undefined ? q.expectedLabel : q.expectedRaw);
+  const answerLabel = acceptedLabel(session, accepted) || q.expectedLabel || '';
+  const canonical = accepted[0] || q.expectedLabel || '';
   const frame = questionFrame(session);
   if (typeof q.renderPrompt === 'function') q.renderPrompt(frame.promptEl);
 
@@ -67,13 +96,16 @@ export function askTyped(session, spec, q) {
   const submit = el('button', { type: 'submit', class: 'btn btn--primary', text: session.s('check') });
   append(form, [input, submit]);
 
-  const canHint = q.expectedLabel.length > 1 && spec.hint !== false;
+  // The hint opens the first accepted reading, never the label: "It starts
+  // with に" is a hint, and the first character of a list of readings is only
+  // the same thing by luck.
+  const canHint = canonical.length > 1 && spec.hint !== false;
   let hintUsed = false;
   const hint = canHint
     ? button(session.s('hint'), () => {
       hintUsed = true;
       hint.disabled = true;
-      session.say(session.s('startsWith', { first: Array.from(q.expectedLabel)[0] }));
+      session.say(session.s('startsWith', { first: Array.from(canonical)[0] }));
       focus(input);
     }, { class: 'btn btn--ghost rx-hint' })
     : null;
@@ -118,7 +150,10 @@ export function askTyped(session, spec, q) {
         correct,
         ms,
         answer: produced,
-        expected: q.expectedLabel,
+        // The stored attempt keeps the readings joined by nothing but a space,
+        // so an English session and a Spanish one write the same row for the
+        // same miss. The label below is read by a person; this is queried.
+        expected: accepted.length ? accepted.join(' ') : q.expectedLabel,
         hintUsed,
       });
       session.say(
@@ -126,7 +161,7 @@ export function askTyped(session, spec, q) {
         correct ? 'correct' : 'wrong',
       );
       if (correct) explainRight(session, q);
-      else explainWrong(session, Object.assign({ spec }, q, { chosen: produced, expected: q.expectedLabel }));
+      else explainWrong(session, Object.assign({ spec }, q, { chosen: produced, expected: answerLabel }));
       await advance(session);
       resolve();
     });

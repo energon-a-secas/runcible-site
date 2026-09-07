@@ -77,6 +77,35 @@ export function displayValue(v) {
   return String(v);
 }
 
+/**
+ * The answers an item accepts, as a list.
+ *
+ * `answer` may name a field holding several readings of one word: the Japanese
+ * Book's `accept` is `["にほん", "にっぽん"]` for 日本 and
+ * `["あした", "あす"]` for 明日, and compare.js already grades any
+ * member as right. displayValue flattens a list by joining it with a space, so
+ * the label built from it read "にほん にっぽん": one word nobody wrote,
+ * nobody would accept, and no dictionary lists.
+ *
+ * This keeps the list a list. Turning it into a sentence is the type's job,
+ * because the word between the readings is language and belongs in strings.js.
+ *
+ * Blanks and repeats are dropped: an author who writes ["にほん", ""] means
+ * one accepted reading, and a label that says so twice is a label with a bug.
+ *
+ * @param {*} value the raw value of the answer field, a scalar or a list
+ * @returns {string[]} display values, in the order the author wrote them
+ */
+export function acceptedValues(value) {
+  const raw = Array.isArray(value) ? value : [value];
+  const out = [];
+  for (const v of raw) {
+    const one = displayValue(v).trim();
+    if (one && !out.includes(one)) out.push(one);
+  }
+  return out;
+}
+
 const warned = new Set();
 
 /**
