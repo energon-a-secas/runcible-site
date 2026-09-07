@@ -511,22 +511,43 @@
           "id": "e-long-o",
           "type": "choice",
           "skill": "kana.hiragana.read",
-          "title": { "en": "u or a second o?", "es": null },
+          "title": { "en": "u or a second o? (ō is a long o)", "es": null },
           "items": [
-            { "id": "lv:おとうさん", "word": "otousan, father", "spelling": "おとうさん, with u" },
-            { "id": "lv:きょう", "word": "kyou, today", "spelling": "きょう, with u" },
-            { "id": "lv:とうだい", "word": "toudai, lighthouse", "spelling": "とうだい, with u" },
-            { "id": "lv:はっぴょう", "word": "happyou, announcement", "spelling": "はっぴょう, with u" },
-            { "id": "lv:こおり", "word": "koori, ice", "spelling": "こおり, on the exception list" },
-            { "id": "lv:おおきい", "word": "ookii, big", "spelling": "おおきい, on the exception list" },
-            { "id": "lv:とおい", "word": "tooi, far", "spelling": "とおい, on the exception list" },
-            { "id": "lv:おおかみ", "word": "ookami, wolf", "spelling": "おおかみ, on the exception list" }
+            { "id": "lv:おとうさん", "word": "otōsan, father", "spelling": "with u", "explain": "おとうさん. The o row lengthens with u unless the word is on the exception list, and this one is not." },
+            { "id": "lv:きょう", "word": "kyō, today", "spelling": "with u", "explain": "きょう. The default: a long o is written with u." },
+            { "id": "lv:とうだい", "word": "tōdai, lighthouse", "spelling": "with u", "explain": "とうだい. Not on the exception list, so u." },
+            { "id": "lv:はっぴょう", "word": "happyō, announcement", "spelling": "with u", "explain": "はっぴょう. Not on the exception list, so u." },
+            { "id": "lv:こおり", "word": "kōri, ice", "spelling": "with a second o, it is on the exception list", "explain": "こおり. One of the twenty-two words whose long o is written with a second o." },
+            { "id": "lv:おおきい", "word": "ōkii, big", "spelling": "with a second o, it is on the exception list", "explain": "おおきい. On the exception list: a second o, not u." },
+            { "id": "lv:とおい", "word": "tōi, far", "spelling": "with a second o, it is on the exception list", "explain": "とおい. On the exception list: a second o, not u." },
+            { "id": "lv:おおかみ", "word": "ōkami, wolf", "spelling": "with a second o, it is on the exception list", "explain": "おおかみ. On the exception list: a second o, not u." }
           ],
           "prompt": "word",
           "answer": "spelling",
           "distractors": { "n": 3 },
           "count": 8,
-          "pass": { "accuracy": 0.75 }
+          "pass": { "accuracy": 0.875 }
+        },
+        {
+          "id": "e-words-read",
+          "type": "choice",
+          "skill": "kana.hiragana.read",
+          "title": { "en": "Read the word", "es": null },
+          "items": [
+            { "id": "word:さか", "word": "さか", "romaji": "saka, a hill", "explain": "No small tsu, so the k is not held: sa-ka. With one it would be sakka, an author." },
+            { "id": "word:さっか", "word": "さっか", "romaji": "sakka, an author", "explain": "The small tsu holds the k for a beat: sa, small tsu, ka. Without it, saka is a hill." },
+            { "id": "word:きょう", "word": "きょう", "romaji": "kyou, today", "explain": "The small yo rides on ki, so kyo is one beat, and the u makes it long: kyo-u, two beats." },
+            { "id": "word:きよう", "word": "きよう", "romaji": "kiyou, skilful", "explain": "A full-size yo is its own beat: ki-yo-u, three beats. The size of the yo is the whole difference from kyou." },
+            { "id": "word:おばあさん", "word": "おばあさん", "romaji": "obaasan, grandmother", "explain": "The a row lengthens with a: ba-a. Say the long a or it becomes obasan, an aunt." },
+            { "id": "word:おじいさん", "word": "おじいさん", "romaji": "ojiisan, grandfather", "explain": "The i row lengthens with i: ji-i. Short, ojisan, is an uncle." },
+            { "id": "word:ねえさん", "word": "ねえさん", "romaji": "neesan, elder sister", "explain": "One of the few words whose long e is written with e rather than i." },
+            { "id": "word:とけい", "word": "とけい", "romaji": "tokei, a clock", "explain": "Spelled with i, as the appendix writes a long e, and commonly said tokee." }
+          ],
+          "prompt": "word",
+          "answer": "romaji",
+          "distractors": { "n": 3 },
+          "count": 8,
+          "pass": { "accuracy": 0.8 }
         }
       ]
     },
@@ -558,11 +579,20 @@
           "type": "choice",
           "skill": "kana.hiragana.read",
           "title": { "en": "How is it read here?", "es": null },
-          "items": "data/kana/hiragana.json#particles",
+          "items": [
+            { "id": "prt:wa-topic", "written": "は in わたしはがくせいです", "read": "wa", "explain": "This は marks the topic, so it is read wa: watashi wa gakusei desu, I am a student." },
+            { "id": "prt:ha-word", "written": "は in はな", "read": "ha", "explain": "Inside a word は is a plain ha: hana, a flower. Only the particle is read wa." },
+            { "id": "prt:e-direction", "written": "へ in がっこうへいく", "read": "e", "explain": "This へ marks a direction, so it is read e: gakkou e iku, go to school." },
+            { "id": "prt:he-word", "written": "へ in へや", "read": "he", "explain": "Inside a word へ is a plain he: heya, a room." },
+            { "id": "prt:o-object", "written": "を in ほんをよむ", "read": "o", "explain": "を marks the direct object and is read o: hon o yomu, read a book. It is used for nothing else." },
+            { "id": "prt:wa-greeting", "written": "は in こんにちは", "read": "wa", "explain": "The greeting ends in the topic particle of a sentence nobody finishes, so it is wa: konnichiwa." },
+            { "id": "prt:ha-hai", "written": "は in はい", "read": "ha", "explain": "hai, yes, is a word, not a particle: plain ha." },
+            { "id": "prt:wa-evening", "written": "は in こんばんは", "read": "wa", "explain": "Same as konnichiwa: the greeting ends in the topic particle, so it is wa." }
+          ],
           "prompt": "written",
           "answer": "read",
-          "distractors": { "n": 2 },
-          "count": 3,
+          "distractors": { "values": ["ha", "he", "wo", "wa", "e", "o"], "n": 5 },
+          "count": 8,
           "pass": { "accuracy": 0.8 }
         }
       ]
@@ -621,6 +651,25 @@
               "That is a gap rather than a decision, and it is named here rather than dressed up. What exists today is the measurement."
             ],
             "es": null
+          }
+        },
+        {
+          "id": "p-quiz-table",
+          "kind": "callout",
+          "tone": "note",
+          "title": {
+            "en": "The last two drills are games, and they open in a frame",
+            "es": "Los dos últimos ejercicios son juegos, y se abren en un marco"
+          },
+          "body": {
+            "en": [
+              "The rungs above drilled one row, or one rule, at a time. The last two drills here draw from the whole table at once, which is the only honest test of whether the kana is yours: reading a row inside the rung that taught it is not the same as reading a kana anywhere.",
+              "Both are games from quiz.neorgon.com running inside a frame on this page. The first shows a kana and asks for its sound, or shows a sound and asks for the kana, one at a time and picked per item; the second is a board of four kana against four romaji. Every answer is recorded here under this chapter's goal. Beside each frame there is an Open in Quiz link that opens the same round on its own page, so a frame that fails to load is never the end of the drill."
+            ],
+            "es": [
+              "Los peldaños de arriba practicaron una fila, o una regla, cada vez. Los dos últimos ejercicios de aquí toman de toda la tabla a la vez, que es la única prueba honesta de si el kana ya es tuyo: leer una fila dentro del peldaño que la enseñó no es lo mismo que leer un kana en cualquier sitio.",
+              "Los dos son juegos de quiz.neorgon.com que se ejecutan dentro de un marco en esta página. El primero muestra un kana y pide su sonido, o muestra un sonido y pide el kana, de uno en uno y elegido por elemento; el segundo es un tablero de cuatro kana contra cuatro romaji. Cada respuesta se registra aquí bajo la meta de este capítulo. Junto a cada marco hay un enlace Abrir en Quiz que abre la misma ronda en su propia página, así que un marco que no carga nunca es el final del ejercicio."
+            ]
           }
         }
       ],
@@ -682,18 +731,6 @@
           ]
         },
         {
-          "id": "e-mixed-read",
-          "type": "choice",
-          "skill": "kana.hiragana.read",
-          "title": { "en": "Mixed, from the marked rows", "es": null },
-          "items": "data/kana/hiragana.json#dakuten.d",
-          "prompt": "glyph",
-          "answer": "romaji",
-          "distractors": { "n": 3 },
-          "count": 5,
-          "pass": { "accuracy": 0.8 }
-        },
-        {
           "id": "e-mixed-type",
           "type": "typed",
           "skill": "kana.hiragana.write",
@@ -705,6 +742,24 @@
           "compare": "trim|kana",
           "count": 5,
           "pass": { "accuracy": 0.8 }
+        },
+        {
+          "id": "e-mixed-read",
+          "type": "quiz",
+          "game": "sound",
+          "src": "books/japanese/sets/jp-hiragana-sound.json",
+          "skill": "kana.hiragana.read",
+          "limit": 12,
+          "title": { "en": "Mixed, from the whole table", "es": "Mezclado, de toda la tabla" }
+        },
+        {
+          "id": "e-mixed-pairs",
+          "type": "quiz",
+          "game": "pairs",
+          "src": "books/japanese/sets/jp-hiragana-pairs.json",
+          "skill": "kana.hiragana.read",
+          "limit": 12,
+          "title": { "en": "Match the kana to its romaji", "es": "Une el kana con su romaji" }
         }
       ]
     }

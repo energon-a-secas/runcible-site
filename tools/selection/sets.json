@@ -1,0 +1,87 @@
+{
+  "_note": [
+    "Input to tools/build-sets.mjs. Quiz sets, format neo-quiz-set/1, the contract",
+    "in quiz-site/llms.txt. Every item is generated from data/, so a set can never",
+    "carry a word, a kana or a line the corpus does not carry. A beats item's",
+    "explain line is the seed word's own when it has one, else its rule's line",
+    "from rules.json, else null; the generator writes no line of its own.",
+    "Item ids are derived from the corpus id of the record they came from, so a",
+    "re-run over the same corpus emits the same ids. quiz:answer carries that id",
+    "as itemId and Runcible stores it as evidence, so an id that moves between",
+    "runs orphans every attempt a person made on that item.",
+    "Each set is written twice, once under quiz-site/data/sets/ for the Quiz",
+    "library and once under books/japanese/sets/ for the Runcible chapter that",
+    "embeds it. Same generator, so they cannot drift; the build cmp's them.",
+    "The order kind expands to one set per song in data/songs/index.json. A song",
+    "gloss is the researcher's English; es is null unless glosses_es names a",
+    "Spanish line for that song and verse, because this file does not translate."
+  ],
+  "sets": [
+    {
+      "id": "jp-loanwords-beats",
+      "kind": "beats",
+      "from": "loanwords/seed.json",
+      "rules": "loanwords/rules.json",
+      "include_verified": true,
+      "name": { "en": "Loanword beats", "es": "Pulsos de préstamos" },
+      "skill": "jp.mora.count",
+      "budget_kb": 40
+    },
+    {
+      "id": "jp-hiragana-sound",
+      "kind": "sound",
+      "from": "kana/hiragana.json",
+      "prefix": "hira",
+      "name": { "en": "Hiragana sounds", "es": "Sonidos del hiragana" },
+      "skill": "jp.kana.hiragana.sound",
+      "budget_kb": 40
+    },
+    {
+      "id": "jp-katakana-sound",
+      "kind": "sound",
+      "from": "kana/katakana.json",
+      "prefix": "kata",
+      "name": { "en": "Katakana sounds", "es": "Sonidos del katakana" },
+      "skill": "jp.kana.katakana.sound",
+      "budget_kb": 40
+    },
+    {
+      "id": "jp-hiragana-pairs",
+      "kind": "kana-pairs",
+      "from": "kana/hiragana.json",
+      "prefix": "hira",
+      "name": { "en": "Hiragana to romaji", "es": "Hiragana a romaji" },
+      "skill": "jp.kana.hiragana.romaji",
+      "budget_kb": 40
+    },
+    {
+      "id": "jp-katakana-pairs",
+      "kind": "kana-pairs",
+      "from": "kana/katakana.json",
+      "prefix": "kata",
+      "name": { "en": "Katakana to romaji", "es": "Katakana a romaji" },
+      "skill": "jp.kana.katakana.romaji",
+      "budget_kb": 40
+    },
+    {
+      "id": "jp-first-words-pairs",
+      "kind": "vocab-pairs",
+      "from": "vocab/ch4.json",
+      "name": { "en": "First words", "es": "Primeras palabras" },
+      "skill": "vocab.first-words.read",
+      "budget_kb": 40
+    },
+    {
+      "id": "jp-song-{song}-order",
+      "kind": "order",
+      "from": "songs/index.json",
+      "skill": "jp.song.order",
+      "budget_kb": 12,
+      "glosses_es": {}
+    }
+  ],
+  "targets": {
+    "quiz_site": "../quiz-site",
+    "runcible_book": "japanese"
+  }
+}

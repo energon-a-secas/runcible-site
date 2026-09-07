@@ -9,10 +9,12 @@
 // the shape is computed here from a levels array that lives in the chapter, and
 // every element is created rather than parsed. No innerHTML, no injected SVG.
 //
-// The content is deliberately thin. The research is blunt about why: the
-// textbook contrast is inaudible in isolation and only surfaces when a particle
-// follows, so a beginner with no particles yet cannot hear the thing the
-// example teaches. Mention it on day one, do not drill it.
+// The content is deliberately thin. The research is blunt about why: of the
+// three hashi words drawn here, bridge (odaka) and edge (heiban) are identical
+// in isolation and only part when a particle follows, so a beginner with no
+// particles yet cannot hear the thing the example teaches. Chopsticks
+// (atamadaka) differs from both even alone, because its drop is inside the
+// word. Mention it on day one, do not drill it.
 
 import { el, add, clear, button, listeners, frame } from './ui.js';
 
@@ -113,7 +115,7 @@ export default function register(runcible) {
         add(view.body, [
           patterns.length ? el('h5', { class: 'jp-sub', text: 'The four shapes' }) : null,
           ...patterns.map(row),
-          contrast.length ? el('h5', { class: 'jp-sub', text: 'The pair worth hearing' }) : null,
+          contrast.length ? el('h5', { class: 'jp-sub', text: 'The three worth hearing' }) : null,
           ...contrast.map(row),
           props.closing ? el('p', { class: 'jp-note', text: props.closing }) : null,
           trouble,

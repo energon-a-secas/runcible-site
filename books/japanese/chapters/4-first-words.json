@@ -114,7 +114,8 @@
           "body": {
             "en": [
               "Japanese kept two counting systems and uses both. Four is shi or yon, seven is shichi or nana, nine is ku or kyuu, and which one you use depends on what follows.",
-              "Learn both readings from the start. Choosing between them is a habit that comes from hearing them, not from a rule you can apply in advance."
+              "Learn both readings from the start. Choosing between them is a habit that comes from hearing them, not from a rule you can apply in advance.",
+              "shi, shichi and ku survive in fixed places: the months (shigatsu, shichigatsu, kugatsu), some clock times (shichiji, kuji, but yoji), and the school count-up. Standing alone or before most counters, yon, nana and kyuu win, partly because shi sounds like death and ku like suffering, partly because shi, shichi and ichi are easy to mishear."
             ],
             "es": null
           }
@@ -131,6 +132,25 @@
           "answer": "gloss.0",
           "distractors": { "n": 3 },
           "count": 10,
+          "pass": { "accuracy": 0.8 }
+        },
+        {
+          "id": "e-numbers-both",
+          "type": "choice",
+          "skill": "jp.vocab.read",
+          "title": { "en": "The other reading", "es": null },
+          "items": [
+            { "id": "numalt:shi", "reading": "shi", "en": "four", "explain": "shi is the other four. It lives on in shigatsu, April, and in the count-up; alone it gives way to yon." },
+            { "id": "numalt:shichi", "reading": "shichi", "en": "seven", "explain": "shichi is the other seven: shichigatsu, July, shichiji, seven o'clock. Alone it is nana." },
+            { "id": "numalt:ku", "reading": "ku", "en": "nine", "explain": "ku is the other nine: kugatsu, September, kuji, nine o'clock. Alone it is kyuu." },
+            { "id": "numalt:yon", "reading": "yon", "en": "four", "explain": "yon is the everyday four, the one before most counters and on its own." },
+            { "id": "numalt:nana", "reading": "nana", "en": "seven", "explain": "nana is the everyday seven, and the one that cannot be misheard as ichi." },
+            { "id": "numalt:kyuu", "reading": "kyuu", "en": "nine", "explain": "kyuu is the everyday nine; ku sounds like suffering, which is why it is avoided alone." }
+          ],
+          "prompt": "reading",
+          "answer": "en",
+          "distractors": { "values": ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"], "n": 3 },
+          "count": 6,
           "pass": { "accuracy": 0.8 }
         }
       ]
@@ -149,7 +169,7 @@
           "title": { "en": "The week is named after the elements", "es": null },
           "body": {
             "en": [
-              "Monday is moon, Tuesday is fire, Wednesday is water, Thursday is wood, Friday is metal, Saturday is earth, Sunday is sun. Every one of them ends in the same two beats, youbi.",
+              "Monday is moon, Tuesday is fire, Wednesday is water, Thursday is wood, Friday is metal, Saturday is earth, Sunday is sun. Every one of them ends in the same three beats, yo-u-bi.",
               "The kanji for these are in chapter 6. Here they are kana, and the kana is enough to say them."
             ],
             "es": null
@@ -176,7 +196,7 @@
           "title": { "en": "Type the day", "es": null },
           "items": "data/vocab/ch4.json#groups.days",
           "prompt": "gloss.0",
-          "answer": "kana",
+          "answer": "accept",
           "transform": "kana",
           "compare": "trim|kana",
           "count": 6,
@@ -200,7 +220,8 @@
             "en": [
               "Japanese puts a classifier between the number and the thing, chosen by the shape or the kind of the thing. Flat things take one counter, long thin things take another, machines take another, people take another.",
               "English does this too and only for some nouns: two sheets of paper, three head of cattle. Japanese does it for all of them.",
-              "The one to learn first is the general-purpose counter for small objects, which is the escape hatch when you do not know the right one."
+              "The one to learn first is tsu: hitotsu, futatsu, mittsu, yottsu, itsutsu, muttsu, nanatsu, yattsu, kokonotsu, too. It has its own set of number words, which is why it is worth learning as ten fixed words, and it is the escape hatch when you do not know the right counter. The drill below has ko instead, the everyday counter for small objects, which takes the ordinary numbers: ikko, niko, sanko.",
+              "People are the other irregular set worth having from day one: one person is hitori, two is futari, and from three on it is the ordinary number plus nin, sannin."
             ],
             "es": null
           }
@@ -218,6 +239,28 @@
           "distractors": { "n": 3 },
           "count": 8,
           "pass": { "accuracy": 0.75 }
+        },
+        {
+          "id": "e-counters-count",
+          "type": "typed",
+          "skill": "jp.vocab.write",
+          "title": { "en": "Count it, in kana", "es": null },
+          "items": [
+            { "id": "cnt:さんにん", "en": "three people", "kana": "さんにん", "explain": "san plus nin: from three up, people take the ordinary number." },
+            { "id": "cnt:にまい", "en": "two sheets of paper", "kana": "にまい", "explain": "Flat things take mai: ni plus mai." },
+            { "id": "cnt:いっぽん", "en": "one bottle", "kana": "いっぽん", "explain": "Long thin things take hon, and ichi plus hon becomes ippon: the counter changes its sound after one, six, eight and ten." },
+            { "id": "cnt:さんさつ", "en": "three books", "kana": "さんさつ", "explain": "Books take satsu: san plus satsu." },
+            { "id": "cnt:にだい", "en": "two cars", "kana": "にだい", "explain": "Machines and vehicles take dai: ni plus dai." },
+            { "id": "cnt:さんびき", "en": "three cats", "kana": "さんびき", "explain": "Small animals take hiki, and san plus hiki becomes sanbiki: the h voices after three." },
+            { "id": "cnt:ひとつ", "en": "one thing, counted with tsu", "kana": "ひとつ", "explain": "tsu has its own number words: hitotsu, futatsu, mittsu." },
+            { "id": "cnt:ふたつ", "en": "two things, counted with tsu", "kana": "ふたつ", "explain": "tsu has its own number words: hitotsu, futatsu, mittsu." }
+          ],
+          "prompt": "en",
+          "answer": "kana",
+          "transform": "kana",
+          "compare": "trim|kana",
+          "count": 8,
+          "pass": { "accuracy": 0.7 }
         }
       ]
     },
@@ -235,7 +278,7 @@
           "title": { "en": "Fourteen nouns, chosen for turning up", "es": null },
           "body": {
             "en": [
-              "Water, book, person, house, and the rest. They are here because they appear in the example sentences and in the grammar chapter, not because any frequency list was consulted.",
+              "Water, tea, house, station, and the rest. They are here because they appear in the example sentences and in the grammar chapter, not because any frequency list was consulted.",
               "The one honest frequency claim in the research is Refold's: the most frequent thousand words make up around seventy percent of the language. This is not that thousand. It is the handful this Book needs next."
             ],
             "es": null
@@ -284,8 +327,24 @@
           "id": "e-sentence-read",
           "type": "choice",
           "skill": "jp.reading.sentence",
-          "title": { "en": "Read the whole sentence", "es": null },
-          "items": "data/sentences/ch4.json#groups.greetings",
+          "title": { "en": "Read the greeting, pick the meaning", "es": null },
+          "items": [
+            { "id": "gr:こんにちは", "ja": "こんにちは", "en": "Hello" },
+            { "id": "gr:おはよう", "ja": "おはよう", "en": "Good morning" },
+            { "id": "gr:こんばんは", "ja": "こんばんは", "en": "Good evening" },
+            { "id": "gr:おやすみなさい", "ja": "おやすみなさい", "en": "Good night" },
+            { "id": "gr:さようなら", "ja": "さようなら", "en": "Goodbye" },
+            { "id": "gr:ありがとう", "ja": "ありがとう", "en": "Thank you" },
+            { "id": "gr:すみません", "ja": "すみません", "en": "Excuse me" },
+            { "id": "gr:ごめん", "ja": "ごめん", "en": "Sorry" },
+            { "id": "gr:はい", "ja": "はい", "en": "Yes" },
+            { "id": "gr:いいえ", "ja": "いいえ", "en": "No" },
+            { "id": "gr:おねがいします", "ja": "おねがいします", "en": "Please" },
+            { "id": "gr:ただいま", "ja": "ただいま", "en": "I'm back" },
+            { "id": "gr:いってきます", "ja": "いってきます", "en": "I'm off" },
+            { "id": "gr:はじめまして", "ja": "はじめまして", "en": "Nice to meet you" },
+            { "id": "gr:よろしくね", "ja": "よろしくね", "en": "Looking forward to it" }
+          ],
           "prompt": "ja",
           "answer": "en",
           "distractors": { "n": 3 },
@@ -327,9 +386,34 @@
             ],
             "es": null
           }
+        },
+        {
+          "id": "p-quiz-pairs",
+          "kind": "callout",
+          "tone": "note",
+          "title": { "en": "One game before the deck", "es": "Un juego antes de la baraja" },
+          "body": {
+            "en": [
+              "The drills above went group by group. The first drill below draws from every word in the chapter at once and puts four of them on a board against four meanings, which is the first time nothing on the screen tells you which group a word came from. It is a game from quiz.neorgon.com running inside a frame, it records here under this chapter's goal, and beside the frame there is an Open in Quiz link to the same round on its own page.",
+              "One thing on that board is ahead of you. The left column is the word as the dictionary writes it, so the numbers and a few set phrases arrive in kanji you do not meet until chapter 6; the kana reading is shown under the pair after a miss. That is how the set is built rather than a decision about when to teach kanji, and it is said here rather than left to surprise you."
+            ],
+            "es": [
+              "Los ejercicios de arriba fueron grupo por grupo. El primero de abajo toma de todas las palabras del capítulo a la vez y pone cuatro en un tablero contra cuatro significados, que es la primera vez que nada en la pantalla te dice de qué grupo venía una palabra. Es un juego de quiz.neorgon.com que se ejecuta dentro de un marco, registra aquí bajo la meta de este capítulo, y junto al marco hay un enlace Abrir en Quiz a la misma ronda en su propia página.",
+              "Una cosa de ese tablero va por delante de ti. La columna izquierda es la palabra tal como la escribe el diccionario, así que los números y algunas frases hechas llegan en kanji que no ves hasta el capítulo 6; la lectura en kana aparece bajo la pareja tras un fallo. Así está construido el conjunto, no es una decisión sobre cuándo enseñar kanji, y se dice aquí en vez de dejar que te sorprenda."
+            ]
+          }
         }
       ],
       "exercises": [
+        {
+          "id": "e-first-words-pairs",
+          "type": "quiz",
+          "game": "pairs",
+          "src": "books/japanese/sets/jp-first-words-pairs.json",
+          "skill": "jp.vocab.read",
+          "limit": 12,
+          "title": { "en": "Match the word to its meaning", "es": "Une la palabra con su significado" }
+        },
         {
           "id": "e-deck-first-words",
           "type": "deck",

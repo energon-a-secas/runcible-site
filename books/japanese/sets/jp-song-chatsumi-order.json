@@ -1,0 +1,17 @@
+{
+"format": "neo-quiz-set/1",
+"id": "jp-song-chatsumi-order",
+"version": "2026-09-04",
+"game": "order",
+"name": { "en": "茶摘み (Chatsumi)", "es": null },
+"lang": "ja",
+"skill": "jp.song.order",
+"licence": { "spdx": "public-domain", "screen": "none", "attribution": "茶摘み (Chatsumi). Words: 不詳. Music: 不詳. First published 1912, 尋常小学唱歌 第三学年用. Public domain in Japan and the United States.", "source": "https://ja.wikisource.org/wiki/茶摘" },
+"_licence": { "source": "ja.wikisource 茶摘", "url": "https://ja.wikisource.org/wiki/茶摘", "spdx": "public-domain", "derived": false, "id": null, "acknowledgement": null, "links": [ "https://ja.wikisource.org/wiki/茶摘" ], "screen": "none", "japan": { "pd": true, "basis": "no named author (不詳; 不詳), first published 1912, 尋常小学唱歌 第三学年用.", "test": "Japan: both authors died 1967 or earlier, or the work is anonymous and published 1967 or earlier.", "confidence": "high" }, "us": { "pd": true, "basis": "first published 1912, 尋常小学唱歌 第三学年用.", "test": "US: published 1930 or earlier, or published later with every author dead in 1945 or earlier, because the URAA restored anything still protected in its source country on 1996-01-01.", "confidence": "high" }, "confidence_text": "High", "verses_permitted": 1, "verses_permitted_note": "The report transcribes the first verse only, so this file carries one verse. More verses need a fresh trip to the source, not a memory.", "generated_by": "tools/build-sets.mjs", "generated_at": "2026-09-04", "note": "Derived from data/songs/chatsumi.json: one item per line, the pieces cut on the word boundaries of the corpus's romaji line aligned onto the kana (a one-kana piece joins the piece before it, a repeated piece is one piece), the verse gloss shown after a miss. Verdicts, credits and the authors' death years are copied from that file." },
+"items": [
+{"id":"chatsumi-v1-l1","tokens":["なつも","ちかづく","はちじゅうはちや"],"line":"なつも ちかづく はちじゅうはちや","gloss":{"en":"The eighty-eighth night, summer drawing near; new leaves thicken on field and hill. Is that not tea-picking over there, madder sashes and sedge hats?","es":null}},
+{"id":"chatsumi-v1-l2","tokens":["のにも","やまにも","わかばが","しげる"],"line":"のにも やまにも わかばが しげる","gloss":{"en":"The eighty-eighth night, summer drawing near; new leaves thicken on field and hill. Is that not tea-picking over there, madder sashes and sedge hats?","es":null}},
+{"id":"chatsumi-v1-l3","tokens":["あれに","みえるは","ちゃつみ","じゃ","ないか"],"line":"あれに みえるは ちゃつみ じゃ ないか","gloss":{"en":"The eighty-eighth night, summer drawing near; new leaves thicken on field and hill. Is that not tea-picking over there, madder sashes and sedge hats?","es":null}},
+{"id":"chatsumi-v1-l4","tokens":["あかね","だすきに","すげの","かさ"],"line":"あかね だすきに すげの かさ","gloss":{"en":"The eighty-eighth night, summer drawing near; new leaves thicken on field and hill. Is that not tea-picking over there, madder sashes and sedge hats?","es":null}}
+]
+}

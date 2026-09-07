@@ -108,7 +108,8 @@
           "items": [
             { "id": "cop:desu", "en": "it is, politely", "form": "です" },
             { "id": "cop:da", "en": "it is, plainly", "form": "だ" },
-            { "id": "cop:janai", "en": "it is not, casually", "form": "じゃないです" },
+            { "id": "cop:dewaarimasen", "en": "it is not, politely", "form": "ではありません" },
+            { "id": "cop:janai", "en": "it is not, plainly", "form": "じゃない" },
             { "id": "cop:deshita", "en": "it was, politely", "form": "でした" },
             { "id": "cop:datta", "en": "it was, plainly", "form": "だった" },
             { "id": "cop:janakatta", "en": "it was not, plainly", "form": "じゃなかった" }
@@ -116,7 +117,7 @@
           "prompt": "en",
           "answer": "form",
           "distractors": { "n": 3 },
-          "count": 6,
+          "count": 7,
           "pass": { "accuracy": 0.75 }
         }
       ]
@@ -173,9 +174,24 @@
           "type": "choice",
           "skill": "jp.grammar.particles",
           "title": { "en": "What does this particle mark?", "es": null },
-          "items": "data/vocab/ch5.json#groups.particles",
+          "items": [
+            { "id": "w_0001", "kana": "は", "marks": "the topic, what the sentence is about", "explain": "watashi wa gakusei desu: as for me, a student. Written ha, read wa." },
+            { "id": "w_0002", "kana": "が", "marks": "the subject, who or what does it", "explain": "neko ga iru: there is a cat. ga points at the thing itself, wa at what the sentence is about." },
+            { "id": "w_0003", "kana": "を", "marks": "the direct object", "explain": "mizu o nomu: drink water. Written wo, read o, and used for nothing else." },
+            { "id": "w_0004", "kana": "に", "marks": "a destination, a time, or where something is", "explain": "gakkou ni iku: go to school. ni is where something is or where it goes." },
+            { "id": "w_0005", "kana": "で", "marks": "where an action happens, or by what means", "explain": "ie de yomu: read at home. de is where something happens, ni is where something is." },
+            { "id": "w_0006", "kana": "へ", "marks": "a direction, towards", "explain": "gakkou e iku: towards school. Written he, read e, and close to ni for destinations." },
+            { "id": "w_0007", "kana": "と", "marks": "and, joining two nouns, or with", "explain": "pan to mizu: bread and water. tomodachi to: with a friend." },
+            { "id": "w_0008", "kana": "も", "marks": "too, also", "explain": "watashi mo: me too. It replaces wa or ga rather than following it." },
+            { "id": "w_0009", "kana": "の", "marks": "belonging to, possession", "explain": "watashi no tomodachi: my friend. The owner comes first." },
+            { "id": "w_0010", "kana": "か", "marks": "a question, at the very end", "explain": "gakusei desu ka: are you a student? The word order does not change." },
+            { "id": "w_0011", "kana": "ね", "marks": "seeking agreement, right?", "explain": "ii tenki desu ne: nice weather, isn't it. At the end of the sentence." },
+            { "id": "w_0012", "kana": "よ", "marks": "emphasis at the end, I'm telling you", "explain": "iku yo: I'm going, I'm telling you. It adds force or news to what was just said." },
+            { "id": "w_0013", "kana": "から", "marks": "from, since", "explain": "eki kara: from the station. itsu kara: since when." },
+            { "id": "w_0014", "kana": "まで", "marks": "until, as far as", "explain": "eki made: as far as the station. ashita made: until tomorrow." }
+          ],
           "prompt": "kana",
-          "answer": "gloss.0",
+          "answer": "marks",
           "distractors": { "n": 3 },
           "count": 12,
           "pass": { "accuracy": 0.8 }
@@ -188,7 +204,7 @@
           "items": [
             { "id": "ord:water", "en": "I drink water", "sequence": "わたし は みず を のみます" },
             { "id": "ord:school", "en": "I go to school", "sequence": "わたし は がっこう に いきます" },
-            { "id": "ord:read", "en": "I read a book at home", "sequence": "いえ で ほん を よみます" },
+            { "id": "ord:read", "en": "I read a book", "sequence": "わたし は ほん を よみます" },
             { "id": "ord:student", "en": "Are you a student?", "sequence": "あなた は がくせい です か" },
             { "id": "ord:tanaka", "en": "I am Tanaka", "sequence": "わたし は たなか です" },
             { "id": "ord:friend", "en": "My friend eats bread", "sequence": "わたし の ともだち は パン を たべます" }

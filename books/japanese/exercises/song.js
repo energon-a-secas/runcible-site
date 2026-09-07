@@ -7,8 +7,13 @@
 //                      romaji line the eye can reach is a romaji line the eye
 //                      reads. One speak button per line. Nothing is graded:
 //                      every attempt is correct: null.
-//   props.mode "type"  a line is shown in romaji with its gloss, and the
-//                      learner types it back in kana. Graded.
+//   props.mode "type"  a line is shown in kana with its gloss, and the learner
+//                      types it back through the romaji reader: read each
+//                      kana, recall its sound, type it. The romaji of the line
+//                      is behind a Hint button and recorded as hintUsed; shown
+//                      up front it made the drill copying rather than reading,
+//                      and the chapter goal is reading with the romaji off.
+//                      Graded, on the folds below.
 //
 // Copyright is a hard gate here and the data carries the verdicts, not this
 // file: data/songs/index.json lists exactly the nineteen songs verified public
@@ -27,9 +32,46 @@ import { el, add, clear, button, listeners, shuffle, resolveList, frame, summary
  */
 const hiragana = kanaReader(toHiragana);
 
-/** Kana as typed, with every kind of space removed before comparing. */
+/**
+ * Kana as typed, with every kind of space and punctuation removed before
+ * comparing. The romaji prints commas, the converter turns a comma into 、,
+ * and no kana line in the catalog carries punctuation, so a learner who copied
+ * the comma the card showed was failing an otherwise perfect line.
+ */
 function bare(raw) {
-  return String(raw || '').replace(/[\s　]+/g, '');
+  return String(raw || '').replace(/[\s　、。,.!?！？]+/g, '');
+}
+
+/**
+ * The lenient fold, one character to one. The romaji says wa and o where the
+ * kana writes は and を, so typing what the romaji says is not a miss; づ and
+ * ぢ are spelled zu and ji in Hepburn and a beginner cannot be expected to know
+ * the du and di the converter wants; and a small ぁ in a sung だぁれ is a
+ * stretched あ, not a different kana.
+ */
+function lenient(s) {
+  return bare(s)
+    .replace(/は/g, 'わ').replace(/を/g, 'お').replace(/へ/g, 'え')
+    .replace(/づ/g, 'ず').replace(/ぢ/g, 'じ')
+    .replace(/ぁ/g, 'あ').replace(/ぃ/g, 'い').replace(/ぅ/g, 'う').replace(/ぇ/g, 'え').replace(/ぉ/g, 'お');
+}
+
+/**
+ * Where a wrong line first parts from the right one, named by kana. The walk
+ * runs on the lenient fold, which maps one character to one, so the index
+ * lands on the same kana in the originals: a learner who wrote わ for the
+ * particle は and slipped later is told about the later slip, not the particle.
+ */
+function firstSlip(answer, kana) {
+  const A = [...bare(answer)];
+  const B = [...bare(kana)];
+  const a = [...lenient(answer)];
+  const b = [...lenient(kana)];
+  let i = 0;
+  while (i < a.length && i < b.length && a[i] === b[i]) i += 1;
+  if (i >= b.length) return `The whole line is there, and then more: ${A.slice(i).join('')} is not in it.`;
+  if (i >= a.length) return `Right as far as it goes. The line carries on: ${B[i]} comes next.`;
+  return `The first slip is kana ${i + 1}: the line has ${B[i]}, you wrote ${A[i]}.`;
 }
 
 /** Flatten a song document into { verse, line, kana, romaji, gloss } rows. */
@@ -62,7 +104,7 @@ export default function register(runcible) {
       const view = frame(host, {
         title: api.t(spec.title) || (mode === 'type' ? 'Type the line' : 'Read along'),
         lead: mode === 'type'
-          ? 'Type romaji. It turns into hiragana as you go. A lone n needs to be typed twice.'
+          ? 'Read the kana and type its romaji. It turns back into hiragana as you go. A lone n needs to be typed twice.'
           : 'Kana is what you are here to read. Romaji and the English are behind the two switches.',
         cls: `jp--song jp--song-${mode}`,
       });
@@ -180,22 +222,34 @@ export default function register(runcible) {
         add(form, [input, el('button', { type: 'submit', class: 'btn btn--primary', text: 'Check' })]);
         const trouble = el('p', { class: 'jp-note' });
 
+        // The kana is the prompt. Reading it and recalling each romaji is the
+        // skill the chapter claims; the romaji waits behind Hint, and using it
+        // is recorded on the attempt.
+        let hintUsed = false;
+        const romajiEl = el('p', { class: 'jp-romaji', text: row.romaji, hidden: true });
+        const hint = button('Hint', () => {
+          hintUsed = true;
+          hint.disabled = true;
+          romajiEl.hidden = false;
+          input.focus();
+        }, 'btn btn--ghost btn--sm');
         add(view.body, [
-          el('p', { class: 'jp-prompt jp-prompt--romaji', text: row.romaji }),
+          el('p', { class: 'jp-prompt jp-kana', lang: 'ja', text: row.kana }),
+          romajiEl,
           row.gloss ? el('p', { class: 'jp-gloss', text: row.gloss }) : null,
           form,
           trouble,
         ]);
-        add(view.foot, button('Hear it', () => speakLine(row.kana, trouble), 'btn btn--ghost btn--sm'));
+        add(view.foot, [
+          button('Hear it', () => speakLine(row.kana, trouble), 'btn btn--ghost btn--sm'),
+          row.romaji ? hint : null,
+        ]);
 
         bound.on(form, 'submit', (e) => {
           e.preventDefault();
           const answer = hiragana.settle(input.value);
           if (!bare(answer)) { input.focus(); return; }
-          // The romaji prompt says wa and o where the kana writes は and を, so
-          // typing what the prompt says is not a miss: either spelling passes.
-          const particles = (s) => bare(s).replace(/は/g, 'わ').replace(/を/g, 'お').replace(/へ/g, 'え');
-          const correct = bare(answer) === bare(row.kana) || particles(answer) === particles(row.kana);
+          const correct = bare(answer) === bare(row.kana) || lenient(answer) === lenient(row.kana);
           asked += 1;
           if (correct) right += 1;
           api.attempt({
@@ -205,6 +259,7 @@ export default function register(runcible) {
             ms: Math.round(performance.now() - started),
             answer: bare(answer),
             expected: row.kana,
+            hintUsed,
           });
           clear(view.body);
           clear(view.foot);
@@ -212,6 +267,7 @@ export default function register(runcible) {
             el('p', { class: `jp-verdict jp-verdict--${correct ? 'right' : 'wrong'}`, text: correct ? 'That is the line.' : 'Not quite.' }),
             el('p', { class: 'jp-kana', lang: 'ja', text: row.kana }),
             correct ? null : el('p', { class: 'jp-note', text: `You wrote ${answer}` }),
+            correct ? null : el('p', { class: 'jp-note', text: firstSlip(answer, row.kana) }),
           ]);
           const go = button(at + 1 >= queue.length ? 'See the score' : 'Next line', () => { at += 1; askLine(); }, 'btn btn--primary');
           view.foot.appendChild(go);

@@ -1,0 +1,17 @@
+{
+"format": "neo-quiz-set/1",
+"id": "jp-song-ware-wa-umi-no-ko-order",
+"version": "2026-09-04",
+"game": "order",
+"name": { "en": "われは海の子 (Ware wa Umi no Ko)", "es": null },
+"lang": "ja",
+"skill": "jp.song.order",
+"licence": { "spdx": "public-domain", "screen": "none", "attribution": "われは海の子 (Ware wa Umi no Ko). Words: 作詞者不詳; disputed between 宮原晃一郎 (1945) and 芳賀矢一 (1927). Music: 不詳. First published 1910, 尋常小学読本唱歌. Public domain in Japan and the United States.", "source": "https://ja.wikipedia.org/wiki/われは海の子" },
+"_licence": { "source": "ja.wikipedia われは海の子", "url": "https://ja.wikipedia.org/wiki/われは海の子", "spdx": "public-domain", "derived": false, "id": null, "acknowledgement": null, "links": [ "https://ja.wikipedia.org/wiki/われは海の子" ], "screen": "none", "japan": { "pd": true, "basis": "lyricist 作詞者不詳; disputed between 宮原晃一郎 (1945) and 芳賀矢一 (1927); composer 不詳. The later of the two deaths is 1945.", "test": "Japan: both authors died 1967 or earlier, or the work is anonymous and published 1967 or earlier.", "confidence": "high" }, "us": { "pd": true, "basis": "first published 1910, 尋常小学読本唱歌.", "test": "US: published 1930 or earlier, or published later with every author dead in 1945 or earlier, because the URAA restored anything still protected in its source country on 1996-01-01.", "confidence": "high" }, "confidence_text": "High. Every candidate author died 1945 or earlier, so the dispute does not change the verdict.", "verses_permitted": 3, "verses_permitted_note": "Three. Verses 6 and 7 are public domain but are wartime copy dropped from postwar textbooks, and the report says to ship verses 1 to 3 only. The report's section E heading promises verses 1 to 3 and then prints only the first, so this file carries one verse: the other two are unbuilt, not omitted on purpose.", "generated_by": "tools/build-sets.mjs", "generated_at": "2026-09-04", "note": "Derived from data/songs/ware-wa-umi-no-ko.json: one item per line, the pieces cut on the word boundaries of the corpus's romaji line aligned onto the kana (a one-kana piece joins the piece before it, a repeated piece is one piece), the verse gloss shown after a miss. Verdicts, credits and the authors' death years are copied from that file. Qualifier: verses 1 to 3." },
+"items": [
+{"id":"ware-wa-umi-no-ko-v1-l1","tokens":["われは","うみのこ","しらなみの"],"line":"われは うみのこ しらなみの","gloss":{"en":"I am a child of the sea: that thatched hut with smoke trailing, in the pine grove on the loud white-capped shore, is my dear old home.","es":null}},
+{"id":"ware-wa-umi-no-ko-v1-l2","tokens":["さわぐ","いそべの","まつばらに"],"line":"さわぐ いそべの まつばらに","gloss":{"en":"I am a child of the sea: that thatched hut with smoke trailing, in the pine grove on the loud white-capped shore, is my dear old home.","es":null}},
+{"id":"ware-wa-umi-no-ko-v1-l3","tokens":["けむり","たなびく","とまや","こそ"],"line":"けむり たなびく とまや こそ","gloss":{"en":"I am a child of the sea: that thatched hut with smoke trailing, in the pine grove on the loud white-capped shore, is my dear old home.","es":null}},
+{"id":"ware-wa-umi-no-ko-v1-l4","tokens":["わが","なつかしき","すみか","なれ"],"line":"わが なつかしき すみか なれ","gloss":{"en":"I am a child of the sea: that thatched hut with smoke trailing, in the pine grove on the loud white-capped shore, is my dear old home.","es":null}}
+]
+}

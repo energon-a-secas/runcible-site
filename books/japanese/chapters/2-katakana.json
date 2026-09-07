@@ -4,8 +4,8 @@
   "title": { "en": "Katakana", "es": "Katakana" },
   "goal": {
     "statement": {
-      "en": "Read a menu, a sign and a product name, and write a foreign word yourself",
-      "es": "Leer un menú, un cartel y el nombre de un producto, y escribir tú mismo una palabra extranjera"
+      "en": "Read a menu, a sign and a product name in katakana, then try writing a foreign word yourself",
+      "es": "Leer un menú, un cartel y el nombre de un producto en katakana, y luego intentar escribir tú mismo una palabra extranjera"
     },
     "evidence": { "skill": "kana.katakana.read", "accuracy": 0.9, "min": 40, "window": 60 }
   },
@@ -114,7 +114,7 @@
           "body": {
             "en": [
               "Each of these characters carries the hiragana with the same sound alongside it in the data, because that pairing is the fastest way in. You are not learning sa, you are learning a second way to write sa.",
-              "Four shapes are close enough to their hiragana to feel free: ka, se, mo and ya. The rest are not, and pretending otherwise wastes the hour."
+              "Five shapes are close enough to their hiragana to feel free: he, which is practically the same character, and ka, se, mo and ya. The rest are not, and pretending otherwise wastes the hour."
             ],
             "es": null
           }
@@ -310,6 +310,25 @@
             ],
             "es": null
           }
+        },
+        {
+          "id": "p-quiz-kata-table",
+          "kind": "callout",
+          "tone": "note",
+          "title": {
+            "en": "The last two drills are games, and they open in a frame",
+            "es": "Los dos últimos ejercicios son juegos, y se abren en un marco"
+          },
+          "body": {
+            "en": [
+              "Every row of katakana has been met by the end of this rung, so the last two drills draw from the whole table at once instead of one row at a time. Katakana is where that matters most: shi, tsu, so and n are told apart by a stroke, and a drill shaped like a row lets you answer from the row instead of from the shape.",
+              "Both are games from quiz.neorgon.com running inside a frame on this page. The first shows a kana and asks for its sound, or shows a sound and asks for the kana; the second is a board of four kana against four romaji. Every answer is recorded here under this chapter's goal, and beside each frame there is an Open in Quiz link to the same round on its own page."
+            ],
+            "es": [
+              "Al final de este peldaño ya se han visto todas las filas del katakana, así que los dos últimos ejercicios toman de toda la tabla a la vez en lugar de una fila cada vez. En katakana es donde más importa: shi, tsu, so y n se distinguen por un trazo, y un ejercicio con forma de fila te deja responder desde la fila y no desde la forma.",
+              "Los dos son juegos de quiz.neorgon.com que se ejecutan dentro de un marco en esta página. El primero muestra un kana y pide su sonido, o muestra un sonido y pide el kana; el segundo es un tablero de cuatro kana contra cuatro romaji. Cada respuesta se registra aquí bajo la meta de este capítulo, y junto a cada marco hay un enlace Abrir en Quiz a la misma ronda en su propia página."
+            ]
+          }
         }
       ],
       "exercises": [
@@ -373,6 +392,24 @@
           "compare": "trim",
           "count": 6,
           "pass": { "accuracy": 0.8 }
+        },
+        {
+          "id": "e-kata-mixed-read",
+          "type": "quiz",
+          "game": "sound",
+          "src": "books/japanese/sets/jp-katakana-sound.json",
+          "skill": "kana.katakana.read",
+          "limit": 12,
+          "title": { "en": "Mixed, from the whole table", "es": "Mezclado, de toda la tabla" }
+        },
+        {
+          "id": "e-kata-mixed-pairs",
+          "type": "quiz",
+          "game": "pairs",
+          "src": "books/japanese/sets/jp-katakana-pairs.json",
+          "skill": "kana.katakana.read",
+          "limit": 12,
+          "title": { "en": "Match the kana to its romaji", "es": "Une el kana con su romaji" }
         }
       ]
     },

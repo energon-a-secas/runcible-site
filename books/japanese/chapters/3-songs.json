@@ -116,7 +116,7 @@
           "title": { "en": "Romaji in, kana out", "es": null },
           "body": {
             "en": [
-              "You are shown a line in romaji with its English, and you type it back in hiragana. Spaces are ignored when it is marked, because the printed sources break the lines differently from each other.",
+              "You are shown a line in kana with its English, and you type it back: read each kana, type its sound in romaji, and the box turns it into hiragana as you go. The romaji of the line is behind a Hint button, and using it is recorded. Spaces and punctuation are ignored when it is marked, because the printed sources break the lines differently from each other.",
               "The eight songs offered here are the ones with the shortest lines. Ten kana is a reasonable first line to type. Twenty-seven is not, and one of the nineteen has a line that long."
             ],
             "es": null
@@ -145,6 +145,187 @@
               "ware-wa-umi-no-ko"
             ]
           }
+        }
+      ]
+    },
+    {
+      "id": "order-the-line",
+      "title": { "en": "Put the line back in order", "es": "Vuelve a ordenar el verso" },
+      "unlocks": {
+        "en": "reading a line as a sequence of words rather than a wall of kana, on all nineteen songs and not only the short ones",
+        "es": "leer un verso como una secuencia de palabras y no como un muro de kana, en las diecinueve canciones y no solo en las cortas"
+      },
+      "pages": [
+        {
+          "id": "p-order",
+          "kind": "prose",
+          "title": { "en": "The pieces are given, the order is not", "es": "Las piezas te las dan, el orden no" },
+          "body": {
+            "en": [
+              "A line arrives cut into its words and shuffled, and you put it back. Typing asks you to produce every kana; this asks only where each piece goes, so it works on the long lines that the typing drill had to leave out. All nineteen songs are here, not the eight with the shortest lines.",
+              "Each song is one round, and each round is a game from quiz.neorgon.com running inside a frame on this page. Answers are recorded here under this chapter's goal, and beside every frame there is an Open in Quiz link that opens the same round on its own page.",
+              "The English meaning is shown after a miss and on the results screen, never before one. Guessing a line from its meaning is not reading it."
+            ],
+            "es": [
+              "Un verso llega cortado en sus palabras y mezclado, y tú lo recompones. Escribir te pide producir cada kana; esto solo pregunta dónde va cada pieza, así que funciona con los versos largos que el ejercicio de escritura tuvo que dejar fuera. Están las diecinueve canciones, no las ocho de versos más cortos.",
+              "Cada canción es una ronda, y cada ronda es un juego de quiz.neorgon.com que se ejecuta dentro de un marco en esta página. Las respuestas se registran aquí bajo la meta de este capítulo, y junto a cada marco hay un enlace Abrir en Quiz que abre la misma ronda en su propia página.",
+              "El significado en inglés se muestra tras un fallo y en la pantalla de resultados, nunca antes. Adivinar un verso por su significado no es leerlo."
+            ]
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-order-sakura-sakura",
+          "type": "quiz",
+          "game": "order",
+          "src": "books/japanese/sets/jp-song-sakura-sakura-order.json",
+          "skill": "jp.reading.kana",
+          "title": { "en": "さくらさくら (Sakura Sakura)", "es": "さくらさくら (Sakura Sakura)" }
+        },
+        {
+          "id": "e-order-furusato",
+          "type": "quiz",
+          "game": "order",
+          "src": "books/japanese/sets/jp-song-furusato-order.json",
+          "skill": "jp.reading.kana",
+          "title": { "en": "故郷 (Furusato)", "es": "故郷 (Furusato)" }
+        },
+        {
+          "id": "e-order-oborozukiyo",
+          "type": "quiz",
+          "game": "order",
+          "src": "books/japanese/sets/jp-song-oborozukiyo-order.json",
+          "skill": "jp.reading.kana",
+          "title": { "en": "朧月夜 (Oborozukiyo)", "es": "朧月夜 (Oborozukiyo)" }
+        },
+        {
+          "id": "e-order-momiji",
+          "type": "quiz",
+          "game": "order",
+          "src": "books/japanese/sets/jp-song-momiji-order.json",
+          "skill": "jp.reading.kana",
+          "title": { "en": "もみじ (Momiji)", "es": "もみじ (Momiji)" }
+        },
+        {
+          "id": "e-order-haru-ga-kita",
+          "type": "quiz",
+          "game": "order",
+          "src": "books/japanese/sets/jp-song-haru-ga-kita-order.json",
+          "skill": "jp.reading.kana",
+          "title": { "en": "春が来た (Haru ga Kita)", "es": "春が来た (Haru ga Kita)" }
+        },
+        {
+          "id": "e-order-haru-no-ogawa",
+          "type": "quiz",
+          "game": "order",
+          "src": "books/japanese/sets/jp-song-haru-no-ogawa-order.json",
+          "skill": "jp.reading.kana",
+          "title": { "en": "春の小川 (Haru no Ogawa)", "es": "春の小川 (Haru no Ogawa)" }
+        },
+        {
+          "id": "e-order-hotaru-no-hikari",
+          "type": "quiz",
+          "game": "order",
+          "src": "books/japanese/sets/jp-song-hotaru-no-hikari-order.json",
+          "skill": "jp.reading.kana",
+          "title": { "en": "蛍の光 (Hotaru no Hikari)", "es": "蛍の光 (Hotaru no Hikari)" }
+        },
+        {
+          "id": "e-order-aka-tombo",
+          "type": "quiz",
+          "game": "order",
+          "src": "books/japanese/sets/jp-song-aka-tombo-order.json",
+          "skill": "jp.reading.kana",
+          "title": { "en": "赤とんぼ (Aka Tonbo)", "es": "赤とんぼ (Aka Tonbo)" }
+        },
+        {
+          "id": "e-order-kojo-no-tsuki",
+          "type": "quiz",
+          "game": "order",
+          "src": "books/japanese/sets/jp-song-kojo-no-tsuki-order.json",
+          "skill": "jp.reading.kana",
+          "title": { "en": "荒城の月 (Kojo no Tsuki)", "es": "荒城の月 (Kojo no Tsuki)" }
+        },
+        {
+          "id": "e-order-hamabe-no-uta",
+          "type": "quiz",
+          "game": "order",
+          "src": "books/japanese/sets/jp-song-hamabe-no-uta-order.json",
+          "skill": "jp.reading.kana",
+          "title": { "en": "浜辺の歌 (Hamabe no Uta)", "es": "浜辺の歌 (Hamabe no Uta)" }
+        },
+        {
+          "id": "e-order-yuki",
+          "type": "quiz",
+          "game": "order",
+          "src": "books/japanese/sets/jp-song-yuki-order.json",
+          "skill": "jp.reading.kana",
+          "title": { "en": "雪 (Yuki)", "es": "雪 (Yuki)" }
+        },
+        {
+          "id": "e-order-usagi",
+          "type": "quiz",
+          "game": "order",
+          "src": "books/japanese/sets/jp-song-usagi-order.json",
+          "skill": "jp.reading.kana",
+          "title": { "en": "うさぎ (Usagi)", "es": "うさぎ (Usagi)" }
+        },
+        {
+          "id": "e-order-toryanse",
+          "type": "quiz",
+          "game": "order",
+          "src": "books/japanese/sets/jp-song-toryanse-order.json",
+          "skill": "jp.reading.kana",
+          "title": { "en": "通りゃんせ (Toryanse)", "es": "通りゃんせ (Toryanse)" }
+        },
+        {
+          "id": "e-order-zui-zui-zukkorobashi",
+          "type": "quiz",
+          "game": "order",
+          "src": "books/japanese/sets/jp-song-zui-zui-zukkorobashi-order.json",
+          "skill": "jp.reading.kana",
+          "title": { "en": "ずいずいずっころばし (Zui Zui Zukkorobashi)", "es": "ずいずいずっころばし (Zui Zui Zukkorobashi)" }
+        },
+        {
+          "id": "e-order-nanatsu-no-ko",
+          "type": "quiz",
+          "game": "order",
+          "src": "books/japanese/sets/jp-song-nanatsu-no-ko-order.json",
+          "skill": "jp.reading.kana",
+          "title": { "en": "七つの子 (Nanatsu no Ko)", "es": "七つの子 (Nanatsu no Ko)" }
+        },
+        {
+          "id": "e-order-donguri-korokoro",
+          "type": "quiz",
+          "game": "order",
+          "src": "books/japanese/sets/jp-song-donguri-korokoro-order.json",
+          "skill": "jp.reading.kana",
+          "title": { "en": "どんぐりころころ (Donguri Korokoro)", "es": "どんぐりころころ (Donguri Korokoro)" }
+        },
+        {
+          "id": "e-order-chatsumi",
+          "type": "quiz",
+          "game": "order",
+          "src": "books/japanese/sets/jp-song-chatsumi-order.json",
+          "skill": "jp.reading.kana",
+          "title": { "en": "茶摘み (Chatsumi)", "es": "茶摘み (Chatsumi)" }
+        },
+        {
+          "id": "e-order-kagome-kagome",
+          "type": "quiz",
+          "game": "order",
+          "src": "books/japanese/sets/jp-song-kagome-kagome-order.json",
+          "skill": "jp.reading.kana",
+          "title": { "en": "かごめかごめ (Kagome Kagome)", "es": "かごめかごめ (Kagome Kagome)" }
+        },
+        {
+          "id": "e-order-ware-wa-umi-no-ko",
+          "type": "quiz",
+          "game": "order",
+          "src": "books/japanese/sets/jp-song-ware-wa-umi-no-ko-order.json",
+          "skill": "jp.reading.kana",
+          "title": { "en": "われは海の子 (Ware wa Umi no Ko)", "es": "われは海の子 (Ware wa Umi no Ko)" }
         }
       ]
     },

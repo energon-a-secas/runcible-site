@@ -36,11 +36,11 @@
           "body": {
             "en": [
               "This chapter and the study plan are written in English and in Spanish. The other chapters are English only for now, and the page tells you so when you meet one.",
-              "The drills are a separate matter: their prompts and options come from the word lists, which carry English glosses and no Spanish ones. So an exercise screen is in English even here. That is a gap in the data rather than a decision, and it is said out loud rather than hidden."
+              "The drills are mostly a separate matter: their prompts and options come from the word lists, which carry English glosses and no Spanish ones, so an exercise screen is in English even here. The beats game below is the one exception, because the set it plays carries both languages. The rest is a gap in the data rather than a decision, and it is said out loud rather than hidden."
             ],
             "es": [
               "Este capítulo y el plan de estudio están escritos en inglés y en español. Los demás capítulos están solo en inglés por ahora, y la página te lo dice cuando llegas a uno.",
-              "Los ejercicios son otra cosa: sus preguntas y opciones salen de las listas de palabras, que llevan glosas en inglés y ninguna en español. Así que una pantalla de ejercicio está en inglés incluso aquí. Eso es un hueco en los datos y no una decisión, y se dice en voz alta en vez de esconderlo."
+              "Los ejercicios son casi siempre otra cosa: sus preguntas y opciones salen de las listas de palabras, que llevan glosas en inglés y ninguna en español, así que una pantalla de ejercicio está en inglés incluso aquí. El juego de tiempos de abajo es la única excepción, porque el conjunto que usa lleva los dos idiomas. El resto es un hueco en los datos y no una decisión, y se dice en voz alta en vez de esconderlo."
             ]
           }
         },
@@ -73,35 +73,38 @@
               "La n del medio sobrevive sola, porque una nasal es una de las dos únicas cosas que pueden cerrar un tiempo. La m final no está en esa lista, así que recoge una vocal y se convierte en un tiempo propio."
             ]
           }
+        },
+        {
+          "id": "p-quiz-frame",
+          "kind": "callout",
+          "tone": "note",
+          "title": {
+            "en": "The beats drill is a game, and it opens in a frame",
+            "es": "El ejercicio de tiempos es un juego, y se abre en un marco"
+          },
+          "body": {
+            "en": [
+              "Counting beats is a game on a second site, quiz.neorgon.com, and it runs inside a frame on this page. You answer in the frame, and every answer is recorded here under this chapter's goal, the same as an answer to any other drill.",
+              "The word is shown in katakana with the English under it, and the romaji arrives only after you answer, because baggu spells the count out. Counting the characters on the screen is the right instinct and it is nearly right: one kana is one beat, except where a small ya, yu, yo or a small vowel rides on the character in front of it and the two share a beat. Twelve of the fifty-eight words in this set do that. The small tsu is not one of them: it is silent and it takes a whole beat of its own.",
+              "Beside the frame there is an Open in Quiz link. It opens the same round on its own page, and it is the path that always works: if the frame ever fails to load, the link does not need it."
+            ],
+            "es": [
+              "Contar tiempos es un juego de otro sitio, quiz.neorgon.com, y se ejecuta dentro de un marco en esta página. Respondes en el marco, y cada respuesta se registra aquí bajo la meta de este capítulo, igual que una respuesta de cualquier otro ejercicio.",
+              "La palabra se muestra en katakana con el inglés debajo, y el romaji llega solo después de responder, porque baggu deletrea la cuenta. Contar los caracteres de la pantalla es el instinto correcto y casi acierta: un kana es un tiempo, salvo donde un ya, yu o yo pequeño, o una vocal pequeña, se monta sobre el carácter de delante y los dos comparten un tiempo. Doce de las cincuenta y ocho palabras de este conjunto lo hacen. El tsu pequeño no es uno de esos casos: no suena y se lleva un tiempo entero para él.",
+              "Junto al marco hay un enlace Abrir en Quiz. Abre la misma ronda en su propia página, y es el camino que siempre funciona: si el marco alguna vez no carga, el enlace no lo necesita."
+            ]
+          }
         }
       ],
       "exercises": [
         {
           "id": "e-beats",
-          "type": "choice",
+          "type": "quiz",
+          "game": "beats",
+          "src": "books/japanese/sets/jp-loanwords-beats.json",
           "skill": "jp.sounds.mora",
-          "title": { "en": "How many beats does Japanese need?", "es": "¿Cuántos tiempos necesita el japonés?" },
-          "items": [
-            { "id": "mora:バス", "en": "bus", "romaji": "basu", "beats": "2" },
-            { "id": "mora:ペン", "en": "pen", "romaji": "pen", "beats": "2" },
-            { "id": "mora:ドア", "en": "door", "romaji": "doa", "beats": "2" },
-            { "id": "mora:カメラ", "en": "camera", "romaji": "kamera", "beats": "3" },
-            { "id": "mora:ミルク", "en": "milk", "romaji": "miruku", "beats": "3" },
-            { "id": "mora:バッグ", "en": "bag", "romaji": "baggu", "beats": "3" },
-            { "id": "mora:ガンダム", "en": "Gundam", "romaji": "gandamu", "beats": "4" },
-            { "id": "mora:ロボット", "en": "robot", "romaji": "robotto", "beats": "4" },
-            { "id": "mora:テキスト", "en": "text", "romaji": "tekisuto", "beats": "4" },
-            { "id": "mora:チョコレート", "en": "chocolate", "romaji": "chokoreeto", "beats": "5" },
-            { "id": "mora:マクドナルド", "en": "McDonald's", "romaji": "makudonarudo", "beats": "6" },
-            { "id": "mora:ハンバーガー", "en": "hamburger", "romaji": "hanbaagaa", "beats": "6" },
-            { "id": "mora:アイスクリーム", "en": "ice cream", "romaji": "aisukuriimu", "beats": "7" },
-            { "id": "mora:スーパーマーケット", "en": "supermarket", "romaji": "suupaamaaketto", "beats": "9" }
-          ],
-          "prompt": "en",
-          "answer": "beats",
-          "distractors": { "values": ["2", "3", "4", "5", "6", "7", "9"], "n": 3 },
-          "count": 8,
-          "pass": { "accuracy": 0.75 }
+          "limit": 10,
+          "title": { "en": "How many beats does Japanese need?", "es": "¿Cuántos tiempos necesita el japonés?" }
         }
       ]
     },
@@ -166,12 +169,12 @@
           "title": { "en": "And a long vowel is two beats, not one", "es": "Y una vocal larga son dos tiempos, no uno" },
           "body": {
             "en": [
-              "A stressed English vowel, and any vowel written before an r as in car, four or earth, is heard as long and held for two beats.",
-              "That is the last piece of robotto. English robot has a short o before its final t, and English speakers cut that t off sharply. Japanese hears the sharpness as the small tsu, so the t doubles: ro, small tsu, to. Four beats, robotto."
+              "A long English vowel, as in cheese, pool or name, is held for two beats and written with a bar, and so is any vowel before an r as in car, four or earth. A stressed short vowel stays short: robot, camera, bus and bag take no bar. One exception worth knowing now: the -oor of door and the -ore of more are written o-a, so door is do-a, two beats all the same.",
+              "That is the last piece of robotto. English robot has a short o before its final t, and English speakers cut that t off sharply. Japanese hears the sharpness as the small tsu, so the t doubles: ro, small tsu, to. Four beats, robotto. The same happens before a sharp g, d or b, which a native Japanese word never doubles and a loanword is allowed to: bag is ba, small tsu, gu, and bed is be, small tsu, do. Three beats each."
             ],
             "es": [
-              "Una vocal inglesa acentuada, y cualquier vocal escrita antes de una r como en car, four o earth, se oye larga y se sostiene dos tiempos.",
-              "Esa es la última pieza de robotto. El inglés robot tiene una o breve antes de su t final, y el hablante inglés corta esa t en seco. El japonés oye ese corte como el tsu pequeño, así que la t se duplica: ro, tsu pequeño, to. Cuatro tiempos, robotto."
+              "Una vocal inglesa larga, como en cheese, pool o name, se sostiene dos tiempos y se escribe con una barra, y lo mismo cualquier vocal antes de una r como en car, four o earth. Una vocal breve acentuada sigue breve: robot, camera, bus y bag no llevan barra. Una excepción que vale la pena saber ya: el -oor de door y el -ore de more se escriben o-a, así que door es do-a, dos tiempos igual.",
+              "Esa es la última pieza de robotto. El inglés robot tiene una o breve antes de su t final, y el hablante inglés corta esa t en seco. El japonés oye ese corte como el tsu pequeño, así que la t se duplica: ro, tsu pequeño, to. Cuatro tiempos, robotto. Lo mismo pasa antes de una g, d o b cortante, que una palabra japonesa nativa nunca duplica y un préstamo sí puede: bag es ba, tsu pequeño, gu, y bed es be, tsu pequeño, do. Tres tiempos cada una."
             ]
           }
         },
@@ -210,15 +213,52 @@
           "skill": "jp.sounds.mora",
           "title": { "en": "Which vowel gets glued on?", "es": "¿Qué vocal se pega?" },
           "items": [
-            { "id": "ep:default", "sound": "risk, ending in k", "vowel": "u, so risuku" },
-            { "id": "ep:t", "sound": "robot, ending in t", "vowel": "o, so robotto" },
-            { "id": "ep:d", "sound": "card, ending in d", "vowel": "o, so kaado" },
-            { "id": "ep:ch", "sound": "match, ending in ch", "vowel": "i, so matchi" },
-            { "id": "ep:j", "sound": "orange, ending in j", "vowel": "i, so orenji" },
-            { "id": "ep:n", "sound": "pen, ending in n", "vowel": "nothing, so pen" }
+            {
+              "id": "ep:default",
+              "sound": "risk, ending in k",
+              "vowel": "u",
+              "so": "risuku: a stranded k takes the default u",
+              "explain": { "en": "k is not a nasal and it is not doubled, so it takes the default vowel, u: risuku.", "es": "La k no es nasal y no se duplica, así que toma la vocal por defecto, u: risuku." }
+            },
+            {
+              "id": "ep:t",
+              "sound": "robot, ending in t",
+              "vowel": "o",
+              "so": "robotto: t avoids u, because tu would come out as tsu",
+              "explain": { "en": "After t the vowel is o, not u, because Japanese tu is said tsu and the t would be lost: robotto.", "es": "Tras t la vocal es o, no u, porque el japonés tu suena tsu y la t se perdería: robotto." }
+            },
+            {
+              "id": "ep:d",
+              "sound": "card, ending in d",
+              "vowel": "o",
+              "so": "kaado: d avoids u for the same reason as t",
+              "explain": { "en": "After d the vowel is o, not u, because du would come out as dzu: kaado.", "es": "Tras d la vocal es o, no u, porque du sonaría dzu: kaado." }
+            },
+            {
+              "id": "ep:ch",
+              "sound": "match, ending in ch",
+              "vowel": "i",
+              "so": "matchi: ch takes i",
+              "explain": { "en": "After ch the vowel is i, because chi is the only beat that starts with ch: matchi.", "es": "Tras ch la vocal es i, porque chi es el único tiempo que empieza por ch: matchi." }
+            },
+            {
+              "id": "ep:j",
+              "sound": "orange, ending in j",
+              "vowel": "i",
+              "so": "orenji: j takes i",
+              "explain": { "en": "After j the vowel is i, because ji is the only beat that starts with j: orenji.", "es": "Tras j la vocal es i, porque ji es el único tiempo que empieza por j: orenji." }
+            },
+            {
+              "id": "ep:n",
+              "sound": "pen, ending in n",
+              "vowel": "nothing",
+              "so": "pen: a final n is one of the two permitted closers",
+              "explain": { "en": "A nasal n may close a beat on its own, so nothing is added: pen stays pen.", "es": "Una n nasal puede cerrar un tiempo sola, así que no se añade nada: pen se queda en pen." }
+            }
           ],
           "left": "sound",
           "right": "vowel",
+          "reveal": "so",
           "n": 6,
           "pass": { "accuracy": 0.8 }
         },
@@ -228,20 +268,62 @@
           "skill": "jp.sounds.mora",
           "title": { "en": "Does this consonant survive on its own?", "es": "¿Sobrevive sola esta consonante?" },
           "items": [
-            { "id": "coda:pen-n", "sound": "the n at the end of pen", "verdict": "yes, a nasal may close a beat" },
-            { "id": "coda:gundam-n", "sound": "the n in the middle of Gundam", "verdict": "yes, a nasal may close a beat" },
-            { "id": "coda:gundam-m", "sound": "the m at the end of Gundam", "verdict": "no, it takes a vowel" },
-            { "id": "coda:golf-f", "sound": "the f at the end of golf", "verdict": "no, it takes a vowel" },
-            { "id": "coda:bed-d", "sound": "the d at the end of bed", "verdict": "no, it takes a vowel" },
-            { "id": "coda:robot-t", "sound": "the sharp t at the end of robot", "verdict": "it doubles first, then takes a vowel" }
+            {
+              "id": "coda:pen-n",
+              "sound": "the n at the end of pen",
+              "verdict": "yes, a nasal may close a beat",
+              "explain": { "en": "n is a nasal, one of the two sounds allowed to close a beat, so it stands on its own: pen.", "es": "La n es nasal, uno de los dos sonidos que pueden cerrar un tiempo, así que se sostiene sola: pen." }
+            },
+            {
+              "id": "coda:gundam-n",
+              "sound": "the n in the middle of Gundam",
+              "verdict": "yes, a nasal may close a beat",
+              "explain": { "en": "The n before the d is a nasal closing its own beat: ga, n, da, mu.", "es": "La n antes de la d es una nasal que cierra su propio tiempo: ga, n, da, mu." }
+            },
+            {
+              "id": "coda:gundam-m",
+              "sound": "the m at the end of Gundam",
+              "verdict": "no, it takes a vowel and does not double",
+              "explain": { "en": "m is not n and there is no small tsu, so it picks up the default u and becomes a beat: mu.", "es": "La m no es n y no hay tsu pequeño, así que recoge la u por defecto y se vuelve un tiempo: mu." }
+            },
+            {
+              "id": "coda:golf-f",
+              "sound": "the f at the end of golf",
+              "verdict": "no, it takes a vowel and does not double",
+              "explain": { "en": "f cannot close a beat, so it takes the default u: gorufu.", "es": "La f no puede cerrar un tiempo, así que toma la u por defecto: gorufu." }
+            },
+            {
+              "id": "coda:bus-s",
+              "sound": "the s at the end of bus",
+              "verdict": "no, it takes a vowel and does not double",
+              "explain": { "en": "s takes the default u and nothing doubles: ba, su. Two beats.", "es": "La s toma la u por defecto y nada se duplica: ba, su. Dos tiempos." }
+            },
+            {
+              "id": "coda:bed-d",
+              "sound": "the d at the end of bed",
+              "verdict": "it doubles first, then takes a vowel",
+              "explain": { "en": "The d is cut off sharply, which Japanese hears as a small tsu, and a loanword is allowed to double a d: be, small tsu, do. Three beats, beddo.", "es": "La d se corta en seco, que el japonés oye como un tsu pequeño, y un préstamo puede duplicar una d: be, tsu pequeño, do. Tres tiempos, beddo." }
+            },
+            {
+              "id": "coda:bag-g",
+              "sound": "the g at the end of bag",
+              "verdict": "it doubles first, then takes a vowel",
+              "explain": { "en": "Same as bed: the sharp g doubles, then takes the default u: ba, small tsu, gu. Three beats, baggu.", "es": "Igual que bed: la g cortante se duplica y luego toma la u por defecto: ba, tsu pequeño, gu. Tres tiempos, baggu." }
+            },
+            {
+              "id": "coda:robot-t",
+              "sound": "the t at the end of robot",
+              "verdict": "it doubles first, then takes a vowel",
+              "explain": { "en": "English cuts that t off sharply. Japanese hears the sharpness as a small tsu, so the t doubles and then takes o: ro, small tsu, to. Four beats, robotto.", "es": "El inglés corta esa t en seco. El japonés oye ese corte como un tsu pequeño, así que la t se duplica y luego toma o: ro, tsu pequeño, to. Cuatro tiempos, robotto." }
+            }
           ],
           "prompt": "sound",
           "answer": "verdict",
           "distractors": {
-            "values": ["yes, a nasal may close a beat", "no, it takes a vowel", "it doubles first, then takes a vowel"],
+            "values": ["yes, a nasal may close a beat", "no, it takes a vowel and does not double", "it doubles first, then takes a vowel"],
             "n": 2
           },
-          "count": 6,
+          "count": 8,
           "pass": { "accuracy": 0.8 }
         }
       ]
@@ -261,11 +343,13 @@
           "body": {
             "en": [
               "Everything in the game below is a word Japanese borrowed and re-timed. You are not learning them. You are recognising them through the re-timing, which is the only skill this chapter taught.",
-              "Every one of these forty was checked against the JMdict dictionary before it was allowed into the list. The game grades against that list and against nothing else, because the rules above explain a word after the fact and cannot generate one reliably."
+              "Every one of these forty was looked up in the JMdict dictionary before it was allowed into the list. One of them, McDonald's, is a brand the dictionary knows only as a surname, so its spelling was confirmed on the company's own site instead. The game grades against that list and against nothing else, because the rules above explain a word after the fact and cannot generate one reliably.",
+              "One thing about the spelling. This chapter has written a long vowel with the letter doubled, keeki, kameera, baggu. The games write it with a bar over the letter instead, kēki, kōhī, hanbāgā, which is the standard way and the way the dictionary does it. It is one sound held for two beats, and either spelling counts it the same."
             ],
             "es": [
               "Todo lo que hay en el juego de abajo es una palabra que el japonés tomó prestada y volvió a medir en el tiempo. No las estás aprendiendo. Las estás reconociendo a través de esa nueva medida, que es la única habilidad que enseñó este capítulo.",
-              "Cada una de estas cuarenta se comprobó contra el diccionario JMdict antes de entrar en la lista. El juego califica contra esa lista y contra nada más, porque las reglas de arriba explican una palabra después de los hechos y no pueden generarla de forma fiable."
+              "Cada una de estas cuarenta se buscó en el diccionario JMdict antes de entrar en la lista. Una de ellas, McDonald's, es una marca que el diccionario solo conoce como apellido, así que su grafía se confirmó en el sitio de la propia empresa. El juego califica contra esa lista y contra nada más, porque las reglas de arriba explican una palabra después de los hechos y no pueden generarla de forma fiable.",
+              "Una cosa sobre la grafía. Este capítulo ha escrito una vocal larga con la letra doblada, keeki, kameera, baggu. Los juegos la escriben con una barra sobre la letra, kēki, kōhī, hanbāgā, que es la forma estándar y la que usa el diccionario. Es un solo sonido sostenido dos tiempos, y las dos grafías lo cuentan igual."
             ]
           }
         },

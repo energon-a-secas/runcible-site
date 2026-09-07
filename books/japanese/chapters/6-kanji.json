@@ -57,7 +57,7 @@
           "body": {
             "en": [
               "The English guides order kanji by frequency or by how they are built out of parts. The Japanese school system orders them by school grade, and the Kanken exam has twelve levels, the tenth being exactly the eighty characters taught in the first year.",
-              "This chapter uses the school-grade order, all eighty of grade one, plus the numbers and the days. It is the order a Spanish-language guide sends learners to, and it has the useful property of being a finite published list rather than somebody's ranking."
+              "This chapter uses the school-grade order, the eighty of grade one, plus the numbers and the days. Seventy-five of the eighty appear inside a word in the drills below; the other five, see, stand, correct, early and rest, have no one-character word a beginner meets, and turn up only in the deck at the end. It is the order a Spanish-language guide sends learners to, and it has the useful property of being a finite published list rather than somebody's ranking."
             ],
             "es": null
           }
@@ -229,12 +229,19 @@
           "id": "e-grade1-meaning",
           "type": "choice",
           "skill": "jp.kanji.read",
-          "title": { "en": "The grade one characters, in words", "es": null },
-          "items": "data/vocab/ch6.json#groups.singles",
-          "prompt": "word",
-          "answer": "gloss.0",
+          "title": { "en": "What is it built from?", "es": null },
+          "items": [
+            { "id": "rad:林", "kanji": "林", "parts": "tree, twice", "explain": "Two trees side by side: a grove, hayashi." },
+            { "id": "rad:森", "kanji": "森", "parts": "tree, three times", "explain": "Three trees: a forest, mori. More trees than a grove." },
+            { "id": "rad:休", "kanji": "休", "parts": "a person beside a tree", "explain": "The person radical on the left, a tree on the right: to rest, yasumu." },
+            { "id": "rad:明", "kanji": "明", "parts": "sun and moon", "explain": "Sun on the left, moon on the right: bright, and it is not in grade one." },
+            { "id": "rad:男", "kanji": "男", "parts": "a rice field over strength", "explain": "A rice field on top, strength underneath: male, otoko." },
+            { "id": "rad:花", "kanji": "花", "parts": "grass over change", "explain": "The grass radical on top carries the meaning, the part underneath carries the sound ka: flower, hana." }
+          ],
+          "prompt": "kanji",
+          "answer": "parts",
           "distractors": { "n": 3 },
-          "count": 15,
+          "count": 6,
           "pass": { "accuracy": 0.75 }
         }
       ]
@@ -280,7 +287,7 @@
           "title": { "en": "Type the reading in kana", "es": null },
           "items": "data/vocab/ch6.json#groups.compounds",
           "prompt": "word",
-          "answer": "kana",
+          "answer": "accept",
           "transform": "kana",
           "compare": "trim|kana",
           "count": 8,

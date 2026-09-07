@@ -1,0 +1,17 @@
+{
+"format": "neo-quiz-set/1",
+"id": "jp-song-hotaru-no-hikari-order",
+"version": "2026-09-04",
+"game": "order",
+"name": { "en": "蛍の光 (Hotaru no Hikari)", "es": null },
+"lang": "ja",
+"skill": "jp.song.order",
+"licence": { "spdx": "public-domain", "screen": "none", "attribution": "蛍の光 (Hotaru no Hikari). Words: 稲垣千穎 Inagaki Chikai (1913). Music: Scottish trad. (Auld Lang Syne). First published 1881, 小学唱歌集初編. Public domain in Japan and the United States.", "source": "https://ja.wikipedia.org/wiki/蛍の光" },
+"_licence": { "source": "ja.wikipedia 蛍の光", "url": "https://ja.wikipedia.org/wiki/蛍の光", "spdx": "public-domain", "derived": false, "id": null, "acknowledgement": null, "links": [ "https://ja.wikipedia.org/wiki/蛍の光" ], "screen": "none", "japan": { "pd": true, "basis": "lyricist 稲垣千穎 Inagaki Chikai (1913); composer Scottish trad. (Auld Lang Syne). The later of the two deaths is 1913.", "test": "Japan: both authors died 1967 or earlier, or the work is anonymous and published 1967 or earlier.", "confidence": "high" }, "us": { "pd": true, "basis": "first published 1881, 小学唱歌集初編.", "test": "US: published 1930 or earlier, or published later with every author dead in 1945 or earlier, because the URAA restored anything still protected in its source country on 1996-01-01.", "confidence": "high" }, "confidence_text": "High", "verses_permitted": 1, "verses_permitted_note": "One. Verses 3 and 4 are nationalist Meiji territorial copy and are not sung today, per the report.", "generated_by": "tools/build-sets.mjs", "generated_at": "2026-09-04", "note": "Derived from data/songs/hotaru-no-hikari.json: one item per line, the pieces cut on the word boundaries of the corpus's romaji line aligned onto the kana (a one-kana piece joins the piece before it, a repeated piece is one piece), the verse gloss shown after a miss. Verdicts, credits and the authors' death years are copied from that file." },
+"items": [
+{"id":"hotaru-no-hikari-v1-l1","tokens":["ほたるの","ひかり","まどの","ゆき"],"line":"ほたるの ひかり まどの ゆき","gloss":{"en":"By firefly light and snow at the window we piled up days of study; the years slipped by, and this morning we open the cedar door and part.","es":null}},
+{"id":"hotaru-no-hikari-v1-l2","tokens":["ふみ","よむ","つきひ","かさね","つつ"],"line":"ふみ よむ つきひ かさね つつ","gloss":{"en":"By firefly light and snow at the window we piled up days of study; the years slipped by, and this morning we open the cedar door and part.","es":null}},
+{"id":"hotaru-no-hikari-v1-l3","tokens":["いつしか","としも","すぎのとを"],"line":"いつしか としも すぎのとを","gloss":{"en":"By firefly light and snow at the window we piled up days of study; the years slipped by, and this morning we open the cedar door and part.","es":null}},
+{"id":"hotaru-no-hikari-v1-l4","tokens":["あけてぞ","けさは","わかれ","ゆく"],"line":"あけてぞ けさは わかれ ゆく","gloss":{"en":"By firefly light and snow at the window we piled up days of study; the years slipped by, and this morning we open the cedar door and part.","es":null}}
+]
+}

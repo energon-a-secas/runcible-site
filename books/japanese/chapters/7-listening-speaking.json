@@ -199,8 +199,8 @@
           "body": {
             "en": [
               "English separates words by which syllable is louder. Japanese separates them by where the pitch falls. A phrase of n beats has n places the fall can happen, plus the option of no fall at all, and those collapse into four named shapes.",
-              "You should know it exists from day one and you should not drill it from day one. The textbook example is chopsticks against bridge, and in isolation those two are audibly identical: the contrast only appears once a particle follows, because one has its drop on the last beat and the other has no drop at all.",
-              "So a beginner with no particles cannot hear the thing the example is meant to teach. Read the shapes, listen to the pair once with the particle attached, and come back to it in a year."
+              "You should know it exists from day one and you should not drill it from day one. The textbook example is chopsticks, bridge and edge, three words that are all hashi. Chopsticks drops after its first beat, so it is different from the other two even on its own. Bridge and edge are audibly identical in isolation: the contrast only appears once a particle follows, because bridge has its drop on the last beat and edge has no drop at all.",
+              "So a beginner with no particles cannot hear the thing the example is meant to teach. Read the shapes, listen to the three once with the particle attached, and come back to it in a year."
             ],
             "es": null
           }
@@ -222,7 +222,7 @@
                 "word": "はなが",
                 "levels": [0, 1, 1],
                 "gloss": "flat. Low on the first beat, high after it, and it never comes back down.",
-                "note": "Any length. The commonest shape."
+                "note": "This is はな meaning nose. はな meaning flower, the word chapter 6 teaches, drops on the particle instead, which is the tail-high shape below. Any length. The commonest shape."
               },
               {
                 "id": "atamadaka",
@@ -266,9 +266,16 @@
                 "word": "はしが",
                 "levels": [0, 1, 0],
                 "gloss": "low then high then low. The drop is on the particle."
+              },
+              {
+                "id": "hashi-edge",
+                "name": "edge, with the subject particle",
+                "word": "はしが",
+                "levels": [0, 1, 1],
+                "gloss": "low then high, and it stays high. No drop at all, so on its own it sounds exactly like bridge."
               }
             ],
-            "closing": "There is a third word with the same two beats, meaning edge, which has no drop at all. It is identical to chopsticks in isolation and differs only once something follows. That is the whole reason this is a page and not a drill."
+            "closing": "Bridge and edge share the same two beats and are identical in isolation. They part only once something follows: bridge drops on the particle and edge does not. Chopsticks is different from both even alone, because its drop is inside the word. That is the whole reason this is a page and not a drill."
           }
         }
       ]

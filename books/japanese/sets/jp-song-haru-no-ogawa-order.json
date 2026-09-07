@@ -1,0 +1,17 @@
+{
+"format": "neo-quiz-set/1",
+"id": "jp-song-haru-no-ogawa-order",
+"version": "2026-09-04",
+"game": "order",
+"name": { "en": "春の小川 (Haru no Ogawa)", "es": null },
+"lang": "ja",
+"skill": "jp.song.order",
+"licence": { "spdx": "public-domain", "screen": "none", "attribution": "春の小川 (Haru no Ogawa). Words: 高野辰之 (1947). Music: 岡野貞一 (1941). First published 1912, 尋常小學唱歌 第四學年用. Public domain in Japan and the United States.", "source": "https://ja.wikipedia.org/wiki/春の小川" },
+"_licence": { "source": "ja.wikipedia 春の小川, オリジナルの歌詞", "url": "https://ja.wikipedia.org/wiki/春の小川", "spdx": "public-domain", "derived": false, "id": null, "acknowledgement": null, "links": [ "https://ja.wikipedia.org/wiki/春の小川" ], "screen": "none", "japan": { "pd": true, "basis": "lyricist 高野辰之 (1947); composer 岡野貞一 (1941). The later of the two deaths is 1947.", "test": "Japan: both authors died 1967 or earlier, or the work is anonymous and published 1967 or earlier.", "confidence": "high" }, "us": { "pd": true, "basis": "first published 1912, 尋常小學唱歌 第四學年用.", "test": "US: published 1930 or earlier, or published later with every author dead in 1945 or earlier, because the URAA restored anything still protected in its source country on 1996-01-01.", "confidence": "high" }, "confidence_text": "High", "verses_permitted": 1, "verses_permitted_note": "The report transcribes the first verse only, so this file carries one verse. More verses need a fresh trip to the source, not a memory.", "generated_by": "tools/build-sets.mjs", "generated_at": "2026-09-04", "note": "Derived from data/songs/haru-no-ogawa.json: one item per line, the pieces cut on the word boundaries of the corpus's romaji line aligned onto the kana (a one-kana piece joins the piece before it, a repeated piece is one piece), the verse gloss shown after a miss. Verdicts, credits and the authors' death years are copied from that file. Qualifier: 1912 text only." },
+"items": [
+{"id":"haru-no-ogawa-v1-l1","tokens":["はるの","おがわは","さらさら","ながる"],"line":"はるの おがわは さらさら ながる","gloss":{"en":"The spring brook runs murmuring, as if whispering to the violets and milk-vetch flowers on its bank: bloom, bloom, sweet-scented and beautifully coloured.","es":null}},
+{"id":"haru-no-ogawa-v1-l2","tokens":["きしの","すみれや","れんげの","はなに"],"line":"きしの すみれや れんげの はなに","gloss":{"en":"The spring brook runs murmuring, as if whispering to the violets and milk-vetch flowers on its bank: bloom, bloom, sweet-scented and beautifully coloured.","es":null}},
+{"id":"haru-no-ogawa-v1-l3","tokens":["におい","めでたく","いろ","うつくしく"],"line":"におい めでたく いろ うつくしく","gloss":{"en":"The spring brook runs murmuring, as if whispering to the violets and milk-vetch flowers on its bank: bloom, bloom, sweet-scented and beautifully coloured.","es":null}},
+{"id":"haru-no-ogawa-v1-l4","tokens":["さけよ","さけよと","ささやく","ごとく"],"line":"さけよ さけよと ささやく ごとく","gloss":{"en":"The spring brook runs murmuring, as if whispering to the violets and milk-vetch flowers on its bank: bloom, bloom, sweet-scented and beautifully coloured.","es":null}}
+]
+}

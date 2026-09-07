@@ -23,6 +23,7 @@ node tools/build-kanji.mjs        # data/kanji/kanjidic-*.json         KANJIDIC2
 node tools/build-strokes.mjs      # data/kanji/strokes-*.json          KanjiVG
 node tools/build-sentences.mjs    # data/sentences/ch{4,5}.json        Tatoeba
 node tools/build-decks.mjs        # books/japanese/decks/, rappel data/decks/
+node tools/build-sets.mjs         # books/japanese/sets/, quiz-site data/sets/
 node tools/vendor-wanakana.mjs    # js/vendor/wanakana.js in both projects
 node tools/validate-corpus.mjs    # the gate
 ```
