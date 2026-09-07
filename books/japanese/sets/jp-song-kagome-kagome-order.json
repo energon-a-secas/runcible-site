@@ -1,7 +1,7 @@
 {
 "format": "neo-quiz-set/1",
 "id": "jp-song-kagome-kagome-order",
-"version": "2026-09-04",
+"version": "2026-09-07",
 "game": "order",
 "name": { "en": "かごめかごめ (Kagome Kagome)", "es": null },
 "lang": "ja",
@@ -9,8 +9,8 @@
 "licence": { "spdx": "public-domain", "screen": "none", "attribution": "かごめかごめ (Kagome Kagome). Words: trad. warabe uta, unknown. Music: unknown. First published Edo mid-period onward. Public domain in Japan and the United States.", "source": "https://ja.wikipedia.org/wiki/かごめかごめ" },
 "_licence": { "source": "ja.wikipedia かごめかごめ", "url": "https://ja.wikipedia.org/wiki/かごめかごめ", "spdx": "public-domain", "derived": false, "id": null, "acknowledgement": null, "links": [ "https://ja.wikipedia.org/wiki/かごめかごめ" ], "screen": "none", "japan": { "pd": true, "basis": "no named author (trad. warabe uta, unknown; unknown), first published Edo mid-period onward.", "test": "Japan: both authors died 1967 or earlier, or the work is anonymous and published 1967 or earlier.", "confidence": "high" }, "us": { "pd": true, "basis": "first published Edo mid-period onward.", "test": "US: published 1930 or earlier, or published later with every author dead in 1945 or earlier, because the URAA restored anything still protected in its source country on 1996-01-01.", "confidence": "high" }, "confidence_text": "High. Text varies by region; pick one variant and say which.", "verses_permitted": 1, "verses_permitted_note": "The report transcribes the first verse only, so this file carries one verse. More verses need a fresh trip to the source, not a memory.", "generated_by": "tools/build-sets.mjs", "generated_at": "2026-09-04", "note": "Derived from data/songs/kagome-kagome.json: one item per line, the pieces cut on the word boundaries of the corpus's romaji line aligned onto the kana (a one-kana piece joins the piece before it, a repeated piece is one piece), the verse gloss shown after a miss. Verdicts, credits and the authors' death years are copied from that file. Qualifier: the most common variant." },
 "items": [
-{"id":"kagome-kagome-v1-l1","tokens":["かごめ かごめ","かごの","なかの","とりは"],"line":"かごめ かごめ かごの なかの とりは","gloss":{"en":"Kagome kagome, bird in the cage, when will you come out? On the eve of the dawn the crane and the tortoise slipped. Who stands right behind you?","es":null}},
-{"id":"kagome-kagome-v1-l3","tokens":["よあけの","ばんに","つると","かめが","すべった"],"line":"よあけの ばんに つると かめが すべった","gloss":{"en":"Kagome kagome, bird in the cage, when will you come out? On the eve of the dawn the crane and the tortoise slipped. Who stands right behind you?","es":null}},
-{"id":"kagome-kagome-v1-l4","tokens":["うしろの","しょうめん","だあれ"],"line":"うしろの しょうめん だあれ","gloss":{"en":"Kagome kagome, bird in the cage, when will you come out? On the eve of the dawn the crane and the tortoise slipped. Who stands right behind you?","es":null}}
+{"id":"kagome-kagome-v1-l1","tokens":["かごめ かごめ","かごの","なかの","とりは"],"line":"かごめ かごめ かごの なかの とりは","gloss":{"en":"Kagome kagome, bird in the cage, when will you come out? On the eve of the dawn the crane and the tortoise slipped. Who stands right behind you?","es":"Kagome kagome, pájaro en la jaula, ¿cuándo vas a salir? En la víspera del amanecer resbalaron la grulla y la tortuga. ¿Quién está justo detrás de ti?"}},
+{"id":"kagome-kagome-v1-l3","tokens":["よあけの","ばんに","つると","かめが","すべった"],"line":"よあけの ばんに つると かめが すべった","gloss":{"en":"Kagome kagome, bird in the cage, when will you come out? On the eve of the dawn the crane and the tortoise slipped. Who stands right behind you?","es":"Kagome kagome, pájaro en la jaula, ¿cuándo vas a salir? En la víspera del amanecer resbalaron la grulla y la tortuga. ¿Quién está justo detrás de ti?"}},
+{"id":"kagome-kagome-v1-l4","tokens":["うしろの","しょうめん","だあれ"],"line":"うしろの しょうめん だあれ","gloss":{"en":"Kagome kagome, bird in the cage, when will you come out? On the eve of the dawn the crane and the tortoise slipped. Who stands right behind you?","es":"Kagome kagome, pájaro en la jaula, ¿cuándo vas a salir? En la víspera del amanecer resbalaron la grulla y la tortuga. ¿Quién está justo detrás de ti?"}}
 ]
 }

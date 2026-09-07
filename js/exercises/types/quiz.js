@@ -1,6 +1,6 @@
 // ── quiz ─────────────────────────────────────────────────────
 // A Quiz game embedded from quiz.neorgon.com. Graded, from quiz:answer.
-// Required spec fields: game, src. Optional: limit.
+// Required spec fields: game, src. Optional: limit, filter.
 //
 // The second embed host, and the same shape as deck on purpose. The iframe,
 // the origin and source checks, the quiz:hello handshake, the silence timer

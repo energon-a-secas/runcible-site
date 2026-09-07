@@ -47,7 +47,7 @@
         },
         {
           "id": "numbers",
-          "label": { "en": "Numbers", "es": "Numeros" },
+          "label": { "en": "Numbers", "es": "Números" },
           "words": [
             { "q": "ゼロ", "pos": "n" },
             { "q": "一", "pos": "num", "reading": "いち" },
@@ -67,7 +67,7 @@
         },
         {
           "id": "days",
-          "label": { "en": "Days and when", "es": "Dias y cuando" },
+          "label": { "en": "Days and when", "es": "Días y cuándo" },
           "words": [
             { "q": "月曜日", "pos": "n" },
             { "q": "火曜日", "pos": "n" },
@@ -104,7 +104,7 @@
         },
         {
           "id": "everyday",
-          "label": { "en": "Everyday nouns", "es": "Sustantivos de cada dia" },
+          "label": { "en": "Everyday nouns", "es": "Sustantivos de cada día" },
           "words": [
             { "q": "水", "pos": "n" },
             { "q": "お茶", "pos": "n" },

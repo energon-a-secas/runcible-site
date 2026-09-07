@@ -68,19 +68,37 @@
             ],
             "es": null
           }
+        },
+        {
+          "id": "p-quiz-groups",
+          "kind": "callout",
+          "tone": "note",
+          "title": {
+            "en": "Each group is a board, and it opens in a frame",
+            "es": "Cada grupo es un tablero, y se abre en un marco"
+          },
+          "body": {
+            "en": [
+              "The recognition drill in every group below is a game from quiz.neorgon.com running inside a frame on this page: four words on the left, four meanings on the right, and the round narrowed to the group the rung just taught. Every answer is recorded here under this chapter's goal, and beside each frame there is an Open in Quiz link that opens the same narrowed round on its own page.",
+              "One thing on those boards is ahead of you. The left column is the word as the dictionary writes it, so the days, the numbers, the counters and most of the everyday nouns arrive in kanji you do not meet until chapter 6. The kana reading is shown under the pair after a miss, and it is the reading that is being drilled here. That is how the word list is built rather than a decision about when to teach kanji, and it is said here rather than left to surprise you."
+            ],
+            "es": [
+              "El ejercicio de reconocimiento de cada grupo de abajo es un juego de quiz.neorgon.com que se ejecuta dentro de un marco en esta página: cuatro palabras a la izquierda, cuatro significados a la derecha, y la ronda reducida al grupo que el peldaño acaba de enseñar. Cada respuesta se registra aquí bajo la meta de este capítulo, y junto a cada marco hay un enlace Abrir en Quiz que abre esa misma ronda reducida en su propia página.",
+              "Una cosa de esos tableros va por delante de ti. La columna izquierda es la palabra tal como la escribe el diccionario, así que los días, los números, los contadores y casi todos los sustantivos de cada día llegan en kanji que no ves hasta el capítulo 6. La lectura en kana aparece bajo la pareja tras un fallo, y es la lectura lo que se practica aquí. Así está construida la lista de palabras, no es una decisión sobre cuándo enseñar kanji, y se dice aquí en vez de dejar que te sorprenda."
+            ]
+          }
         }
       ],
       "exercises": [
         {
           "id": "e-greetings-read",
-          "type": "choice",
+          "type": "quiz",
+          "game": "pairs",
           "skill": "jp.vocab.read",
           "title": { "en": "What does it mean?", "es": null },
-          "items": "data/vocab/ch4.json#groups.greetings",
-          "prompt": "kana",
-          "answer": "gloss.0",
-          "distractors": { "n": 3 },
-          "count": 10,
+          "src": "books/japanese/sets/jp-first-words-pairs.json",
+          "filter": "group:greetings",
+          "limit": 12,
           "pass": { "accuracy": 0.8 }
         },
         {
@@ -124,14 +142,13 @@
       "exercises": [
         {
           "id": "e-numbers-read",
-          "type": "choice",
+          "type": "quiz",
+          "game": "pairs",
           "skill": "jp.vocab.read",
           "title": { "en": "Which number?", "es": null },
-          "items": "data/vocab/ch4.json#groups.numbers",
-          "prompt": "kana",
-          "answer": "gloss.0",
-          "distractors": { "n": 3 },
-          "count": 10,
+          "src": "books/japanese/sets/jp-first-words-pairs.json",
+          "filter": "group:numbers",
+          "limit": 12,
           "pass": { "accuracy": 0.8 }
         },
         {
@@ -179,14 +196,13 @@
       "exercises": [
         {
           "id": "e-days-read",
-          "type": "choice",
+          "type": "quiz",
+          "game": "pairs",
           "skill": "jp.vocab.read",
           "title": { "en": "Which day, or which word for when?", "es": null },
-          "items": "data/vocab/ch4.json#groups.days",
-          "prompt": "kana",
-          "answer": "gloss.0",
-          "distractors": { "n": 3 },
-          "count": 10,
+          "src": "books/japanese/sets/jp-first-words-pairs.json",
+          "filter": "group:days",
+          "limit": 12,
           "pass": { "accuracy": 0.8 }
         },
         {
@@ -230,14 +246,13 @@
       "exercises": [
         {
           "id": "e-counters-read",
-          "type": "choice",
+          "type": "quiz",
+          "game": "pairs",
           "skill": "jp.vocab.read",
           "title": { "en": "What does this counter count?", "es": null },
-          "items": "data/vocab/ch4.json#groups.counters",
-          "prompt": "kana",
-          "answer": "gloss.0",
-          "distractors": { "n": 3 },
-          "count": 8,
+          "src": "books/japanese/sets/jp-first-words-pairs.json",
+          "filter": "group:counters",
+          "limit": 8,
           "pass": { "accuracy": 0.75 }
         },
         {
@@ -300,14 +315,13 @@
       "exercises": [
         {
           "id": "e-everyday-read",
-          "type": "choice",
+          "type": "quiz",
+          "game": "pairs",
           "skill": "jp.vocab.read",
           "title": { "en": "What is it?", "es": null },
-          "items": "data/vocab/ch4.json#groups.everyday",
-          "prompt": "kana",
-          "answer": "gloss.0",
-          "distractors": { "n": 3 },
-          "count": 10,
+          "src": "books/japanese/sets/jp-first-words-pairs.json",
+          "filter": "group:everyday",
+          "limit": 12,
           "pass": { "accuracy": 0.8 }
         },
         {
@@ -391,15 +405,18 @@
           "id": "p-quiz-pairs",
           "kind": "callout",
           "tone": "note",
-          "title": { "en": "One game before the deck", "es": "Un juego antes de la baraja" },
+          "title": {
+            "en": "One game before the deck",
+            "es": "Un juego antes de la baraja"
+          },
           "body": {
             "en": [
-              "The drills above went group by group. The first drill below draws from every word in the chapter at once and puts four of them on a board against four meanings, which is the first time nothing on the screen tells you which group a word came from. It is a game from quiz.neorgon.com running inside a frame, it records here under this chapter's goal, and beside the frame there is an Open in Quiz link to the same round on its own page.",
-              "One thing on that board is ahead of you. The left column is the word as the dictionary writes it, so the numbers and a few set phrases arrive in kanji you do not meet until chapter 6; the kana reading is shown under the pair after a miss. That is how the set is built rather than a decision about when to teach kanji, and it is said here rather than left to surprise you."
+              "The drills above were one group at a time, each board narrowed to the rung that taught it. The first drill below drops that narrowing and draws from every word in the chapter at once, which is the first time nothing on the screen tells you which group a word came from.",
+              "Same game, same frame, same Open in Quiz link beside it, and the same note about the left column: it is the dictionary spelling, and the kana reading is under the pair after a miss."
             ],
             "es": [
-              "Los ejercicios de arriba fueron grupo por grupo. El primero de abajo toma de todas las palabras del capítulo a la vez y pone cuatro en un tablero contra cuatro significados, que es la primera vez que nada en la pantalla te dice de qué grupo venía una palabra. Es un juego de quiz.neorgon.com que se ejecuta dentro de un marco, registra aquí bajo la meta de este capítulo, y junto al marco hay un enlace Abrir en Quiz a la misma ronda en su propia página.",
-              "Una cosa de ese tablero va por delante de ti. La columna izquierda es la palabra tal como la escribe el diccionario, así que los números y algunas frases hechas llegan en kanji que no ves hasta el capítulo 6; la lectura en kana aparece bajo la pareja tras un fallo. Así está construido el conjunto, no es una decisión sobre cuándo enseñar kanji, y se dice aquí en vez de dejar que te sorprenda."
+              "Los ejercicios de arriba fueron grupo por grupo, cada tablero reducido al peldaño que lo enseñó. El primero de abajo quita esa reducción y toma de todas las palabras del capítulo a la vez, que es la primera vez que nada en la pantalla te dice de qué grupo venía una palabra.",
+              "El mismo juego, el mismo marco, el mismo enlace Abrir en Quiz al lado, y la misma advertencia sobre la columna izquierda: es la grafía del diccionario, y la lectura en kana aparece bajo la pareja tras un fallo."
             ]
           }
         }

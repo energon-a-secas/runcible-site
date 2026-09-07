@@ -1,7 +1,7 @@
 {
 "format": "neo-quiz-set/1",
 "id": "jp-loanwords-beats",
-"version": "2026-09-04",
+"version": "2026-09-07",
 "game": "beats",
 "name": { "en": "Loanword beats", "es": "Pulsos de préstamos" },
 "lang": "ja",

@@ -14,7 +14,10 @@
 // chapter file.
 
 export { createExerciseRegistry, EXERCISE_VERSION } from './registry.js';
-export { GENERIC_TYPES, REQUIRED_FIELDS, NEVER_GRADED, validateExerciseSpec, checkRegisteredId } from './spec.js';
+export {
+  GENERIC_TYPES, REQUIRED_FIELDS, NEVER_GRADED, QUIZ_FILTER_FIELDS,
+  validateExerciseSpec, checkRegisteredId, parseQuizFilter,
+} from './spec.js';
 export { ExerciseError, locate } from './errors.js';
 
 // Grading helpers, exported so a Book module can grade the way the generic

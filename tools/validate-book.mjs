@@ -7,7 +7,7 @@
 // defining a second notion of valid. Node is imported dynamically inside
 // main(), never at the top, so a browser can import this module as-is.
 
-import { validateExerciseSpec, GENERIC_TYPES, checkRegisteredId, parseCompare } from '../js/exercises/index.js';
+import { validateExerciseSpec, GENERIC_TYPES, checkRegisteredId, parseCompare, parseQuizFilter } from '../js/exercises/index.js';
 import { checkDeckSkills } from './lib/deck-skills.mjs';
 
 export { GENERIC_TYPES };
@@ -31,6 +31,18 @@ const CALLOUT_TONES = ['note', 'warn', 'win'];
 const HTML_TAG = /<[a-zA-Z/!][^>]*>/;
 const SLUG = /^[a-z0-9][a-z0-9-]*$/;
 const DATE = /^\d{4}-\d{2}-\d{2}$/;
+
+// A filtered quiz round has to be worth starting, and a filter matching nothing
+// is the engine's filter-empty showing up on a learner's screen instead of at a
+// build. Four is the floor because a pairs board is four pairs, so a filter
+// feeding pairs that matches fewer cannot fill one board. The other three games
+// ask one item at a time, and the set format ships a kana row whole even when it
+// is short ("a genuinely short row is not a hole (y has three)"), so a flat four
+// would refuse ya yu yo, which is a real row and a real drill. Two is a coin
+// flip in any game. The grammar is checked without the file (spec.js); this is
+// the half that needs the set open, so it is checked below in main().
+const MIN_FILTER_MATCHES = Object.freeze({ pairs: 4, beats: 3, sound: 3, order: 3 });
+const filterFloor = (game) => MIN_FILTER_MATCHES[game] || 4;
 
 function report() {
   const errors = [];
@@ -432,6 +444,7 @@ async function main(argv) {
     const goals = new Map();
     const emitted = new Set();
     const decks = [];
+    const filtered = [];
     for (const entry of manifest.chapters || []) {
       if (!entry.src) continue;
       const file = `${rel}/${entry.src}`;
@@ -459,13 +472,53 @@ async function main(argv) {
           if (!ex || typeof ex !== 'object') continue;
           // Both embeds record under their spec's skill, so both are subject
           // to the skill rule, and neither counts as a reader of a skill.
-          if (ex.type === 'deck' || ex.type === 'quiz') decks.push({ file, chapterId: chapter.id, ex });
-          else if (ex.skill) emitted.add(ex.skill);
+          if (ex.type === 'deck' || ex.type === 'quiz') {
+            decks.push({ file, chapterId: chapter.id, ex });
+            if (ex.type === 'quiz' && ex.filter !== undefined) filtered.push({ file, ex });
+          } else if (ex.skill) emitted.add(ex.skill);
         }
       }
     }
     // Cross-chapter: every embed's skill is a name this Book reads.
     checkDeckSkills({ goals, emitted, decks, fail, warn: (m) => console.log(`  warn  ${m}`) });
+    // A quiz filter, against the set it filters. The grammar was already read
+    // by the spec checker; what only the CLI can do is open the set and count.
+    // The engine answers a filter that matches nothing with filter-empty, on
+    // the learner's screen, with the round never starting: the whole point of
+    // this check is that such a round can never be published.
+    for (const { file, ex } of filtered) {
+      const { field, values, problem } = parseQuizFilter(ex.filter);
+      if (problem) continue; // already reported by the spec checker
+      let set;
+      try {
+        set = await readJson(join(site, ex.src));
+      } catch (e) {
+        // Not on disk, or not JSON. A quiz src must be declared in data[], and
+        // data[] is checked against the disk below, so this is that error
+        // twice; say what went unchecked rather than repeat it.
+        console.log(`  warn  ${file}: ${ex.id} filter "${ex.filter}" was not checked, ${ex.src} could not be read`);
+        continue;
+      }
+      const items = Array.isArray(set.items) ? set.items : [];
+      const wanted = new Set(values);
+      const hits = items.filter((it) => it && typeof it === 'object'
+        && typeof it[field] === 'string' && wanted.has(it[field].trim())).length;
+      const floor = filterFloor(ex.game);
+      if (hits < floor) {
+        const seen = [...new Set(items.map((it) => (it && typeof it[field] === 'string' ? it[field].trim() : null)).filter(Boolean))];
+        fail(`${file}: ${ex.id} filter "${ex.filter}" matches ${hits} item(s) of ${ex.src}, and a ${ex.game} round needs at least ${floor}`
+          + (seen.length ? `. That set's ${field} labels are: ${seen.join(', ')}` : `. No item of that set carries a ${field}`));
+      }
+      if (field === 'group' && hits >= floor) {
+        // The round header prints the set's own words for a group. Without
+        // them it prints the label, which is a build-time label, not English.
+        const named = set.groups && typeof set.groups === 'object'
+          ? values.filter((v) => set.groups[v] === undefined) : values;
+        if (named.length) {
+          console.log(`  warn  ${file}: ${ex.id} filters on group ${named.join(', ')}, which ${ex.src} does not name in its groups{}, so the round header shows the label`);
+        }
+      }
+    }
     const onDisk = async (p, what) => {
       try { await stat(join(site, p)); } catch { fail(`${rel}/book.json: ${what} declares ${p}, which is not on disk`); }
     };

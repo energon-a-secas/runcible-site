@@ -12,10 +12,10 @@
 ],
 "labels": {
 "greetings": {"en":"Greetings","es":"Saludos"},
-"numbers": {"en":"Numbers","es":"Numeros"},
-"days": {"en":"Days and when","es":"Dias y cuando"},
+"numbers": {"en":"Numbers","es":"Números"},
+"days": {"en":"Days and when","es":"Días y cuándo"},
 "counters": {"en":"Counters","es":"Contadores"},
-"everyday": {"en":"Everyday nouns","es":"Sustantivos de cada dia"}
+"everyday": {"en":"Everyday nouns","es":"Sustantivos de cada día"}
 },
 "count": 75,
 "groups": {

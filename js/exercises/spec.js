@@ -26,6 +26,56 @@ export const REQUIRED_FIELDS = Object.freeze({
 /** Which types can never report true or false, whatever the learner does. */
 export const NEVER_GRADED = Object.freeze(['read', 'speak']);
 
+/**
+ * The item fields a quiz `filter` may name. The set format calls row, column,
+ * group and rule labels, and says a bilingual or numeric field never filters,
+ * so the list is closed rather than "any field that happens to hold a string":
+ * a filter on `kana` would match nothing and the learner would meet the
+ * engine's filter-empty screen with no idea which side was wrong.
+ */
+export const QUIZ_FILTER_FIELDS = Object.freeze(['row', 'column', 'group', 'rule']);
+
+/** A label, as the set format defines one: ASCII letters, digits and dashes. */
+const LABEL = /^[A-Za-z0-9-]+$/;
+
+/**
+ * Read a quiz exercise's `filter` against the engine's URL grammar,
+ * `<field>:<value>[,<value>...]`. One field per round; the engine reads only
+ * the first `filter=` it is given, so a spec carries one string.
+ *
+ * This is the grammar half, which needs no files. Whether the set actually
+ * holds items with those labels is tools/validate-book.mjs's, because only the
+ * CLI can open the set.
+ *
+ * @param {unknown} value
+ * @returns {{ field: string|null, values: string[], problem: string|null }}
+ */
+export function parseQuizFilter(value) {
+  const no = (problem) => ({ field: null, values: [], problem });
+  if (typeof value !== 'string' || value.trim() === '') {
+    return no('must be a non-empty string, for example "row:k" or "group:greetings"');
+  }
+  const raw = value.trim();
+  const cut = raw.indexOf(':');
+  if (cut < 0) return no(`"${raw}" has no ":": the grammar is "<field>:<value>[,<value>...]"`);
+  const field = raw.slice(0, cut);
+  const rest = raw.slice(cut + 1);
+  if (!QUIZ_FILTER_FIELDS.includes(field)) {
+    return no(`"${field}" is not a field a filter can name (${QUIZ_FILTER_FIELDS.join(', ')})`);
+  }
+  if (rest === '') return no(`"${raw}" names no value, and an empty value list is filter-empty`);
+  const values = rest.split(',');
+  const seen = new Set();
+  for (const v of values) {
+    if (!LABEL.test(v)) {
+      return no(`"${v}" is not a label: a label is ASCII letters, digits and dashes, never prose`);
+    }
+    if (seen.has(v)) return no(`names "${v}" twice`);
+    seen.add(v);
+  }
+  return { field, values, problem: null };
+}
+
 function present(spec, field) {
   const v = spec[field];
   if (v === undefined || v === null) return false;
@@ -71,6 +121,15 @@ export function validateExerciseSpec(spec, known) {
   }
   if (spec.count !== undefined && !Number.isFinite(spec.count)) {
     out.push('"count" must be a number');
+  }
+  if (spec.filter !== undefined) {
+    // A filter on any other type is silently ignored by the engine that reads
+    // it, which is the whole reason to say so here.
+    if (type !== 'quiz') out.push('"filter" belongs to a quiz exercise: no other type narrows a set');
+    else {
+      const { problem } = parseQuizFilter(spec.filter);
+      if (problem) out.push(`"filter" ${problem}`);
+    }
   }
   if (spec.pass !== undefined) {
     if (typeof spec.pass !== 'object' || !Number.isFinite(spec.pass.accuracy)) {

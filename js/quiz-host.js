@@ -100,9 +100,18 @@ export function quizOrigin(loc = location) {
 
 /**
  * The engine URL for a quiz spec. With embed it is the frame's src:
- * ?embed=1&game=&set=<absolute src>&skill=&lang=&limit=[&theme=]. Without it
- * it is the escape link: the same URL minus embed and skill, which is what the
- * engine's own bar offers, so both links land on one standalone round.
+ * ?embed=1&game=&set=<absolute src>&skill=&lang=&limit=&filter=[&theme=].
+ * Without it it is the escape link: the same URL minus embed and skill, which
+ * is what the engine's own bar offers, so both links land on one standalone
+ * round.
+ *
+ * The filter is on both, and that is the point of putting it here rather than
+ * only on the frame: an exercise that drills the k row is a k row round
+ * wherever it is opened, and a learner who follows the escape link out of a
+ * five item round into the whole seventy kana table has been handed a
+ * different exercise. It is sent trimmed because the engine matches a value
+ * exactly after trim, and a stray space in a chapter file would otherwise be
+ * the difference between a round and the filter-empty screen.
  *
  * The env argument exists so a node test can build the URL with no DOM.
  */
@@ -119,6 +128,7 @@ export function quizUrl(spec, { embed = true } = {}, env = {}) {
   if (embed && spec.skill) p.set('skill', spec.skill);
   if (lang) p.set('lang', lang);
   if (Number.isInteger(spec.limit) && spec.limit > 0) p.set('limit', String(spec.limit));
+  if (typeof spec.filter === 'string' && spec.filter.trim()) p.set('filter', spec.filter.trim());
   if (theme) p.set('theme', theme);
   return url.href;
 }

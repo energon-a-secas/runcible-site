@@ -4,7 +4,8 @@
     "in quiz-site/llms.txt. Every item is generated from data/, so a set can never",
     "carry a word, a kana or a line the corpus does not carry. A beats item's",
     "explain line is the seed word's own when it has one, else its rule's line",
-    "from rules.json, else null; the generator writes no line of its own.",
+    "from rules.json, else null; the generator writes no line of its own, and its",
+    "romaji is the corpus's line when it has one, else read off the katakana.",
     "Item ids are derived from the corpus id of the record they came from, so a",
     "re-run over the same corpus emits the same ids. quiz:answer carries that id",
     "as itemId and Runcible stores it as evidence, so an id that moves between",
@@ -12,9 +13,14 @@
     "Each set is written twice, once under quiz-site/data/sets/ for the Quiz",
     "library and once under books/japanese/sets/ for the Runcible chapter that",
     "embeds it. Same generator, so they cannot drift; the build cmp's them.",
-    "The order kind expands to one set per song in data/songs/index.json. A song",
-    "gloss is the researcher's English; es is null unless glosses_es names a",
-    "Spanish line for that song and verse, because this file does not translate."
+    "The order kind expands to one set per song in data/songs/index.json.",
+    "This file is where the Spanish the corpus has none of is written, because",
+    "the corpus slices are English-only upstreams (JMdict) or an English gloss by",
+    "the researcher. meanings_es is keyed by the vocabulary's word id and reads",
+    "the meaning that pair actually shows; glosses_es is keyed by song id and",
+    "then by verse number, one line per verse, and every line of that verse shows",
+    "it. A record neither hook names ships with es null, which is the fallback",
+    "line on screen rather than a translation nobody wrote."
   ],
   "sets": [
     {
@@ -23,7 +29,10 @@
       "from": "loanwords/seed.json",
       "rules": "loanwords/rules.json",
       "include_verified": true,
-      "name": { "en": "Loanword beats", "es": "Pulsos de préstamos" },
+      "name": {
+        "en": "Loanword beats",
+        "es": "Pulsos de préstamos"
+      },
       "skill": "jp.mora.count",
       "budget_kb": 40
     },
@@ -32,7 +41,10 @@
       "kind": "sound",
       "from": "kana/hiragana.json",
       "prefix": "hira",
-      "name": { "en": "Hiragana sounds", "es": "Sonidos del hiragana" },
+      "name": {
+        "en": "Hiragana sounds",
+        "es": "Sonidos del hiragana"
+      },
       "skill": "jp.kana.hiragana.sound",
       "budget_kb": 40
     },
@@ -41,7 +53,10 @@
       "kind": "sound",
       "from": "kana/katakana.json",
       "prefix": "kata",
-      "name": { "en": "Katakana sounds", "es": "Sonidos del katakana" },
+      "name": {
+        "en": "Katakana sounds",
+        "es": "Sonidos del katakana"
+      },
       "skill": "jp.kana.katakana.sound",
       "budget_kb": 40
     },
@@ -50,7 +65,10 @@
       "kind": "kana-pairs",
       "from": "kana/hiragana.json",
       "prefix": "hira",
-      "name": { "en": "Hiragana to romaji", "es": "Hiragana a romaji" },
+      "name": {
+        "en": "Hiragana to romaji",
+        "es": "Hiragana a romaji"
+      },
       "skill": "jp.kana.hiragana.romaji",
       "budget_kb": 40
     },
@@ -59,7 +77,10 @@
       "kind": "kana-pairs",
       "from": "kana/katakana.json",
       "prefix": "kata",
-      "name": { "en": "Katakana to romaji", "es": "Katakana a romaji" },
+      "name": {
+        "en": "Katakana to romaji",
+        "es": "Katakana a romaji"
+      },
       "skill": "jp.kana.katakana.romaji",
       "budget_kb": 40
     },
@@ -67,9 +88,87 @@
       "id": "jp-first-words-pairs",
       "kind": "vocab-pairs",
       "from": "vocab/ch4.json",
-      "name": { "en": "First words", "es": "Primeras palabras" },
+      "name": {
+        "en": "First words",
+        "es": "Primeras palabras"
+      },
       "skill": "vocab.first-words.read",
-      "budget_kb": 40
+      "budget_kb": 40,
+      "meanings_es": {
+        "w_0001": "hola",
+        "w_0002": "buenos días",
+        "w_0004": "buenas noches",
+        "w_0005": "que descanses",
+        "w_0006": "adiós",
+        "w_0007": "gracias",
+        "w_0009": "disculpe",
+        "w_0010": "lo siento",
+        "w_0011": "sí",
+        "w_0012": "no",
+        "w_0013": "por favor",
+        "w_0014": "gracias por la comida servida",
+        "w_0015": "gracias por la comida",
+        "w_0016": "mucho gusto",
+        "w_0017": "saludos cordiales",
+        "w_0018": "ya me voy",
+        "w_0019": "que te vaya bien",
+        "w_0020": "ya llegué",
+        "w_0021": "bienvenido a casa",
+        "w_0022": "con permiso",
+        "w_0023": "cero",
+        "w_0024": "uno",
+        "w_0025": "dos",
+        "w_0026": "tres",
+        "w_0027": "cuatro",
+        "w_0028": "cinco",
+        "w_0029": "seis",
+        "w_0030": "siete",
+        "w_0031": "ocho",
+        "w_0032": "nueve",
+        "w_0033": "diez",
+        "w_0034": "cien",
+        "w_0035": "mil",
+        "w_0036": "diez mil",
+        "w_0037": "lunes",
+        "w_0038": "martes",
+        "w_0039": "miércoles",
+        "w_0040": "jueves",
+        "w_0041": "viernes",
+        "w_0042": "sábado",
+        "w_0043": "domingo",
+        "w_0044": "hoy",
+        "w_0045": "mañana",
+        "w_0046": "ayer",
+        "w_0047": "todos los días",
+        "w_0048": "esta semana",
+        "w_0049": "la semana que viene",
+        "w_0050": "fin de semana",
+        "w_0051": "contador de cosas o piezas",
+        "w_0052": "contador de personas",
+        "w_0053": "contador de objetos largos y finos",
+        "w_0054": "contador de objetos planos y finos",
+        "w_0055": "contador de máquinas y vehículos",
+        "w_0056": "contador de libros",
+        "w_0057": "contador de animales pequeños",
+        "w_0058": "años de edad",
+        "w_0059": "yen",
+        "w_0060": "tiempo",
+        "w_0061": "minuto",
+        "w_0062": "agua",
+        "w_0063": "té",
+        "w_0064": "arroz cocido",
+        "w_0065": "nombre",
+        "w_0066": "profesor",
+        "w_0067": "estudiante",
+        "w_0068": "escuela",
+        "w_0069": "amigo",
+        "w_0070": "casa",
+        "w_0071": "estación de tren",
+        "w_0072": "tren",
+        "w_0073": "auto",
+        "w_0074": "perro",
+        "w_0075": "gato"
+      }
     },
     {
       "id": "jp-song-{song}-order",
@@ -77,7 +176,66 @@
       "from": "songs/index.json",
       "skill": "jp.song.order",
       "budget_kb": 12,
-      "glosses_es": {}
+      "glosses_es": {
+        "sakura-sakura": {
+          "1": "Flores de cerezo, el cielo de marzo hasta donde alcanza la vista: bruma o nube, un aroma que se extiende. Vengan, vengan, vamos a verlas."
+        },
+        "furusato": {
+          "1": "El cerro donde perseguía conejos, el arroyo donde pescaba carpas pequeñas; mis sueños siguen volviendo allí, a mi pueblo inolvidable."
+        },
+        "oborozukiyo": {
+          "1": "El sol poniente se apaga sobre el campo de colza, la bruma cubre espesa la loma; mira el cielo que agita la brisa de primavera, y allí cuelga una luna tenue de anochecer."
+        },
+        "momiji": {
+          "1": "Las hojas del monte brillan con el sol de la tarde de otoño; entre todos los tonos intensos y pálidos, el arce y la hiedra que tiñen los pinos son un dobladillo estampado al pie del cerro."
+        },
+        "haru-ga-kita": {
+          "1": "Llegó la primavera, llegó la primavera. ¿Adónde llegó? A las montañas, al pueblo y también a los campos."
+        },
+        "haru-no-ogawa": {
+          "1": "El arroyo de primavera corre susurrando, como si hablara bajito a las violetas y a las flores de astrágalo de su orilla: florezcan, florezcan, con buen aroma y bello color."
+        },
+        "hotaru-no-hikari": {
+          "1": "Con la luz de las luciérnagas y la nieve en la ventana fuimos juntando días de estudio; los años pasaron, y esta mañana abrimos la puerta de cedro y nos separamos."
+        },
+        "aka-tombo": {
+          "1": "Una libélula roja en los últimos rayos del atardecer: ¿cuándo fue que la vi, cargada en la espalda de alguien?"
+        },
+        "kojo-no-tsuki": {
+          "1": "Primavera, un banquete de flores en la torre alta; la luz de la luna caía sobre las copas que pasaban de mano en mano, filtrándose entre pinos de mil años. ¿Dónde está ahora aquella luz antigua?"
+        },
+        "hamabe-no-uta": {
+          "1": "Al caminar por la orilla en la mañana, vuelven los días de antes: el sonido del viento, la forma de las nubes, las olas que llegan, los colores de las conchas."
+        },
+        "yuki": {
+          "1": "Cae y cae la nieve, cae y cae el granizo; cae sin parar y se amontona rápido. El cerro y el campo se ponen capuchas de algodón, y cada árbol pelado se llena de flores."
+        },
+        "usagi": {
+          "1": "Conejo, conejo, ¿qué ves que te hace saltar? La luna llena de la decimoquinta noche: la veo, y salto."
+        },
+        "toryanse": {
+          "1": "Pasen, pasen. ¿De quién es este camino angosto? Es el camino al santuario de Tenjin. Déjennos pasar un momento, por favor. Sin asunto que tratar, nadie pasa. Venimos a dejar un amuleto por los siete años de esta niña. Ir es fácil, volver da miedo; aun con miedo, pasen."
+        },
+        "zui-zui-zukkorobashi": {
+          "1": "Juego de dedos sin sentido: perseguidos por la vasija de té, cierra la puerta de golpe; cuando ya pasó, nos vamos. El ratón del fardo de arroz come y chilla. Aunque llame el padre, aunque llame la madre, no vamos. ¿Quién trizó la taza junto al pozo?"
+        },
+        "nanatsu-no-ko": {
+          "1": "Cuervo, ¿por qué lloras? Porque allá en la montaña el cuervo tiene siete crías queridas."
+        },
+        "donguri-korokoro": {
+          "1": "Una bellota rueda y plaf, cae al estanque: qué alboroto. Sube una locha y le dice hola, joven señor, juguemos juntos.",
+          "2": "La bellota se puso contenta y jugó un rato, pero al final extrañó el cerro, y su llanto dejó afligida a la locha."
+        },
+        "chatsumi": {
+          "1": "La octogésima octava noche, con el verano ya cerca; las hojas nuevas se espesan en el campo y en el cerro. ¿No es aquello una cosecha de té, con fajas rojas y sombreros de junco?"
+        },
+        "kagome-kagome": {
+          "1": "Kagome kagome, pájaro en la jaula, ¿cuándo vas a salir? En la víspera del amanecer resbalaron la grulla y la tortuga. ¿Quién está justo detrás de ti?"
+        },
+        "ware-wa-umi-no-ko": {
+          "1": "Soy hijo del mar: esa choza de paja con el humo que se alarga, en el pinar de la orilla ruidosa de espuma blanca, es mi querido hogar de siempre."
+        }
+      }
     }
   ],
   "targets": {

@@ -60,19 +60,39 @@
               "es": null
             }
           }
+        },
+        {
+          "id": "p-quiz-rows",
+          "kind": "callout",
+          "tone": "note",
+          "title": {
+            "en": "Every reading drill here is one row of the same game",
+            "es": "Cada ejercicio de lectura de aquí es una fila del mismo juego"
+          },
+          "body": {
+            "en": [
+              "The reading drills in this chapter are the game you met in chapter 0, in the same kind of frame, playing a different set: the whole hiragana table, narrowed to the row the rung just taught. Every answer is recorded here under this chapter's goal, and the Open in Quiz link beside each frame opens that same narrowed round on its own page.",
+              "It does two things a list of options does not. It asks in both directions, one way or the other picked for each kana: here is a shape, what does it say, and here is a sound, which shape is it. And after a miss it draws the whole row with the cell you missed marked, because a kana is learned as a place in a row rather than as a picture on its own.",
+              "Writing is still an exercise on this page rather than a game, so most rungs give you both: read the row in the frame, then write one back here."
+            ],
+            "es": [
+              "Los ejercicios de lectura de este capítulo son el juego que viste en el capítulo 0, en el mismo tipo de marco, con otro conjunto: la tabla entera del hiragana, reducida a la fila que el peldaño acaba de enseñar. Cada respuesta se registra aquí bajo la meta de este capítulo, y el enlace Abrir en Quiz junto a cada marco abre esa misma ronda reducida en su propia página.",
+              "Hace dos cosas que una lista de opciones no hace. Pregunta en las dos direcciones, y elige una u otra para cada kana: aquí tienes una forma, qué dice, y aquí tienes un sonido, qué forma es. Y tras un fallo dibuja la fila entera con la celda fallada marcada, porque un kana se aprende como un lugar dentro de una fila y no como un dibujo suelto.",
+              "Escribir sigue siendo un ejercicio de esta página y no un juego, así que casi todos los peldaños te dan las dos cosas: lee la fila en el marco y luego escribe una aquí."
+            ]
+          }
         }
       ],
       "exercises": [
         {
           "id": "e-vowels-read",
-          "type": "choice",
+          "type": "quiz",
+          "game": "sound",
           "skill": "kana.hiragana.read",
           "title": { "en": "Which sound is this?", "es": "¿Qué sonido es este?" },
-          "items": "data/kana/hiragana.json#rows.vowels",
-          "prompt": "glyph",
-          "answer": "romaji",
-          "distractors": { "n": 3 },
-          "count": 5,
+          "src": "books/japanese/sets/jp-hiragana-sound.json",
+          "filter": "row:vowels",
+          "limit": 5,
           "pass": { "accuracy": 0.8 }
         },
         {
@@ -115,38 +135,35 @@
       "exercises": [
         {
           "id": "e-k-read",
-          "type": "choice",
+          "type": "quiz",
+          "game": "sound",
           "skill": "kana.hiragana.read",
           "title": { "en": "The k row", "es": null },
-          "items": "data/kana/hiragana.json#rows.k",
-          "prompt": "glyph",
-          "answer": "romaji",
-          "distractors": { "n": 3 },
-          "count": 5,
+          "src": "books/japanese/sets/jp-hiragana-sound.json",
+          "filter": "row:k",
+          "limit": 5,
           "pass": { "accuracy": 0.8 }
         },
         {
           "id": "e-s-read",
-          "type": "choice",
+          "type": "quiz",
+          "game": "sound",
           "skill": "kana.hiragana.read",
           "title": { "en": "The s row", "es": null },
-          "items": "data/kana/hiragana.json#rows.s",
-          "prompt": "glyph",
-          "answer": "romaji",
-          "distractors": { "n": 3 },
-          "count": 5,
+          "src": "books/japanese/sets/jp-hiragana-sound.json",
+          "filter": "row:s",
+          "limit": 5,
           "pass": { "accuracy": 0.8 }
         },
         {
           "id": "e-t-read",
-          "type": "choice",
+          "type": "quiz",
+          "game": "sound",
           "skill": "kana.hiragana.read",
           "title": { "en": "The t row", "es": null },
-          "items": "data/kana/hiragana.json#rows.t",
-          "prompt": "glyph",
-          "answer": "romaji",
-          "distractors": { "n": 3 },
-          "count": 5,
+          "src": "books/japanese/sets/jp-hiragana-sound.json",
+          "filter": "row:t",
+          "limit": 5,
           "pass": { "accuracy": 0.8 }
         },
         {
@@ -188,38 +205,35 @@
       "exercises": [
         {
           "id": "e-n-read",
-          "type": "choice",
+          "type": "quiz",
+          "game": "sound",
           "skill": "kana.hiragana.read",
           "title": { "en": "The n row", "es": null },
-          "items": "data/kana/hiragana.json#rows.n",
-          "prompt": "glyph",
-          "answer": "romaji",
-          "distractors": { "n": 3 },
-          "count": 5,
+          "src": "books/japanese/sets/jp-hiragana-sound.json",
+          "filter": "row:n",
+          "limit": 5,
           "pass": { "accuracy": 0.8 }
         },
         {
           "id": "e-h-read",
-          "type": "choice",
+          "type": "quiz",
+          "game": "sound",
           "skill": "kana.hiragana.read",
           "title": { "en": "The h row", "es": null },
-          "items": "data/kana/hiragana.json#rows.h",
-          "prompt": "glyph",
-          "answer": "romaji",
-          "distractors": { "n": 3 },
-          "count": 5,
+          "src": "books/japanese/sets/jp-hiragana-sound.json",
+          "filter": "row:h",
+          "limit": 5,
           "pass": { "accuracy": 0.8 }
         },
         {
           "id": "e-m-read",
-          "type": "choice",
+          "type": "quiz",
+          "game": "sound",
           "skill": "kana.hiragana.read",
           "title": { "en": "The m row", "es": null },
-          "items": "data/kana/hiragana.json#rows.m",
-          "prompt": "glyph",
-          "answer": "romaji",
-          "distractors": { "n": 3 },
-          "count": 5,
+          "src": "books/japanese/sets/jp-hiragana-sound.json",
+          "filter": "row:m",
+          "limit": 5,
           "pass": { "accuracy": 0.8 }
         },
         {
@@ -275,26 +289,24 @@
       "exercises": [
         {
           "id": "e-y-read",
-          "type": "choice",
+          "type": "quiz",
+          "game": "sound",
           "skill": "kana.hiragana.read",
           "title": { "en": "The y row", "es": null },
-          "items": "data/kana/hiragana.json#rows.y",
-          "prompt": "glyph",
-          "answer": "romaji",
-          "distractors": { "n": 2 },
-          "count": 3,
+          "src": "books/japanese/sets/jp-hiragana-sound.json",
+          "filter": "row:y",
+          "limit": 3,
           "pass": { "accuracy": 0.8 }
         },
         {
           "id": "e-r-read",
-          "type": "choice",
+          "type": "quiz",
+          "game": "sound",
           "skill": "kana.hiragana.read",
           "title": { "en": "The r row", "es": null },
-          "items": "data/kana/hiragana.json#rows.r",
-          "prompt": "glyph",
-          "answer": "romaji",
-          "distractors": { "n": 3 },
-          "count": 5,
+          "src": "books/japanese/sets/jp-hiragana-sound.json",
+          "filter": "row:r",
+          "limit": 5,
           "pass": { "accuracy": 0.8 }
         },
         {
@@ -348,38 +360,35 @@
       "exercises": [
         {
           "id": "e-g-read",
-          "type": "choice",
+          "type": "quiz",
+          "game": "sound",
           "skill": "kana.hiragana.read",
           "title": { "en": "The g row", "es": null },
-          "items": "data/kana/hiragana.json#dakuten.g",
-          "prompt": "glyph",
-          "answer": "romaji",
-          "distractors": { "n": 3 },
-          "count": 5,
+          "src": "books/japanese/sets/jp-hiragana-sound.json",
+          "filter": "row:g",
+          "limit": 5,
           "pass": { "accuracy": 0.8 }
         },
         {
           "id": "e-z-read",
-          "type": "choice",
+          "type": "quiz",
+          "game": "sound",
           "skill": "kana.hiragana.read",
           "title": { "en": "The z row", "es": null },
-          "items": "data/kana/hiragana.json#dakuten.z",
-          "prompt": "glyph",
-          "answer": "romaji",
-          "distractors": { "n": 3 },
-          "count": 5,
+          "src": "books/japanese/sets/jp-hiragana-sound.json",
+          "filter": "row:z",
+          "limit": 5,
           "pass": { "accuracy": 0.8 }
         },
         {
           "id": "e-b-read",
-          "type": "choice",
+          "type": "quiz",
+          "game": "sound",
           "skill": "kana.hiragana.read",
           "title": { "en": "The b row", "es": null },
-          "items": "data/kana/hiragana.json#dakuten.b",
-          "prompt": "glyph",
-          "answer": "romaji",
-          "distractors": { "n": 3 },
-          "count": 5,
+          "src": "books/japanese/sets/jp-hiragana-sound.json",
+          "filter": "row:b",
+          "limit": 5,
           "pass": { "accuracy": 0.8 }
         },
         {
@@ -421,14 +430,13 @@
       "exercises": [
         {
           "id": "e-yoon-read",
-          "type": "choice",
+          "type": "quiz",
+          "game": "sound",
           "skill": "kana.hiragana.read",
           "title": { "en": "Read the pair as one beat", "es": null },
-          "items": "data/kana/hiragana.json#yoon",
-          "prompt": "glyph",
-          "answer": "romaji",
-          "distractors": { "n": 3 },
-          "count": 12,
+          "src": "books/japanese/sets/jp-hiragana-sound.json",
+          "filter": "column:ya,yu,yo",
+          "limit": 12,
           "pass": { "accuracy": 0.8 }
         },
         {
@@ -658,16 +666,16 @@
           "kind": "callout",
           "tone": "note",
           "title": {
-            "en": "The last two drills are games, and they open in a frame",
-            "es": "Los dos últimos ejercicios son juegos, y se abren en un marco"
+            "en": "The last two drills drop the row filter",
+            "es": "Los dos últimos ejercicios quitan el filtro de fila"
           },
           "body": {
             "en": [
-              "The rungs above drilled one row, or one rule, at a time. The last two drills here draw from the whole table at once, which is the only honest test of whether the kana is yours: reading a row inside the rung that taught it is not the same as reading a kana anywhere.",
+              "Every reading drill above has been this same game with a filter on it: the frame was handed the whole hiragana table and shown only the row the rung had taught. The last two drills here drop the filter, which is the only honest test of whether the kana is yours: reading a row inside the rung that taught it is not the same as reading a kana anywhere.",
               "Both are games from quiz.neorgon.com running inside a frame on this page. The first shows a kana and asks for its sound, or shows a sound and asks for the kana, one at a time and picked per item; the second is a board of four kana against four romaji. Every answer is recorded here under this chapter's goal. Beside each frame there is an Open in Quiz link that opens the same round on its own page, so a frame that fails to load is never the end of the drill."
             ],
             "es": [
-              "Los peldaños de arriba practicaron una fila, o una regla, cada vez. Los dos últimos ejercicios de aquí toman de toda la tabla a la vez, que es la única prueba honesta de si el kana ya es tuyo: leer una fila dentro del peldaño que la enseñó no es lo mismo que leer un kana en cualquier sitio.",
+              "Todos los ejercicios de lectura de arriba han sido este mismo juego con un filtro puesto: al marco se le entregó la tabla entera del hiragana y solo mostró la fila que el peldaño había enseñado. Los dos últimos ejercicios de aquí quitan el filtro, que es la única prueba honesta de si el kana ya es tuyo: leer una fila dentro del peldaño que la enseñó no es lo mismo que leer un kana en cualquier sitio.",
               "Los dos son juegos de quiz.neorgon.com que se ejecutan dentro de un marco en esta página. El primero muestra un kana y pide su sonido, o muestra un sonido y pide el kana, de uno en uno y elegido por elemento; el segundo es un tablero de cuatro kana contra cuatro romaji. Cada respuesta se registra aquí bajo la meta de este capítulo. Junto a cada marco hay un enlace Abrir en Quiz que abre la misma ronda en su propia página, así que un marco que no carga nunca es el final del ejercicio."
             ]
           }

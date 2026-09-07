@@ -1,7 +1,7 @@
 {
 "format": "neo-quiz-set/1",
 "id": "jp-song-haru-ga-kita-order",
-"version": "2026-09-04",
+"version": "2026-09-07",
 "game": "order",
 "name": { "en": "春が来た (Haru ga Kita)", "es": null },
 "lang": "ja",
@@ -9,7 +9,7 @@
 "licence": { "spdx": "public-domain", "screen": "none", "attribution": "春が来た (Haru ga Kita). Words: 高野辰之 (1947). Music: 岡野貞一 (1941). First published 1910, 尋常小学読本唱歌. Public domain in Japan and the United States.", "source": "https://ja.wikipedia.org/wiki/春が来た" },
 "_licence": { "source": "ja.wikipedia 春が来た", "url": "https://ja.wikipedia.org/wiki/春が来た", "spdx": "public-domain", "derived": false, "id": null, "acknowledgement": null, "links": [ "https://ja.wikipedia.org/wiki/春が来た" ], "screen": "none", "japan": { "pd": true, "basis": "lyricist 高野辰之 (1947); composer 岡野貞一 (1941). The later of the two deaths is 1947.", "test": "Japan: both authors died 1967 or earlier, or the work is anonymous and published 1967 or earlier.", "confidence": "high" }, "us": { "pd": true, "basis": "first published 1910, 尋常小学読本唱歌.", "test": "US: published 1930 or earlier, or published later with every author dead in 1945 or earlier, because the URAA restored anything still protected in its source country on 1996-01-01.", "confidence": "high" }, "confidence_text": "High", "verses_permitted": 1, "verses_permitted_note": "The report transcribes the first verse only, so this file carries one verse. More verses need a fresh trip to the source, not a memory.", "generated_by": "tools/build-sets.mjs", "generated_at": "2026-09-04", "note": "Derived from data/songs/haru-ga-kita.json: one item per line, the pieces cut on the word boundaries of the corpus's romaji line aligned onto the kana (a one-kana piece joins the piece before it, a repeated piece is one piece), the verse gloss shown after a miss. Verdicts, credits and the authors' death years are copied from that file." },
 "items": [
-{"id":"haru-ga-kita-v1-l1","tokens":["はるが きた はるが きた","どこに","きた"],"line":"はるが きた はるが きた どこに きた","gloss":{"en":"Spring has come, spring has come. Where has it come? To the mountains, to the village, and to the fields as well.","es":null}},
-{"id":"haru-ga-kita-v1-l2","tokens":["やまに きた","さとに","きたのにも","きた"],"line":"やまに きた さとに きたのにも きた","gloss":{"en":"Spring has come, spring has come. Where has it come? To the mountains, to the village, and to the fields as well.","es":null}}
+{"id":"haru-ga-kita-v1-l1","tokens":["はるが きた はるが きた","どこに","きた"],"line":"はるが きた はるが きた どこに きた","gloss":{"en":"Spring has come, spring has come. Where has it come? To the mountains, to the village, and to the fields as well.","es":"Llegó la primavera, llegó la primavera. ¿Adónde llegó? A las montañas, al pueblo y también a los campos."}},
+{"id":"haru-ga-kita-v1-l2","tokens":["やまに きた","さとに","きたのにも","きた"],"line":"やまに きた さとに きたのにも きた","gloss":{"en":"Spring has come, spring has come. Where has it come? To the mountains, to the village, and to the fields as well.","es":"Llegó la primavera, llegó la primavera. ¿Adónde llegó? A las montañas, al pueblo y también a los campos."}}
 ]
 }
