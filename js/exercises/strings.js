@@ -17,8 +17,10 @@
 // never parsed, so a learner's own answer cannot become markup.
 
 export const STRINGS = Object.freeze({
-  // session
-  progress: { en: '{at} of {total}', es: '{at} de {total}' },
+  // session position. A book counts questions and pages, never percentages:
+  // the unit is chosen by the type (read counts pages), not by the reader.
+  question: { en: 'Question {at} of {total}', es: 'Pregunta {at} de {total}' },
+  page: { en: 'Page {at} of {total}', es: 'Página {at} de {total}' },
   summaryGraded: { en: '{right} of {graded} correct.', es: '{right} de {graded} correctas.' },
   summaryUngraded: { en: '{asked} recorded, nothing graded here.', es: '{asked} registradas, aquí no se califica nada.' },
   passed: { en: 'That clears the mark for this drill.', es: 'Eso supera la marca de este ejercicio.' },
@@ -40,21 +42,56 @@ export const STRINGS = Object.freeze({
   startsWith: { en: 'It starts with {first}.', es: 'Empieza con {first}.' },
   yourAnswer: { en: 'Your answer', es: 'Tu respuesta' },
 
+  // Options. The keycap beside a row is what the digit key presses; when the
+  // options are themselves numbers the label is the key, so there is no cap.
+  keyHint: {
+    en: 'Press the number beside an option, or use the arrow keys.',
+    es: 'Pulsa el número junto a una opción, o usa las flechas.',
+  },
+  keyHintNumeral: {
+    en: 'Press the number you want, or use the arrow keys.',
+    es: 'Pulsa el número que quieras, o usa las flechas.',
+  },
+  keyHintArrows: { en: 'Use the arrow keys, then Enter.', es: 'Usa las flechas y luego Enter.' },
+
   // grading
   correct: { en: 'Correct.', es: 'Correcto.' },
-  notThatOne: { en: 'Not that one. The answer is {answer}.', es: 'Esa no. La respuesta es {answer}.' },
-  notQuite: { en: 'Not quite. The answer is {answer}.', es: 'No del todo. La respuesta es {answer}.' },
-  notThatOrder: { en: 'Not that order. It goes {answer}.', es: 'Ese no es el orden. Va {answer}.' },
+  // The expected answer is the panel's first line, so these do not repeat it.
+  // They used to, which put a long gloss twice on a phone screen and read as
+  // the interface stuttering.
+  notThatOne: { en: 'Not that one.', es: 'Esa no.' },
+  notQuite: { en: 'Not quite.', es: 'No del todo.' },
+  notThatOrder: { en: 'Not that order.', es: 'Ese no es el orden.' },
+
+  // The panel under a wrong answer (feedback.js)
+  rightAnswer: { en: 'The answer', es: 'La respuesta' },
+  because: { en: 'Why', es: 'Por qué' },
+  // The Spanish avoids agreeing with a gender the engine cannot know: the
+  // thing confused may be una letra or un número depending on the Book.
+  notThis: {
+    en: 'Not {wrong}, which is easy to confuse with it.',
+    es: 'No {wrong}: es fácil confundirlos.',
+  },
+  chosenIs: { en: 'You picked {answer}, which is {prompt}.', es: 'Elegiste {answer}, que es {prompt}.' },
+  chosenPairs: { en: '{answer} goes with {prompt}.', es: '{answer} va con {prompt}.' },
+  seeRule: { en: 'See the rule in the chapter', es: 'Ver la regla en el capítulo' },
+  bothRight: {
+    en: 'Both spellings are right; the dictionary lists both.',
+    es: 'Las dos grafías son correctas; el diccionario recoge ambas.',
+  },
 
   // match
-  leftColumn: { en: 'Left column', es: 'Columna izquierda' },
-  rightColumn: { en: 'Right column', es: 'Columna derecha' },
+  promptColumn: { en: 'Prompts', es: 'Enunciados' },
+  answerColumn: { en: 'Answers', es: 'Respuestas' },
+  paired: { en: 'Paired', es: 'Emparejados' },
+  pairedAs: { en: '{left}: {right}', es: '{left}: {right}' },
   pairThem: { en: 'Pick one from each column to pair them.', es: 'Elige uno de cada columna para emparejarlos.' },
   selected: { en: '{left} selected. Now pick its pair.', es: '{left} seleccionado. Ahora elige su pareja.' },
-  pickLeftFirst: { en: 'Pick from the left column first.', es: 'Elige primero de la columna izquierda.' },
+  pickLeftFirst: { en: 'Pick from the prompts first.', es: 'Elige primero un enunciado.' },
   goesWith: { en: '{left} goes with {right}.', es: '{left} va con {right}.' },
   doesNotGoWith: { en: '{left} does not go with {right}.', es: '{left} no va con {right}.' },
   selectionCleared: { en: 'Selection cleared.', es: 'Selección borrada.' },
+  pairsLeft: { en: '{n} still to pair.', es: 'Quedan {n} por emparejar.' },
 
   // order
   yourArrangement: { en: 'Your arrangement', es: 'Tu orden' },
@@ -137,6 +174,9 @@ export function chrome(t, key, vars) {
       const v = vars[name];
       out = out.split(`{${name}}`).join(v === null || v === undefined ? '' : String(v));
     }
+    // A gloss can end in its own punctuation ("how do you do?"), and the
+    // sentence around it then ends "?.". Keep the value's mark, drop ours.
+    out = out.replace(/([.!?。！？])\.(?=\s|$)/g, '$1');
   }
   return out;
 }

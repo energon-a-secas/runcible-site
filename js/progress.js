@@ -14,7 +14,8 @@ const WEAK_WINDOW = 20;
  *
  * The caller supplies { itemId, skill, correct, ms, answer?, expected?,
  * hintUsed? } and the shell appends { at, bookId, chapterId, exerciseId,
- * source }. source is 'shell' or 'rappel'; nothing else is legal.
+ * source }. source is 'shell', 'rappel' (the Rappel deck embed) or 'quiz'
+ * (the Quiz round embed); nothing else is legal.
  *
  * Required fields are checked loudly. An exercise that silently records a
  * malformed attempt stops a chapter unlocking and reports nothing, which is
@@ -30,7 +31,7 @@ export function recordAttempt(input, ctx) {
   }
   if (!Number.isFinite(a.ms)) throw new Error(`attempt from ${where}: ms is required and must be a number`);
   const source = (ctx && ctx.source) || 'shell';
-  if (source !== 'shell' && source !== 'rappel') throw new Error(`attempt from ${where}: source must be shell or rappel`);
+  if (!['shell', 'rappel', 'quiz'].includes(source)) throw new Error(`attempt from ${where}: source must be shell, rappel or quiz`);
 
   const bookId = (ctx && ctx.bookId) || state.prefs.bookId;
   if (!bookId) throw new Error(`attempt from ${where}: no book is open`);

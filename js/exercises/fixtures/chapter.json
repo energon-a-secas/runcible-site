@@ -244,6 +244,55 @@
           "count": 2
         },
         {
+          "id": "fx-choice-numeral",
+          "type": "choice",
+          "skill": "fixture.atlas.recognise",
+          "itemIdPrefix": "atlas",
+          "title": {
+            "en": "choice, numeral options: how far out is it?",
+            "es": "opción, opciones numéricas: ¿a qué distancia está?"
+          },
+          "items": "fixtures/data/atlas.json#planets",
+          "prompt": "name",
+          "answer": "order",
+          "distractors": {
+            "n": 3
+          },
+          "count": 3
+        },
+        {
+          "id": "fx-choice-two-digit",
+          "type": "choice",
+          "skill": "fixture.atlas.recognise",
+          "itemIdPrefix": "atlas",
+          "title": {
+            "en": "choice, numbers too long for one key: how many moons?",
+            "es": "opción, números de más de una tecla: ¿cuántas lunas?"
+          },
+          "items": "fixtures/data/atlas.json#planets",
+          "prompt": "name",
+          "answer": "moons",
+          "distractors": {
+            "n": 3
+          },
+          "count": 3
+        },
+        {
+          "id": "fx-match-reveal",
+          "type": "match",
+          "skill": "fixture.atlas.recognise",
+          "itemIdPrefix": "atlas",
+          "title": {
+            "en": "match with a reveal: the answer alone, the rest once it locks",
+            "es": "emparejar con revelación: solo la respuesta, lo demás al acertar"
+          },
+          "items": "fixtures/data/atlas.json#planets",
+          "left": "name",
+          "right": "code",
+          "reveal": "group",
+          "n": 4
+        },
+        {
           "id": "fx-deck",
           "type": "deck",
           "skill": "fixture.atlas.recall",

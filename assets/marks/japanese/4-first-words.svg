@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" aria-hidden="true">
+  <path d="M6 41h36" fill="none" stroke-width="1.5" stroke-linecap="round" style="stroke:var(--text-muted,rgba(255,255,255,.55))"/>
+  <path d="M28 16h10M10 26h11M28 26h8M10 36h9M28 36h12" fill="none" stroke-width="3" stroke-linecap="round" style="stroke:var(--text-primary,#f9f9f9)"/>
+  <path d="M10 16h13" fill="none" stroke-width="3" stroke-linecap="round" style="stroke:var(--accent,#e11d48)"/>
+</svg>

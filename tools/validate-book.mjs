@@ -359,7 +359,9 @@ export function validateChapter(doc, book = null) {
       if (unknown.length) r.err(`${eat}.compare`, `has unknown token(s): ${unknown.join(', ')}`);
       // What the engine cannot know: whether the manifest permits these files.
       if (typeof ex.items === 'string') usePointer(`${eat}.items`, ex.items);
-      if (ex.type === 'deck') {
+      // Both embeds point at a file, and both are subject to data[]. quiz has
+      // no mode, so that check passes it over untouched.
+      if (ex.type === 'deck' || ex.type === 'quiz') {
         usePointer(`${eat}.src`, ex.src, false);
         if (ex.mode !== undefined && !['review', 'cram', 'browse'].includes(ex.mode)) r.err(`${eat}.mode`, 'must be review, cram or browse (C6.1)');
         if (ex.limit !== undefined && !(Number.isInteger(ex.limit) && ex.limit > 0)) r.err(`${eat}.limit`, 'must be a positive integer');
@@ -455,12 +457,14 @@ async function main(argv) {
       for (const rung of chapter.rungs || []) {
         for (const ex of rung.exercises || []) {
           if (!ex || typeof ex !== 'object') continue;
-          if (ex.type === 'deck') decks.push({ file, chapterId: chapter.id, ex });
+          // Both embeds record under their spec's skill, so both are subject
+          // to the skill rule, and neither counts as a reader of a skill.
+          if (ex.type === 'deck' || ex.type === 'quiz') decks.push({ file, chapterId: chapter.id, ex });
           else if (ex.skill) emitted.add(ex.skill);
         }
       }
     }
-    // Cross-chapter: every deck exercise's skill is a name this Book reads.
+    // Cross-chapter: every embed's skill is a name this Book reads.
     checkDeckSkills({ goals, emitted, decks, fail, warn: (m) => console.log(`  warn  ${m}`) });
     const onDisk = async (p, what) => {
       try { await stat(join(site, p)); } catch { fail(`${rel}/book.json: ${what} declares ${p}, which is not on disk`); }

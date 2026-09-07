@@ -97,21 +97,34 @@ export function mount(host, spec, api, ctx) {
       document.addEventListener('keydown', onKey);
       session.on(session.root, 'rx-teardown', () => document.removeEventListener('keydown', onKey));
 
+      // What the explanation panel reads. The spoken field is this type's
+      // prompt, so a wrong pick is traced back through it exactly as choice
+      // traces one back through spec.prompt.
+      const explains = {
+        spec, ctx, api, item, pool,
+        expectedRaw,
+        promptField: spec.speak,
+        answerField: spec.answer,
+        promptValue: spoken,
+      };
+
       try {
         if (spec.respond === 'typed') {
-          await askTyped(session, spec, {
+          await askTyped(session, spec, Object.assign({
             itemId,
             expected: expectedRaw,
             expectedLabel: expected,
             transform: spec.transformFn,
             renderPrompt,
-          });
+          }, explains));
         } else {
           const wrong = distractorsFor(spec, item, pool, spec.answer, ctx);
           const options = shuffle(
             [{ label: expected, correct: true }].concat(wrong.map((w) => ({ label: w, correct: false }))),
           );
-          await askChoice(session, { itemId, options, expectedLabel: expected, renderPrompt });
+          await askChoice(session, Object.assign({
+            itemId, options, expectedLabel: expected, renderPrompt,
+          }, explains));
         }
       } finally {
         document.removeEventListener('keydown', onKey);

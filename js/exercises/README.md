@@ -69,7 +69,7 @@ Optional on any type: `count` (how many items to ask, default all),
 | `read` | `pages[]` | whole C3.3 page objects, not page ids. One `correct: null` attempt per page, `ms` is the dwell |
 | `choice` | `items`, `prompt`, `answer`, `distractors` | `distractors: { n, by?, values? }`. `by` names a grouping field so distractors come from siblings |
 | `typed` | `items`, `prompt`, `answer`, `transform?`, `compare?` | the transform runs on every keystroke and rewrites the input |
-| `match` | `items`, `left`, `right`, `n` | one attempt per pairing action, keyed on the left item |
+| `match` | `items`, `left`, `right`, `n`, `reveal?` | one attempt per pairing action, keyed on the left item. `reveal` names a field shown only once a pair locks, so the answer column can carry the answer alone |
 | `order` | `items`, `sequence`, `prompt?` | `sequence` names a field holding an array, or a string split on whitespace |
 | `listen` | `items`, `speak`, `answer`, `respond`, `lang` | `respond` is `choice` or `typed`. See the degrade rules below |
 | `speak` | `items`, `expect`, `lang` | `correct: null` always. There is no branch in that file that can produce true or false |
@@ -88,6 +88,48 @@ from, so it is stated here:
 **Give items an `id`.** Only rule 1 gives the same `itemId` when the same thing
 is tested in both directions, and cross-direction identity is what makes weak
 item resurfacing mean anything.
+
+## What a wrong answer says, and where it reads it
+
+Every graded type shows a panel under the verdict: what was chosen, struck;
+what was expected; and one sentence of why. The engine reads field names and
+never interprets a value, so the sentence is as good as the content behind it.
+Sources, in the order the engine tries them:
+
+| Source | Shape | Where it goes |
+|---|---|---|
+| `item.explain` | `{en,es}` or a string | the sentence, as authored |
+| `item.rule` / `item.rules` | a rule id, or a list of them | resolved against `ctx.chapter.rules` (when the shell passes a chapter), `ctx.rules`, `spec.rules`, then `spec.props.rules`. A rule row is `{ title, text, examples[] }` or `{ rule, examples_text }`, the shape `data/loanwords/rules.json` already has |
+| `item.confusables`, `spec.confusables`, or a `confusables` fragment in the document `spec.items` came from | strings, or `{ glyphs[], tell }` rows | the row holding the prompt gives its `tell`, after `notThis` |
+| the item pool | none, derived | "You picked ki, which is き", from the spec's own `prompt` and `answer` fields, and only when exactly one item carries the chosen answer |
+| nothing | | the panel says so in one muted line, rather than leaving a reader to wonder whether it forgot |
+
+A rule that names a `page` gets a link. The engine cannot reach the prose, so
+the link dispatches `rx-see-rule` (`{ ruleId, pageId }`) on the exercise root
+for the shell to handle; unhandled, it scrolls to `#page-<id>` or
+`[data-page-id]` and marks it `data-rx-echo` for two seconds.
+
+Content can start carrying `explain`, `rule`, `confusables`, `reveal` and page
+ids before anything else changes: an absent field is a source the engine skips,
+never an error.
+
+## Options, keycaps and keys
+
+An option row is `[keycap] [label]`, two elements. The number is never a prefix
+inside the label: `1. 5` reads as part of the answer, which is what made a
+beats drill look like it was asking about the numbers 1, 2 and 3.
+
+- Text options get a `<kbd>` cap showing `1`..`9`, and the digit presses that row.
+- When **every** option is a bare integer the cap would be a number beside a
+  number, so it is dropped and the label becomes the key: square tiles, and
+  pressing `5` picks the tile showing 5.
+- A numeral set containing a value of more than one digit (`0 1 95 16`) keeps
+  the tiles and loses the digit shortcut, because `1` cannot mean both `1` and
+  the first press of `16`. Arrow keys and Enter still work, and the hint says so.
+
+Arrow keys, Home and End walk every option list, the token bank and both
+columns of a pairing board. After any repaint focus lands on the next control
+or on the verdict, never on `body`.
 
 ## The two speech facts, C2.5
 

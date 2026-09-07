@@ -15,7 +15,9 @@ import { resolveList } from '../items.js';
 import { ExerciseError } from '../errors.js';
 
 export function mount(host, spec, api, ctx) {
-  const session = createSession(host, spec, api, ctx);
+  // A read exercise turns pages, so its position line counts pages. Calling
+  // them questions would be the counter lying about what the reader is doing.
+  const session = createSession(host, spec, api, ctx, { unit: 'page' });
   let alive = true;
 
   (async () => {

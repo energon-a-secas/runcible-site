@@ -18,7 +18,12 @@ import { chrome } from './strings.js';
  * @param {object} spec
  * @param {object} api the frozen { attempt, t, lang, data, tts, done }
  * @param {object} ctx { bookId, chapterId, rungId }
- * @param {{ progress?: boolean }} [opts]
+ * @param {{ progress?: boolean, unit?: string, feedbackAbove?: boolean }} [opts]
+ *   progress: false draws no position line
+ *   unit: 'question' (default) or 'page', the noun the position line counts
+ *   feedbackAbove: put the live region above the stage, for a type whose stage
+ *     is a board rather than a running question (match), so the verdict is
+ *     never under the board and never under a floating button on a phone
  */
 export function createSession(host, spec, api, ctx, opts) {
   const o = opts || {};
@@ -33,15 +38,24 @@ export function createSession(host, spec, api, ctx, opts) {
   });
 
   const titleText = t(spec.title);
-  const heading = el('h3', { class: 'rx-title section__title', text: titleText || '' });
+  // h4, under the rung's h3. The marker in the prose names the exercise as a
+  // label rather than a heading (js/render-chapter.js), so this is the one
+  // heading the exercise contributes and it sits one level below its rung.
+  const heading = el('h4', { class: 'rx-title section__title', text: titleText || '' });
   const progress = el('p', { class: 'rx-progress', text: '' });
   const head = el('header', { class: 'rx-head' }, [titleText ? heading : null, progress]);
 
   const stage = el('div', { class: 'rx-stage stack stack--tight' });
-  const feedback = el('p', { class: 'rx-feedback', role: 'status', 'aria-live': 'polite' });
+  // One live region per exercise. The verdict is its first line and the
+  // explanation panel is appended after it, so a reader hears "Not that one"
+  // and then why, in that order, without a second region competing.
+  const verdict = el('p', { class: 'rx-verdict' });
+  const feedback = el('div', {
+    class: 'rx-feedback', role: 'status', 'aria-live': 'polite', 'aria-atomic': 'false',
+  }, [verdict]);
   const foot = el('footer', { class: 'rx-foot toolbar' });
 
-  append(root, [head, stage, feedback, foot]);
+  append(root, o.feedbackAbove ? [head, feedback, stage, foot] : [head, stage, feedback, foot]);
   clear(host);
   host.appendChild(root);
 
@@ -60,7 +74,7 @@ export function createSession(host, spec, api, ctx, opts) {
   function renderProgress() {
     if (o.progress === false || !total) { progress.textContent = ''; return; }
     const at = manualStep > 0 ? manualStep : Math.min(asked + 1, total);
-    progress.textContent = s('progress', { at, total });
+    progress.textContent = s(o.unit === 'page' ? 'page' : 'question', { at, total });
   }
 
   /**
@@ -73,9 +87,22 @@ export function createSession(host, spec, api, ctx, opts) {
     renderProgress();
   }
 
+  /**
+   * The verdict line. Saying anything drops the explanation panel that
+   * belonged to the previous answer: an explanation outliving its question is
+   * worse than none, because it looks like it is about the one on screen.
+   */
   function say(message, tone) {
-    feedback.textContent = message || '';
+    verdict.textContent = message || '';
     feedback.dataset.tone = tone || '';
+    for (const old of feedback.querySelectorAll('.rx-explain')) old.remove();
+  }
+
+  /** Add the explanation panel under the verdict, inside the same live region. */
+  function explain(node) {
+    if (!node) return null;
+    feedback.appendChild(node);
+    return node;
   }
 
   /**
@@ -142,7 +169,10 @@ export function createSession(host, spec, api, ctx, opts) {
     }, { class: 'btn btn--primary' });
     foot.appendChild(done);
     focus(done);
-    say('');
+    // The result is in the stage, which is not a live region, and focus has
+    // just moved to Continue, so a screen reader hears the button and nothing
+    // else. say() both clears the last verdict and announces this one.
+    say(pass === null ? line : `${line} ${pass ? s('passed') : s('failed')}`);
     return summary;
   }
 
@@ -157,6 +187,7 @@ export function createSession(host, spec, api, ctx, opts) {
     console.error('[runcible]', err);
     clear(stage);
     clear(foot);
+    say('');
     progress.textContent = '';
     append(stage, [
       el('p', { class: 'rx-error', text: s('couldNotStart') }),
@@ -179,6 +210,7 @@ export function createSession(host, spec, api, ctx, opts) {
     finished = true;
     clear(stage);
     clear(foot);
+    say('');
     progress.textContent = '';
     append(stage, [el('p', { class: 'rx-skip', text: reason })]);
     const on = button(s('continue'), () => {
@@ -190,6 +222,7 @@ export function createSession(host, spec, api, ctx, opts) {
 
   function destroy() {
     bound.off();
+    say('');
     clear(foot);
     clear(stage);
     if (root.parentNode) root.parentNode.removeChild(root);
@@ -198,7 +231,7 @@ export function createSession(host, spec, api, ctx, opts) {
   return {
     root, stage, foot, feedback,
     t, s, on: bound.on,
-    setTotal, step, say, record, finish, fail, skip, destroy,
+    setTotal, step, say, explain, record, finish, fail, skip, destroy,
     get asked() { return asked; },
     get correct() { return right; },
   };

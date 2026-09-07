@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" aria-hidden="true">
+  <path d="M6 41h36" fill="none" stroke-width="1.5" stroke-linecap="round" style="stroke:var(--text-muted,rgba(255,255,255,.55))"/>
+  <path d="M21.5 32V11c6 2 9 7 6 13" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="stroke:var(--text-primary,#f9f9f9)"/>
+  <ellipse cx="17" cy="33" rx="5" ry="3.8" transform="rotate(-18 17 33)" style="fill:var(--accent,#e11d48)"/>
+</svg>

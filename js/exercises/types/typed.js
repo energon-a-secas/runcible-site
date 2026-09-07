@@ -16,6 +16,7 @@ import { createSession } from '../session.js';
 import { questionFrame, advance } from '../ask.js';
 import { el, append, button, focus } from '../dom.js';
 import { resolveList, pickItems, fieldValue, displayValue, itemIdOf } from '../items.js';
+import { explainWrong, explainRight } from '../feedback.js';
 import { isCorrect } from '../compare.js';
 
 /**
@@ -44,7 +45,9 @@ function settleValue(transform, value) {
  * Ask one typed question.
  * @param {object} session
  * @param {object} spec
- * @param {object} q { itemId, expected, expectedLabel, renderPrompt, transform }
+ * @param {object} q { itemId, expected, expectedLabel, renderPrompt, transform } plus,
+ *   when the caller can supply them, the fields the explanation panel reads:
+ *   spec, ctx, api, item, expectedRaw, pool, promptField, answerField, promptValue
  * @returns {Promise<void>}
  */
 export function askTyped(session, spec, q) {
@@ -118,7 +121,12 @@ export function askTyped(session, spec, q) {
         expected: q.expectedLabel,
         hintUsed,
       });
-      session.say(correct ? session.s('correct') : session.s('notQuite', { answer: q.expectedLabel }));
+      session.say(
+        correct ? session.s('correct') : session.s('notQuite'),
+        correct ? 'correct' : 'wrong',
+      );
+      if (correct) explainRight(session, q);
+      else explainWrong(session, Object.assign({ spec }, q, { chosen: produced, expected: q.expectedLabel }));
       await advance(session);
       resolve();
     });
@@ -144,9 +152,17 @@ export function mount(host, spec, api, ctx) {
         itemId: itemIdOf(item, spec, spec.prompt, i),
         expected,
         expectedLabel: displayValue(expected),
+        expectedRaw: expected,
         transform: spec.transformFn,
+        ctx,
+        api,
+        item,
+        pool,
+        promptField: spec.prompt,
+        answerField: spec.answer,
+        promptValue: cue,
         renderPrompt: (target) => {
-          target.appendChild(el('p', { class: 'rx-cue', text: cue }));
+          target.appendChild(el('p', { class: 'rx-cue', text: cue, dataset: cue.length > 24 ? { long: '' } : {} }));
         },
       });
     }

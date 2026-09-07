@@ -5,10 +5,17 @@
 // askChoice is exported because listen with respond: "choice" is the same
 // question with a different prompt (C2.1), and two copies of a grading path is
 // two places for the attempt shape to drift.
+//
+// The option row is `[keycap] [label]`, built by ask.js: the number is an
+// element beside the answer, never a prefix inside it. Right and wrong are
+// shapes, not two reds: the correct row fills and ticks, the chosen wrong row
+// keeps its border and strikes its label. --danger stays for destructive
+// actions and never appears in a drill.
 
 import { createSession } from '../session.js';
-import { questionFrame, advance, digitPicker } from '../ask.js';
-import { el, append, button, focus } from '../dom.js';
+import { questionFrame, advance, optionList } from '../ask.js';
+import { el, append, focus } from '../dom.js';
+import { explainWrong, explainRight } from '../feedback.js';
 import {
   resolveList, pickItems, fieldValue, displayValue, itemIdOf, distractorsFor, shuffle,
 } from '../items.js';
@@ -16,31 +23,29 @@ import {
 /**
  * Ask one multiple choice question.
  * @param {object} session
- * @param {object} q { itemId, options: [{label, correct}], expectedLabel, renderPrompt }
+ * @param {object} q {
+ *   itemId, options: [{label, correct}], expectedLabel, renderPrompt,
+ *   and, when the caller can supply them, the fields the explanation reads:
+ *   spec, ctx, api, item, expectedRaw, pool, promptField, answerField, promptValue
+ * }
  * @returns {Promise<void>}
  */
 export function askChoice(session, q) {
   const frame = questionFrame(session);
   if (typeof q.renderPrompt === 'function') q.renderPrompt(frame.promptEl);
 
-  const list = el('ul', { class: 'rx-options', role: 'list' });
-  const buttons = [];
   const started = performance.now();
 
   return new Promise((resolve) => {
     let answered = false;
-    let releaseDigits = () => {};
+    let closeOptions = () => {};
 
     const choose = async (opt, btn) => {
       if (answered) return;
       answered = true;
-      releaseDigits();
       const ms = performance.now() - started;
       const correct = opt.correct === true;
-      for (const b of buttons) {
-        b.disabled = true;
-        if (b.dataset.correct === 'true') b.dataset.state = 'correct';
-      }
+      closeOptions();
       btn.dataset.state = correct ? 'correct' : 'wrong';
       session.record({
         itemId: q.itemId,
@@ -50,22 +55,20 @@ export function askChoice(session, q) {
         expected: q.expectedLabel,
         hintUsed: false,
       });
-      session.say(correct ? session.s('correct') : session.s('notThatOne', { answer: q.expectedLabel }));
+      session.say(
+        correct ? session.s('correct') : session.s('notThatOne'),
+        correct ? 'correct' : 'wrong',
+      );
+      if (correct) explainRight(session, q);
+      else explainWrong(session, Object.assign({}, q, { chosen: opt.label, expected: q.expectedLabel }));
       await advance(session);
       resolve();
     };
 
-    q.options.forEach((opt, i) => {
-      const b = button(`${i + 1}. ${opt.label}`, () => choose(opt, b), {
-        class: 'btn btn--secondary rx-option',
-      });
-      b.dataset.correct = String(opt.correct === true);
-      buttons.push(b);
-      list.appendChild(el('li', { class: 'rx-option-row' }, [b]));
-    });
-    append(frame.bodyEl, list);
-    releaseDigits = digitPicker(buttons);
-    session.on(session.root, 'rx-teardown', releaseDigits);
+    const { list, buttons, hint, release, close } = optionList(session, q.options, choose);
+    append(frame.bodyEl, [list, hint]);
+    closeOptions = close;
+    session.on(session.root, 'rx-teardown', () => release());
     focus(buttons[0]);
   });
 }
@@ -82,7 +85,8 @@ export function mount(host, spec, api, ctx) {
     for (let i = 0; i < chosen.length && alive; i++) {
       session.step();
       const item = chosen[i];
-      const expected = displayValue(fieldValue(item, spec.answer));
+      const expectedRaw = fieldValue(item, spec.answer);
+      const expected = displayValue(expectedRaw);
       const wrong = distractorsFor(spec, item, pool, spec.answer, ctx);
       const options = shuffle(
         [{ label: expected, correct: true }].concat(wrong.map((w) => ({ label: w, correct: false }))),
@@ -92,8 +96,17 @@ export function mount(host, spec, api, ctx) {
         itemId: itemIdOf(item, spec, spec.prompt, i),
         options,
         expectedLabel: expected,
+        expectedRaw,
+        spec,
+        ctx,
+        api,
+        item,
+        pool,
+        promptField: spec.prompt,
+        answerField: spec.answer,
+        promptValue: cue,
         renderPrompt: (target) => {
-          target.appendChild(el('p', { class: 'rx-cue', text: cue }));
+          target.appendChild(el('p', { class: 'rx-cue', text: cue, dataset: cue.length > 24 ? { long: '' } : {} }));
         },
       });
     }

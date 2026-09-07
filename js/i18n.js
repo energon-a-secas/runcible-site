@@ -89,10 +89,7 @@ const UI = {
   today: { en: 'Today', es: 'Hoy' },
   books: { en: 'Books', es: 'Libros' },
   settings: { en: 'Settings', es: 'Ajustes' },
-  nextLesson: { en: 'Next lesson', es: 'Siguiente lección' },
   reviews: { en: 'Reviews due', es: 'Repasos pendientes' },
-  game: { en: 'One game', es: 'Un juego' },
-  open: { en: 'Open', es: 'Abrir' },
   start: { en: 'Start', es: 'Empezar' },
   openAnyway: { en: 'I already know this, open it anyway', es: 'Ya sé esto, ábrelo igual' },
   relock: { en: 'Lock it again', es: 'Bloquear de nuevo' },
@@ -101,9 +98,7 @@ const UI = {
   passed: { en: 'Passed', es: 'Superado' },
   planned: { en: 'Not built yet', es: 'Todavía no existe' },
   opened: { en: 'Opened by you', es: 'Abierto por ti' },
-  goal: { en: 'Goal', es: 'Objetivo' },
   unlocks: { en: 'Unlocks', es: 'Desbloquea' },
-  evidence: { en: 'Evidence', es: 'Evidencia' },
   chapters: { en: 'Chapters', es: 'Capítulos' },
   track: { en: 'Track', es: 'Ruta' },
   language: { en: 'Language', es: 'Idioma' },
@@ -123,7 +118,6 @@ const UI = {
     en: 'This frame is not saving progress. Open Rappel to keep it.',
     es: 'Este marco no guarda el progreso. Abre Rappel para conservarlo.',
   },
-  back: { en: 'Back', es: 'Volver' },
   loadFailed: { en: 'That did not load', es: 'Eso no se cargó' },
   due: { en: 'due', es: 'pendientes' },
   fresh: { en: 'new', es: 'nuevas' },
@@ -139,9 +133,6 @@ const UI = {
     es: 'El marco de repaso no cargó. Abrir en Rappel sigue funcionando.',
   },
   loading: { en: 'Loading', es: 'Cargando' },
-  weak: { en: 'Weakest skills', es: 'Habilidades más débiles' },
-  attempts: { en: 'attempts', es: 'intentos' },
-  correct: { en: 'correct', es: 'correcto' },
   reset: { en: 'Reset this book', es: 'Reiniciar este libro' },
   oneTrack: { en: 'This Book has one track.', es: 'Este libro tiene una sola ruta.' },
   bookModules: { en: 'Book modules', es: 'Módulos del libro' },
@@ -150,6 +141,51 @@ const UI = {
     en: 'Storage is unavailable, so nothing on this page is being saved.',
     es: 'El almacenamiento no está disponible, nada de esta página se guarda.',
   },
+  // The book's own vocabulary: position, contents, evidence as a sentence.
+  contents: { en: 'Contents', es: 'Índice' },
+  chapterOf: { en: 'Chapter {at} of {total}', es: 'Capítulo {at} de {total}' },
+  pageOf: { en: 'Page {at} of {total}', es: 'Página {at} de {total}' },
+  shelf: { en: 'On the shelf', es: 'En el estante' },
+  stateGlyph: { en: 'State: {state}', es: 'Estado: {state}' },
+  passesAt: { en: 'Passes at {pct} over {n} answers.', es: 'Se supera con {pct} en {n} respuestas.' },
+  soFar: { en: 'So far: {right} of {graded} right.', es: 'Hasta ahora: {right} de {graded} correctas.' },
+  noneYet: { en: 'Nothing answered yet.', es: 'Todavía no hay respuestas.' },
+  needsFirst: { en: 'It opens after {chapters}.', es: 'Se abre después de {chapters}.' },
+  openAnywayShort: { en: 'Open it anyway', es: 'Ábrelo igual' },
+  // The rail is 204px wide, so the override rides on the chapter's own line as
+  // one word. The sentence stays as its accessible name.
+  openAnywayWord: { en: 'open', es: 'abrir' },
+
+  // The exercise marker in the prose, and the facing page that answers it.
+  tryIt: { en: 'Try it', es: 'Pruébalo' },
+  nextUp: { en: 'Next up', es: 'Lo siguiente' },
+  running: { en: 'Running', es: 'En curso' },
+  earned: { en: 'Done · {pct}', es: 'Hecho · {pct}' },
+  doneMark: { en: 'Done', es: 'Hecho' },
+  closeExercise: { en: 'Close', es: 'Cerrar' },
+
+  // Today, where the book lies open.
+  leftOffAt: { en: 'You left off at', es: 'Te quedaste en' },
+  continueReading: { en: 'Continue reading', es: 'Seguir leyendo' },
+  oneDrill: { en: 'One drill', es: 'Un ejercicio' },
+  weakestIn: { en: 'Your weakest skill so far, at {pct}', es: 'Tu habilidad más floja hasta ahora, al {pct}' },
+  weakestInChapter: {
+    en: 'Your weakest skill so far, at {pct}, is practised in {chapter}',
+    es: 'Tu habilidad más floja hasta ahora, al {pct}, se practica en {chapter}',
+  },
+  inThisChapter: { en: 'In this chapter', es: 'En este capítulo' },
+  alsoOnThisRung: { en: 'Also on this page', es: 'También en esta página' },
+
+  // Book states on the shelf, and the settings readout.
+  bookReady: { en: 'Ready', es: 'Listo' },
+  bookSoon: { en: 'Soon', es: 'Pronto' },
+  bookDraft: { en: 'Draft', es: 'Borrador' },
+  bookStub: { en: 'Not written yet', es: 'Todavía sin escribir' },
+  none: { en: 'none', es: 'ninguno' },
+  modExercises: { en: 'exercises', es: 'ejercicios' },
+  modTransforms: { en: 'transforms', es: 'transformaciones' },
+  chooseBookFirst: { en: 'Choose a Book first.', es: 'Elige primero un libro.' },
+
   // The chrome around the view: header nav, the language toggle, the footer.
   // index.html marks each node with data-ui="<key>" and render.js relabels
   // them on every paint, so a language change reaches the shell as well as

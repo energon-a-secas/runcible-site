@@ -2,7 +2,7 @@
 
 > A learning book at https://runcible.neorgon.com/. A Book is a directory of
 > JSON: a manifest, chapters made of rungs, pages and exercises. The shell
-> provides nine generic exercise types and knows no subject. This file is the
+> provides ten generic exercise types and knows no subject. This file is the
 > Book package format, derived from tools/validate-book.mjs and
 > js/exercises/spec.js, which are what decides whether a Book loads.
 
@@ -75,10 +75,10 @@ Adding a Book is one entry here plus one directory. No file under js/ changes.
 - credits[] { id, name }. Every attribution must name one of these
 
 data[] is a permission list. The shell resolves a pointer, a table's items,
-a figure's src or a deck's src ONLY if its path is declared here. An
-undeclared path is a load error naming book.json. A data file's own _licence
-block can raise the obligation (screen "required" wins over "none") and never
-lower it; the validator names any disagreement.
+a figure's src, a deck's src or a quiz's src ONLY if its path is declared
+here. An undeclared path is a load error naming book.json. A data file's own
+_licence block can raise the obligation (screen "required" wins over "none")
+and never lower it; the validator names any disagreement.
 
 ## 3. A chapter: books/<id>/chapters/<file>.json (neo-chapter/1)
 
@@ -138,7 +138,7 @@ viz is not implemented.
 ### Exercises (rung.exercises[])
 
 Common to every exercise: id (required, unique in the chapter), type
-(required, one of the nine), skill (required, dotted string: every attempt is
+(required, one of the ten), skill (required, dotted string: every attempt is
 recorded under it), title (bilingual, optional). Optional on any type:
 count (number of items to ask; default all), pass: { accuracy } (the tick
 beside the drill, never the chapter gate; forbidden on read and speak),
@@ -149,7 +149,7 @@ items is a data pointer to a list, or an inline array of objects. Field names
 in the spec (prompt, answer, left, ...) name fields of those objects; dotted
 paths are allowed. An answer field may hold an array: any member matches.
 
-The nine types and their required fields (from spec.js, verbatim):
+The ten types and their required fields (from spec.js, verbatim):
 
 | type   | required fields                    | graded | notes |
 |--------|------------------------------------|--------|-------|
@@ -161,6 +161,7 @@ The nine types and their required fields (from spec.js, verbatim):
 | listen | items, speak, answer, respond      | yes    | respond "choice" or "typed"; speak is the field read aloud; audioOnly: true; transform allowed with respond typed |
 | speak  | items, expect                      | never  | correct: null always. A transcript is shown as feedback, not a score |
 | deck   | src                                | yes    | limit (positive integer), mode is review, cram or browse |
+| quiz   | game, src                          | yes    | game is beats, sound, pairs or order; limit (positive integer); src is a neo-quiz-set/1 document declared in data[] |
 | custom | module                             | module decides | props passed through. module is an id the Book registered |
 
 compare: pipe-separated tokens applied in order, from the closed set trim,
@@ -183,9 +184,29 @@ origin, declared in the manifest's data[]. The shell embeds Rappel in an
 iframe and turns every rappel:answer into an attempt recorded under the
 SPEC's skill, not the deck template's. THE SKILL RULE: a deck's skill must be
 this chapter's goal.evidence.skill (the intended shape), or a skill some other
-goal or non-deck exercise in the Book reads (allowed, and warned so the choice
-is visible). A skill nothing in the Book reads is an error: reviews would land
-nowhere with no message. A deck with no skill is an error.
+goal or non-embed exercise in the Book reads (allowed, and warned so the
+choice is visible). Non-embed means any type but deck and quiz: an embed's own
+skill never counts as a reader of itself. A skill nothing in the Book reads is
+an error: reviews would land nowhere with no message. A deck with no skill is
+an error.
+
+### The quiz exercise and its skill
+
+    { "id": "e-beats", "type": "quiz", "game": "beats",
+      "skill": "jp.sounds.mora", "limit": 10,
+      "src": "books/japanese/sets/jp-loanwords-beats.json",
+      "title": { "en": "How many beats does Japanese need?" } }
+
+game is one of beats, sound, pairs, order; any other value is refused before
+the frame mounts. src is a neo-quiz-set/1 document (format:
+quiz.neorgon.com/llms.txt) on this origin, declared in the manifest's data[].
+limit is an optional positive integer and never exceeds the set's own length.
+The shell embeds Quiz in an iframe and turns every quiz:answer into an attempt
+recorded under the SPEC's skill, with source "quiz". THE SKILL RULE is the
+deck's, unchanged: a quiz's skill must be this chapter's goal.evidence.skill,
+or a skill some other goal or non-embed exercise in the Book reads (allowed,
+and warned). A skill nothing in the Book reads is an error, and a quiz with no
+skill is an error.
 
 ### Custom exercises and transforms (modules[])
 

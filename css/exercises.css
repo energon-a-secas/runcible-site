@@ -1,0 +1,369 @@
+/* ── The exercise panel (rx-) ────────────────────────────────────
+ * Owned by the engine under js/exercises/. Linked after style.css, so the
+ * rx- block there is the older layer and this one wins on equal specificity.
+ * Tokens come from the CDN base.css; every colour below is --accent or a
+ * color-mix of it, and --danger never appears: right and wrong are shapes (a
+ * filled row with a tick, a struck label), not two reds.
+ */
+
+.rx { display: flex; flex-direction: column; gap: var(--space-4); }
+
+/* Head: the title once, the position as a book's, no type label. */
+.rx-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-2) var(--space-3);
+}
+.rx-title { font-size: var(--text-lg); font-weight: 600; letter-spacing: 0; }
+.rx-progress {
+  margin-left: auto;
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+.rx-progress:empty { display: none; }
+
+/* Prompt: a glyph or a word at --text-2xl, a line that wraps at --text-xl. */
+.rx-stage { min-height: 0; }
+.rx-prompt { font-size: var(--text-2xl); line-height: 1.3; color: var(--text-primary); }
+.rx-prompt:empty { display: none; }
+/* A cue inside the prompt is the prompt, so it takes the prompt's size. Named
+   explicitly because the general .rx-cue rule below is the same specificity
+   and would otherwise win on order and shrink every glyph to --text-sm. */
+.rx-prompt > *, .rx-prompt > .rx-cue { font-size: inherit; color: inherit; }
+.rx-prompt > .rx-cue[data-long] { font-size: var(--text-xl); }
+.rx-prompt > .rx-hintline, .rx-prompt > .rx-degraded { font-size: var(--text-sm); }
+.rx-cue { font-size: var(--text-sm); color: var(--text-secondary); }
+.rx-hintline, .rx-note, .rx-skip, .rx-transcript, .rx-degraded {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+.rx-degraded { color: var(--text-secondary); }
+.rx-keyhint { font-size: var(--text-xs); color: var(--text-muted); }
+/* The hint sits with the options, not as another block in the stack. */
+.rx-body > .rx-options + .rx-keyhint { margin-top: calc(var(--space-2) - var(--space-4)); }
+
+/* ── Option rows: [keycap] [label] ───────────────────────────── */
+.rx-options {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: var(--space-2);
+  width: 100%;
+}
+.rx-option-row { display: block; }
+.rx-option {
+  width: 100%;
+  min-height: 44px;
+  padding: var(--space-2) var(--space-3);
+  justify-content: flex-start;
+  text-align: left;
+  gap: var(--space-3);
+  font-size: var(--text-base);
+  font-weight: 500;
+  color: var(--text-primary);
+  background: transparent;
+  border: 1px solid var(--border);
+  transition:
+    background-color var(--dur) var(--ease-out),
+    border-color var(--dur) var(--ease-out),
+    opacity var(--dur) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+.rx-option:hover { background: var(--surface-2); border-color: var(--border-strong); }
+.rx-option:active { transform: scale(0.98); }
+.rx-option-label { flex: 1 1 auto; min-width: 0; overflow-wrap: anywhere; }
+
+.rx-key {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+  color: var(--text-secondary);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  line-height: 1;
+}
+/* A tenth option has no one-keypress cap, but the row still has to line up
+   with the nine above it, so the cap keeps its box and loses its ink. */
+.rx-key:empty { visibility: hidden; }
+
+/* Numerals: the label is the key, so the row is a square box and nothing else. */
+.rx-options--numeral { flex-direction: row; flex-wrap: wrap; width: auto; }
+.rx-option--numeral {
+  width: 48px;
+  min-height: 48px;
+  padding: 0;
+  justify-content: center;
+}
+.rx-option--numeral .rx-key--label {
+  width: auto;
+  height: auto;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font-family: inherit;
+  font-size: var(--text-lg);
+}
+
+/* After the answer three states have to read at a glance: the filled and
+   ticked row is right, the struck row is the one that was picked, and the
+   others recede far enough that the struck one is obviously not one of them.
+   0.5 against 0.6 was not a difference anybody could see. */
+.rx-option:disabled { opacity: 0.34; cursor: default; pointer-events: none; }
+.rx-option[data-state="correct"],
+.rx-option[data-state="correct"]:disabled {
+  opacity: 1;
+  color: var(--text-primary);
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 22%, transparent);
+}
+.rx-option[data-state="correct"] .rx-key {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 40%, transparent);
+  color: var(--text-primary);
+}
+/* The keycap of the chosen wrong row keeps its number: which key did that is
+   still the useful fact, and the struck label already says it was wrong. */
+.rx-option[data-state="wrong"] .rx-key { border-color: var(--border-strong); }
+.rx-option--numeral[data-state="correct"] .rx-key--label { background: transparent; }
+.rx-option[data-state="wrong"],
+.rx-option[data-state="wrong"]:disabled {
+  opacity: 0.85;
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+  background: transparent;
+}
+.rx-option[data-state="wrong"] .rx-option-label {
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+}
+/* A numeral tile is one large glyph, and a hairline through it reads as a
+   rendering artefact rather than a strike. */
+.rx-option--numeral[data-state="wrong"] .rx-key--label {
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+}
+
+/* ── Typed ───────────────────────────────────────────────────── */
+.rx-form { display: flex; flex-wrap: wrap; gap: var(--space-2); align-items: center; }
+.rx-input {
+  flex: 1 1 12rem;
+  min-height: 44px;
+  padding: 0 var(--space-3);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--surface-1);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: var(--text-lg);
+  transition: border-color var(--dur) var(--ease-out), background-color var(--dur) var(--ease-out);
+}
+.rx-input[data-state="correct"] {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 16%, var(--surface-1));
+}
+.rx-input[data-state="wrong"] { color: var(--text-muted); text-decoration: line-through; }
+
+/* ── The live region: verdict, then the feedback panel ───────── */
+.rx-feedback { display: flex; flex-direction: column; gap: var(--space-2); }
+.rx-feedback[hidden] { display: none; }
+.rx-verdict { font-size: var(--text-sm); color: var(--text-secondary); }
+.rx-verdict:empty { display: none; }
+.rx-feedback[data-tone="correct"] .rx-verdict { color: var(--accent-bright); font-weight: 600; }
+.rx-feedback[data-tone="wrong"] .rx-verdict { color: var(--text-primary); font-weight: 600; }
+/* Pairs put the live region above the board, and it is never empty: it opens
+   holding the instruction and every pairing replaces it, so there is no
+   reserved blank band and no line that appears out of nowhere. */
+
+.rx-explain {
+  display: grid;
+  gap: var(--space-2);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--border);
+  animation: rx-fade 150ms var(--ease-out) both;
+}
+.rx-explain-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-1) var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+.rx-explain-k { color: var(--text-muted); font-size: var(--text-sm); }
+.rx-explain-struck { color: var(--text-muted); text-decoration-thickness: 1px; }
+.rx-explain-answer { font-size: var(--text-lg); font-weight: 600; color: var(--text-primary); }
+.rx-explain-why { max-width: 60ch; font-size: var(--text-sm); line-height: 1.55; color: var(--text-secondary); }
+.rx-explain-why .rx-explain-k { margin-right: var(--space-2); }
+.rx-link {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: var(--text-sm);
+  color: var(--accent-bright);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+.rx-link:hover { color: var(--text-primary); }
+/* Rule echo: the prose page a rule names, washed for two seconds by the shell. */
+[data-rx-echo] {
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+  transition: background-color 150ms var(--ease-out);
+}
+
+@keyframes rx-fade { from { opacity: 0; } to { opacity: 1; } }
+
+/* ── Pairs: [prompts] [answers], a Paired list beneath ───────── */
+/* The board lives on the facing page as often as on the full width, so it sizes
+   against its own container and not the viewport: a media query would keep two
+   120px columns inside a 300px panel while the window said 1280. */
+.rx-stage { container-type: inline-size; container-name: rx-stage; }
+.rx-match {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--space-4);
+  align-items: start;
+}
+@container rx-stage (max-width: 340px) {
+  .rx-match { grid-template-columns: minmax(0, 1fr); gap: var(--space-6); }
+}
+.rx-col-wrap { display: flex; flex-direction: column; gap: var(--space-2); min-width: 0; }
+.rx-col-title {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.rx-col { list-style: none; display: flex; flex-direction: column; gap: var(--space-2); }
+.rx-pair {
+  width: 100%;
+  min-height: 44px;
+  padding: var(--space-2) var(--space-3);
+  justify-content: flex-start;
+  text-align: left;
+  gap: var(--space-3);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text-primary);
+  background: transparent;
+  border: 1px solid var(--border);
+  transition:
+    background-color var(--dur) var(--ease-out),
+    border-color var(--dur) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+.rx-pair:hover { background: var(--surface-2); border-color: var(--border-strong); }
+.rx-pair:active { transform: scale(0.98); }
+.rx-pair[aria-pressed="true"] {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 16%, transparent);
+}
+.rx-pair[data-state="wrong"] .rx-option-label { text-decoration: line-through; color: var(--text-muted); }
+.rx-paired { display: flex; flex-direction: column; gap: var(--space-2); animation: rx-fade 150ms var(--ease-out) both; }
+.rx-paired-list { list-style: none; display: flex; flex-direction: column; gap: var(--space-1); }
+.rx-paired-list li {
+  display: flex;
+  gap: var(--space-2);
+  align-items: baseline;
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+.rx-paired-mark { color: var(--accent-bright); flex: 0 0 auto; }
+/* The sentence a pair earns: hidden while it is a question, shown once it is
+   answered, so the answer column never has to carry it. */
+.rx-paired-reveal { color: var(--text-muted); }
+@container rx-stage (max-width: 420px) {
+  .rx-pair { padding: var(--space-2); gap: var(--space-2); }
+}
+
+/* ── Order: a line being built, and the bank it is built from ── */
+.rx-line, .rx-bank {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  align-items: center;
+  min-height: 48px;
+}
+.rx-line {
+  padding: var(--space-2);
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius-sm);
+  transition: border-color var(--dur) var(--ease-out), background-color var(--dur) var(--ease-out);
+}
+.rx-line[data-state="correct"] {
+  border-style: solid;
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 16%, transparent);
+}
+.rx-line[data-state="wrong"] .rx-token { text-decoration: line-through; opacity: 0.6; }
+.rx-line-empty { font-size: var(--text-sm); color: var(--text-muted); }
+.rx-token {
+  min-height: 40px;
+  padding: 0 var(--space-3);
+  gap: var(--space-2);
+  font-size: var(--text-base);
+  font-weight: 500;
+  color: var(--text-primary);
+  background: transparent;
+  border: 1px solid var(--border);
+}
+.rx-token:hover { background: var(--surface-2); border-color: var(--border-strong); }
+.rx-token--placed { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 10%, transparent); }
+.rx-token .rx-key { width: 22px; height: 22px; font-size: var(--text-xs); }
+
+/* ── Pages inside a read exercise ────────────────────────────── */
+.rx-page { max-width: 66ch; }
+.rx-page-title { font-size: var(--text-lg); font-weight: 600; }
+.rx-para { line-height: 1.65; color: var(--text-secondary); }
+.rx-figure { display: flex; flex-direction: column; gap: var(--space-2); }
+.rx-figure-caption { font-size: var(--text-sm); color: var(--text-muted); }
+.rx-table { border-collapse: collapse; font-size: var(--text-sm); }
+.rx-table th, .rx-table td { padding: var(--space-2) var(--space-3); border: 1px solid var(--border-subtle); text-align: left; }
+/* Full hairline and a wash by tone: the side stripe is on the ban list. */
+.rx-callout {
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  box-shadow: none;
+}
+.rx-callout[data-tone="win"] { background: color-mix(in srgb, var(--accent) 6%, transparent); }
+.rx-callout[data-tone="warn"] { border-color: var(--border-strong); background: var(--surface-1); }
+.rx-callout p { line-height: 1.65; color: var(--text-secondary); }
+
+/* ── Summary, errors, the foot ───────────────────────────────── */
+.rx-foot { justify-content: flex-end; }
+.rx-summary { font-size: var(--text-lg); color: var(--text-primary); }
+.rx-summary-pass { font-size: var(--text-sm); color: var(--text-secondary); }
+.rx-error { color: var(--text-primary); font-weight: 600; }
+.rx-error-detail, .rx-figure-missing {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  overflow-wrap: anywhere;
+}
+.rx-teardown { font-size: var(--text-sm); color: var(--text-muted); }
+.rx--deck { gap: var(--space-2); }
+
+/* Speak: the two controls sit together, the transcript reads as a note. */
+.rx-speak-controls { gap: var(--space-2); }
+
+@media (prefers-reduced-motion: reduce) {
+  .rx-explain, .rx-paired { animation-duration: 0.01ms; }
+  .rx-option:active, .rx-pair:active { transform: none; }
+}
+html[data-reduce-motion] .rx-explain, html[data-reduce-motion] .rx-paired { animation-duration: 0.01ms; }
+html[data-reduce-motion] .rx-option:active, html[data-reduce-motion] .rx-pair:active { transform: none; }

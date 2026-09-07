@@ -1,5 +1,5 @@
 // ── The registry ─────────────────────────────────────────────
-// One registry per shell. It holds the nine generic types, whatever a Book
+// One registry per shell. It holds the ten generic types, whatever a Book
 // registers on top of them, and the single mount() the shell calls.
 //
 // The object a Book receives is frozen and carries exactly three things
@@ -17,11 +17,12 @@ import * as order from './types/order.js';
 import * as listen from './types/listen.js';
 import * as speak from './types/speak.js';
 import * as deck from './types/deck.js';
+import * as quiz from './types/quiz.js';
 
 /** The wire version of this interface. C2's version string. */
 export const EXERCISE_VERSION = 'runcible-exercise/1';
 
-const GENERIC = Object.freeze({ read, choice, typed, match, order, listen, speak, deck });
+const GENERIC = Object.freeze({ read, choice, typed, match, order, listen, speak, deck, quiz });
 
 /** Types whose spec may name a transform (C2.4). */
 const TAKES_TRANSFORM = Object.freeze(['typed', 'listen']);

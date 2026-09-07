@@ -6,7 +6,7 @@
 
 /** The nine, in the order C2.1 lists them. */
 export const GENERIC_TYPES = Object.freeze([
-  'read', 'choice', 'typed', 'match', 'order', 'listen', 'speak', 'deck', 'custom',
+  'read', 'choice', 'typed', 'match', 'order', 'listen', 'speak', 'deck', 'quiz', 'custom',
 ]);
 
 /** C2.1, "Required spec fields", verbatim. */
@@ -19,6 +19,7 @@ export const REQUIRED_FIELDS = Object.freeze({
   listen: ['items', 'speak', 'answer', 'respond'],
   speak: ['items', 'expect'],
   deck: ['src'],
+  quiz: ['game', 'src'],
   custom: ['module'],
 });
 
@@ -48,7 +49,7 @@ export function validateExerciseSpec(spec, known) {
   const type = spec.type;
   if (!type) out.push('missing "type"');
   else if (!GENERIC_TYPES.includes(type)) {
-    out.push(`"type": "${type}" is not one of the nine generic types (${GENERIC_TYPES.join(', ')}). ` +
+    out.push(`"type": "${type}" is not one of the ten generic types (${GENERIC_TYPES.join(', ')}). ` +
       'A Book module is used as { "type": "custom", "module": "<id>" }');
   }
   if (!spec.skill) out.push('missing "skill". C2.3 makes it a required part of every attempt');
@@ -124,7 +125,7 @@ export function checkRegisteredId(id) {
  *
  * C12 A10 (2026-09-04): the dot rule above is an exercise id rule. Its stated
  * purpose in C2.2 is that "a Book cannot shadow `typed`", a namespace concern
- * for the nine generic types, and C2.4 says the shell ships no transforms, so a
+ * for the ten generic types, and C2.4 says the shell ships no transforms, so a
  * transform id has no generic namespace to shadow. Requiring a dot there
  * protected nothing and refused C1.2's own worked example,
  * `"transforms": ["kana", "kana-katakana"]`. Transform ids are free-form.
