@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 720" width="1240" height="720" font-family="'Avenir Next','Segoe UI',Roboto,sans-serif">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="42%" r="62%">
+      <stop offset="0%" stop-color="#1a1040" stop-opacity=".85"/>
+      <stop offset="55%" stop-color="#0a0a24" stop-opacity=".45"/>
+      <stop offset="100%" stop-color="#040714" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="9"/>
+    </filter>
+  </defs>
+  <rect width="1240" height="720" fill="#040714"/>
+  <rect width="1240" height="720" fill="url(#glow)"/>
+  
+  <text x="64" y="84" fill="#e11d48" font-size="20" font-weight="700" letter-spacing="3.4">TOOLS/BUILD-SETS.MJS</text>
+  <text x="64" y="132" fill="#f9f9f9" font-size="42" font-weight="700" letter-spacing="-.4">One source, written twice</text>
+  <text x="64" y="168" fill="rgba(255,255,255,.46)" font-size="21">25 sets, 664 items. Neither copy is authored, and the writer compares them.</text>
+<text x="64" y="194" fill="#f9f9f9" font-size="18" font-weight="700" text-anchor="start" opacity="1">The corpus, in Runcible</text>
+<rect x="64" y="216" width="300" height="62" rx="8" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.16)"/>
+<text x="80" y="242" fill="#f9f9f9" font-size="16" font-weight="400" text-anchor="start" opacity="1" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">data/kana/*.json</text>
+<text x="80" y="264" fill="rgba(255,255,255,.46)" font-size="15" font-weight="400" text-anchor="start" opacity="1">242 kana in two tables</text>
+<line x1="370" y1="247" x2="463.3894278518007" y2="371.2079390428949" stroke="#e11d48" stroke-width="1.5" stroke-dasharray="5 5" stroke-linecap="round"/><polygon points="470,380 458.6296149091727,373.69806832103905 467.1033807036372,367.3268158439981" fill="#e11d48"/>
+<rect x="64" y="292" width="300" height="62" rx="8" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.16)"/>
+<text x="80" y="318" fill="#f9f9f9" font-size="16" font-weight="400" text-anchor="start" opacity="1" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">data/loanwords/</text>
+<text x="80" y="340" fill="rgba(255,255,255,.46)" font-size="15" font-weight="400" text-anchor="start" opacity="1">40 words, 32 rules</text>
+<line x1="370" y1="323" x2="460.4434500278807" y2="374.552766515892" stroke="#e11d48" stroke-width="1.5" stroke-dasharray="5 5" stroke-linecap="round"/><polygon points="470,380 457.0624632503357,378.7271516778944 462.3124929074657,369.5165733320524" fill="#e11d48"/>
+<rect x="64" y="368" width="300" height="62" rx="8" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.16)"/>
+<text x="80" y="394" fill="#f9f9f9" font-size="16" font-weight="400" text-anchor="start" opacity="1" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">data/songs/</text>
+<text x="80" y="416" fill="rgba(255,255,255,.46)" font-size="15" font-weight="400" text-anchor="start" opacity="1">19 songs</text>
+<line x1="370" y1="399" x2="459.19333103128434" y2="382.053267104056" stroke="#e11d48" stroke-width="1.5" stroke-dasharray="5 5" stroke-linecap="round"/><polygon points="470,380 459.32793506358837,387.4234109405996 457.3490014963469,377.00797111301273" fill="#e11d48"/>
+<rect x="64" y="444" width="300" height="62" rx="8" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.16)"/>
+<text x="80" y="470" fill="#f9f9f9" font-size="16" font-weight="400" text-anchor="start" opacity="1" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">data/vocab/ch4.json</text>
+<text x="80" y="492" fill="rgba(255,255,255,.46)" font-size="15" font-weight="400" text-anchor="start" opacity="1">75 first words</text>
+<line x1="370" y1="475" x2="462.02500623046143" y2="387.57624408106165" stroke="#e11d48" stroke-width="1.5" stroke-dasharray="5 5" stroke-linecap="round"/><polygon points="470,380 465.0451257651326,392.01870297979974 457.743161156626,384.3324244445296" fill="#e11d48"/>
+<rect x="64" y="520" width="300" height="62" rx="8" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.16)"/>
+<text x="80" y="546" fill="#f9f9f9" font-size="16" font-weight="400" text-anchor="start" opacity="1" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">tools/selection/sets.json</text>
+<text x="80" y="568" fill="rgba(255,255,255,.46)" font-size="15" font-weight="400" text-anchor="start" opacity="1">7 declarations, and the Spanish</text>
+<line x1="370" y1="551" x2="464.4470642048042" y2="389.49552020978484" stroke="#e11d48" stroke-width="1.5" stroke-dasharray="5 5" stroke-linecap="round"/><polygon points="470,380 468.58367760954246,392.92261702931296 459.4319195920668,387.57071175593535" fill="#e11d48"/>
+<rect x="470" y="300" width="250" height="160" rx="12" fill="#e11d4818" stroke="#e11d48"/>
+<text x="595" y="336" fill="#f9f9f9" font-size="19" font-weight="700" text-anchor="middle" opacity="1">build-sets.mjs</text>
+<text x="595" y="362" fill="rgba(255,255,255,.46)" font-size="15" font-weight="400" text-anchor="middle" opacity="1">a manual data step,</text>
+<text x="595" y="382" fill="rgba(255,255,255,.46)" font-size="15" font-weight="400" text-anchor="middle" opacity="1">never wired into a build</text>
+<text x="595" y="414" fill="#f9f9f9" font-size="15" font-weight="400" text-anchor="middle" opacity="0.9">ids come from corpus ids,</text>
+<text x="595" y="434" fill="#f9f9f9" font-size="15" font-weight="400" text-anchor="middle" opacity="0.9">never from position</text>
+<rect x="800" y="232" width="376" height="112" rx="12" fill="#fb923c14" stroke="#fb923c"/>
+<text x="818" y="262" fill="#fb923c" font-size="16" font-weight="700" text-anchor="start" opacity="1">quiz-site</text>
+<text x="818" y="286" fill="#f9f9f9" font-size="16" font-weight="400" text-anchor="start" opacity="1" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">data/sets/</text>
+<text x="818" y="310" fill="rgba(255,255,255,.46)" font-size="15" font-weight="400" text-anchor="start" opacity="1">25 sets, and index.json</text>
+<text x="818" y="332" fill="rgba(255,255,255,.46)" font-size="14" font-weight="400" text-anchor="start" opacity="0.8">neo-quiz-set-index/1</text>
+<line x1="724" y1="380" x2="785.4616983280781" y2="296.84593755612957" stroke="#fb923c" stroke-width="2" stroke-linecap="round"/><polygon points="792,288 789.2073312079425,300.69649561957425 780.6816392855584,294.39489724215986" fill="#fb923c"/>
+<rect x="800" y="440" width="376" height="112" rx="12" fill="#e11d4814" stroke="#e11d48"/>
+<text x="818" y="470" fill="#e11d48" font-size="16" font-weight="700" text-anchor="start" opacity="1">runcible-site</text>
+<text x="818" y="494" fill="#f9f9f9" font-size="16" font-weight="400" text-anchor="start" opacity="1" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">books/japanese/sets/</text>
+<text x="818" y="518" fill="rgba(255,255,255,.46)" font-size="15" font-weight="400" text-anchor="start" opacity="1">25 sets, the copy a chapter embeds</text>
+<text x="818" y="540" fill="rgba(255,255,255,.46)" font-size="14" font-weight="400" text-anchor="start" opacity="0.8">declared in book.json, or the host refuses to mount</text>
+<line x1="724" y1="380" x2="786.4370855031634" y2="486.5103223289258" stroke="#e11d48" stroke-width="2" stroke-linecap="round"/><polygon points="792,496 781.4239670360324,488.4404016809707 790.5700940296878,483.078878960552" fill="#e11d48"/>
+<line x1="988" y1="344" x2="988" y2="440" stroke="rgba(255,255,255,.16)" stroke-width="2" stroke-dasharray="4 4"/>
+<rect x="888" y="358" width="200" height="68" rx="10" fill="#040714" stroke="#f9f9f9"/>
+<text x="988" y="386" fill="#f9f9f9" font-size="24" font-weight="700" text-anchor="middle" opacity="1">25 of 25</text>
+<text x="988" y="410" fill="rgba(255,255,255,.46)" font-size="15" font-weight="400" text-anchor="middle" opacity="1">byte for byte</text>
+<text x="64" y="640" fill="#f9f9f9" font-size="18" font-weight="400" text-anchor="start" opacity="0.9">The writer reads both files back and throws when they differ, so "the two copies agree" is not a habit anybody has to keep.</text>
+<text x="64" y="676" fill="rgba(255,255,255,.34)" font-size="17">Games: pairs 3 · sound 2 · beats 1 · order 19. Counts and the sha256 comparison computed over both trees when this diagram was drawn.</text>
+</svg>

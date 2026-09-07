@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 1120" width="1240" height="1120" font-family="'Avenir Next','Segoe UI',Roboto,sans-serif">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="42%" r="62%">
+      <stop offset="0%" stop-color="#1a1040" stop-opacity=".85"/>
+      <stop offset="55%" stop-color="#0a0a24" stop-opacity=".45"/>
+      <stop offset="100%" stop-color="#040714" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="9"/>
+    </filter>
+  </defs>
+  <rect width="1240" height="1120" fill="#040714"/>
+  <rect width="1240" height="1120" fill="url(#glow)"/>
+  
+  <text x="64" y="84" fill="#e11d48" font-size="20" font-weight="700" letter-spacing="3.4">NEO-QUIZ-EMBED/1</text>
+  <text x="64" y="132" fill="#f9f9f9" font-size="42" font-weight="700" letter-spacing="-.4">One URL out, the evidence back</text>
+  <text x="64" y="168" fill="rgba(255,255,255,.46)" font-size="21">Runcible imports none of Quiz. 56 of its 111 exercises run inside another origin.</text>
+<rect x="64" y="208" width="476" height="300" rx="14" fill="#e11d4814" stroke="#e11d48"/>
+<text x="86" y="246" fill="#e11d48" font-size="21" font-weight="700" text-anchor="start" opacity="1">runcible.neorgon.com</text>
+<text x="86" y="272" fill="rgba(255,255,255,.46)" font-size="17" font-weight="400" text-anchor="start" opacity="1">the chapter, and the host</text>
+<rect x="700" y="208" width="476" height="300" rx="14" fill="#fb923c14" stroke="#fb923c"/>
+<text x="722" y="246" fill="#fb923c" font-size="21" font-weight="700" text-anchor="start" opacity="1">quiz.neorgon.com</text>
+<text x="722" y="272" fill="rgba(255,255,255,.46)" font-size="17" font-weight="400" text-anchor="start" opacity="1">the game, in an iframe</text>
+<rect x="86" y="296" width="432" height="122" rx="8" fill="rgba(0,0,0,.32)" stroke="rgba(255,255,255,.16)"/>
+<text x="102" y="320" fill="rgba(255,255,255,.62)" font-size="14" font-weight="700" text-anchor="start" opacity="1">1-hiragana · e-k-read</text>
+<text x="102" y="346" fill="#f9f9f9" font-size="15" font-weight="400" text-anchor="start" opacity="0.86" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">"type": "quiz",  "game": "sound"</text>
+<text x="102" y="367" fill="#f9f9f9" font-size="15" font-weight="400" text-anchor="start" opacity="0.86" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">"src":  "jp-hiragana-sound.json"</text>
+<text x="102" y="388" fill="#f9f9f9" font-size="15" font-weight="400" text-anchor="start" opacity="0.86" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">"filter": "row:k",  "limit": 5</text>
+<text x="102" y="409" fill="#f9f9f9" font-size="15" font-weight="400" text-anchor="start" opacity="0.86" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">"skill": "kana.hiragana.read"</text>
+<text x="86" y="448" fill="rgba(255,255,255,.46)" font-size="16" font-weight="400" text-anchor="start" opacity="1">quizUrl(spec) builds the src, and the same URL</text>
+<text x="86" y="470" fill="rgba(255,255,255,.46)" font-size="16" font-weight="400" text-anchor="start" opacity="1">without embed and skill is the way out.</text>
+<rect x="722" y="296" width="432" height="122" rx="8" fill="rgba(0,0,0,.32)" stroke="rgba(255,255,255,.16)"/>
+<text x="738" y="320" fill="rgba(255,255,255,.62)" font-size="14" font-weight="700" text-anchor="start" opacity="1">jp-hiragana-sound</text>
+<text x="738" y="346" fill="#f9f9f9" font-size="15" font-weight="400" text-anchor="start" opacity="0.86" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">102 items in the set</text>
+<text x="738" y="367" fill="#f9f9f9" font-size="15" font-weight="400" text-anchor="start" opacity="0.86" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">filter row:k keeps the k row</text>
+<text x="738" y="388" fill="#f9f9f9" font-size="15" font-weight="400" text-anchor="start" opacity="0.86" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">limit 5 asks 5 of them</text>
+<text x="722" y="448" fill="rgba(255,255,255,.46)" font-size="16" font-weight="400" text-anchor="start" opacity="1">The strip still draws the whole table, so the</text>
+<text x="722" y="470" fill="rgba(255,255,255,.46)" font-size="16" font-weight="400" text-anchor="start" opacity="1">row is a round and not a different alphabet.</text>
+<line x1="470" y1="514" x2="470" y2="575" stroke="#e11d48" stroke-width="2" stroke-dasharray="6 5" stroke-linecap="round"/><polygon points="470,586 464.6991141102256,574.12984377594 475.3008858897744,574.12984377594" fill="#e11d48"/>
+<text x="64" y="574" fill="#f9f9f9" font-size="17" font-weight="700" text-anchor="start" opacity="1">Everything Runcible sends, in the frame src</text>
+<rect x="64" y="592" width="1112" height="98" rx="8" fill="rgba(0,0,0,.34)" stroke="rgba(255,255,255,.16)"/>
+<text x="82" y="622" fill="#f9f9f9" font-size="15" font-weight="400" text-anchor="start" opacity="0.82" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">https://quiz.neorgon.com/?embed=1 &amp;game=sound</text>
+<text x="82" y="646" fill="#f9f9f9" font-size="15" font-weight="400" text-anchor="start" opacity="0.82" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">&amp;set=https://runcible.neorgon.com/books/japanese/sets/jp-hiragana-sound.json &amp;skill=kana.hiragana.read &amp;lang=en</text>
+<text x="82" y="670" fill="#f9f9f9" font-size="15" font-weight="400" text-anchor="start" opacity="0.82" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">&amp;limit=5 &amp;filter=row:k</text>
+<line x1="1040" y1="586" x2="1040" y2="525" stroke="#fb923c" stroke-width="2" stroke-dasharray="6 5" stroke-linecap="round"/><polygon points="1040,514 1045.3008858897745,525.87015622406 1034.6991141102255,525.87015622406" fill="#fb923c"/>
+<text x="64" y="754" fill="#f9f9f9" font-size="17" font-weight="700" text-anchor="start" opacity="1">Everything Quiz says back, v: 1, to the referrer's origin and never "*"</text>
+<rect x="64" y="774" width="268" height="32" rx="6" fill="#fb923c14" stroke="#fb923c55"/>
+<text x="78" y="796" fill="#f9f9f9" font-size="16" font-weight="400" text-anchor="start" opacity="1" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">quiz:ready</text>
+<text x="350" y="796" fill="rgba(255,255,255,.46)" font-size="15" font-weight="400" text-anchor="start" opacity="1">once the set resolved</text>
+<rect x="64" y="814" width="268" height="32" rx="6" fill="#fb923c30" stroke="#fb923c"/>
+<text x="78" y="836" fill="#f9f9f9" font-size="16" font-weight="400" text-anchor="start" opacity="1" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">quiz:answer</text>
+<text x="350" y="836" fill="#fb923c" font-size="15" font-weight="400" text-anchor="start" opacity="1">one per item. this is the evidence</text>
+<rect x="64" y="854" width="268" height="32" rx="6" fill="#fb923c14" stroke="#fb923c55"/>
+<text x="78" y="876" fill="#f9f9f9" font-size="16" font-weight="400" text-anchor="start" opacity="1" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">quiz:session-end</text>
+<text x="350" y="876" fill="rgba(255,255,255,.46)" font-size="15" font-weight="400" text-anchor="start" opacity="1">once, as the results screen paints</text>
+<rect x="630" y="774" width="268" height="32" rx="6" fill="#fb923c14" stroke="#fb923c55"/>
+<text x="644" y="796" fill="#f9f9f9" font-size="16" font-weight="400" text-anchor="start" opacity="1" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">quiz:error</text>
+<text x="916" y="796" fill="rgba(255,255,255,.46)" font-size="15" font-weight="400" text-anchor="start" opacity="1">the frame shows its own message too</text>
+<rect x="630" y="814" width="268" height="32" rx="6" fill="#fb923c14" stroke="#fb923c55"/>
+<text x="644" y="836" fill="#f9f9f9" font-size="16" font-weight="400" text-anchor="start" opacity="1" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">quiz:resize</text>
+<text x="916" y="836" fill="rgba(255,255,255,.46)" font-size="15" font-weight="400" text-anchor="start" opacity="1">debounced 120ms, the host clamps it</text>
+<rect x="64" y="926" width="1112" height="104" rx="12" fill="rgba(255,255,255,.03)" stroke="#e11d48"/>
+<text x="86" y="960" fill="#f9f9f9" font-size="18" font-weight="700" text-anchor="start" opacity="1">One quiz:answer becomes one attempt, under the exercise’s skill and not the game’s</text>
+<text x="86" y="990" fill="#f9f9f9" font-size="15" font-weight="400" text-anchor="start" opacity="0.86" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">{ itemId: "hira-ki", skill: "kana.hiragana.read", correct: false, ms: 2400, answer: "sa", expected: "ki" }</text>
+<text x="86" y="1016" fill="rgba(255,255,255,.46)" font-size="16" font-weight="400" text-anchor="start" opacity="1">An answer the host cannot read, or the recorder refuses, is said on the page, and the round is not reported as finished.</text>
+<text x="64" y="1076" fill="rgba(255,255,255,.34)" font-size="17">The URL is built by calling js/quiz-host.js quizUrl(), and the attempt is what its readAnswer() returns, for the exercise chapter 1 actually</text>
+<text x="64" y="1102" fill="rgba(255,255,255,.34)" font-size="17">authored. The message names are read out of quiz-site/js/embed.js, quiz-site/js/round.js and js/quiz-host.js at build time.</text>
+</svg>

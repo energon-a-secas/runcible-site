@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 1000" width="1240" height="1000" font-family="'Avenir Next','Segoe UI',Roboto,sans-serif">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="42%" r="62%">
+      <stop offset="0%" stop-color="#1a1040" stop-opacity=".85"/>
+      <stop offset="55%" stop-color="#0a0a24" stop-opacity=".45"/>
+      <stop offset="100%" stop-color="#040714" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="9"/>
+    </filter>
+  </defs>
+  <rect width="1240" height="1000" fill="#040714"/>
+  <rect width="1240" height="1000" fill="url(#glow)"/>
+  
+  <text x="64" y="84" fill="#e11d48" font-size="20" font-weight="700" letter-spacing="3.4">RUNCIBLE</text>
+  <text x="64" y="132" fill="#f9f9f9" font-size="42" font-weight="700" letter-spacing="-.4">The drill moved to the facing page</text>
+  <text x="64" y="168" fill="rgba(255,255,255,.46)" font-size="21">One layout, three widths. The reading column never changes size, and never moves when a drill starts.</text>
+<text x="64" y="210" fill="#f9f9f9" font-size="20" font-weight="700" text-anchor="start" opacity="1">1256px and up</text>
+<text x="795.6" y="306" fill="rgba(255,255,255,.46)" font-size="17" font-weight="400" text-anchor="start" opacity="1">contents come out of the bar and into the margin</text>
+<rect x="64" y="228" width="121.00000000000001" height="140" rx="10" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.16)" stroke-dasharray="5 5"/>
+<rect x="76" y="252" width="81.00000000000001" height="6" rx="3" fill="rgba(255,255,255,.13)"/>
+<rect x="76" y="269" width="81.00000000000001" height="6" rx="3" fill="rgba(255,255,255,.13)"/>
+<rect x="76" y="286" width="81.00000000000001" height="6" rx="3" fill="rgba(255,255,255,.13)"/>
+<rect x="76" y="303" width="81.00000000000001" height="6" rx="3" fill="rgba(255,255,255,.13)"/>
+<rect x="76" y="320" width="81.00000000000001" height="6" rx="3" fill="rgba(255,255,255,.13)"/>
+<rect x="66" y="283" width="4" height="20" rx="2" fill="#e11d48"/>
+<text x="124.5" y="394" fill="rgba(255,255,255,.62)" font-size="16" font-weight="400" text-anchor="middle" opacity="1">contents</text>
+<rect x="198.20000000000002" y="228" width="363.00000000000006" height="140" rx="10" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.16)"/>
+<rect x="212.20000000000002" y="254" width="335.00000000000006" height="6" rx="3" fill="rgba(255,255,255,.16)"/>
+<rect x="212.20000000000002" y="271" width="335.00000000000006" height="6" rx="3" fill="rgba(255,255,255,.16)"/>
+<rect x="212.20000000000002" y="288" width="335.00000000000006" height="6" rx="3" fill="rgba(255,255,255,.16)"/>
+<rect x="212.20000000000002" y="305" width="335.00000000000006" height="6" rx="3" fill="rgba(255,255,255,.16)"/>
+<rect x="212.20000000000002" y="322" width="335.00000000000006" height="6" rx="3" fill="rgba(255,255,255,.16)"/>
+<rect x="212.20000000000002" y="339" width="197.06000000000003" height="6" rx="3" fill="rgba(255,255,255,.16)"/>
+<text x="379.70000000000005" y="394" fill="rgba(255,255,255,.62)" font-size="16" font-weight="400" text-anchor="middle" opacity="1">the chapter</text>
+<rect x="580.0000000000001" y="222" width="2" height="152" fill="rgba(255,255,255,.16)"/>
+<rect x="589.6000000000001" y="228" width="176" height="140" rx="10" fill="#fb923c22" stroke="#fb923c"/>
+<text x="603.6000000000001" y="262" fill="#fb923c" font-size="14" font-weight="700" text-anchor="start" opacity="1">Try it</text>
+<rect x="603.6000000000001" y="276" width="148" height="22" rx="6" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.12)"/>
+<rect x="607.6000000000001" y="279" width="16" height="16" rx="4" fill="#fb923c44" stroke="#fb923c"/>
+<rect x="603.6000000000001" y="304" width="148" height="22" rx="6" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.12)"/>
+<rect x="607.6000000000001" y="307" width="16" height="16" rx="4" fill="#fb923c44" stroke="#fb923c"/>
+<rect x="603.6000000000001" y="332" width="148" height="22" rx="6" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.12)"/>
+<rect x="607.6000000000001" y="335" width="16" height="16" rx="4" fill="#fb923c44" stroke="#fb923c"/>
+<text x="677.6000000000001" y="394" fill="rgba(255,255,255,.62)" font-size="16" font-weight="400" text-anchor="middle" opacity="1">the drill</text>
+<text x="64" y="426" fill="#f9f9f9" font-size="20" font-weight="700" text-anchor="start" opacity="1">980px to 1255px</text>
+<text x="661.4" y="522" fill="rgba(255,255,255,.46)" font-size="17" font-weight="400" text-anchor="start" opacity="1">contents collapse to a 40px bar under the header</text>
+<rect x="64" y="444" width="363.00000000000006" height="140" rx="10" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.16)"/>
+<rect x="78" y="470" width="335.00000000000006" height="6" rx="3" fill="rgba(255,255,255,.16)"/>
+<rect x="78" y="487" width="335.00000000000006" height="6" rx="3" fill="rgba(255,255,255,.16)"/>
+<rect x="78" y="504" width="335.00000000000006" height="6" rx="3" fill="rgba(255,255,255,.16)"/>
+<rect x="78" y="521" width="335.00000000000006" height="6" rx="3" fill="rgba(255,255,255,.16)"/>
+<rect x="78" y="538" width="335.00000000000006" height="6" rx="3" fill="rgba(255,255,255,.16)"/>
+<rect x="78" y="555" width="197.06000000000003" height="6" rx="3" fill="rgba(255,255,255,.16)"/>
+<text x="245.50000000000003" y="610" fill="rgba(255,255,255,.62)" font-size="16" font-weight="400" text-anchor="middle" opacity="1">the chapter</text>
+<rect x="445.80000000000007" y="438" width="2" height="152" fill="rgba(255,255,255,.16)"/>
+<rect x="455.40000000000003" y="444" width="176" height="140" rx="10" fill="#fb923c22" stroke="#fb923c"/>
+<text x="469.40000000000003" y="478" fill="#fb923c" font-size="14" font-weight="700" text-anchor="start" opacity="1">Try it</text>
+<rect x="469.40000000000003" y="492" width="148" height="22" rx="6" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.12)"/>
+<rect x="473.40000000000003" y="495" width="16" height="16" rx="4" fill="#fb923c44" stroke="#fb923c"/>
+<rect x="469.40000000000003" y="520" width="148" height="22" rx="6" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.12)"/>
+<rect x="473.40000000000003" y="523" width="16" height="16" rx="4" fill="#fb923c44" stroke="#fb923c"/>
+<rect x="469.40000000000003" y="548" width="148" height="22" rx="6" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.12)"/>
+<rect x="473.40000000000003" y="551" width="16" height="16" rx="4" fill="#fb923c44" stroke="#fb923c"/>
+<text x="543.4000000000001" y="610" fill="rgba(255,255,255,.62)" font-size="16" font-weight="400" text-anchor="middle" opacity="1">the drill</text>
+<text x="64" y="642" fill="#f9f9f9" font-size="20" font-weight="700" text-anchor="start" opacity="1">below 980px</text>
+<text x="457.00000000000006" y="738" fill="rgba(255,255,255,.46)" font-size="17" font-weight="400" text-anchor="start" opacity="1">one column, and the drill mounts under its own marker</text>
+<rect x="64" y="660" width="363.00000000000006" height="140" rx="10" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.16)"/>
+<rect x="78" y="686" width="335.00000000000006" height="6" rx="3" fill="rgba(255,255,255,.16)"/>
+<rect x="78" y="703" width="335.00000000000006" height="6" rx="3" fill="rgba(255,255,255,.16)"/>
+<rect x="78" y="720" width="335.00000000000006" height="6" rx="3" fill="rgba(255,255,255,.16)"/>
+<rect x="78" y="737" width="335.00000000000006" height="6" rx="3" fill="rgba(255,255,255,.16)"/>
+<rect x="78" y="754" width="335.00000000000006" height="6" rx="3" fill="rgba(255,255,255,.16)"/>
+<rect x="78" y="771" width="197.06000000000003" height="6" rx="3" fill="rgba(255,255,255,.16)"/>
+<text x="245.50000000000003" y="826" fill="rgba(255,255,255,.62)" font-size="16" font-weight="400" text-anchor="middle" opacity="1">the chapter, with the drill inline</text>
+<rect x="64" y="874" width="1112" height="62" rx="12" fill="rgba(255,255,255,.03)" stroke="rgba(255,255,255,.16)"/>
+<text x="88" y="912" fill="rgba(255,255,255,.62)" font-size="17" font-weight="400" text-anchor="start" opacity="1" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">css/style.css  @media (min-width: 980px)</text>
+<text x="560" y="912" fill="#e11d48" font-size="22" font-weight="700" text-anchor="start" opacity="1">=</text>
+<text x="600" y="912" fill="rgba(255,255,255,.62)" font-size="17" font-weight="400" text-anchor="start" opacity="1" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">js/render-mount.js  const FACING = '(min-width: 980px)'</text>
+<text x="64" y="972" fill="rgba(255,255,255,.34)" font-size="17">Reading column 66ch; contents rail 220px; page bar 40px. Read from css/style.css and js/render-mount.js at build time.</text>
+</svg>
