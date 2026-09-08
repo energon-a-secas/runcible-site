@@ -57,6 +57,26 @@
             ],
             "es": null
           }
+        },
+        {
+          "id": "p-three-registers",
+          "kind": "prose",
+          "title": {
+            "en": "Why a second alphabet for the same forty-six sounds",
+            "es": "Por qué un segundo alfabeto para los mismos cuarenta y seis sonidos"
+          },
+          "body": {
+            "en": [
+              "Because they are not two alphabets. Japanese has three scripts and they are three registers, the way a European language has roman, italic and small capitals: the same sounds, carrying different information about who is speaking and how. Kanji takes the content words, hiragana takes the grammar hanging off them, katakana takes what was borrowed or what is being pointed at. Where the script changes, a word has usually ended, which is the job spaces do in English.",
+              "One word makes the whole point. The animal is ねずみ in a story, ネズミ in a biology text and 鼠 in older writing, and all three are one entry in the dictionary. Nothing is added or removed between them. What changes is the tone.",
+              "A 1993 count of a year of the Asahi Shimbun, reported in the Wikipedia article on the Japanese writing system, puts the mix at kanji 41 percent, hiragana 37 and katakana 6. So the script you are learning in this chapter is the smallest of the three and the loudest, and chapter 13 is where the choice between them is taken apart and drilled."
+            ],
+            "es": [
+              "Porque no son dos alfabetos. El japonés tiene tres escrituras y son tres registros, como una lengua europea tiene redonda, cursiva y versalitas: los mismos sonidos, cargando información distinta sobre quién habla y de qué manera. El kanji se lleva las palabras de contenido, el hiragana la gramática que cuelga de ellas, el katakana lo prestado o lo que se quiere señalar. Donde cambia la escritura, casi siempre ha terminado una palabra, que es el trabajo que en español hacen los espacios.",
+              "Una sola palabra lo demuestra entero. El animal es ねずみ en un cuento, ネズミ en un texto de biología y 鼠 en escritura antigua, y las tres son una misma entrada de diccionario. Entre ellas no se añade ni se quita nada. Lo que cambia es el tono.",
+              "Un recuento de 1993 sobre un año del diario Asahi Shimbun, recogido en el artículo de Wikipedia sobre el sistema de escritura japonés, da esta mezcla: kanji 41 por ciento, hiragana 37 y katakana 6. Así que la escritura que aprendes en este capítulo es la más pequeña de las tres y la más ruidosa, y el capítulo 13 es donde se desmonta y se practica la elección entre ellas."
+            ]
+          }
         }
       ],
       "exercises": [
@@ -290,6 +310,27 @@
           }
         },
         {
+          "id": "p-bar-exceptions",
+          "kind": "callout",
+          "tone": "note",
+          "title": {
+            "en": "The exceptions are a published list, not a pattern",
+            "es": "Las excepciones son una lista publicada, no un patrón"
+          },
+          "body": {
+            "en": [
+              "The bar is the default and the exceptions are named one by one. 外来語の表記, the 1991 Cabinet Notice, and the Cultural Council's 2022 guidance that restates it, both give a short list of customary spellings that keep two vowel kana instead: barē for ballet, mīra for a mummy, reiauto for layout, sarada bōru for a salad bowl. There is no rule under them. They are older borrowings that settled before the notice was written, and the notice records the settlement rather than deriving it.",
+              "The rule the notice does state is worth having, because it covers a whole shape of English word: an ending in -er, -or, -ar, -ty or -ry becomes a long vowel with the bar. That is why a computer, an elevator, a calendar, a community and a category all end in one. The rules file behind this chapter's drills already carries the -er, -or and -ar half as rule B19, and the -ty and -ry half is the part this note adds.",
+              "One more mechanical fact, since it catches people reading a novel: in vertical writing the bar rotates ninety degrees with the text, along with the brackets and the wave dash. It is still the same character."
+            ],
+            "es": [
+              "La barra es lo normal y las excepciones se nombran una a una. 外来語の表記, el aviso del gabinete de 1991, y la guía de 2022 del Consejo de Cultura que lo repite, dan las dos una lista corta de grafías consuetudinarias que conservan dos kana de vocal en su lugar: barē para ballet, mīra para una momia, reiauto para layout, sarada bōru para una ensaladera. Debajo no hay ninguna regla. Son préstamos antiguos que se asentaron antes de que se escribiera el aviso, y el aviso registra ese asentamiento en vez de deducirlo.",
+              "La regla que el aviso sí enuncia vale la pena, porque cubre toda una forma de palabra inglesa: una terminación en -er, -or, -ar, -ty o -ry pasa a ser una vocal larga con la barra. Por eso un computer, un elevator, un calendar, un community y un category acaban todos en una. El archivo de reglas que hay detrás de los ejercicios de este capítulo ya lleva la mitad de -er, -or y -ar como regla B19, y la mitad de -ty y -ry es lo que añade esta nota.",
+              "Un dato mecánico más, porque pilla a quien lee una novela: en escritura vertical la barra gira noventa grados con el texto, junto con los paréntesis y la raya ondulada. Sigue siendo el mismo carácter."
+            ]
+          }
+        },
+        {
           "id": "p-sokuon-kata",
           "kind": "callout",
           "tone": "note",
@@ -509,6 +550,26 @@
               "The marking is against the verified word list only. That is not a shortcut, it is the finding: about eighty percent of the mapping is deterministic and the rest is convention, so a rule engine would confidently mark camera and cake and bread wrong."
             ],
             "es": null
+          }
+        },
+        {
+          "id": "p-clipping",
+          "kind": "prose",
+          "title": {
+            "en": "The long ones get cut, and the cut has a shape",
+            "es": "Las largas se cortan, y el corte tiene una forma"
+          },
+          "body": {
+            "en": [
+              "Rule B29 in this chapter's own rules file already gives you the pattern and its four best examples: a long borrowing is clipped to about four beats, keeping the first two beats of each half of a compound, which is how a personal computer becomes pasokon, a remote control becomes rimokon, a convenience store becomes konbini and a family restaurant becomes famiresu.",
+              "The shape underneath it is worth one sentence, because it is not arbitrary. Four moras built as two plus two is the Japanese foot, the unit the language uses for nicknames and abbreviations of every kind, and the result is associated with Itô in 1990 and with Kubozono after her. Once you know the target size, a sign you cannot read becomes a puzzle with a rule in it: find the two halves, and you have the original.",
+              "The second half of the pattern is what happens next. A clipped stem plus る conjugates like an ordinary native verb, so guguru is to search on the web, saboru is to skive off, and daburu is to overlap. The same 2018 paper that counted non-loanword katakana found the trick applied to words that were never loans at all: hamaru, ikeru, bateru. That is katakana behaving like a piece of grammar rather than like a foreign alphabet, and it is the last thing this chapter has to say about it."
+            ],
+            "es": [
+              "La regla B29 del propio archivo de reglas de este capítulo ya te da el patrón y sus cuatro mejores ejemplos: un préstamo largo se recorta a unos cuatro tiempos, conservando los dos primeros tiempos de cada mitad de un compuesto, y así un personal computer pasa a ser pasokon, un remote control pasa a ser rimokon, una convenience store pasa a ser konbini y un family restaurant pasa a ser famiresu.",
+              "La forma que hay debajo merece una frase, porque no es arbitraria. Cuatro moras construidas como dos más dos son el pie japonés, la unidad que la lengua usa para apodos y abreviaturas de todo tipo, y el resultado se asocia a Itô en 1990 y a Kubozono después de ella. En cuanto conoces el tamaño de destino, un cartel que no puedes leer se convierte en un acertijo con una regla dentro: encuentra las dos mitades y tienes el original.",
+              "La segunda mitad del patrón es lo que pasa después. Una raíz recortada más る se conjuga como un verbo nativo cualquiera, así que guguru es buscar en la web, saboru es escaquearse y daburu es solaparse. El mismo artículo de 2018 que contó el katakana de palabras no prestadas encontró el truco aplicado a palabras que nunca fueron préstamos: hamaru, ikeru, bateru. Eso es katakana comportándose como una pieza de gramática y no como un alfabeto extranjero, y es lo último que este capítulo tiene que decir al respecto."
+            ]
           }
         }
       ],

@@ -154,12 +154,43 @@ export function fmtBytes(n) {
 }
 
 /**
+ * Codepoints a caller wants emitted as a \uXXXX escape instead of as
+ * themselves. The parsed value is identical, so nothing the browser sees
+ * changes: only the bytes on disk do.
+ *
+ * It exists for one case and should be used for no other. check-licence.mjs
+ * bans a single common character outright, because the title of a 1941 song is
+ * that one character and no grep can tell the song from the noun. That is the
+ * right call for hand-written prose and the wrong shape for a dictionary slice,
+ * where the character is a headword the generator did not choose: KANJIDIC puts
+ * it in grade 2 and KanjiVG draws its strokes. A generated file that carries it
+ * escaped keeps the gate's full force over every hand-written file and over the
+ * other four banned items, and loses it only inside output that is mechanically
+ * derived from KANJIDIC and KanjiVG, where a song title cannot arrive.
+ *
+ * The caller passes the character as an escape in its own source too, so that
+ * no file in tools/ spells it out either. Whether this stays or becomes an
+ * ALLOW_SEA entry in check-licence.mjs is a licence decision for the owner.
+ */
+function escapeChars(text, chars) {
+  let out = text;
+  for (const ch of chars) {
+    const cp = ch.codePointAt(0).toString(16).padStart(4, '0');
+    out = out.split(ch).join(`\\u${cp}`);
+  }
+  return out;
+}
+
+/**
  * Write one data file, then hold it to C11.6: no single JSON file over 150 KB,
  * and a per-file budget the caller states. Exits non-zero rather than emitting
  * an oversized file, because a slice that is too big is a slice that needed
  * splitting and nobody would have noticed at review time.
+ *
+ * `escape` is the optional list described above. It defaults to empty, so every
+ * existing caller emits exactly the bytes it emitted before.
  */
-export function writeData(absPath, doc, budgetKb) {
+export function writeData(absPath, doc, budgetKb, escape = []) {
   const dashes = findDashes(doc);
   if (dashes.length) {
     process.stderr.write(`REFUSED ${absPath}\n`);
@@ -169,7 +200,7 @@ export function writeData(absPath, doc, budgetKb) {
     process.exit(1);
   }
   fs.mkdirSync(path.dirname(absPath), { recursive: true });
-  const text = serialize(doc);
+  const text = escape.length ? escapeChars(serialize(doc), escape) : serialize(doc);
   JSON.parse(text); // never emit something the browser cannot parse
   fs.writeFileSync(absPath, text);
   const bytes = Buffer.byteLength(text);

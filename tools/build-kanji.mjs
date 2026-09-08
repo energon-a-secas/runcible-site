@@ -20,17 +20,34 @@
  * data pointer (`kanjidic-grade1.json#一`) resolves with the same fifteen-line
  * resolver as `strokes.json#あ`. Meta keys all start with an underscore or are
  * ASCII, so a kanji key can never collide with one.
+ *
+ * That layout is why each file also carries a `list[]`, the same one
+ * tools/build-strokes.mjs emits for the same reason. A record is keyed by its
+ * character, so an exercise that wants "every character in this set" has no
+ * fragment to point at: the whole document resolves to its own meta keys as
+ * well, and `_licence` becomes a drill item with a blank prompt. The list is
+ * the projection a stroke drill needs, derived in one loop from the map beside
+ * it, so the two cannot disagree.
  */
 import path from 'node:path';
 import { SOURCES } from './lib/sources.mjs';
 import {
   SITE, licenceBlock, writeData, hasBannedDash,
 } from './lib/corpus.mjs';
-import { kanjidic, kanjiSelection, resolveSet } from './lib/kanjisets.mjs';
+import { kanjidic, kanjiSelection, resolveSet, unslicedSet } from './lib/kanjisets.mjs';
 
 const TOOL = 'tools/build-kanji.mjs';
 const MAX_MEANINGS = 4;
 const MAX_READINGS = 4;
+
+/**
+ * One character is emitted as a \uXXXX escape rather than as itself, and the
+ * reason is in tools/lib/corpus.mjs beside `escapeChars`: check-licence.mjs
+ * bans it outright because a 1941 song's whole title is that single character,
+ * and KANJIDIC puts the same character in grade 2. It is written here as an
+ * escape too, so this file does not spell it out either.
+ */
+const ESCAPE = ['\u6d77'];
 
 function readingsOfType(character, type) {
   const out = [];
@@ -40,12 +57,28 @@ function readingsOfType(character, type) {
   return [...new Set(out)].slice(0, MAX_READINGS);
 }
 
+/**
+ * The five words the fleet's house style bans, as whole words.
+ *
+ * A gloss is learner-facing English on the page, so the rule reaches it, and
+ * this is the same move the line below already makes for the house dash rule:
+ * drop the one upstream meaning that breaks a house rule and keep the rest,
+ * rather than rewriting a dictionary. KANJIDIC gives most characters more
+ * meanings than MAX_MEANINGS ships, so dropping one costs nothing: today it
+ * fires on exactly one character of the 269, which keeps four other meanings.
+ * A character whose every meaning were dropped would ship with none, and
+ * validate-corpus fails that, so the loss can never be silent.
+ */
+const BANNED_WORDS = /\b(powerful|seamless|leverages|robust|utilize)\b/i;
+
 function meaningsOf(character) {
   const out = [];
   for (const group of character.readingMeaning?.groups || []) {
     for (const m of group.meanings) if (m.lang === 'en') out.push(m.value);
   }
-  return [...new Set(out)].filter((m) => !hasBannedDash(m)).slice(0, MAX_MEANINGS);
+  return [...new Set(out)]
+    .filter((m) => !hasBannedDash(m) && !BANNED_WORDS.test(m))
+    .slice(0, MAX_MEANINGS);
 }
 
 function toEntry(character) {
@@ -62,6 +95,53 @@ function toEntry(character) {
   const classical = character.radicals.find((r) => r.type === 'classical');
   if (classical) entry.radical = classical.value;
   return entry;
+}
+
+/**
+ * Two sets that slice one grade must cover it exactly and may not overlap.
+ *
+ * resolveSet checks that a slice sits inside its grade. It cannot check that
+ * the slices of one grade partition it, because it sees one row at a time, and
+ * a gap between two slices is the failure with no symptom: both files are the
+ * length their row asked for, both validate, and the characters in the gap are
+ * simply never taught. So the sum is asserted here and printed either way.
+ */
+function checkSlices(sel) {
+  const byGrade = new Map();
+  for (const set of sel.sets) {
+    if (set.slice === undefined) continue;
+    if (set.grade == null) {
+      process.stderr.write(`set ${set.id} carries a slice but no grade\n`);
+      process.exitCode = 1;
+      continue;
+    }
+    if (!byGrade.has(set.grade)) byGrade.set(set.grade, []);
+    byGrade.get(set.grade).push(set);
+  }
+  for (const [grade, sets] of [...byGrade].sort((a, b) => a[0] - b[0])) {
+    const whole = unslicedSet(sets[0]);
+    const seen = new Map();
+    const parts = [];
+    for (const set of sets) {
+      const literals = resolveSet(set);
+      parts.push(`${set.id} ${literals.length}`);
+      for (const lit of literals) {
+        if (seen.has(lit)) {
+          process.stderr.write(`grade ${grade}: ${lit} is in both ${seen.get(lit)} and ${set.id}\n`);
+          process.exitCode = 1;
+        }
+        seen.set(lit, set.id);
+      }
+    }
+    const missing = whole.filter((lit) => !seen.has(lit));
+    process.stdout.write(
+      `grade ${grade}: ${parts.join(' + ')} = ${seen.size} of ${whole.length}\n`);
+    if (missing.length) {
+      process.stderr.write(
+        `grade ${grade}: ${missing.length} characters are in no slice: ${missing.join('')}\n`);
+      process.exitCode = 1;
+    }
+  }
 }
 
 function main() {
@@ -84,14 +164,22 @@ function main() {
       order: literals,
       count: literals.length,
     };
+    const list = [];
     for (const lit of literals) {
       const character = byLiteral.get(lit);
       if (!character) { missing.push(`${set.id} ${lit}`); continue; }
       doc[lit] = toEntry(character);
+      list.push({
+        id: `k_${lit.codePointAt(0).toString(16)}`, literal: lit, strokes: doc[lit].strokes,
+      });
     }
+    doc.list = list;
     total += literals.length;
-    writeData(path.join(SITE, 'data', 'kanji', `kanjidic-${set.id}.json`), doc, set.budget_kb);
+    writeData(path.join(SITE, 'data', 'kanji', `kanjidic-${set.id}.json`), doc,
+      set.budget_kb, ESCAPE);
   }
+
+  checkSlices(sel);
 
   if (missing.length) {
     process.stderr.write(`\n${missing.length} characters are not in KANJIDIC2:\n`);

@@ -10,7 +10,18 @@
     "that moves discards a person's study history.",
     "Each deck is written twice, once under books/japanese/decks/ for the",
     "Runcible chapter that uses it and once under rappel-site/data/decks/ for",
-    "Rappel's own library. Same generator, so they cannot drift."
+    "Rappel's own library. Same generator, so they cannot drift, and the build",
+    "cmp's the two files rather than only asserting it in a comment.",
+    "A row marked held is not rebuilt. Commit 5124bee corrected those four decks",
+    "by editing the output rather than this generator, so a re-run would throw the",
+    "teacher panel's work away; the deck under books/ is the document, the build",
+    "copies it to Rappel and counts its catalog row from the file. Folding those",
+    "three edits into build-decks.mjs and dropping the flag is the real fix.",
+    "A row's optional escape lists codepoints the writer emits as \\uXXXX rather",
+    "than as themselves. It is set on one row, and the reason is in writeData in",
+    "tools/lib/corpus.mjs: one character of KANJIDIC's grade 2 list is also the",
+    "whole title of a banned song, so a deck built over that slice would be a hit",
+    "for check-licence.mjs. The parsed value is identical either way."
   ],
   "decks": [
     {
@@ -21,6 +32,7 @@
       "name": { "en": "First words", "es": "Primeras palabras" },
       "skill_read": "vocab.first-words.read",
       "skill_write": "vocab.first-words.write",
+      "held": true,
       "budget_kb": 150
     },
     {
@@ -31,6 +43,7 @@
       "name": { "en": "Grammar words", "es": "Palabras de gramática" },
       "skill_read": "vocab.grammar.read",
       "skill_write": "vocab.grammar.write",
+      "held": true,
       "budget_kb": 150
     },
     {
@@ -41,6 +54,7 @@
       "name": { "en": "The first eighty kanji", "es": "Los primeros ochenta kanji" },
       "skill_read": "kanji.grade1.read",
       "skill_meaning": "kanji.grade1.meaning",
+      "held": true,
       "budget_kb": 150
     },
     {
@@ -51,6 +65,48 @@
       "name": { "en": "Short sentences", "es": "Frases cortas" },
       "skill_read": "sentence.grammar.read",
       "skill_recall": "sentence.grammar.recall",
+      "held": true,
+      "budget_kb": 150
+    },
+    {
+      "id": "jp-phrases",
+      "kind": "vocab",
+      "from": "vocab/ch14.json",
+      "chapter": "14-phrases",
+      "name": { "en": "Everyday phrases", "es": "Frases de todos los días" },
+      "skill_read": "vocab.phrases.read",
+      "skill_write": "vocab.phrases.write",
+      "budget_kb": 150
+    },
+    {
+      "id": "jp-kanji-grade2a",
+      "kind": "kanji",
+      "from": "kanji/kanjidic-grade2a.json",
+      "chapter": "10-kanji-beyond",
+      "name": { "en": "Grade two, the first eighty", "es": "Segundo grado, los primeros ochenta" },
+      "skill_read": "kanji.grade2.read",
+      "skill_meaning": "kanji.grade2.meaning",
+      "escape": ["\u6d77"],
+      "budget_kb": 150
+    },
+    {
+      "id": "jp-kanji-grade2b",
+      "kind": "kanji",
+      "from": "kanji/kanjidic-grade2b.json",
+      "chapter": "10-kanji-beyond",
+      "name": { "en": "Grade two, the second eighty", "es": "Segundo grado, los otros ochenta" },
+      "skill_read": "kanji.grade2.read",
+      "skill_meaning": "kanji.grade2.meaning",
+      "budget_kb": 150
+    },
+    {
+      "id": "jp-register",
+      "kind": "vocab",
+      "from": "vocab/ch11.json",
+      "chapter": "11-conversation",
+      "name": { "en": "Politeness, three distances", "es": "Cortesía, tres distancias" },
+      "skill_read": "vocab.register.read",
+      "skill_write": "vocab.register.write",
       "budget_kb": 150
     }
   ],

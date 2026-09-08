@@ -34,5 +34,21 @@
 "百": { "literal": "百", "strokes": 6, "on": [ "ヒャク", "ビャク" ], "kun": [ "もも" ], "meanings": [ "hundred" ], "grade": 1, "freq": 163, "jlpt": 4, "radical": 106 },
 "千": { "literal": "千", "strokes": 3, "on": [ "セン" ], "kun": [ "ち" ], "meanings": [ "thousand" ], "grade": 1, "freq": 195, "jlpt": 4, "radical": 24 },
 "万": { "literal": "万", "strokes": 3, "on": [ "マン", "バン" ], "kun": [ "よろず" ], "meanings": [ "ten thousand", "10,000" ], "grade": 2, "freq": 375, "jlpt": 4, "radical": 1 },
-"円": { "literal": "円", "strokes": 4, "on": [ "エン" ], "kun": [ "まる.い", "まる", "まど", "まど.か" ], "meanings": [ "circle", "yen", "round" ], "grade": 1, "freq": 69, "jlpt": 4, "radical": 13 }
+"円": { "literal": "円", "strokes": 4, "on": [ "エン" ], "kun": [ "まる.い", "まる", "まど", "まど.か" ], "meanings": [ "circle", "yen", "round" ], "grade": 1, "freq": 69, "jlpt": 4, "radical": 13 },
+"list": [
+{"id":"k_4e00","literal":"一","strokes":1},
+{"id":"k_4e8c","literal":"二","strokes":2},
+{"id":"k_4e09","literal":"三","strokes":3},
+{"id":"k_56db","literal":"四","strokes":5},
+{"id":"k_4e94","literal":"五","strokes":4},
+{"id":"k_516d","literal":"六","strokes":4},
+{"id":"k_4e03","literal":"七","strokes":2},
+{"id":"k_516b","literal":"八","strokes":2},
+{"id":"k_4e5d","literal":"九","strokes":2},
+{"id":"k_5341","literal":"十","strokes":2},
+{"id":"k_767e","literal":"百","strokes":6},
+{"id":"k_5343","literal":"千","strokes":3},
+{"id":"k_4e07","literal":"万","strokes":3},
+{"id":"k_5186","literal":"円","strokes":4}
+]
 }

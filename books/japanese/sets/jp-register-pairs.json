@@ -1,0 +1,21 @@
+{
+"format": "neo-quiz-set/1",
+"id": "jp-register-pairs",
+"version": "2026-09-07",
+"game": "pairs",
+"name": { "en": "Work and the telephone", "es": "El trabajo y el teléfono" },
+"lang": "ja",
+"skill": "jp.register.pick",
+"licence": { "spdx": "CC-BY-SA-4.0", "screen": "required", "attribution": "This site uses the JMdict/EDICT and KANJIDIC dictionary files. These files are the property of the Electronic Dictionary Research and Development Group, and are used in conformance with the Group's licence.", "source": "https://www.edrdg.org/edrdg/licence.html" },
+"_licence": { "source": "JMdict / EDICT, Electronic Dictionary Research and Development Group", "url": "https://www.edrdg.org/edrdg/licence.html", "spdx": "CC-BY-SA-4.0", "derived": true, "id": "edrdg", "acknowledgement": "This site uses the JMdict/EDICT and KANJIDIC dictionary files. These files are the property of the Electronic Dictionary Research and Development Group, and are used in conformance with the Group's licence.", "links": [ "https://www.edrdg.org/wiki/index.php/JMdict-EDICT_Dictionary_Project", "https://www.edrdg.org/wiki/index.php/KANJIDIC_Project" ], "screen": "required", "chapter": "11-conversation", "note": "Derived from data/vocab/ch11.json, a JMdict slice. left is the headword, right the first JMdict meaning that is unique on the board with the Spanish from tools/selection/sets.json beside it, note the kana reading for a kanji headword, group the rung the word sits in.", "generated_by": "tools/build-sets.mjs", "generated_at": "2026-09-04" },
+"groups": {
+"work": {"en":"Work and the telephone","es":"El trabajo y el teléfono"}
+},
+"items": [
+{"id":"w_0019","left":"かしこまりました","right":{"en":"certainly!","es":"¡por supuesto!"},"group":"work"},
+{"id":"w_0020","left":"もしもし","right":{"en":"hello","es":"aló"},"group":"work"},
+{"id":"w_0021","left":"お待たせしました","right":{"en":"thank you for waiting","es":"gracias por esperar"},"group":"work","note":"おまたせしました"},
+{"id":"w_0022","left":"申し訳ありません","right":{"en":"I'm sorry","es":"lo lamento mucho"},"group":"work","note":"もうしわけありません"},
+{"id":"w_0023","left":"ご苦労様","right":{"en":"thank you","es":"gracias por el trabajo"},"group":"work","note":"ごくろうさま"}
+]
+}

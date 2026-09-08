@@ -18,18 +18,40 @@ purpose: a sentence slice can only contain words the vocabulary slice teaches,
 and a deck can only contain items the corpus contains.
 
 ```
-node tools/build-vocab.mjs        # data/vocab/ch{4,5,6}.json          JMdict
-node tools/build-kanji.mjs        # data/kanji/kanjidic-*.json         KANJIDIC2
-node tools/build-strokes.mjs      # data/kanji/strokes-*.json          KanjiVG
-node tools/build-sentences.mjs    # data/sentences/ch{4,5}.json        Tatoeba
+node tools/build-kanji.mjs        # data/kanji/kanjidic-*.json               KANJIDIC2
+node tools/build-strokes.mjs      # data/kanji/strokes-*.json                KanjiVG
+node tools/build-phon.mjs         # data/kanji/phon-groups.json              both
+node tools/build-vocab.mjs        # data/vocab/ch{4,5,6,10,11,13,14}.json    JMdict
+node tools/build-sentences.mjs    # data/sentences/ch{4,5,11,14}.json        Tatoeba
+node tools/build-reading.mjs      # data/reading/<story>.json                Aozora Bunko
+node tools/build-piano.mjs        # data/piano/pieces-*.json                 Mutopia
 node tools/build-decks.mjs        # books/japanese/decks/, rappel data/decks/
 node tools/build-sets.mjs         # books/japanese/sets/, quiz-site data/sets/
 node tools/vendor-wanakana.mjs    # js/vendor/wanakana.js in both projects
-node tools/validate-corpus.mjs    # the gate
+node tools/validate-corpus.mjs    # the gate on the derived corpus
+node tools/validate-phrases.mjs   # the gate on the one authored file
 ```
 
-`build-sentences.mjs` reads `data/vocab/`; `build-decks.mjs` reads all three
-corpus directories. Each one stops and says which script to run first.
+`build-sentences.mjs` reads `data/vocab/`; `build-decks.mjs` and
+`build-sets.mjs` read the corpus directories. Each one stops and says which
+script to run first.
+
+Two of the dependencies above are on a **selection file** rather than on an
+emitted one, which is why the kanji scripts head the list. `build-vocab.mjs`
+resolves an `auto.single_kanji_from_set` row (`ch6`, `ch10`) through
+`lib/kanjisets.mjs`, which reads `selection/kanji.json`, and `build-phon.mjs`
+reads the same file for its anchors. A set row that is not in
+`selection/kanji.json` yet fails the run rather than emitting a short slice.
+
+`build-reading.mjs` and `build-piano.mjs` depend on nothing in this repo. Each
+one fetches its own upstream, re-derives every safety judgment from that
+upstream on every run, and prints per file what it kept and what it refused:
+the story's card id, orthography, contributor death years and ruby count for
+Aozora; the readable-bar and drillable-note counts, the SPDX id read out of the
+`.rdf` and the maintainer for Mutopia. A piece whose bars cannot be read
+exactly keeps its place and its credits and contributes no items, because a
+score inferred from an ambiguous bar is invented content wearing a corpus's
+clothes.
 
 ## Looking at what you generated
 
@@ -52,7 +74,9 @@ time.
 - **Network**, once. Roughly 43 MB of upstream archives land in a cache
   **outside the repository** (`$TMPDIR/runcible-corpus-cache`, override with
   `RUNCIBLE_CACHE`), so a site that publishes its own source never carries a
-  25 MB dictionary archive by accident.
+  25 MB dictionary archive by accident. `build-reading.mjs` and
+  `build-piano.mjs` add their own subdirectories of that cache
+  (`aozora/`, `mutopia/`) and restore a missing one by fetching it again.
 
 ## Sources, pinned
 
@@ -68,6 +92,14 @@ but a re-release does not block a rebuild.
 | KanjiVG | `r20250816` | CC BY-SA 3.0 |
 | Tatoeba jpn, eng, jpn-eng links | export of 2026-08-29 | CC BY 2.0 FR |
 | wanakana | `5.3.1` | MIT |
+
+Two upstreams are pinned in their own selection file instead, because what is
+pinned is a list of works and not one archive:
+
+| Source | Pinned in | Licence of the output |
+|---|---|---|
+| Aozora Bunko, four children's stories plus the bibliography CSV | `selection/reading.json` (`index.sha256`, card ids, and the filters re-asserted per run) | public domain, with the Japan and US verdicts in each file |
+| Mutopia Project, twelve piano pieces | `selection/piano.json` (`upstream.base`, one path per piece) | read from each piece's own `.rdf`, never typed: public domain or CC BY-SA 2.5 |
 
 **Derived data inherits the source licence, not the repo's MIT.** A trimmed
 vocabulary file made from JMdict is CC BY-SA 4.0. Every emitted file opens with
@@ -86,6 +118,9 @@ Recorded here so nobody re-opens it while reading a tempting README elsewhere.
 | BCCWJ frequency lists | "Free for use for research or educational purposes" is not a free licence. JMdict's own `common` flag gives frequency, and we already pay its attribution. |
 | Kaishi 1.5k and the Core decks | Unlicensed. Kaishi's own README says its data came from the Core decks, and neither repo ships a LICENSE. |
 | animCJK | LGPL for kana and Arphic for kanji, two licence regimes inside one feature. KanjiVG covers both under one CC BY-SA 3.0 grant. |
+| KanjiCanvas, Zinnia, Tomoe | Handwriting recognition, and 2.4 MB of it in KanjiCanvas's case. All three are order-free by design, so none of them can grade the thing `jp.tegaki` exists to grade. That module reads the KanjiVG reference paths already in `data/kanji/` and grades against them. |
+| Tadoku, NHK, Tofugu, musictheory.net, IMSLP | No licence grant, so nothing of theirs is fetched or copied. Each appears in the Books as a URL in plain text and nowhere else. |
+| abcjs, soundfonts, Web MIDI | Out of scope until the owner rules on a vendored UMD global. `build-piano.mjs` reads the LilyPond source Mutopia engraves from, so no playback library is needed to know a note's name. |
 
 ## The one rule that does not bend
 

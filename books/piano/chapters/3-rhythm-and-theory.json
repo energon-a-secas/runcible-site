@@ -1,65 +1,219 @@
 {
   "format": "neo-chapter/1",
   "id": "3-rhythm-and-theory",
-  "title": { "en": "Rhythm and theory items", "es": null },
+  "title": { "en": "Rhythm and theory items", "es": "Ítems de ritmo y teoría" },
   "goal": {
     "statement": {
       "en": "Clap a bar in simple and in compound meter, and name any key signature, interval and triad on sight",
-      "es": null
-    }
+      "es": "Marcar con palmas un compás simple y uno compuesto, y nombrar a primera vista cualquier armadura, intervalo y tríada"
+    },
+    "evidence": { "skill": "piano.theory.name", "accuracy": 0.85, "min": 30, "window": 60 }
   },
   "requires": ["2-notation"],
   "state": "ready",
+  "estimate": {
+    "minutes": 240,
+    "note": {
+      "en": "Four closed sets of about ten items each. The reading is one sitting; the recall is the part that takes weeks, and it is what a scheduler is for.",
+      "es": "Cuatro conjuntos cerrados de unos diez ítems cada uno. La lectura es una sesión; el recuerdo es la parte que toma semanas, y para eso sirve un planificador."
+    }
+  },
+  "data": ["data/piano/theory.json"],
   "rungs": [
     {
       "id": "the-item-inventory",
-      "title": { "en": "The item inventory", "es": null },
+      "title": { "en": "The item inventory", "es": "El inventario de ítems" },
       "unlocks": {
         "en": "everything a scheduler can hold, which is the layer the whole paid market is built on",
-        "es": null
+        "es": "todo lo que un planificador puede sostener, que es la capa sobre la que se construye todo el mercado de pago"
       },
       "pages": [
         {
           "id": "p-groups",
           "kind": "prose",
-          "title": { "en": "Four groups of items, all closed sets", "es": null },
+          "title": { "en": "Four groups of items, all closed sets", "es": "Cuatro grupos de ítems, todos conjuntos cerrados" },
           "body": {
             "en": [
               "musictheory.net groups two to five are rhythm and meter, scales and key signatures, intervals, and chords. All four are closed sets, all four are small, and all four reward being asked at increasing intervals rather than being read once.",
-              "This is the piano equivalent of the kanji and vocabulary engine: a few hundred items with a prerequisite order, where the value is that the learner never decides what to practise today."
+              "This is the piano equivalent of the kanji and vocabulary engine: a few hundred items with a prerequisite order, where the value is that the learner never decides what to practise today.",
+              "The first of the four is meter. The lower number of a time signature says which note gets counted and the upper number says how many of them fill a bar. A player counting 6/8 counts two beats of three rather than six, which is a fact about how it is felt and not about what is written. The drill asks what is written."
             ],
-            "es": null
+            "es": [
+              "Los grupos dos a cinco de musictheory.net son ritmo y métrica, escalas y armaduras, intervalos y acordes. Los cuatro son conjuntos cerrados, los cuatro son pequeños y los cuatro se benefician de que se pregunten a intervalos crecientes en lugar de leerse una vez.",
+              "Es el equivalente pianístico del motor de kanji y vocabulario: unos pocos cientos de ítems con un orden de prerrequisitos, donde el valor está en que quien aprende nunca decide qué practicar hoy.",
+              "El primero de los cuatro es la métrica. El número inferior de la cifra de compás dice qué figura se cuenta y el superior dice cuántas de ellas llenan un compás. Quien toca un 6/8 cuenta dos pulsos de tres y no seis, lo que es un hecho sobre cómo se siente y no sobre lo que está escrito. El ejercicio pregunta por lo escrito."
+            ]
           }
         },
         {
-          "id": "p-table",
-          "kind": "table",
-          "title": { "en": "The five phases, and what each one lets you do", "es": null },
-          "columns": [
-            { "en": "Phase", "es": null },
-            { "en": "What you can do at the end of it", "es": null }
-          ],
-          "rows": [
-            ["1. Keyboard geography", "Name any white key, sit correctly, play a five note pattern by rote in two keys"],
-            ["2. Notation", "Read a note on the grand staff without counting up from middle C"],
-            ["3. Rhythm and theory items", "Clap a bar in simple and compound meter, name any key signature, interval and triad"],
-            ["4. Repertoire, graded", "Play a short public-domain piece to the end at a steady tempo"],
-            ["5. Harmony and independence", "Harmonise a melody, read chord progressions, play hands independently"]
-          ]
+          "id": "p-phases",
+          "kind": "prose",
+          "title": { "en": "The five phases, and what each one lets you do", "es": "Las cinco fases, y qué te permite cada una" },
+          "body": {
+            "en": [
+              "One. Keyboard geography: name any white key, sit correctly, play a five note pattern by rote in two keys.",
+              "Two. Notation: read a note on the grand staff without counting up from middle C.",
+              "Three. Rhythm and theory items: clap a bar in simple and compound meter, name any key signature, interval and triad.",
+              "Four. Repertoire, graded: read every note of a short public-domain piece off the staff, and play it to the end at a steady tempo.",
+              "Five. Harmony and independence: harmonise a melody, read chord progressions, play hands independently. Not built."
+            ],
+            "es": [
+              "Uno. Geografía del teclado: nombrar cualquier tecla blanca, sentarse correctamente, tocar de memoria un patrón de cinco notas en dos tonalidades.",
+              "Dos. Notación: leer una nota en el sistema de dos pentagramas sin contar hacia arriba desde el do central.",
+              "Tres. Ítems de ritmo y teoría: marcar con palmas un compás simple y uno compuesto, nombrar cualquier armadura, intervalo y tríada.",
+              "Cuatro. Repertorio graduado: leer del pentagrama cada nota de una pieza corta de dominio público, y tocarla hasta el final a tempo estable.",
+              "Cinco. Armonía e independencia: armonizar una melodía, leer progresiones de acordes, tocar con las manos independientes. No está construida."
+            ]
+          },
+          "note": {
+            "en": [
+              "This was a table until 2026-09-08. A table's cells render as one string in both languages, so the Spanish half of it was never going to appear; the ladder is worth more bilingual than tabular."
+            ],
+            "es": [
+              "Esto era una tabla hasta el 2026-09-08. Las celdas de una tabla se muestran como una sola cadena en los dos idiomas, así que la mitad en español nunca iba a aparecer; la escalera vale más bilingüe que tabulada."
+            ]
+          }
         },
         {
           "id": "p-thin",
           "kind": "callout",
           "tone": "warn",
-          "title": { "en": "How much to trust this ladder", "es": null },
+          "title": { "en": "How much to trust this ladder", "es": "Cuánto confiar en esta escalera" },
           "body": {
             "en": [
               "Less than the Japanese one. The research pass that produced it says so in its own words: the evidence base for piano is thinner and was not cross-checked to the same depth.",
-              "Two specific gaps. Hoffman Academy states neither its premium price nor which of the 360 lessons are free. The ABRSM syllabus refused the fetch, so the grade structure is unverified, and IMSLP was never fetched at all, which is why chapter 4 has no score list.",
-              "A ladder built on unread sources is a guess with a table around it. It is published here as a sketch of a Book, not as a course."
+              "Two gaps are still open. Hoffman Academy states neither its premium price nor which of the 360 lessons are free. The ABRSM syllabus refused the fetch twice, so every grade number in this Book is the Royal Conservatory's 2022 syllabus and none of it is ABRSM's.",
+              "One gap closed. The score list chapter 4 needs was missing because IMSLP had not been fetched; the second pass found the Mutopia Project instead, which licenses per piece and publishes machine-readable licences, and chapter 4 is built on that."
             ],
-            "es": null
+            "es": [
+              "Menos que la del japonés. La investigación que la produjo lo dice con sus propias palabras: la base de evidencia del piano es más delgada y no se contrastó con la misma profundidad.",
+              "Quedan dos vacíos abiertos. Hoffman Academy no declara ni el precio de su plan de pago ni cuáles de las 360 lecciones son gratuitas. El temario de ABRSM rechazó la descarga dos veces, así que cada número de grado de este libro viene del temario 2022 del Royal Conservatory y ninguno es de ABRSM.",
+              "Un vacío se cerró. La lista de partituras que necesita el capítulo 4 faltaba porque no se había consultado IMSLP; la segunda investigación encontró en su lugar el Mutopia Project, que licencia pieza por pieza y publica licencias legibles por máquina, y sobre eso está construido el capítulo 4."
+            ]
           }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-meter",
+          "type": "choice",
+          "skill": "piano.theory.name",
+          "title": { "en": "How many fit in one bar?", "es": "¿Cuántas caben en un compás?" },
+          "items": "data/piano/theory.json#groups.meter",
+          "prompt": "signature",
+          "answer": "beats",
+          "distractors": { "from": "siblings", "n": 3 },
+          "count": 10,
+          "pass": { "accuracy": 0.8 }
+        }
+      ]
+    },
+    {
+      "id": "signatures-and-distances",
+      "title": { "en": "Signatures, and the distance between two letters", "es": "Armaduras, y la distancia entre dos letras" },
+      "unlocks": {
+        "en": "reading an accidental correctly, because a sharp already in the signature is not printed again on the note",
+        "es": "leer bien una alteración, porque un sostenido que ya está en la armadura no se vuelve a imprimir en la nota"
+      },
+      "pages": [
+        {
+          "id": "p-signatures",
+          "kind": "prose",
+          "title": { "en": "A signature is an order, not a set", "es": "Una armadura es un orden, no un conjunto" },
+          "body": {
+            "en": [
+              "Sharps arrive in the order F C G D A E B and flats in exactly that order backwards, B E A D G C F. One sharp is always F sharp, two are always F and C, and a signature can never skip one. That is why counting them is enough to name the key.",
+              "Every signature names two keys, a major one and the minor one three semitones below it. One sharp is G major or E minor, and the notes on the page are the same either way. This Book asks for the major name.",
+              "The signature is also why chapter 4's drawn bars print so few accidentals. A note already altered by the signature is written plain, and an accidental appears only where the piece steps outside its own key. The corpus settles which is which before the bar is drawn."
+            ],
+            "es": [
+              "Los sostenidos aparecen en el orden fa do sol re la mi si, y los bemoles exactamente en ese orden al revés, si mi la re sol do fa. Un sostenido siempre es fa sostenido, dos siempre son fa y do, y una armadura nunca puede saltarse uno. Por eso basta con contarlos para nombrar la tonalidad.",
+              "Cada armadura nombra dos tonalidades, una mayor y la menor que está tres semitonos por debajo. Un sostenido es sol mayor o mi menor, y las notas de la página son las mismas en ambos casos. Este libro pide el nombre mayor.",
+              "La armadura también explica por qué los compases dibujados del capítulo 4 imprimen tan pocas alteraciones. Una nota ya alterada por la armadura se escribe sin nada, y una alteración aparece solo donde la pieza se sale de su propia tonalidad. El corpus resuelve cuál es cuál antes de dibujar el compás."
+            ]
+          }
+        },
+        {
+          "id": "p-intervals",
+          "kind": "prose",
+          "title": { "en": "Count the letters first, then the semitones", "es": "Cuenta primero las letras, después los semitonos" },
+          "body": {
+            "en": [
+              "An interval is named twice over. The letters give the number: C to E is a third because C, D, E is three letters, whatever accidentals are on them. The semitones give the quality: four of them make that third major, three make it minor.",
+              "The white keys are not evenly spaced, which is the whole reason quality exists. B to F spans four letters like every other fifth and only six semitones, so it is the one fifth in a major scale that is diminished rather than perfect."
+            ],
+            "es": [
+              "Un intervalo se nombra dos veces. Las letras dan el número: de do a mi hay una tercera porque do, re, mi son tres letras, sean cuales sean sus alteraciones. Los semitonos dan la calidad: cuatro hacen esa tercera mayor, tres la hacen menor.",
+              "Las teclas blancas no están espaciadas de manera uniforme, y esa es toda la razón de que exista la calidad. De si a fa hay cuatro letras, como en cualquier otra quinta, y solo seis semitonos, así que es la única quinta de una escala mayor que es disminuida y no justa."
+            ]
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-keys",
+          "type": "choice",
+          "skill": "piano.theory.name",
+          "title": { "en": "Which major key is this?", "es": "¿Qué tonalidad mayor es esta?" },
+          "items": "data/piano/theory.json#groups.keys",
+          "prompt": "written",
+          "answer": "key",
+          "distractors": { "from": "siblings", "n": 3 },
+          "count": 9,
+          "pass": { "accuracy": 0.8 }
+        },
+        {
+          "id": "e-intervals",
+          "type": "choice",
+          "skill": "piano.theory.name",
+          "title": { "en": "How far apart are they?", "es": "¿A qué distancia están?" },
+          "items": "data/piano/theory.json#groups.intervals",
+          "prompt": "pair",
+          "answer": "interval",
+          "distractors": { "from": "siblings", "n": 3 },
+          "count": 10,
+          "pass": { "accuracy": 0.8 }
+        }
+      ]
+    },
+    {
+      "id": "triads",
+      "title": { "en": "Three letters, every other one", "es": "Tres letras, una de por medio" },
+      "unlocks": {
+        "en": "the left hand of every piece in chapter 4, which is mostly triads taken apart",
+        "es": "la mano izquierda de cada pieza del capítulo 4, que en su mayor parte son tríadas desarmadas"
+      },
+      "pages": [
+        {
+          "id": "p-triads",
+          "kind": "prose",
+          "title": { "en": "Skip a letter, twice", "es": "Sáltate una letra, dos veces" },
+          "body": {
+            "en": [
+              "A triad is a letter, the letter two above it, and the letter two above that: C E G, D F A, G B D. Every plain triad is built the same way, and the letters never change with the quality.",
+              "What changes is the size of the two thirds. Major on the bottom and minor on top is a major triad. Minor then major is a minor one. Two minors make it diminished, two majors augmented, and those last two are the ones worth meeting once so they are not a surprise in chapter 4.",
+              "Type the three letters with spaces between them. A sharp may be typed as the symbol or as the word."
+            ],
+            "es": [
+              "Una tríada es una letra, la letra dos más arriba y la letra dos más arriba de esa: do mi sol, re fa la, sol si re. Toda tríada simple se construye igual, y las letras no cambian con la calidad.",
+              "Lo que cambia es el tamaño de las dos terceras. Mayor abajo y menor arriba es una tríada mayor. Menor y luego mayor es una menor. Dos menores la hacen disminuida, dos mayores aumentada, y esas dos últimas conviene verlas una vez para que no sorprendan en el capítulo 4.",
+              "Escribe las tres letras separadas por espacios. Un sostenido se puede escribir con el símbolo o con la palabra."
+            ]
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-triads",
+          "type": "typed",
+          "skill": "piano.theory.name",
+          "title": { "en": "Spell the triad", "es": "Deletrea la tríada" },
+          "items": "data/piano/theory.json#groups.triads",
+          "prompt": "chord",
+          "answer": "notes",
+          "compare": "trim|casefold|collapse-space",
+          "count": 9,
+          "pass": { "accuracy": 0.8 }
         }
       ]
     }

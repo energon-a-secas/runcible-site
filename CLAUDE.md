@@ -2,11 +2,12 @@
 
 A learning book that grades you. Books are data packages under `books/<id>/`
 (a manifest, chapters made of rungs, pages and exercise specs); the shell
-provides nine generic exercise types, evidence-based chapter unlocking with a
-visible override, a Today view, and a `{en,es}` reader. The first Book is
-Japanese, the second a Piano stub that proves the shell knows no subject.
-Rappel decks are embedded by iframe. Progress is local-first; Convex sync is
-dormant until a Clerk key is on the page.
+provides ten generic exercise types, evidence-based chapter unlocking with a
+visible override, a Today view, and a `{en,es}` reader. Two Books ship, both
+`ready`: Japanese, fifteen chapters, and Piano, four, which is what proves the
+shell knows no subject. Rappel decks and Quiz rounds are embedded by iframe.
+Progress is local-first; Convex sync is dormant until a Clerk key is on the
+page.
 
 **Live:** runcible.neorgon.com · **Port:** 8878
 
@@ -14,13 +15,14 @@ dormant until a Clerk key is on the page.
 
 ```bash
 make serve       # http://localhost:8878, scripts/serve.py with no-cache and CORS
-make validate    # check-licence, validate-book, shell rules, validate-corpus
+make validate    # check-licence, validate-book, shell rules, validate-corpus, validate-phrases
 npm test         # the Convex merge rules under plain node, no deployment
 ```
 
 It must be served over HTTP. The app is ES modules and `file://` blocks them.
-A `deck` exercise on localhost embeds `http://localhost:8879`, so serve
-`projects/rappel-site/` as well to see one.
+A `deck` exercise on localhost embeds `http://localhost:8879` and a `quiz`
+exercise embeds `http://localhost:8880`, so serve `projects/rappel-site/` and
+`projects/quiz-site/` as well to see one of each.
 
 `make validate` is the definition of done for any change under `books/` or
 `data/`. It is not in the root `make smoke`; nothing runs it for you. The
@@ -30,45 +32,54 @@ engine's own rig is `/js/exercises/fixtures/harness.html`.
 
 | Module | Lines | Owns |
 |---|---:|---|
-| `js/vendor/wanakana.js` | 1822 | none |
-| `js/render.js` | 493 | `render`, `startExercise` |
-| `js/sync.js` | 343 | `syncAvailable`, `initSync`, `pull`, `push`, `pushBatch` |
-| `js/state.js` | 327 | `PREFS_KEY`, `PROGRESS_KEY`, `EVIDENCE_CAP`, `state`, `loadSaved` |
-| `js/books.js` | 319 | `CATALOG_SRC`, `LoadError`, `loadCatalog`, `openBook`, `declaredEntry` |
-| `js/progress.js` | 289 | `recordAttempt`, `attemptsFor`, `evidenceStatus`, `requiresFor`, `currentTrack` |
-| `js/neorgon-beacon.js` | 263 | none |
-| `js/exercises/fixtures/harness.js` | 247 | none |
-| `js/exercises/speech.js` | 239 | `synthAvailable`, `loadVoices`, `voicesFor`, `hasVoiceFor`, `speak` |
-| `js/exercises/registry.js` | 231 | `EXERCISE_VERSION`, `createExerciseRegistry` |
-| `js/exercises/session.js` | 203 | `createSession` |
-| `js/embed.js` | 200 | `rappelOrigin`, `deckUrl`, `mountDeckEmbed` |
-| `js/vendor/neorgon-auth.js` | 167 | `initNeorgonClerkConvex`, `neorgonSignOut`, `neorgonDisplayLabel` |
-| `js/exercises/items.js` | 165 | `resolveList`, `shuffle`, `pickItems`, `fieldValue`, `displayValue` |
-| `js/exercises/types/typed.js` | 158 | `askTyped`, `mount` |
-| `js/neorgon-persist.js` | 152 | `safeGet`, `safeSet`, `safeRemove`, `safeGetJSON`, `safeSetJSON` |
-| `js/exercises/types/order.js` | 146 | `mount` |
-| `js/exercises/spec.js` | 140 | `GENERIC_TYPES`, `REQUIRED_FIELDS`, `NEVER_GRADED`, `validateExerciseSpec`, `checkRegisteredId` |
-| `js/i18n.js` | 138 | `LANGS`, `beginPage`, `hadFallback`, `t`, `tList` |
-| `js/exercises/types/listen.js` | 134 | `mount` |
-| `js/exercises/types/match.js` | 118 | `mount` |
-| `js/exercises/types/speak.js` | 116 | `mount` |
-| `js/exercises/fixtures/book-module.js` | 112 | `PROVIDES` |
-| `js/today.js` | 111 | `composeToday`, `firstUnfinishedRung` |
-| `js/exercises/types/choice.js` | 111 | `askChoice`, `mount` |
-| `js/exercises/types/page.js` | 109 | `renderPage` |
-| `js/exercises/compare.js` | 94 | `DEFAULT_COMPARE`, `COMPARE_TOKENS`, `parseCompare`, `normalise`, `isCorrect` |
-| `js/exercises/types/read.js` | 93 | `mount` |
-| `js/events.js` | 92 | `bindEvents` |
-| `js/exercises/dom.js` | 90 | `el`, `append`, `button`, `clear`, `focus` |
-| `js/utils.js` | 88 | `h`, `append`, `clear`, `showToast`, `debounce` |
-| `js/exercises/types/deck.js` | 77 | `mount` |
-| `js/exercises/ask.js` | 57 | `questionFrame`, `advance`, `digitPicker` |
-| `js/exercises/errors.js` | 55 | `locate`, `ExerciseError` |
-| `js/router.js` | 54 | `ROUTES`, `href`, `parse`, `go`, `start` |
-| `js/exercises/bilingual.js` | 35 | `paragraphs` |
-| `js/exercises/index.js` | 31 | none |
-| `js/exercises/types/custom.js` | 24 | `mountWith` |
-| `js/app.js` | 20 | none |
+| `js/quiz-host.js` | 361 | PROTOCOL_VERSION, GAMES, quizOrigin, quizUrl, acceptable, and more |
+| `js/sync.js` | 345 | syncAvailable, initSync, pull, push, pushBatch, and more |
+| `js/state.js` | 344 | PREFS_KEY, PROGRESS_KEY, EVIDENCE_CAP, state, loadSaved, and more |
+| `js/books.js` | 335 | CATALOG_SRC, LoadError, loadCatalog, openBook, declaredEntry, and more |
+| `js/exercises/feedback.js` | 318 | explainWrong, explainRight |
+| `js/progress.js` | 297 | recordAttempt, attemptsFor, evidenceStatus, requiresFor, currentTrack, and more |
+| `js/exercises/types/match.js` | 272 | mount |
+| `js/i18n.js` | 260 | LANGS, beginPage, hadFallback, onFallback, t, and more |
+| `js/exercises/fixtures/harness.js` | 246 | none |
+| `js/exercises/speech.js` | 240 | synthAvailable, loadVoices, voicesFor, hasVoiceFor, speak, and more |
+| `js/exercises/session.js` | 238 | createSession |
+| `js/exercises/registry.js` | 233 | EXERCISE_VERSION, createExerciseRegistry |
+| `js/render-chapter.js` | 229 | chapterView, drillRow |
+| `js/exercises/spec.js` | 223 | GENERIC_TYPES, REQUIRED_FIELDS, NEVER_GRADED, QUIZ_FILTER_FIELDS, QUIZ_TIMED_DEFAULT, and more |
+| `js/render-mount.js` | 211 | setRepaint, setPending, scrollToId, destroyMounted, startExercise, and more |
+| `js/exercises/types/typed.js` | 208 | askTyped, mount |
+| `js/render-today.js` | 203 | todayView |
+| `js/embed.js` | 201 | rappelOrigin, deckUrl, mountDeckEmbed |
+| `js/exercises/items.js` | 199 | resolveList, shuffle, pickItems, fieldValue, displayValue, and more |
+| `js/exercises/strings.js` | 188 | STRINGS, chrome |
+| `js/exercises/types/order.js` | 188 | mount |
+| `js/exercises/ask.js` | 174 | questionFrame, advance, optionList, roving, digitPicker |
+| `js/events.js` | 149 | bindEvents |
+| `js/exercises/types/listen.js` | 144 | mount |
+| `js/exercises/types/choice.js` | 123 | askChoice, mount |
+| `js/today.js` | 122 | composeToday, firstUnfinishedRung |
+| `js/exercises/types/speak.js` | 117 | mount |
+| `js/exercises/fixtures/book-module.js` | 111 | PROVIDES |
+| `js/exercises/types/page.js` | 109 | renderPage |
+| `js/render-shared.js` | 105 | action, link, textLink, textAction, stateGlyph, and more |
+| `js/render-contents.js` | 96 | catalogView, trackPicker, bookView |
+| `js/exercises/types/read.js` | 94 | mount |
+| `js/exercises/compare.js` | 93 | DEFAULT_COMPARE, COMPARE_TOKENS, parseCompare, normalise, isCorrect |
+| `js/exercises/types/quiz.js` | 91 | mount |
+| `js/exercises/dom.js` | 89 | el, append, button, clear, focus, and more |
+| `js/render-rail.js` | 88 | railNode |
+| `js/utils.js` | 87 | h, append, clear, showToast, debounce, and more |
+| `js/render-pages.js` | 86 | pageNode, tableNode, figureNode |
+| `js/render.js` | 85 | render |
+| `js/exercises/types/deck.js` | 77 | mount |
+| `js/exercises/errors.js` | 54 | locate, ExerciseError |
+| `js/router.js` | 53 | ROUTES, href, parse, go, start |
+| `js/render-settings.js` | 52 | settingsView |
+| `js/exercises/bilingual.js` | 34 | paragraphs |
+| `js/exercises/index.js` | 33 | none |
+| `js/exercises/types/custom.js` | 23 | mountWith |
+| `js/app.js` | 19 | none |
+| the six vendored files below | 3645 | none, and never edited here |
 
 Import direction, which the contracts freeze: the shell imports
 `js/exercises/index.js` and nothing else under that directory; a Book module
@@ -91,8 +102,9 @@ and the matching `css/neorgon-*.css`. `js/vendor/wanakana.js` is upstream
 - `localStorage['runcible:progress:v1']`: `{ books: { <bookId>: { chapters, evidence, decks } } }`, evidence windows capped at 200 attempts per skill
 - `localStorage['runcible:lyrics:v1']`: owned by the Japanese Book's `jp.lyrics` module, never synced, never put in a URL. The Convex schema has no table for it on purpose
 - Convex tables: `evidence`, `prefs`, `progress` (see `convex/schema.ts`). Dev deployment `knowing-pheasant-276`, public URL in `js/sync.js`
-- `books/`: `index.json` (neo-book-index/1), `japanese/` (9 ready chapters, 4 planned, 6 modules, 4 decks, 41 declared data files), `piano/` (3 ready, 2 planned, no modules, no data)
-- `data/`: 37 JSON files, every one opening with a `_licence` block, plus `data/README.md`, the corpus contract; the format spec for authoring a Book is `llms.txt`
+- `books/`: `index.json` (neo-book-index/1), `japanese/` (15 ready chapters, none planned, 7 modules, 8 decks, 28 sets, 89 declared data files), `piano/` (4 ready, 1 planned, 1 module, 8 declared data files)
+- `data/`: 61 JSON files, every one opening with a `_licence` block, plus `data/README.md`, the corpus contract; the format spec for authoring a Book is `llms.txt`
+- The Japanese ladder is not the file order. `13-writing-system` sits after `2-katakana` and `14-phrases` after `4-first-words`, because array order in `book.json` is display order and the numbers are only ids
 
 ## Conventions
 
@@ -279,10 +291,13 @@ thing is tested in both directions, which is what weak-item resurfacing needs.
 
 **`make validate` is composable and no target is rewritten.** Each validator is
 its own `.PHONY` target plus a bare `validate: <target>` line (C12 A8). Add
-yours the same way; never edit another workstream's line. Five warnings are the
-accepted baseline: `8-study-plan` and the three Piano chapters have no
-`goal.evidence` and can never be passed, and `e-deck-sentences` feeds another
-chapter's skill (see the first Gotcha).
+yours the same way; never edit another workstream's line. Five targets run
+today: `validate-licence`, `validate-books`, `validate-shell`,
+`validate-corpus` and `validate-phrases`. **Two warnings are the accepted
+baseline**, down from five when the three Piano chapters gained evidence:
+`8-study-plan` has no `goal.evidence` on purpose (nothing requires it, and its
+first rung says it cannot be passed), and `e-deck-sentences` feeds another
+chapter's skill (see the first Gotcha). A third warning is a regression.
 
 **What QA did not cover (TEST-REPORT section 6):** anything behind sign-in, a
 successful `rappel:restore`, the `page` renderer inside a `read` exercise (no
@@ -304,6 +319,36 @@ them as drills (`engine().exerciseImpl(id)`); a module that omits the flag is
 graded. A skipped or crashed exercise (`api.done({ skipped })`,
 `api.done({ error })`) is not marked done.
 
+**An item field cannot be bilingual, and the failure is a blank, not an error.**
+`fieldValue` in `js/exercises/items.js` hands an object straight back and
+`displayValue` renders any object as the empty string, so an `{en, es}` inside a
+corpus record or an inline item mounts a **blank prompt or a blank option**.
+Every field a `prompt`, `answer`, `left`, `right`, `speak` or `expect` names is
+a plain string, in every data file and every inline item, and the Spanish rides
+on the rung's pages and on the item's `explain`, which `js/exercises/feedback.js`
+does resolve through `session.t`. That is what the authored `situation` label in
+`data/vocab/ch11.json` is for and why chapter 11 writes `prompt: "situation.en"`
+rather than `prompt: "situation"`. Reported by two workstreams on 2026-09-08 and
+deliberately not fixed: a bilingual cue is a shell change.
+
+**A `table` page's cells are stringified, so a cell cannot be bilingual either.**
+`js/render-pages.js` reads a cell as `columns[i].key || columns[i].en` and wraps
+it in `String(...)`. An `{en, es}` object prints `[object Object]`; a plain
+string prints English to a Spanish reader. `data/phrases/ch14.json` therefore
+carries `kana`, `en` and `es` as three separate string columns, and the Piano
+phase table became a prose page instead. Same class as the item finding above,
+same ruling.
+
+**A content page cannot carry a link, so every URL in a Book is plain text.**
+The page renderer emits text nodes and the only anchor the shell draws from data
+is the attribution block's `links[]` (`js/render-shared.js:103`). The 34 URLs in
+chapters 9 to 14 (NHK's two lesson indexes, Tadoku, Aozora, the Mutopia MIDI
+paths) sit in callout bodies as text on purpose. A `links[]` field on a content
+page is a shell change and was reported, never built. Related, and a licence
+rule rather than a shell one: **NHK, Tadoku, Tofugu, musictheory.net and IMSLP
+are link-only.** No page of theirs is fetched by any script here (NHK's
+`robots.txt` disallows `ClaudeBot`) and not one string of theirs is copied.
+
 ### The second embed host: Quiz
 
 `js/quiz-host.js` mirrors `js/embed.js` for quiz.neorgon.com and is wired through
@@ -324,4 +369,5 @@ byte-identical to `projects/quiz-site/data/sets/`; never hand-edit either copy.
 - `js/vendor/wanakana.js`: upstream, refreshed by `node tools/vendor-wanakana.mjs` after changing the pin in `tools/lib/sources.mjs`.
 - `convex/_generated/`: rebuilt by `npx convex dev`.
 - `data/**` and `books/japanese/decks/*.json`: emitted by `tools/build-*.mjs` from pinned upstreams, or hand-verified from Unicode names. Rebuild, do not hand edit; every output is committed so a bad run is `git checkout`.
+  **The four decks the campaign shipped first are the exception, and it is flagged in the data rather than remembered.** `jp-first-words`, `jp-grammar-words`, `jp-kanji-grade1` and `jp-sentences-basic` were corrected by hand in commit `5124bee` and `build-decks.mjs` was never taught the three corrections, so a plain regeneration would silently undo a teacher's work. `held: true` on their `tools/selection/decks.json` rows makes the file under `books/` the document: the generator copies it to Rappel and counts its catalog row from it. Folding those corrections into the generator and dropping the flag is the real fix and it is a content decision.
 - `favicon.*`, `apple-touch-icon.png`, `web-app-manifest-*.png`, `site.webmanifest`: generated by `packages/neorgon-ui/sync-favicon.sh` from this site's hub card.

@@ -78,3 +78,13 @@ validate: validate-corpus
 .PHONY: validate-corpus
 validate-corpus:
 	@node tools/validate-corpus.mjs
+
+# The one authored corpus file, data/phrases/ch14.json (neo-phrases/1): the
+# sentence patterns and two-turn exchanges chapter 14 shows as prose. Nothing
+# in it is ever scored, which is exactly why it needs a gate: an authored line
+# is the one place a word the Book never taught can enter. Added as its own
+# bare prerequisite line, per the note above.
+validate: validate-phrases
+.PHONY: validate-phrases
+validate-phrases:
+	@node tools/validate-phrases.mjs

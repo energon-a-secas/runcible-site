@@ -51,6 +51,49 @@
           }
         },
         {
+          "id": "p-okurigana",
+          "kind": "prose",
+          "title": {
+            "en": "The kana after the character are doing two jobs",
+            "es": "Los kana que siguen al carácter hacen dos trabajos"
+          },
+          "body": {
+            "en": [
+              "A verb or an adjective is written as a character with a kana tail: 上がる, 生きる, 新しい. The tail is called okurigana, and told as an arbitrary ending it is one more thing to memorise. Told properly it is the thing that makes the character readable at all.",
+              "The first job is the obvious one. The tail carries the inflection, so the character never changes shape and the conjugation happens entirely in the kana. That is the same boundary chapter 5's verb families run along.",
+              "The second job is the one that pays here. The tail picks which of the character's readings is meant. 上がる is agaru and 上る is noboru, the same character with two different words behind it, told apart by nothing but the kana. 生きる, 生かす and 生まれる are ikiru, ikasu and umareru. So the tail is not attached to the reading, it selects it, and a character shown without its tail is genuinely ambiguous rather than merely unfamiliar.",
+              "Where the tail is cut is a national rule, 送り仮名の付け方, a Cabinet notification of 1973 amended in 1981. It is built in three tiers, a main rule, a list of exceptions, and a tier of permitted alternatives, which is why 行う and 行なう are both correct and why legal drafting uses only the first two tiers. As a beginner fact one sentence is enough: two spellings of the same word can both be right, and the one you are used to is the one your reader is used to."
+            ],
+            "es": [
+              "Un verbo o un adjetivo se escribe como un carácter con una cola de kana: 上がる, 生きる, 新しい. La cola se llama okurigana, y contada como una terminación arbitraria es una cosa más que memorizar. Contada bien es lo que hace legible el carácter.",
+              "El primer trabajo es el evidente. La cola lleva la flexión, así que el carácter nunca cambia de forma y la conjugación ocurre entera en los kana. Ese es el mismo límite por el que corren las familias verbales del capítulo 5.",
+              "El segundo trabajo es el que aquí importa. La cola elige cuál de las lecturas del carácter se quiere. 上がる es agaru y 上る es noboru, el mismo carácter con dos palabras distintas detrás, distinguidas solo por los kana. 生きる, 生かす y 生まれる son ikiru, ikasu y umareru. Así que la cola no está pegada a la lectura, la selecciona, y un carácter mostrado sin su cola es realmente ambiguo y no solo poco familiar.",
+              "Dónde se corta la cola es una regla nacional, 送り仮名の付け方, una notificación del gabinete de 1973 modificada en 1981. Está construida en tres niveles, una regla principal, una lista de excepciones y un nivel de alternativas permitidas, y por eso 行う y 行なう son las dos correctas y por eso la redacción legal usa solo los dos primeros niveles. Como dato para principiantes basta una frase: dos grafías de la misma palabra pueden ser las dos correctas, y la que te resulta familiar es la que le resulta familiar a quien te lee."
+            ]
+          }
+        },
+        {
+          "id": "p-furigana",
+          "kind": "callout",
+          "tone": "note",
+          "title": {
+            "en": "How to read a character you have not learned",
+            "es": "Cómo leer un carácter que no has aprendido"
+          },
+          "body": {
+            "en": [
+              "Somebody prints the reading beside it. Furigana are small kana giving a character's reading, set to the right of it in vertical text and above the line in horizontal, and they are the reason a Japanese child can read a book long before knowing two thousand characters.",
+              "How much you get depends entirely on who the page was written for. 総ルビ, furigana on every character, is normal in books for young children and in shōnen and shōjo manga, and rare in comics for adults. Public documents are told to be narrower still: the 2022 guidance puts furigana on the characters and readings outside the everyday list and not on the whole compound.",
+              "There is one use that is not about reading at all. A writer can annotate a word with a different word, so the reader holds both at once, which is a device rather than a pronunciation guide. Meeting one and taking it for a reading is a normal mistake and worth knowing about before it happens."
+            ],
+            "es": [
+              "Alguien imprime la lectura al lado. Los furigana son kana pequeños que dan la lectura de un carácter, colocados a su derecha en texto vertical y encima de la línea en horizontal, y son la razón de que un niño japonés pueda leer un libro mucho antes de saber dos mil caracteres.",
+              "Cuántos recibes depende por completo de para quién se escribió la página. 総ルビ, furigana sobre cada carácter, es normal en libros para niños pequeños y en el manga shōnen y shōjo, y raro en el cómic para adultos. A los documentos públicos se les pide algo aún más estrecho: la guía de 2022 pone furigana sobre los caracteres y las lecturas que quedan fuera de la lista de uso común, y no sobre el compuesto entero.",
+              "Hay un uso que no va de leer en absoluto. Quien escribe puede anotar una palabra con otra palabra distinta, para que quien lee sostenga las dos a la vez, y eso es un recurso y no una guía de pronunciación. Encontrarse con uno y tomarlo por una lectura es un error normal, y conviene saberlo antes de que pase."
+            ]
+          }
+        },
+        {
           "id": "p-two-ladders",
           "kind": "prose",
           "title": { "en": "Two ways to order the first few hundred", "es": null },
@@ -177,6 +220,27 @@
             ],
             "es": null
           }
+        },
+        {
+          "id": "p-how-loose",
+          "kind": "callout",
+          "tone": "note",
+          "title": {
+            "en": "How much variation is fine, which is more than you fear",
+            "es": "Cuánta variación se admite, que es más de lo que temes"
+          },
+          "body": {
+            "en": [
+              "The figures above show one way to draw each character. They do not show the only correct way. The Cultural Council published a whole report about this in 2016, 常用漢字表の字体・字形に関する指針, and it exists because people had started treating printed shapes as the only right ones. Its operative sentence is that a character written so that its skeleton can be read is not to be judged a wrong character.",
+              "So a stroke that hooks where the print stops, or stops where the print sweeps, or joins where the print separates, is 字形, the shape a character happens to take, not 字体, the skeleton that makes it that character. The report was written partly because counter staff at municipal offices were telling citizens that their own handwritten names were different characters.",
+              "Two kinds of difference do reach the skeleton and do change the character, and they are worth knowing by name. 士 and 土 differ only in which horizontal stroke is longer. 末 and 未 differ the same way. Those are two characters each, not one character drawn twice, and no amount of tolerance makes them the same."
+            ],
+            "es": [
+              "Las figuras de arriba muestran una manera de trazar cada carácter. No muestran la única manera correcta. El Consejo de Cultura publicó en 2016 un informe entero sobre esto, 常用漢字表の字体・字形に関する指針, y existe porque la gente había empezado a tratar las formas impresas como las únicas buenas. Su frase operativa dice que un carácter escrito de modo que se lea su esqueleto no debe juzgarse como carácter equivocado.",
+              "Así que un trazo que engancha donde la imprenta se detiene, o se detiene donde la imprenta barre, o se une donde la imprenta separa, es 字形, la forma que un carácter toma en ese momento, y no 字体, el esqueleto que lo hace ser ese carácter. El informe se escribió en parte porque en las ventanillas municipales se le decía a la gente que su propio nombre manuscrito era otro carácter.",
+              "Dos tipos de diferencia sí llegan al esqueleto y sí cambian el carácter, y conviene conocerlos por su nombre. 士 y 土 solo se diferencian en cuál de los dos trazos horizontales es más largo. 末 y 未 se diferencian igual. Son dos caracteres cada par, no un carácter trazado dos veces, y ninguna tolerancia los vuelve el mismo."
+            ]
+          }
         }
       ]
     },
@@ -264,6 +328,28 @@
               "Compounds usually take the readings borrowed from Chinese, and single characters usually take the native ones. Usually is doing real work in that sentence, and there are enough exceptions that the reliable route is to learn the word rather than the rule."
             ],
             "es": null
+          }
+        },
+        {
+          "id": "p-kango-shapes",
+          "kind": "prose",
+          "title": {
+            "en": "Why they come in twos, and what the two are doing",
+            "es": "Por qué vienen de dos en dos, y qué hacen las dos"
+          },
+          "body": {
+            "en": [
+              "Words built out of characters borrowed from Chinese come in pairs because the borrowing came in pairs. Roughly 60 percent of the entries in a Japanese dictionary are of this kind, against something like 18 to 20 percent of everyday speech, which is exactly the gap you feel when a news broadcast is harder than a conversation about lunch.",
+              "Two shapes cover most pairs. Either the first character modifies the second, so the second is the thing and the first says which kind, or the first is a verb and the second is its object. Almost all of these words are nouns, and the way one becomes a verb is to put suru after it, which is why a dictionary entry so often reads noun, and noun plus suru.",
+              "A large slice of them are not borrowings at all in the ordinary sense. They were coined in Japan during the Meiji era to translate Western ideas, out of Chinese-derived parts: 電話, 科学, 文化, 哲学, 革命. Many were then borrowed into Chinese from Japanese, which is the opposite direction from the one everybody assumes.",
+              "One more fact explains why one character has several borrowed readings. They arrived in layers, over centuries, from different parts of China, and Japanese kept the lot instead of choosing. The shapes and the layers are set out in the Wikipedia article on Sino-Japanese vocabulary; chapter 10 is where the layers become useful rather than alarming."
+            ],
+            "es": [
+              "Las palabras hechas con caracteres tomados del chino vienen de dos en dos porque el préstamo llegó de dos en dos. Cerca del 60 por ciento de las entradas de un diccionario japonés son de esta clase, frente a algo así como el 18 o el 20 por ciento del habla cotidiana, que es justo la distancia que notas cuando un noticiario cuesta más que una conversación sobre la comida.",
+              "Dos formas cubren casi todos los pares. O el primer carácter modifica al segundo, y entonces el segundo es la cosa y el primero dice de qué tipo, o el primero es un verbo y el segundo es su objeto. Casi todas estas palabras son sustantivos, y la manera de convertir una en verbo es ponerle suru detrás, y por eso una entrada de diccionario dice tan a menudo sustantivo, y sustantivo más suru.",
+              "Buena parte de ellas no son préstamos en el sentido corriente. Se acuñaron en Japón durante la era Meiji para traducir ideas occidentales, con piezas de origen chino: 電話, 科学, 文化, 哲学, 革命. Muchas pasaron después del japonés al chino, que es la dirección contraria a la que todo el mundo supone.",
+              "Un dato más explica por qué un carácter tiene varias lecturas prestadas. Llegaron por capas, a lo largo de siglos, desde zonas distintas de China, y el japonés se quedó con todas en vez de elegir. Las formas y las capas están expuestas en el artículo de Wikipedia sobre el vocabulario sinojaponés; el capítulo 10 es donde las capas pasan de inquietantes a útiles."
+            ]
           }
         }
       ],

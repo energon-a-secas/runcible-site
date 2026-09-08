@@ -1,0 +1,53 @@
+{
+"_licence": {
+ "source": "Runcible curated staff positions, written for this Book",
+ "url": "https://runcible.neorgon.com/",
+ "spdx": "public-domain",
+ "derived": false,
+ "id": null,
+ "acknowledgement": null,
+ "screen": "none",
+ "generated_by": "authored by workstream E, 2026-09-08",
+ "generated_at": "2026-09-08",
+ "note": "Where a letter sits on a stave is a fact of the notation, the same kind of fact as which key is left of the pair of black keys. Lines and spaces are counted from the bottom of their own stave, which is the ordinary convention and the one the cue strings use."
+},
+"format": "neo-piano-notes/1",
+"id": "notes",
+"title": "The grand staff, one position at a time",
+"fields": {
+ "cue": "the position in words. The prompt, and a plain string because a prompt that resolves to an object renders blank.",
+ "name": "the letter. The answer, one character, no octave number.",
+ "clef": "treble or bass.",
+ "d": "the diatonic index: the letter (C is 0 up to B is 6) plus seven times the octave, so middle C is 28. A staff position is one subtraction from it, which is why no drawing code carries a lookup table.",
+ "octave": "the scientific octave number, middle C being C4.",
+ "landmark": "true for a note the clefs themselves name: the treble clef curls around its G, the bass clef straddles its F, and middle C is the note both staves share. Everything else is read as a step or two from one of those."
+},
+"counts": { "treble": 10, "bass": 10 },
+"order": ["treble", "bass"],
+"groups": {
+"treble": [
+{"id":"tr-c4","cue":"treble, one ledger line below the stave","name":"C","clef":"treble","d":28,"octave":4,"landmark":true},
+{"id":"tr-e4","cue":"treble, first line","name":"E","clef":"treble","d":30,"octave":4,"landmark":false},
+{"id":"tr-f4","cue":"treble, first space","name":"F","clef":"treble","d":31,"octave":4,"landmark":false},
+{"id":"tr-g4","cue":"treble, second line","name":"G","clef":"treble","d":32,"octave":4,"landmark":true},
+{"id":"tr-a4","cue":"treble, second space","name":"A","clef":"treble","d":33,"octave":4,"landmark":false},
+{"id":"tr-b4","cue":"treble, third line","name":"B","clef":"treble","d":34,"octave":4,"landmark":false},
+{"id":"tr-c5","cue":"treble, third space","name":"C","clef":"treble","d":35,"octave":5,"landmark":false},
+{"id":"tr-d5","cue":"treble, fourth line","name":"D","clef":"treble","d":36,"octave":5,"landmark":false},
+{"id":"tr-e5","cue":"treble, fourth space","name":"E","clef":"treble","d":37,"octave":5,"landmark":false},
+{"id":"tr-f5","cue":"treble, fifth line","name":"F","clef":"treble","d":38,"octave":5,"landmark":false}
+],
+"bass": [
+{"id":"ba-g2","cue":"bass, first line","name":"G","clef":"bass","d":18,"octave":2,"landmark":false},
+{"id":"ba-a2","cue":"bass, first space","name":"A","clef":"bass","d":19,"octave":2,"landmark":false},
+{"id":"ba-b2","cue":"bass, second line","name":"B","clef":"bass","d":20,"octave":2,"landmark":false},
+{"id":"ba-c3","cue":"bass, second space","name":"C","clef":"bass","d":21,"octave":3,"landmark":false},
+{"id":"ba-d3","cue":"bass, third line","name":"D","clef":"bass","d":22,"octave":3,"landmark":false},
+{"id":"ba-e3","cue":"bass, third space","name":"E","clef":"bass","d":23,"octave":3,"landmark":false},
+{"id":"ba-f3","cue":"bass, fourth line","name":"F","clef":"bass","d":24,"octave":3,"landmark":true},
+{"id":"ba-g3","cue":"bass, fourth space","name":"G","clef":"bass","d":25,"octave":3,"landmark":false},
+{"id":"ba-a3","cue":"bass, fifth line","name":"A","clef":"bass","d":26,"octave":3,"landmark":false},
+{"id":"ba-c4","cue":"bass, one ledger line above the stave","name":"C","clef":"bass","d":28,"octave":4,"landmark":true}
+]
+}
+}

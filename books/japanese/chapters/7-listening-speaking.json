@@ -57,6 +57,27 @@
             ],
             "es": null
           }
+        },
+        {
+          "id": "p-role-language",
+          "kind": "callout",
+          "tone": "note",
+          "title": {
+            "en": "If your listening practice is anime, read this first",
+            "es": "Si tu práctica de escucha es el anime, lee esto primero"
+          },
+          "body": {
+            "en": [
+              "The speech you hear in fiction is mostly not a dialect. It is 役割語, role language, a term coined by the linguist 金水敏 in 2003 for speech styles that signal a character type rather than a speech community: the old man's washi and ja, the country accent, the foreigner's broken register. It is instantly recognisable and it is largely or entirely unlike the way the people it stands for actually talk. 金水 himself argues that leaning on it flattens real variation and carries stereotypes with it.",
+              "So copying a character's speech is copying a costume. What you are hearing tells you what the writer wanted you to think about that character, which is a real and interesting thing to notice, and it does not tell you how anybody speaks.",
+              "The one variety that is a real speech community and turns up constantly is Kansai, and its diagnostics are few: ya where the standard has da, hen or n on the end of a negative, ee for ii, chau for that is not it, and ookini for thanks. Its weight in comedy is historical rather than linguistic, since Osaka comedians filled national broadcasting from the Taishō period onward."
+            ],
+            "es": [
+              "El habla que oyes en la ficción casi nunca es un dialecto. Es 役割語, lenguaje de rol, un término acuñado por el lingüista 金水敏 en 2003 para los estilos de habla que señalan un tipo de personaje y no una comunidad de hablantes: el washi y el ja del anciano, el acento rural, el registro roto del extranjero. Se reconoce al instante y se parece poco o nada a como habla de verdad la gente a la que representa. El propio 金水 sostiene que apoyarse en él aplana la variación real y arrastra estereotipos.",
+              "Así que copiar el habla de un personaje es copiar un disfraz. Lo que oyes te dice qué quería quien escribió que pensaras de ese personaje, que es algo real e interesante de notar, y no te dice cómo habla nadie.",
+              "La única variedad que sí es una comunidad de hablantes y que aparece sin parar es la de Kansai, y sus señales son pocas: ya donde el estándar tiene da, hen o n al final de una negación, ee por ii, chau para eso no es, y ookini para dar las gracias. Su peso en la comedia es histórico más que lingüístico, porque los cómicos de Osaka llenaron la radiodifusión nacional desde la era Taishō en adelante."
+            ]
+          }
         }
       ]
     },

@@ -149,6 +149,23 @@ items is a data pointer to a list, or an inline array of objects. Field names
 in the spec (prompt, answer, left, ...) name fields of those objects; dotted
 paths are allowed. An answer field may hold an array: any member matches.
 
+EVERY FIELD AN EXERCISE NAMES MUST HOLD A STRING. An { en, es } object in an
+item field is not translated: fieldValue hands the object back and
+displayValue renders any object as the empty string, so the prompt or the
+option mounts BLANK, with no error anywhere. This is the one place the
+bilingual convention above does not reach. Where a cue has to exist in both
+languages, write two string fields and name one of them
+(prompt: "situation.en"), put the Spanish on the rung's page, or use the item's
+explain, which the feedback strip does resolve. Making a cue bilingual is a
+shell change, so report it rather than encoding an object.
+
+A table page's cells are stringified the same way: a cell holding an { en, es }
+object prints "[object Object]". A bilingual table is two string columns.
+
+NO CONTENT FIELD CAN CARRY A LINK. Pages are text nodes; the only anchors the
+shell draws from data are the attribution block's links[]. A URL a chapter
+wants to show goes in a callout body as plain text.
+
 The ten types and their required fields (from spec.js, verbatim):
 
 | type   | required fields                    | graded | notes |
@@ -261,7 +278,7 @@ exactly registerExercise(id, impl), registerTransform(id, fn) and version.
 
 - an exercise id must contain a dot and its first segment must not be a
   generic type name (read, choice, typed, match, order, listen, speak, deck,
-  custom). A chapter uses it as { "type": "custom", "module": "jp.loanword" }
+  quiz, custom). A chapter uses it as { "type": "custom", "module": "jp.loanword" }
 - a transform id is any non-empty string. It runs on every keystroke of a
   typed input and may carry fn.settle(value), run once at submit before
   compare. A live half must leave an unfinished syllable alone; settle
@@ -273,7 +290,7 @@ exactly registerExercise(id, impl), registerTransform(id, fn) and version.
 - a module must import nothing from js/exercises/. It may import
   js/vendor/wanakana.js and, for a Book-owned store, js/neorgon-persist.js
   (jp.lyrics does, under C8.2). Prefer a generic type; add a module only when
-  none of the eight others can express the drill, and say why in a comment
+  none of the nine others can express the drill, and say why in a comment
 
 ### Licences
 

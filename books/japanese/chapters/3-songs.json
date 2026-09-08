@@ -29,6 +29,49 @@
       },
       "pages": [
         {
+          "id": "p-bungo",
+          "kind": "prose",
+          "title": {
+            "en": "Ten of the nineteen are in a language nobody speaks",
+            "es": "Diez de las diecinueve están en una lengua que nadie habla"
+          },
+          "body": {
+            "en": [
+              "Read the songs for kana and for rhythm. Do not read them for sentence patterns, because ten of the nineteen are written in 文語, the literary language of the school songbooks, and its grammar is about a century out of date. Those ten are 蛍の光 (1881), さくらさくら (1888), 荒城の月 (1901), われは海の子 (1910), もみじ (1911), 茶摘み (1912), 春の小川 (1912), 故郷 (1914), 朧月夜 (1914) and 浜辺の歌, a 1913 poem set to music in 1918.",
+              "The other nine are colloquial and this page says so, because being told that every song here is classical would mislead you the other way. 春が来た (1910) and 雪 (1911) are ordinary spoken Japanese. So are the three 童謡 of 1921, 赤とんぼ, どんぐりころころ and 七つの子, which were written for children by named poets during the magazine boom. So are the four わらべうた, うさぎ, かごめかごめ, 通りゃんせ and ずいずいずっころばし, which are older than any of them and were never composed by anybody.",
+              "Every date above is in that song's own file, under credits and first published, next to the copyright verdict for both countries. Nothing on this page is a judgment about a song. It is a reading of what the files already record."
+            ],
+            "es": [
+              "Lee las canciones por sus kana y por su ritmo. No las leas buscando estructuras de frase, porque diez de las diecinueve están escritas en 文語, la lengua literaria de los cancioneros escolares, y su gramática lleva cerca de un siglo desfasada. Esas diez son 蛍の光 (1881), さくらさくら (1888), 荒城の月 (1901), われは海の子 (1910), もみじ (1911), 茶摘み (1912), 春の小川 (1912), 故郷 (1914), 朧月夜 (1914) y 浜辺の歌, un poema de 1913 musicado en 1918.",
+              "Las otras nueve son coloquiales y esta página lo dice, porque creer que aquí todo es clásico te desviaría en el otro sentido. 春が来た (1910) y 雪 (1911) son japonés hablado corriente. También lo son los tres 童謡 de 1921, 赤とんぼ, どんぐりころころ y 七つの子, escritos para niños por poetas con nombre durante el auge de las revistas. Y también las cuatro わらべうた, うさぎ, かごめかごめ, 通りゃんせ y ずいずいずっころばし, más viejas que todas las anteriores y que nadie compuso nunca.",
+              "Cada fecha de arriba está en el archivo de la propia canción, bajo créditos y primera publicación, junto al veredicto de derechos de autor de los dos países. Nada de esta página es una opinión sobre una canción. Es una lectura de lo que los archivos ya registran."
+            ]
+          }
+        },
+        {
+          "id": "p-bungo-forms",
+          "kind": "callout",
+          "tone": "warn",
+          "title": {
+            "en": "Five forms you will not find in chapter 5",
+            "es": "Cinco formas que no vas a encontrar en el capítulo 5"
+          },
+          "body": {
+            "en": [
+              "おいし in 故郷 is not おいしい. It is 追ひし, a classical past attributive, and the line says the hill where I chased rabbits. がたき in the same song is the classical form of がたい, hard to do, so わすれがたき is unforgettable.",
+              "いずる in さくらさくら is 出づる, a classical attributive of the verb to come out. ゆかん in the same line is 行かむ, let us go, an ending the modern language dropped.",
+              "なれ closes われは海の子, and it is there because こそ appears earlier in the line. Classical Japanese changes the ending of a sentence to agree with a particle further back, a pattern called kakari-musubi, and the modern language has nothing like it.",
+              "Type these lines back, sing them, use them for kana. Do not carry any of the five into a sentence of your own, and do not go looking for them in the grammar chapter, because they are not there."
+            ],
+            "es": [
+              "おいし en 故郷 no es おいしい. Es 追ひし, un atributivo de pasado clásico, y la línea dice el monte donde perseguía conejos. がたき en esa misma canción es la forma clásica de がたい, difícil de hacer, así que わすれがたき es inolvidable.",
+              "いずる en さくらさくら es 出づる, atributivo clásico del verbo salir. ゆかん en esa misma línea es 行かむ, vayamos, una terminación que la lengua moderna dejó caer.",
+              "なれ cierra われは海の子, y está ahí porque antes en la línea aparece こそ. El japonés clásico cambia la terminación de la frase para concordar con una partícula anterior, un patrón llamado kakari-musubi, y la lengua moderna no tiene nada parecido.",
+              "Escribe estas líneas de vuelta, cántalas, úsalas para los kana. No te lleves ninguna de las cinco a una frase tuya, y no las busques en el capítulo de gramática, porque no están."
+            ]
+          }
+        },
+        {
           "id": "p-why",
           "kind": "prose",
           "title": { "en": "A song is the first text that repeats itself on purpose", "es": null },
@@ -87,6 +130,26 @@
               "The speak button uses the voice built into your browser. It is synthetic and it is not a singer, so treat it as a pronunciation check and not as a recording. If your browser has no Japanese voice, the line says so rather than doing nothing."
             ],
             "es": null
+          }
+        },
+        {
+          "id": "p-wakachigaki",
+          "kind": "prose",
+          "title": {
+            "en": "The spaces in these lines are a teaching aid",
+            "es": "Los espacios de estas líneas son una ayuda didáctica"
+          },
+          "body": {
+            "en": [
+              "Every song line here is printed with spaces in it, as in うさぎおいし かのやま. Real Japanese has none. The practice has a name, 分かち書き, and it is used in exactly three places: elementary textbooks for grades one to three, material written for foreign learners, and Japanese braille, where the break falls at the same phrase boundaries.",
+              "It is here for the same reason it is in a first-grade textbook. You are reading kana one character at a time, and a wall of unbroken kana is the hardest form the language takes. The spaces are set where a phrase ends, so they are also a first lesson in where phrases end.",
+              "Chapter 5 drops them and does not put them back, because that is what a page of Japanese looks like. By then the mix of kanji and hiragana is doing the work the spaces do here, which is the trade the writing system makes. The practice and its three uses are recorded in the Wikipedia article on 分かち書き."
+            ],
+            "es": [
+              "Cada línea de canción de aquí está impresa con espacios, como en うさぎおいし かのやま. El japonés real no los tiene. La práctica tiene nombre, 分かち書き, y se usa exactamente en tres sitios: los libros de texto de primero a tercero de primaria, el material escrito para estudiantes extranjeros, y el braille japonés, donde el corte cae en esos mismos límites de sintagma.",
+              "Está aquí por la misma razón que está en un libro de primero. Estás leyendo kana de uno en uno, y un muro de kana sin cortes es la forma más difícil que toma la lengua. Los espacios se ponen donde termina un sintagma, así que son también una primera lección sobre dónde terminan los sintagmas.",
+              "El capítulo 5 los quita y no los devuelve, porque así es una página de japonés. Para entonces la mezcla de kanji e hiragana hace el trabajo que aquí hacen los espacios, que es el trato que hace el sistema de escritura. La práctica y sus tres usos están recogidos en el artículo de Wikipedia sobre 分かち書き."
+            ]
           }
         }
       ],

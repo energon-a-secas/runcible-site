@@ -1,0 +1,28 @@
+{
+"_licence": { "source": "Tatoeba Project", "url": "https://tatoeba.org/en/downloads", "spdx": "CC-BY-2.0-FR", "derived": true, "id": "tatoeba", "acknowledgement": "Example sentences come from the Tatoeba Project and are used under the Creative Commons Attribution 2.0 France licence.", "links": [ "https://tatoeba.org/en/downloads", "https://creativecommons.org/licenses/by/2.0/fr/" ], "screen": "required", "upstream": "Tatoeba Japanese sentences, export of 2026-08-29", "generated_by": "tools/build-sentences.mjs", "generated_at": "2026-09-04" },
+"format": "neo-sentences/1",
+"chapter": "14-phrases",
+"title": { "en": "The phrase in a real sentence", "es": "La frase en una oración real" },
+"order": [
+"greetings-exp",
+"intro-exp",
+"thanks-exp",
+"classroom-exp",
+"shopping-exp"
+],
+"labels": {
+"greetings-exp": {"en":"Answering a greeting","es":"Responder a un saludo"},
+"intro-exp": {"en":"Saying who you are","es":"Decir quién eres"},
+"thanks-exp": {"en":"Thanking, and saying sorry","es":"Agradecer y pedir disculpas"},
+"classroom-exp": {"en":"Asking for a repeat","es":"Pedir que lo repitan"},
+"shopping-exp": {"en":"Asking the price","es":"Preguntar el precio"}
+},
+"count": 32,
+"groups": {
+"greetings-exp": [{"id":"s_0001","ja":"どういたしまして。","en":"You're welcome.","for":"w_0001","word":"どういたしまして","tatoeba":[408295,403068]},{"id":"s_0002","ja":"おかげさまで元気です。","en":"I'm fine, thank you.","for":"w_0002","word":"おかげさまで","tatoeba":[227762,65115]},{"id":"s_0003","ja":"お疲れ様。","en":"Good work today!","for":"w_0003","word":"お疲れ様","tatoeba":[13549381,13700957]},{"id":"s_0004","ja":"久しぶり。","en":"Long time, no see.","for":"w_0004","word":"久しぶり","tatoeba":[417007,417003]},{"id":"s_0005","ja":"いらっしゃいませ。","en":"Welcome.","for":"w_0005","word":"いらっしゃいませ","tatoeba":[338114,138919]},{"id":"s_0006","ja":"おめでとうございます。","en":"Congratulations!","for":"w_0006","word":"おめでとうございます","tatoeba":[4854,1437]},{"id":"s_0007","ja":"お先にどうぞ。","en":"After you.","for":"w_0007","word":"お先に","tatoeba":[226990,505870]},{"id":"s_0008","ja":"お大事に。","en":"Please take good care of yourself.","for":"w_0008","word":"お大事に","tatoeba":[138002,38469]}],
+"intro-exp": [{"id":"s_0009","ja":"よろしくお願いします。","en":"Thank you in advance.","for":"w_0017","word":"よろしくお願いします","tatoeba":[806267,29863]},{"id":"s_0010","ja":"ようこそ！","en":"Welcome.","for":"w_0018","word":"ようこそ","tatoeba":[348098,138919]},{"id":"s_0011","ja":"そうです。","en":"That's right.","for":"w_0019","word":"そうです","tatoeba":[2171510,1216015]},{"id":"s_0012","ja":"これからお世話になるね。","en":"I'll be in your care from now on.","for":"w_0020","word":"お世話になる","tatoeba":[11030191,13743931]},{"id":"s_0013","ja":"ごめんください。どなたかいらっしゃいませんか？","en":"Excuse me. Is anyone home?","for":"w_0021","word":"ごめんください","tatoeba":[11469188,11469202]},{"id":"s_0014","ja":"お邪魔します。","en":"Hello, sorry for any trouble.","for":"w_0022","word":"お邪魔します","tatoeba":[13117622,13117623]}],
+"thanks-exp": [{"id":"s_0015","ja":"どうもありがとう。","en":"Thanks a million.","for":"w_0031","word":"どうもありがとう","tatoeba":[9672957,2250081]},{"id":"s_0016","ja":"大変ありがとうございました。","en":"Thank you ever so much.","for":"w_0032","word":"ありがとうございました","tatoeba":[137276,275960]},{"id":"s_0017","ja":"失礼しました。","en":"Excuse my clumsiness.","for":"w_0033","word":"失礼しました","tatoeba":[149577,264979]},{"id":"s_0018","ja":"お手数ですが塩を回していただけませんか。","en":"May I trouble you to pass me the salt?","for":"w_0034","word":"お手数ですが","tatoeba":[227066,64415]},{"id":"s_0019","ja":"とんでもない！","en":"No way!","for":"w_0035","word":"とんでもない","tatoeba":[5955968,2175]},{"id":"s_0020","ja":"すまない。","en":"Sorry.","for":"w_0036","word":"すまない","tatoeba":[5675030,3378159]}],
+"classroom-exp": [{"id":"s_0021","ja":"もう一度？","en":"Again?","for":"w_0045","word":"もう一度","tatoeba":[4765273,1598991]},{"id":"s_0022","ja":"えっと。","en":"Let me see.","for":"w_0046","word":"えっと","tatoeba":[227963,65316]},{"id":"s_0023","ja":"ええ。","en":"Yes.","for":"w_0047","word":"ええ","tatoeba":[1166626,477086]},{"id":"s_0024","ja":"なるほど。","en":"I see.","for":"w_0048","word":"なるほど","tatoeba":[2350395,2111796]},{"id":"s_0025","ja":"ちょっと…","en":"Err...","for":"w_0049","word":"ちょっと","tatoeba":[13175023,879076]},{"id":"s_0026","ja":"了解。","en":"No problem.","for":"w_0050","word":"了解","tatoeba":[762125,551443]}],
+"shopping-exp": [{"id":"s_0027","ja":"どのくらい深い？","en":"How deep?","for":"w_0059","word":"どのくらい","tatoeba":[200411,37612]},{"id":"s_0028","ja":"飴ちょうだい。","en":"I want some candy.","for":"w_0060","word":"ちょうだい","tatoeba":[8569734,2763573]},{"id":"s_0029","ja":"毎度、またいらっしゃい。","en":"Thanks, please come again.","for":"w_0061","word":"毎度","tatoeba":[74890,328827]},{"id":"s_0030","ja":"よろしくお願いいたします。","en":"Thank you in advance.","for":"w_0062","word":"お願いいたします","tatoeba":[348664,29863]},{"id":"s_0031","ja":"大丈夫？","en":"You all right?","for":"w_0063","word":"大丈夫","tatoeba":[997206,29868]},{"id":"s_0032","ja":"どうも。","en":"Thanks!","for":"w_0064","word":"どうも","tatoeba":[6865714,448645]}]
+}
+}

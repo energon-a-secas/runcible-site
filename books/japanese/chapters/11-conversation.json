@@ -1,0 +1,424 @@
+{
+  "format": "neo-chapter/1",
+  "id": "11-conversation",
+  "title": {
+    "en": "Politeness, and the intermediate wall",
+    "es": "La cortesía, y el muro intermedio"
+  },
+  "goal": {
+    "statement": {
+      "en": "Pick the politeness level a situation calls for and produce the set phrase that goes with it",
+      "es": "Elegir el nivel de cortesía que pide una situación y producir la frase hecha que le corresponde"
+    },
+    "evidence": {
+      "skill": "jp.register.pick",
+      "accuracy": 0.85,
+      "min": 30,
+      "window": 60
+    }
+  },
+  "requires": [
+    "7-listening-speaking"
+  ],
+  "state": "ready",
+  "estimate": {
+    "minutes": 600,
+    "note": {
+      "en": "Ten hours for the register work on this page, and then an open-ended stretch that is not on this page at all: holding a simple exchange on an everyday topic needs another person, and a browser cannot watch one. Chapter 14 is worth doing first; it is not required, and nothing here is locked behind it.",
+      "es": "Diez horas para el trabajo de registro de esta página, y luego un tramo abierto que no está en esta página: sostener un intercambio simple sobre un tema cotidiano necesita a otra persona, y un navegador no puede observarlo. Vale la pena hacer antes el capítulo 14; no es obligatorio, y aquí nada está cerrado detrás de él."
+    }
+  },
+  "data": [
+    "data/vocab/ch11.json"
+  ],
+  "rungs": [
+    {
+      "id": "the-wall",
+      "title": {
+        "en": "What the intermediate wall is made of",
+        "es": "De qué está hecho el muro intermedio"
+      },
+      "unlocks": {
+        "en": "knowing which part of the problem more vocabulary will not solve",
+        "es": "saber qué parte del problema no se arregla con más vocabulario"
+      },
+      "pages": [
+        {
+          "id": "p-the-wall",
+          "kind": "prose",
+          "title": {
+            "en": "Speed, and who you are talking to",
+            "es": "La velocidad, y con quién estás hablando"
+          },
+          "body": {
+            "en": [
+              "The test's own descriptors mark the step. At N5 the listening is short conversations about daily life and the classroom, spoken slowly. At N4 it is conversations encountered in daily life, still spoken slowly. At N3 it is coherent everyday conversation at near-natural speed, and the listener is expected to grasp the relationships among the people involved.",
+              "Read those three side by side and the wall is visible. Between N4 and N3 the language does not get harder, the delivery gets faster and the social information starts to matter. Neither of those is a vocabulary problem, which is why the flashcards that carried you this far stop carrying you here.",
+              "This chapter takes the second half, the social information, because it is the half a browser can observe. The first half, speed, is hours of listening, and chapter 7 is where that lives."
+            ],
+            "es": [
+              "Los descriptores del propio examen marcan el escalón. En N5 la comprensión auditiva son conversaciones cortas sobre la vida diaria y el aula, habladas despacio. En N4 son conversaciones de la vida diaria, todavía habladas despacio. En N3 son conversaciones coherentes de la vida cotidiana a velocidad casi natural, y se espera que quien escucha capte las relaciones entre las personas que hablan.",
+              "Lee esos tres seguidos y el muro se ve. Entre N4 y N3 el idioma no se vuelve más difícil: la entrega se acelera y la información social empieza a contar. Ninguna de las dos cosas es un problema de vocabulario, y por eso las tarjetas que te trajeron hasta aquí dejan de servir justo en este punto.",
+              "Este capítulo toma la segunda mitad, la información social, porque es la mitad que un navegador puede observar. La primera, la velocidad, son horas de escucha, y eso vive en el capítulo 7."
+            ]
+          }
+        },
+        {
+          "id": "p-reading-helps",
+          "kind": "prose",
+          "title": {
+            "en": "Reading helps, and by a measured amount",
+            "es": "Leer ayuda, y en una cantidad medida"
+          },
+          "body": {
+            "en": [
+              "The usual advice at this point is to read a lot, and it is good advice with a number behind it. A meta-analysis of extensive reading pooled 71 samples from 49 studies and 5,919 learners and found an effect size of 0.57 between reading groups and control groups, and 0.70 for adults.",
+              "The same paper says how to read that number. On the benchmark used for second language research, 0.4 is a small effect, 0.7 is medium and 1.0 is large, so 0.57 sits between small and medium. Reading a lot helps, moderately and reliably. It is not the thing that turns N4 into N3 by itself, and anyone selling it that way is quoting the study without its own calibration table.",
+              "Chapter 9 is where this Book puts that hour."
+            ],
+            "es": [
+              "El consejo habitual en este punto es leer mucho, y es un buen consejo con un número detrás. Un metaanálisis sobre lectura extensiva reunió 71 muestras de 49 estudios y 5.919 estudiantes y encontró un tamaño del efecto de 0,57 entre los grupos que leían y los grupos de control, y de 0,70 en adultos.",
+              "El mismo trabajo dice cómo leer ese número. En la escala que se usa en investigación sobre segundas lenguas, 0,4 es un efecto pequeño, 0,7 mediano y 1,0 grande, así que 0,57 queda entre pequeño y mediano. Leer mucho ayuda, de forma moderada y fiable. No es lo que convierte N4 en N3 por sí solo, y quien lo vende así está citando el estudio sin su propia tabla de calibración.",
+              "El capítulo 9 es donde este libro pone esa hora."
+            ]
+          }
+        },
+        {
+          "id": "p-find-a-person",
+          "kind": "callout",
+          "tone": "note",
+          "title": {
+            "en": "The part of this chapter that is not on a screen",
+            "es": "La parte de este capítulo que no está en una pantalla"
+          },
+          "body": {
+            "en": [
+              "Holding an exchange needs somebody to hold it with. A browser can model a phrase, record whether you picked the right register and time your listening; it cannot notice that you answered a question nobody asked, and it never will.",
+              "So this is the phase where the guides agree that a person is worth paying for: a tutor, a conversation partner, a class, a colleague who will correct you. The chapter after this one does not exist, and that is why."
+            ],
+            "es": [
+              "Sostener un intercambio necesita a alguien con quien sostenerlo. Un navegador puede modelar una frase, registrar si elegiste el registro correcto y cronometrar tu escucha; no puede darse cuenta de que respondiste a una pregunta que nadie hizo, y nunca podrá.",
+              "Así que esta es la fase en la que las guías coinciden en que vale la pena pagar por una persona: alguien que enseñe, alguien con quien conversar, una clase, un colega que te corrija. El capítulo siguiente a este no existe, y por eso."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "three-distances",
+      "title": {
+        "en": "One act, three distances",
+        "es": "Un acto, tres distancias"
+      },
+      "unlocks": {
+        "en": "choosing a verb by who is in the room, which is what the wall is made of",
+        "es": "elegir el verbo según quién está en la sala, que es de lo que está hecho el muro"
+      },
+      "pages": [
+        {
+          "id": "p-three-distances",
+          "kind": "prose",
+          "title": {
+            "en": "The same verb, said up, said down, said flat",
+            "es": "El mismo verbo, dicho hacia arriba, hacia abajo y en llano"
+          },
+          "body": {
+            "en": [
+              "To look is 見る with a friend, ご覧になる when you invite a customer to look, and 拝見 when you say that you have looked at your manager's report. Three words, one act, three social distances. The pattern repeats: 言う, おっしゃる, 申す for saying; 食べる, 召し上がる, 頂く for eating; する, なさる, 致す for doing; 行く, いらっしゃる, 伺う for going; 知る, ご存じ, 存じる for knowing.",
+              "The middle column raises the other person and the third lowers you, and both are polite. That is the part Spanish has no direct equipment for. The dictionary labels which is which, so the labels below are not somebody's opinion: they come from JMdict's own tags.",
+              "What the dictionary does not say is when a choice is odd. It records that お願いします is humble; it does not record that saying it to a close friend sounds like you are checking into a hotel. That gap is real, this page is where it gets named, and closing it takes a person rather than a corpus."
+            ],
+            "es": [
+              "Mirar es 見る con un amigo, ご覧になる cuando invitas a un cliente a mirar, y 拝見 cuando dices que has visto el informe de tu jefa. Tres palabras, un acto, tres distancias sociales. El patrón se repite: 言う, おっしゃる, 申す para decir; 食べる, 召し上がる, 頂く para comer; する, なさる, 致す para hacer; 行く, いらっしゃる, 伺う para ir; 知る, ご存じ, 存じる para saber.",
+              "La columna del medio eleva a la otra persona y la tercera te rebaja a ti, y las dos son corteses. Esa es la parte para la que el español no tiene un equipo directo. El diccionario etiqueta cuál es cuál, así que las etiquetas de abajo no son la opinión de nadie: vienen de las marcas del propio JMdict.",
+              "Lo que el diccionario no dice es cuándo una elección suena rara. Registra que お願いします es humilde; no registra que decírselo a un amigo cercano suena a que estás haciendo el registro de entrada en un hotel. Ese hueco es real, esta página es donde se nombra, y cerrarlo requiere una persona y no un corpus."
+            ]
+          },
+          "note": {
+            "en": [
+              "The situation printed as the cue in the exercise below is written by this Book, not by the dictionary. JMdict supplies the word, the reading, the meaning and the politeness tag; the one-line scene is ours, and it is a label rather than a translation."
+            ],
+            "es": [
+              "La situación que aparece como pista en el ejercicio de abajo la escribió este libro, no el diccionario. JMdict aporta la palabra, la lectura, el significado y la marca de cortesía; la escena de una línea es nuestra, y es una etiqueta y no una traducción."
+            ]
+          }
+        },
+        {
+          "id": "p-not-tu-usted",
+          "kind": "callout",
+          "tone": "warn",
+          "title": {
+            "en": "This is not tú and usted",
+            "es": "Esto no es tú y usted"
+          },
+          "body": {
+            "en": [
+              "The temptation for a Spanish speaker is to file honorific under usted and plain under tú and move on. It does not fit. Spanish changes one pronoun and the verb agreement that follows it; Japanese changes the verb itself, and there are two polite directions rather than one.",
+              "Honorific raises the person you are talking about. Humble lowers you and by doing so raises them. Both are polite, both can occur in the same sentence, and neither is the second person singular of anything. Mapping them onto tú and usted teaches a false equivalence that has to be unlearned at exactly the level this chapter is about."
+            ],
+            "es": [
+              "La tentación de quien habla español es archivar lo honorífico bajo usted y lo llano bajo tú y seguir adelante. No encaja. El español cambia un pronombre y la concordancia verbal que lo acompaña; el japonés cambia el verbo mismo, y hay dos direcciones corteses en vez de una.",
+              "Lo honorífico eleva a la persona de la que hablas. Lo humilde te rebaja a ti y con eso la eleva a ella. Las dos son corteses, las dos pueden aparecer en la misma frase, y ninguna es la segunda persona del singular de nada. Traducirlas a tú y usted enseña una falsa equivalencia que hay que desaprender justo en el nivel del que trata este capítulo."
+            ]
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-register-pick",
+          "type": "choice",
+          "skill": "jp.register.pick",
+          "title": {
+            "en": "Which one does this situation call for?",
+            "es": "¿Cuál pide esta situación?"
+          },
+          "items": "data/vocab/ch11.json#groups.register",
+          "prompt": "situation.en",
+          "answer": "word",
+          "distractors": {
+            "by": "set",
+            "n": 2
+          },
+          "count": 12,
+          "pass": {
+            "accuracy": 0.75
+          }
+        }
+      ]
+    },
+    {
+      "id": "work-and-phone",
+      "title": {
+        "en": "The fixed forms of two scenes",
+        "es": "Las formas fijas de dos escenas"
+      },
+      "unlocks": {
+        "en": "the two situations where getting the register wrong is most expensive",
+        "es": "las dos situaciones donde equivocarse de registro sale más caro"
+      },
+      "pages": [
+        {
+          "id": "p-work-phone",
+          "kind": "prose",
+          "title": {
+            "en": "Five expressions that do most of the work",
+            "es": "Cinco expresiones que hacen casi todo el trabajo"
+          },
+          "body": {
+            "en": [
+              "Two scenes have their own fixed language, and a beginner meets both early: serving somebody, and answering a telephone. かしこまりました accepts a request from a customer. もしもし is what you say when you pick up the phone, and nothing else says it. お待たせしました is for coming back to someone who waited. 申し訳ありません is the apology that belongs at work rather than between friends. ご苦労様 thanks somebody who has done a job for you.",
+              "Five expressions is a small rung on purpose. They are fixed, they are frequent, and each one is a whole turn in a conversation rather than a word inside one. Learning five of those is worth more than learning twenty nouns.",
+              "One expression that fits this scene is not here: お先に is taught in chapter 14 and re-teaching it would waste the rung. The filter on the round below is what keeps the two chapters from repeating each other."
+            ],
+            "es": [
+              "Dos escenas tienen su propio lenguaje fijo, y quien empieza se encuentra las dos pronto: atender a alguien y contestar el teléfono. かしこまりました acepta lo que pide un cliente. もしもし es lo que dices al descolgar, y no lo dice ninguna otra cosa. お待たせしました es para volver con alguien que esperó. 申し訳ありません es la disculpa del trabajo, no la de entre amigos. ご苦労様 agradece a quien ha hecho un trabajo para ti.",
+              "Cinco expresiones son un escalón pequeño a propósito. Son fijas, son frecuentes, y cada una es un turno entero de conversación y no una palabra dentro de uno. Aprender cinco de esas vale más que aprender veinte sustantivos.",
+              "Una expresión que encaja en esta escena no está aquí: お先に se enseña en el capítulo 14 y volver a enseñarla desperdiciaría el escalón. El filtro de la ronda de abajo es lo que evita que los dos capítulos se repitan."
+            ]
+          }
+        },
+        {
+          "id": "p-gaps",
+          "kind": "callout",
+          "tone": "warn",
+          "title": {
+            "en": "Three expressions this chapter cannot teach",
+            "es": "Tres expresiones que este capítulo no puede enseñar"
+          },
+          "body": {
+            "en": [
+              "お世話になっております, which opens most business email in Japan, 分かりません, which is the most useful sentence a beginner owns, and ごめんなさい, the everyday apology, are all missing from the common half of the dictionary this Book is built on. They are real, they are frequent, and no group here holds them.",
+              "They are named rather than invented. Writing a gloss for a word the corpus does not carry would be this Book making up a dictionary entry and then citing itself for it. When the fuller dictionary is wired in, these three arrive with it."
+            ],
+            "es": [
+              "お世話になっております, con la que empieza casi todo correo de trabajo en Japón, 分かりません, que es la frase más útil que tiene quien empieza, y ごめんなさい, la disculpa de todos los días, faltan en la mitad común del diccionario sobre el que está construido este libro. Son reales, son frecuentes, y ningún grupo de aquí las contiene.",
+              "Se nombran en lugar de inventarse. Escribir una glosa para una palabra que el corpus no trae sería este libro inventando una entrada de diccionario y citándose a sí mismo por ella. Cuando se conecte el diccionario completo, estas tres llegan con él."
+            ]
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-work-pairs",
+          "type": "quiz",
+          "game": "pairs",
+          "skill": "jp.register.pick",
+          "title": {
+            "en": "Work and the telephone",
+            "es": "El trabajo y el teléfono"
+          },
+          "src": "books/japanese/sets/jp-register-pairs.json",
+          "filter": "group:work",
+          "limit": 5,
+          "pass": {
+            "accuracy": 0.8
+          }
+        },
+        {
+          "id": "e-work-type",
+          "type": "typed",
+          "skill": "jp.register.pick",
+          "title": {
+            "en": "Type what you would say",
+            "es": "Escribe lo que dirías"
+          },
+          "items": "data/vocab/ch11.json#groups.work",
+          "prompt": "situation.en",
+          "answer": "kana",
+          "transform": "kana",
+          "compare": "trim|kana",
+          "count": 5,
+          "pass": {
+            "accuracy": 0.7
+          }
+        }
+      ]
+    },
+    {
+      "id": "hear-the-distance",
+      "title": {
+        "en": "Hearing the register before the sentence",
+        "es": "Oír el registro antes que la frase"
+      },
+      "unlocks": {
+        "en": "the half of a conversation that arrives before you have parsed it",
+        "es": "la mitad de una conversación que llega antes de que la hayas analizado"
+      },
+      "pages": [
+        {
+          "id": "p-hear-first",
+          "kind": "prose",
+          "title": {
+            "en": "The distance arrives first",
+            "es": "La distancia llega primero"
+          },
+          "body": {
+            "en": [
+              "In a real exchange the register reaches you before the meaning does. You hear いらっしゃる and you know, before the sentence finishes, that somebody is being raised. That is not a subtlety, it is how a listener keeps up at speed, and it is the part of the N3 descriptor about grasping the relationships among the people involved.",
+              "The drill below speaks one expression and asks for its distance rather than its meaning. Three answers are possible, and they are the dictionary's own three labels: plain is the everyday form, hon is honorific and raises the other person, hum is humble and lowers you."
+            ],
+            "es": [
+              "En un intercambio real el registro te llega antes que el significado. Oyes いらっしゃる y sabes, antes de que la frase termine, que se está elevando a alguien. Eso no es una sutileza: es como quien escucha sigue el ritmo, y es la parte del descriptor de N3 sobre captar las relaciones entre las personas que hablan.",
+              "El ejercicio de abajo pronuncia una expresión y pregunta por su distancia, no por su significado. Hay tres respuestas posibles, y son las tres etiquetas del propio diccionario: plain es la forma de todos los días, hon es honorífica y eleva a la otra persona, hum es humilde y te rebaja a ti."
+            ]
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-hear-register",
+          "type": "listen",
+          "skill": "jp.register.pick",
+          "title": {
+            "en": "Plain, honorific or humble?",
+            "es": "¿Llana, honorífica o humilde?"
+          },
+          "items": "data/vocab/ch11.json#groups.register",
+          "speak": "kana",
+          "answer": "register",
+          "respond": "choice",
+          "lang": "ja",
+          "distractors": {
+            "n": 2
+          },
+          "count": 10,
+          "pass": {
+            "accuracy": 0.7
+          }
+        }
+      ]
+    },
+    {
+      "id": "say-it",
+      "title": {
+        "en": "Say the five out loud",
+        "es": "Di las cinco en voz alta"
+      },
+      "unlocks": {
+        "en": "the mouth memory that a multiple choice cannot build",
+        "es": "la memoria de boca que un ejercicio de opción múltiple no construye"
+      },
+      "pages": [
+        {
+          "id": "p-never-graded",
+          "kind": "callout",
+          "tone": "note",
+          "title": {
+            "en": "Nothing here is scored, and that is deliberate",
+            "es": "Aquí no se califica nada, y es deliberado"
+          },
+          "body": {
+            "en": [
+              "The browser speaks the expression and you say it back. No score is recorded, no threshold is set and nothing you do on this rung can pass or fail the chapter.",
+              "Speech recognition exists in some browsers, is absent in others, and sends your audio to a company's server when it does work. An exercise that needed a microphone to progress would lock out anyone whose browser lacks one, so this Book never grades a spoken answer. Repetition out loud is still the fastest route to a fixed expression, which is why the rung is here at all."
+            ],
+            "es": [
+              "El navegador pronuncia la expresión y tú la repites. No se registra ninguna nota, no hay ningún umbral y nada de lo que hagas en este escalón puede aprobar ni suspender el capítulo.",
+              "El reconocimiento de voz existe en algunos navegadores, falta en otros y, cuando funciona, envía tu audio al servidor de una empresa. Un ejercicio que necesitara un micrófono para avanzar dejaría fuera a quien no lo tenga, así que este libro nunca califica una respuesta hablada. Repetir en voz alta sigue siendo el camino más rápido hacia una expresión fija, y por eso el escalón existe."
+            ]
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-say-work",
+          "type": "speak",
+          "skill": "jp.speaking.say",
+          "title": {
+            "en": "Say the five back",
+            "es": "Repite las cinco"
+          },
+          "items": "data/vocab/ch11.json#groups.work",
+          "expect": "kana",
+          "lang": "ja",
+          "count": 5
+        }
+      ]
+    },
+    {
+      "id": "the-deck",
+      "title": {
+        "en": "Twenty-three expressions on a schedule",
+        "es": "Veintitrés expresiones con calendario"
+      },
+      "unlocks": {
+        "en": "keeping the three distances after the chapter is closed",
+        "es": "conservar las tres distancias después de cerrar el capítulo"
+      },
+      "pages": [
+        {
+          "id": "p-the-deck",
+          "kind": "prose",
+          "title": {
+            "en": "Why this chapter ends in a deck",
+            "es": "Por qué este capítulo termina en un mazo"
+          },
+          "body": {
+            "en": [
+              "Eighteen register words and five work expressions is twenty-three items, and none of them comes up often enough in a beginner's week to stay learned by accident. A deck brings each one back at the moment you were about to forget it, and its answers count toward this chapter's goal exactly as the drills above do.",
+              "There is no rung after this one. What comes next is a person, and the note at the top of the chapter says so."
+            ],
+            "es": [
+              "Dieciocho palabras de registro y cinco expresiones de trabajo son veintitrés elementos, y ninguno aparece con la frecuencia suficiente en la semana de quien empieza como para quedarse aprendido por accidente. Un mazo trae cada uno de vuelta justo cuando estabas a punto de olvidarlo, y sus respuestas cuentan para el objetivo de este capítulo igual que los ejercicios de arriba.",
+              "No hay escalón después de este. Lo que viene es una persona, y la nota del principio del capítulo lo dice."
+            ]
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-deck-register",
+          "type": "deck",
+          "skill": "jp.register.pick",
+          "title": {
+            "en": "Politeness, three distances",
+            "es": "Cortesía, tres distancias"
+          },
+          "src": "books/japanese/decks/jp-register.json",
+          "mode": "review",
+          "limit": 15
+        }
+      ]
+    }
+  ]
+}

@@ -181,12 +181,74 @@ function sentenceDeck(spec) {
 
 const BUILDERS = { vocab: vocabDeck, kanji: kanjiDeck, sentences: sentenceDeck };
 
+/**
+ * A deck this generator does not own, read from disk instead of rebuilt.
+ *
+ * Commit 5124bee ("apply the teacher panel") corrected the four decks that
+ * shipped first by editing the output and not this file, so a plain re-run
+ * throws those corrections away. The three that matter, all confirmed against
+ * that commit's diff:
+ *
+ *   - jp-first-words: the 22 greetings carry no `recall` card. Typing a set
+ *     phrase back from its English is not the drill chapter 4 asks for.
+ *   - jp-kanji-grade1: the `reading` card is a word to its reading, over two
+ *     fields this generator cannot derive. Eight of the eighty have no
+ *     single-kanji word in data/vocab/ch6.json at all, and the deck answers
+ *     them with an authored compound (deguchi for the exit kanji), so there is
+ *     no join that reproduces the file.
+ *   - jp-sentences-basic: n_0082 has no cloze card. The word field is the
+ *     first two kana of a three-kana word, so the automatic cloze marks the
+ *     wrong span. The neighbouring items keep theirs, so no mechanical rule
+ *     separates them.
+ *
+ * `held: true` says that out loud: the deck under books/ is the document, this
+ * file copies it to Rappel's library so the two cannot disagree, and the
+ * catalog row is counted from the file rather than from a build that did not
+ * happen. Moving those three edits into the generator and dropping the flag is
+ * the real fix and it is a content decision, not this workstream's.
+ */
+function heldDeck(bookPath, id) {
+  if (!fs.existsSync(bookPath)) {
+    process.stderr.write(`${id}: held: true but ${bookPath} is not on disk\n`);
+    process.exit(1);
+  }
+  const bytes = fs.readFileSync(bookPath);
+  const deck = JSON.parse(bytes.toString('utf8'));
+  return { deck, bytes };
+}
+
 function main() {
   const sel = readSelection('decks.json');
   const book = sel.targets.runcible_book;
   const catalog = [];
 
   for (const spec of sel.decks) {
+    const bookPath = path.join(SITE, 'books', book, 'decks', `${spec.id}.json`);
+    const rappelPath = path.join(RAPPEL, 'data', 'decks', `${spec.id}.json`);
+
+    if (spec.held) {
+      const { deck, bytes } = heldDeck(bookPath, spec.id);
+      const cards = deck.notes.reduce((a, n) => a + n.templates.length, 0);
+      if (sel.targets.rappel_library) {
+        fs.mkdirSync(path.dirname(rappelPath), { recursive: true });
+        fs.writeFileSync(rappelPath, bytes);
+      }
+      catalog.push({
+        id: spec.id,
+        file: `data/decks/${spec.id}.json`,
+        name: spec.name,
+        note: `${cards} cards from ${deck.notes.length} notes. ${deck.licence}.`,
+        version: deck.version,
+        notes: deck.notes.length,
+        cards,
+        licence: deck.licence,
+        screen: deck.screen,
+        bytes: bytes.length,
+      });
+      process.stdout.write(`  ${spec.id}: ${deck.notes.length} notes, ${cards} cards (held, copied not built)\n`);
+      continue;
+    }
+
     const build = BUILDERS[spec.kind];
     if (!build) throw new Error(`unknown deck kind: ${spec.kind}`);
     const built = build(spec);
@@ -204,10 +266,22 @@ function main() {
       notes: built.notes,
     };
     const cards = built.notes.reduce((a, n) => a + n.templates.length, 0);
-    const bookPath = path.join(SITE, 'books', book, 'decks', `${spec.id}.json`);
-    const rappelPath = path.join(RAPPEL, 'data', 'decks', `${spec.id}.json`);
-    const bytes = writeData(bookPath, deck, spec.budget_kb);
-    if (sel.targets.rappel_library) writeData(rappelPath, deck, spec.budget_kb);
+    // `escape` is the selection row's, empty on every deck but the first grade
+    // 2 kanji one. See writeData in lib/corpus.mjs: one character of KANJIDIC's
+    // own grade 2 list is also the whole title of a banned song, so a deck
+    // built over that slice is emitted with the character escaped. The parsed
+    // value is identical and both copies get the same bytes.
+    const escape = spec.escape || [];
+    const bytes = writeData(bookPath, deck, spec.budget_kb, escape);
+    if (sel.targets.rappel_library) {
+      writeData(rappelPath, deck, spec.budget_kb, escape);
+      // One source, two files, so the two cannot drift. The writer makes it
+      // impossible; this is the assertion that says so out loud, and it is the
+      // same one build-sets.mjs makes over its own pair of copies.
+      if (!fs.readFileSync(bookPath).equals(fs.readFileSync(rappelPath))) {
+        throw new Error(`${spec.id}: the two copies differ, which the writer makes impossible`);
+      }
+    }
     catalog.push({
       id: spec.id,
       // `file` is the key Rappel's loader reads (js/deck-load.js:41), relative
@@ -218,7 +292,7 @@ function main() {
       // the same sentence in the visitor's language from `cards`, `notes` and
       // `licence` (rappel-site/js/render.js builtinRow).
       note: `${cards} cards from ${built.notes.length} notes. ${deck.licence}.`,
-      version: GENERATED_AT,
+      version: deck.version,
       notes: built.notes.length,
       cards,
       licence: deck.licence,

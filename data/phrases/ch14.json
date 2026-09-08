@@ -1,0 +1,388 @@
+{
+  "_licence": {
+    "source": "Written for the Runcible Japanese Book. Not a corpus slice.",
+    "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "spdx": "CC0-1.0",
+    "derived": false,
+    "id": "authored",
+    "screen": "none",
+    "generated_by": "authored by hand, checked by tools/validate-phrases.mjs",
+    "generated_at": "2026-09-08"
+  },
+  "format": "neo-phrases/1",
+  "chapter": "14-phrases",
+  "title": {
+    "en": "Patterns and exchanges",
+    "es": "Patrones e intercambios"
+  },
+  "note": {
+    "en": "These patterns and exchanges were written for this Book. None of it comes from a corpus, no exercise scores any of it, and every word inside them is one the vocabulary files already carry. The register labels are ours as well.",
+    "es": "Estos patrones e intercambios fueron escritos para este libro. Nada de esto viene de un corpus, ningún ejercicio los califica, y cada palabra que contienen ya está en los archivos de vocabulario. Las etiquetas de registro también son nuestras."
+  },
+  "vocabulary": [
+    "data/vocab/ch14.json",
+    "data/vocab/ch4.json",
+    "data/vocab/ch6.json"
+  ],
+  "order": [
+    "greetings",
+    "intro",
+    "thanks",
+    "classroom",
+    "shopping"
+  ],
+  "grammar": [
+    {
+      "piece": "は",
+      "en": "the topic marker: it says what the rest of the line is about",
+      "es": "la partícula de tema: dice de qué habla el resto de la línea"
+    },
+    {
+      "piece": "を",
+      "en": "the object marker: it says what the verb acts on",
+      "es": "la partícula de objeto: dice sobre qué actúa el verbo"
+    },
+    {
+      "piece": "で",
+      "en": "in, or by means of: in Japanese, in this case",
+      "es": "en, o por medio de: en japonés, en este caso"
+    },
+    {
+      "piece": "です",
+      "en": "the polite copula, is or am",
+      "es": "la cópula cortés, es o soy"
+    },
+    {
+      "piece": "ですか",
+      "en": "the same copula turning the line into a question",
+      "es": "la misma cópula convirtiendo la línea en una pregunta"
+    },
+    {
+      "piece": "また",
+      "en": "again, and at a parting it means see you",
+      "es": "otra vez, y en una despedida significa hasta pronto"
+    },
+    {
+      "piece": "から",
+      "en": "from, marking where something started",
+      "es": "desde, marca de dónde salió algo"
+    },
+    {
+      "piece": "きました",
+      "en": "came, polite past. Verb forms are chapter 5, so this one is learned whole",
+      "es": "vine, pasado cortés. Las formas verbales son del capítulo 5, así que esta se aprende entera"
+    },
+    {
+      "piece": "なん",
+      "en": "what",
+      "es": "qué"
+    },
+    {
+      "piece": "これ",
+      "en": "this one, the one near me",
+      "es": "esto, lo que está cerca de mí"
+    },
+    {
+      "piece": "それ",
+      "en": "that one, the one near you",
+      "es": "eso, lo que está cerca de ti"
+    },
+    {
+      "piece": "あれ",
+      "en": "that one, away from both of us",
+      "es": "aquello, lo que está lejos de los dos"
+    }
+  ],
+  "patterns": {
+    "greetings": [
+      {
+        "id": "p-greetings-1",
+        "frame": "また [ ]",
+        "slot": "あした",
+        "register": "plain",
+        "kana": "また あした",
+        "en": "See you tomorrow.",
+        "es": "Hasta mañana.",
+        "words": "明日"
+      },
+      {
+        "id": "p-greetings-2",
+        "frame": "また [ ]",
+        "slot": "らいしゅう",
+        "register": "plain",
+        "kana": "また らいしゅう",
+        "en": "See you next week.",
+        "es": "Hasta la próxima semana.",
+        "words": "来週"
+      },
+      {
+        "id": "p-greetings-3",
+        "frame": "また [ ]",
+        "slot": "げつようび",
+        "register": "plain",
+        "kana": "また げつようび",
+        "en": "See you on Monday.",
+        "es": "Hasta el lunes.",
+        "words": "月曜日"
+      }
+    ],
+    "intro": [
+      {
+        "id": "p-intro-1",
+        "frame": "[ ] から きました",
+        "slot": "だいがく",
+        "register": "polite",
+        "kana": "だいがく から きました",
+        "en": "I have come from the university.",
+        "es": "Vengo de la universidad.",
+        "words": "大学"
+      },
+      {
+        "id": "p-intro-2",
+        "frame": "[ ] から きました",
+        "slot": "がっこう",
+        "register": "polite",
+        "kana": "がっこう から きました",
+        "en": "I have come from the school.",
+        "es": "Vengo de la escuela.",
+        "words": "学校"
+      },
+      {
+        "id": "p-intro-3",
+        "frame": "[ ] から きました",
+        "slot": "えき",
+        "register": "polite",
+        "kana": "えき から きました",
+        "en": "I have come from the station.",
+        "es": "Vengo de la estación.",
+        "words": "駅"
+      }
+    ],
+    "thanks": [
+      {
+        "id": "p-thanks-1",
+        "frame": "[ ] を おねがいします",
+        "slot": "おちゃ",
+        "register": "polite",
+        "kana": "おちゃ を おねがいします",
+        "en": "Tea, please.",
+        "es": "Un té, por favor.",
+        "words": "お茶 お願いします"
+      },
+      {
+        "id": "p-thanks-2",
+        "frame": "[ ] を おねがいします",
+        "slot": "みず",
+        "register": "polite",
+        "kana": "みず を おねがいします",
+        "en": "Water, please.",
+        "es": "Agua, por favor.",
+        "words": "水 お願いします"
+      },
+      {
+        "id": "p-thanks-3",
+        "frame": "[ ] を おねがいします",
+        "slot": "ふくろ",
+        "register": "polite",
+        "kana": "ふくろ を おねがいします",
+        "en": "A bag, please.",
+        "es": "Una bolsa, por favor.",
+        "words": "袋 お願いします"
+      }
+    ],
+    "classroom": [
+      {
+        "id": "p-classroom-1",
+        "frame": "[ ] は にほんご で なん ですか",
+        "slot": "これ",
+        "register": "polite",
+        "kana": "これ は にほんご で なん ですか",
+        "en": "What is this called in Japanese?",
+        "es": "¿Cómo se dice esto en japonés?",
+        "words": "日本語"
+      },
+      {
+        "id": "p-classroom-2",
+        "frame": "[ ] は にほんご で なん ですか",
+        "slot": "それ",
+        "register": "polite",
+        "kana": "それ は にほんご で なん ですか",
+        "en": "What is that called in Japanese, the one near you?",
+        "es": "¿Cómo se dice eso en japonés, lo que está cerca de ti?",
+        "words": "日本語"
+      },
+      {
+        "id": "p-classroom-3",
+        "frame": "[ ] は にほんご で なん ですか",
+        "slot": "あれ",
+        "register": "polite",
+        "kana": "あれ は にほんご で なん ですか",
+        "en": "What is that called in Japanese, the one over there?",
+        "es": "¿Cómo se dice aquello en japonés, lo que está allá?",
+        "words": "日本語"
+      }
+    ],
+    "shopping": [
+      {
+        "id": "p-shopping-1",
+        "frame": "[ ] は いくら ですか",
+        "slot": "さいふ",
+        "register": "polite",
+        "kana": "さいふ は いくら ですか",
+        "en": "How much is the wallet?",
+        "es": "¿Cuánto cuesta la billetera?",
+        "words": "財布 いくら"
+      },
+      {
+        "id": "p-shopping-2",
+        "frame": "[ ] は いくら ですか",
+        "slot": "ふくろ",
+        "register": "polite",
+        "kana": "ふくろ は いくら ですか",
+        "en": "How much is the bag?",
+        "es": "¿Cuánto cuesta la bolsa?",
+        "words": "袋 いくら"
+      },
+      {
+        "id": "p-shopping-3",
+        "frame": "[ ] は いくら ですか",
+        "slot": "ノート",
+        "register": "polite",
+        "kana": "ノート は いくら ですか",
+        "en": "How much is the notebook?",
+        "es": "¿Cuánto cuesta el cuaderno?",
+        "words": "ノート いくら"
+      }
+    ]
+  },
+  "registers": {
+    "greetings": [
+      {
+        "id": "r-greetings-1",
+        "register": "plain",
+        "kana": "ありがとう",
+        "en": "Thanks.",
+        "es": "Gracias.",
+        "words": "ありがとう"
+      },
+      {
+        "id": "r-greetings-2",
+        "register": "polite",
+        "kana": "ありがとうございます",
+        "en": "Thank you.",
+        "es": "Muchas gracias.",
+        "words": "ありがとうございます"
+      },
+      {
+        "id": "r-greetings-3",
+        "register": "short",
+        "kana": "どうも",
+        "en": "Thanks, in one word.",
+        "es": "Gracias, en una palabra.",
+        "words": "どうも"
+      }
+    ]
+  },
+  "exchanges": {
+    "greetings": [
+      {
+        "id": "x-greetings-a",
+        "turn": "A",
+        "register": "polite",
+        "kana": "おつかれさま です",
+        "en": "Good work today.",
+        "es": "Buen trabajo hoy.",
+        "words": "お疲れ様"
+      },
+      {
+        "id": "x-greetings-b",
+        "turn": "B",
+        "register": "polite",
+        "kana": "おさきに しつれいします",
+        "en": "I am off. Excuse me for leaving first.",
+        "es": "Yo me retiro. Con permiso por irme primero.",
+        "words": "お先に 失礼します"
+      }
+    ],
+    "intro": [
+      {
+        "id": "x-intro-a",
+        "turn": "A",
+        "register": "polite",
+        "kana": "しごと は なん ですか",
+        "en": "What is your work?",
+        "es": "¿En qué trabajas?",
+        "words": "仕事"
+      },
+      {
+        "id": "x-intro-b",
+        "turn": "B",
+        "register": "polite",
+        "kana": "かいしゃいん です",
+        "en": "I am a company employee.",
+        "es": "Soy empleado de una empresa.",
+        "words": "会社員"
+      }
+    ],
+    "thanks": [
+      {
+        "id": "x-thanks-a",
+        "turn": "A",
+        "register": "polite",
+        "kana": "ありがとうございます",
+        "en": "Thank you.",
+        "es": "Muchas gracias.",
+        "words": "ありがとうございます"
+      },
+      {
+        "id": "x-thanks-b",
+        "turn": "B",
+        "register": "polite",
+        "kana": "どういたしまして",
+        "en": "You are welcome.",
+        "es": "De nada.",
+        "words": "どういたしまして"
+      }
+    ],
+    "classroom": [
+      {
+        "id": "x-classroom-a",
+        "turn": "A",
+        "register": "polite",
+        "kana": "すみません もういちど おねがいします",
+        "en": "Excuse me, once more please.",
+        "es": "Disculpe, una vez más, por favor.",
+        "words": "すみません もう一度 お願いします"
+      },
+      {
+        "id": "x-classroom-b",
+        "turn": "B",
+        "register": "polite",
+        "kana": "はい しつもん は なん ですか",
+        "en": "Yes. What is your question?",
+        "es": "Sí. ¿Cuál es tu pregunta?",
+        "words": "はい 質問"
+      }
+    ],
+    "shopping": [
+      {
+        "id": "x-shopping-a",
+        "turn": "A",
+        "register": "polite",
+        "kana": "いらっしゃいませ",
+        "en": "Welcome to the shop.",
+        "es": "Bienvenida a la tienda.",
+        "words": "いらっしゃいませ"
+      },
+      {
+        "id": "x-shopping-b",
+        "turn": "B",
+        "register": "polite",
+        "kana": "これ を おねがいします",
+        "en": "This one, please.",
+        "es": "Este, por favor.",
+        "words": "お願いします"
+      }
+    ]
+  }
+}

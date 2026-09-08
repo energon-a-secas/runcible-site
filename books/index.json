@@ -11,7 +11,7 @@
       "id": "piano",
       "title": { "en": "Piano", "es": "Piano" },
       "glyph": "♪",
-      "state": "stub"
+      "state": "ready"
     }
   ]
 }

@@ -1,12 +1,13 @@
 {
   "format": "neo-chapter/1",
   "id": "2-notation",
-  "title": { "en": "Notation", "es": null },
+  "title": { "en": "Notation", "es": "Notación" },
   "goal": {
     "statement": {
       "en": "Read a note on the grand staff without counting up from middle C",
-      "es": null
-    }
+      "es": "Leer una nota en el sistema de dos pentagramas sin contar hacia arriba desde el do central"
+    },
+    "evidence": { "skill": "piano.staff.read", "accuracy": 0.9, "min": 30, "window": 60 }
   },
   "requires": ["1-keyboard-geography"],
   "state": "ready",
@@ -14,77 +15,132 @@
     "minutes": 600,
     "note": {
       "en": "Hoffman unit two is lessons 21 to 40. The hours are inferred from the lesson count, not stated by the source.",
-      "es": null
+      "es": "La unidad dos de Hoffman son las lecciones 21 a 40. Las horas se deducen del número de lecciones, la fuente no las declara."
     }
   },
+  "data": ["data/piano/notes.json"],
   "rungs": [
     {
       "id": "guide-notes",
-      "title": { "en": "Guide notes, not counting", "es": null },
+      "title": { "en": "Guide notes, not counting", "es": "Notas guía, no contar" },
       "unlocks": {
         "en": "sight reading at speed, because counting lines from middle C does not survive a tempo",
-        "es": null
+        "es": "la lectura a primera vista con velocidad, porque contar líneas desde el do central no sobrevive a un tempo"
       },
       "pages": [
         {
           "id": "p-grand-staff",
           "kind": "prose",
-          "title": { "en": "Two staves, one instrument", "es": null },
+          "title": { "en": "Two staves, one instrument", "es": "Dos pentagramas, un instrumento" },
           "body": {
             "en": [
               "The grand staff is a treble staff and a bass staff braced together, with middle C sitting on a short ledger line between them. Hoffman's unit two introduces both clefs and a small set of guide notes.",
-              "A guide note is a landmark you know instantly, so every other note is read as one or two steps from a landmark rather than counted up from middle C. Counting works at rest and collapses at tempo, which is the same reason a kana learner is drilled on recognition rather than on reciting the gojuon table."
+              "A guide note is a landmark you know instantly, so every other note is read as one or two steps from a landmark rather than counted up from middle C. Counting works at rest and collapses at tempo, which is the same reason a kana learner is drilled on recognition rather than on reciting the gojuon table.",
+              "Three landmarks are enough to start: middle C, which both staves share, the G the treble clef curls around, and the F the bass clef's two dots straddle. Each clef is named after the note it points at, which is the only mnemonic here that is also a fact."
             ],
-            "es": null
+            "es": [
+              "El sistema de piano son un pentagrama en clave de sol y otro en clave de fa unidos por una llave, con el do central en una línea adicional corta entre los dos. La unidad dos de Hoffman presenta las dos claves y un pequeño conjunto de notas guía.",
+              "Una nota guía es un punto de referencia que reconoces al instante, de modo que cada otra nota se lee como uno o dos pasos desde una referencia y no contando desde el do central. Contar funciona en reposo y se derrumba a tempo, que es la misma razón por la que a quien aprende kana se le ejercita el reconocimiento y no recitar la tabla gojuon.",
+              "Tres referencias bastan para empezar: el do central, que ambos pentagramas comparten, el sol que rodea la clave de sol y el fa que enmarcan los dos puntos de la clave de fa. Cada clave lleva el nombre de la nota que señala, y ese es el único recurso mnemotécnico de aquí que además es un hecho."
+            ]
           }
         },
         {
           "id": "p-theory-basics",
           "kind": "prose",
-          "title": { "en": "The free notation course", "es": null },
+          "title": { "en": "The free notation course", "es": "El curso gratuito de notación" },
           "body": {
             "en": [
-              "musictheory.net publishes The Basics as six free lessons covering the staff, note duration, measures and time signature, rest duration, dots and ties, and steps and accidentals.",
+              "musictheory.net publishes The Basics as six free lessons covering the staff, note duration, measures and time signature, rest duration, dots and ties, and steps and accidentals. It is at musictheory.net/lessons.",
               "It is free to read online and carries a plain copyright notice with no licence grant, so this Book links to it and never rehosts it. That is the same rule the Japanese Book applies to Tofugu and to Tadoku."
             ],
-            "es": null
+            "es": [
+              "musictheory.net publica The Basics como seis lecciones gratuitas sobre el pentagrama, la duración de las notas, los compases y el compás escrito, la duración de los silencios, los puntillos y las ligaduras, y los grados y las alteraciones. Está en musictheory.net/lessons.",
+              "Se puede leer gratis en línea y lleva un aviso de derechos de autor sin ninguna licencia concedida, así que este libro lo enlaza y nunca lo rehospeda. Es la misma regla que el libro de japonés aplica a Tofugu y a Tadoku."
+            ]
           }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-treble-type",
+          "type": "typed",
+          "skill": "piano.staff.read",
+          "title": { "en": "Type the letter, treble clef", "es": "Escribe la letra, clave de sol" },
+          "items": "data/piano/notes.json#groups.treble",
+          "prompt": "cue",
+          "answer": "name",
+          "compare": "trim|casefold",
+          "count": 10,
+          "pass": { "accuracy": 0.85 }
         }
       ]
     },
     {
-      "id": "what-a-drill-would-be",
-      "title": { "en": "What the drill would be, once there is one", "es": null },
+      "id": "both-clefs",
+      "title": { "en": "Both clefs, one drill", "es": "Las dos claves, un solo ejercicio" },
       "unlocks": {
-        "en": "nothing today. This rung is a design note that happens to be readable.",
-        "es": null
+        "en": "reading a real bar in chapter 4, because a bar is this drill with the notes side by side",
+        "es": "leer un compás real en el capítulo 4, porque un compás es este ejercicio con las notas una junto a otra"
       },
       "pages": [
         {
-          "id": "p-would-be",
+          "id": "p-corpus-arrived",
           "kind": "prose",
-          "title": { "en": "A note on the staff is an item like any other", "es": null },
+          "title": { "en": "A note on the staff is an item like any other", "es": "Una nota en el pentagrama es un ítem como cualquier otro" },
           "body": {
             "en": [
-              "A staff reading drill is the choice exercise the shell already ships: an item list of notes, a prompt field holding the notated position, an answer field holding the letter name, and distractors drawn from neighbouring notes rather than from the whole set.",
-              "None of that needs a line of new shell code. What it needs is an item file, and the item file is where the work actually is: a note on the staff has to be drawn, and the shell draws geometry rather than markup, so the data would have to arrive as path strings the way the kana stroke data does.",
-              "That is the honest reason this chapter has no exercise. Not a missing feature, a missing corpus."
+              "A staff reading drill needs an item list, a prompt holding the notated position, an answer holding the letter, and distractors drawn from neighbouring notes. Three of those four are the shell's generic multiple choice and typed input, unchanged.",
+              "The fourth was the hard part, and it is why this chapter shipped with no exercise for a while. A note has to be drawn, and the shell draws geometry from a declared data file rather than markup. What data/piano/notes.json carries is one number per position: the letter, C being 0 up to B being 6, plus seven times the octave, so middle C is 28. A staff position is that number minus the index of the clef's bottom line, and every line, space and ledger line in this Book is drawn from that subtraction.",
+              "So the picture is not a feature the shell grew. It is arithmetic over a corpus, done in a module this Book ships, and the same arithmetic draws chapter 4's bars out of real engravings."
             ],
-            "es": null
+            "es": [
+              "Un ejercicio de lectura del pentagrama necesita una lista de ítems, un enunciado con la posición escrita, una respuesta con la letra y distractores tomados de notas vecinas. Tres de esos cuatro son la opción múltiple y la entrada de texto genéricas del armazón, sin cambios.",
+              "El cuarto era la parte difícil, y por eso este capítulo estuvo un tiempo sin ejercicios. Hay que dibujar una nota, y el armazón dibuja geometría a partir de un archivo de datos declarado, no de marcado. Lo que lleva data/piano/notes.json es un número por posición: la letra, do es 0 y si es 6, más siete veces la octava, de modo que el do central es 28. Una posición en el pentagrama es ese número menos el índice de la línea inferior de la clave, y así se dibujan todas las líneas, espacios y líneas adicionales de este libro.",
+              "Así que el dibujo no es una función que el armazón haya adquirido. Es aritmética sobre un corpus, hecha en un módulo que este libro trae, y la misma aritmética dibuja los compases del capítulo 4 a partir de partituras reales."
+            ]
           }
         },
         {
-          "id": "p-no-exercises",
+          "id": "p-bass",
           "kind": "callout",
-          "tone": "warn",
-          "title": { "en": "Nothing here is graded", "es": null },
+          "tone": "note",
+          "title": { "en": "The bass staff is not the treble staff moved down", "es": "El pentagrama en clave de fa no es el de sol movido hacia abajo" },
           "body": {
             "en": [
-              "This Book records no attempts, so no chapter of it can ever be passed and none of its chapters gates another. Every chapter you can see is open, including the one below this.",
-              "The two chapters at the bottom of the ladder are marked as coming and carry no file at all. They are listed so the ladder is visible where it is not built."
+              "Its bottom line is G, not E, and every line and space differs from the treble by one position. A reader who learned the treble first and assumes the pattern repeats will be a third out on every note, consistently enough to feel right.",
+              "That is why the drill below mixes the two clefs instead of finishing one and then starting the other."
             ],
-            "es": null
+            "es": [
+              "Su línea inferior es sol, no mi, y cada línea y cada espacio difieren en una posición respecto de la clave de sol. Quien aprendió primero la clave de sol y supone que el patrón se repite quedará a una tercera de distancia en cada nota, con la suficiente constancia como para que se sienta correcto.",
+              "Por eso el ejercicio de abajo mezcla las dos claves en lugar de terminar una y después empezar la otra."
+            ]
           }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-bass-type",
+          "type": "typed",
+          "skill": "piano.staff.read",
+          "title": { "en": "Type the letter, bass clef", "es": "Escribe la letra, clave de fa" },
+          "items": "data/piano/notes.json#groups.bass",
+          "prompt": "cue",
+          "answer": "name",
+          "compare": "trim|casefold",
+          "count": 10,
+          "pass": { "accuracy": 0.85 }
+        },
+        {
+          "id": "e-staff-drawn",
+          "type": "custom",
+          "module": "piano.staff",
+          "skill": "piano.staff.read",
+          "title": { "en": "Name the note on the stave", "es": "Nombra la nota en el pentagrama" },
+          "items": "data/piano/notes.json#groups.treble",
+          "props": { "also": ["data/piano/notes.json#groups.bass"] },
+          "count": 14,
+          "pass": { "accuracy": 0.85 }
         }
       ]
     }

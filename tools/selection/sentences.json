@@ -7,7 +7,12 @@
     "files disagree, and the symptom would be an example sentence for a word the",
     "learner has not met.",
     "Run tools/build-vocab.mjs first. build-sentences.mjs says so and stops if",
-    "the slice is not there."
+    "the slice is not there.",
+    "`per_word` is 1 in the two newest slices on purpose. A choice round whose",
+    "prompt is the word and whose answer is the whole sentence draws its wrong",
+    "options from the sibling sentences, so a second sentence for the same word",
+    "is a second right answer: asked which sentence uses ようこそ, the learner",
+    "sees two that do and is marked wrong for picking either one."
   ],
   "slices": [
     {
@@ -31,6 +36,28 @@
       "max_chars": 22,
       "per_word": 2,
       "max_per_group": 40
+    },
+    {
+      "file": "ch14.json",
+      "chapter": "14-phrases",
+      "vocab": "ch14.json",
+      "title": { "en": "The phrase in a real sentence", "es": "La frase en una oración real" },
+      "budget_kb": 120,
+      "groups": ["greetings-exp", "intro-exp", "thanks-exp", "classroom-exp", "shopping-exp"],
+      "max_chars": 24,
+      "per_word": 1,
+      "max_per_group": 12
+    },
+    {
+      "file": "ch11.json",
+      "chapter": "11-conversation",
+      "vocab": "ch11.json",
+      "title": { "en": "Register in a real sentence", "es": "El registro en una oración real" },
+      "budget_kb": 120,
+      "groups": ["register", "work"],
+      "max_chars": 24,
+      "per_word": 1,
+      "max_per_group": 24
     }
   ]
 }

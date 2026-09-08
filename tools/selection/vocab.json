@@ -8,7 +8,24 @@
     "several and the first is not the one a beginner should learn (four is よん,",
     "not し, in a counting drill). `senses` caps how many glosses are kept.",
     "A word that resolves to nothing is reported by name and the run fails, so a",
-    "typo here can never become a silently shorter deck."
+    "typo here can never become a silently shorter deck.",
+    "`jmdict` pins one entry by id, and it is the only thing that tells 事 the",
+    "noun from 琴 the zither when the query is こと: pickEntry takes the first",
+    "entry whose queried form is common, and that is not always the one a",
+    "chapter means.",
+    "A group may ask for derived fields with `emit`: `misc` (the tracked JMdict",
+    "tags), `spelling` (kana or kanji), `script` (hiragana, katakana or kanji),",
+    "`shape` (the mimetic family, off the kana) and `register` (hon, hum, pol or",
+    "plain, by precedence). Emission is per group and not per file, because a",
+    "field exists for the exercise that answers against it, and a slice built",
+    "before these fields existed emits the same bytes it emitted before.",
+    "`situation` and `set` are authored labels passed through untouched. They",
+    "are never a gloss: the chapter page says the labels are ours.",
+    "`accept` asks for every reading a typed drill should mark right, per group",
+    "or per word. Two shipped drills answer against it.",
+    "`min_items`, `require_values` and `distinct_entries` are the assertions:",
+    "a group that resolves short, a group missing one of the answers its drill",
+    "needs, or two spellings that are one JMdict entry all fail the run."
   ],
   "slices": [
     {
@@ -53,12 +70,12 @@
             { "q": "一", "pos": "num", "reading": "いち" },
             { "q": "二", "pos": "num", "reading": "に" },
             { "q": "三", "pos": "num", "reading": "さん" },
-            { "q": "四", "pos": "num", "reading": "よん" },
+            { "q": "四", "pos": "num", "reading": "よん", "accept": true },
             { "q": "五", "pos": "num", "reading": "ご" },
             { "q": "六", "pos": "num", "reading": "ろく" },
-            { "q": "七", "pos": "num", "reading": "なな" },
+            { "q": "七", "pos": "num", "reading": "なな", "accept": true },
             { "q": "八", "pos": "num", "reading": "はち" },
-            { "q": "九", "pos": "num", "reading": "きゅう" },
+            { "q": "九", "pos": "num", "reading": "きゅう", "accept": true },
             { "q": "十", "pos": "num", "reading": "じゅう" },
             { "q": "百", "pos": "num", "reading": "ひゃく" },
             { "q": "千", "pos": "num", "reading": "せん" },
@@ -68,6 +85,7 @@
         {
           "id": "days",
           "label": { "en": "Days and when", "es": "Días y cuándo" },
+          "accept": true,
           "words": [
             { "q": "月曜日", "pos": "n" },
             { "q": "火曜日", "pos": "n" },
@@ -247,6 +265,7 @@
         {
           "id": "compounds",
           "label": { "en": "Two kanji together", "es": "Dos kanji juntos" },
+          "accept": true,
           "words": [
             { "q": "日本", "pos": "n" },
             { "q": "日本語", "pos": "n" },
@@ -272,6 +291,358 @@
             { "q": "山田", "pos": "n", "optional": true },
             { "q": "入口", "pos": "n" },
             { "q": "出口", "pos": "n" }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "ch13.json",
+      "chapter": "13-writing-system",
+      "title": { "en": "The writing system", "es": "El sistema de escritura" },
+      "budget_kb": 120,
+      "groups": [
+        {
+          "id": "three-scripts",
+          "label": { "en": "One word, three scripts", "es": "Una palabra, tres escrituras" },
+          "emit": ["misc", "script"],
+          "min_items": 13,
+          "require_values": { "script": ["hiragana", "katakana", "kanji"] },
+          "words": [
+            { "q": "パソコン", "pos": "n" },
+            { "q": "コンビニ", "pos": "n" },
+            { "q": "テレビ", "pos": "n" },
+            { "q": "コーヒー", "jmdict": "1049180" },
+            { "q": "事件", "pos": "n" },
+            { "q": "時間", "pos": "n" },
+            { "q": "場所", "pos": "n" },
+            { "q": "名前", "pos": "n" },
+            { "q": "こと", "jmdict": "1313580" },
+            { "q": "ところ", "jmdict": "1343100" },
+            { "q": "ください", "jmdict": "1184270" },
+            { "q": "たくさん", "jmdict": "1415870" },
+            { "q": "ちょうど", "jmdict": "1427340" }
+          ]
+        },
+        {
+          "id": "kana-preferred",
+          "label": { "en": "Written in kana by the list", "es": "Escrito en kana por la lista" },
+          "emit": ["misc", "spelling"],
+          "min_items": 12,
+          "require_values": { "spelling": ["kana", "kanji"] },
+          "words": [
+            { "q": "事", "jmdict": "1313580" },
+            { "q": "所", "jmdict": "1343100" },
+            { "q": "出来る", "jmdict": "1340450" },
+            { "q": "有る", "jmdict": "1296400" },
+            { "q": "下さい", "jmdict": "1184270" },
+            { "q": "など", "jmdict": "1582300" },
+            { "q": "事件", "pos": "n" },
+            { "q": "時間", "pos": "n" },
+            { "q": "場所", "pos": "n" },
+            { "q": "是非", "pos": "adv" },
+            { "q": "名前", "pos": "n" },
+            { "q": "明日", "pos": "n", "reading": "あした" }
+          ]
+        },
+        {
+          "id": "mimetics",
+          "label": { "en": "Sound words", "es": "Palabras de sonido" },
+          "emit": ["misc", "shape"],
+          "min_items": 10,
+          "require_values": { "shape": ["reduplicated", "sokuon-final", "ri-final", "n-final"] },
+          "words": [
+            { "q": "きらきら", "jmdict": "1003500" },
+            { "q": "ぎらぎら", "jmdict": "1003650" },
+            { "q": "くるくる", "jmdict": "1003960" },
+            { "q": "ぐっすり", "jmdict": "1004060" },
+            { "q": "こっそり", "jmdict": "1004520" },
+            { "q": "のんびり", "jmdict": "1010050" },
+            { "q": "じっと", "jmdict": "1005870" },
+            { "q": "そっと", "jmdict": "1006810" },
+            { "q": "ちゃんと", "jmdict": "1007720" },
+            { "q": "きちんと", "jmdict": "1003400" }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "ch14.json",
+      "chapter": "14-phrases",
+      "title": { "en": "Phrases for five situations", "es": "Frases para cinco situaciones" },
+      "budget_kb": 120,
+      "groups": [
+        {
+          "id": "greetings-exp",
+          "label": { "en": "Answering a greeting", "es": "Responder a un saludo" },
+          "min_items": 8,
+          "words": [
+            { "q": "どういたしまして", "pos": "int", "jmdict": "1009030" },
+            { "q": "おかげさまで", "pos": "exp", "jmdict": "1270220" },
+            { "q": "お疲れ様", "pos": "int", "jmdict": "1002570" },
+            { "q": "久しぶり", "pos": "exp", "jmdict": "1227370" },
+            { "q": "いらっしゃいませ", "pos": "exp", "jmdict": "1000930" },
+            { "q": "おめでとうございます", "pos": "exp", "jmdict": "1001540" },
+            { "q": "お先に", "pos": "exp", "jmdict": "1002280" },
+            { "q": "お大事に", "pos": "exp", "jmdict": "1002390" }
+          ]
+        },
+        {
+          "id": "intro",
+          "label": { "en": "Introducing yourself", "es": "Presentarse" },
+          "min_items": 8,
+          "words": [
+            { "q": "出身", "pos": "n" },
+            { "q": "国", "pos": "n" },
+            { "q": "仕事", "pos": "n" },
+            { "q": "大学", "pos": "n" },
+            { "q": "会社員", "pos": "n" },
+            { "q": "名刺", "pos": "n" },
+            { "q": "趣味", "pos": "n" },
+            { "q": "家族", "pos": "n" }
+          ]
+        },
+        {
+          "id": "intro-exp",
+          "label": { "en": "Saying who you are", "es": "Decir quién eres" },
+          "min_items": 6,
+          "words": [
+            { "q": "よろしくお願いします", "pos": "exp", "jmdict": "2133750" },
+            { "q": "ようこそ", "pos": "int", "jmdict": "1013100" },
+            { "q": "そうです", "pos": "int", "jmdict": "2837492" },
+            { "q": "お世話になる", "pos": "exp", "jmdict": "1002260" },
+            { "q": "ごめんください", "pos": "exp", "jmdict": "1270690" },
+            { "q": "お邪魔します", "pos": "exp", "jmdict": "1002050" }
+          ]
+        },
+        {
+          "id": "thanks",
+          "label": { "en": "Thanking and apologising", "es": "Agradecer y disculparse" },
+          "min_items": 8,
+          "words": [
+            { "q": "お礼", "pos": "n" },
+            { "q": "感謝", "pos": "n" },
+            { "q": "親切", "pos": "adj-na" },
+            { "q": "迷惑", "pos": "n" },
+            { "q": "失礼", "pos": "n" },
+            { "q": "遠慮", "pos": "n" },
+            { "q": "気持ち", "pos": "n" },
+            { "q": "謝る", "pos": "v5r" }
+          ]
+        },
+        {
+          "id": "thanks-exp",
+          "label": { "en": "Thanking, and saying sorry", "es": "Agradecer y pedir disculpas" },
+          "min_items": 6,
+          "words": [
+            { "q": "どうもありがとう", "pos": "exp", "jmdict": "1612720" },
+            { "q": "ありがとうございました", "pos": "exp", "jmdict": "2845468" },
+            { "q": "失礼しました", "pos": "exp", "jmdict": "1320240" },
+            { "q": "お手数ですが", "pos": "exp", "jmdict": "2830449" },
+            { "q": "とんでもない", "pos": "int", "jmdict": "1008790" },
+            { "q": "すまない", "pos": "int", "jmdict": "1610020" }
+          ]
+        },
+        {
+          "id": "classroom",
+          "label": { "en": "In the classroom", "es": "En el salón de clase" },
+          "min_items": 8,
+          "words": [
+            { "q": "教科書", "pos": "n" },
+            { "q": "鉛筆", "pos": "n" },
+            { "q": "消しゴム", "pos": "n" },
+            { "q": "ノート", "pos": "n" },
+            { "q": "宿題", "pos": "n" },
+            { "q": "質問", "pos": "n" },
+            { "q": "辞書", "pos": "n" },
+            { "q": "机", "pos": "n" }
+          ]
+        },
+        {
+          "id": "classroom-exp",
+          "label": { "en": "Asking for a repeat", "es": "Pedir que lo repitan" },
+          "min_items": 6,
+          "words": [
+            { "q": "もう一度", "pos": "exp", "jmdict": "2005860" },
+            { "q": "えっと", "pos": "int", "jmdict": "1001150" },
+            { "q": "ええ", "pos": "int", "jmdict": "1001140" },
+            { "q": "なるほど", "pos": "int", "jmdict": "1375820" },
+            { "q": "ちょっと", "pos": "int", "jmdict": "1163940" },
+            { "q": "了解", "pos": "int", "jmdict": "1553310" }
+          ]
+        },
+        {
+          "id": "shopping",
+          "label": { "en": "In a shop", "es": "En una tienda" },
+          "min_items": 8,
+          "words": [
+            { "q": "店", "pos": "n", "jmdict": "1582120" },
+            { "q": "値段", "pos": "n" },
+            { "q": "いくら", "jmdict": "1219980" },
+            { "q": "お金", "pos": "n" },
+            { "q": "財布", "pos": "n" },
+            { "q": "買い物", "pos": "n" },
+            { "q": "レジ", "pos": "n" },
+            { "q": "袋", "pos": "n" }
+          ]
+        },
+        {
+          "id": "shopping-exp",
+          "label": { "en": "Asking the price", "es": "Preguntar el precio" },
+          "min_items": 6,
+          "words": [
+            { "q": "どのくらい", "pos": "exp", "jmdict": "1009250" },
+            { "q": "ちょうだい", "pos": "exp", "jmdict": "1430230" },
+            { "q": "毎度", "pos": "int", "jmdict": "1524710" },
+            { "q": "お願いいたします", "pos": "exp", "jmdict": "1001730" },
+            { "q": "大丈夫", "pos": "int", "jmdict": "1414150" },
+            { "q": "どうも", "pos": "int", "jmdict": "1009000" }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "ch10.json",
+      "chapter": "10-kanji-beyond",
+      "title": { "en": "Kanji beyond the first eighty", "es": "Kanji más allá de los primeros ochenta" },
+      "budget_kb": 120,
+      "groups": [
+        {
+          "id": "singles-2a",
+          "label": { "en": "Grade two, one kanji one word", "es": "Segundo grado, un kanji una palabra" },
+          "min_items": 50,
+          "auto": {
+            "single_kanji_from_set": "grade2a",
+            "_note": "One word per grade 2 kanji of the first slice, taken from JMdict rather than hand-listed, so the vocabulary and the kanji table cannot disagree about which characters exist. Same rule as ch6 singles: JMdict orders senses by frequency of the entry and not by what a learner should meet first, so a few are steered by hand and the ones with no standalone word worth teaching are dropped.",
+            "overrides": {},
+            "exclude": [],
+            "exclude_note": "empty on purpose. The auto pass returned a word for 55 of the first eighty and 67 of the second eighty; the rest are characters JMdict holds no common standalone word for (bound morphemes and verb stems), so there is nothing to exclude and nothing to steer. They still ship in the kanji table and the stroke set, exactly as the three excluded grade 1 characters do."
+          }
+        },
+        {
+          "id": "singles-2b",
+          "label": { "en": "Grade two, the next eighty in words", "es": "Segundo grado, los ochenta siguientes en palabras" },
+          "min_items": 50,
+          "auto": {
+            "single_kanji_from_set": "grade2b",
+            "overrides": {},
+            "exclude": [],
+            "exclude_note": "empty on purpose. The auto pass returned a word for 55 of the first eighty and 67 of the second eighty; the rest are characters JMdict holds no common standalone word for (bound morphemes and verb stems), so there is nothing to exclude and nothing to steer. They still ship in the kanji table and the stroke set, exactly as the three excluded grade 1 characters do."
+          }
+        },
+        {
+          "id": "compounds-2",
+          "label": { "en": "Two kanji together, again", "es": "Dos kanji juntos, otra vez" },
+          "min_items": 12,
+          "words": [
+            { "q": "電話", "pos": "n" },
+            { "q": "科学", "pos": "n" },
+            { "q": "教室", "pos": "n" },
+            { "q": "会社", "pos": "n" },
+            { "q": "新聞", "pos": "n" },
+            { "q": "自分", "pos": "pn" },
+            { "q": "地図", "pos": "n" },
+            { "q": "音楽", "pos": "n" },
+            { "q": "高校", "pos": "n" },
+            { "q": "午前", "pos": "n" },
+            { "q": "午後", "pos": "n" },
+            { "q": "公園", "pos": "n" }
+          ]
+        },
+        {
+          "id": "homophones",
+          "label": { "en": "One reading, several kanji", "es": "Una lectura, varios kanji" },
+          "min_items": 25,
+          "words": [
+            { "q": "熱い" },
+            { "q": "暑い" },
+            { "q": "厚い" },
+            { "q": "会う" },
+            { "q": "合う" },
+            { "q": "帰る", "reading": "かえる" },
+            { "q": "返る", "reading": "かえる" },
+            { "q": "直す" },
+            { "q": "治す" },
+            { "q": "取る" },
+            { "q": "撮る" },
+            { "q": "変わる" },
+            { "q": "代わる" },
+            { "q": "差す" },
+            { "q": "指す" },
+            { "q": "刺す" },
+            { "q": "書く" },
+            { "q": "描く", "reading": "かく" },
+            { "q": "泣く" },
+            { "q": "鳴く" },
+            { "q": "努める" },
+            { "q": "勤める" },
+            { "q": "務める" },
+            { "q": "止まる", "jmdict": "1310620" },
+            { "q": "泊まる" }
+          ]
+        },
+        {
+          "id": "jukujikun",
+          "label": { "en": "Readings with no rule", "es": "Lecturas sin regla" },
+          "min_items": 10,
+          "words": [
+            { "q": "大人", "pos": "n" },
+            { "q": "今日", "pos": "n", "reading": "きょう" },
+            { "q": "明日", "pos": "n", "reading": "あした" },
+            { "q": "昨日", "pos": "n", "reading": "きのう" },
+            { "q": "今朝", "pos": "n", "reading": "けさ" },
+            { "q": "果物", "pos": "n" },
+            { "q": "一昨日", "pos": "n", "reading": "おととい" },
+            { "q": "明後日", "pos": "n", "reading": "あさって" },
+            { "q": "田舎", "pos": "n" },
+            { "q": "土産", "pos": "n" }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "ch11.json",
+      "chapter": "11-conversation",
+      "title": { "en": "Politeness and register", "es": "Cortesía y registro" },
+      "budget_kb": 120,
+      "groups": [
+        {
+          "id": "register",
+          "label": { "en": "The same act at three distances", "es": "El mismo acto a tres distancias" },
+          "emit": ["misc", "register"],
+          "min_items": 18,
+          "require_values": { "register": ["plain", "hon", "hum"] },
+          "words": [
+            { "q": "見る", "pos": "v1", "jmdict": "1259290", "set": "see", "situation": {"en": "Telling a friend to look at your photos", "es": "Decirle a un amigo que mire tus fotos"} },
+            { "q": "ご覧になる", "pos": "exp", "jmdict": "2217040", "set": "see", "situation": {"en": "Inviting a customer to look at the menu", "es": "Invitar a un cliente a mirar el menú"} },
+            { "q": "拝見", "pos": "n", "jmdict": "1472270", "set": "see", "situation": {"en": "Saying you have looked at your manager's report", "es": "Decir que viste el informe de tu jefa"} },
+            { "q": "言う", "pos": "v5u", "jmdict": "1587040", "set": "say", "situation": {"en": "Telling a friend what you said yesterday", "es": "Contarle a un amigo lo que dijiste ayer"} },
+            { "q": "おっしゃる", "pos": "v5aru", "jmdict": "1238840", "set": "say", "situation": {"en": "Repeating what your teacher said", "es": "Repetir lo que dijo tu profesora"} },
+            { "q": "申す", "pos": "v5s", "jmdict": "1363090", "set": "say", "situation": {"en": "Giving your own name to a client", "es": "Decir tu propio nombre a un cliente"} },
+            { "q": "食べる", "pos": "v1", "jmdict": "1358280", "set": "eat", "situation": {"en": "Saying what you ate for lunch", "es": "Decir qué comiste en el almuerzo"} },
+            { "q": "召し上がる", "pos": "v5r", "jmdict": "1346370", "set": "eat", "situation": {"en": "Asking a guest to eat", "es": "Pedirle a un invitado que coma"} },
+            { "q": "頂く", "pos": "v5k", "jmdict": "1587290", "set": "eat", "situation": {"en": "Saying you will eat what the host served", "es": "Decir que vas a comer lo que sirvió el anfitrión"} },
+            { "q": "する", "pos": "vs-i", "jmdict": "1157170", "set": "do", "situation": {"en": "Saying what you do at the weekend", "es": "Decir qué haces el fin de semana"} },
+            { "q": "なさる", "pos": "v5aru", "jmdict": "1157090", "set": "do", "situation": {"en": "Asking a client what they will do", "es": "Preguntarle a un cliente qué hará"} },
+            { "q": "致す", "pos": "v5s", "jmdict": "1421900", "set": "do", "situation": {"en": "Offering to do it yourself for a client", "es": "Ofrecerte a hacerlo tú mismo para un cliente"} },
+            { "q": "行く", "pos": "v5k-s", "jmdict": "1578850", "set": "go", "situation": {"en": "Telling a friend you are going home", "es": "Decirle a un amigo que vas a casa"} },
+            { "q": "いらっしゃる", "pos": "v5aru", "jmdict": "1000940", "set": "go", "situation": {"en": "Asking a guest whether they are coming", "es": "Preguntarle a un invitado si viene"} },
+            { "q": "伺う", "pos": "v5u", "jmdict": "1305700", "set": "go", "situation": {"en": "Saying you will visit a client's office", "es": "Decir que visitarás la oficina de un cliente"} },
+            { "q": "知る", "pos": "v5r", "jmdict": "1420470", "set": "know", "situation": {"en": "Telling a friend you know the answer", "es": "Decirle a un amigo que sabes la respuesta"} },
+            { "q": "ご存じ", "pos": "n", "jmdict": "1593570", "set": "know", "situation": {"en": "Asking your manager whether she knows the name", "es": "Preguntarle a tu jefa si conoce el nombre"} },
+            { "q": "存じる", "pos": "v1", "jmdict": "1406140", "set": "know", "situation": {"en": "Telling a client you know the place", "es": "Decirle a un cliente que conoces el lugar"} }
+          ]
+        },
+        {
+          "id": "work",
+          "label": { "en": "Work and the telephone", "es": "El trabajo y el teléfono" },
+          "emit": ["misc", "register"],
+          "min_items": 5,
+          "words": [
+            { "q": "かしこまりました", "pos": "exp", "jmdict": "1002790", "situation": {"en": "A customer has asked for something and you accept", "es": "Un cliente pide algo y aceptas"} },
+            { "q": "もしもし", "pos": "int", "jmdict": "1012550", "situation": {"en": "You pick up the telephone", "es": "Levantas el teléfono"} },
+            { "q": "お待たせしました", "pos": "exp", "jmdict": "2149640", "situation": {"en": "You come back to a customer who waited", "es": "Vuelves con un cliente que esperó"} },
+            { "q": "申し訳ありません", "pos": "exp", "jmdict": "1612030", "situation": {"en": "You apologise to a customer for a mistake", "es": "Te disculpas con un cliente por un error"} },
+            { "q": "ご苦労様", "pos": "exp", "jmdict": "1005030", "situation": {"en": "You thank a delivery driver for the work", "es": "Agradeces el trabajo a un repartidor"} }
           ]
         }
       ]

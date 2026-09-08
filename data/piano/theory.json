@@ -1,0 +1,78 @@
+{
+"_licence": {
+ "source": "Runcible curated notation facts, written for this Book",
+ "url": "https://runcible.neorgon.com/",
+ "spdx": "public-domain",
+ "derived": false,
+ "id": null,
+ "acknowledgement": null,
+ "screen": "none",
+ "generated_by": "authored by workstream E, 2026-09-08",
+ "generated_at": "2026-09-08",
+ "note": "Four closed sets: what a time signature counts, what a key signature names, what two letters are apart, and what three letters make. Each row is a fact of the notation stated in this site's own words. musictheory.net teaches the same four groups and grants no licence, so it stays a link in chapter 2 and nothing of its wording is here."
+},
+"format": "neo-piano-theory/1",
+"id": "theory",
+"title": "The four groups a scheduler can hold",
+"fields": {
+ "signature": "the time signature as written, top over bottom.",
+ "beats": "how many of the note the lower number names fit in one bar. A plain string, because it is an answer.",
+ "written": "the key signature counted in sharps or flats.",
+ "key": "the major key that signature names.",
+ "relative": "the minor key sharing the same signature. Shown after the answer, never asked.",
+ "pair": "two letters, low to high.",
+ "interval": "what they are apart.",
+ "chord": "the triad by name.",
+ "notes": "the accepted spellings of its three letters, low to high, spaces between. A list, because a sharp may be typed as # or as the word, and compare.js grades any member right."
+},
+"counts": { "meter": 10, "keys": 9, "intervals": 10, "triads": 9 },
+"order": ["meter", "keys", "intervals", "triads"],
+"groups": {
+"meter": [
+{"id":"me-24","signature":"2/4","beats":"2","note":"Two quarter notes to a bar. March time, and the meter of Schumann's Soldier's March."},
+{"id":"me-34","signature":"3/4","beats":"3","note":"Three quarter notes to a bar. Every menuet in chapter 4 is in it."},
+{"id":"me-44","signature":"4/4","beats":"4","note":"Four quarter notes to a bar, and the one written as a C often enough that the C is worth recognising."},
+{"id":"me-22","signature":"2/2","beats":"2","note":"Two half notes to a bar. The same length as 4/4 and counted half as often, which is the whole point of writing it this way."},
+{"id":"me-38","signature":"3/8","beats":"3","note":"Three eighth notes to a bar. Clementi's third movement is in it."},
+{"id":"me-68","signature":"6/8","beats":"6","note":"Six eighth notes to a bar, and a player counts them as two beats of three. The number answers what is written; the feel is two."},
+{"id":"me-98","signature":"9/8","beats":"9","note":"Nine eighth notes, felt as three beats of three."},
+{"id":"me-128","signature":"12/8","beats":"12","note":"Twelve eighth notes, felt as four beats of three."},
+{"id":"me-54","signature":"5/4","beats":"5","note":"Five quarter notes. It does not divide evenly, so the composer usually says how to group them."},
+{"id":"me-64","signature":"6/4","beats":"6","note":"Six quarter notes. The same grouping question as 6/8, one note value slower."}
+],
+"keys": [
+{"id":"ky-0","written":"no sharps and no flats","key":"C major","relative":"A minor","note":"The only signature that prints nothing at all."},
+{"id":"ky-1s","written":"one sharp","key":"G major","relative":"E minor","note":"The sharp is F, and the sharps always arrive in the order F C G D A E B."},
+{"id":"ky-2s","written":"two sharps","key":"D major","relative":"B minor","note":"F and C."},
+{"id":"ky-3s","written":"three sharps","key":"A major","relative":"F sharp minor","note":"F, C and G."},
+{"id":"ky-4s","written":"four sharps","key":"E major","relative":"C sharp minor","note":"F, C, G and D."},
+{"id":"ky-1f","written":"one flat","key":"F major","relative":"D minor","note":"The flat is B, and the flats arrive in the order B E A D G C F, which is the sharps backwards."},
+{"id":"ky-2f","written":"two flats","key":"B flat major","relative":"G minor","note":"B and E. Tchaikovsky's Old French Song is in the minor of this pair."},
+{"id":"ky-3f","written":"three flats","key":"E flat major","relative":"C minor","note":"B, E and A."},
+{"id":"ky-4f","written":"four flats","key":"A flat major","relative":"F minor","note":"B, E, A and D."}
+],
+"intervals": [
+{"id":"in-c-d","pair":"C to D","interval":"major second","note":"One letter apart, two semitones."},
+{"id":"in-c-e","pair":"C to E","interval":"major third","note":"Two letters apart, four semitones. The bottom of a major triad."},
+{"id":"in-c-eb","pair":"C to E flat","interval":"minor third","note":"Two letters apart, three semitones. The bottom of a minor triad."},
+{"id":"in-c-f","pair":"C to F","interval":"perfect fourth","note":"Three letters apart, five semitones."},
+{"id":"in-c-g","pair":"C to G","interval":"perfect fifth","note":"Four letters apart, seven semitones. The outer notes of any plain triad."},
+{"id":"in-c-a","pair":"C to A","interval":"major sixth","note":"Five letters apart, nine semitones."},
+{"id":"in-c-b","pair":"C to B","interval":"major seventh","note":"Six letters apart, eleven semitones, one semitone short of the octave."},
+{"id":"in-c-c","pair":"C to the C above","interval":"perfect octave","note":"Twelve semitones, and the same letter again."},
+{"id":"in-e-g","pair":"E to G","interval":"minor third","note":"Two letters apart, three semitones. The same size as C to E flat and spelled with no accidental."},
+{"id":"in-b-f","pair":"B to F","interval":"diminished fifth","note":"Four letters apart but only six semitones, because the white keys are not evenly spaced. The one fifth in the major scale that is not perfect."}
+],
+"triads": [
+{"id":"tri-c","chord":"C major","notes":["C E G"],"note":"Root, major third, perfect fifth."},
+{"id":"tri-g","chord":"G major","notes":["G B D"],"note":"Root, major third, perfect fifth."},
+{"id":"tri-f","chord":"F major","notes":["F A C"],"note":"Root, major third, perfect fifth."},
+{"id":"tri-d","chord":"D major","notes":["D F# A","D F sharp A"],"note":"The third is F sharp, which is why D major carries two sharps."},
+{"id":"tri-am","chord":"A minor","notes":["A C E"],"note":"Root, minor third, perfect fifth."},
+{"id":"tri-dm","chord":"D minor","notes":["D F A"],"note":"Root, minor third, perfect fifth."},
+{"id":"tri-em","chord":"E minor","notes":["E G B"],"note":"Root, minor third, perfect fifth."},
+{"id":"tri-bdim","chord":"B diminished","notes":["B D F"],"note":"A minor third stacked on a minor third, so the fifth is diminished."},
+{"id":"tri-caug","chord":"C augmented","notes":["C E G#","C E G sharp"],"note":"A major third stacked on a major third, so the fifth is augmented."}
+]
+}
+}

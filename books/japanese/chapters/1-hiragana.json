@@ -355,6 +355,27 @@
             ],
             "es": null
           }
+        },
+        {
+          "id": "p-ji-zu",
+          "kind": "callout",
+          "tone": "note",
+          "title": {
+            "en": "Why two cells of the chart are nearly empty",
+            "es": "Por qué dos casillas del cuadro están casi vacías"
+          },
+          "body": {
+            "en": [
+              "ぢ and づ are on the chart and you will almost never see them, and that is a decision rather than a gap. 現代仮名遣い, the 1986 Cabinet Notice this chapter keeps citing, writes both sounds with じ and ず everywhere except the two cases above, so the two cells sit there holding a handful of words each.",
+              "The notice also permits both spellings of a small group of words, いなずま and いなづま among them, and the dictionary this Book is built from records both. That is why no drill here ever asks you to pick between them: one of two permitted spellings is not a wrong answer.",
+              "Chapter 13 takes the same notice apart properly, including the words it names by hand and the three particle spellings the 1946 reform kept on purpose."
+            ],
+            "es": [
+              "ぢ y づ están en el cuadro y casi nunca las vas a ver, y eso es una decisión y no un hueco. 現代仮名遣い, el aviso del gabinete de 1986 que este capítulo no deja de citar, escribe los dos sonidos con じ y ず en todas partes salvo en los dos casos de arriba, así que las dos casillas se quedan ahí con un puñado de palabras cada una.",
+              "El aviso permite además las dos grafías de un grupo pequeño de palabras, entre ellas いなずま e いなづま, y el diccionario con el que está construido este libro recoge las dos. Por eso ningún ejercicio de aquí te pide elegir entre ellas: una de dos grafías permitidas no es una respuesta incorrecta.",
+              "El capítulo 13 desmonta ese mismo aviso en serio, con las palabras que nombra una a una y con las tres grafías de partícula que la reforma de 1946 conservó a propósito."
+            ]
+          }
         }
       ],
       "exercises": [
@@ -575,7 +596,9 @@
             "en": [
               "Modern kana is otherwise one character to one sound. These three are not, and they are the only three.",
               "ha is read wa when it marks the topic. he is read e when it marks a direction. wo is read o, and in contemporary Japanese it is used for nothing except marking the direct object.",
-              "The trap the Notice flags itself: a wa inside a word is a real wa, not the particle. Two of the commonest greetings you will meet, konnichiha and konbanha, end in the particle and are said with wa."
+              "The trap the Notice flags itself: a wa inside a word is a real wa, not the particle. Two of the commonest greetings you will meet, konnichiha and konbanha, end in the particle and are said with wa.",
+              "The why, which is worth more than the rule. Until 1946 Japanese was spelled by history rather than by sound, and a Cabinet order that year re-spelled the whole language by how it is said. These three were kept back deliberately, and 現代仮名遣い, the 1986 Notice that replaced that order, states each of them in one line of its own. They survived because they mark grammar rather than sound: change their spelling and you lose the only signal that a topic, a direction or an object is being marked.",
+              "So konnichiha is not an irregularity. It is the topic particle of a sentence about today that nobody has finished since the Meiji era, still spelled the way it was when the rest of the sentence was there."
             ],
             "es": null
           }
@@ -646,6 +669,40 @@
             "src": "data/kanji/strokes-kana.json#き",
             "render": "stroke-order",
             "caption": { "en": "ki. Two crossbars. The difference is the whole of it.", "es": null }
+          }
+        },
+        {
+          "id": "p-hand-vs-print",
+          "kind": "callout",
+          "tone": "note",
+          "title": {
+            "en": "The same character, drawn two ways, and both are right",
+            "es": "El mismo carácter, trazado de dos maneras, y las dos están bien"
+          },
+          "body": {
+            "en": [
+              "The pairs above are two characters that look alike. This one is worse and nobody warns you about it: one character that looks like two. ki, sa, ri and fu are each drawn with their last stroke either joined to the one above it or left separate, so the same character is three strokes in one font and four in another, and either way in a person's hand. Neither is a variant and neither is a mistake.",
+              "Japan made a typeface class rather than pick a side. 教科書体 is designed so that the printed shape matches what a child is taught to draw, because the metal type of the Meiji era did not match the handwritten form and children could not reconcile the two. The Cultural Council's 2016 guideline on character shapes states the principle in general: a character written so that its skeleton can be read is not a wrong character.",
+              "The figure below this note is drawn from the stroke data, which is the taught hand. Compare it with the same character in this sentence, which is the printed one."
+            ],
+            "es": [
+              "Los pares de arriba son dos caracteres que se parecen. Este es peor y nadie te avisa: un carácter que parece dos. ki, sa, ri y fu se trazan cada uno con el último trazo unido al anterior o separado de él, así que el mismo carácter tiene tres trazos en una tipografía y cuatro en otra, y cualquiera de las dos formas en la mano de una persona. Ninguna es una variante y ninguna es un error.",
+              "Japón hizo una clase tipográfica en vez de elegir un bando. 教科書体 está diseñada para que la forma impresa coincida con lo que se enseña a trazar a un niño, porque los tipos de metal de la era Meiji no coincidían con la forma manuscrita y los niños no lograban conciliar las dos. La guía de 2016 del Consejo de Cultura sobre las formas de los caracteres enuncia el principio en general: un carácter escrito de modo que se lea su esqueleto no es un carácter equivocado.",
+              "La figura que sigue a esta nota está trazada con los datos de trazos, que son la mano que se enseña. Compárala con el mismo carácter de esta frase, que es la forma impresa."
+            ]
+          }
+        },
+        {
+          "id": "p-hand-ri",
+          "kind": "figure",
+          "figure": {
+            "kind": "svg",
+            "src": "data/kanji/strokes-kana.json#り",
+            "render": "stroke-order",
+            "caption": {
+              "en": "ri, by hand: two separate strokes. Many printed faces join them, which is why it can look like the katakana of the same sound.",
+              "es": "ri, a mano: dos trazos separados. Muchas tipografías de imprenta los unen, y por eso puede parecerse al katakana del mismo sonido."
+            }
           }
         },
         {

@@ -5,6 +5,12 @@
     "grade 1, so hand-listing them here would be a second source of truth that",
     "goes stale. `numbers` and `days` are hand-ordered because teaching order is",
     "not a property of the dictionary.",
+    "`slice` is [from, to], a half-open range over a set's teaching order. Grade",
+    "2 is 160 characters, which is two chapters' worth of rungs, so it is taught",
+    "as `grade2a` [0, 80] and `grade2b` [80, 160] rather than as one 160 row.",
+    "The two rows must cover the grade exactly and may not overlap;",
+    "build-kanji.mjs asserts both and prints the sum, because a slice that runs",
+    "short emits a file with characters missing from the middle of its ladder.",
     "`kana` is the 176 codepoints U+3041 to U+3096 and U+30A1 to U+30FA. KanjiVG",
     "ships all 176, HEAD-checked by the research report and re-checked by",
     "build-strokes.mjs on every run."
@@ -33,8 +39,59 @@
       "budget_kb": 120,
       "strokes_budget_kb": 150,
       "grade": 1
+    },
+    {
+      "id": "grade2a",
+      "title": {
+        "en": "Grade two, the first eighty",
+        "es": "Segundo grado, los primeros ochenta"
+      },
+      "chapter": "10-kanji-beyond",
+      "budget_kb": 120,
+      "strokes_budget_kb": 150,
+      "grade": 2,
+      "slice": [0, 80]
+    },
+    {
+      "id": "grade2b",
+      "title": {
+        "en": "Grade two, the next eighty",
+        "es": "Segundo grado, los ochenta siguientes"
+      },
+      "chapter": "10-kanji-beyond",
+      "budget_kb": 120,
+      "strokes_budget_kb": 150,
+      "grade": 2,
+      "slice": [80, 160]
     }
   ],
+  "phon": {
+    "_note": [
+      "Input to tools/build-phon.mjs. It groups the whole joyo by the phonetic",
+      "component KanjiVG records in kvg:phon, so nothing here lists a member: a",
+      "hand-listed group would be a second source of truth for a fact the SVGs",
+      "already carry, and it would go stale the next time KanjiVG re-releases.",
+      "What is listed is the thresholds, because those are teaching decisions.",
+      "`taught_sets` names the sets whose characters the learner has already met,",
+      "which is what `known` means and what an anchor is. `min_group` is 3 because",
+      "two characters sharing a part is a coincidence, not a pattern.",
+      "`min_distinct_on` is the floor the drill needs: choice draws its wrong",
+      "options from the answers of other items in the same pool, so a pool with",
+      "three readings in it cannot offer three wrong ones."
+    ],
+    "id": "phon-groups",
+    "title": {
+      "en": "Phonetic components",
+      "es": "Componentes fonéticos"
+    },
+    "chapter": "10-kanji-beyond",
+    "out": "kanji/phon-groups.json",
+    "budget_kb": 120,
+    "grades": [1, 2, 3, 4, 5, 6, 8],
+    "taught_sets": ["numbers", "days", "grade1", "grade2a", "grade2b"],
+    "min_group": 3,
+    "min_distinct_on": 4
+  },
   "kana_set": {
     "id": "kana",
     "title": { "en": "Kana stroke order", "es": "Orden de trazos del kana" },

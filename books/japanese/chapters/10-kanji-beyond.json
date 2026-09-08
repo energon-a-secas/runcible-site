@@ -1,0 +1,825 @@
+{
+  "format": "neo-chapter/1",
+  "id": "10-kanji-beyond",
+  "title": {
+    "en": "The rest of the kanji",
+    "es": "El resto de los kanji"
+  },
+  "goal": {
+    "statement": {
+      "en": "Read the 240 kanji of grades one and two inside words, and guess a new kanji's reading from its phonetic part",
+      "es": "Leer dentro de palabras los 240 kanji de primero y segundo grado, y adivinar la lectura de un kanji nuevo por su parte fonética"
+    },
+    "evidence": {
+      "skill": "jp.kanji.grade2.read",
+      "accuracy": 0.85,
+      "min": 40,
+      "window": 80
+    }
+  },
+  "requires": [
+    "6-kanji"
+  ],
+  "state": "ready",
+  "estimate": {
+    "minutes": 2400,
+    "note": {
+      "en": "Two to three months at twenty to thirty characters a week, most of it in the two decks rather than on this page. Grades three to six and the 1,110 that finish the jōyō list are not here, and they are years rather than months.",
+      "es": "Dos o tres meses a veinte o treinta caracteres por semana, casi todo en los dos mazos y no en esta página. Los grados tercero a sexto y los 1.110 que completan la lista jōyō no están aquí, y son años y no meses."
+    }
+  },
+  "data": [
+    "data/vocab/ch10.json",
+    "data/kanji/kanjidic-grade2a.json",
+    "data/kanji/kanjidic-grade2b.json",
+    "data/kanji/strokes-grade2a.json",
+    "data/kanji/phon-groups.json"
+  ],
+  "rungs": [
+    {
+      "id": "grade-2a-in-words",
+      "title": {
+        "en": "The first eighty of grade two, inside words",
+        "es": "Los primeros ochenta de segundo grado, dentro de palabras"
+      },
+      "unlocks": {
+        "en": "reading the words a Japanese seven-year-old reads",
+        "es": "leer las palabras que lee un niño japonés de siete años"
+      },
+      "pages": [
+        {
+          "id": "p-two-ladders",
+          "kind": "prose",
+          "title": {
+            "en": "Two ladders, and this Book is still on the school one",
+            "es": "Dos escaleras, y este libro sigue en la de la escuela"
+          },
+          "body": {
+            "en": [
+              "There are two ways to order the first few hundred kanji. English-language guides order them by how often they appear or by the parts they are built from. The Japanese school system orders them by school year, eighty in the first year and a hundred and sixty in the second. Chapter 6 took the first eighty. This chapter takes the hundred and sixty, which lands the total at 240.",
+              "The school order has one property no ranking has: it is a published list rather than somebody's opinion, and every Japanese reader went through it in the same sequence. The two halves below are that list cut in two, eighty and eighty, so a rung is a sitting and not a season.",
+              "Above this sit the tiers. The 常用漢字表 lists 2,136 characters and is a cabinet notification, which is why the list itself is free of copyright. Names may use those plus a separate list of 864 name characters, held by the Ministry of Justice, which stood at 863 until June 2026 when a family court appeal added one more. That is 3,000 characters usable in a name. The edge of the writing system is administrative, and it moves.",
+              "This chapter stops at grade 2. Grades 3 to 6 are another 786 characters and the 1,110 that finish the jōyō list are secondary school; naming that gap is more honest than filling it with a rung nobody would work through."
+            ],
+            "es": [
+              "Hay dos maneras de ordenar los primeros cientos de kanji. Las guías en inglés los ordenan por frecuencia o por las partes con que están construidos. El sistema escolar japonés los ordena por curso, ochenta en el primer año y ciento sesenta en el segundo. El capítulo 6 tomó los primeros ochenta. Este toma los ciento sesenta, y el total queda en 240.",
+              "El orden escolar tiene una propiedad que ninguna lista de frecuencia tiene: es una lista publicada y no la opinión de alguien, y todo lector japonés pasó por ella en la misma secuencia. Las dos mitades de abajo son esa lista partida en dos, ochenta y ochenta, para que un escalón sea una sesión y no una temporada.",
+              "Por encima están los niveles. La tabla 常用漢字表 lista 2.136 caracteres y es una notificación del gabinete, razón por la cual la lista misma está libre de derechos. Para los nombres se pueden usar además otros 864 caracteres, en una lista del Ministerio de Justicia que estuvo en 863 hasta junio de 2026, cuando la apelación de una familia ante un tribunal añadió uno más. Son 3.000 caracteres utilizables en un nombre. El borde del sistema de escritura es administrativo, y se mueve.",
+              "Este capítulo se detiene en segundo grado. Los grados 3 a 6 son otros 786 caracteres y los 1.110 que completan la lista jōyō son de secundaria; nombrar ese hueco es más honesto que rellenarlo con un escalón que nadie trabajaría."
+            ]
+          }
+        },
+        {
+          "id": "p-grade-2a-list",
+          "kind": "table",
+          "title": {
+            "en": "The first eighty of grade two, in the order the schools teach them",
+            "es": "Los primeros ochenta de segundo grado, en el orden en que los enseña la escuela"
+          },
+          "columns": [
+            {
+              "en": "The first eighty",
+              "es": "Los primeros ochenta"
+            }
+          ],
+          "items": "data/kanji/kanjidic-grade2a.json#order"
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-grade-2a-pairs",
+          "type": "quiz",
+          "game": "pairs",
+          "skill": "jp.kanji.grade2.read",
+          "title": {
+            "en": "One kanji, one word",
+            "es": "Un kanji, una palabra"
+          },
+          "src": "books/japanese/sets/jp-kanji-grade2-pairs.json",
+          "filter": "group:singles-2a",
+          "limit": 12,
+          "pass": {
+            "accuracy": 0.8
+          }
+        }
+      ]
+    },
+    {
+      "id": "grade-2b-in-words",
+      "title": {
+        "en": "The second eighty, and the same drill again",
+        "es": "Los otros ochenta, y el mismo ejercicio otra vez"
+      },
+      "unlocks": {
+        "en": "the whole of grade two, which is two thirds of the 240",
+        "es": "todo el segundo grado, que son dos tercios de los 240"
+      },
+      "pages": [
+        {
+          "id": "p-second-eighty",
+          "kind": "prose",
+          "title": {
+            "en": "Why the same rung twice",
+            "es": "Por qué el mismo escalón dos veces"
+          },
+          "body": {
+            "en": [
+              "This rung looks identical to the one before it, and it is: the same set, the same game, a different eighty characters. That repetition is the point. A second pass over one ladder with new material on it is how a habit forms, and a chapter that invented a new kind of exercise here would be teaching you its own cleverness instead of the characters.",
+              "The round is still twelve pairs at a time out of a set of a hundred and sixty-nine words, so the wrong options come from the whole grade rather than from the twelve on the board. A wrong option nobody would pick is a free point.",
+              "Every word in both rounds is one character long. That is deliberate and it is also a limit: JMdict holds no common one-character word for thirty-eight of the hundred and sixty, because those characters are verb stems and bound pieces that never stand alone. They still appear in the compounds on the next rung and in the deck at the end."
+            ],
+            "es": [
+              "Este escalón se parece al anterior, y lo es: el mismo conjunto, el mismo juego, otros ochenta caracteres. Esa repetición es el objetivo. Una segunda vuelta por una misma escalera con material nuevo encima es como se forma un hábito, y un capítulo que inventara aquí un tipo nuevo de ejercicio te estaría enseñando su propio ingenio en lugar de los caracteres.",
+              "La ronda sigue siendo de doce parejas cada vez, sacadas de un conjunto de ciento sesenta y nueve palabras, así que las opciones falsas vienen de todo el grado y no de las doce del tablero. Una opción falsa que nadie elegiría es un punto regalado.",
+              "Todas las palabras de las dos rondas tienen un solo carácter. Es deliberado y también es un límite: JMdict no tiene ninguna palabra común de un carácter para treinta y ocho de los ciento sesenta, porque esos caracteres son raíces verbales y piezas ligadas que nunca van solas. Aparecen igual en los compuestos del escalón siguiente y en el mazo del final."
+            ]
+          }
+        },
+        {
+          "id": "p-grade-2b-list",
+          "kind": "table",
+          "title": {
+            "en": "The second eighty",
+            "es": "Los otros ochenta"
+          },
+          "columns": [
+            {
+              "en": "The second eighty",
+              "es": "Los otros ochenta"
+            }
+          ],
+          "items": "data/kanji/kanjidic-grade2b.json#order"
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-grade-2b-pairs",
+          "type": "quiz",
+          "game": "pairs",
+          "skill": "jp.kanji.grade2.read",
+          "title": {
+            "en": "One kanji, one word, again",
+            "es": "Un kanji, una palabra, otra vez"
+          },
+          "src": "books/japanese/sets/jp-kanji-grade2-pairs.json",
+          "filter": "group:singles-2b",
+          "limit": 12,
+          "pass": {
+            "accuracy": 0.8
+          }
+        }
+      ]
+    },
+    {
+      "id": "compounds-2",
+      "title": {
+        "en": "Two characters together, and where their sound came from",
+        "es": "Dos caracteres juntos, y de dónde salió su sonido"
+      },
+      "unlocks": {
+        "en": "reading a newspaper headline, which is compounds almost all the way down",
+        "es": "leer un titular de periódico, que es casi todo compuestos"
+      },
+      "pages": [
+        {
+          "id": "p-reading-layers",
+          "kind": "prose",
+          "title": {
+            "en": "One character, several on-readings, and the reason is history",
+            "es": "Un carácter, varias lecturas on, y la razón es histórica"
+          },
+          "body": {
+            "en": [
+              "A character's on-reading is a Chinese pronunciation borrowed into Japanese, and it was borrowed more than once. The go-on layer arrived in the fifth and sixth centuries and survives mostly in Buddhist vocabulary. The kan-on layer arrived from the seventh to the ninth and is the commonest today. A third and thinner layer, tō-on, came later. That is why a character can have two on-readings and neither is wrong: they are two different centuries.",
+              "A large part of the modern vocabulary was not borrowed at all. 電話 and 科学 were coined in Japan during the Meiji period to translate Western ideas, out of Chinese parts, and many of those coinages were then borrowed back into Chinese. So a compound that looks ancient may be younger than the telephone it names.",
+              "The shape is worth having: a two-character compound is usually a modifier followed by a head, almost all of them are nouns, and a noun becomes a verb by adding する. Words of this kind are roughly sixty percent of a dictionary and under twenty percent of ordinary speech, which is exactly why the news is harder than a conversation."
+            ],
+            "es": [
+              "La lectura on de un carácter es una pronunciación china tomada prestada por el japonés, y se tomó prestada más de una vez. La capa go-on llegó en los siglos quinto y sexto y sobrevive sobre todo en vocabulario budista. La capa kan-on llegó entre los siglos séptimo y noveno y es la más común hoy. Una tercera capa, más delgada, la tō-on, llegó después. Por eso un carácter puede tener dos lecturas on y ninguna es incorrecta: son dos siglos distintos.",
+              "Buena parte del vocabulario moderno no se tomó prestado en absoluto. 電話 y 科学 se acuñaron en Japón durante la era Meiji para traducir ideas occidentales, con piezas chinas, y muchas de esas acuñaciones pasaron después al chino. Así que un compuesto de aspecto antiguo puede ser más joven que el teléfono que nombra.",
+              "Vale la pena quedarse con la forma: un compuesto de dos caracteres suele ser un modificador seguido de un núcleo, casi todos son sustantivos, y un sustantivo se vuelve verbo añadiendo する. Las palabras de este tipo son cerca del sesenta por ciento de un diccionario y menos del veinte por ciento del habla corriente, que es justamente por lo que las noticias cuestan más que una conversación."
+            ]
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-compounds-2-meaning",
+          "type": "choice",
+          "skill": "jp.kanji.grade2.read",
+          "title": {
+            "en": "What does the compound mean?",
+            "es": "¿Qué significa el compuesto?"
+          },
+          "items": "data/vocab/ch10.json#groups.compounds-2",
+          "prompt": "word",
+          "answer": "gloss.0",
+          "distractors": {
+            "n": 3
+          },
+          "count": 10,
+          "pass": {
+            "accuracy": 0.8
+          }
+        },
+        {
+          "id": "e-compounds-2-reading",
+          "type": "typed",
+          "skill": "jp.kanji.grade2.read",
+          "title": {
+            "en": "Type how it is read",
+            "es": "Escribe cómo se lee"
+          },
+          "items": "data/vocab/ch10.json#groups.compounds-2",
+          "prompt": "word",
+          "answer": "kana",
+          "transform": "kana",
+          "compare": "trim|kana",
+          "count": 10,
+          "pass": {
+            "accuracy": 0.7
+          }
+        }
+      ]
+    },
+    {
+      "id": "phonetic-parts",
+      "title": {
+        "en": "The part that carries the sound",
+        "es": "La parte que lleva el sonido"
+      },
+      "unlocks": {
+        "en": "a first guess at a character you have never seen",
+        "es": "una primera conjetura sobre un carácter que nunca has visto"
+      },
+      "pages": [
+        {
+          "id": "p-phonetic-parts",
+          "kind": "prose",
+          "title": {
+            "en": "A good bet, and the measurement behind it",
+            "es": "Una buena apuesta, y la medición que hay detrás"
+          },
+          "body": {
+            "en": [
+              "Most kanji are built from two parts: one that hints at the meaning and one that carries the sound. 功, 攻, 江, 紅, 貢 and 項 are all read コウ, and the reason is that every one of them contains 工, which is itself read コウ. Learning that is worth more than learning any one of them. 空 contains it too and is read クウ, which is the single miss in a group of seven, and it is also the one character of the seven you already know.",
+              "It is a bet and not a rule, and this Book measured it rather than repeating the claim. Over the whole jōyō list, the groups with three or more members cover 558 characters, and 69.9 percent of their members take the group's commonest reading. Over the smaller set drilled below, where every group has a character you already know, the bet holds for 94 of 160, which is 59 percent.",
+              "So it wins about three times in five, and the table shows both ends: some components never miss, and some are near a coin flip. The weakest group in the file is 厶, whose reading holds for one member of four. A part that hints at the meaning is another matter and it is not what this rung tests."
+            ],
+            "es": [
+              "Casi todos los kanji están hechos de dos partes: una que insinúa el significado y otra que lleva el sonido. 功, 攻, 江, 紅, 貢 y 項 se leen todos コウ, y la razón es que todos contienen 工, que a su vez se lee コウ. Aprender eso vale más que aprender cualquiera de ellos por separado. 空 también lo contiene y se lee クウ, que es el único fallo de un grupo de siete, y es además el único de los siete que ya conoces.",
+              "Es una apuesta y no una regla, y este libro la midió en vez de repetir la afirmación. En toda la lista jōyō, los grupos de tres miembros o más cubren 558 caracteres, y el 69,9 por ciento de sus miembros toma la lectura más común del grupo. En el conjunto más pequeño que se practica abajo, donde cada grupo tiene un carácter que ya conoces, la apuesta se cumple en 94 de 160, es decir el 59 por ciento.",
+              "Así que acierta unas tres veces de cada cinco, y la tabla muestra los dos extremos: hay componentes que nunca fallan y hay otros que están cerca de cara o cruz. El grupo más débil del archivo es 厶, cuya lectura se cumple en uno de cuatro miembros. La parte que insinúa el significado es otro asunto y no es lo que mide este escalón."
+            ]
+          },
+          "note": {
+            "en": [
+              "The groups come from KanjiVG, which marks the phonetic part of a character in the drawing itself; the readings and the school grades come from KANJIDIC. The percentages on this page were computed from those two files by tools/build-phon.mjs, not quoted from anywhere."
+            ],
+            "es": [
+              "Los grupos vienen de KanjiVG, que marca en el propio dibujo la parte fonética de un carácter; las lecturas y los grados escolares vienen de KANJIDIC. Los porcentajes de esta página los calculó tools/build-phon.mjs a partir de esos dos archivos, y no están citados de ninguna parte."
+            ]
+          }
+        },
+        {
+          "id": "p-phon-eight",
+          "kind": "table",
+          "title": {
+            "en": "Eight components, strongest to weakest",
+            "es": "Ocho componentes, del más fuerte al más débil"
+          },
+          "columns": [
+            {
+              "en": "Component",
+              "es": "Componente"
+            },
+            {
+              "en": "The reading it usually carries",
+              "es": "La lectura que suele llevar"
+            },
+            {
+              "en": "Members inside the jōyō list",
+              "es": "Miembros dentro de la lista jōyō"
+            },
+            {
+              "en": "How often it holds",
+              "es": "Con qué frecuencia se cumple"
+            }
+          ],
+          "rows": [
+            [
+              "青",
+              "セイ",
+              "情晴清精請静",
+              "6/6, 100%"
+            ],
+            [
+              "交",
+              "コウ",
+              "効校絞較郊",
+              "5/5, 100%"
+            ],
+            [
+              "工",
+              "コウ",
+              "功攻江空紅貢項",
+              "6/7, 86%"
+            ],
+            [
+              "己",
+              "キ",
+              "忌改紀記起",
+              "4/5, 80%"
+            ],
+            [
+              "且",
+              "ソ",
+              "助査祖租粗組阻",
+              "5/7, 71%"
+            ],
+            [
+              "者",
+              "ショ",
+              "暑書煮着緒署著諸都",
+              "5/9, 56%"
+            ],
+            [
+              "寺",
+              "ジ",
+              "侍待持時特等詩",
+              "3/7, 43%"
+            ],
+            [
+              "丁",
+              "チョウ",
+              "亭庁成打灯町訂頂",
+              "3/8, 38%"
+            ]
+          ]
+        },
+        {
+          "id": "p-phon-anchor",
+          "kind": "figure",
+          "figure": {
+            "kind": "svg",
+            "src": "data/kanji/strokes-grade2a.json#時",
+            "render": "stroke-order",
+            "caption": {
+              "en": "時, one of the eighty you learned two rungs ago. Its right-hand part is 寺, and six other jōyō characters are built on the same part. Three of the seven read ジ, which is this group's 43 percent.",
+              "es": "時, uno de los ochenta que aprendiste dos escalones atrás. Su parte derecha es 寺, y otros seis caracteres jōyō están construidos sobre esa misma parte. Tres de los siete se leen ジ, que es el 43 por ciento de este grupo."
+            }
+          }
+        },
+        {
+          "id": "p-phon-pass",
+          "kind": "callout",
+          "tone": "note",
+          "title": {
+            "en": "Why this drill passes at six in ten",
+            "es": "Por qué este ejercicio se aprueba con seis de cada diez"
+          },
+          "body": {
+            "en": [
+              "Every other exercise in this Book asks for seventy or eighty percent. This one asks for sixty, and the reason is the measurement above: over the characters it draws from, the phonetic part predicts the reading 59 percent of the time. A threshold above the base rate would be marking you down for the language's own irregularity, which is not a thing you can study away.",
+              "The characters in this round are ones the Book has never taught you. Getting six in ten right on a character you have never seen is the skill; getting ten in ten would mean the round was built wrong."
+            ],
+            "es": [
+              "Todos los demás ejercicios de este libro piden un setenta u ochenta por ciento. Este pide un sesenta, y la razón es la medición de arriba: en los caracteres de los que saca sus preguntas, la parte fonética predice la lectura el 59 por ciento de las veces. Un umbral por encima de esa tasa base te estaría penalizando por la irregularidad del propio idioma, que no es algo que se pueda estudiar.",
+              "Los caracteres de esta ronda son de los que el libro nunca te ha enseñado. Acertar seis de cada diez en un carácter que no has visto nunca es la destreza; acertar diez de diez querría decir que la ronda está mal construida."
+            ]
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-phon-guess",
+          "type": "choice",
+          "skill": "jp.kanji.grade2.read",
+          "title": {
+            "en": "A character you have not met: how is it read?",
+            "es": "Un carácter que no has visto: ¿cómo se lee?"
+          },
+          "items": "data/kanji/phon-groups.json#unseen",
+          "prompt": "literal",
+          "answer": "on",
+          "distractors": {
+            "n": 3
+          },
+          "count": 10,
+          "pass": {
+            "accuracy": 0.6
+          }
+        }
+      ]
+    },
+    {
+      "id": "same-reading-several-kanji",
+      "title": {
+        "en": "One reading, several characters, and the writer picks the shade",
+        "es": "Una lectura, varios caracteres, y quien escribe elige el matiz"
+      },
+      "unlocks": {
+        "en": "reading a word whose spelling is itself part of the meaning",
+        "es": "leer una palabra cuya escritura es ya parte del significado"
+      },
+      "pages": [
+        {
+          "id": "p-shade",
+          "kind": "prose",
+          "title": {
+            "en": "Choosing the character is choosing the meaning",
+            "es": "Elegir el carácter es elegir el significado"
+          },
+          "body": {
+            "en": [
+              "あつい is 熱い for a hot cup, 暑い for a hot day and 厚い for a thick book. とる is 取る for taking and 撮る for taking a photograph. The sound is one word; the writing makes the distinction. In Japanese, spelling is a semantic act in a way that spelling in Spanish or English is not.",
+              "The Cultural Council published a whole report on this in 2014, covering about 136 sets, the first revision of its predecessor in forty-two years. The eleven sets drilled below are the ones a dictionary keeps as separate entries, so a drill can ask for one of them and be right.",
+              "Some famous sets are not drilled and are here as prose instead, because the dictionary holds them as one entry and there is nothing for a drill to choose between: 見る, 観る and 診る for looking, watching and examining; 早い for time against 速い for speed; 聞く and 聴く; 作る and 造る; 計る, 測る and 量る; 表す and 現す; 堅い, 固い and 硬い. Read them, notice them in the wild, and do not expect a score for them."
+            ],
+            "es": [
+              "あつい es 熱い para una taza caliente, 暑い para un día caluroso y 厚い para un libro grueso. とる es 取る para tomar y 撮る para tomar una foto. El sonido es una sola palabra; la escritura hace la distinción. En japonés, escribir es un acto semántico de un modo que no lo es en español.",
+              "El Consejo de Cultura publicó en 2014 un informe entero sobre esto, con unos 136 conjuntos, la primera revisión de su antecesor en cuarenta y dos años. Los once conjuntos que se practican abajo son los que el diccionario guarda como entradas separadas, así que un ejercicio puede preguntar por uno de ellos y tener razón.",
+              "Algunos conjuntos famosos no se practican y están aquí como prosa, porque el diccionario los guarda como una sola entrada y no hay nada entre lo que un ejercicio pueda elegir: 見る, 観る y 診る para mirar, ver con atención y examinar; 早い para el tiempo frente a 速い para la velocidad; 聞く y 聴く; 作る y 造る; 計る, 測る y 量る; 表す y 現す; 堅い, 固い y 硬い. Léelos, fíjate en ellos cuando aparezcan, y no esperes una calificación por ellos."
+            ]
+          },
+          "note": {
+            "en": [
+              "The sets are facts and the glosses come from JMdict. The 2014 report is a Japanese government document; this page says what it distinguishes and copies none of its wording."
+            ],
+            "es": [
+              "Los conjuntos son hechos y las glosas vienen de JMdict. El informe de 2014 es un documento del gobierno japonés; esta página dice qué distingue y no copia nada de su redacción."
+            ]
+          }
+        },
+        {
+          "id": "p-shade-scope",
+          "kind": "callout",
+          "tone": "warn",
+          "title": {
+            "en": "These characters are past grade two on purpose",
+            "es": "Estos caracteres están más allá de segundo grado a propósito"
+          },
+          "body": {
+            "en": [
+              "Ten of the eleven sets reach outside the 240 characters this Book has taught. Only 会う and 合う sit inside grade two on both sides. 撮, 刺, 描 and 泊 are secondary school characters, and the rest are grades three to six.",
+              "That is deliberate. They are here for the shade, not for the character, and the round asks which spelling carries which meaning. The reading printed beside each gloss is context, not the thing being tested, and this round records a skill that gates nothing: getting a shade wrong holds no chapter shut."
+            ],
+            "es": [
+              "Diez de los once conjuntos salen de los 240 caracteres que este libro ha enseñado. Solo 会う y 合う están dentro de segundo grado por ambos lados. 撮, 刺, 描 y 泊 son caracteres de secundaria, y el resto son de tercero a sexto.",
+              "Es deliberado. Están aquí por el matiz y no por el carácter, y la ronda pregunta qué escritura lleva qué significado. La lectura impresa junto a cada glosa es contexto y no lo que se evalúa, y esta ronda registra una destreza que no abre ninguna puerta: equivocarse de matiz no deja ningún capítulo cerrado."
+            ]
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-shade",
+          "type": "choice",
+          "skill": "jp.kanji.shade",
+          "title": {
+            "en": "Which spelling carries this meaning?",
+            "es": "¿Qué escritura lleva este significado?"
+          },
+          "items": "data/vocab/ch10.json#groups.homophones",
+          "prompt": "gloss.0",
+          "answer": "word",
+          "distractors": {
+            "by": "kana",
+            "n": 2
+          },
+          "count": 10,
+          "pass": {
+            "accuracy": 0.7
+          }
+        }
+      ]
+    },
+    {
+      "id": "two-forms",
+      "title": {
+        "en": "Two shapes for one character, and two spellings for one word",
+        "es": "Dos formas para un carácter, y dos escrituras para una palabra"
+      },
+      "unlocks": {
+        "en": "reading an old shop sign, and not panicking at a spelling you were not taught",
+        "es": "leer un letrero antiguo, y no asustarte con una escritura que no te enseñaron"
+      },
+      "pages": [
+        {
+          "id": "p-two-forms",
+          "kind": "prose",
+          "title": {
+            "en": "The 1949 table, and what happened to the old shapes",
+            "es": "La tabla de 1949, y qué pasó con las formas antiguas"
+          },
+          "body": {
+            "en": [
+              "The 1946 当用漢字表 and the 1949 当用漢字字体表 simplified a few hundred characters. 國 became 国, 學 became 学, 櫻 became 桜, and 龍, 澤, 邊 and 藝 became 竜, 沢, 辺 and 芸. The 2016 guideline gives the vocabulary for it: those are one 字種 with two 字体, one skeleton in two designs, and each entry in the jōyō table names one of them as the form in general use.",
+              "The old shapes were never banned. They stay in personal names, in company names and on shop signs, and a reader is expected to recognise them without being taught them. That is what this rung is for: you are not learning to write them, you are learning not to be stopped by one."
+            ],
+            "es": [
+              "La tabla 当用漢字表 de 1946 y la 当用漢字字体表 de 1949 simplificaron unos cientos de caracteres. 國 pasó a 国, 學 pasó a 学, 櫻 pasó a 桜, y 龍, 澤, 邊 y 藝 pasaron a 竜, 沢, 辺 y 芸. La guía de 2016 da el vocabulario para hablar de esto: son un 字種 con dos 字体, un esqueleto en dos diseños, y cada entrada de la tabla jōyō nombra una de las formas como la de uso general.",
+              "Las formas antiguas nunca se prohibieron. Siguen en nombres de personas, en nombres de empresas y en letreros de tiendas, y se espera que un lector las reconozca sin que se las hayan enseñado. Para eso está este escalón: no estás aprendiendo a escribirlas, estás aprendiendo a que no te detengan."
+            ]
+          }
+        },
+        {
+          "id": "p-okurigana-tiers",
+          "kind": "prose",
+          "title": {
+            "en": "Two spellings of one word, and both are correct",
+            "es": "Dos escrituras de una palabra, y las dos son correctas"
+          },
+          "body": {
+            "en": [
+              "The kana that follow a kanji carry the inflection and pick the reading. The national rule for them dates from 1973 and was amended in 1981, and it is written in three tiers: a main rule, a list of exceptions, and a tier of permitted alternatives. That third tier is why 行う and 行なう are both right, and why legal drafting, which refuses the third tier, reads differently from a novel.",
+              "The clearest proof a learner can see is a government sign beside a school textbook. Public documents drop the okurigana in 186 compound nouns where nothing can be misread: the sign says 食品売場 and the schoolbook says 食品売り場. Verbs keep the full spelling in both.",
+              "So a spelling you were not taught is usually not an error, it is a different tier. The exercise below asks which of the two you are looking at."
+            ],
+            "es": [
+              "Los kana que siguen a un kanji llevan la flexión y eligen la lectura. La norma nacional sobre ellos es de 1973, con una enmienda de 1981, y está escrita en tres niveles: una regla principal, una lista de excepciones y un nivel de alternativas permitidas. Ese tercer nivel es la razón de que 行う y 行なう sean las dos correctas, y de que la redacción legal, que rechaza el tercer nivel, se lea distinta de una novela.",
+              "La prueba más clara que puede ver quien aprende es un letrero oficial junto a un libro de texto escolar. Los documentos públicos quitan el okurigana en 186 sustantivos compuestos donde no cabe una lectura errónea: el letrero dice 食品売場 y el libro dice 食品売り場. Los verbos conservan la escritura completa en los dos casos.",
+              "Así que una escritura que no te enseñaron normalmente no es un error, es otro nivel. El ejercicio de abajo pregunta cuál de los dos estás mirando."
+            ]
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-old-new",
+          "type": "match",
+          "skill": "jp.kanji.grade2.read",
+          "title": {
+            "en": "Pair the old shape with the one in use",
+            "es": "Empareja la forma antigua con la que está en uso"
+          },
+          "items": [
+            {
+              "id": "form:国",
+              "old": "國",
+              "new": "国",
+              "explain": {
+                "en": "country. The old form encloses a jewel; the 1949 table replaced it with the one inside a box you learned this chapter.",
+                "es": "país. La forma antigua encierra una joya; la tabla de 1949 la sustituyó por la que aprendiste en este capítulo, con la pieza dentro de un cuadro."
+              }
+            },
+            {
+              "id": "form:学",
+              "old": "學",
+              "new": "学",
+              "explain": {
+                "en": "study. The top of the old form is what the modern three strokes stand in for.",
+                "es": "estudiar. La parte de arriba de la forma antigua es lo que sustituyen los tres trazos modernos."
+              }
+            },
+            {
+              "id": "form:広",
+              "old": "廣",
+              "new": "広",
+              "explain": {
+                "en": "wide. The old form is still on shop signs and in surnames.",
+                "es": "ancho. La forma antigua sigue en letreros de tiendas y en apellidos."
+              }
+            },
+            {
+              "id": "form:当",
+              "old": "當",
+              "new": "当",
+              "explain": {
+                "en": "to hit, to be the case. One of the heaviest simplifications on the list.",
+                "es": "acertar, corresponder. Una de las simplificaciones más fuertes de la lista."
+              }
+            },
+            {
+              "id": "form:楽",
+              "old": "樂",
+              "new": "楽",
+              "explain": {
+                "en": "music, ease. The same character does both jobs, in both forms.",
+                "es": "música, comodidad. El mismo carácter hace los dos trabajos, en las dos formas."
+              }
+            },
+            {
+              "id": "form:万",
+              "old": "萬",
+              "new": "万",
+              "explain": {
+                "en": "ten thousand. The modern form is three strokes and the old one is twelve.",
+                "es": "diez mil. La forma moderna tiene tres trazos y la antigua doce."
+              }
+            },
+            {
+              "id": "form:売",
+              "old": "賣",
+              "new": "売",
+              "explain": {
+                "en": "to sell. You will meet the old form on an old shopfront.",
+                "es": "vender. Te encontrarás la forma antigua en un escaparate antiguo."
+              }
+            },
+            {
+              "id": "form:読",
+              "old": "讀",
+              "new": "読",
+              "explain": {
+                "en": "to read. The right half is what was simplified.",
+                "es": "leer. Lo que se simplificó es la mitad derecha."
+              }
+            },
+            {
+              "id": "form:点",
+              "old": "點",
+              "new": "点",
+              "explain": {
+                "en": "point, dot. The old form is common in Taiwan and Hong Kong today.",
+                "es": "punto. La forma antigua es común hoy en Taiwán y Hong Kong."
+              }
+            },
+            {
+              "id": "form:体",
+              "old": "體",
+              "new": "体",
+              "explain": {
+                "en": "body. The modern form is a person beside the character for root.",
+                "es": "cuerpo. La forma moderna es una persona junto al carácter de raíz."
+              }
+            },
+            {
+              "id": "form:円",
+              "old": "圓",
+              "new": "円",
+              "explain": {
+                "en": "circle, and the currency. The old form is the one on pre-war notes.",
+                "es": "círculo, y la moneda. La forma antigua es la de los billetes de antes de la guerra."
+              }
+            },
+            {
+              "id": "form:桜",
+              "old": "櫻",
+              "new": "桜",
+              "explain": {
+                "en": "cherry tree. The example every article on this subject uses.",
+                "es": "cerezo. El ejemplo que usa todo artículo sobre este tema."
+              }
+            }
+          ],
+          "left": "old",
+          "right": "new",
+          "n": 6,
+          "pass": {
+            "accuracy": 0.75
+          }
+        },
+        {
+          "id": "e-sign-or-schoolbook",
+          "type": "choice",
+          "skill": "jp.kanji.grade2.read",
+          "title": {
+            "en": "The sign, or the schoolbook?",
+            "es": "¿El letrero, o el libro de texto?"
+          },
+          "items": [
+            {
+              "id": "okuri:1",
+              "spelling": "食品売場",
+              "where": "the public sign",
+              "explain": {
+                "en": "Public documents drop the kana inside a compound noun where nothing can be misread. The schoolbook writes 食品売り場.",
+                "es": "Los documentos públicos quitan el kana dentro de un sustantivo compuesto cuando no hay riesgo de leer mal. El libro de texto escribe 食品売り場."
+              }
+            },
+            {
+              "id": "okuri:2",
+              "spelling": "食品売り場",
+              "where": "the schoolbook",
+              "explain": {
+                "en": "School spelling keeps the kana that shows the verb inside the compound. The sign writes 食品売場.",
+                "es": "La ortografía escolar conserva el kana que muestra el verbo dentro del compuesto. El letrero escribe 食品売場."
+              }
+            },
+            {
+              "id": "okuri:3",
+              "spelling": "期限付の職",
+              "where": "the public sign",
+              "explain": {
+                "en": "The same rule again: a fixed-term post, spelled the way an official document spells it.",
+                "es": "La misma regla otra vez: un puesto de duración determinada, escrito como lo escribe un documento oficial."
+              }
+            },
+            {
+              "id": "okuri:4",
+              "spelling": "期限付きの職",
+              "where": "the schoolbook",
+              "explain": {
+                "en": "The school form keeps き, which is the kana the verb ends in.",
+                "es": "La forma escolar conserva き, que es el kana en que termina el verbo."
+              }
+            },
+            {
+              "id": "okuri:5",
+              "spelling": "解約の手続",
+              "where": "the public sign",
+              "explain": {
+                "en": "A cancellation procedure. The official list names 186 compound nouns treated this way.",
+                "es": "Un trámite de cancelación. La lista oficial nombra 186 sustantivos compuestos tratados así."
+              }
+            },
+            {
+              "id": "okuri:6",
+              "spelling": "解約の手続き",
+              "where": "the schoolbook",
+              "explain": {
+                "en": "The same word with its okurigana, which is what you were taught and what a novel prints.",
+                "es": "La misma palabra con su okurigana, que es lo que te enseñaron y lo que imprime una novela."
+              }
+            }
+          ],
+          "prompt": "spelling",
+          "answer": "where",
+          "distractors": {
+            "n": 1
+          },
+          "count": 6,
+          "pass": {
+            "accuracy": 0.75
+          }
+        }
+      ]
+    },
+    {
+      "id": "jukujikun-and-the-deck",
+      "title": {
+        "en": "The words with no rule, and the deck that carries the rest",
+        "es": "Las palabras sin regla, y el mazo que carga con el resto"
+      },
+      "unlocks": {
+        "en": "a review schedule for 240 characters, which is what actually holds them",
+        "es": "un calendario de repaso para 240 caracteres, que es lo que de verdad los sostiene"
+      },
+      "pages": [
+        {
+          "id": "p-jukujikun",
+          "kind": "prose",
+          "title": {
+            "en": "大人 is not read the way its two characters are read",
+            "es": "大人 no se lee como se leen sus dos caracteres"
+          },
+          "body": {
+            "en": [
+              "Some words take their meaning from the characters and their sound from nowhere in particular. 大人 is おとな, 今日 is きょう, 昨日 is きのう, 明日 is あした. Splitting the reading between the characters does not work, because the reading belongs to the whole word.",
+              "There is no rule for these, only a list. The jōyō table carries an appendix of them, and that appendix is the reason a Japanese reader knows あした on sight. The opposite trick also exists: characters chosen for sound alone, discarding the meaning, which is how 珈琲 came to spell coffee on an old cafe sign. Official writing spells most of those in kana now and keeps the appendix words in characters.",
+              "Ten of the appendix words are drilled here. The rest of grade two comes back in the two decks below, spaced over weeks, which is the only part of kanji study that survives contact with a calendar."
+            ],
+            "es": [
+              "Algunas palabras toman su significado de los caracteres y su sonido de ninguna parte en concreto. 大人 es おとな, 今日 es きょう, 昨日 es きのう, 明日 es あした. Repartir la lectura entre los caracteres no funciona, porque la lectura pertenece a la palabra entera.",
+              "Para estas no hay regla, solo una lista. La tabla jōyō lleva un apéndice con ellas, y ese apéndice es la razón de que un lector japonés reconozca あした de un vistazo. También existe el truco contrario: caracteres elegidos solo por su sonido, descartando el significado, que es como 珈琲 llegó a escribir café en el letrero de una cafetería antigua. La escritura oficial pone hoy casi todos esos en kana y mantiene en caracteres las palabras del apéndice.",
+              "Aquí se practican diez palabras del apéndice. El resto de segundo grado vuelve en los dos mazos de abajo, repartido en semanas, que es la única parte del estudio de kanji que sobrevive al contacto con un calendario."
+            ]
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-jukujikun-pairs",
+          "type": "quiz",
+          "game": "pairs",
+          "skill": "jp.kanji.grade2.read",
+          "title": {
+            "en": "The readings with no rule",
+            "es": "Las lecturas sin regla"
+          },
+          "src": "books/japanese/sets/jp-kanji-grade2-pairs.json",
+          "filter": "group:jukujikun",
+          "limit": 10,
+          "pass": {
+            "accuracy": 0.75
+          }
+        },
+        {
+          "id": "e-deck-grade2a",
+          "type": "deck",
+          "skill": "jp.kanji.grade2.read",
+          "title": {
+            "en": "The first eighty, on a schedule",
+            "es": "Los primeros ochenta, con calendario"
+          },
+          "src": "books/japanese/decks/jp-kanji-grade2a.json",
+          "mode": "review",
+          "limit": 20
+        },
+        {
+          "id": "e-deck-grade2b",
+          "type": "deck",
+          "skill": "jp.kanji.grade2.read",
+          "title": {
+            "en": "The second eighty, on a schedule",
+            "es": "Los otros ochenta, con calendario"
+          },
+          "src": "books/japanese/decks/jp-kanji-grade2b.json",
+          "mode": "review",
+          "limit": 20
+        }
+      ]
+    }
+  ]
+}

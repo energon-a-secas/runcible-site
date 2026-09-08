@@ -1,7 +1,7 @@
 {
   "format": "neo-book/1",
   "id": "piano",
-  "version": "2026-09-04",
+  "version": "2026-09-08",
   "title": { "en": "Piano", "es": "Piano" },
   "tagline": {
     "en": "The same ladder, in a subject the shell has never heard of",
@@ -34,14 +34,9 @@
     },
     {
       "id": "4-repertoire",
-      "src": null,
+      "src": "chapters/4-repertoire.json",
       "requires": ["3-rhythm-and-theory"],
-      "state": "planned",
-      "title": { "en": "Repertoire, graded", "es": "Repertorio, graduado" },
-      "note": {
-        "en": "Play a short public-domain piece to the end at a steady tempo. Not built yet: the research could not reach IMSLP or the ABRSM syllabus in this pass, so there is no verified score list to build on.",
-        "es": "Tocar una pieza corta de dominio público hasta el final a tempo estable. Todavía no existe: la investigación no pudo llegar a IMSLP ni al temario de ABRSM, así que no hay lista de partituras verificada."
-      }
+      "state": "ready"
     },
     {
       "id": "5-harmony",
@@ -50,12 +45,33 @@
       "state": "planned",
       "title": { "en": "Harmony and independence", "es": "Armonía e independencia" },
       "note": {
-        "en": "Harmonise a melody, read a chord progression, and play hands independently. Not built yet.",
-        "es": "Armonizar una melodía, leer una progresión de acordes y tocar con las manos independientes. Todavía no existe."
+        "en": "Harmonise a melody, read a chord progression, and play hands independently. Not built yet: it needs a corpus of chord progressions and a way to read two staves at once, and this pass built neither.",
+        "es": "Armonizar una melodía, leer una progresión de acordes y tocar con las manos independientes. Todavía no existe: necesita un corpus de progresiones de acordes y una forma de leer dos pentagramas a la vez, y en esta pasada no se construyó ninguno de los dos."
       }
     }
   ],
-  "modules": [],
-  "data": [],
-  "credits": []
+  "modules": [
+    { "path": "exercises/staff.js", "provides": { "exercises": ["piano.keys", "piano.staff"] } }
+  ],
+  "data": [
+    { "src": "data/piano/keys.json", "licence": "public-domain", "screen": "none" },
+    { "src": "data/piano/notes.json", "licence": "public-domain", "screen": "none" },
+    { "src": "data/piano/theory.json", "licence": "public-domain", "screen": "none" },
+    { "src": "data/piano/pieces-pd-czerny.json", "licence": "public-domain", "screen": "none" },
+    { "src": "data/piano/pieces-pd-anna-magdalena.json", "licence": "public-domain", "screen": "none" },
+    { "src": "data/piano/pieces-pd-clementi.json", "licence": "public-domain", "screen": "none" },
+    { "src": "data/piano/pieces-pd-tchaikovsky.json", "licence": "public-domain", "screen": "none" },
+    {
+      "src": "data/piano/pieces-ccbysa.json",
+      "licence": "CC-BY-SA-2.5",
+      "screen": "required",
+      "attribution": "mutopia"
+    }
+  ],
+  "credits": [
+    {
+      "id": "mutopia",
+      "name": "Mutopia Project, engraved by Philippe Hezaine, Allen Garvin, Manuel Castejon Limas, Brian D. Rude and David McNamara"
+    }
+  ]
 }

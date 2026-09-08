@@ -1,0 +1,1269 @@
+{
+  "format": "neo-chapter/1",
+  "id": "14-phrases",
+  "title": {
+    "en": "Set phrases, situation by situation",
+    "es": "Frases hechas, situación por situación"
+  },
+  "goal": {
+    "statement": {
+      "en": "Say the set phrase five everyday situations call for, and recognise it inside a real sentence",
+      "es": "Decir la frase hecha que piden cinco situaciones cotidianas, y reconocerla dentro de una frase real"
+    },
+    "evidence": {
+      "skill": "jp.expression.read",
+      "accuracy": 0.85,
+      "min": 30,
+      "window": 60
+    }
+  },
+  "requires": [
+    "4-first-words"
+  ],
+  "state": "ready",
+  "estimate": {
+    "minutes": 300,
+    "note": {
+      "en": "Ten rungs of about half an hour, two per situation: the words first, then the turn you take with them. The number counts the five situations that exist, not the ten the chapter names.",
+      "es": "Diez escalones de media hora, dos por situación: primero las palabras, después el turno que tomas con ellas. El número cuenta las cinco situaciones que existen, no las diez que el capítulo nombra."
+    }
+  },
+  "data": [
+    "data/phrases/ch14.json",
+    "data/sentences/ch14.json",
+    "data/vocab/ch14.json"
+  ],
+  "rungs": [
+    {
+      "id": "greetings-words",
+      "title": {
+        "en": "The twenty-two you already have",
+        "es": "Las veintidós que ya tienes"
+      },
+      "unlocks": {
+        "en": "turning a list you can read into a list you can use",
+        "es": "convertir una lista que sabes leer en una lista que sabes usar"
+      },
+      "pages": [
+        {
+          "id": "p-greetings-words",
+          "kind": "prose",
+          "title": {
+            "en": "This rung adds no words at all",
+            "es": "Este escalón no añade ni una palabra"
+          },
+          "body": {
+            "en": [
+              "Chapter 4 taught twenty-two greetings and this rung teaches none. It reuses the same set, filtered to the same group, because re-teaching a word you already own is the most expensive way to fill a page.",
+              "What changes is what you do with them. Until now a greeting was something to recognise; from here it is something to answer. The rung after this one is the eight expressions that come back the other way, and every situation in this chapter has the same shape: the words first, then the turn you take with them.",
+              "One round, twelve pairs at a time, drawn from the twenty cards the greetings set holds, so the wrong options are greetings too. Two of the twenty-two share a meaning with another card and the set keeps one of each pair."
+            ],
+            "es": [
+              "El capítulo 4 enseñó veintidós saludos y este escalón no enseña ninguno. Reutiliza el mismo conjunto, filtrado al mismo grupo, porque volver a enseñar una palabra que ya tienes es la forma más cara de llenar una página.",
+              "Lo que cambia es qué haces con ellas. Hasta ahora un saludo era algo que reconocer; desde aquí es algo que responder. El escalón siguiente son las ocho expresiones que vuelven en la otra dirección, y todas las situaciones de este capítulo tienen la misma forma: primero las palabras, después el turno que tomas con ellas.",
+              "Una ronda, doce parejas cada vez, sacadas de las veinte cartas que tiene el conjunto de saludos, para que las opciones falsas también sean saludos. Dos de los veintidós comparten significado con otra carta y el conjunto se queda con una de cada par."
+            ]
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-greetings-words-meaning",
+          "type": "quiz",
+          "game": "pairs",
+          "skill": "jp.expression.read",
+          "title": {
+            "en": "The greetings, again and faster",
+            "es": "Los saludos, otra vez y más rápido"
+          },
+          "src": "books/japanese/sets/jp-first-words-pairs.json",
+          "filter": "group:greetings",
+          "limit": 12,
+          "pass": {
+            "accuracy": 0.8
+          }
+        }
+      ]
+    },
+    {
+      "id": "greetings-say",
+      "title": {
+        "en": "Answering a greeting, not only giving one",
+        "es": "Responder un saludo, no solo darlo"
+      },
+      "unlocks": {
+        "en": "the second half of every exchange that opens with hello",
+        "es": "la segunda mitad de todo intercambio que empieza con hola"
+      },
+      "pages": [
+        {
+          "id": "p-greetings-say",
+          "kind": "prose",
+          "title": {
+            "en": "Eight fixed expressions, and one pattern to swap",
+            "es": "Ocho expresiones fijas, y un patrón para intercambiar"
+          },
+          "body": {
+            "en": [
+              "A greeting you can give and cannot answer is half a greeting. Somebody thanks you and the reply is どういたしまして. Somebody asks how you have been and the reply carries おかげさまで, which credits them with the answer. You walk into a shop and いらっしゃいませ arrives before you do; it is said to you and you say nothing back.",
+              "The other five are the turns a week actually contains: お疲れ様 at the end of a shared effort, 久しぶり when it has been a while, おめでとうございます for good news, お先に when you leave first, お大事に to someone who is unwell.",
+              "The pattern below swaps one piece, which is the whole trick of a set phrase: また plus a time word is a goodbye you can rebuild for any day of the week using chapter 4's numbers and days."
+            ],
+            "es": [
+              "Un saludo que sabes dar y no sabes responder es medio saludo. Alguien te da las gracias y la respuesta es どういたしまして. Alguien pregunta cómo has estado y la respuesta lleva おかげさまで, que le atribuye a esa persona parte del mérito. Entras en una tienda y いらっしゃいませ llega antes que tú; te la dicen a ti y tú no respondes nada.",
+              "Las otras cinco son los turnos que de verdad contiene una semana: お疲れ様 al final de un esfuerzo compartido, 久しぶり cuando ha pasado tiempo, おめでとうございます ante una buena noticia, お先に cuando te vas primero, お大事に a quien está enfermo.",
+              "El patrón de abajo cambia una pieza, que es todo el truco de una frase hecha: また más una palabra de tiempo es una despedida que puedes reconstruir para cualquier día de la semana con los números y los días del capítulo 4."
+            ]
+          }
+        },
+        {
+          "id": "p-greetings-pattern",
+          "kind": "table",
+          "title": {
+            "en": "One pattern, three fillers",
+            "es": "Un patrón, tres rellenos"
+          },
+          "columns": [
+            "slot",
+            "kana",
+            "en",
+            "es"
+          ],
+          "items": "data/phrases/ch14.json#patterns.greetings",
+          "note": {
+            "en": [
+              "The columns are the changing piece, the line in kana with a space between phrases, and the same line in English and in Spanish. The spaces are a teaching aid, as in chapter 3: real Japanese has none.",
+              "These lines were written for this Book. They come from no corpus, no exercise scores them, and every word inside them is one the vocabulary files already carry."
+            ],
+            "es": [
+              "Las columnas son la pieza que cambia, la línea en kana con un espacio entre frases, y la misma línea en inglés y en español. Los espacios son una ayuda didáctica, como en el capítulo 3: el japonés real no lleva ninguno.",
+              "Estas líneas se escribieron para este libro. No vienen de ningún corpus, ningún ejercicio las califica, y cada palabra que contienen ya está en los archivos de vocabulario."
+            ]
+          }
+        },
+        {
+          "id": "p-greetings-exchange",
+          "kind": "table",
+          "title": {
+            "en": "Two turns, written for this Book",
+            "es": "Dos turnos, escritos para este libro"
+          },
+          "columns": [
+            "turn",
+            "kana",
+            "en",
+            "es"
+          ],
+          "items": "data/phrases/ch14.json#exchanges.greetings",
+          "note": {
+            "en": [
+              "Two turns, one from each side of the situation. They were written here rather than taken from a corpus, which is exactly why no exercise on this rung scores them: an invented sentence a learner is marked on is content we made up wearing a dictionary's clothes."
+            ],
+            "es": [
+              "Dos turnos, uno por cada lado de la situación. Se escribieron aquí en lugar de sacarse de un corpus, y por eso mismo ningún ejercicio de este escalón los califica: una frase inventada por la que se califica a quien aprende es contenido nuestro disfrazado de diccionario."
+            ]
+          }
+        },
+        {
+          "id": "p-greetings-register",
+          "kind": "table",
+          "title": {
+            "en": "Three distances of thanks",
+            "es": "Tres distancias del agradecimiento"
+          },
+          "columns": [
+            "register",
+            "kana",
+            "en",
+            "es"
+          ],
+          "items": "data/phrases/ch14.json#registers.greetings",
+          "note": {
+            "en": [
+              "The same act at three lengths. The long one is not more correct, it is further away; the one-word one is not rude, it is closer. Chapter 11 takes this apart properly."
+            ],
+            "es": [
+              "El mismo acto en tres longitudes. La larga no es más correcta, está más lejos; la de una palabra no es grosera, está más cerca. El capítulo 11 desarma esto como corresponde."
+            ]
+          }
+        },
+        {
+          "id": "p-greetings-gaps",
+          "kind": "callout",
+          "tone": "warn",
+          "title": {
+            "en": "Five expressions this chapter cannot score",
+            "es": "Cinco expresiones que este capítulo no puede calificar"
+          },
+          "body": {
+            "en": [
+              "こちらこそ, お元気ですか, お先に失礼します, また明日 and ごめんなさい are all missing from the common half of the dictionary this Book is built from. They are ordinary, everyday Japanese and no group in this chapter holds them.",
+              "Two of them are on this rung anyway, as written lines: the pattern table ends in また あした and the exchange ends in おさきに しつれいします. Those two tables say on their face that their lines were written here, and no exercise scores them. A drill would need a dictionary entry, and inventing one would be this Book citing itself."
+            ],
+            "es": [
+              "こちらこそ, お元気ですか, お先に失礼します, また明日 y ごめんなさい faltan todas en la mitad común del diccionario con el que está hecho este libro. Son japonés corriente de todos los días y ningún grupo de este capítulo las contiene.",
+              "Dos de ellas están igualmente en este escalón, como líneas escritas: la tabla del patrón termina en また あした y el intercambio termina en おさきに しつれいします. Esas dos tablas dicen en su propia cara que sus líneas se escribieron aquí, y ningún ejercicio las califica. Un ejercicio necesitaría una entrada de diccionario, e inventarla sería este libro citándose a sí mismo."
+            ]
+          }
+        },
+        {
+          "id": "p-greetings-nhk",
+          "kind": "callout",
+          "tone": "note",
+          "title": {
+            "en": "The same situation, with audio",
+            "es": "La misma situación, con audio"
+          },
+          "body": {
+            "en": [
+              "The course index is here, and the lesson list on it is titled by what a learner can newly do, one function per lesson:",
+              "https://www3.nhk.or.jp/nhkworld/lesson/en/lessons/",
+              "https://www3.nhk.or.jp/nhkworld/lesson/es/lessons/",
+              "Nothing of NHK's is copied into this site: not a phrase, not a gloss, not a recording. Their terms permit a link and grant nothing else, and the eight expressions above come from a dictionary that does grant one."
+            ],
+            "es": [
+              "El índice del curso está aquí, y su lista de lecciones va titulada por lo que quien aprende puede hacer de nuevo, una función por lección:",
+              "https://www3.nhk.or.jp/nhkworld/lesson/en/lessons/",
+              "https://www3.nhk.or.jp/nhkworld/lesson/es/lessons/",
+              "Nada de NHK está copiado en este sitio: ni una frase, ni una glosa, ni una grabación. Sus términos permiten enlazar y no conceden nada más, y las ocho expresiones de arriba vienen de un diccionario que sí concede una."
+            ]
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-greetings-say-meaning",
+          "type": "quiz",
+          "game": "pairs",
+          "skill": "jp.expression.read",
+          "title": {
+            "en": "Expression and meaning",
+            "es": "Expresión y significado"
+          },
+          "src": "books/japanese/sets/jp-phrases-pairs.json",
+          "filter": "group:greetings-exp",
+          "limit": 8,
+          "pass": {
+            "accuracy": 0.8
+          }
+        },
+        {
+          "id": "e-greetings-say-produce",
+          "type": "typed",
+          "skill": "jp.expression.read",
+          "title": {
+            "en": "Type what you would say",
+            "es": "Escribe lo que dirías"
+          },
+          "items": "data/vocab/ch14.json#groups.greetings-exp",
+          "prompt": "gloss.0",
+          "answer": "kana",
+          "transform": "kana",
+          "compare": "trim|kana",
+          "count": 6,
+          "pass": {
+            "accuracy": 0.7
+          }
+        },
+        {
+          "id": "e-greetings-say-sentence",
+          "type": "choice",
+          "skill": "jp.expression.read",
+          "title": {
+            "en": "Which sentence uses it?",
+            "es": "¿Qué frase la usa?"
+          },
+          "items": "data/sentences/ch14.json#groups.greetings-exp",
+          "prompt": "word",
+          "answer": "ja",
+          "distractors": {
+            "n": 3
+          },
+          "count": 6,
+          "pass": {
+            "accuracy": 0.75
+          }
+        }
+      ]
+    },
+    {
+      "id": "intro-words",
+      "title": {
+        "en": "The words you say your name and origin with",
+        "es": "Las palabras con que dices tu nombre y de dónde eres"
+      },
+      "unlocks": {
+        "en": "the first thirty seconds of meeting anybody",
+        "es": "los primeros treinta segundos de conocer a cualquiera"
+      },
+      "pages": [
+        {
+          "id": "p-intro-words",
+          "kind": "prose",
+          "title": {
+            "en": "Eight words that turn up together",
+            "es": "Ocho palabras que aparecen juntas"
+          },
+          "body": {
+            "en": [
+              "Where you are from, what you do, where you study, the card you hand over, the family you mention and the hobby you admit to. That is one scene, and these eight words are the ones that keep turning up in it.",
+              "出身 is where you are from in the sense that matters here: the city, the country or the school you came out of. 名刺 is the business card, and in Japan it is handed over with both hands at the start of a meeting rather than fished out at the end.",
+              "Eight is the size of the rung on purpose. Adult attention holds about four things at once, a lesson somewhere else in the world carries fifteen across a video and five review blocks, and a rung here is one sitting. Eight sits between them, and the deck at the end of the chapter carries the accumulation.",
+              "They are grouped by scene and not by category, and that is a finding rather than a taste. Words presented in a semantic cluster, the way a list of ten colours is, interfere with each other and are learned more slowly. Words that co-occur in one scene help each other instead. Every rung of words in this chapter is built that way.",
+              "The round below is the words alone: said out loud, heard without the spelling in front of you, then paired with their meanings."
+            ],
+            "es": [
+              "De dónde eres, a qué te dedicas, dónde estudias, la tarjeta que entregas, la familia que mencionas y la afición que confiesas. Eso es una escena, y estas ocho palabras son las que no dejan de aparecer en ella.",
+              "出身 es de dónde eres en el sentido que aquí importa: la ciudad, el país o la escuela de la que saliste. 名刺 es la tarjeta de presentación, y en Japón se entrega con las dos manos al principio de una reunión y no se saca al final.",
+              "Ocho es el tamaño del escalón a propósito. La atención adulta sostiene unas cuatro cosas a la vez, una lección de otro sitio del mundo lleva quince repartidas entre un video y cinco bloques de repaso, y aquí un escalón es una sesión. Ocho queda entre ambos, y el mazo del final del capítulo carga con la acumulación.",
+              "Están agrupadas por escena y no por categoría, y eso es un hallazgo y no un gusto. Las palabras presentadas en un grupo semántico, como lo es una lista de diez colores, interfieren entre sí y se aprenden más despacio. Las palabras que coinciden en una misma escena se ayudan. Todos los escalones de palabras de este capítulo están construidos así.",
+              "La ronda de abajo son solo las palabras: dichas en voz alta, oídas sin la escritura delante, y luego emparejadas con sus significados."
+            ]
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-intro-words-pronounce",
+          "type": "speak",
+          "skill": "jp.speaking.say",
+          "title": {
+            "en": "Say the eight",
+            "es": "Di las ocho"
+          },
+          "items": "data/vocab/ch14.json#groups.intro",
+          "expect": "kana",
+          "lang": "ja",
+          "count": 8
+        },
+        {
+          "id": "e-intro-words-hear",
+          "type": "listen",
+          "skill": "jp.expression.listen",
+          "title": {
+            "en": "Heard, not read",
+            "es": "Oída, no leída"
+          },
+          "items": "data/vocab/ch14.json#groups.intro",
+          "speak": "kana",
+          "answer": "gloss.0",
+          "respond": "choice",
+          "lang": "ja",
+          "distractors": {
+            "n": 3
+          },
+          "count": 8,
+          "pass": {
+            "accuracy": 0.75
+          }
+        },
+        {
+          "id": "e-intro-words-meaning",
+          "type": "quiz",
+          "game": "pairs",
+          "skill": "jp.expression.read",
+          "title": {
+            "en": "Word and meaning",
+            "es": "Palabra y significado"
+          },
+          "src": "books/japanese/sets/jp-phrases-pairs.json",
+          "filter": "group:intro",
+          "limit": 8,
+          "pass": {
+            "accuracy": 0.8
+          }
+        }
+      ]
+    },
+    {
+      "id": "intro-say",
+      "title": {
+        "en": "Giving your name, your origin and your job",
+        "es": "Dar tu nombre, tu origen y tu trabajo"
+      },
+      "unlocks": {
+        "en": "an introduction that does not stop after your name",
+        "es": "una presentación que no se acaba en tu nombre"
+      },
+      "pages": [
+        {
+          "id": "p-intro-say",
+          "kind": "prose",
+          "title": {
+            "en": "Six fixed expressions, and one pattern to swap",
+            "es": "Seis expresiones fijas, y un patrón para intercambiar"
+          },
+          "body": {
+            "en": [
+              "よろしくお願いします closes an introduction and has no equivalent anywhere in Spanish or English. It is somewhere between pleased to meet you, please look after me and I hope this goes well, and leaving it out is the thing that marks a foreigner faster than an accent does.",
+              "The other five are the doorway: ようこそ welcomes somebody, そうです confirms what they guessed, お世話になる is being in someone's care, ごめんください is calling into a house from the entrance, お邪魔します is what you say as you step in.",
+              "The pattern swaps the place you came from. Every filler in it is a word this Book has already taught, which is the test of a pattern worth learning: you should be able to rebuild it with your own nouns before you leave the page."
+            ],
+            "es": [
+              "よろしくお願いします cierra una presentación y no tiene equivalente en español. Está entre encantado de conocerte, cuídame un poco y espero que esto salga bien, y omitirla es lo que delata a un extranjero más rápido que el acento.",
+              "Las otras cinco son el umbral: ようこそ da la bienvenida, そうです confirma lo que la otra persona supuso, お世話になる es estar al cuidado de alguien, ごめんください es llamar hacia dentro de una casa desde la entrada, お邪魔します es lo que dices al pasar.",
+              "El patrón cambia el lugar del que vienes. Todos sus rellenos son palabras que este libro ya enseñó, que es la prueba de un patrón que vale la pena: deberías poder reconstruirlo con tus propios sustantivos antes de salir de la página."
+            ]
+          }
+        },
+        {
+          "id": "p-intro-pattern",
+          "kind": "table",
+          "title": {
+            "en": "One pattern, three fillers",
+            "es": "Un patrón, tres rellenos"
+          },
+          "columns": [
+            "slot",
+            "kana",
+            "en",
+            "es"
+          ],
+          "items": "data/phrases/ch14.json#patterns.intro",
+          "note": {
+            "en": [
+              "These lines were written for this Book. They come from no corpus, no exercise scores them, and every word inside them is one the vocabulary files already carry."
+            ],
+            "es": [
+              "Estas líneas se escribieron para este libro. No vienen de ningún corpus, ningún ejercicio las califica, y cada palabra que contienen ya está en los archivos de vocabulario."
+            ]
+          }
+        },
+        {
+          "id": "p-intro-exchange",
+          "kind": "table",
+          "title": {
+            "en": "Two turns, written for this Book",
+            "es": "Dos turnos, escritos para este libro"
+          },
+          "columns": [
+            "turn",
+            "kana",
+            "en",
+            "es"
+          ],
+          "items": "data/phrases/ch14.json#exchanges.intro"
+        },
+        {
+          "id": "p-intro-nhk",
+          "kind": "callout",
+          "tone": "note",
+          "title": {
+            "en": "The same situation, with audio",
+            "es": "La misma situación, con audio"
+          },
+          "body": {
+            "en": [
+              "The same situation, with audio, taught by NHK. Lesson 2, in English and in Spanish:",
+              "https://www3.nhk.or.jp/nhkworld/lesson/en/lessons/02.html",
+              "https://www3.nhk.or.jp/nhkworld/lesson/es/lessons/02.html",
+              "Nothing of NHK's is copied into this site: not a phrase, not a gloss, not a recording. Their terms permit a link and grant nothing else, and the six expressions above come from a dictionary that does grant one."
+            ],
+            "es": [
+              "La misma situación, con audio, enseñada por NHK. Lección 2, en inglés y en español:",
+              "https://www3.nhk.or.jp/nhkworld/lesson/en/lessons/02.html",
+              "https://www3.nhk.or.jp/nhkworld/lesson/es/lessons/02.html",
+              "Nada de NHK está copiado en este sitio: ni una frase, ni una glosa, ni una grabación. Sus términos permiten enlazar y no conceden nada más, y las seis expresiones de arriba vienen de un diccionario que sí concede una."
+            ]
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-intro-say-meaning",
+          "type": "quiz",
+          "game": "pairs",
+          "skill": "jp.expression.read",
+          "title": {
+            "en": "Expression and meaning",
+            "es": "Expresión y significado"
+          },
+          "src": "books/japanese/sets/jp-phrases-pairs.json",
+          "filter": "group:intro-exp",
+          "limit": 6,
+          "pass": {
+            "accuracy": 0.8
+          }
+        },
+        {
+          "id": "e-intro-say-produce",
+          "type": "typed",
+          "skill": "jp.expression.read",
+          "title": {
+            "en": "Type what you would say",
+            "es": "Escribe lo que dirías"
+          },
+          "items": "data/vocab/ch14.json#groups.intro-exp",
+          "prompt": "gloss.0",
+          "answer": "kana",
+          "transform": "kana",
+          "compare": "trim|kana",
+          "count": 6,
+          "pass": {
+            "accuracy": 0.7
+          }
+        },
+        {
+          "id": "e-intro-say-sentence",
+          "type": "choice",
+          "skill": "jp.expression.read",
+          "title": {
+            "en": "Which sentence uses it?",
+            "es": "¿Qué frase la usa?"
+          },
+          "items": "data/sentences/ch14.json#groups.intro-exp",
+          "prompt": "word",
+          "answer": "ja",
+          "distractors": {
+            "n": 3
+          },
+          "count": 6,
+          "pass": {
+            "accuracy": 0.75
+          }
+        }
+      ]
+    },
+    {
+      "id": "thanks-words",
+      "title": {
+        "en": "The words of thanking and apologising",
+        "es": "Las palabras de agradecer y disculparse"
+      },
+      "unlocks": {
+        "en": "the vocabulary under the two commonest social moves in the language",
+        "es": "el vocabulario que hay debajo de los dos gestos sociales más comunes del idioma"
+      },
+      "pages": [
+        {
+          "id": "p-thanks-words",
+          "kind": "prose",
+          "title": {
+            "en": "Eight words that turn up together",
+            "es": "Ocho palabras que aparecen juntas"
+          },
+          "body": {
+            "en": [
+              "Thanking and apologising sit closer together in Japanese than a Spanish speaker expects, and すみません does both jobs: it is excuse me, it is sorry, and it is also thank you when somebody has gone to trouble for you. That third use is the one to watch for.",
+              "迷惑 is the trouble caused to someone else, 遠慮 is holding back out of consideration, and both are nouns that stand behind whole sentences you have not learned yet. Meeting them as words now makes those sentences readable later.",
+              "The round below is the words alone: said out loud, heard without the spelling in front of you, then paired with their meanings."
+            ],
+            "es": [
+              "Agradecer y disculparse están más cerca en japonés de lo que espera quien habla español, y すみません hace los dos trabajos: es perdón, es lo siento, y también es gracias cuando alguien se ha tomado una molestia por ti. Ese tercer uso es el que hay que vigilar.",
+              "迷惑 es la molestia causada a otra persona, 遠慮 es contenerse por consideración, y los dos son sustantivos que están detrás de frases enteras que todavía no has aprendido. Encontrarlos ahora como palabras hace legibles esas frases más adelante.",
+              "La ronda de abajo son solo las palabras: dichas en voz alta, oídas sin la escritura delante, y luego emparejadas con sus significados."
+            ]
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-thanks-words-pronounce",
+          "type": "speak",
+          "skill": "jp.speaking.say",
+          "title": {
+            "en": "Say the eight",
+            "es": "Di las ocho"
+          },
+          "items": "data/vocab/ch14.json#groups.thanks",
+          "expect": "kana",
+          "lang": "ja",
+          "count": 8
+        },
+        {
+          "id": "e-thanks-words-hear",
+          "type": "listen",
+          "skill": "jp.expression.listen",
+          "title": {
+            "en": "Heard, not read",
+            "es": "Oída, no leída"
+          },
+          "items": "data/vocab/ch14.json#groups.thanks",
+          "speak": "kana",
+          "answer": "gloss.0",
+          "respond": "choice",
+          "lang": "ja",
+          "distractors": {
+            "n": 3
+          },
+          "count": 8,
+          "pass": {
+            "accuracy": 0.75
+          }
+        },
+        {
+          "id": "e-thanks-words-meaning",
+          "type": "quiz",
+          "game": "pairs",
+          "skill": "jp.expression.read",
+          "title": {
+            "en": "Word and meaning",
+            "es": "Palabra y significado"
+          },
+          "src": "books/japanese/sets/jp-phrases-pairs.json",
+          "filter": "group:thanks",
+          "limit": 8,
+          "pass": {
+            "accuracy": 0.8
+          }
+        }
+      ]
+    },
+    {
+      "id": "thanks-say",
+      "title": {
+        "en": "Thanking, apologising, and using すみません as both",
+        "es": "Agradecer, disculparse, y usar すみません para las dos cosas"
+      },
+      "unlocks": {
+        "en": "getting out of a small mistake without making it larger",
+        "es": "salir de un error pequeño sin agrandarlo"
+      },
+      "pages": [
+        {
+          "id": "p-thanks-say",
+          "kind": "prose",
+          "title": {
+            "en": "Six fixed expressions, and one pattern to swap",
+            "es": "Seis expresiones fijas, y un patrón para intercambiar"
+          },
+          "body": {
+            "en": [
+              "どうもありがとう and ありがとうございました are the same thanks at two distances, and the second one is in the past: it is what you say for something already done. 失礼しました is an apology for a discourtesy just committed, お手数ですが opens a request by naming the trouble it will cause, とんでもない waves away praise, and すまない is the plain, close version of sorry.",
+              "The pattern is the politest way to ask for anything at all: a noun, を, and お願いします. It works in a cafe, at a counter and on the telephone, and it is the sentence to reach for when you do not know the verb."
+            ],
+            "es": [
+              "どうもありがとう y ありがとうございました son el mismo agradecimiento a dos distancias, y el segundo va en pasado: es lo que dices por algo ya hecho. 失礼しました se disculpa por una descortesía recién cometida, お手数ですが abre una petición nombrando la molestia que va a causar, とんでもない rechaza un elogio, y すまない es la versión llana y cercana de perdón.",
+              "El patrón es la forma más cortés de pedir cualquier cosa: un sustantivo, を y お願いします. Sirve en una cafetería, en un mostrador y por teléfono, y es la frase a la que recurrir cuando no sabes el verbo."
+            ]
+          }
+        },
+        {
+          "id": "p-thanks-pattern",
+          "kind": "table",
+          "title": {
+            "en": "One pattern, three fillers",
+            "es": "Un patrón, tres rellenos"
+          },
+          "columns": [
+            "slot",
+            "kana",
+            "en",
+            "es"
+          ],
+          "items": "data/phrases/ch14.json#patterns.thanks",
+          "note": {
+            "en": [
+              "These lines were written for this Book. They come from no corpus, no exercise scores them, and every word inside them is one the vocabulary files already carry."
+            ],
+            "es": [
+              "Estas líneas se escribieron para este libro. No vienen de ningún corpus, ningún ejercicio las califica, y cada palabra que contienen ya está en los archivos de vocabulario."
+            ]
+          }
+        },
+        {
+          "id": "p-thanks-exchange",
+          "kind": "table",
+          "title": {
+            "en": "Two turns, written for this Book",
+            "es": "Dos turnos, escritos para este libro"
+          },
+          "columns": [
+            "turn",
+            "kana",
+            "en",
+            "es"
+          ],
+          "items": "data/phrases/ch14.json#exchanges.thanks"
+        },
+        {
+          "id": "p-thanks-nhk",
+          "kind": "callout",
+          "tone": "note",
+          "title": {
+            "en": "The same situation, with audio",
+            "es": "La misma situación, con audio"
+          },
+          "body": {
+            "en": [
+              "The course index is here, and the lesson list on it is titled by what a learner can newly do, one function per lesson:",
+              "https://www3.nhk.or.jp/nhkworld/lesson/en/lessons/",
+              "https://www3.nhk.or.jp/nhkworld/lesson/es/lessons/",
+              "Nothing of NHK's is copied into this site: not a phrase, not a gloss, not a recording. Their terms permit a link and grant nothing else, and the six expressions above come from a dictionary that does grant one."
+            ],
+            "es": [
+              "El índice del curso está aquí, y su lista de lecciones va titulada por lo que quien aprende puede hacer de nuevo, una función por lección:",
+              "https://www3.nhk.or.jp/nhkworld/lesson/en/lessons/",
+              "https://www3.nhk.or.jp/nhkworld/lesson/es/lessons/",
+              "Nada de NHK está copiado en este sitio: ni una frase, ni una glosa, ni una grabación. Sus términos permiten enlazar y no conceden nada más, y las seis expresiones de arriba vienen de un diccionario que sí concede una."
+            ]
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-thanks-say-meaning",
+          "type": "quiz",
+          "game": "pairs",
+          "skill": "jp.expression.read",
+          "title": {
+            "en": "Expression and meaning",
+            "es": "Expresión y significado"
+          },
+          "src": "books/japanese/sets/jp-phrases-pairs.json",
+          "filter": "group:thanks-exp",
+          "limit": 6,
+          "pass": {
+            "accuracy": 0.8
+          }
+        },
+        {
+          "id": "e-thanks-say-produce",
+          "type": "typed",
+          "skill": "jp.expression.read",
+          "title": {
+            "en": "Type what you would say",
+            "es": "Escribe lo que dirías"
+          },
+          "items": "data/vocab/ch14.json#groups.thanks-exp",
+          "prompt": "gloss.0",
+          "answer": "kana",
+          "transform": "kana",
+          "compare": "trim|kana",
+          "count": 6,
+          "pass": {
+            "accuracy": 0.7
+          }
+        },
+        {
+          "id": "e-thanks-say-sentence",
+          "type": "choice",
+          "skill": "jp.expression.read",
+          "title": {
+            "en": "Which sentence uses it?",
+            "es": "¿Qué frase la usa?"
+          },
+          "items": "data/sentences/ch14.json#groups.thanks-exp",
+          "prompt": "word",
+          "answer": "ja",
+          "distractors": {
+            "n": 3
+          },
+          "count": 6,
+          "pass": {
+            "accuracy": 0.75
+          }
+        }
+      ]
+    },
+    {
+      "id": "classroom-words",
+      "title": {
+        "en": "The things on a classroom desk",
+        "es": "Las cosas que hay en un pupitre"
+      },
+      "unlocks": {
+        "en": "asking about the room you are learning in, in the language you are learning",
+        "es": "preguntar por la sala en la que estudias, en el idioma que estudias"
+      },
+      "pages": [
+        {
+          "id": "p-classroom-words",
+          "kind": "prose",
+          "title": {
+            "en": "Eight words that turn up together",
+            "es": "Ocho palabras que aparecen juntas"
+          },
+          "body": {
+            "en": [
+              "A textbook, a pencil, an eraser, a notebook, the homework, a question, the dictionary and the desk. This is the one situation in the chapter with no travel phrasebook behind it, so the eight words come from the dictionary and the sentences from a sentence bank, and nothing here was chosen because a guidebook listed it.",
+              "質問 is the word to have ready. A classroom question in Japanese usually starts by announcing that a question is coming, and the rung after this one is how you announce it.",
+              "The round below is the words alone: said out loud, heard without the spelling in front of you, then paired with their meanings."
+            ],
+            "es": [
+              "Un libro de texto, un lápiz, una goma, un cuaderno, la tarea, una pregunta, el diccionario y el pupitre. Esta es la única situación del capítulo sin una guía de viaje detrás, así que las ocho palabras salen del diccionario y las frases de un banco de frases, y nada de aquí se eligió porque lo listara una guía.",
+              "質問 es la palabra que conviene tener lista. Una pregunta en clase en japonés suele empezar anunciando que viene una pregunta, y el escalón siguiente es cómo se anuncia.",
+              "La ronda de abajo son solo las palabras: dichas en voz alta, oídas sin la escritura delante, y luego emparejadas con sus significados."
+            ]
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-classroom-words-pronounce",
+          "type": "speak",
+          "skill": "jp.speaking.say",
+          "title": {
+            "en": "Say the eight",
+            "es": "Di las ocho"
+          },
+          "items": "data/vocab/ch14.json#groups.classroom",
+          "expect": "kana",
+          "lang": "ja",
+          "count": 8
+        },
+        {
+          "id": "e-classroom-words-hear",
+          "type": "listen",
+          "skill": "jp.expression.listen",
+          "title": {
+            "en": "Heard, not read",
+            "es": "Oída, no leída"
+          },
+          "items": "data/vocab/ch14.json#groups.classroom",
+          "speak": "kana",
+          "answer": "gloss.0",
+          "respond": "choice",
+          "lang": "ja",
+          "distractors": {
+            "n": 3
+          },
+          "count": 8,
+          "pass": {
+            "accuracy": 0.75
+          }
+        },
+        {
+          "id": "e-classroom-words-meaning",
+          "type": "quiz",
+          "game": "pairs",
+          "skill": "jp.expression.read",
+          "title": {
+            "en": "Word and meaning",
+            "es": "Palabra y significado"
+          },
+          "src": "books/japanese/sets/jp-phrases-pairs.json",
+          "filter": "group:classroom",
+          "limit": 8,
+          "pass": {
+            "accuracy": 0.8
+          }
+        }
+      ]
+    },
+    {
+      "id": "classroom-say",
+      "title": {
+        "en": "Asking for a repeat, a slower pace and a word",
+        "es": "Pedir que lo repitan, que vayan más despacio, y una palabra"
+      },
+      "unlocks": {
+        "en": "staying in a conversation you have half understood",
+        "es": "quedarte dentro de una conversación que entendiste a medias"
+      },
+      "pages": [
+        {
+          "id": "p-classroom-say",
+          "kind": "prose",
+          "title": {
+            "en": "Six fixed expressions, and one pattern to swap",
+            "es": "Seis expresiones fijas, y un patrón para intercambiar"
+          },
+          "body": {
+            "en": [
+              "もう一度 asks for it again. なるほど says you have followed. ええ agrees, えっと buys you a second while you think, ちょっと softens a refusal into almost nothing, and 了解 accepts an instruction.",
+              "Four of those six are not really vocabulary, they are the noises a conversation is held together with, and a learner who has none of them goes silent whenever they need a moment. Silence reads as not understanding. えっと reads as thinking.",
+              "The pattern asks for the word itself, which makes it the most useful sentence on this page: point at anything, name it これ, それ or あれ depending on how far away it is, and the answer is a new word you did not have to look up."
+            ],
+            "es": [
+              "もう一度 pide que lo repitan. なるほど dice que has seguido el hilo. ええ asiente, えっと te compra un segundo mientras piensas, ちょっと convierte una negativa en casi nada, y 了解 acepta una instrucción.",
+              "Cuatro de esas seis no son vocabulario propiamente dicho, son los ruidos con los que se sostiene una conversación, y quien no tiene ninguno se queda callado cada vez que necesita un momento. El silencio se lee como no entender. えっと se lee como pensar.",
+              "El patrón pide la palabra misma, lo que lo convierte en la frase más útil de esta página: señala cualquier cosa, nómbrala これ, それ o あれ según lo lejos que esté, y la respuesta es una palabra nueva que no tuviste que buscar."
+            ]
+          }
+        },
+        {
+          "id": "p-classroom-pattern",
+          "kind": "table",
+          "title": {
+            "en": "One pattern, three fillers",
+            "es": "Un patrón, tres rellenos"
+          },
+          "columns": [
+            "slot",
+            "kana",
+            "en",
+            "es"
+          ],
+          "items": "data/phrases/ch14.json#patterns.classroom",
+          "note": {
+            "en": [
+              "These lines were written for this Book. They come from no corpus, no exercise scores them, and every word inside them is one the vocabulary files already carry."
+            ],
+            "es": [
+              "Estas líneas se escribieron para este libro. No vienen de ningún corpus, ningún ejercicio las califica, y cada palabra que contienen ya está en los archivos de vocabulario."
+            ]
+          }
+        },
+        {
+          "id": "p-classroom-exchange",
+          "kind": "table",
+          "title": {
+            "en": "Two turns, written for this Book",
+            "es": "Dos turnos, escritos para este libro"
+          },
+          "columns": [
+            "turn",
+            "kana",
+            "en",
+            "es"
+          ],
+          "items": "data/phrases/ch14.json#exchanges.classroom"
+        },
+        {
+          "id": "p-classroom-nhk",
+          "kind": "callout",
+          "tone": "note",
+          "title": {
+            "en": "The same situation, with audio",
+            "es": "La misma situación, con audio"
+          },
+          "body": {
+            "en": [
+              "The same situation, with audio, taught by NHK. Lesson 7, in English and in Spanish:",
+              "https://www3.nhk.or.jp/nhkworld/lesson/en/lessons/07.html",
+              "https://www3.nhk.or.jp/nhkworld/lesson/es/lessons/07.html",
+              "Nothing of NHK's is copied into this site: not a phrase, not a gloss, not a recording. Their terms permit a link and grant nothing else, and the six expressions above come from a dictionary that does grant one."
+            ],
+            "es": [
+              "La misma situación, con audio, enseñada por NHK. Lección 7, en inglés y en español:",
+              "https://www3.nhk.or.jp/nhkworld/lesson/en/lessons/07.html",
+              "https://www3.nhk.or.jp/nhkworld/lesson/es/lessons/07.html",
+              "Nada de NHK está copiado en este sitio: ni una frase, ni una glosa, ni una grabación. Sus términos permiten enlazar y no conceden nada más, y las seis expresiones de arriba vienen de un diccionario que sí concede una."
+            ]
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-classroom-say-meaning",
+          "type": "quiz",
+          "game": "pairs",
+          "skill": "jp.expression.read",
+          "title": {
+            "en": "Expression and meaning",
+            "es": "Expresión y significado"
+          },
+          "src": "books/japanese/sets/jp-phrases-pairs.json",
+          "filter": "group:classroom-exp",
+          "limit": 6,
+          "pass": {
+            "accuracy": 0.8
+          }
+        },
+        {
+          "id": "e-classroom-say-produce",
+          "type": "typed",
+          "skill": "jp.expression.read",
+          "title": {
+            "en": "Type what you would say",
+            "es": "Escribe lo que dirías"
+          },
+          "items": "data/vocab/ch14.json#groups.classroom-exp",
+          "prompt": "gloss.0",
+          "answer": "kana",
+          "transform": "kana",
+          "compare": "trim|kana",
+          "count": 6,
+          "pass": {
+            "accuracy": 0.7
+          }
+        },
+        {
+          "id": "e-classroom-say-sentence",
+          "type": "choice",
+          "skill": "jp.expression.read",
+          "title": {
+            "en": "Which sentence uses it?",
+            "es": "¿Qué frase la usa?"
+          },
+          "items": "data/sentences/ch14.json#groups.classroom-exp",
+          "prompt": "word",
+          "answer": "ja",
+          "distractors": {
+            "n": 3
+          },
+          "count": 6,
+          "pass": {
+            "accuracy": 0.75
+          }
+        }
+      ]
+    },
+    {
+      "id": "shopping-words",
+      "title": {
+        "en": "The shop, the price and the money",
+        "es": "La tienda, el precio y el dinero"
+      },
+      "unlocks": {
+        "en": "buying one thing without pointing in silence",
+        "es": "comprar una cosa sin señalar en silencio"
+      },
+      "pages": [
+        {
+          "id": "p-shopping-words",
+          "kind": "prose",
+          "title": {
+            "en": "Eight words that turn up together",
+            "es": "Ocho palabras que aparecen juntas"
+          },
+          "body": {
+            "en": [
+              "The shop, the price, how much, the money, the wallet, the shopping itself, the register and the bag. Eight words and a transaction is possible; the previous four hundred words in this Book do not make one possible on their own.",
+              "いくら is the one to memorise first. It is a question word rather than a noun, and the rung after this one builds the whole question around it.",
+              "The round below is the words alone: said out loud, heard without the spelling in front of you, then paired with their meanings."
+            ],
+            "es": [
+              "La tienda, el precio, cuánto, el dinero, la billetera, la compra misma, la caja y la bolsa. Ocho palabras y una transacción es posible; las cuatrocientas palabras anteriores de este libro no la hacen posible por sí solas.",
+              "いくら es la primera que hay que memorizar. Es una palabra interrogativa y no un sustantivo, y el escalón siguiente construye la pregunta entera a su alrededor.",
+              "La ronda de abajo son solo las palabras: dichas en voz alta, oídas sin la escritura delante, y luego emparejadas con sus significados."
+            ]
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-shopping-words-pronounce",
+          "type": "speak",
+          "skill": "jp.speaking.say",
+          "title": {
+            "en": "Say the eight",
+            "es": "Di las ocho"
+          },
+          "items": "data/vocab/ch14.json#groups.shopping",
+          "expect": "kana",
+          "lang": "ja",
+          "count": 8
+        },
+        {
+          "id": "e-shopping-words-hear",
+          "type": "listen",
+          "skill": "jp.expression.listen",
+          "title": {
+            "en": "Heard, not read",
+            "es": "Oída, no leída"
+          },
+          "items": "data/vocab/ch14.json#groups.shopping",
+          "speak": "kana",
+          "answer": "gloss.0",
+          "respond": "choice",
+          "lang": "ja",
+          "distractors": {
+            "n": 3
+          },
+          "count": 8,
+          "pass": {
+            "accuracy": 0.75
+          }
+        },
+        {
+          "id": "e-shopping-words-meaning",
+          "type": "quiz",
+          "game": "pairs",
+          "skill": "jp.expression.read",
+          "title": {
+            "en": "Word and meaning",
+            "es": "Palabra y significado"
+          },
+          "src": "books/japanese/sets/jp-phrases-pairs.json",
+          "filter": "group:shopping",
+          "limit": 8,
+          "pass": {
+            "accuracy": 0.8
+          }
+        }
+      ]
+    },
+    {
+      "id": "shopping-say",
+      "title": {
+        "en": "Asking the price, and buying the thing",
+        "es": "Preguntar el precio, y comprar la cosa"
+      },
+      "unlocks": {
+        "en": "the first exchange in this Book that ends with you holding something",
+        "es": "el primer intercambio de este libro que termina contigo llevándote algo"
+      },
+      "pages": [
+        {
+          "id": "p-shopping-say",
+          "kind": "prose",
+          "title": {
+            "en": "Six fixed expressions, and one pattern to swap",
+            "es": "Seis expresiones fijas, y un patrón para intercambiar"
+          },
+          "body": {
+            "en": [
+              "どのくらい asks how much or how long in the loose sense, ちょうだい is the close, informal give me, 毎度 is what a shopkeeper says to a regular, お願いいたします is the most formal please on this page, 大丈夫 declines an offer as easily as it accepts one, and どうも is thanks in a single word on the way out.",
+              "大丈夫 is worth a warning. It means fine, and it is used both to accept and to refuse, so answering a shop assistant with it can mean yes please or no thank you depending on the situation and the tone. When it matters, say the other five words instead.",
+              "The pattern is the question the whole situation turns on, and after it the deck below takes every expression in this chapter and puts it on a schedule."
+            ],
+            "es": [
+              "どのくらい pregunta cuánto o cuánto tiempo en sentido amplio, ちょうだい es el dame cercano e informal, 毎度 es lo que dice quien atiende a un cliente habitual, お願いいたします es el por favor más formal de esta página, 大丈夫 rechaza una oferta con la misma facilidad con que la acepta, y どうも son las gracias en una sola palabra al salir.",
+              "大丈夫 merece un aviso. Significa bien, y se usa tanto para aceptar como para rechazar, así que responder con ella a quien atiende puede querer decir sí, por favor o no, gracias según la situación y el tono. Cuando importe, di cualquiera de las otras cinco palabras.",
+              "El patrón es la pregunta sobre la que gira toda la situación, y después el mazo de abajo toma todas las expresiones del capítulo y las pone en un calendario."
+            ]
+          }
+        },
+        {
+          "id": "p-shopping-pattern",
+          "kind": "table",
+          "title": {
+            "en": "One pattern, three fillers",
+            "es": "Un patrón, tres rellenos"
+          },
+          "columns": [
+            "slot",
+            "kana",
+            "en",
+            "es"
+          ],
+          "items": "data/phrases/ch14.json#patterns.shopping",
+          "note": {
+            "en": [
+              "These lines were written for this Book. They come from no corpus, no exercise scores them, and every word inside them is one the vocabulary files already carry."
+            ],
+            "es": [
+              "Estas líneas se escribieron para este libro. No vienen de ningún corpus, ningún ejercicio las califica, y cada palabra que contienen ya está en los archivos de vocabulario."
+            ]
+          }
+        },
+        {
+          "id": "p-shopping-exchange",
+          "kind": "table",
+          "title": {
+            "en": "Two turns, written for this Book",
+            "es": "Dos turnos, escritos para este libro"
+          },
+          "columns": [
+            "turn",
+            "kana",
+            "en",
+            "es"
+          ],
+          "items": "data/phrases/ch14.json#exchanges.shopping"
+        },
+        {
+          "id": "p-shopping-nhk",
+          "kind": "callout",
+          "tone": "note",
+          "title": {
+            "en": "The same situation, with audio",
+            "es": "La misma situación, con audio"
+          },
+          "body": {
+            "en": [
+              "The same situation, with audio, taught by NHK. Lesson 10, in English and in Spanish:",
+              "https://www3.nhk.or.jp/nhkworld/lesson/en/lessons/10.html",
+              "https://www3.nhk.or.jp/nhkworld/lesson/es/lessons/10.html",
+              "Nothing of NHK's is copied into this site: not a phrase, not a gloss, not a recording. Their terms permit a link and grant nothing else, and the six expressions above come from a dictionary that does grant one."
+            ],
+            "es": [
+              "La misma situación, con audio, enseñada por NHK. Lección 10, en inglés y en español:",
+              "https://www3.nhk.or.jp/nhkworld/lesson/en/lessons/10.html",
+              "https://www3.nhk.or.jp/nhkworld/lesson/es/lessons/10.html",
+              "Nada de NHK está copiado en este sitio: ni una frase, ni una glosa, ni una grabación. Sus términos permiten enlazar y no conceden nada más, y las seis expresiones de arriba vienen de un diccionario que sí concede una."
+            ]
+          }
+        },
+        {
+          "id": "p-five-more",
+          "kind": "callout",
+          "tone": "note",
+          "title": {
+            "en": "Five more situations, named and not built",
+            "es": "Cinco situaciones más, nombradas y sin construir"
+          },
+          "body": {
+            "en": [
+              "This chapter ships five situations of ten. The other five exist as a plan and as ten rung titles, and they are printed here rather than left as a silence at the end of a chapter:",
+              "eating-words, name what is on the table. eating-say, order, and ask for the bill.",
+              "directions-words, name what a direction is made of. directions-say, ask the way, and follow the answer.",
+              "station-words, name what a station holds. station-say, buy a ticket, and change lines.",
+              "time-words, name the hours, the days and the dates. time-say, ask the time, and agree on when.",
+              "weather-words, name the weather and the seasons. weather-say, say what it is doing outside.",
+              "One more gap, said out loud: the pronunciation work on every words rung of this chapter is the browser speaking and you repeating. Hearing a situation's own sounds as beats with the pitch drop marked, the way chapter 0 does it, would need a pitch corpus this repository does not have a licence for, and inventing the pitch patterns would be worse than leaving the gap."
+            ],
+            "es": [
+              "Este capítulo entrega cinco situaciones de diez. Las otras cinco existen como plan y como diez títulos de escalón, y se imprimen aquí en lugar de quedar como un silencio al final del capítulo:",
+              "eating-words, nombrar lo que hay en la mesa. eating-say, pedir, y pedir la cuenta.",
+              "directions-words, nombrar de qué está hecha una indicación. directions-say, preguntar el camino, y seguir la respuesta.",
+              "station-words, nombrar lo que hay en una estación. station-say, comprar un boleto, y hacer un transbordo.",
+              "time-words, nombrar las horas, los días y las fechas. time-say, preguntar la hora, y ponerse de acuerdo en cuándo.",
+              "weather-words, nombrar el clima y las estaciones. weather-say, decir qué está haciendo afuera.",
+              "Un hueco más, dicho en voz alta: la práctica de pronunciación de cada escalón de palabras de este capítulo es el navegador hablando y tú repitiendo. Oír los sonidos propios de una situación como pulsos con la caída de tono marcada, como hace el capítulo 0, necesitaría un corpus de acento tonal para el que este repositorio no tiene licencia, e inventar los patrones sería peor que dejar el hueco."
+            ]
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-shopping-say-meaning",
+          "type": "quiz",
+          "game": "pairs",
+          "skill": "jp.expression.read",
+          "title": {
+            "en": "Expression and meaning",
+            "es": "Expresión y significado"
+          },
+          "src": "books/japanese/sets/jp-phrases-pairs.json",
+          "filter": "group:shopping-exp",
+          "limit": 6,
+          "pass": {
+            "accuracy": 0.8
+          }
+        },
+        {
+          "id": "e-shopping-say-produce",
+          "type": "typed",
+          "skill": "jp.expression.read",
+          "title": {
+            "en": "Type what you would say",
+            "es": "Escribe lo que dirías"
+          },
+          "items": "data/vocab/ch14.json#groups.shopping-exp",
+          "prompt": "gloss.0",
+          "answer": "kana",
+          "transform": "kana",
+          "compare": "trim|kana",
+          "count": 6,
+          "pass": {
+            "accuracy": 0.7
+          }
+        },
+        {
+          "id": "e-shopping-say-sentence",
+          "type": "choice",
+          "skill": "jp.expression.read",
+          "title": {
+            "en": "Which sentence uses it?",
+            "es": "¿Qué frase la usa?"
+          },
+          "items": "data/sentences/ch14.json#groups.shopping-exp",
+          "prompt": "word",
+          "answer": "ja",
+          "distractors": {
+            "n": 3
+          },
+          "count": 6,
+          "pass": {
+            "accuracy": 0.75
+          }
+        },
+        {
+          "id": "e-shopping-say-deck",
+          "type": "deck",
+          "skill": "jp.expression.read",
+          "title": {
+            "en": "Every expression in this chapter, on a schedule",
+            "es": "Todas las expresiones del capítulo, con calendario"
+          },
+          "src": "books/japanese/decks/jp-phrases.json",
+          "mode": "review",
+          "limit": 20
+        }
+      ]
+    }
+  ]
+}

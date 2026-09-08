@@ -36,5 +36,22 @@
 "半": { "literal": "半", "strokes": 5, "on": [ "ハン" ], "kun": [ "なか.ば" ], "meanings": [ "half", "middle", "odd number", "semi-" ], "grade": 2, "freq": 224, "jlpt": 4, "radical": 24 },
 "今": { "literal": "今", "strokes": 4, "on": [ "コン", "キン" ], "kun": [ "いま" ], "meanings": [ "now" ], "grade": 2, "freq": 49, "jlpt": 4, "radical": 9 },
 "毎": { "literal": "毎", "strokes": 6, "on": [ "マイ" ], "kun": [ "ごと", "-ごと.に" ], "meanings": [ "every" ], "grade": 2, "freq": 436, "jlpt": 4, "radical": 80 },
-"週": { "literal": "週", "strokes": 11, "on": [ "シュウ" ], "kun": [], "meanings": [ "week" ], "grade": 2, "freq": 540, "jlpt": 4, "radical": 162 }
+"週": { "literal": "週", "strokes": 11, "on": [ "シュウ" ], "kun": [], "meanings": [ "week" ], "grade": 2, "freq": 540, "jlpt": 4, "radical": 162 },
+"list": [
+{"id":"k_65e5","literal":"日","strokes":4},
+{"id":"k_6708","literal":"月","strokes":4},
+{"id":"k_706b","literal":"火","strokes":4},
+{"id":"k_6c34","literal":"水","strokes":4},
+{"id":"k_6728","literal":"木","strokes":4},
+{"id":"k_91d1","literal":"金","strokes":8},
+{"id":"k_571f","literal":"土","strokes":3},
+{"id":"k_66dc","literal":"曜","strokes":18},
+{"id":"k_5e74","literal":"年","strokes":6},
+{"id":"k_6642","literal":"時","strokes":10},
+{"id":"k_5206","literal":"分","strokes":4},
+{"id":"k_534a","literal":"半","strokes":5},
+{"id":"k_4eca","literal":"今","strokes":4},
+{"id":"k_6bce","literal":"毎","strokes":6},
+{"id":"k_9031","literal":"週","strokes":11}
+]
 }

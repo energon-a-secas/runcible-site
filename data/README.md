@@ -33,8 +33,18 @@ data/
   vocab/<chapter>.json         JMdict slice
   kanji/kanjidic-<set>.json    KANJIDIC2 slice
   kanji/strokes-<set>.json     KanjiVG-derived
+  kanji/phon-groups.json       KanjiVG phon tags plus KANJIDIC readings
   sentences/<chapter>.json     Tatoeba slice
+  reading/<story>.json         Aozora Bunko story, public domain in both jurisdictions
+  phrases/ch14.json            the one authored file. See below
+  piano/keys,notes,theory.json authored facts about the instrument and the stave
+  piano/pieces-*.json          Mutopia scores, one file per maintainer
 ```
+
+61 files. Nine of them are not a slice of a dictionary and each is its own
+case: the three kana tables, the two loanword files, the song catalog, the
+three Piano fact files. Everything else is derived, and derived means the
+licence below is not this repo's.
 
 ## Before you commit anything in here
 
@@ -46,6 +56,11 @@ make validate
 It exits 0, or it exits 1 and names the file and the line. Nothing runs it for
 you: it is not in root `make smoke`. Running it is part of the definition of
 done for any change under `data/` or `books/`.
+
+`make validate` runs five gates: `check-licence.mjs`, `validate-book.mjs`,
+the shell rules, `validate-corpus.mjs` over the derived formats, and
+`validate-phrases.mjs` over the one authored file. Each is its own target and
+one schema, so there is never a second opinion about what valid means.
 
 `tools/check-licence.mjs` is the part of `make validate` that this file is
 about. It enforces four things, and the fourth one is why it exists at all:
@@ -210,6 +225,92 @@ Each rule carries a `kind`: `D` deterministic, `C` convention, `M` mostly
 deterministic with a named exception class. That classification is the
 researcher's own synthesis, not a source's, and the file says so.
 
+## The graded reading stories
+
+`reading/<story>.json` is one Aozora Bunko story per file, sliced by
+`tools/build-reading.mjs`. Four ship: たけのこ (card 4725), がちょうの
+たんじょうび (4726), こぞうさんの おきょう (4727) and 狐のつかい (4677).
+
+**Every safety judgment is re-derived from Aozora's own bibliography CSV on
+every run**, never trusted from the selection file, so a story cannot drift in
+on a stale note. Three filters, and each one is a real trap:
+
+- **orthography must be 新字新仮名.** Aozora publishes several of these stories
+  twice, once in the pre-1946 spelling. Teaching a beginner an orthography
+  abandoned in 1946 is the failure the research named.
+- **the work's copyright flag must be the expired one**, and every contributor
+  on the card, translators included, must have died in 1945 or earlier. That is
+  the same two-jurisdiction test the songs take, and it is why these files carry
+  `japan`, `us` and `card` beside the usual `_licence` fields.
+- **no U+FFFD anywhere.** The archives are Shift_JIS and a mojibake character
+  in a reading passage is a wrong lesson that renders correctly.
+
+The selection file is an **allowlist and not a top-N by kana ratio**, and the
+reason is recorded in `selection/reading.json`: the research measured all 413
+dual-jurisdiction-safe children's works and one title in the safe set is a slur
+in modern Japanese. An automatic selection would have shipped it.
+
+**Ruby is not free on these files.** Aozora's markup carries `《》` ruby, but
+the three easiest stories measure essentially none, so only the story that has
+it carries a reading drill over `#ruby`. `validate-corpus.mjs` fails a chapter
+pointer at a `#ruby` fragment with fewer than eight entries rather than letting
+a drill mount empty.
+
+## The one authored file
+
+`phrases/ch14.json` is the exception this README has to name out loud, because
+every other rule here exists to prevent it. It holds the sentence patterns and
+the two-turn exchanges chapter 14 shows **as prose on a page**, written for
+this Book, `CC0-1.0`, `derived: false`, `screen: none`.
+
+Three rules keep it from becoming a corpus:
+
+1. **Nothing in it is ever scored.** It is read by `table` pages only. Every
+   graded item of language in this Book comes from JMdict, Tatoeba or the kana
+   and kanji tables. An invented sentence a learner is graded on is content we
+   made up wearing a corpus's clothes.
+2. **Every field is a string**, `kana`, `en`, `es` and `slot` alike, never an
+   `{en, es}` object. `js/render-pages.js` stringifies whatever cell it is
+   handed, so an object prints as `[object Object]`. The page carries both
+   languages as separate columns instead.
+3. **Every content word is checked against `vocab/ch14.json`.**
+   `tools/validate-phrases.mjs` is the gate, wired into `make validate`. There
+   is no Japanese tokenizer in this repo, so the file carries its own
+   segmentation and its own claims and the validator checks that the two agree.
+   A word the Book never taught fails the run.
+
+The page that renders it says on its face that the two turns were written for
+this Book. That sentence is not decoration either.
+
+## The Piano corpus
+
+`piano/{keys,notes,theory}.json` are authored facts about an instrument and a
+stave: where a key sits, what a line of the treble clef is called, how many
+beats a written bar holds. Facts, `public-domain`, `screen: none`. Every field a
+`prompt` or an `answer` names is a **string**, for the same reason the phrases
+file gives.
+
+`piano/pieces-*.json` are Mutopia Project scores, and two things about them are
+worth carrying:
+
+- **The licence is read out of each piece's own `.rdf`, never typed.** Mutopia
+  licences per file, not per composer, so a public-domain Czerny and a
+  CC BY-SA 2.5 Schumann can sit in the same download. `build-piano.mjs` maps the
+  `.rdf` tag to an SPDX id from a closed table and stops on a tag it does not
+  know.
+- **One `_licence` block names one maintainer, so the file splits per
+  maintainer.** Seven public-domain pieces have four different typesetters and
+  one attribution wording cannot name four people, so there are four
+  `pieces-pd-*.json` files rather than one. The generator asserts it: two
+  maintainers in one file refuse the write instead of picking a name.
+
+A bar the generator cannot read exactly (a chord, polyphony, a grace note, a
+tuplet, or durations that do not sum to the time signature) contributes no
+drill items. Five of the twelve pieces are readable in no bar at all; they keep
+their place, their grade and their credits, and the chapter names all five and
+why. A score inferred from an ambiguous bar would be an invented note with a
+licence claim attached.
+
 ## Size budget
 
 **No single JSON file over 150 KB**, and the eager load is capped at **40 KB
@@ -226,6 +327,20 @@ its chapter opens, and the full dumps are never shipped.
 | `songs/<id>.json` | 12 KB each | lazy |
 | `vocab/<chapter>.json`, `kanji/kanjidic-<set>.json`, `sentences/<chapter>.json` | 120 KB | lazy |
 | `kanji/strokes-<set>.json` | 150 KB | lazy |
+| `kanji/phon-groups.json` | 150 KB | lazy |
+| `reading/<story>.json` | 150 KB, and `build-reading.mjs` refuses a longer story | lazy |
+| `phrases/ch14.json` | 30 KB | lazy |
+| `piano/{keys,notes,theory}.json` | 30 KB each | lazy |
+| `piano/pieces-*.json` | 120 KB | lazy |
+
+**The eager cap is per view, and two chapters now open near the file cap
+rather than near the eager one.** `12-handwriting` fetches 160 KB across five
+stroke files when it opens and `10-kanji-beyond` is in the same position, both
+because a handwriting or kanji rung needs the paths themselves. That is inside
+C11.6, which caps a file at 150 KB and the *eager* load at 40 KB, and the
+ladder no longer fetches a chapter's data to draw itself. It is still the
+largest chapter open in the Book and worth knowing before a sixth file is
+added to either one.
 
 ## Adding a file in here
 

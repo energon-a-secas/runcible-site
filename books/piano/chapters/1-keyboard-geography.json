@@ -1,98 +1,182 @@
 {
   "format": "neo-chapter/1",
   "id": "1-keyboard-geography",
-  "title": { "en": "Keyboard geography", "es": null },
+  "title": { "en": "Keyboard geography", "es": "Geografía del teclado" },
   "goal": {
     "statement": {
       "en": "Name any white key on sight, sit at the instrument correctly, and play a five note pattern by rote in two keys",
-      "es": null
-    }
+      "es": "Nombrar cualquier tecla blanca a primera vista, sentarse correctamente al instrumento y tocar de memoria un patrón de cinco notas en dos tonalidades"
+    },
+    "evidence": { "skill": "piano.keys.name", "accuracy": 0.9, "min": 20, "window": 40 }
   },
   "requires": [],
   "state": "ready",
   "estimate": {
     "minutes": 600,
     "note": {
-      "en": "Hoffman Academy spends its first twenty lessons here. Hours, not minutes, and the figure is inferred from the lesson count rather than stated by the source.",
-      "es": null
+      "en": "Hoffman Academy spends its first twenty lessons here. Hours, not minutes, and the figure is inferred from the lesson count rather than stated by the source. The drills below take ten minutes of that.",
+      "es": "Hoffman Academy dedica aquí sus primeras veinte lecciones. Son horas, no minutos, y la cifra se deduce del número de lecciones, la fuente no la declara. Los ejercicios de abajo ocupan diez minutos de ese total."
     }
   },
+  "data": ["data/piano/keys.json"],
   "rungs": [
     {
       "id": "why-this-book-exists",
-      "title": { "en": "Why this Book exists", "es": null },
+      "title": { "en": "Why this Book exists", "es": "Por qué existe este libro" },
       "unlocks": {
-        "en": "nothing you can play yet. It tells you what this second Book is for.",
-        "es": null
+        "en": "nothing you can play yet. It says what this second Book is for.",
+        "es": "nada que puedas tocar todavía. Dice para qué sirve este segundo libro."
       },
       "pages": [
         {
           "id": "p-stub",
           "kind": "callout",
           "tone": "note",
-          "title": { "en": "This Book is a stub, on purpose", "es": null },
+          "title": { "en": "This Book answers a question about the software", "es": "Este libro responde una pregunta sobre el software" },
           "body": {
             "en": [
-              "Piano ships with a ladder, three chapters of prose and no exercises at all. It is here to answer one question about the software rather than one question about music: is the shell shaped like Japanese?",
-              "Adding this Book was one entry in books/index.json and one directory. No file under js/ changed. If that ever stops being true, the shell has learned a subject, and a shell that knows a subject cannot carry a second one."
+              "Piano is here to answer one question about the software rather than one question about music: is the shell shaped like Japanese, or does it teach whatever subject arrives as data?",
+              "Adding it was one entry in books/index.json and one directory. The drills you are about to meet draw a keyboard and a stave, and they come from a module this Book ships and declares in its own manifest. No file under js/ changed to make any of it run. If that ever stops being true, the shell has learned a subject, and a shell that knows a subject cannot carry a second one."
             ],
-            "es": null
+            "es": [
+              "Piano está aquí para responder una pregunta sobre el software y no una sobre música: ¿el armazón tiene la forma del japonés, o enseña cualquier materia que llegue como datos?",
+              "Agregarlo fue una entrada en books/index.json y un directorio. Los ejercicios que vas a encontrar dibujan un teclado y un pentagrama, y vienen de un módulo que este libro trae y declara en su propio manifiesto. Ningún archivo bajo js/ cambió para que funcionaran. Si eso deja de ser cierto, el armazón aprendió una materia, y un armazón que conoce una materia no puede cargar una segunda."
+            ]
           }
         },
         {
           "id": "p-parallel",
           "kind": "prose",
-          "title": { "en": "The two ladders are the same shape", "es": null },
+          "title": { "en": "The two ladders are the same shape", "es": "Las dos escaleras tienen la misma forma" },
           "body": {
             "en": [
               "Every domain worth a Book seems to have four layers. A small closed notation layer learned in days or weeks. An item inventory that rewards spaced repetition. A graded corpus for volume practice. And a production skill practised apart from the decoding skill.",
               "Kana maps to staff reading. Kanji and vocabulary map to scales, chords and intervals. Graded readers map to graded repertoire. Speaking maps to performing.",
               "So the model is: symbol set, then a prerequisite-graphed item inventory, then a graded corpus, then production drills. Nothing in that sentence is Japanese-shaped, which is the whole argument for keeping content in data files."
             ],
-            "es": null
+            "es": [
+              "Todo dominio que merezca un libro parece tener cuatro capas. Una capa de notación, pequeña y cerrada, que se aprende en días o semanas. Un inventario de ítems que se beneficia de la repetición espaciada. Un corpus graduado para practicar en volumen. Y una destreza de producción que se practica aparte de la de decodificación.",
+              "El kana corresponde a leer del pentagrama. El kanji y el vocabulario corresponden a escalas, acordes e intervalos. Los lectores graduados corresponden al repertorio graduado. Hablar corresponde a tocar en público.",
+              "Así que el modelo es: conjunto de símbolos, luego un inventario de ítems con grafo de prerrequisitos, luego un corpus graduado, luego ejercicios de producción. Nada de esa frase tiene forma de japonés, y ese es todo el argumento para mantener el contenido en archivos de datos."
+            ]
           },
           "note": {
             "en": [
               "Source: docs/delivery/research/japanese-study-structure.md, section E. That appendix says plainly that the piano evidence base is thinner than the Japanese one and was not cross-checked to the same depth. Read every figure in this Book as a sketch."
             ],
-            "es": null
+            "es": [
+              "Fuente: docs/delivery/research/japanese-study-structure.md, sección E. Ese apéndice dice con claridad que la base de evidencia del piano es más delgada que la del japonés y que no se contrastó con la misma profundidad. Lee cada cifra de este libro como un boceto."
+            ]
           }
         }
       ]
     },
     {
       "id": "keys-before-notes",
-      "title": { "en": "Playing before reading", "es": null },
+      "title": { "en": "Playing before reading", "es": "Tocar antes de leer" },
       "unlocks": {
         "en": "the pentascale patterns, which are the first thing your hands can do without a page",
-        "es": null
+        "es": "los patrones de pentacordio, lo primero que tus manos pueden hacer sin una página delante"
       },
       "pages": [
         {
           "id": "p-unit-one",
           "kind": "prose",
-          "title": { "en": "Twenty lessons before a single note is read", "es": null },
+          "title": { "en": "Twenty lessons before a single note is read", "es": "Veinte lecciones antes de leer una sola nota" },
           "body": {
             "en": [
               "Hoffman Academy's free curriculum runs eighteen units and three hundred and sixty lessons. Unit one, lessons 1 to 20, is posture, the names of the white keys, and the C and D major pentascales. Staff reading does not begin until unit two.",
               "Name the white keys off the black key groups, not by counting from the left edge. Two blacks together sit around D. Three blacks together hold G and A between them. C is the white key just left of a pair of blacks, and it is the anchor everything else is measured from."
             ],
-            "es": null
+            "es": [
+              "El plan gratuito de Hoffman Academy tiene dieciocho unidades y trescientas sesenta lecciones. La unidad uno, lecciones 1 a 20, es postura, los nombres de las teclas blancas y los pentacordios de do y re mayor. La lectura del pentagrama no empieza hasta la unidad dos.",
+              "Nombra las teclas blancas a partir de los grupos de teclas negras, no contando desde el borde izquierdo. Dos negras juntas rodean el re. Tres negras juntas tienen el sol y el la entre ellas. El do es la tecla blanca que está justo a la izquierda de un par de negras, y es el ancla desde la que se mide todo lo demás."
+            ]
           }
         },
         {
           "id": "p-mirror",
           "kind": "callout",
           "tone": "win",
-          "title": { "en": "The two subjects resolve the same tension in opposite directions", "es": null },
+          "title": { "en": "The two subjects resolve the same tension in opposite directions", "es": "Las dos materias resuelven la misma tensión en direcciones opuestas" },
           "body": {
             "en": [
               "Japanese teaching says read before you write, because writing triples the time for very little real benefit and a browser cannot grade a stroke anyway.",
               "Piano teaching says play before you read. Hoffman puts twenty lessons of playing ahead of the first note on a staff.",
               "Both are the same decision: put the skill that pays first, and let the notation follow it. They only look opposite because in one subject the notation is the product and in the other it is the packaging."
             ],
-            "es": null
+            "es": [
+              "La enseñanza del japonés dice: lee antes de escribir, porque escribir triplica el tiempo a cambio de muy poco beneficio real y, de todos modos, un navegador no puede calificar un trazo.",
+              "La enseñanza del piano dice: toca antes de leer. Hoffman pone veinte lecciones de tocar antes de la primera nota en un pentagrama.",
+              "Ambas son la misma decisión: pon primero la destreza que rinde y deja que la notación la siga. Solo parecen opuestas porque en una materia la notación es el producto y en la otra es el envoltorio."
+            ]
           }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-white-name",
+          "type": "choice",
+          "skill": "piano.keys.name",
+          "title": { "en": "Which white key is this?", "es": "¿Qué tecla blanca es esta?" },
+          "items": "data/piano/keys.json#groups.white",
+          "prompt": "position",
+          "answer": "name",
+          "distractors": { "from": "siblings", "n": 3 },
+          "count": 7,
+          "pass": { "accuracy": 0.85 }
+        }
+      ]
+    },
+    {
+      "id": "black-key-groups",
+      "title": { "en": "The groups of two and three", "es": "Los grupos de dos y de tres" },
+      "unlocks": {
+        "en": "every key name on the instrument, because the groups repeat unchanged in every octave",
+        "es": "el nombre de cada tecla del instrumento, porque los grupos se repiten iguales en cada octava"
+      },
+      "pages": [
+        {
+          "id": "p-groups",
+          "kind": "prose",
+          "title": { "en": "Two, then three, then two again", "es": "Dos, luego tres, luego dos otra vez" },
+          "body": {
+            "en": [
+              "The black keys come in a group of two and a group of three, and that pattern repeats without a break from the bottom of the instrument to the top. Find one group and you know where you are, whatever octave your hand landed in.",
+              "A black key has two names, and both are correct. The key between C and D is C sharp when the music is raising a C and D flat when it is lowering a D. Which one gets printed depends on the key the piece is in, which is chapter 3's business.",
+              "The drill below marks one key on a drawn octave and asks for its name. It is the same question the shell's multiple choice asks, with the picture as the prompt, and the picture is why this Book carries a module of its own."
+            ],
+            "es": [
+              "Las teclas negras vienen en un grupo de dos y un grupo de tres, y ese patrón se repite sin interrupción desde el extremo grave del instrumento hasta el agudo. Encuentra un grupo y sabrás dónde estás, sea cual sea la octava en la que cayó tu mano.",
+              "Una tecla negra tiene dos nombres, y los dos son correctos. La tecla entre do y re es do sostenido cuando la música sube un do, y re bemol cuando baja un re. Cuál se imprime depende de la tonalidad de la pieza, que es asunto del capítulo 3.",
+              "El ejercicio de abajo marca una tecla en una octava dibujada y pide su nombre. Es la misma pregunta que hace la opción múltiple del armazón, con el dibujo como enunciado, y ese dibujo es la razón por la que este libro trae un módulo propio."
+            ]
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-black-name",
+          "type": "choice",
+          "skill": "piano.keys.name",
+          "title": { "en": "Which black key is this?", "es": "¿Qué tecla negra es esta?" },
+          "items": "data/piano/keys.json#groups.black",
+          "prompt": "position",
+          "answer": "name",
+          "distractors": { "from": "siblings", "n": 3 },
+          "count": 5,
+          "pass": { "accuracy": 0.8 }
+        },
+        {
+          "id": "e-keys-drawn",
+          "type": "custom",
+          "module": "piano.keys",
+          "skill": "piano.keys.name",
+          "title": { "en": "Name the marked key", "es": "Nombra la tecla marcada" },
+          "items": "data/piano/keys.json#groups.white",
+          "props": { "also": ["data/piano/keys.json#groups.black"] },
+          "count": 12,
+          "pass": { "accuracy": 0.85 }
         }
       ]
     }

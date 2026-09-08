@@ -41,6 +41,26 @@
           }
         },
         {
+          "id": "p-o-go",
+          "kind": "prose",
+          "title": {
+            "en": "The o and the go on the front of half these words",
+            "es": "El o y el go delante de la mitad de estas palabras"
+          },
+          "body": {
+            "en": [
+              "ohayou, ocha, okane: a lot of the first words anybody learns start with a small politeness prefix, and there are two of them. The rule is one line, and 敬語の指針, the Cultural Council's 2007 report on polite language, states it that way: o goes on native Japanese words, go goes on words built from Chinese-derived characters. onamae, oisogashii, otegami, osake against goshuusho, gosetsumei, gojuusho.",
+              "The exceptions are the interesting part, and the same report raises them itself. A large slice of everyday o is not honorific at all. The report gives it a category of its own, 美化語, beautification: osake in a sentence about how good a drink is raises nobody, it just speaks of the thing nicely, which is why it turns up with no listener in mind. And beautification breaks the native and Chinese split without apology: oryouri and okeshou take o in front of Chinese-derived words, and so do okagen and ogenki.",
+              "One more thing to expect on the page. The prefix is written three ways. Public documents write it with the character 御, ordinary writing often spells it in kana, and the choice depends partly on word origin, partly on register, and partly on whether the base word contains a character outside the everyday list. So o, go and 御 are one prefix wearing three coats, and none of the three is a different word."
+            ],
+            "es": [
+              "ohayou, ocha, okane: muchas de las primeras palabras que aprende cualquiera empiezan por un pequeño prefijo de cortesía, y hay dos. La regla es una línea, y 敬語の指針, el informe de 2007 del Consejo de Cultura sobre el lenguaje de cortesía, la enuncia así: o va con palabras japonesas nativas, go va con palabras formadas por caracteres de origen chino. onamae, oisogashii, otegami, osake frente a goshuusho, gosetsumei, gojuusho.",
+              "Las excepciones son lo interesante, y el mismo informe las plantea él solo. Buena parte del o cotidiano no es honorífico en absoluto. El informe le da una categoría propia, 美化語, embellecimiento: osake en una frase sobre lo buena que está una bebida no eleva a nadie, solo habla de la cosa con cariño, y por eso aparece sin ningún oyente en mente. Y el embellecimiento rompe la división entre nativo y chino sin pedir permiso: oryouri y okeshou llevan o delante de palabras de origen chino, y también okagen y ogenki.",
+              "Una cosa más que esperar en la página. El prefijo se escribe de tres maneras. Los documentos públicos lo escriben con el carácter 御, la escritura corriente lo pone a menudo en kana, y la elección depende en parte del origen de la palabra, en parte del registro, y en parte de si la palabra base lleva un carácter fuera de la lista de uso común. Así que o, go y 御 son un solo prefijo con tres abrigos, y ninguno de los tres es una palabra distinta."
+            ]
+          }
+        },
+        {
           "id": "p-spanish-route",
           "kind": "callout",
           "tone": "note",
@@ -240,6 +260,65 @@
               "People are the other irregular set worth having from day one: one person is hitori, two is futari, and from three on it is the ordinary number plus nin, sannin."
             ],
             "es": null
+          }
+        },
+        {
+          "id": "p-counter-sounds",
+          "kind": "table",
+          "title": {
+            "en": "Five numbers change the counter's first sound",
+            "es": "Cinco números cambian el primer sonido del contador"
+          },
+          "columns": [
+            { "en": "Number", "es": "Número" },
+            { "en": "Written", "es": "Se escribe" },
+            { "en": "Read", "es": "Se lee" },
+            { "en": "Change at the join", "es": "Cambio en la unión" }
+          ],
+          "rows": [
+            ["1", "一本", "いっぽん", "っ + h to p"],
+            ["2", "二本", "にほん", "none"],
+            ["3", "三本", "さんぼん", "h to b"],
+            ["4", "四本", "よんほん", "none"],
+            ["5", "五本", "ごほん", "none"],
+            ["6", "六本", "ろっぽん", "っ + h to p"],
+            ["7", "七本", "ななほん", "none"],
+            ["8", "八本", "はっぽん", "っ + h to p"],
+            ["9", "九本", "きゅうほん", "none"],
+            ["10", "十本", "じゅっぽん", "っ + h to p"]
+          ],
+          "note": {
+            "en": [
+              "Two things happen at the join and the fourth column names both. っ means the number itself clips to a held consonant, and h to p or h to b means the counter's first sound hardens. 十本 also has a second correct reading, じっぽん.",
+              "One counter, ten numbers, and only 1, 3, 6, 8 and 10 do anything. The same five do the same thing to every counter that starts with an h sound, and to several others: ippiki, sanbiki, roppiki for animals, ippun, sanpun, roppun for minutes.",
+              "This is chapter 0 turning up again. The clip is the held consonant you met as small tsu, and the h to p and h to b shifts are what a beat does when it lands against a stop or a nasal. Nothing here is a counter rule. It is the sound system, met at a join. The set of five is given in the Wikipedia article on Japanese counter words."
+            ],
+            "es": [
+              "En la unión pasan dos cosas y la cuarta columna nombra las dos. っ significa que el número se recorta a una consonante sostenida, y h to p o h to b significa que el primer sonido del contador se endurece. 十本 tiene además una segunda lectura correcta, じっぽん.",
+              "Un contador, diez números, y solo el 1, el 3, el 6, el 8 y el 10 hacen algo. Esos mismos cinco hacen lo mismo con todos los contadores que empiezan por un sonido h, y con varios más: ippiki, sanbiki, roppiki para animales, ippun, sanpun, roppun para minutos.",
+              "Esto es el capítulo 0 otra vez. El recorte es la consonante sostenida que conociste como tsu pequeña, y los cambios de h a p y de h a b son lo que le pasa a un tiempo cuando choca con una oclusiva o con una nasal. Aquí no hay ninguna regla de contadores. Es el sistema de sonidos, visto en una unión. El conjunto de los cinco viene en el artículo de Wikipedia sobre los contadores japoneses."
+            ]
+          }
+        },
+        {
+          "id": "p-kasho",
+          "kind": "callout",
+          "tone": "note",
+          "title": {
+            "en": "The counter is a character, and one of them is not what it looks like",
+            "es": "El contador es un carácter, y uno de ellos no es lo que parece"
+          },
+          "body": {
+            "en": [
+              "Every counter in this rung is a kanji: 本 for long thin things, 枚 for flat ones, 匹 for animals, 人 for people, 台 for machines, 個 for small objects. Learning counters is learning kanji early, whether or not that was the plan, and it is why these words arrive in the drill written in characters you do not meet until chapter 6.",
+              "The counter for places is where the writing gets strange, and it is worth seeing once. Public documents write three places as ３か所 in horizontal text with Arabic numerals, and as 三箇所 in vertical text with kanji numerals. The 2022 guidance for public documents gives both and rules out the two spellings you will see everywhere else, ３ヶ所 and ７カ月.",
+              "That ヶ is not a small katakana ケ, despite looking exactly like one. It is a shrunk form of 个, which is itself the bamboo radical taken off the top of 箇. So a character you read as a kana is a piece of a kanji, and the counter it stands for is the one that gets spelled four different ways."
+            ],
+            "es": [
+              "Todos los contadores de este peldaño son kanji: 本 para las cosas largas y finas, 枚 para las planas, 匹 para los animales, 人 para las personas, 台 para las máquinas, 個 para los objetos pequeños. Aprender contadores es aprender kanji pronto, estuviera o no en el plan, y por eso estas palabras llegan al ejercicio escritas con caracteres que no ves hasta el capítulo 6.",
+              "El contador de lugares es donde la escritura se pone rara, y vale la pena verlo una vez. Los documentos públicos escriben tres lugares como ３か所 en texto horizontal con cifras árabes, y como 三箇所 en texto vertical con cifras en kanji. La guía de 2022 para documentos públicos da las dos y descarta las dos grafías que vas a ver en todas partes, ３ヶ所 y ７カ月.",
+              "Ese ヶ no es una ケ pequeña de katakana, por mucho que lo parezca. Es una forma reducida de 个, que a su vez es el radical de bambú sacado de la parte de arriba de 箇. Así que un carácter que lees como kana es un trozo de un kanji, y el contador al que representa es el que se escribe de cuatro maneras distintas."
+            ]
           }
         }
       ],

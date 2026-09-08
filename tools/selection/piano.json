@@ -1,0 +1,201 @@
+{
+  "note": "Twelve Mutopia engravings, one row per piece. tools/build-piano.mjs fetches each piece's .rdf and .ly, reads the licence and the maintainer out of the .rdf rather than trusting anything written here, and reads the notes out of the .ly. Nothing under data/piano/pieces-*.json is typed by hand.",
+  "grading": {
+    "source": "The Royal Conservatory Piano Syllabus, 2022 Edition",
+    "url": "https://rcmusic-kentico-cdn.s3.amazonaws.com/rcm/media/main/about%20us/rcm%20publishing/piano-syllabus-2022-edition.pdf",
+    "note": "ABRSM refused the fetch twice, so every level here is RCM's. A null level means RCM does not list the piece, and the row says why."
+  },
+  "upstream": {
+    "base": "https://www.mutopiaproject.org/ftp/",
+    "legal": "https://www.mutopiaproject.org/legal.html",
+    "fetched": "2026-09-08",
+    "note": "Mutopia licences each piece separately, so the licence is per file and never per composer. The generator maps the .rdf tag to an SPDX id from a closed table and stops on a tag it does not know."
+  },
+  "reader": {
+    "note": "The reader is deliberate about refusing. A bar is kept only when it carries no chord, no polyphony block, no grace note, no tuplet and no ottava bracket, and only when its written durations add up to the time signature exactly. Anything else is dropped and counted, so a piece the reader cannot follow ships as a named gap rather than as a guess.",
+    "voice": "The staff whose notes are read. It is named per piece because the sources do not agree on a name.",
+    "context": "The variable holding the piece's key and time signature when they are not inside the voice itself."
+  },
+  "files": [
+    {
+      "out": "data/piano/pieces-pd-czerny.json",
+      "expect": { "licence": "Public Domain", "maintainer": "Manuel Castejon Limas" },
+      "title": "Czerny, Op. 821, engraved by Manuel Castejon Limas",
+      "pieces": [
+        {
+          "id": "czerny-821-1",
+          "dir": "CzernyC/Op_821/Czerny_Op_821_No_001",
+          "stem": "Czerny_Op_821_No_001",
+          "voice": "upperStaff",
+          "context": "global",
+          "title": "160 Eight-Measure Exercises, Op. 821 No. 1",
+          "composer": "Carl Czerny",
+          "composer_dates": "1791 to 1857",
+          "rcm": null,
+          "rcm_note": "RCM lists no Czerny Op. 821 at any level. It is technique, and it is here because it is the shortest single line on the list."
+        },
+        {
+          "id": "czerny-821-2",
+          "dir": "CzernyC/Op_821/Czerny_Op_821_No_002",
+          "stem": "Czerny_Op_821_No_002",
+          "voice": "upperStaff",
+          "context": "global",
+          "title": "160 Eight-Measure Exercises, Op. 821 No. 2",
+          "composer": "Carl Czerny",
+          "composer_dates": "1791 to 1857",
+          "rcm": null,
+          "rcm_note": "Same as No. 1: technique, unlisted by RCM."
+        }
+      ]
+    },
+    {
+      "out": "data/piano/pieces-pd-anna-magdalena.json",
+      "expect": { "licence": "Public Domain", "maintainer": "Allen Garvin" },
+      "title": "Three menuets from the Notebook for Anna Magdalena Bach, engraved by Allen Garvin",
+      "pieces": [
+        {
+          "id": "petzold-anh114",
+          "dir": "BachJS/BWVAnh114/anna-magdalena-04",
+          "stem": "anna-magdalena-04",
+          "voice": "voiceone",
+          "context": null,
+          "title": "Menuet in G, BWV Anh. 114",
+          "composer": "Christian Petzold",
+          "composer_dates": "1677 to 1733",
+          "rcm": 3,
+          "rcm_note": "RCM 2022 lists this menuet under Petzold. Mutopia files it under BachJS, which is where the nineteenth century put it."
+        },
+        {
+          "id": "petzold-anh115",
+          "dir": "BachJS/BWVAnh115/anna-magdalena-05",
+          "stem": "anna-magdalena-05",
+          "voice": "voiceone",
+          "context": null,
+          "title": "Menuet in G minor, BWV Anh. 115",
+          "composer": "Christian Petzold",
+          "composer_dates": "1677 to 1733",
+          "rcm": 3,
+          "rcm_note": "The companion of Anh. 114 and attributed to the same organist."
+        },
+        {
+          "id": "bach-anh116",
+          "dir": "BachJS/BWVAnh116/anna-magdalena-07",
+          "stem": "anna-magdalena-07",
+          "voice": "voiceone",
+          "context": null,
+          "title": "Menuet, BWV Anh. 116",
+          "composer": "Attributed to Johann Sebastian Bach",
+          "composer_dates": "1685 to 1750",
+          "rcm": null,
+          "rcm_note": "The research placed it near Level 3 and could not verify that number, so no level is claimed here."
+        }
+      ]
+    },
+    {
+      "out": "data/piano/pieces-pd-clementi.json",
+      "expect": { "licence": "Public Domain", "maintainer": "Brian D. Rude" },
+      "title": "Clementi, Op. 36 No. 1, engraved by Brian D. Rude",
+      "pieces": [
+        {
+          "id": "clementi-36-1-i",
+          "dir": "ClementiM/O36/sonatina-1",
+          "stem": "sonatina-1",
+          "voice": "upperfirst",
+          "context": null,
+          "title": "Sonatina in C, Op. 36 No. 1, first movement",
+          "composer": "Muzio Clementi",
+          "composer_dates": "1752 to 1832",
+          "rcm": 3,
+          "rcm_note": "RCM 2022 Level 3, and the only Clementi sonatina Mutopia has engraved."
+        }
+      ]
+    },
+    {
+      "out": "data/piano/pieces-pd-tchaikovsky.json",
+      "expect": { "licence": "Public Domain", "maintainer": "David McNamara" },
+      "title": "Tchaikovsky, Op. 39 No. 16, engraved by David McNamara",
+      "pieces": [
+        {
+          "id": "tchaikovsky-39-16",
+          "dir": "TchaikovskyPI/O39/16OldFrenchSong",
+          "stem": "16OldFrenchSong",
+          "voice": "melodyAHead",
+          "context": "global",
+          "title": "Album for the Young, Op. 39 No. 16, Old French Song",
+          "composer": "Pyotr Ilyich Tchaikovsky",
+          "composer_dates": "1840 to 1893",
+          "rcm": 4,
+          "rcm_note": "RCM 2022 Level 4. The source splits the melody into sections and this row reads the first one."
+        }
+      ]
+    },
+    {
+      "out": "data/piano/pieces-ccbysa.json",
+      "expect": { "licence": "Creative Commons Attribution-ShareAlike 2.5", "maintainer": "Philippe Hézaine" },
+      "title": "Schumann, Album fur die Jugend Op. 68, engraved by Philippe Hezaine",
+      "note": "Kept apart from the public-domain engravings because share-alike travels with them and because nobody has resolved whether CC BY-SA 2.5 may be combined with the 4.0 material elsewhere in this corpus.",
+      "pieces": [
+        {
+          "id": "schumann-68-1",
+          "dir": "SchumannR/O68/schumann-op68-01-melodie",
+          "stem": "schumann-op68-01-melodie",
+          "voice": "upper",
+          "context": null,
+          "title": "Album for the Young, Op. 68 No. 1, Melody",
+          "composer": "Robert Schumann",
+          "composer_dates": "1810 to 1856",
+          "rcm": 3,
+          "rcm_note": "RCM 2022 Level 3."
+        },
+        {
+          "id": "schumann-68-2",
+          "dir": "SchumannR/O68/schumann-op68-02-marche-militaire",
+          "stem": "schumann-op68-02-marche-militaire",
+          "voice": "upper",
+          "context": null,
+          "title": "Album for the Young, Op. 68 No. 2, Soldier's March",
+          "composer": "Robert Schumann",
+          "composer_dates": "1810 to 1856",
+          "rcm": 2,
+          "rcm_note": "RCM 2022 Level 2, and the lowest graded piece Mutopia has engraved."
+        },
+        {
+          "id": "schumann-68-8",
+          "dir": "SchumannR/O68/schumann-op68-08-cavalier-sauvage",
+          "stem": "schumann-op68-08-cavalier-sauvage",
+          "voice": "upper",
+          "context": null,
+          "title": "Album for the Young, Op. 68 No. 8, The Wild Horseman",
+          "composer": "Robert Schumann",
+          "composer_dates": "1810 to 1856",
+          "rcm": 4,
+          "rcm_note": "RCM 2022 Level 4."
+        },
+        {
+          "id": "schumann-68-10",
+          "dir": "SchumannR/O68/schumann-op68-10-gai-laboureur",
+          "stem": "schumann-op68-10-gai-laboureur",
+          "voice": "upper",
+          "context": null,
+          "title": "Album for the Young, Op. 68 No. 10, The Happy Farmer",
+          "composer": "Robert Schumann",
+          "composer_dates": "1810 to 1856",
+          "rcm": 4,
+          "rcm_note": "RCM 2022 Level 4."
+        },
+        {
+          "id": "schumann-68-11",
+          "dir": "SchumannR/O68/schumann-op68-11-sicilienne",
+          "stem": "schumann-op68-11-sicilienne",
+          "voice": "upper",
+          "context": null,
+          "title": "Album for the Young, Op. 68 No. 11, Siciliano",
+          "composer": "Robert Schumann",
+          "composer_dates": "1810 to 1856",
+          "rcm": 5,
+          "rcm_note": "RCM 2022 Level 5, and the finish line of this chapter's ladder."
+        }
+      ]
+    }
+  ]
+}

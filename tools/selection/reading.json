@@ -1,0 +1,223 @@
+{
+  "_note": [
+    "Input to tools/build-reading.mjs. Chapter 9, graded reading.",
+    "",
+    "This file pins card ids and nothing else that matters. Every safety fact",
+    "below is re-derived from Aozora's own bibliography CSV on every run, so a",
+    "wrong note here fails the build instead of shipping. What this file really",
+    "carries is the two judgments a machine cannot make: which stories a person",
+    "has read, and which ones are held back.",
+    "",
+    "Why an allowlist and not a top-N by kana ratio: the research measured all",
+    "413 dual-jurisdiction-safe children's works and found that one title in the",
+    "safe set is a slur in modern Japanese. An automatic selection would have",
+    "shipped it. See docs/delivery/research/japanese-chapters-9-12-and-piano.md",
+    "section A8, Content warning.",
+    "",
+    "Aozora publishes several of these stories twice, once in the pre-1946",
+    "orthography, which is why filters.orthography exists and is asserted per",
+    "story rather than assumed from the card id."
+  ],
+  "index": {
+    "name": "Aozora Bunko bibliography, all works by contributor, extended, UTF-8",
+    "url": "https://www.aozora.gr.jp/index_pages/list_person_all_extended_utf8.zip",
+    "licence": "CC-BY-4.0, per https://www.aozora.gr.jp/guide/kijyunn.html",
+    "downloaded": "2026-09-08",
+    "bytes": 2092746,
+    "sha256": "a615fa6ddb6ef3e0ad598337f5d08f1570c3d2aa51cc5d43a62998ca904905be",
+    "rows": 19502
+  },
+  "filters": {
+    "orthography": "新字新仮名",
+    "copyright_flag": "なし",
+    "death_year_at_or_before": 1945,
+    "why": [
+      "orthography: the pre-1946 editions spell the geminate with a full-size kana and use kana that no reader has met since the reform. A beginner meeting them learns a spelling that is wrong today.",
+      "copyright_flag: Aozora's own determination that the work is out of copyright in Japan.",
+      "death_year_at_or_before: a work whose every contributor was dead by 1945 was already out of copyright in Japan on 1996-01-01, so the URAA restored nothing and it is public domain in the US too. This is the repository's computation, not Aozora's."
+    ]
+  },
+  "ruby_rule": {
+    "minimum_entries_for_a_typed_rung": 8,
+    "counted_as": "distinct word and reading pairs, not occurrences",
+    "why": [
+      "A typed rung draws its items from #ruby. Counting occurrences lets one word repeated sixteen times look like sixteen items, and the round then asks the same question every turn.",
+      "tools/validate-corpus.mjs enforces this against any chapter exercise whose items pointer ends in #ruby."
+    ]
+  },
+  "stories": [
+    {
+      "id": "takenoko",
+      "story": "story-1",
+      "file": "takenoko.json",
+      "card": 4725,
+      "title": "たけのこ",
+      "build": true,
+      "budget_kb": 40,
+      "measured": {
+        "kana_share": 99.3,
+        "distinct_kanji": 4,
+        "ruby": 0,
+        "typed_rung": false
+      },
+      "read_by": {
+        "who": "workstream C, the Japanese Book expansion",
+        "at": "2026-09-08",
+        "read": "the whole decoded text, header and footer stripped, in one sitting",
+        "verdict": "safe to ship to a beginner",
+        "checked": [
+          "no slur and no period attitude of the kind the research warned about",
+          "no banned song title and no banned incipit",
+          "no U+FFFD in the decoded text",
+          "the modern orthography, confirmed against the card as well as by eye",
+          "a bamboo shoot ignores its mother, wanders out of the grove and is cut into a flute. Nothing in it needs a warning."
+        ]
+      }
+    },
+    {
+      "id": "gachou",
+      "story": "story-2",
+      "file": "gachou.json",
+      "card": 4726,
+      "title": "がちょうの　たんじょうび",
+      "build": true,
+      "budget_kb": 40,
+      "measured": {
+        "kana_share": 99.5,
+        "distinct_kanji": 4,
+        "ruby": 0,
+        "typed_rung": false
+      },
+      "read_by": {
+        "who": "workstream C, the Japanese Book expansion",
+        "at": "2026-09-08",
+        "read": "the whole decoded text, header and footer stripped, in one sitting",
+        "verdict": "safe to ship to a beginner",
+        "checked": [
+          "no slur and no period attitude of the kind the research warned about",
+          "no banned song title and no banned incipit",
+          "no U+FFFD in the decoded text",
+          "the modern orthography, confirmed against the card as well as by eye",
+          "the guests ask a weasel to hold in his wind for one party and he faints from the effort. It is a lavatory joke, published for children in the 1930s and still printed in the 1988 edition this text is set from. Named here so nobody meets it as a surprise on the page."
+        ]
+      }
+    },
+    {
+      "id": "kozousan",
+      "story": "story-3",
+      "file": "kozousan.json",
+      "card": 4727,
+      "title": "こぞうさんの　おきょう",
+      "build": true,
+      "budget_kb": 40,
+      "measured": {
+        "kana_share": 99.8,
+        "distinct_kanji": 1,
+        "ruby": 0,
+        "typed_rung": false
+      },
+      "read_by": {
+        "who": "workstream C, the Japanese Book expansion",
+        "at": "2026-09-08",
+        "read": "the whole decoded text, header and footer stripped, in one sitting",
+        "verdict": "safe to ship to a beginner",
+        "checked": [
+          "no slur and no period attitude of the kind the research warned about",
+          "no banned song title and no banned incipit",
+          "no U+FFFD in the decoded text",
+          "the modern orthography, confirmed against the card as well as by eye",
+          "an acolyte forgets his sutra, sings a rabbit's song in its place and is fed a bun for it. Buddhist practice is the setting, not the subject.",
+          "the sutra and the song are set as indented blocks in the source. The generator joins each block into one unit so the drills do not fill with one-word sentences."
+        ]
+      }
+    },
+    {
+      "id": "kitsune",
+      "story": "story-4",
+      "file": "kitsune.json",
+      "card": 4677,
+      "title": "狐のつかい",
+      "build": true,
+      "budget_kb": 40,
+      "measured": {
+        "kana_share": 91.2,
+        "distinct_kanji": 32,
+        "ruby": 10,
+        "typed_rung": true
+      },
+      "substituted_for": {
+        "card": 4674,
+        "why": [
+          "This is not the story-4 the plan named. The plan pinned card 4674 and this file ships card 4677 in its place, for two reasons that were both measured on 2026-09-08 and neither of which a builder can fix inside workstream C's files.",
+          "First, card 4674 carries eighteen ruby occurrences but only three distinct word and reading pairs, and sixteen of the eighteen are the same word. The plan chose it on the count of eighteen. A typed rung over three items is not the drill the rung was written for.",
+          "Second, card 4674's text contains, as an ordinary noun, the single character that is also the title of a 1941 song banned by CONTRACTS C11.4. tools/check-licence.mjs fails on that character anywhere under data/, and its ALLOW_SEA list is the sanctioned way to permit an occurrence. That file belongs to no workstream in this plan, so extending it is a decision for the integration lead and not a change workstream C may make.",
+          "Card 4677 is the highest-kana story on the research's ladder that clears the eight distinct ruby entries the plan's own rule asks for, contains no banned string, and is by the same author under the same card conditions.",
+          "To go back to card 4674: set build true on the held entry below, set build false here, and add its noun phrase to ALLOW_SEA in tools/check-licence.mjs with a comment naming this story. The three-item typed rung remains a separate problem."
+        ]
+      },
+      "read_by": {
+        "who": "workstream C, the Japanese Book expansion",
+        "at": "2026-09-08",
+        "read": "the whole decoded text, header and footer stripped, in one sitting",
+        "verdict": "safe to ship to a beginner",
+        "checked": [
+          "no slur and no period attitude of the kind the research warned about",
+          "no banned song title and no banned incipit",
+          "no U+FFFD in the decoded text",
+          "the modern orthography, confirmed against the card as well as by eye",
+          "a fox is sent to buy lamp oil and licks the flask empty on the way home. The animals sigh. Nothing in it needs a warning.",
+          "the one place the vertical bar marks a ruby base is in this story, which is why it is also the file that proves the parser handles it"
+        ]
+      }
+    },
+    {
+      "id": "kani",
+      "story": "story-4-held",
+      "file": "kani.json",
+      "card": 4674,
+      "title": "蟹のしょうばい",
+      "build": false,
+      "budget_kb": 40,
+      "measured": {
+        "kana_share": 93.5,
+        "distinct_kanji": 21,
+        "ruby": 3,
+        "ruby_occurrences": 18,
+        "typed_rung": false
+      },
+      "hold": "three distinct ruby pairs against the rule's eight, and one ordinary noun in the text is the character CONTRACTS C11.4 bans. See stories[3].substituted_for for the whole argument and the way back.",
+      "read_by": {
+        "who": "workstream C, the Japanese Book expansion",
+        "at": "2026-09-08",
+        "read": "the whole decoded text, header and footer stripped, in one sitting",
+        "verdict": "content is safe to ship to a beginner. It is held for the two mechanical reasons above, not for anything in the story.",
+        "checked": [
+          "no slur and no period attitude of the kind the research warned about",
+          "no banned song title and no banned incipit",
+          "no U+FFFD in the decoded text",
+          "the modern orthography, confirmed against the card as well as by eye",
+          "a crab opens a barbershop, shears a badger for three days and puts its whole family into the trade. Nothing in it needs a warning."
+        ]
+      }
+    }
+  ],
+  "not_built": {
+    "the_finish_line": [
+      "The two stories the chapter's last rung names are on Aozora under the same",
+      "conditions as the four above: card 628 and card 637, both 新美南吉, both",
+      "新字新仮名, both copyright flag なし. They are named on the page as a target",
+      "and no file is generated for either. Building one is a second pass and the",
+      "chapter says so."
+    ],
+    "the_ladder_below": [
+      "Every other row of the research's ladder was measured on 2026-09-08 and is",
+      "recorded here so a fifth story is a choice and not another download:",
+      "card 4675 あし 1 distinct ruby, 4723 飴だま 7, 4716 ひとつの火 4,",
+      "4677 狐のつかい 10 (built), 4721 王さまと靴屋 8, 4717 一年生たちとひよめ 5,",
+      "4724 木の祭り 11, 42299 のら犬 20, 4722 売られていった靴 5,",
+      "55356 ひよりげた 0, 46940 山のコドモ 0, 3045 金のくびかざり 15,",
+      "56141 名なし指物語 46, 51156 いちょうの実 95.",
+      "The last two are long: 10,375 and 2,633 characters against 821 here."
+    ]
+  }
+}
