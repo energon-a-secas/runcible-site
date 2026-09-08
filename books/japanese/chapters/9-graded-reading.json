@@ -118,14 +118,27 @@
           },
           "body": {
             "en": [
-              "Tadoku publishes free graded readers, levels Start to 5, to read online or print. They are the obvious next thing after this chapter and the link is here: https://tadoku.org/japanese/en/free-books-en/",
+              "Tadoku publishes free graded readers, levels Start to 5, to read online or print. They are the obvious next thing after this chapter, and the link is at the foot of this page.",
               "Not one of them is copied into this site. The page states a copyright line and no licence, so linking is permitted and rehosting is not. The four stories in this chapter exist because they need no permission from anyone: their author has been dead since 1943."
             ],
             "es": [
-              "Tadoku publica lecturas graduadas gratuitas, de nivel Start a 5, para leer en línea o imprimir. Son lo siguiente evidente después de este capítulo y el enlace está aquí: https://tadoku.org/japanese/en/free-books-en/",
+              "Tadoku publica lecturas graduadas gratuitas, de nivel Start a 5, para leer en línea o imprimir. Son lo siguiente evidente después de este capítulo, y el enlace está al pie de esta página.",
               "Ninguna de ellas se copia en este sitio. La página declara una línea de copyright y ninguna licencia, así que enlazar está permitido y rehospedar no. Los cuatro cuentos de este capítulo existen porque no necesitan el permiso de nadie: su autor lleva muerto desde 1943."
             ]
-          }
+          },
+          "links": [
+            {
+              "href": "https://tadoku.org/japanese/en/free-books-en/",
+              "label": {
+                "en": "Tadoku, free graded readers",
+                "es": "Tadoku, lecturas graduadas gratuitas"
+              },
+              "note": {
+                "en": "Levels Start to 5, in the browser or on paper.",
+                "es": "Del nivel Start al 5, en el navegador o en papel."
+              }
+            }
+          ]
         }
       ]
     },
@@ -150,17 +163,30 @@
           "body": {
             "en": [
               "たけのこ, Aozora Bunko card 4725. A bamboo shoot ignores its mother, wanders out of the grove, and is cut into a flute.",
-              "Niimi Nankichi wrote it. He died on 22 March 1943, which is why this file can sit under data/ at all: every contributor to the text was dead by 1945, so it is out of copyright in Japan and in the United States, and Aozora publishes it for anyone to copy. The card is the evidence, and it is plain text here: https://www.aozora.gr.jp/cards/000121/card4725.html",
+              "Niimi Nankichi wrote it. He died on 22 March 1943, which is why this file can sit under data/ at all: every contributor to the text was dead by 1945, so it is out of copyright in Japan and in the United States, and Aozora publishes it for anyone to copy. The card is the evidence, and it is linked at the foot of this page.",
               "Ninety-nine words in a hundred are kana here, and the whole text holds four kanji. It is spaced between phrases. If you can read the kana tables, you can read this.",
               "Read it to the end before you touch the drills. Looking a word up mid-paragraph is how a reader learns to stop at every word; guessing and reading on is the habit this chapter is for. The drills below ask what happened, not what each word means."
             ],
             "es": [
               "たけのこ, ficha 4725 de Aozora Bunko. Un brote de bambú desoye a su madre, se aleja del bambudal y acaba convertido en flauta.",
-              "Lo escribió Niimi Nankichi. Murió el 22 de marzo de 1943, y por eso este archivo puede estar en data/: todas las personas que contribuyeron al texto habían muerto antes de 1946, así que está en dominio público en Japón y en Estados Unidos, y Aozora lo publica para que cualquiera lo copie. La ficha es la prueba, y aquí va como texto simple: https://www.aozora.gr.jp/cards/000121/card4725.html",
+              "Lo escribió Niimi Nankichi. Murió el 22 de marzo de 1943, y por eso este archivo puede estar en data/: todas las personas que contribuyeron al texto habían muerto antes de 1946, así que está en dominio público en Japón y en Estados Unidos, y Aozora lo publica para que cualquiera lo copie. La ficha es la prueba, y va enlazada al pie de esta página.",
               "Aquí noventa y nueve de cada cien caracteres son kana, y el texto entero tiene cuatro kanji. Va espaciado entre frases. Si puedes leer las tablas de kana, puedes leer esto.",
               "Léelo hasta el final antes de tocar los ejercicios. Buscar una palabra a mitad de párrafo es la forma de aprender a detenerse en cada palabra; adivinar y seguir leyendo es el hábito que este capítulo busca. Los ejercicios de abajo preguntan qué pasó, no qué significa cada palabra."
             ]
-          }
+          },
+          "links": [
+            {
+              "href": "https://www.aozora.gr.jp/cards/000121/card4725.html",
+              "label": {
+                "en": "Aozora Bunko, card 4725: たけのこ",
+                "es": "Aozora Bunko, ficha 4725: たけのこ"
+              },
+              "note": {
+                "en": "The catalogue card, which is where the author, the dates and the copyright verdict are recorded.",
+                "es": "La ficha del catálogo, donde constan el autor, las fechas y el veredicto de derechos."
+              }
+            }
+          ]
         }
       ],
       "exercises": [
@@ -221,17 +247,30 @@
           "body": {
             "en": [
               "がちょうの　たんじょうび, Aozora Bunko card 4726. The animals of a farmyard are invited to a goose's birthday, and the problem is the weasel.",
-              "Same author, same conditions, same evidence: https://www.aozora.gr.jp/cards/000121/card4726.html",
+              "Same author, same conditions, and the card at the foot of this page is the same evidence.",
               "Half again as long as the first, with the same four kanji and the same spacing. The point of the second story is that the first was not a fluke.",
               "Read it to the end first. The drills ask what happened."
             ],
             "es": [
               "がちょうの　たんじょうび, ficha 4726 de Aozora Bunko. Los animales de un corral quedan invitados al cumpleaños de una gansa, y el problema es la comadreja.",
-              "Mismo autor, mismas condiciones, misma prueba: https://www.aozora.gr.jp/cards/000121/card4726.html",
+              "Mismo autor, mismas condiciones, y la ficha al pie de esta página es la misma prueba.",
               "Es la mitad más largo que el primero, con los mismos cuatro kanji y el mismo espaciado. El sentido del segundo cuento es que el primero no fue casualidad.",
               "Léelo entero primero. Los ejercicios preguntan qué pasó."
             ]
-          }
+          },
+          "links": [
+            {
+              "href": "https://www.aozora.gr.jp/cards/000121/card4726.html",
+              "label": {
+                "en": "Aozora Bunko, card 4726: がちょうの　たんじょうび",
+                "es": "Aozora Bunko, ficha 4726: がちょうの　たんじょうび"
+              },
+              "note": {
+                "en": "The catalogue card, which is where the author, the dates and the copyright verdict are recorded.",
+                "es": "La ficha del catálogo, donde constan el autor, las fechas y el veredicto de derechos."
+              }
+            }
+          ]
         },
         {
           "id": "p-story-2-warning",
@@ -309,17 +348,30 @@
           "body": {
             "en": [
               "こぞうさんの　おきょう, Aozora Bunko card 4727. An acolyte forgets the sutra he was sent to read, sings a rabbit's song in its place, and is fed a bun for it.",
-              "Same author, same conditions, same evidence: https://www.aozora.gr.jp/cards/000121/card4727.html",
+              "Same author, same conditions, and the card at the foot of this page is the same evidence.",
               "The kana share is the highest of the four and there is exactly one kanji in it. Two passages are set as indented blocks, a sutra and a song, and the corpus keeps each block whole so a drill never asks you to order four one-word lines.",
               "Read it to the end first. The drills ask what happened."
             ],
             "es": [
               "こぞうさんの　おきょう, ficha 4727 de Aozora Bunko. Un monaguillo olvida el sutra que lo mandaron a leer, canta en su lugar una canción de conejos, y lo premian con un bollo.",
-              "Mismo autor, mismas condiciones, misma prueba: https://www.aozora.gr.jp/cards/000121/card4727.html",
+              "Mismo autor, mismas condiciones, y la ficha al pie de esta página es la misma prueba.",
               "La proporción de kana es la más alta de los cuatro y hay exactamente un kanji. Dos pasajes van como bloques con sangría, un sutra y una canción, y el corpus mantiene cada bloque entero para que ningún ejercicio te pida ordenar cuatro renglones de una palabra.",
               "Léelo entero primero. Los ejercicios preguntan qué pasó."
             ]
-          }
+          },
+          "links": [
+            {
+              "href": "https://www.aozora.gr.jp/cards/000121/card4727.html",
+              "label": {
+                "en": "Aozora Bunko, card 4727: こぞうさんの　おきょう",
+                "es": "Aozora Bunko, ficha 4727: こぞうさんの　おきょう"
+              },
+              "note": {
+                "en": "The catalogue card, which is where the author, the dates and the copyright verdict are recorded.",
+                "es": "La ficha del catálogo, donde constan el autor, las fechas y el veredicto de derechos."
+              }
+            }
+          ]
         }
       ],
       "exercises": [
@@ -380,17 +432,30 @@
           "body": {
             "en": [
               "狐のつかい, Aozora Bunko card 4677. A fox is sent to buy lamp oil and licks the flask empty on the way home. The other animals sigh.",
-              "Same author, same conditions, same evidence: https://www.aozora.gr.jp/cards/000121/card4677.html",
+              "Same author, same conditions, and the card at the foot of this page is the same evidence.",
               "Thirty-two different kanji, no spaces, and furigana on ten words. This is the step from a book for six-year-olds to a book, and it is the one worth repeating twice.",
               "Read it to the end first. The drills ask what happened."
             ],
             "es": [
               "狐のつかい, ficha 4677 de Aozora Bunko. Mandan a un zorro a comprar aceite para la lámpara y se bebe el frasco a lengüetazos de vuelta a casa. Los demás animales suspiran.",
-              "Mismo autor, mismas condiciones, misma prueba: https://www.aozora.gr.jp/cards/000121/card4677.html",
+              "Mismo autor, mismas condiciones, y la ficha al pie de esta página es la misma prueba.",
               "Treinta y dos kanji distintos, sin espacios, y furigana en diez palabras. Este es el salto de un libro para niños de seis años a un libro, y es el que vale la pena repetir dos veces.",
               "Léelo entero primero. Los ejercicios preguntan qué pasó."
             ]
-          }
+          },
+          "links": [
+            {
+              "href": "https://www.aozora.gr.jp/cards/000121/card4677.html",
+              "label": {
+                "en": "Aozora Bunko, card 4677: 狐のつかい",
+                "es": "Aozora Bunko, ficha 4677: 狐のつかい"
+              },
+              "note": {
+                "en": "The catalogue card, which is where the author, the dates and the copyright verdict are recorded.",
+                "es": "La ficha del catálogo, donde constan el autor, las fechas y el veredicto de derechos."
+              }
+            }
+          ]
         },
         {
           "id": "p-story-4-furigana",
@@ -488,15 +553,39 @@
           "body": {
             "en": [
               "ごん狐 and 手袋を買いに are by the same author and sit on Aozora under the same conditions as the four above: card 628 and card 637, both in the modern spelling, both out of copyright. They are the two stories a Japanese primary schooler meets in class, so finishing one is not a percentage, it is the thing itself.",
-              "The cards, as plain text: https://www.aozora.gr.jp/cards/000121/card628.html and https://www.aozora.gr.jp/cards/000121/card637.html",
+              "Both cards are at the foot of this page.",
               "Neither is built into this site. They are longer and carry far more kanji than the four rungs above, so a chapter that included them would be a second pass over this one rather than the end of it. That second pass is the honest next chapter, and it does not exist yet."
             ],
             "es": [
               "ごん狐 y 手袋を買いに son del mismo autor y están en Aozora en las mismas condiciones que los cuatro de arriba: ficha 628 y ficha 637, las dos en la ortografía moderna y las dos fuera de derechos. Son los dos cuentos que un escolar japonés lee en clase, así que terminar uno no es un porcentaje, es la cosa misma.",
-              "Las fichas, como texto simple: https://www.aozora.gr.jp/cards/000121/card628.html y https://www.aozora.gr.jp/cards/000121/card637.html",
+              "Las dos fichas están al pie de esta página.",
               "Ninguno está construido en este sitio. Son más largos y llevan muchos más kanji que los cuatro escalones de arriba, así que un capítulo que los incluyera sería una segunda vuelta sobre este y no su final. Esa segunda vuelta es el capítulo siguiente honesto, y todavía no existe."
             ]
-          }
+          },
+          "links": [
+            {
+              "href": "https://www.aozora.gr.jp/cards/000121/card628.html",
+              "label": {
+                "en": "Aozora Bunko, card 628: ごん狐",
+                "es": "Aozora Bunko, ficha 628: ごん狐"
+              },
+              "note": {
+                "en": "Longer than the four rungs above, and the one a Japanese primary schooler meets in class.",
+                "es": "Más largo que los cuatro escalones de arriba, y el que un escolar japonés lee en clase."
+              }
+            },
+            {
+              "href": "https://www.aozora.gr.jp/cards/000121/card637.html",
+              "label": {
+                "en": "Aozora Bunko, card 637: 手袋を買いに",
+                "es": "Aozora Bunko, ficha 637: 手袋を買いに"
+              },
+              "note": {
+                "en": "The other one, same author, same conditions.",
+                "es": "El otro, mismo autor, mismas condiciones."
+              }
+            }
+          ]
         }
       ]
     }

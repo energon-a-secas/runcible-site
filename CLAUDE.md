@@ -37,10 +37,11 @@ engine's own rig is `/js/exercises/fixtures/harness.html`.
 | `js/state.js` | 344 | PREFS_KEY, PROGRESS_KEY, EVIDENCE_CAP, state, loadSaved, and more |
 | `js/books.js` | 335 | CATALOG_SRC, LoadError, loadCatalog, openBook, declaredEntry, and more |
 | `js/exercises/feedback.js` | 318 | explainWrong, explainRight |
+| `js/exercises/items.js` | 311 | useLanguage, itemLanguage, stableValue, resolveList, shuffle, and more |
 | `js/progress.js` | 297 | recordAttempt, attemptsFor, evidenceStatus, requiresFor, currentTrack, and more |
+| `js/exercises/fixtures/harness.js` | 292 | none |
 | `js/exercises/types/match.js` | 272 | mount |
 | `js/i18n.js` | 260 | LANGS, beginPage, hadFallback, onFallback, t, and more |
-| `js/exercises/fixtures/harness.js` | 246 | none |
 | `js/exercises/speech.js` | 240 | synthAvailable, loadVoices, voicesFor, hasVoiceFor, speak, and more |
 | `js/exercises/session.js` | 238 | createSession |
 | `js/exercises/registry.js` | 233 | EXERCISE_VERSION, createExerciseRegistry |
@@ -50,12 +51,12 @@ engine's own rig is `/js/exercises/fixtures/harness.html`.
 | `js/exercises/types/typed.js` | 208 | askTyped, mount |
 | `js/render-today.js` | 203 | todayView |
 | `js/embed.js` | 201 | rappelOrigin, deckUrl, mountDeckEmbed |
-| `js/exercises/items.js` | 199 | resolveList, shuffle, pickItems, fieldValue, displayValue, and more |
 | `js/exercises/strings.js` | 188 | STRINGS, chrome |
 | `js/exercises/types/order.js` | 188 | mount |
 | `js/exercises/ask.js` | 174 | questionFrame, advance, optionList, roving, digitPicker |
 | `js/events.js` | 149 | bindEvents |
 | `js/exercises/types/listen.js` | 144 | mount |
+| `js/render-pages.js` | 143 | pageNode, linksNode, tableNode, figureNode |
 | `js/exercises/types/choice.js` | 123 | askChoice, mount |
 | `js/today.js` | 122 | composeToday, firstUnfinishedRung |
 | `js/exercises/types/speak.js` | 117 | mount |
@@ -69,7 +70,6 @@ engine's own rig is `/js/exercises/fixtures/harness.html`.
 | `js/exercises/dom.js` | 89 | el, append, button, clear, focus, and more |
 | `js/render-rail.js` | 88 | railNode |
 | `js/utils.js` | 87 | h, append, clear, showToast, debounce, and more |
-| `js/render-pages.js` | 86 | pageNode, tableNode, figureNode |
 | `js/render.js` | 85 | render |
 | `js/exercises/types/deck.js` | 77 | mount |
 | `js/exercises/errors.js` | 54 | locate, ExerciseError |
@@ -319,35 +319,50 @@ them as drills (`engine().exerciseImpl(id)`); a module that omits the flag is
 graded. A skipped or crashed exercise (`api.done({ skipped })`,
 `api.done({ error })`) is not marked done.
 
-**An item field cannot be bilingual, and the failure is a blank, not an error.**
-`fieldValue` in `js/exercises/items.js` hands an object straight back and
-`displayValue` renders any object as the empty string, so an `{en, es}` inside a
-corpus record or an inline item mounts a **blank prompt or a blank option**.
-Every field a `prompt`, `answer`, `left`, `right`, `speak` or `expect` names is
-a plain string, in every data file and every inline item, and the Spanish rides
-on the rung's pages and on the item's `explain`, which `js/exercises/feedback.js`
-does resolve through `session.t`. That is what the authored `situation` label in
-`data/vocab/ch11.json` is for and why chapter 11 writes `prompt: "situation.en"`
-rather than `prompt: "situation"`. Reported by two workstreams on 2026-09-08 and
-deliberately not fixed: a bilingual cue is a shell change.
+**An item field may be bilingual, and `itemId` may not.** Every field named by
+`prompt`, `answer`, `left`, `right`, `speak`, `expect` or `sequence`, plus a
+grouping field and an explicit `distractors.values` entry, takes a plain string
+or an `{en, es}` object and resolves to the reader's language. One accessor
+does it, `fieldValue` in `js/exercises/items.js`, which is why every one of
+those fields is bilingual at once; `sequence` may hold a list per language, and
+a `typed` answer is graded against the language on screen. The language comes
+from `api.lang` the first time a type resolves its list (`useLanguage`), and
+`api.t` is called after that only to count a fallback, so a cue with no Spanish
+lights the same honesty line a paragraph with no Spanish does. **What is stored
+carries no language**: `itemId` resolves a bilingual field to its English side
+whatever is being read (`stableValue`), so two sessions write one row for one
+item, which C2.6 requires of progress already on disk. Until 2026-09-08 an
+`{en, es}` here mounted a blank prompt with no error anywhere, which is why
+`books/japanese/chapters/11-conversation.json` still writes
+`prompt: "situation.en"`: that names the English side of a bilingual object and
+shows English to everyone, where `prompt: "situation"` now shows a reader their
+own language. Undo it when that chapter is next open.
 
-**A `table` page's cells are stringified, so a cell cannot be bilingual either.**
-`js/render-pages.js` reads a cell as `columns[i].key || columns[i].en` and wraps
-it in `String(...)`. An `{en, es}` object prints `[object Object]`; a plain
-string prints English to a Spanish reader. `data/phrases/ch14.json` therefore
-carries `kana`, `en` and `es` as three separate string columns, and the Piano
-phase table became a prose page instead. Same class as the item finding above,
-same ruling.
+**A `table` page's cells resolve the way its headers do.** `js/render-pages.js`
+sends every cell through `cellText`, so a cell holding an `{en, es}` object
+prints the reader's language instead of `[object Object]`. It used to be
+`String(cell)`, which is why `data/phrases/ch14.json` carries `kana`, `en` and
+`es` as three separate string columns showing both languages to everyone, and
+why the Piano phase table became a prose page. Both can go back to one
+bilingual column.
 
-**A content page cannot carry a link, so every URL in a Book is plain text.**
-The page renderer emits text nodes and the only anchor the shell draws from data
-is the attribution block's `links[]` (`js/render-shared.js:103`). The 34 URLs in
-chapters 9 to 14 (NHK's two lesson indexes, Tadoku, Aozora, the Mutopia MIDI
-paths) sit in callout bodies as text on purpose. A `links[]` field on a content
-page is a shell change and was reported, never built. Related, and a licence
-rule rather than a shell one: **NHK, Tadoku, Tofugu, musictheory.net and IMSLP
-are link-only.** No page of theirs is fetched by any script here (NHK's
-`robots.txt` disallows `ClaudeBot`) and not one string of theirs is copied.
+**A content page carries links in `links[]`, and nowhere else.** Any page kind
+may take `links: [{ href, label, note? }]`, rendered by `linksNode` as a list
+after the body and the table, each anchor `target="_blank"` with
+`rel="noopener noreferrer"` and the site's own `.rn-textlink` styling. **https
+only**: `tools/lib/page-links.mjs` refuses every other scheme at build time and
+the renderer refuses it again at paint time, naming the link on the page rather
+than dropping it, because chapter content is authored by a skill. A label is
+required. Prose is still text: a URL inside a `body` string is a string, and
+the 34 URLs sitting in callout bodies in chapters 9 to 14 (NHK's two lesson
+indexes, Tadoku, Aozora, the Mutopia MIDI paths) are the ones to move. **A page
+inside a `read` exercise does not draw them**: that surface is
+`js/exercises/types/page.js`, which renders C3.3 pages inside an exercise host
+and has no `links` branch, so a citation belongs on a rung page.
+Related, and a licence rule rather than a shell one: **NHK, Tadoku, Tofugu,
+musictheory.net and IMSLP are link-only.** No page of theirs is fetched by any
+script here (NHK's `robots.txt` disallows `ClaudeBot`) and not one string of
+theirs is copied.
 
 ### The second embed host: Quiz
 

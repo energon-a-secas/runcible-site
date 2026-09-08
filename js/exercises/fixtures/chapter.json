@@ -65,23 +65,27 @@
               },
               "columns": [
                 {
-                  "en": "Name"
+                  "en": "Name",
+                  "es": "Nombre"
                 },
                 {
-                  "en": "Code"
+                  "en": "Code",
+                  "es": "Código"
                 },
                 {
-                  "en": "Position"
+                  "en": "Known as",
+                  "es": "Conocido como"
                 },
                 {
-                  "en": "Moons"
+                  "en": "Moons",
+                  "es": "Lunas"
                 }
               ],
               "items": "fixtures/data/atlas.json#planets",
               "fields": [
                 "name",
                 "code",
-                "order",
+                "nick",
                 "moons"
               ]
             },
@@ -309,6 +313,99 @@
           "right": "code",
           "reveal": "group",
           "n": 4
+        },
+        {
+          "id": "fx-choice-bilingual",
+          "type": "choice",
+          "skill": "fixture.atlas.recognise",
+          "itemIdPrefix": "atlas",
+          "title": {
+            "en": "choice, bilingual answer and bilingual distractors",
+            "es": "opción, respuesta bilingüe y distractores bilingües"
+          },
+          "items": "fixtures/data/atlas.json#planets",
+          "prompt": "name",
+          "answer": "nick",
+          "distractors": {
+            "n": 3
+          },
+          "count": 3
+        },
+        {
+          "id": "fx-typed-bilingual",
+          "type": "typed",
+          "skill": "fixture.atlas.produce",
+          "itemIdPrefix": "atlas",
+          "title": {
+            "en": "typed, bilingual answer: what is graded is what was shown",
+            "es": "escrito, respuesta bilingüe: se califica lo que se mostró"
+          },
+          "items": "fixtures/data/atlas.json#planets",
+          "prompt": "name",
+          "answer": "nick",
+          "compare": "trim|casefold",
+          "count": 2
+        },
+        {
+          "id": "fx-match-bilingual",
+          "type": "match",
+          "skill": "fixture.atlas.recognise",
+          "itemIdPrefix": "atlas",
+          "title": {
+            "en": "match, bilingual right column",
+            "es": "emparejar, columna derecha bilingüe"
+          },
+          "items": "fixtures/data/atlas.json#planets",
+          "left": "name",
+          "right": "nick",
+          "n": 4
+        },
+        {
+          "id": "fx-order-bilingual",
+          "type": "order",
+          "skill": "fixture.atlas.sequence",
+          "itemIdPrefix": "atlas",
+          "title": {
+            "en": "order, bilingual prompt and a token list per language",
+            "es": "orden, enunciado bilingüe y una lista de fichas por idioma"
+          },
+          "items": "fixtures/data/atlas.json#runs",
+          "prompt": "caption",
+          "sequence": "names",
+          "count": 1
+        },
+        {
+          "id": "fx-listen-bilingual",
+          "type": "listen",
+          "skill": "fixture.atlas.hear",
+          "itemIdPrefix": "atlas",
+          "title": {
+            "en": "listen, bilingual spoken field",
+            "es": "escuchar, campo hablado bilingüe"
+          },
+          "items": "fixtures/data/atlas.json#planets",
+          "speak": "nick",
+          "answer": "name",
+          "respond": "choice",
+          "distractors": {
+            "n": 3
+          },
+          "lang": "en-US",
+          "count": 2
+        },
+        {
+          "id": "fx-speak-bilingual",
+          "type": "speak",
+          "skill": "fixture.atlas.say",
+          "itemIdPrefix": "atlas",
+          "title": {
+            "en": "speak, bilingual line to say",
+            "es": "hablar, línea bilingüe para decir"
+          },
+          "items": "fixtures/data/atlas.json#planets",
+          "expect": "nick",
+          "lang": "en-US",
+          "count": 2
         },
         {
           "id": "fx-deck",

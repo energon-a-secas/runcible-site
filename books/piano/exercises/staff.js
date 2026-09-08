@@ -21,6 +21,7 @@
 
 import { frame, summary, askDrawn, resolveList, pick, shuffle, el } from './ui.js';
 import { drawBar, drawNote, drawKeyboard } from './draw.js';
+import { say } from './strings.js';
 
 /** Resolve `items` plus any extra pointers in `props.also`, in order. */
 async function poolFor(api, spec) {
@@ -53,7 +54,7 @@ async function runQuestions(view, api, spec, questions, note) {
   let right = 0;
   for (let i = 0; i < questions.length; i += 1) {
     const q = questions[i];
-    view.status.textContent = `${i + 1} of ${questions.length}`;
+    view.status.textContent = say(view.t, 'position', { at: i + 1, total: questions.length });
     const record = (correct, ms, answer) => {
       if (correct) right += 1;
       api.attempt({
@@ -76,17 +77,19 @@ export default function register(runcible) {
   runcible.registerExercise('piano.keys', {
     mount(host, spec, api) {
       let alive = true;
+      const t = api.t;
       const view = frame(host, {
-        title: api.t(spec.title) || 'Name the marked key',
-        lead: 'Every key is found from the black key groups, never counted from the end of the keyboard.',
+        t,
+        title: api.t(spec.title) || say(t, 'keysTitle'),
+        lead: say(t, 'keysLead'),
         cls: 'pf--keys',
       });
-      view.status.textContent = 'Loading the keyboard.';
+      view.status.textContent = say(t, 'keysLoading');
 
       (async () => {
         const pool = await poolFor(api, spec);
         if (!alive) return;
-        if (!pool.length) { view.status.textContent = 'This drill was given no keys to ask about.'; return; }
+        if (!pool.length) { view.status.textContent = say(t, 'keysEmpty'); return; }
         const labels = pool.map((k) => k.name);
         const questions = pick(pool, spec.count).map((item) => ({
           itemId: item.id,
@@ -94,14 +97,13 @@ export default function register(runcible) {
           options: optionsFor(item.name, labels),
           after: item.note || null,
           prompt: [
-            drawKeyboard(item.pc),
-            el('p', { class: 'pf-cue', text: 'Which key is marked?' }),
+            drawKeyboard(item.pc, t),
+            el('p', { class: 'pf-cue', text: say(t, 'keysCue') }),
           ],
         }));
-        await runQuestions(view, api, spec, questions,
-          'A black key has two names and both are right. Which one a score prints depends on the key it is in.');
+        await runQuestions(view, api, spec, questions, say(t, 'keysNote'));
       })().catch((err) => {
-        if (alive) view.status.textContent = `This drill could not start: ${err.message}`;
+        if (alive) view.status.textContent = say(t, 'couldNotStart', { message: err.message });
       });
 
       return { destroy() { alive = false; } };
@@ -111,12 +113,14 @@ export default function register(runcible) {
   runcible.registerExercise('piano.staff', {
     mount(host, spec, api) {
       let alive = true;
+      const t = api.t;
       const view = frame(host, {
-        title: api.t(spec.title) || 'Name the marked note',
-        lead: 'Read it from a landmark, not by counting up from middle C. Counting works at rest and fails at tempo.',
+        t,
+        title: api.t(spec.title) || say(t, 'staffTitle'),
+        lead: say(t, 'staffLead'),
         cls: 'pf--staff',
       });
-      view.status.textContent = 'Loading the stave.';
+      view.status.textContent = say(t, 'staffLoading');
 
       (async () => {
         const props = spec.props || {};
@@ -125,8 +129,8 @@ export default function register(runcible) {
         if (!alive) return;
         if (!pool.length) {
           view.status.textContent = piece
-            ? `The reader could follow no bar of ${piece.title}, so there is nothing to ask here.`
-            : 'This drill was given no notes to ask about.';
+            ? say(t, 'pieceEmpty', { title: piece.title })
+            : say(t, 'staffEmpty');
           return;
         }
         const isBar = Boolean(pool[0] && Array.isArray(pool[0].notes));
@@ -143,10 +147,10 @@ export default function register(runcible) {
               itemId: note.id,
               expected: note.name,
               options: optionsFor(note.name, labels),
-              after: piece ? `${piece.title}, bar ${bar.n}.` : null,
+              after: piece ? say(t, 'barAt', { title: piece.title, n: bar.n }) : null,
               prompt: [
-                drawBar(bar, { clef, fifths, time, markAt: at }),
-                el('p', { class: 'pf-cue', text: 'Name the circled note.' }),
+                drawBar(bar, { clef, fifths, time, markAt: at, t }),
+                el('p', { class: 'pf-cue', text: say(t, 'staffCue') }),
               ],
             };
           });
@@ -156,20 +160,19 @@ export default function register(runcible) {
             itemId: item.id,
             expected: item.name,
             options: optionsFor(item.name, labels),
-            after: item.cue ? `That is ${item.cue}.` : null,
+            after: item.cue ? say(t, 'thatIs', { cue: item.cue }) : null,
             prompt: [
-              drawNote(item, item.clef || 'treble'),
-              el('p', { class: 'pf-cue', text: 'Name the circled note.' }),
+              drawNote(item, item.clef || 'treble', t),
+              el('p', { class: 'pf-cue', text: say(t, 'staffCue') }),
             ],
           }));
         }
         const note = isBar && piece
-          ? `Every bar here was read out of the engraving of ${piece.title}. `
-            + 'The reader drops any bar it cannot follow, so what you were shown is what the score prints.'
-          : 'Accidentals are drawn where the score would print one, and the key signature carries the rest.';
+          ? say(t, 'barsNote', { title: piece.title })
+          : say(t, 'notesNote');
         await runQuestions(view, api, spec, questions, note);
       })().catch((err) => {
-        if (alive) view.status.textContent = `This drill could not start: ${err.message}`;
+        if (alive) view.status.textContent = say(t, 'couldNotStart', { message: err.message });
       });
 
       return { destroy() { alive = false; } };

@@ -15,9 +15,52 @@ export function pageNode(book, page) {
   for (const para of tList(page.body)) parts.push(h('p', {}, para));
   if (page.kind === 'table') parts.push(h('div', { class: 'rn-scroll' }, tableNode(book, page)));
   if (page.figure) parts.push(figureNode(book, page.figure));
+  const links = linksNode(page.links);
+  if (links) parts.push(links);
   for (const para of tList(page.note)) parts.push(h('p', { class: 'rn-note' }, para));
   const cls = page.kind === 'callout' ? `rn-page rn-callout rn-callout--${page.tone || 'note'}` : 'rn-page';
   return h('div', { class: cls, id: page.id ? `page-${page.id}` : null }, parts);
+}
+
+/**
+ * The one anchor a chapter may draw: `links[]` on any page kind, rendered as a
+ * list at the end of the page.
+ *
+ *   "links": [{ "href": "https://...", "label": {en, es}, "note": {en, es} }]
+ *
+ * Off-site by definition, so every one of them opens in a new tab and carries
+ * rel="noopener noreferrer": a Book links out to a dictionary or a lesson
+ * index, and losing the reader's place in the chapter is not what a citation
+ * is for.
+ *
+ * The anchor takes .rn-textlink, the site's own link that reads as text, so a
+ * citation in the reading column is the colour every other link is rather than
+ * the browser's blue. No CSS is added for this: an unstyled anchor here would
+ * be the one blue underline on the page.
+ *
+ * https only, and a scheme this refuses is named on the page rather than
+ * dropped. Chapter content is authored by a skill, so "javascript:" reaching
+ * an href has to be structurally impossible and visibly so; the same rule is
+ * enforced at build time by tools/validate-book.mjs, and this is the half that
+ * holds when a file is edited by hand.
+ */
+export function linksNode(links) {
+  if (!Array.isArray(links) || links.length === 0) return null;
+  const items = [];
+  for (const link of links) {
+    const href = link && typeof link.href === 'string' ? link.href : '';
+    const label = t(link && link.label) || href;
+    if (!href.startsWith('https://')) {
+      items.push(h('li', {}, h('span', { class: 'rn-warn' }, `link refused, https only: ${href || '(no href)'}`)));
+      continue;
+    }
+    const note = t(link.note);
+    items.push(h('li', {}, [
+      h('a', { class: 'rn-textlink', href, target: '_blank', rel: 'noopener noreferrer' }, label),
+      note ? h('span', { class: 'rn-note' }, ` ${note}`) : null,
+    ]));
+  }
+  return h('ul', { class: 'rn-links' }, items);
 }
 
 export function tableNode(book, page) {
@@ -40,8 +83,22 @@ export function tableNode(book, page) {
   };
   return h('table', { class: 'rn-table' }, [
     h('thead', {}, h('tr', {}, cols.map((c) => h('th', {}, t(c))))),
-    h('tbody', {}, rows.map((row) => h('tr', {}, cols.map((c, i) => h('td', {}, String(cell(row, i) ?? '')))))),
+    h('tbody', {}, rows.map((row) => h('tr', {}, cols.map((c, i) => h('td', {}, cellText(cell(row, i))))))),
   ]);
+}
+
+/**
+ * One cell as text. A header has always resolved through t(), and a cell does
+ * now too: it used to be String(cell), which printed a bilingual cell as
+ * "[object Object]" and forced a bilingual table to be written as two string
+ * columns showing both languages to everyone. A list joins with a space, the
+ * way an item field does (js/exercises/items.js).
+ */
+function cellText(value) {
+  if (value === null || value === undefined) return '';
+  if (Array.isArray(value)) return value.map(cellText).join(' ');
+  if (typeof value === 'object') return t(value);
+  return String(value);
 }
 
 /**

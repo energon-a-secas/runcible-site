@@ -14,6 +14,10 @@
 
 import { createExerciseRegistry, EXERCISE_VERSION } from '../index.js';
 import { tts } from '../speech.js';
+// The shell imports index.js and nothing else (README). The harness is the
+// engine's own rig, so it reaches into the module whose rules it is checking:
+// these four are how every type reads an item field.
+import { useLanguage, fieldValue, displayValue, itemIdOf } from '../items.js';
 import register, { PROVIDES } from './book-module.js';
 
 const BASE = '../';
@@ -210,6 +214,48 @@ function contractChecks() {
       register: (r) => r.registerExercise('jp.loanword', { mount() {} }),
     });
   });
+
+  // ── Bilingual item fields, and the identity that must not move ─────────
+  // An { en, es } object in an item field used to mount blank, because
+  // displayValue returned '' for any object and fieldValue handed the object
+  // straight back. A blank prompt is the failure nobody reading this page
+  // would notice, so the rules that replaced it are asserted rather than
+  // looked at. A row returning anything but true prints what it got.
+  const holds = (label, fn) => {
+    try {
+      const got = fn();
+      out.push([label, got === true ? 'holds' : `BROKEN: ${got}`, got === true]);
+    } catch (err) { out.push([label, `THREW: ${err.message}`, false]); }
+  };
+  const item = { name: 'Mercury', nick: { en: 'the swift one', es: 'el veloz' }, code: 'ME' };
+  const enOnly = { gloss: { en: 'the swift one' } };
+  const probeSpec = { id: 'probe-bilingual' };
+  const read = (lang, fn) => { useLanguage({ lang, t }); return fn(); };
+
+  holds('a bilingual item field resolves to the reader\'s language', () => {
+    const es = read('es', () => displayValue(fieldValue(item, 'nick')));
+    const en = read('en', () => displayValue(fieldValue(item, 'nick')));
+    return (es === 'el veloz' && en === 'the swift one') || `es gave "${es}", en gave "${en}"`;
+  });
+  holds('an untranslated field falls back to English rather than to a blank', () => {
+    const es = read('es', () => displayValue(fieldValue(enOnly, 'gloss')));
+    return es === 'the swift one' || `es gave "${es}"`;
+  });
+  holds('a plain string field is handed back untouched', () => {
+    const es = read('es', () => displayValue(fieldValue(item, 'code')));
+    return es === 'ME' || `es gave "${es}"`;
+  });
+  holds('a bilingual list field gives that language\'s list, not a joined string', () => {
+    const seq = read('es', () => fieldValue({ names: { en: ['a', 'b'], es: ['x', 'y'] } }, 'names'));
+    return (Array.isArray(seq) && seq.join(',') === 'x,y') || `es gave ${JSON.stringify(seq)}`;
+  });
+  holds('the itemId of a bilingual field carries no language (C2.6)', () => {
+    const es = read('es', () => itemIdOf(item, probeSpec, 'nick', 0));
+    const en = read('en', () => itemIdOf(item, probeSpec, 'nick', 0));
+    return (es === en && es === 'the swift one') || `es wrote "${es}", en wrote "${en}"`;
+  });
+  // Leave the module the way the picker expects to find it.
+  useLanguage({ lang, t });
 
   const panel = $('checks');
   panel.replaceChildren();

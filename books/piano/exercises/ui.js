@@ -9,6 +9,14 @@
 // Nothing here ever assigns innerHTML and no listener is ever an attribute.
 // C3.3 forbids inline HTML in content and the project forbids inline handlers
 // anywhere, so the safe path is the only path on offer.
+//
+// No string a learner reads is written here either. Every one of them is a
+// key in ./strings.js, resolved through the api.t the shell handed the module,
+// which is why frame() takes that resolver and hangs it on the view: the
+// verdict and the score line are drawn long after the module that owns the api
+// has returned.
+
+import { say } from './strings.js';
 
 const DIRECT = new Set(['value', 'checked', 'disabled', 'hidden']);
 
@@ -89,8 +97,11 @@ export async function resolveList(api, source, field) {
   throw new Error(`"${field}" must be a data pointer string or an array`);
 }
 
-/** The frame every module in this Book draws into. */
-export function frame(host, { title, lead, cls = '' }) {
+/**
+ * The frame every module in this Book draws into. `t` is api.t, kept on the
+ * view so that everything drawn later can be drawn in the reader's language.
+ */
+export function frame(host, { t, title, lead, cls = '' }) {
   clear(host);
   const status = el('p', { class: 'pf-status', role: 'status', 'aria-live': 'polite' });
   const body = el('div', { class: 'pf-body' });
@@ -103,7 +114,7 @@ export function frame(host, { title, lead, cls = '' }) {
     foot,
   ]);
   host.appendChild(root);
-  return { root, status, body, foot };
+  return { root, status, body, foot, t };
 }
 
 /**
@@ -140,9 +151,11 @@ export function askDrawn(view, { prompt, options, expected, after, onAnswer }) {
         const chosen = buttons.find((b) => b.textContent === label);
         if (chosen) chosen.dataset.state = 'wrong';
       }
-      verdict.textContent = correct ? 'Correct.' : `Not that one. It is ${expected}.`;
+      verdict.textContent = correct
+        ? say(view.t, 'correct')
+        : say(view.t, 'notThatOne', { expected });
       if (after) add(view.body, el('p', { class: 'pf-note', text: after }));
-      const go = button('Next', () => resolve(correct), 'btn btn--primary');
+      const go = button(say(view.t, 'next'), () => resolve(correct), 'btn btn--primary');
       add(view.foot, go);
       go.focus();
     }, 'btn btn--secondary'));
@@ -161,10 +174,10 @@ export function summary(view, api, { asked, right, note = null }) {
   clear(view.foot);
   view.status.textContent = '';
   add(view.body, [
-    el('p', { class: 'pf-score', text: `${right} of ${asked} correct.` }),
+    el('p', { class: 'pf-score', text: say(view.t, 'score', { right, asked }) }),
     note ? el('p', { class: 'pf-note', text: note }) : null,
   ]);
-  const go = button('Continue', () => api.done({ asked, right, graded: true }), 'btn btn--primary');
+  const go = button(say(view.t, 'continue'), () => api.done({ asked, right, graded: true }), 'btn btn--primary');
   view.foot.appendChild(go);
   go.focus();
 }

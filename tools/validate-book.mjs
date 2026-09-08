@@ -9,6 +9,7 @@
 
 import { validateExerciseSpec, GENERIC_TYPES, checkRegisteredId, parseCompare, parseQuizFilter } from '../js/exercises/index.js';
 import { checkDeckSkills } from './lib/deck-skills.mjs';
+import { checkPageLinks } from './lib/page-links.mjs';
 
 export { GENERIC_TYPES };
 
@@ -334,6 +335,8 @@ export function validateChapter(doc, book = null) {
       checkBilingual(r, `${pat}.title`, page.title, { required: false });
       checkBilingual(r, `${pat}.body`, page.body, { required: false, allowArray: true });
       checkBilingual(r, `${pat}.note`, page.note, { required: false, allowArray: true });
+      // The one anchor a page may draw. https only, label required: tools/lib/page-links.mjs.
+      if (page.links !== undefined) checkPageLinks(r, `${pat}.links`, page.links, checkBilingual);
       if (page.kind === 'callout' && !CALLOUT_TONES.includes(page.tone)) r.err(`${pat}.tone`, `must be one of ${CALLOUT_TONES.join(', ')}`);
       if (page.kind === 'table') {
         if (!Array.isArray(page.columns)) r.err(`${pat}.columns`, 'must be an array');

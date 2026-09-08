@@ -116,7 +116,8 @@ and never lower it; the validator names any disagreement.
 
 ### Pages (rung.pages[])
 
-Every page has id (required) and kind (required), plus optional title.
+Every page has id (required) and kind (required), plus optional title and
+optional links[].
 
 - prose: body (required; string, array, or { en: [...], es: [...] }), note,
   figure
@@ -124,8 +125,17 @@ Every page has id (required) and kind (required), plus optional title.
 - table: columns (required, array of bilingual values), and rows (array of
   arrays) or items (a data pointer to a list). With items, each column is
   matched to a field by the column string, or by column.en when the column
-  is an { en, es } object
+  is an { en, es } object. A CELL MAY BE BILINGUAL: a cell holding an
+  { en, es } object resolves the way its column header does
 - figure: figure (required), with caption (bilingual)
+
+links[] is the one anchor a page may draw, on any kind, rendered as a list
+after the body and the table: [{ href (required), label (required, bilingual),
+note (optional, bilingual) }]. https only, and the validator and the renderer
+both refuse every other scheme. Each one opens in a new tab with
+rel="noopener noreferrer", so the reader keeps their place in the chapter. A
+URL with something to say about it takes a note; a wall of bare URLs in a
+callout body is what this replaced.
 
 figure: { kind: "svg", src (pointer), render (required string), caption } or
 { kind: "viz", builder (required), caption }. The shell draws an svg figure
@@ -149,22 +159,27 @@ items is a data pointer to a list, or an inline array of objects. Field names
 in the spec (prompt, answer, left, ...) name fields of those objects; dotted
 paths are allowed. An answer field may hold an array: any member matches.
 
-EVERY FIELD AN EXERCISE NAMES MUST HOLD A STRING. An { en, es } object in an
-item field is not translated: fieldValue hands the object back and
-displayValue renders any object as the empty string, so the prompt or the
-option mounts BLANK, with no error anywhere. This is the one place the
-bilingual convention above does not reach. Where a cue has to exist in both
-languages, write two string fields and name one of them
-(prompt: "situation.en"), put the Spanish on the rung's page, or use the item's
-explain, which the feedback strip does resolve. Making a cue bilingual is a
-shell change, so report it rather than encoding an object.
+A FIELD AN EXERCISE NAMES MAY BE BILINGUAL. Every field named by prompt,
+answer, left, right, speak, expect or sequence, plus a grouping field and an
+explicit distractors.values entry, may hold a plain string or an { en, es }
+object, and the object resolves to the reader's language. sequence may hold a
+list per language, { "en": [...], "es": [...] }, so an order drill can arrange
+a Spanish sentence. A typed answer is graded against the language on screen.
+A missing side falls back to en, then to es, never to a blank, and the fallback
+is counted by the page's honesty line. An object with neither en nor es is
+still the empty string: a whole record under a field name is a mistake with no
+honest rendering.
 
-A table page's cells are stringified the same way: a cell holding an { en, es }
-object prints "[object Object]". A bilingual table is two string columns.
+WHAT IS STORED CARRIES NO LANGUAGE. itemId resolves a bilingual field to its
+English side whatever is being read, so an English session and a Spanish one
+write one row for one item (C2.6). Give items an id and the question never
+arises. The answer and expected fields of an attempt are the other way round:
+they record what was on screen.
 
-NO CONTENT FIELD CAN CARRY A LINK. Pages are text nodes; the only anchors the
-shell draws from data are the attribution block's links[]. A URL a chapter
-wants to show goes in a callout body as plain text.
+The old workaround is no longer needed and should be undone where it costs
+nothing: prompt: "situation.en" names the English side of a bilingual object
+and shows English to everyone, where prompt: "situation" now shows the reader
+their own language.
 
 The ten types and their required fields (from spec.js, verbatim):
 

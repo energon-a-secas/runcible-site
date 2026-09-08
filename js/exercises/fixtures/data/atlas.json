@@ -1,18 +1,23 @@
 {
   "_note": "Engine fixture, not site content. Deliberately about nothing this fleet ships, because the nine generic types must not know their topic. Public facts, no licence to inherit.",
   "_accept": "Two ways of writing one designation, so a typed drill can accept either. Stands in for a word with two readings, which is what the Japanese Book's accept lists carry.",
+  "_nick": "A field holding an { en, es } object, and a sequence field holding one whose sides are lists. An item field resolves in the reader's language (js/exercises/items.js), so these are what the bilingual fixtures ask, and what a blank prompt would show if that ever stopped being true.",
   "planets": [
-    { "id": "mercury", "name": "Mercury", "symbol": "M1", "code": "ME", "order": 1, "group": "inner", "moons": 0, "accept": ["ME", "M1"] },
-    { "id": "venus",   "name": "Venus",   "symbol": "V1", "code": "VE", "order": 2, "group": "inner", "moons": 0, "accept": ["VE", "V1"] },
-    { "id": "earth",   "name": "Earth",   "symbol": "E1", "code": "EA", "order": 3, "group": "inner", "moons": 1, "accept": ["EA", "E1"] },
-    { "id": "mars",    "name": "Mars",    "symbol": "M2", "code": "MA", "order": 4, "group": "inner", "moons": 2, "accept": ["MA", "M2"] },
-    { "id": "jupiter", "name": "Jupiter", "symbol": "J1", "code": "JU", "order": 5, "group": "outer", "moons": 95, "accept": ["JU", "J1"] },
-    { "id": "saturn",  "name": "Saturn",  "symbol": "S1", "code": "SA", "order": 6, "group": "outer", "moons": 146, "accept": ["SA", "S1"] },
-    { "id": "uranus",  "name": "Uranus",  "symbol": "U1", "code": "UR", "order": 7, "group": "outer", "moons": 28, "accept": ["UR", "U1"] },
-    { "id": "neptune", "name": "Neptune", "symbol": "N1", "code": "NE", "order": 8, "group": "outer", "moons": 16, "accept": ["NE", "N1"] }
+    { "id": "mercury", "name": "Mercury", "symbol": "M1", "code": "ME", "order": 1, "group": "inner", "moons": 0, "accept": ["ME", "M1"], "nick": { "en": "the swift one", "es": "el veloz" } },
+    { "id": "venus",   "name": "Venus",   "symbol": "V1", "code": "VE", "order": 2, "group": "inner", "moons": 0, "accept": ["VE", "V1"], "nick": { "en": "the evening star", "es": "el lucero vespertino" } },
+    { "id": "earth",   "name": "Earth",   "symbol": "E1", "code": "EA", "order": 3, "group": "inner", "moons": 1, "accept": ["EA", "E1"], "nick": { "en": "the one with the water", "es": "el del agua" } },
+    { "id": "mars",    "name": "Mars",    "symbol": "M2", "code": "MA", "order": 4, "group": "inner", "moons": 2, "accept": ["MA", "M2"], "nick": { "en": "the red one", "es": "el rojo" } },
+    { "id": "jupiter", "name": "Jupiter", "symbol": "J1", "code": "JU", "order": 5, "group": "outer", "moons": 95, "accept": ["JU", "J1"], "nick": { "en": "the largest", "es": "el más grande" } },
+    { "id": "saturn",  "name": "Saturn",  "symbol": "S1", "code": "SA", "order": 6, "group": "outer", "moons": 146, "accept": ["SA", "S1"], "nick": { "en": "the one with the rings", "es": "el de los anillos" } },
+    { "id": "uranus",  "name": "Uranus",  "symbol": "U1", "code": "UR", "order": 7, "group": "outer", "moons": 28, "accept": ["UR", "U1"], "nick": { "en": "the tilted one", "es": "el inclinado" } },
+    { "id": "neptune", "name": "Neptune", "symbol": "N1", "code": "NE", "order": 8, "group": "outer", "moons": 16, "accept": ["NE", "N1"], "nick": { "en": "the farthest", "es": "el más lejano" } }
   ],
   "runs": [
-    { "id": "inner-run", "label": "The inner four, closest first", "sequence": ["Mercury", "Venus", "Earth", "Mars"] },
-    { "id": "outer-run", "label": "The outer four, closest first", "sequence": ["Jupiter", "Saturn", "Uranus", "Neptune"] }
+    { "id": "inner-run", "label": "The inner four, closest first", "sequence": ["Mercury", "Venus", "Earth", "Mars"],
+      "caption": { "en": "The inner four, closest first", "es": "Los cuatro interiores, del más cercano al más lejano" },
+      "names": { "en": ["Mercury", "Venus", "Earth", "Mars"], "es": ["Mercurio", "Venus", "Tierra", "Marte"] } },
+    { "id": "outer-run", "label": "The outer four, closest first", "sequence": ["Jupiter", "Saturn", "Uranus", "Neptune"],
+      "caption": { "en": "The outer four, closest first", "es": "Los cuatro exteriores, del más cercano al más lejano" },
+      "names": { "en": ["Jupiter", "Saturn", "Uranus", "Neptune"], "es": ["Júpiter", "Saturno", "Urano", "Neptuno"] } }
   ]
 }

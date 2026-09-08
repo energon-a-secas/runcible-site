@@ -173,7 +173,7 @@
             "es": "¿Cuál pide esta situación?"
           },
           "items": "data/vocab/ch11.json#groups.register",
-          "prompt": "situation.en",
+          "prompt": "situation",
           "answer": "word",
           "distractors": {
             "by": "set",
@@ -263,7 +263,7 @@
             "es": "Escribe lo que dirías"
           },
           "items": "data/vocab/ch11.json#groups.work",
-          "prompt": "situation.en",
+          "prompt": "situation",
           "answer": "kana",
           "transform": "kana",
           "compare": "trim|kana",
@@ -295,11 +295,19 @@
           "body": {
             "en": [
               "In a real exchange the register reaches you before the meaning does. You hear いらっしゃる and you know, before the sentence finishes, that somebody is being raised. That is not a subtlety, it is how a listener keeps up at speed, and it is the part of the N3 descriptor about grasping the relationships among the people involved.",
-              "The drill below speaks one expression and asks for its distance rather than its meaning. Three answers are possible, and they are the dictionary's own three labels: plain is the everyday form, hon is honorific and raises the other person, hum is humble and lowers you."
+              "The drill below speaks one expression and offers three scenes for it: the act among friends, the act said up to a customer, the act said down about yourself. All three describe the same act, so the only thing separating them is the distance, which is the thing being asked. The dictionary's own shorthand for that distance is never printed, because a learner should not have to read a lexicographer's tags to answer a question."
             ],
             "es": [
               "En un intercambio real el registro te llega antes que el significado. Oyes いらっしゃる y sabes, antes de que la frase termine, que se está elevando a alguien. Eso no es una sutileza: es como quien escucha sigue el ritmo, y es la parte del descriptor de N3 sobre captar las relaciones entre las personas que hablan.",
-              "El ejercicio de abajo pronuncia una expresión y pregunta por su distancia, no por su significado. Hay tres respuestas posibles, y son las tres etiquetas del propio diccionario: plain es la forma de todos los días, hon es honorífica y eleva a la otra persona, hum es humilde y te rebaja a ti."
+              "El ejercicio de abajo pronuncia una expresión y le ofrece tres escenas: el acto entre amigos, el acto dicho hacia arriba a un cliente, el acto dicho hacia abajo sobre ti. Las tres describen el mismo acto, así que lo único que las separa es la distancia, que es justo lo que se pregunta. La taquigrafía del diccionario para esa distancia no se imprime nunca, porque quien aprende no debería tener que leer las marcas de un lexicógrafo para contestar una pregunta."
+            ]
+          },
+          "note": {
+            "en": [
+              "The three scenes are one-line labels written by this Book. JMdict supplies the word, the reading, the meaning and the politeness tag; the scene is ours, and it is a label rather than a translation."
+            ],
+            "es": [
+              "Las tres escenas son etiquetas de una línea escritas por este libro. JMdict aporta la palabra, la lectura, el significado y la marca de cortesía; la escena es nuestra, y es una etiqueta y no una traducción."
             ]
           }
         }
@@ -310,15 +318,16 @@
           "type": "listen",
           "skill": "jp.register.pick",
           "title": {
-            "en": "Plain, honorific or humble?",
-            "es": "¿Llana, honorífica o humilde?"
+            "en": "Which scene does this belong to?",
+            "es": "¿A qué escena pertenece esto?"
           },
           "items": "data/vocab/ch11.json#groups.register",
           "speak": "kana",
-          "answer": "register",
+          "answer": "situation",
           "respond": "choice",
           "lang": "ja",
           "distractors": {
+            "by": "set",
             "n": 2
           },
           "count": 10,

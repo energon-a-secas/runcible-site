@@ -216,18 +216,38 @@
           },
           "body": {
             "en": [
-              "The course index is here, and the lesson list on it is titled by what a learner can newly do, one function per lesson:",
-              "https://www3.nhk.or.jp/nhkworld/lesson/en/lessons/",
-              "https://www3.nhk.or.jp/nhkworld/lesson/es/lessons/",
+              "The course index is at the foot of this page, in English and in Spanish. Its lesson list is titled by what a learner can newly do, one function per lesson.",
               "Nothing of NHK's is copied into this site: not a phrase, not a gloss, not a recording. Their terms permit a link and grant nothing else, and the eight expressions above come from a dictionary that does grant one."
             ],
             "es": [
-              "El índice del curso está aquí, y su lista de lecciones va titulada por lo que quien aprende puede hacer de nuevo, una función por lección:",
-              "https://www3.nhk.or.jp/nhkworld/lesson/en/lessons/",
-              "https://www3.nhk.or.jp/nhkworld/lesson/es/lessons/",
+              "El índice del curso está al pie de esta página, en inglés y en español. Su lista de lecciones va titulada por lo que quien aprende puede hacer de nuevo, una función por lección.",
               "Nada de NHK está copiado en este sitio: ni una frase, ni una glosa, ni una grabación. Sus términos permiten enlazar y no conceden nada más, y las ocho expresiones de arriba vienen de un diccionario que sí concede una."
             ]
-          }
+          },
+          "links": [
+            {
+              "href": "https://www3.nhk.or.jp/nhkworld/lesson/en/lessons/",
+              "label": {
+                "en": "NHK Easy Japanese, the index of 48 lessons",
+                "es": "NHK Easy Japanese, el índice de 48 lecciones"
+              },
+              "note": {
+                "en": "In English. Each lesson carries a skit, its vocabulary and a recording.",
+                "es": "En inglés. Cada lección trae una escena, su vocabulario y una grabación."
+              }
+            },
+            {
+              "href": "https://www3.nhk.or.jp/nhkworld/lesson/es/lessons/",
+              "label": {
+                "en": "NHK Hablemos en japonés, the same 48 lessons",
+                "es": "NHK Hablemos en japonés, las mismas 48 lecciones"
+              },
+              "note": {
+                "en": "In Spanish, and it is the whole course rather than a shorter one.",
+                "es": "En español, y es el curso entero y no uno más corto."
+              }
+            }
+          ]
         }
       ],
       "exercises": [
@@ -454,18 +474,38 @@
           },
           "body": {
             "en": [
-              "The same situation, with audio, taught by NHK. Lesson 2, in English and in Spanish:",
-              "https://www3.nhk.or.jp/nhkworld/lesson/en/lessons/02.html",
-              "https://www3.nhk.or.jp/nhkworld/lesson/es/lessons/02.html",
+              "The same situation, with audio, taught by NHK. Lesson 2 is at the foot of this page, in English and in Spanish.",
               "Nothing of NHK's is copied into this site: not a phrase, not a gloss, not a recording. Their terms permit a link and grant nothing else, and the six expressions above come from a dictionary that does grant one."
             ],
             "es": [
-              "La misma situación, con audio, enseñada por NHK. Lección 2, en inglés y en español:",
-              "https://www3.nhk.or.jp/nhkworld/lesson/en/lessons/02.html",
-              "https://www3.nhk.or.jp/nhkworld/lesson/es/lessons/02.html",
+              "La misma situación, con audio, enseñada por NHK. La lección 2 está al pie de esta página, en inglés y en español.",
               "Nada de NHK está copiado en este sitio: ni una frase, ni una glosa, ni una grabación. Sus términos permiten enlazar y no conceden nada más, y las seis expresiones de arriba vienen de un diccionario que sí concede una."
             ]
-          }
+          },
+          "links": [
+            {
+              "href": "https://www3.nhk.or.jp/nhkworld/lesson/en/lessons/02.html",
+              "label": {
+                "en": "NHK Easy Japanese, lesson 2",
+                "es": "NHK Easy Japanese, lección 2"
+              },
+              "note": {
+                "en": "In English. The lesson where a learner gives a name and an occupation.",
+                "es": "En inglés. La lección donde quien aprende da un nombre y una ocupación."
+              }
+            },
+            {
+              "href": "https://www3.nhk.or.jp/nhkworld/lesson/es/lessons/02.html",
+              "label": {
+                "en": "NHK Hablemos en japonés, lesson 2",
+                "es": "NHK Hablemos en japonés, lección 2"
+              },
+              "note": {
+                "en": "The same lesson in Spanish.",
+                "es": "La misma lección en español."
+              }
+            }
+          ]
         }
       ],
       "exercises": [
@@ -686,18 +726,38 @@
           },
           "body": {
             "en": [
-              "The course index is here, and the lesson list on it is titled by what a learner can newly do, one function per lesson:",
-              "https://www3.nhk.or.jp/nhkworld/lesson/en/lessons/",
-              "https://www3.nhk.or.jp/nhkworld/lesson/es/lessons/",
+              "The course index is at the foot of this page, in English and in Spanish. Its lesson list is titled by what a learner can newly do, one function per lesson.",
               "Nothing of NHK's is copied into this site: not a phrase, not a gloss, not a recording. Their terms permit a link and grant nothing else, and the six expressions above come from a dictionary that does grant one."
             ],
             "es": [
-              "El índice del curso está aquí, y su lista de lecciones va titulada por lo que quien aprende puede hacer de nuevo, una función por lección:",
-              "https://www3.nhk.or.jp/nhkworld/lesson/en/lessons/",
-              "https://www3.nhk.or.jp/nhkworld/lesson/es/lessons/",
+              "El índice del curso está al pie de esta página, en inglés y en español. Su lista de lecciones va titulada por lo que quien aprende puede hacer de nuevo, una función por lección.",
               "Nada de NHK está copiado en este sitio: ni una frase, ni una glosa, ni una grabación. Sus términos permiten enlazar y no conceden nada más, y las seis expresiones de arriba vienen de un diccionario que sí concede una."
             ]
-          }
+          },
+          "links": [
+            {
+              "href": "https://www3.nhk.or.jp/nhkworld/lesson/en/lessons/",
+              "label": {
+                "en": "NHK Easy Japanese, the index of 48 lessons",
+                "es": "NHK Easy Japanese, el índice de 48 lecciones"
+              },
+              "note": {
+                "en": "In English. Each lesson carries a skit, its vocabulary and a recording.",
+                "es": "En inglés. Cada lección trae una escena, su vocabulario y una grabación."
+              }
+            },
+            {
+              "href": "https://www3.nhk.or.jp/nhkworld/lesson/es/lessons/",
+              "label": {
+                "en": "NHK Hablemos en japonés, the same 48 lessons",
+                "es": "NHK Hablemos en japonés, las mismas 48 lecciones"
+              },
+              "note": {
+                "en": "In Spanish, and it is the whole course rather than a shorter one.",
+                "es": "En español, y es el curso entero y no uno más corto."
+              }
+            }
+          ]
         }
       ],
       "exercises": [
@@ -920,18 +980,38 @@
           },
           "body": {
             "en": [
-              "The same situation, with audio, taught by NHK. Lesson 7, in English and in Spanish:",
-              "https://www3.nhk.or.jp/nhkworld/lesson/en/lessons/07.html",
-              "https://www3.nhk.or.jp/nhkworld/lesson/es/lessons/07.html",
+              "The same situation, with audio, taught by NHK. Lesson 7 is at the foot of this page, in English and in Spanish.",
               "Nothing of NHK's is copied into this site: not a phrase, not a gloss, not a recording. Their terms permit a link and grant nothing else, and the six expressions above come from a dictionary that does grant one."
             ],
             "es": [
-              "La misma situación, con audio, enseñada por NHK. Lección 7, en inglés y en español:",
-              "https://www3.nhk.or.jp/nhkworld/lesson/en/lessons/07.html",
-              "https://www3.nhk.or.jp/nhkworld/lesson/es/lessons/07.html",
+              "La misma situación, con audio, enseñada por NHK. La lección 7 está al pie de esta página, en inglés y en español.",
               "Nada de NHK está copiado en este sitio: ni una frase, ni una glosa, ni una grabación. Sus términos permiten enlazar y no conceden nada más, y las seis expresiones de arriba vienen de un diccionario que sí concede una."
             ]
-          }
+          },
+          "links": [
+            {
+              "href": "https://www3.nhk.or.jp/nhkworld/lesson/en/lessons/07.html",
+              "label": {
+                "en": "NHK Easy Japanese, lesson 7",
+                "es": "NHK Easy Japanese, lección 7"
+              },
+              "note": {
+                "en": "In English. The lesson for asking someone to speak more slowly.",
+                "es": "En inglés. La lección para pedir que alguien hable más despacio."
+              }
+            },
+            {
+              "href": "https://www3.nhk.or.jp/nhkworld/lesson/es/lessons/07.html",
+              "label": {
+                "en": "NHK Hablemos en japonés, lesson 7",
+                "es": "NHK Hablemos en japonés, lección 7"
+              },
+              "note": {
+                "en": "The same lesson in Spanish.",
+                "es": "La misma lección en español."
+              }
+            }
+          ]
         }
       ],
       "exercises": [
@@ -1154,18 +1234,38 @@
           },
           "body": {
             "en": [
-              "The same situation, with audio, taught by NHK. Lesson 10, in English and in Spanish:",
-              "https://www3.nhk.or.jp/nhkworld/lesson/en/lessons/10.html",
-              "https://www3.nhk.or.jp/nhkworld/lesson/es/lessons/10.html",
+              "The same situation, with audio, taught by NHK. Lesson 10 is at the foot of this page, in English and in Spanish.",
               "Nothing of NHK's is copied into this site: not a phrase, not a gloss, not a recording. Their terms permit a link and grant nothing else, and the six expressions above come from a dictionary that does grant one."
             ],
             "es": [
-              "La misma situación, con audio, enseñada por NHK. Lección 10, en inglés y en español:",
-              "https://www3.nhk.or.jp/nhkworld/lesson/en/lessons/10.html",
-              "https://www3.nhk.or.jp/nhkworld/lesson/es/lessons/10.html",
+              "La misma situación, con audio, enseñada por NHK. La lección 10 está al pie de esta página, en inglés y en español.",
               "Nada de NHK está copiado en este sitio: ni una frase, ni una glosa, ni una grabación. Sus términos permiten enlazar y no conceden nada más, y las seis expresiones de arriba vienen de un diccionario que sí concede una."
             ]
-          }
+          },
+          "links": [
+            {
+              "href": "https://www3.nhk.or.jp/nhkworld/lesson/en/lessons/10.html",
+              "label": {
+                "en": "NHK Easy Japanese, lesson 10",
+                "es": "NHK Easy Japanese, lección 10"
+              },
+              "note": {
+                "en": "In English. The lesson for asking how much something costs.",
+                "es": "En inglés. La lección para preguntar cuánto cuesta algo."
+              }
+            },
+            {
+              "href": "https://www3.nhk.or.jp/nhkworld/lesson/es/lessons/10.html",
+              "label": {
+                "en": "NHK Hablemos en japonés, lesson 10",
+                "es": "NHK Hablemos en japonés, lección 10"
+              },
+              "note": {
+                "en": "The same lesson in Spanish.",
+                "es": "La misma lección en español."
+              }
+            }
+          ]
         },
         {
           "id": "p-five-more",

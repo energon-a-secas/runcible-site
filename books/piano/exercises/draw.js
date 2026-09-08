@@ -13,12 +13,19 @@
 // octave, so middle C is 28. Every staff position in this file is that number
 // minus the index of the clef's bottom line.
 
+import { say, clefWord } from './strings.js';
+
 const NS = 'http://www.w3.org/2000/svg';
 
-/** The diatonic index of the bottom line of each clef, and its own note. */
+/**
+ * The diatonic index of the bottom line of each clef. The clef's own word is
+ * not here: it is a string a learner reads, so it lives in ./strings.js with
+ * the rest of them and reaches this file through the `t` each entry point
+ * takes.
+ */
 export const CLEFS = {
-  treble: { bottom: 30, label: 'treble', names: 'G on the second line' },
-  bass: { bottom: 18, label: 'bass', names: 'F on the fourth line' },
+  treble: { bottom: 30 },
+  bass: { bottom: 18 },
 };
 
 /** Where each sharp and each flat is written, in the order they are written. */
@@ -79,8 +86,8 @@ function staffLines(svg, x0, x1) {
  * U+1D11E and U+1D122 are absent from most system fonts, and a missing glyph
  * is a blank box where the whole question is. A word cannot be misread.
  */
-function clefLabel(svg, clef, x) {
-  const label = (CLEFS[clef] || CLEFS.treble).label;
+function clefLabel(svg, clef, x, t) {
+  const label = clefWord(t, clef);
   svg.appendChild(node('text', {
     x, y: TOP + LINE_GAP * 2 + 4, 'font-size': 11, fill: 'currentColor', stroke: 'none', opacity: 0.7,
   }, label));
@@ -152,14 +159,15 @@ function noteHead(svg, note, clef, x, marked) {
  * One bar of one staff, with the note at `markAt` circled.
  * `bar.notes` is what tools/build-piano.mjs read out of the engraving.
  */
-export function drawBar(bar, { clef = 'treble', fifths = 0, time = null, markAt = 0 }) {
+export function drawBar(bar, { clef = 'treble', fifths = 0, time = null, markAt = 0, t = null }) {
   const notes = bar.notes || [];
   const left = 8;
   const width = Math.max(220, 96 + notes.length * 30);
-  const svg = svgRoot(width, 130,
-    `one bar of ${notes.length} notes on the ${clef} stave, with note ${markAt + 1} marked`);
+  const svg = svgRoot(width, 130, say(t, 'ariaBar', {
+    count: notes.length, clef: clefWord(t, clef, 'name'), at: markAt + 1,
+  }));
   staffLines(svg, left, width - 8);
-  clefLabel(svg, clef, left + 2);
+  clefLabel(svg, clef, left + 2, t);
   let x = left + 44;
   x += keySignature(svg, clef, fifths, x) + (fifths ? 8 : 0);
   if (time) {
@@ -176,10 +184,10 @@ export function drawBar(bar, { clef = 'treble', fifths = 0, time = null, markAt 
 }
 
 /** One note alone on one staff, which is all chapter 2 needs. */
-export function drawNote(note, clef) {
-  const svg = svgRoot(200, 130, `one note on the ${clef} stave`);
+export function drawNote(note, clef, t) {
+  const svg = svgRoot(200, 130, say(t, 'ariaNote', { clef: clefWord(t, clef, 'name') }));
   staffLines(svg, 8, 192);
-  clefLabel(svg, clef, 10);
+  clefLabel(svg, clef, 10, t);
   noteHead(svg, { d: note.d, den: 4, acc: null, dots: 0 }, clef, 120, true);
   return svg;
 }
@@ -189,14 +197,14 @@ export function drawNote(note, clef) {
  * White key widths and the black key offsets are the instrument's own
  * geometry: three black keys sit over four white gaps and two over three.
  */
-export function drawKeyboard(pc) {
+export function drawKeyboard(pc, t) {
   const W = 34;
   const H = 132;
   const BW = 21;
   const BH = 82;
   const whites = [0, 2, 4, 5, 7, 9, 11];
   const blacks = [[1, 0], [3, 1], [6, 3], [8, 4], [10, 5]];
-  const svg = svgRoot(W * 7 + 4, H + 12, 'one octave of a keyboard with one key marked');
+  const svg = svgRoot(W * 7 + 4, H + 12, say(t, 'ariaKeyboard'));
   whites.forEach((p, i) => {
     svg.appendChild(node('rect', {
       x: 2 + i * W, y: 6, width: W, height: H, rx: 3, 'stroke-width': 1.2,

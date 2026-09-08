@@ -10,6 +10,94 @@
 
 import { ExerciseError } from './errors.js';
 
+// ── The reader's language ────────────────────────────────────
+// An item field may hold the fleet's { en, es } object (CONTRACTS convention
+// 2), and a reader has to meet their own language in a prompt, an option, a
+// column of a pairing board and a line to say aloud. C2.3 freezes the api an
+// exercise is handed and no type passes it down to a field reader, so the
+// language is taken from that api once per run: resolveList is the first call
+// every type makes and it holds the live api.
+//
+// One exercise is mounted at a time and one language is chosen for a whole
+// page, so a module scoped value is the whole of the state. Changing language
+// repaints the view, which remounts the exercise, which resolves its list
+// again.
+//
+// api.lang is the language, and the resolving is done here: half these fields
+// are lists (order's sequence) and C2.3's t returns a string, so a list sent
+// through it would come back as "a,b". What api.t is still called for is the
+// count behind the honesty line, when a reader's own side is missing.
+
+let readerLang = 'en';
+let readerT = null;
+
+/**
+ * Take the language of this run from the frozen api (C2.3). Exported as well
+ * as called from resolveList, so a caller that never resolves a list can set
+ * it for itself.
+ * @param {{lang?: string, t?: function}} api
+ * @returns {string} the language item fields now resolve in
+ */
+export function useLanguage(api) {
+  if (!api || typeof api !== 'object') return readerLang;
+  if (typeof api.lang === 'string' && api.lang) readerLang = api.lang.slice(0, 2).toLowerCase();
+  readerT = typeof api.t === 'function' ? api.t : null;
+  return readerLang;
+}
+
+/** The language item fields are resolving in. */
+export function itemLanguage() {
+  return readerLang;
+}
+
+/** A bilingual value is an object carrying an `en` or an `es`. Nothing else is. */
+function isBilingual(v) {
+  if (v === null || typeof v !== 'object' || Array.isArray(v)) return false;
+  return Object.prototype.hasOwnProperty.call(v, 'en') || Object.prototype.hasOwnProperty.call(v, 'es');
+}
+
+/** One bilingual object in one language: own, then en, then es, then empty. */
+function inLang(v, lang) {
+  for (const key of [lang, 'en', 'es']) {
+    const got = v[key];
+    if (got !== null && got !== undefined && got !== '') return got;
+  }
+  return '';
+}
+
+/**
+ * The value this reader sees. A bilingual object resolves to their language;
+ * everything else is handed back untouched, so a field that held a string
+ * before behaves exactly as it did.
+ */
+function readerValue(v) {
+  if (!isBilingual(v)) return v;
+  const own = v[readerLang];
+  if (own !== null && own !== undefined && own !== '') return own;
+  // Nothing on the reader's own side. The shell's resolver is what counts
+  // that (js/i18n.js records it, and the view prints one line saying part of
+  // this page is English only), so it is called here for the count and its
+  // answer is not used: a cue falling back is the same event as a paragraph
+  // falling back, and a reader is told once for both.
+  if (readerLang !== 'en' && readerT) readerT(v);
+  return inLang(v, readerLang);
+}
+
+/**
+ * The same value with no language in it, for anything stored. C2.6: itemId is
+ * what progress on a visitor's disk is written against, so an English session
+ * and a Spanish one must write one row for one item. English is the canonical
+ * side (CONTRACTS convention 2), and a value with only Spanish resolves to
+ * that, which is still the same string in both sessions.
+ */
+export function stableValue(v) {
+  if (isBilingual(v)) return stableValue(inLang(v, 'en'));
+  if (v === null || v === undefined) return '';
+  if (Array.isArray(v)) return v.map(stableValue).join(' ');
+  if (typeof v === 'object') return '';
+  return String(v);
+}
+
 /**
  * Resolve spec.items (or any pointer-or-array field) to an array.
  * @param {string|Array} source a C3.2 pointer, or an inline array
@@ -20,6 +108,9 @@ import { ExerciseError } from './errors.js';
  * @returns {Promise<Array>}
  */
 export async function resolveList(source, api, ctx, spec, field) {
+  // Before the early return, so an inline item list is read in the reader's
+  // language too.
+  useLanguage(api);
   if (Array.isArray(source)) return source;
   if (typeof source === 'string' && source) {
     if (typeof api.data !== 'function') {
@@ -56,8 +147,8 @@ export function pickItems(items, count) {
   return shuffle(items).slice(0, Math.floor(count));
 }
 
-/** Read a field, dotted paths allowed, from an item object. */
-export function fieldValue(item, field) {
+/** Read a field, dotted paths allowed, with no language applied. */
+function rawFieldValue(item, field) {
   if (item === null || item === undefined) return undefined;
   if (typeof field !== 'string' || field === '') return undefined;
   if (field in item) return item[field];
@@ -69,12 +160,32 @@ export function fieldValue(item, field) {
   return cur;
 }
 
-/** What the learner sees. An array joins with a space, an object is refused loudly. */
+/**
+ * Read a field from an item, in the reader's language.
+ *
+ * This is the one accessor every type reads a field through, which is why the
+ * bilingual rule lives here: a prompt, an answer, a left, a right, a speak, an
+ * expect and a sequence are all a field name resolved by this function, so
+ * they are all bilingual at once or none of them is. A plain string is handed
+ * back untouched. Grading sees what the reader saw, because the value graded
+ * against is the value that was shown.
+ */
+export function fieldValue(item, field) {
+  return readerValue(rawFieldValue(item, field));
+}
+
+/**
+ * What the learner sees. A bilingual object resolves, an array joins with a
+ * space, any other object is still the empty string: an item that carries a
+ * whole record under a field name is an authoring mistake, and a mistake with
+ * no honest rendering.
+ */
 export function displayValue(v) {
-  if (v === null || v === undefined) return '';
-  if (Array.isArray(v)) return v.map(displayValue).join(' ');
-  if (typeof v === 'object') return '';
-  return String(v);
+  const value = readerValue(v);
+  if (value === null || value === undefined) return '';
+  if (Array.isArray(value)) return value.map(displayValue).join(' ');
+  if (typeof value === 'object') return '';
+  return String(value);
 }
 
 /**
@@ -97,7 +208,8 @@ export function displayValue(v) {
  * @returns {string[]} display values, in the order the author wrote them
  */
 export function acceptedValues(value) {
-  const raw = Array.isArray(value) ? value : [value];
+  const resolved = readerValue(value);
+  const raw = Array.isArray(resolved) ? resolved : [resolved];
   const out = [];
   for (const v of raw) {
     const one = displayValue(v).trim();
@@ -117,7 +229,9 @@ const warned = new Set();
  *   1. item.id, prefixed by spec.itemIdPrefix when present
  *   2. the field named by spec.itemIdField
  *   3. the value of the item's identity field for this type (the prompt, the
- *      spoken field, whatever the type passes as `idField`)
+ *      spoken field, whatever the type passes as `idField`), with no language
+ *      in it: a bilingual field resolves to its English side here whatever the
+ *      reader is reading, so two sessions write one row
  *   4. the exercise id plus the position, which is NOT stable across a data
  *      edit and says so once on the console
  *
@@ -131,13 +245,11 @@ export function itemIdOf(item, spec, idField, index) {
   if (typeof own === 'string' && own) return prefix + own;
   if (typeof own === 'number') return prefix + String(own);
   if (spec.itemIdField) {
-    const v = fieldValue(item, spec.itemIdField);
-    if (v !== undefined && v !== null && v !== '') return prefix + displayValue(v);
+    const named = stableValue(rawFieldValue(item, spec.itemIdField));
+    if (named !== '') return prefix + named;
   }
-  const fromField = fieldValue(item, idField);
-  if (fromField !== undefined && fromField !== null && fromField !== '') {
-    return prefix + displayValue(fromField);
-  }
+  const fromField = stableValue(rawFieldValue(item, idField));
+  if (fromField !== '') return prefix + fromField;
   const key = `${spec.id}`;
   if (!warned.has(key)) {
     warned.add(key);

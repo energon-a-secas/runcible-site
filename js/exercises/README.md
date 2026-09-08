@@ -44,6 +44,10 @@ command line validator can use it.
   valid pointer. May return a promise.
 - **`api.t(obj)`** resolves a scalar `{en,es}`. It cannot resolve a list valued
   body, so `read` resolves those itself from `api.lang` (see `bilingual.js`).
+  `api.lang` is also what item fields resolve in: `items.js` takes it from the
+  api the first time a type resolves its list, and calls `api.t` after that
+  only when a value has no side in the reader's language, so the page's honesty
+  line counts a fallen back cue exactly as it counts a fallen back paragraph.
 - **`api.tts(text, opts)`** is what `listen` and `speak` speak through, so the
   Book's content language applies. `speech.js` exports `tts` as the body to use.
 - **`api.attempt(a)`** is called directly and is never wrapped. A throw from the
@@ -76,12 +80,52 @@ Optional on any type: `count` (how many items to ask, default all),
 | `deck` | `src`, `limit?`, `mode?` | delegated to `js/embed.js`'s `mountDeckEmbed({host, spec, api, ctx})` |
 | `custom` | `module`, `props?` | `module` is a registered id. `{ "type": "jp.loanword" }` is refused: a Book module is used as `{ "type": "custom", "module": "jp.loanword" }` |
 
+## An item field may be bilingual
+
+Every field an exercise names, in a data file or an inline item, may hold a
+plain string or the fleet's `{ en, es }` object, and the object resolves to the
+reader's language:
+
+```json
+{ "id": "mizu", "kana": "みず",
+  "gloss": { "en": "water", "es": "agua" } }
+```
+
+```json
+{ "type": "choice", "items": "data/vocab/ch4.json#rows",
+  "prompt": "kana", "answer": "gloss", "distractors": { "n": 3 } }
+```
+
+- It holds for `prompt`, `answer`, `left`, `right`, `speak`, `expect`,
+  `sequence`, a grouping field, and an explicit `distractors.values` entry:
+  they are all one field name read through `fieldValue`, which is where the
+  rule lives, so they are all bilingual or none of them is.
+- **`sequence` may be a list per language**, `{ "en": [...], "es": [...] }`, so
+  an `order` drill can arrange a Spanish sentence for a Spanish reader.
+- **Grading follows what was shown.** A `typed` answer is graded against the
+  reader's own language, because the value graded against is the value that was
+  displayed. `compare` applies to it as usual.
+- **A missing side falls back**, own language, then `en`, then `es`, and never
+  to a blank. Falling back is recorded, so the view says once that part of this
+  page is only written in English.
+- An object that is not bilingual (no `en` and no `es`) still renders as the
+  empty string. A whole record under a field name is an authoring mistake with
+  no honest rendering.
+
+**What is stored stays language free.** `itemId` resolves a bilingual field to
+its English side whatever the reader is reading (`stableValue`), so an English
+session and a Spanish one write one row for one item, which is what C2.6
+requires of progress already on a visitor's disk. The `answer` and `expected`
+fields of an attempt are the opposite case: they record what was on screen, so
+they carry the reader's language.
+
 **`itemId`** (C2.3) is resolved in this order, and C2 does not say where it comes
 from, so it is stated here:
 
 1. `item.id`, prefixed by `itemIdPrefix`
 2. the field named by `itemIdField`
-3. the value of the type's identity field (the prompt, the spoken field, and so on)
+3. the value of the type's identity field (the prompt, the spoken field, and so
+   on), with the language taken out of it
 4. the exercise id plus a position, which is **not** stable across a data edit
    and warns on the console once
 
@@ -175,8 +219,11 @@ open http://localhost:8878/js/exercises/fixtures/harness.html
 
 `fixtures/` is the engine's own rig: a `neo-chapter/1` with one exercise of each
 of the nine types plus two extra `listen` variants for the degrade and skip
-paths, a Book module registering one transform and one custom exercise, and a
-panel that runs the contract's refusals at boot. It stands in for the shell with
+paths, six `-bilingual` exercises whose fields are `{ en, es }` objects, a Book
+module registering one transform and one custom exercise, and a panel that runs
+the contract's refusals and the bilingual field rules at boot. Switch the
+harness language to `es` and every cue, option, token and spoken line in those
+six changes; the `itemId` in the attempt log does not. It stands in for the shell with
 its own `api.data` and `api.t` and nothing else. Its content is about the solar
 system on purpose: if the engine ever needs to know its topic, this fixture
 stops working.

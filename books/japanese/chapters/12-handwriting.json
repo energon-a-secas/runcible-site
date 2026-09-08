@@ -107,8 +107,14 @@
           "items": [
             {
               "id": "hand:hook",
-              "difference": "A stroke that ends in a hook, and the same stroke ended with a stop",
-              "verdict": "the same character, and the difference is 字形",
+              "difference": {
+                "en": "A stroke that ends in a hook, and the same stroke ended with a stop",
+                "es": "Un trazo que termina en gancho, y el mismo trazo terminado en parada"
+              },
+              "verdict": {
+                "en": "the same character, and the difference is 字形",
+                "es": "el mismo carácter, y la diferencia es 字形"
+              },
               "explain": {
                 "en": "The 2016 guideline says a character written so its skeleton reads, with nothing missing and nothing added, is not to be judged wrong. A hook or a stop is 字形.",
                 "es": "La guía de 2016 dice que un carácter escrito de modo que su esqueleto se lea, sin que falte ni sobre nada, no debe juzgarse incorrecto. Un gancho o una parada es 字形."
@@ -116,8 +122,14 @@
             },
             {
               "id": "hand:join",
-              "difference": "A stroke joined to the one before it, and the same two written apart",
-              "verdict": "the same character, and the difference is 字形",
+              "difference": {
+                "en": "A stroke joined to the one before it, and the same two written apart",
+                "es": "Un trazo unido al anterior, y esos mismos dos escritos separados"
+              },
+              "verdict": {
+                "en": "the same character, and the difference is 字形",
+                "es": "el mismo carácter, y la diferencia es 字形"
+              },
               "explain": {
                 "en": "Joined or separate is one of the three variations the guideline names as 字形. It is why the same kana is three strokes in one hand and four in another.",
                 "es": "Unido o separado es una de las tres variaciones que la guía nombra como 字形. Por eso el mismo kana tiene tres trazos en una mano y cuatro en otra."
@@ -125,8 +137,14 @@
             },
             {
               "id": "hand:sweep",
-              "difference": "A stroke that sweeps out at the end, and the same stroke stopped flat",
-              "verdict": "the same character, and the difference is 字形",
+              "difference": {
+                "en": "A stroke that sweeps out at the end, and the same stroke stopped flat",
+                "es": "Un trazo que barre hacia afuera al final, y el mismo trazo detenido en plano"
+              },
+              "verdict": {
+                "en": "the same character, and the difference is 字形",
+                "es": "el mismo carácter, y la diferencia es 字形"
+              },
               "explain": {
                 "en": "Sweeping or stopping is the third of the guideline's named variations, and it changes no skeleton.",
                 "es": "Barrer o detenerse es la tercera de las variaciones que la guía nombra, y no cambia ningún esqueleto."
@@ -134,8 +152,14 @@
             },
             {
               "id": "hand:令",
-              "difference": "令 as it is printed, and 令 as most people write it by hand",
-              "verdict": "the same character, and the difference is 字形",
+              "difference": {
+                "en": "令 as it is printed, and 令 as most people write it by hand",
+                "es": "令 tal como se imprime, y 令 tal como lo escribe a mano casi todo el mundo"
+              },
+              "verdict": {
+                "en": "the same character, and the difference is 字形",
+                "es": "el mismo carácter, y la diferencia es 字形"
+              },
               "explain": {
                 "en": "This is the case the 2016 guideline was written for. It records counter staff at municipal offices telling citizens that their own handwritten name was a different character.",
                 "es": "Este es el caso para el que se escribió la guía de 2016. Registra que personal de ventanilla en oficinas municipales dijo a ciudadanos que su propio nombre escrito a mano era otro carácter."
@@ -143,8 +167,14 @@
             },
             {
               "id": "hand:女",
-              "difference": "The two handwritten forms of 女 that the 2015 survey put side by side",
-              "verdict": "the same character, and the difference is 字形",
+              "difference": {
+                "en": "The two handwritten forms of 女 that the 2015 survey put side by side",
+                "es": "Las dos formas manuscritas de 女 que la encuesta de 2015 puso lado a lado"
+              },
+              "verdict": {
+                "en": "the same character, and the difference is 字形",
+                "es": "el mismo carácter, y la diferencia es 字形"
+              },
               "explain": {
                 "en": "Opinion split on all nine kanji the survey showed, and on 女 it split by generation. Both forms read as 女.",
                 "es": "La opinión se dividió en los nueve kanji que mostró la encuesta, y en 女 se dividió por generación. Ambas formas se leen como 女."
@@ -152,8 +182,14 @@
             },
             {
               "id": "hand:保",
-              "difference": "The two handwritten forms of 保 that the 2015 survey put side by side",
-              "verdict": "the same character, and the difference is 字形",
+              "difference": {
+                "en": "The two handwritten forms of 保 that the 2015 survey put side by side",
+                "es": "Las dos formas manuscritas de 保 que la encuesta de 2015 puso lado a lado"
+              },
+              "verdict": {
+                "en": "the same character, and the difference is 字形",
+                "es": "el mismo carácter, y la diferencia es 字形"
+              },
               "explain": {
                 "en": "The other kanji whose answers split by generation. Only 32.2 percent of those asked knew that a handwriting habit may be followed instead of the printed shape.",
                 "es": "El otro kanji cuyas respuestas se dividieron por generación. Solo el 32,2 por ciento de las personas consultadas sabía que se puede seguir la costumbre de la mano en lugar de la forma impresa."
@@ -161,8 +197,14 @@
             },
             {
               "id": "face:kyokasho",
-              "difference": "One character set in 明朝体, and the same character set in 教科書体",
-              "verdict": "the same character, and the difference is 書体",
+              "difference": {
+                "en": "One character set in 明朝体, and the same character set in 教科書体",
+                "es": "Un carácter compuesto en 明朝体, y el mismo carácter compuesto en 教科書体"
+              },
+              "verdict": {
+                "en": "the same character, and the difference is 書体",
+                "es": "el mismo carácter, y la diferencia es 書体"
+              },
               "explain": {
                 "en": "A 書体 is a style system, not a character. 教科書体 exists so that the printed form matches what a child is told to write, because Meiji metal type did not.",
                 "es": "Un 書体 es un sistema de estilo, no un carácter. El 教科書体 existe para que la forma impresa coincida con lo que se le enseña a escribir a un niño, porque el tipo de metal de la era Meiji no coincidía."
@@ -170,8 +212,14 @@
             },
             {
               "id": "face:り",
-              "difference": "り in 明朝体, with its two strokes connected, and り as a child is taught to write it",
-              "verdict": "the same character, and the difference is 書体",
+              "difference": {
+                "en": "り in 明朝体, with its two strokes connected, and り as a child is taught to write it",
+                "es": "り en 明朝体, con sus dos trazos unidos, y り como se le enseña a escribirlo a un niño"
+              },
+              "verdict": {
+                "en": "the same character, and the difference is 書体",
+                "es": "el mismo carácter, y la diferencia es 書体"
+              },
               "explain": {
                 "en": "The connected shape comes from the brush and stayed in some printed faces. Both are り, and the separated form is the one taught by hand.",
                 "es": "La forma conectada viene del pincel y se quedó en algunas fuentes impresas. Ambas son り, y la forma separada es la que se enseña a mano."
@@ -179,8 +227,14 @@
             },
             {
               "id": "body:士土",
-              "difference": "士 and 土, where the longer horizontal stroke is on top or on the bottom",
-              "verdict": "a different character, and the difference reaches 字体",
+              "difference": {
+                "en": "士 and 土, where the longer horizontal stroke is on top or on the bottom",
+                "es": "士 y 土, donde el trazo horizontal más largo está arriba o abajo"
+              },
+              "verdict": {
+                "en": "a different character, and the difference reaches 字体",
+                "es": "otro carácter, y la diferencia llega al 字体"
+              },
               "explain": {
                 "en": "Relative length is the whole distinction here, so it reaches the skeleton. 士 is a gentleman, 土 is earth.",
                 "es": "La longitud relativa es toda la distinción aquí, así que llega al esqueleto. 士 es caballero, 土 es tierra."
@@ -188,8 +242,14 @@
             },
             {
               "id": "body:末未",
-              "difference": "末 and 未, the same question of which horizontal stroke is longer",
-              "verdict": "a different character, and the difference reaches 字体",
+              "difference": {
+                "en": "末 and 未, the same question of which horizontal stroke is longer",
+                "es": "末 y 未, la misma cuestión de cuál trazo horizontal es más largo"
+              },
+              "verdict": {
+                "en": "a different character, and the difference reaches 字体",
+                "es": "otro carácter, y la diferencia llega al 字体"
+              },
               "explain": {
                 "en": "The guideline names this pair beside 士 and 土. 末 is an end, 未 is not yet.",
                 "es": "La guía nombra este par junto a 士 y 土. 末 es final, 未 es todavía no."
@@ -197,8 +257,14 @@
             },
             {
               "id": "body:輸輪",
-              "difference": "輸 and 輪, which differ in the part on the right",
-              "verdict": "a different character, and the difference reaches 字体",
+              "difference": {
+                "en": "輸 and 輪, which differ in the part on the right",
+                "es": "輸 y 輪, que se diferencian en la parte de la derecha"
+              },
+              "verdict": {
+                "en": "a different character, and the difference reaches 字体",
+                "es": "otro carácter, y la diferencia llega al 字体"
+              },
               "explain": {
                 "en": "A different part is a different skeleton. 輸 is to transport, 輪 is a wheel or a ring.",
                 "es": "Una parte distinta es un esqueleto distinto. 輸 es transportar, 輪 es rueda o aro."
@@ -206,8 +272,14 @@
             },
             {
               "id": "body:永氷",
-              "difference": "永 and 氷, which differ by one dot",
-              "verdict": "a different character, and the difference reaches 字体",
+              "difference": {
+                "en": "永 and 氷, which differ by one dot",
+                "es": "永 y 氷, que se diferencian por un punto"
+              },
+              "verdict": {
+                "en": "a different character, and the difference reaches 字体",
+                "es": "otro carácter, y la diferencia llega al 字体"
+              },
               "explain": {
                 "en": "One dot, and the guideline still counts it as 字体. 永 is eternal, 氷 is ice.",
                 "es": "Un punto, y aun así la guía lo cuenta como 字体. 永 es eterno, 氷 es hielo."
@@ -290,6 +362,15 @@
           "prompt": "literal",
           "answer": "strokes",
           "distractors": {
+            "values": [
+              "2",
+              "3",
+              "4",
+              "5",
+              "6",
+              "7",
+              "8"
+            ],
             "n": 3
           },
           "count": 8,
