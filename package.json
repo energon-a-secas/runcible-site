@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "convex": "convex dev",
-    "test": "node --test convex/merge.test.ts"
+    "test": "node --test convex/merge.test.ts js/exercises/fixtures/misses/misses.test.mjs"
   },
   "license": "MIT",
   "dependencies": {

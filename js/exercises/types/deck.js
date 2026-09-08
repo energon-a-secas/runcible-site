@@ -1,6 +1,8 @@
 // ── deck ─────────────────────────────────────────────────────
 // C2.1: an embedded Rappel session. Graded, from rappel:answer.
-// Required spec field: src. Optional: limit, mode.
+// Required spec field: src, or `load` for a deck the shell built and posts
+// with rappel:load (C12 A19; js/misses.js builds the one there is).
+// Optional: limit, mode.
 //
 // The iframe, the C6.4 origin filtering, the C6.3 hello handshake and the
 // "Open in Rappel" escape link of C6.5 belong to the shell's embed host, which
@@ -14,7 +16,7 @@
 //   export function mountDeckEmbed({ host, spec, api, ctx }) -> { destroy() }
 //
 //     host  an element this type owns and hands over whole
-//     spec  the deck exercise: { id, type, skill, src, limit, mode, ... }
+//     spec  the deck exercise: { id, type, skill, src | load, limit, mode, ... }
 //     api   the frozen C2.3 api
 //     ctx   { bookId, chapterId, rungId }, passed through untouched. embed.js
 //           refuses a deck it cannot attribute an attempt to.

@@ -16,6 +16,11 @@
 //     chapter goal. If it silently stopped, decks would still work, chapters
 //     would stop unlocking, and nothing would error. So a malformed answer is
 //     said out loud, on the page, not swallowed.
+//  4. A personal deck (C12 A19, js/misses.js) is a document this host builds
+//     and posts, not a file the engine fetches. It carries the index it was
+//     built from, so an answer lands on the item and the chapter that produced
+//     the miss rather than on a deck no goal reads. A note id the index does
+//     not know is said out loud and recorded nowhere.
 
 import { state } from './state.js';
 import { assertDeclared } from './books.js';
@@ -47,9 +52,13 @@ export function deckUrl(spec, { embed = true } = {}) {
   if (embed) p.set('embed', '1');
   p.set('mode', spec.mode || 'review');
   if (Number.isInteger(spec.limit) && spec.limit > 0) p.set('limit', String(spec.limit));
-  // Exactly one of deck, src or #d= must be present, C6.1. This host always
-  // uses src, because a Book's deck is a file on Runcible's own origin.
-  p.set('src', new URL(spec.src, ROOT).href);
+  // Exactly one of deck, src or #d= must be present, C6.1. A Book's deck is a
+  // file on Runcible's own origin, so it travels as src. A personal deck is
+  // built here and has no URL to fetch, so its id travels as deck= and the
+  // document follows on rappel:load (A19). The escape link carries the same
+  // id, where the engine's stored copy is what opens.
+  if (spec.load) p.set('deck', spec.load.id);
+  else p.set('src', new URL(spec.src, ROOT).href);
   p.set('lang', state.prefs.lang);
   const theme = document.documentElement.dataset.theme;
   if (theme) p.set('theme', theme);
@@ -73,10 +82,24 @@ export function mountDeckEmbed({ host, spec, api, ctx }) {
   if (where.bookId && where.bookId !== book.id) {
     throw new Error(`deck "${spec.id}": mounted for Book "${where.bookId}" while "${book.id}" is open`);
   }
+  // A personal deck attributes every answer through the index that built it,
+  // so it needs no chapter of its own: the chapter comes from the row. Every
+  // other deck still refuses to mount where an attempt could not be attributed.
+  const personal = !!spec.load;
   const chapterId = where.chapterId || (state.chapter && state.chapter.id);
-  if (!chapterId) throw new Error(`deck "${spec.id}": no chapter context, so an attempt could not be attributed`);
-  // C1.3 rule 2 applies to a deck src exactly as it does to a data pointer.
-  assertDeclared(book, spec.src, `exercise ${spec.id}`);
+  if (!chapterId && !personal) throw new Error(`deck "${spec.id}": no chapter context, so an attempt could not be attributed`);
+  if (personal) {
+    if (!spec.load.id || !spec.load.version) throw new Error(`deck "${spec.id}": a personal deck needs an id and a version (A19 rule 5)`);
+    if (!spec.rows || typeof spec.rows.get !== 'function') {
+      throw new Error(`deck "${spec.id}": a personal deck must carry the index its cards were built from`);
+    }
+  } else {
+    // C1.3 rule 2 applies to a deck src exactly as it does to a data pointer.
+    // A personal deck is not a file, so there is no manifest entry to declare.
+    assertDeclared(book, spec.src, `exercise ${spec.id}`);
+  }
+  // What the cached counts are keyed by. A deck with no src is keyed by its id.
+  const deckKey = personal ? spec.load.id : spec.src;
 
   const origin = rappelOrigin();
   const status = h('p', { class: 'rn-deck-status', role: 'status' }, ui('loading'));
@@ -100,6 +123,22 @@ export function mountDeckEmbed({ host, spec, api, ctx }) {
   const say = (text) => { status.textContent = text; };
   const shout = (text) => { warn.textContent = text; warn.hidden = false; };
   let heard = false;
+  let resends = 0;
+
+  /**
+   * A19: the document, then the greeting. The engine holds a `personal:` deck
+   * open with no error and no timeout, because the host is the only party that
+   * can end the wait, so silence here is a deck that never appears.
+   */
+  function sendDeck() {
+    if (!personal) return;
+    try {
+      frame.contentWindow?.postMessage(
+        { v: 1, type: 'rappel:load', deck: spec.load, store: 'engine' }, origin);
+    } catch (e) {
+      console.error('[runcible] could not send the personal deck', e);
+    }
+  }
 
   function onMessage(e) {
     if (e.origin !== origin) return;
@@ -109,9 +148,21 @@ export function mountDeckEmbed({ host, spec, api, ctx }) {
     heard = true;
 
     if (m.type === 'rappel:ready' || m.type === 'rappel:due') {
-      noteDeckCounts(book.id, spec.src, { due: m.due, new: m.new, total: m.total });
+      noteDeckCounts(book.id, deckKey, { due: m.due, new: m.new, total: m.total });
       say(counts(m));
-      if (m.type === 'rappel:ready' && m.ledger === 'ephemeral') shout(ui('notSaved'));
+      if (m.type !== 'rappel:ready') return;
+      if (m.ledger === 'ephemeral') shout(ui('notSaved'));
+      // C6.1 lets the engine be ready at once with the copy it stored on an
+      // earlier visit, which can be older than the one just built. A version
+      // that is not ours is a stale deck on screen, so the document goes
+      // again; A19 rule 5 makes a repeat of the current version a no-op, so
+      // this is the whole of "re-sent when its version changed". Twice, then
+      // stop: an engine that keeps answering with another version is not
+      // going to take this one, and a loop would hide that.
+      if (personal && m.deckVersion !== spec.load.version && resends < 2) {
+        resends += 1;
+        sendDeck();
+      }
       return;
     }
     if (m.type === 'rappel:answer') {
@@ -125,13 +176,32 @@ export function mountDeckEmbed({ host, spec, api, ctx }) {
         shout(ui('deckNoSkill'));
         return;
       }
+      const ms = Number(m.ms) || 0;
+      if (personal) {
+        // A19: itemId is deckId + ":" + noteId, and a note id never holds a
+        // colon. The row it maps back to carries the item, the skill, the
+        // chapter and the exercise the miss came from, so a review of this
+        // card is evidence exactly where the miss was made.
+        const noteId = m.itemId.slice(m.itemId.lastIndexOf(':') + 1);
+        const row = spec.rows.get(noteId);
+        if (!row) {
+          console.error('[runcible] rappel:answer names a card this page cannot place', m);
+          shout(ui('missesUnknownCard'));
+          return;
+        }
+        recordAttempt(
+          { itemId: row.itemId, skill: row.skill, correct: m.correct, ms },
+          { bookId: book.id, chapterId: row.chapterId, exerciseId: row.exerciseId, source: 'rappel' },
+        );
+        return;
+      }
       // The attempt counts toward the skill the chapter author put on the deck
       // spec. The engine's `m.skill` is the deck template's own name, which is
       // deck-internal so a deck stays reusable across Books; recording under it
       // sent every deck review to a name no goal reads (QA, 2026-09-04).
       // tools/validate-book.mjs checks the spec's skill is one this Book knows.
       recordAttempt(
-        { itemId: m.itemId, skill: spec.skill || m.skill, correct: m.correct, ms: Number(m.ms) || 0 },
+        { itemId: m.itemId, skill: spec.skill || m.skill, correct: m.correct, ms },
         { bookId: book.id, chapterId, exerciseId: spec.id, source: 'rappel' },
       );
       return;
@@ -139,7 +209,7 @@ export function mountDeckEmbed({ host, spec, api, ctx }) {
     if (m.type === 'rappel:session-end') {
       // session-end carries due and new too, so the Today badge is current even
       // if the engine's next rappel:due never arrives.
-      noteDeckCounts(book.id, spec.src, { due: m.due, new: m.new });
+      noteDeckCounts(book.id, deckKey, { due: m.due, new: m.new });
       say(counts(m));
       if (typeof api.done === 'function') {
         api.done({ exerciseId: spec.id, type: 'deck', answered: m.answered,
@@ -158,6 +228,9 @@ export function mountDeckEmbed({ host, spec, api, ctx }) {
   }
 
   function onLoad() {
+    // A19: the document first, because a frame opened on deck=personal: is
+    // waiting for it and posts nothing until it arrives.
+    sendDeck();
     // C6.3. The engine may already be ready, so ask it to say so again. A frame
     // that failed to load has an opaque origin and this throws rather than
     // reaching anything, which the silence timer below is what reports.

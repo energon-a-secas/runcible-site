@@ -23,6 +23,16 @@ export const REQUIRED_FIELDS = Object.freeze({
   custom: ['module'],
 });
 
+/**
+ * C12 A19. A `deck` exercise names a file with `src`; the shell's own personal
+ * deck (js/misses.js, "Your misses") is built in the page and has no file, so
+ * it carries the whole `neo-deck/1` document in `load` instead and js/embed.js
+ * posts it with `rappel:load`. The prefix is reserved by A19 for exactly this:
+ * a document a host built, never a deck a Book ships.
+ */
+export const PERSONAL_DECK_PREFIX = 'personal:';
+export const DECK_FORMAT = 'neo-deck/1';
+
 /** Which types can never report true or false, whatever the learner does. */
 export const NEVER_GRADED = Object.freeze(['read', 'speak']);
 
@@ -120,7 +130,26 @@ export function validateExerciseSpec(spec, known) {
 
   if (type && REQUIRED_FIELDS[type]) {
     for (const field of REQUIRED_FIELDS[type]) {
-      if (!present(spec, field)) out.push(`"${type}" needs "${field}"`);
+      // A19: a deck carried in the spec has no file, so it needs no src.
+      if (type === 'deck' && field === 'src' && present(spec, 'load')) continue;
+      if (present(spec, field)) continue;
+      out.push(type === 'deck' && field === 'src'
+        ? '"deck" needs "src", the file it embeds, or "load", a document the shell built'
+        : `"${type}" needs "${field}"`);
+    }
+  }
+
+  if (spec.load !== undefined) {
+    if (type !== 'deck') {
+      out.push('"load" belongs to a deck exercise: no other type carries a document');
+    } else if (!spec.load || typeof spec.load !== 'object' || Array.isArray(spec.load)) {
+      out.push(`"load" must be a whole ${DECK_FORMAT} document, which js/embed.js posts with rappel:load`);
+    } else if (spec.load.format !== DECK_FORMAT) {
+      out.push(`"load.format" must be "${DECK_FORMAT}", got ${JSON.stringify(spec.load.format)}`);
+    } else if (typeof spec.load.id !== 'string' || !spec.load.id.startsWith(PERSONAL_DECK_PREFIX)) {
+      out.push(`"load.id" must start with "${PERSONAL_DECK_PREFIX}": A19 reserves that prefix for a deck a host builds, and the engine refuses it anywhere else`);
+    } else if (typeof spec.load.version !== 'string' || !spec.load.version) {
+      out.push('"load.version" is what A19 rule 5 compares, so a document with none would restart the schedule on every rebuild');
     }
   }
 

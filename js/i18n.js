@@ -176,6 +176,28 @@ const UI = {
   inThisChapter: { en: 'In this chapter', es: 'En este capítulo' },
   alsoOnThisRung: { en: 'Also on this page', es: 'También en esta página' },
 
+  // Your misses: the personal deck built from wrong answers (js/misses.js).
+  // missesFrom, beatsBack and soundBack are card copy rather than page copy:
+  // they are built into a note's fields in the reader's language, which is why
+  // a language switch rebuilds the deck and why the note id does not move.
+  missesTitle: { en: 'Your misses', es: 'Tus fallos' },
+  missesLead: {
+    en: 'A wrong answer in a round becomes a card here, and shows up in your next review. Rappel decides when you have learned it; this page never marks it learned.',
+    es: 'Una respuesta incorrecta en una ronda se convierte aquí en una tarjeta y aparece en tu próximo repaso. Rappel decide cuándo la has aprendido; esta página nunca la marca como aprendida.',
+  },
+  missesCap: {
+    en: 'Keeps your newest 200 misses; older ones drop off.',
+    es: 'Guarda tus 200 fallos más recientes; los más antiguos se descartan.',
+  },
+  missesCount: { en: '{n} cards, not reviewed yet', es: '{n} tarjetas, todavía sin repasar' },
+  missesFrom: { en: 'From {name}', es: 'De {name}' },
+  beatsBack: { en: '{n} beats · {split}', es: '{n} tiempos · {split}' },
+  soundBack: { en: '{sound} · {row}', es: '{sound} · {row}' },
+  missesUnknownCard: {
+    en: 'Rappel graded a card this page cannot place, so it was not recorded.',
+    es: 'Rappel calificó una tarjeta que esta página no puede ubicar, así que no se registró.',
+  },
+
   // Book states on the shelf, and the settings readout.
   bookReady: { en: 'Ready', es: 'Listo' },
   bookSoon: { en: 'Soon', es: 'Pronto' },

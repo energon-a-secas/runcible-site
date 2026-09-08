@@ -17,6 +17,9 @@ import { h, pct } from './utils.js';
 import { href } from './router.js';
 import * as books from './books.js';
 import { composeToday } from './today.js';
+import { deckCounts } from './progress.js';
+import { deckUrl } from './embed.js';
+import { buildMissesDeck, MISSES_EXERCISE_ID } from './misses.js';
 import { action, textAction, textLink, evidenceLine, hairline, titleOf } from './render-shared.js';
 import { catalogView } from './render-contents.js';
 import { drillRow } from './render-chapter.js';
@@ -26,6 +29,7 @@ export async function todayView() {
   if (!bookId) return catalogView();
   const book = await books.openBook(bookId);
   const plan = await composeToday(book);
+  plan.misses = await yourMisses(book, plan);
 
   return [
     h('div', { class: 'rn-open-head' }, [
@@ -41,6 +45,148 @@ export async function todayView() {
       rightPage(book, plan),
     ]),
   ];
+}
+
+// ── Your misses ──────────────────────────────────────────────────────────────
+// The personal deck built from wrong answers: js/misses.js builds it, this
+// draws it, js/embed.js posts it. Design: docs/DESIGN-MISSES.md.
+
+/**
+ * Build the deck for this paint, or null when there is nothing to review.
+ *
+ * Rebuilt every time Today paints, which is cheap: the rows come from the
+ * progress store and the item files are already in the loader's cache after
+ * the first build. A build that fails is a missing item on Today, never a
+ * Today that will not draw, so the reason goes to the console alone.
+ */
+async function yourMisses(book, plan) {
+  try {
+    const docs = new Map((plan.rows || []).filter((r) => r.doc).map((r) => [r.id, r.doc]));
+    return await buildMissesDeck(book, docs, async (pointer) => {
+      const value = await books.resolvePointer(book, pointer, 'your misses');
+      const { src } = books.splitPointer(pointer);
+      return { src, doc: books.peekData(src), value };
+    });
+  } catch (e) {
+    console.error('[runcible] your misses could not be built', e);
+    return null;
+  }
+}
+
+/**
+ * The synthetic spec the deck host mounts. It is not in any chapter, so it
+ * carries the document itself (A19 `load`) and the index that built it, which
+ * is how js/embed.js sends every answer home to the chapter the miss came from.
+ */
+function missesSpec(built) {
+  return {
+    id: MISSES_EXERCISE_ID,
+    type: 'deck',
+    skill: built.deck.templates[0].skill,
+    title: ui('missesTitle'),
+    mode: 'review',
+    load: built.deck,
+    rows: built.rows,
+  };
+}
+
+// One mounted misses deck at a time, and it goes when its host leaves the page.
+// js/render-mount.js owns the chapter's mounts and is not this round's to edit,
+// so this watches its own host: a repaint replaces the whole view, and a frame
+// whose listener outlived its element would go on recording from a page that
+// is no longer on screen.
+let live = null;
+
+function closeMisses() {
+  if (!live) return;
+  const { handle, watcher } = live;
+  live = null;
+  if (watcher) watcher.disconnect();
+  try { handle.destroy(); } catch (e) { console.error('[runcible] misses deck destroy failed', e); }
+}
+
+function watchHost(host, handle) {
+  const root = document.getElementById('view');
+  const watcher = typeof MutationObserver === 'function'
+    ? new MutationObserver(() => { if (!host.isConnected) closeMisses(); })
+    : null;
+  if (watcher && root) watcher.observe(root, { childList: true, subtree: true });
+  live = { handle, watcher };
+}
+
+/**
+ * The api the engine requires (C2.3). A card in this deck is attributed
+ * through the index, in js/embed.js, so `attempt` is never reached from here.
+ * It throws rather than recording, because the alternative is an attempt filed
+ * against a chapter this deck does not have.
+ */
+function missesApi() {
+  return Object.freeze({
+    attempt() { throw new Error('the misses deck records through its own index, not through api.attempt'); },
+    t: (obj) => t(obj),
+    tList: (obj) => tList(obj),
+    get lang() { return state.prefs.lang; },
+    data() { throw new Error('the misses deck resolves no data pointer'); },
+    tts: () => {},
+    done: () => {},
+  });
+}
+
+function missesItem(book, built) {
+  const spec = missesSpec(built);
+  const seen = deckCounts(book.id)[built.deck.id] || null;
+  const host = h('div', { class: 'rn-ex-host', id: `ex-${MISSES_EXERCISE_ID}` });
+  const start = h('button', { class: 'btn btn--secondary btn--sm', type: 'button' }, ui('start'));
+  start.addEventListener('click', () => {
+    closeMisses();
+    start.hidden = true;
+    try {
+      watchHost(host, books.engine().mount(host, spec, missesApi(), { bookId: book.id }));
+    } catch (e) {
+      console.error('[runcible] the misses deck could not be mounted', e);
+      start.hidden = false;
+    }
+  });
+  const counts = seen && Number.isFinite(seen.due)
+    ? `${seen.due} ${ui('due')} · ${seen.new || 0} ${ui('fresh')}`
+    : ui('missesCount', { n: built.cards });
+  return h('li', { class: 'rn-open-item' }, [
+    h('p', { class: 'rn-open-label' }, ui('missesTitle')),
+    h('p', { class: 'rn-open-item-title' }, counts),
+    // The first time, before the engine has ever answered: what this is, and
+    // what it does not keep. After that the counts line says it.
+    seen ? null : h('p', { class: 'rn-lead' }, ui('missesLead')),
+    seen ? null : h('p', { class: 'rn-lead' }, ui('missesCap')),
+    h('div', { class: 'toolbar' }, [
+      start,
+      // C6.5: the link to the unpartitioned top level, where the engine's own
+      // stored copy of this deck opens, is the one path that always works.
+      h('a', {
+        class: 'rn-textlink',
+        href: deckUrl(spec, { embed: false }),
+        target: '_blank',
+        rel: 'noopener noreferrer',
+      }, ui('openInRappel')),
+    ]),
+    host,
+    // C11.3: the acknowledgement is owed on every screen that shows the data,
+    // and a card built from a licensed set is one of those screens. The deck
+    // carries the same wording into the frame (js/misses.js mergeLicence).
+    missesAttribution(built),
+  ]);
+}
+
+function missesAttribution(built) {
+  const deck = built.deck;
+  if (deck.screen !== 'required' || !deck.attribution) return null;
+  return h('section', { class: 'neo-attrib', 'aria-label': 'Attribution' }, [
+    h('p', {}, [
+      deck.attribution,
+      deck.source
+        ? h('a', { href: deck.source, target: '_blank', rel: 'noopener noreferrer' }, deck.source)
+        : null,
+    ]),
+  ]);
 }
 
 function leftPage(book, plan) {
@@ -124,6 +270,10 @@ function rightPage(book, plan) {
         ])))
       : h('p', { class: 'rn-lead' }, ui('nothingDue')),
   ]));
+
+  // Right after Reviews due, and only when the deck has a card: an empty
+  // "Your misses" is a promise the page cannot keep yet.
+  if (plan.misses) items.push(missesItem(book, plan.misses));
 
   const game = plan.game;
   items.push(h('li', { class: 'rn-open-item' }, [

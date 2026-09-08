@@ -192,7 +192,7 @@ The ten types and their required fields (from spec.js, verbatim):
 | order  | items, sequence                    | yes    | sequence names a field holding an array, or a string split on whitespace; prompt optional |
 | listen | items, speak, answer, respond      | yes    | respond "choice" or "typed"; speak is the field read aloud; audioOnly: true; transform allowed with respond typed |
 | speak  | items, expect                      | never  | correct: null always. A transcript is shown as feedback, not a score |
-| deck   | src                                | yes    | limit (positive integer), mode is review, cram or browse |
+| deck   | src, or load                       | yes    | limit (positive integer), mode is review, cram or browse. A Book authors src, the file to embed; load is a whole neo-deck/1 document in place of a file and only the shell builds one (see Your misses) |
 | quiz   | game, src                          | yes    | game is beats, sound, pairs or order; limit (positive integer); filter narrows the set to one row or group; timed clocks each item; src is a neo-quiz-set/1 document declared in data[] |
 | custom | module                             | module decides | props passed through. module is an id the Book registered |
 
@@ -221,6 +221,47 @@ choice is visible). Non-embed means any type but deck and quiz: an embed's own
 skill never counts as a reader of itself. A skill nothing in the Book reads is
 an error: reviews would land nowhere with no message. A deck with no skill is
 an error.
+
+### Your misses: the one deck the shell builds
+
+Every wrong answer in a graded round is already a C2.3 attempt, so the shell
+builds one deck of its own out of them and hands it to Rappel in a message
+instead of as a file (CONTRACTS C12 A19, `rappel:load`). A Book does not author
+this deck and cannot: the `personal:` namespace is reserved for a deck a host
+builds, and the engine's validator refuses it on a ?src= or #d= deck.
+
+- id `personal:runcible:<bookId>`, name "Your misses" / "Tus fallos", `lang.front`
+  the Book's content language and `lang.back` the reader's, version
+  `<YYYY-MM-DD of the newest miss>.<N>`. N moves only when the built content
+  differs from the last document sent, so a rebuild that changed nothing is a
+  no-op in the engine
+- one card per miss, keyed `miss:<quiz|shell>:<setId|chapterId>:<itemId>`. The
+  note id is `m_` plus the first 12 hex of SHA-256 of that key, so a rebuild
+  keeps every card's identity and its scheduling, and the same item missed in
+  two exercises over one set is one card
+- fields `Front`, `Back`, `Why`, `From`, `Key`; one basic template, `recall`,
+  back `{{Back}}<br>{{Why}}<br>{{From}}`. Each note carries the skill of the
+  miss, which C4 lets win over the template's, so a review of the card is
+  evidence for the chapter and exercise that produced the miss
+- a quiz miss is built from its set: beats (kana; beats and split; the rule's
+  explain), sound (kana; sound and row), pairs (left; right, and the item's
+  note when it has one), order (gloss; line). A generic miss is the prompt
+  field, the answer field and the item's explain, and only from `choice`,
+  `typed`, `listen` and `match`: `order`, `speak` and `custom` have no single
+  front and back, and a guessed card is worse than no card
+- the licence of the strictest source the cards draw from travels with the
+  deck (share-alike wins over public domain), and Today renders the same
+  acknowledgement beside it, because a card is a screen that shows the data
+  (C11.3)
+- the newest 200, per Book, on this device. The rows are read from the evidence
+  windows, which hold 200 attempts per skill (C8.2), so a miss that has aged
+  out of its own skill's window is not in the deck. Nothing is synced: a miss
+  made on another device is not here and the page does not pretend otherwise
+- `js/misses.js` builds it, `js/render-today.js` draws it under Reviews due and
+  only when it has a card, `js/embed.js` posts it on the frame's load event and
+  again if the engine answers with another version. Nothing here marks a miss
+  learned, and a later correct answer never deletes a row: Rappel decides when
+  a card is learned, and only the cap removes one
 
 ### The quiz exercise and its skill
 

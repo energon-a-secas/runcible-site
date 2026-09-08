@@ -1,0 +1,112 @@
+{
+  "books": {
+    "japanese": {
+      "chapters": {},
+      "evidence": {
+        "kana.hiragana.read": [
+          {
+            "at": 1788610800000,
+            "itemId": "hira-a",
+            "skill": "kana.hiragana.read",
+            "correct": false,
+            "ms": 1800,
+            "bookId": "japanese",
+            "chapterId": "1-hiragana",
+            "exerciseId": "e-vowels-read",
+            "source": "quiz"
+          },
+          {
+            "at": 1788697200000,
+            "itemId": "hira-a",
+            "skill": "kana.hiragana.read",
+            "correct": false,
+            "ms": 1800,
+            "bookId": "japanese",
+            "chapterId": "1-hiragana",
+            "exerciseId": "e-mixed-read",
+            "source": "quiz"
+          },
+          {
+            "at": 1788697800000,
+            "itemId": "hira-a",
+            "skill": "kana.hiragana.read",
+            "correct": false,
+            "ms": 1800,
+            "bookId": "japanese",
+            "chapterId": "1-hiragana",
+            "exerciseId": "e-mixed-pairs",
+            "source": "quiz"
+          },
+          {
+            "at": 1788783600000,
+            "itemId": "hira-i",
+            "skill": "kana.hiragana.read",
+            "correct": true,
+            "ms": 1800,
+            "bookId": "japanese",
+            "chapterId": "1-hiragana",
+            "exerciseId": "e-vowels-read",
+            "source": "quiz"
+          },
+          {
+            "at": 1788783600000,
+            "itemId": "hira-zzz",
+            "skill": "kana.hiragana.read",
+            "correct": false,
+            "ms": 1800,
+            "bookId": "japanese",
+            "chapterId": "1-hiragana",
+            "exerciseId": "e-vowels-read",
+            "source": "quiz"
+          },
+          {
+            "at": 1788870000000,
+            "itemId": "hira-ka",
+            "skill": "kana.hiragana.read",
+            "correct": false,
+            "ms": 1800,
+            "bookId": "japanese",
+            "chapterId": "1-hiragana",
+            "exerciseId": "e-vowels-read",
+            "source": "rappel"
+          },
+          {
+            "at": 1788870000000,
+            "itemId": null,
+            "skill": "kana.hiragana.read",
+            "correct": false,
+            "ms": 0,
+            "source": "sync"
+          }
+        ],
+        "kana.hiragana.write": [
+          {
+            "at": 1788783600000,
+            "itemId": "kana:あ",
+            "skill": "kana.hiragana.write",
+            "correct": false,
+            "ms": 1800,
+            "bookId": "japanese",
+            "chapterId": "1-hiragana",
+            "exerciseId": "e-vowels-type",
+            "source": "shell"
+          }
+        ],
+        "jp.reading.kana": [
+          {
+            "at": 1788524400000,
+            "itemId": "sakura-sakura-v1-l1",
+            "skill": "jp.reading.kana",
+            "correct": false,
+            "ms": 1800,
+            "bookId": "japanese",
+            "chapterId": "3-songs",
+            "exerciseId": "e-order-sakura-sakura",
+            "source": "quiz"
+          }
+        ]
+      },
+      "decks": {}
+    }
+  }
+}
