@@ -56,15 +56,15 @@
           "body": {
             "en": [
               "A novel runs top to bottom and right to left, so it opens at what an English reader calls the back. Science, forms and almost everything on the web run left to right in rows, and both directions are ordinary. The four stories here are rendered in rows, because that is what a browser does; on paper they would be columns.",
-              "Furigana are the small kana printed beside a kanji to give its reading. Books for small children print them over nearly every character, which is why those books are readable by someone who knows the kana and nothing else. The four stories below carry them on ten words in one story and nowhere else, so the readings are yours to recover.",
-              "Real Japanese has no spaces between words. The three easiest stories here do have them, because they were typeset for children learning to read, and that is a teaching aid with a name of its own. The fourth has none, which is the normal case.",
-              "A paper dictionary is entered by stroke count and by radical, which is the reason chapter 6 drew stroke order at all. This chapter asks you not to open one."
+              "Furigana are the small kana printed beside a kanji to give its reading. Books for children print them beside every kanji they use, which is why those books are readable by someone who knows the kana and nothing else. Aozora prints them on ten words of the fourth story and nowhere else, and the text shown here has them stripped out, so the readings are yours to recover.",
+              "Real Japanese has no spaces between words. The three easiest stories here do have them, because they were typeset for children learning to read, and that is a teaching aid with a name of its own, 分かち書き, wakachigaki. The fourth has none, which is the normal case.",
+              "A paper kanji dictionary is entered by stroke count and by radical, which is the reason chapter 6 drew stroke order at all; a dictionary of words is in kana order. This chapter asks you not to open either."
             ],
             "es": [
               "Una novela corre de arriba abajo y de derecha a izquierda, así que se abre por lo que un lector de español llamaría el final. La ciencia, los formularios y casi todo en la web corren de izquierda a derecha en renglones, y las dos direcciones son normales. Los cuatro cuentos de aquí se muestran en renglones, porque eso es lo que hace un navegador; en papel serían columnas.",
-              "Los furigana son los kana pequeños impresos junto a un kanji para dar su lectura. Los libros para niños pequeños los ponen sobre casi todos los caracteres, y por eso los puede leer alguien que sepa los kana y nada más. Los cuatro cuentos de abajo los llevan en diez palabras de un solo cuento y en ningún otro sitio, así que las lecturas te toca recuperarlas a ti.",
-              "El japonés real no lleva espacios entre palabras. Los tres cuentos más fáciles sí los llevan, porque se compusieron para niños que aprendían a leer, y eso es una ayuda didáctica con nombre propio. El cuarto no lleva ninguno, que es el caso normal.",
-              "Un diccionario de papel se consulta por número de trazos y por radical, y esa es la razón por la que el capítulo 6 dibujó el orden de trazos. Este capítulo te pide que no abras ninguno."
+              "Los furigana son los kana pequeños impresos junto a un kanji para dar su lectura. Los libros para niños los ponen junto a cada kanji que usan, y por eso los puede leer alguien que sepa los kana y nada más. Aozora los imprime en diez palabras del cuarto cuento y en ningún otro sitio, y el texto que se muestra aquí los lleva quitados, así que las lecturas te toca recuperarlas a ti.",
+              "El japonés real no lleva espacios entre palabras. Los tres cuentos más fáciles sí los llevan, porque se compusieron para niños que aprendían a leer, y eso es una ayuda didáctica con nombre propio, 分かち書き, wakachigaki. El cuarto no lleva ninguno, que es el caso normal.",
+              "Un diccionario de kanji en papel se consulta por número de trazos y por radical, y esa es la razón por la que el capítulo 6 dibujó el orden de trazos; un diccionario de palabras va en orden de kana. Este capítulo te pide que no abras ninguno de los dos."
             ]
           }
         },
@@ -77,12 +77,12 @@
           },
           "columns": [
             {
-              "en": "Modern edition, 1946 onward",
-              "es": "Edición moderna, de 1946 en adelante"
+              "en": "Modern spelling, the 1988 children's edition",
+              "es": "Ortografía moderna, la edición infantil de 1988"
             },
             {
-              "en": "Pre-war edition",
-              "es": "Edición de antes de la guerra"
+              "en": "Historical spelling, the 1980 collected works",
+              "es": "Ortografía histórica, las obras completas de 1980"
             }
           ],
           "rows": [
@@ -101,10 +101,10 @@
           ],
           "note": {
             "en": [
-              "Aozora holds several of these picture-book texts twice, once as the pre-war edition and once modernised. The old one writes the doubled consonant with a full-size kana and spells by grammar rather than by sound, which is the orthography the 1946 reform replaced. This chapter's corpus is filtered on the modern spelling, so nothing below teaches a spelling that has not been used in eighty years."
+              "Aozora holds several of these picture-book texts twice, once in the historical spelling and once modernised. Neither is a pre-war printing: both editions were set long after the war, and what differs between them is the spelling. The old one writes a small kana at full size, ょ in these rows and っ elsewhere, and spells by history rather than by sound, which is the orthography the 1946 reform replaced. Katakana is not the old part either: Aozora's card 61540 sets the same birthday story in katakana with the modern spelling. This chapter's corpus is filtered on the modern spelling, so nothing below teaches a spelling that has not been used in eighty years."
             ],
             "es": [
-              "Aozora guarda varios de estos textos de libro ilustrado dos veces, una en la edición de antes de la guerra y otra modernizada. La antigua escribe la consonante doble con un kana de tamaño completo y deletrea por gramática y no por sonido, que es la ortografía que la reforma de 1946 sustituyó. El corpus de este capítulo está filtrado por la ortografía moderna, así que nada de lo de abajo enseña una escritura que no se usa desde hace ochenta años."
+              "Aozora guarda varios de estos textos de libro ilustrado dos veces, una en la ortografía histórica y otra modernizada. Ninguna de las dos es una impresión de antes de la guerra: las dos ediciones se compusieron mucho después, y lo que cambia entre ellas es la ortografía. La antigua escribe a tamaño completo un kana pequeño, ょ en estas filas y っ en otras, y deletrea por historia y no por sonido, que es la ortografía que la reforma de 1946 sustituyó. El katakana tampoco es la parte antigua: la ficha 61540 de Aozora pone ese mismo cuento del cumpleaños en katakana con la ortografía moderna. El corpus de este capítulo está filtrado por la ortografía moderna, así que nada de lo de abajo enseña una escritura que no se usa desde hace ochenta años."
             ]
           }
         },
@@ -164,14 +164,14 @@
             "en": [
               "たけのこ, Aozora Bunko card 4725. A bamboo shoot ignores its mother, wanders out of the grove, and is cut into a flute.",
               "Niimi Nankichi wrote it. He died on 22 March 1943, which is why this file can sit under data/ at all: every contributor to the text was dead by 1945, so it is out of copyright in Japan and in the United States, and Aozora publishes it for anyone to copy. The card is the evidence, and it is linked at the foot of this page.",
-              "Ninety-nine words in a hundred are kana here, and the whole text holds four kanji. It is spaced between phrases. If you can read the kana tables, you can read this.",
-              "Read it to the end before you touch the drills. Looking a word up mid-paragraph is how a reader learns to stop at every word; guessing and reading on is the habit this chapter is for. The drills below ask what happened, not what each word means."
+              "Every character here is kana: there is not one kanji in the whole text. It is spaced between phrases. If you can read the kana tables, you can read this.",
+              "The whole story is the first thing below. Read it to the end before you touch the drills that follow. Looking a word up mid-paragraph is how a reader learns to stop at every word; guessing and reading on is the habit this chapter is for. The drills ask what happened, not what each word means."
             ],
             "es": [
               "たけのこ, ficha 4725 de Aozora Bunko. Un brote de bambú desoye a su madre, se aleja del bambudal y acaba convertido en flauta.",
               "Lo escribió Niimi Nankichi. Murió el 22 de marzo de 1943, y por eso este archivo puede estar en data/: todas las personas que contribuyeron al texto habían muerto antes de 1946, así que está en dominio público en Japón y en Estados Unidos, y Aozora lo publica para que cualquiera lo copie. La ficha es la prueba, y va enlazada al pie de esta página.",
-              "Aquí noventa y nueve de cada cien caracteres son kana, y el texto entero tiene cuatro kanji. Va espaciado entre frases. Si puedes leer las tablas de kana, puedes leer esto.",
-              "Léelo hasta el final antes de tocar los ejercicios. Buscar una palabra a mitad de párrafo es la forma de aprender a detenerse en cada palabra; adivinar y seguir leyendo es el hábito que este capítulo busca. Los ejercicios de abajo preguntan qué pasó, no qué significa cada palabra."
+              "Aquí todos los caracteres son kana: no hay ni un solo kanji en todo el texto. Va espaciado entre frases. Si puedes leer las tablas de kana, puedes leer esto.",
+              "El cuento entero es lo primero que hay abajo. Léelo hasta el final antes de tocar los ejercicios que vienen después. Buscar una palabra a mitad de párrafo es la forma de aprender a detenerse en cada palabra; adivinar y seguir leyendo es el hábito que este capítulo busca. Los ejercicios preguntan qué pasó, no qué significa cada palabra."
             ]
           },
           "links": [
@@ -190,6 +190,35 @@
         }
       ],
       "exercises": [
+        {
+          "id": "e-story-1-read",
+          "type": "read",
+          "skill": "jp.reading.passage",
+          "title": {
+            "en": "Read the whole story",
+            "es": "Lee el cuento entero"
+          },
+          "pages": [
+            {
+              "id": "p-story-1-text",
+              "kind": "table",
+              "title": {
+                "en": "たけのこ",
+                "es": "たけのこ"
+              },
+              "columns": [
+                {
+                  "en": "One paragraph a row, first to last",
+                  "es": "Un párrafo por fila, del primero al último"
+                }
+              ],
+              "items": "data/reading/takenoko.json#paragraphs",
+              "fields": [
+                "text"
+              ]
+            }
+          ]
+        },
         {
           "id": "e-story-1-order",
           "type": "order",
@@ -248,14 +277,14 @@
             "en": [
               "がちょうの　たんじょうび, Aozora Bunko card 4726. The animals of a farmyard are invited to a goose's birthday, and the problem is the weasel.",
               "Same author, same conditions, and the card at the foot of this page is the same evidence.",
-              "Half again as long as the first, with the same four kanji and the same spacing. The point of the second story is that the first was not a fluke.",
-              "Read it to the end first. The drills ask what happened."
+              "Half again as long as the first, with no kanji either and the same spacing. The point of the second story is that the first was not a fluke.",
+              "The whole story is the first thing below. Read it to the end before the drills, which ask what happened."
             ],
             "es": [
               "がちょうの　たんじょうび, ficha 4726 de Aozora Bunko. Los animales de un corral quedan invitados al cumpleaños de una gansa, y el problema es la comadreja.",
               "Mismo autor, mismas condiciones, y la ficha al pie de esta página es la misma prueba.",
-              "Es la mitad más largo que el primero, con los mismos cuatro kanji y el mismo espaciado. El sentido del segundo cuento es que el primero no fue casualidad.",
-              "Léelo entero primero. Los ejercicios preguntan qué pasó."
+              "Es la mitad más largo que el primero, tampoco lleva ningún kanji, y el mismo espaciado. El sentido del segundo cuento es que el primero no fue casualidad.",
+              "El cuento entero es lo primero que hay abajo. Léelo hasta el final antes de los ejercicios, que preguntan qué pasó."
             ]
           },
           "links": [
@@ -282,15 +311,44 @@
           },
           "body": {
             "en": [
-              "The guests ask a weasel to hold in his wind for the length of one party, and he faints from the effort. It is a lavatory joke, printed for children in the 1930s and reprinted since. It is named here so that nobody meets it as a surprise halfway down a page in a language they are still learning."
+              "The guests ask a weasel to hold in his wind for the length of one party, and he faints from the effort. It is a lavatory joke, first published in 1950, seven years after the author died, and reprinted since. It is named here so that nobody meets it as a surprise halfway down a page in a language they are still learning."
             ],
             "es": [
-              "Los invitados le piden a una comadreja que aguante sus ventosidades mientras dure una fiesta, y se desmaya del esfuerzo. Es un chiste de baño, impreso para niños en los años treinta y reimpreso desde entonces. Se avisa aquí para que nadie se lo encuentre por sorpresa a media página en un idioma que todavía está aprendiendo."
+              "Los invitados le piden a una comadreja que aguante sus ventosidades mientras dure una fiesta, y se desmaya del esfuerzo. Es un chiste de baño, publicado por primera vez en 1950, siete años después de la muerte del autor, y reimpreso desde entonces. Se avisa aquí para que nadie se lo encuentre por sorpresa a media página en un idioma que todavía está aprendiendo."
             ]
           }
         }
       ],
       "exercises": [
+        {
+          "id": "e-story-2-read",
+          "type": "read",
+          "skill": "jp.reading.passage",
+          "title": {
+            "en": "Read the whole story",
+            "es": "Lee el cuento entero"
+          },
+          "pages": [
+            {
+              "id": "p-story-2-text",
+              "kind": "table",
+              "title": {
+                "en": "がちょうの　たんじょうび",
+                "es": "がちょうの　たんじょうび"
+              },
+              "columns": [
+                {
+                  "en": "One paragraph a row, first to last",
+                  "es": "Un párrafo por fila, del primero al último"
+                }
+              ],
+              "items": "data/reading/gachou.json#paragraphs",
+              "fields": [
+                "text"
+              ]
+            }
+          ]
+        },
         {
           "id": "e-story-2-order",
           "type": "order",
@@ -330,8 +388,8 @@
     {
       "id": "story-3",
       "title": {
-        "en": "Story three: the wrong words in a temple",
-        "es": "Cuento tres: las palabras equivocadas en un templo"
+        "en": "Story three: the wrong words at a parishioner's house",
+        "es": "Cuento tres: las palabras equivocadas en casa de un feligrés"
       },
       "unlocks": {
         "en": "reading a text whose shape on the page is not one block of prose",
@@ -349,14 +407,14 @@
             "en": [
               "こぞうさんの　おきょう, Aozora Bunko card 4727. An acolyte forgets the sutra he was sent to read, sings a rabbit's song in its place, and is fed a bun for it.",
               "Same author, same conditions, and the card at the foot of this page is the same evidence.",
-              "The kana share is the highest of the four and there is exactly one kanji in it. Two passages are set as indented blocks, a sutra and a song, and the corpus keeps each block whole so a drill never asks you to order four one-word lines.",
-              "Read it to the end first. The drills ask what happened."
+              "It is the shortest of the four, and its one kanji, 目, is the only kanji in the three easy stories. Two passages are set as indented blocks, a sutra and a song, and the corpus keeps each block whole so a drill never asks you to order four one-word lines.",
+              "The whole story is the first thing below. Read it to the end before the drills, which ask what happened."
             ],
             "es": [
-              "こぞうさんの　おきょう, ficha 4727 de Aozora Bunko. Un monaguillo olvida el sutra que lo mandaron a leer, canta en su lugar una canción de conejos, y lo premian con un bollo.",
+              "こぞうさんの　おきょう, ficha 4727 de Aozora Bunko. Un novicio budista olvida el sutra que lo mandaron a leer, canta en su lugar una canción de conejos, y lo premian con un bollo.",
               "Mismo autor, mismas condiciones, y la ficha al pie de esta página es la misma prueba.",
-              "La proporción de kana es la más alta de los cuatro y hay exactamente un kanji. Dos pasajes van como bloques con sangría, un sutra y una canción, y el corpus mantiene cada bloque entero para que ningún ejercicio te pida ordenar cuatro renglones de una palabra.",
-              "Léelo entero primero. Los ejercicios preguntan qué pasó."
+              "Es el más corto de los cuatro, y su único kanji, 目, es el único de los tres cuentos fáciles. Dos pasajes van como bloques con sangría, un sutra y una canción, y el corpus mantiene cada bloque entero para que ningún ejercicio te pida ordenar cuatro renglones de una palabra.",
+              "El cuento entero es lo primero que hay abajo. Léelo hasta el final antes de los ejercicios, que preguntan qué pasó."
             ]
           },
           "links": [
@@ -375,6 +433,35 @@
         }
       ],
       "exercises": [
+        {
+          "id": "e-story-3-read",
+          "type": "read",
+          "skill": "jp.reading.passage",
+          "title": {
+            "en": "Read the whole story",
+            "es": "Lee el cuento entero"
+          },
+          "pages": [
+            {
+              "id": "p-story-3-text",
+              "kind": "table",
+              "title": {
+                "en": "こぞうさんの　おきょう",
+                "es": "こぞうさんの　おきょう"
+              },
+              "columns": [
+                {
+                  "en": "One paragraph a row, first to last",
+                  "es": "Un párrafo por fila, del primero al último"
+                }
+              ],
+              "items": "data/reading/kozousan.json#paragraphs",
+              "fields": [
+                "text"
+              ]
+            }
+          ]
+        },
         {
           "id": "e-story-3-order",
           "type": "order",
@@ -434,13 +521,13 @@
               "狐のつかい, Aozora Bunko card 4677. A fox is sent to buy lamp oil and licks the flask empty on the way home. The other animals sigh.",
               "Same author, same conditions, and the card at the foot of this page is the same evidence.",
               "Thirty-two different kanji, no spaces, and furigana on ten words. This is the step from a book for six-year-olds to a book, and it is the one worth repeating twice.",
-              "Read it to the end first. The drills ask what happened."
+              "The whole story is the first thing below. Read it to the end before the drills, which ask what happened."
             ],
             "es": [
               "狐のつかい, ficha 4677 de Aozora Bunko. Mandan a un zorro a comprar aceite para la lámpara y se bebe el frasco a lengüetazos de vuelta a casa. Los demás animales suspiran.",
               "Mismo autor, mismas condiciones, y la ficha al pie de esta página es la misma prueba.",
               "Treinta y dos kanji distintos, sin espacios, y furigana en diez palabras. Este es el salto de un libro para niños de seis años a un libro, y es el que vale la pena repetir dos veces.",
-              "Léelo entero primero. Los ejercicios preguntan qué pasó."
+              "El cuento entero es lo primero que hay abajo. Léelo hasta el final antes de los ejercicios, que preguntan qué pasó."
             ]
           },
           "links": [
@@ -453,6 +540,17 @@
               "note": {
                 "en": "The catalogue card, which is where the author, the dates and the copyright verdict are recorded.",
                 "es": "La ficha del catálogo, donde constan el autor, las fechas y el veredicto de derechos."
+              }
+            },
+            {
+              "href": "https://www.aozora.gr.jp/cards/000121/files/4677_8215.html",
+              "label": {
+                "en": "The same story on Aozora, with the furigana in place",
+                "es": "El mismo cuento en Aozora, con los furigana puestos"
+              },
+              "note": {
+                "en": "Ten words carry a small reading there. The copy rendered here has them stripped, and the typed drill asks you to put them back.",
+                "es": "Allí diez palabras llevan una lectura pequeña. La copia que se muestra aquí las lleva quitadas, y el ejercicio de escritura te pide devolverlas."
               }
             }
           ]
@@ -467,17 +565,46 @@
           },
           "body": {
             "en": [
-              "The first three stories hold four kanji between them. This one holds thirty-two, and the text prints a small reading beside ten of them: the fox, the monkey, the deer, the wolf, the oil, the oil seller, the hunter, the lamp, the tongue and one counter. That is what furigana are for, and it is why the typed drill on this rung exists and the other three rungs have none.",
+              "The first three stories hold one kanji between them. This one holds thirty-two, and Aozora's page prints a small reading beside ten of them: the fox, the monkey, the deer, the wolf, the oil, the oil seller, the hunter, the lamp, the tongue and one counter. That is what furigana are for, and it is why the typed drill on this rung exists and the other three rungs have none. The text rendered below has the readings stripped out, so the second link at the foot of the story page opens Aozora's own page with them in place.",
               "The words are also written without spaces. The three easy stories were set for small children and carry a space between phrases; this one is ordinary Japanese, and from here on so is everything else you will read."
             ],
             "es": [
-              "Los tres primeros cuentos tienen cuatro kanji entre todos. Este tiene treinta y dos, y el texto imprime una lectura pequeña junto a diez de ellos: el zorro, el mono, el ciervo, el lobo, el aceite, el vendedor de aceite, el cazador, la lámpara, la lengua y un contador. Para eso sirven los furigana, y por eso el ejercicio de escritura está en este escalón y no en los otros tres.",
+              "Los tres primeros cuentos tienen un kanji entre todos. Este tiene treinta y dos, y la página de Aozora imprime una lectura pequeña junto a diez de ellos: el zorro, el mono, el ciervo, el lobo, el aceite, el vendedor de aceite, el cazador, la lámpara, la lengua y un contador. Para eso sirven los furigana, y por eso el ejercicio de escritura está en este escalón y no en los otros tres. El texto que se muestra abajo lleva las lecturas quitadas, así que el segundo enlace al pie de la página del cuento abre la página de Aozora con ellas puestas.",
               "Además está escrito sin espacios. Los tres cuentos fáciles se compusieron para niños pequeños y llevan un espacio entre frases; este es japonés corriente, y de aquí en adelante también lo será todo lo que leas."
             ]
           }
         }
       ],
       "exercises": [
+        {
+          "id": "e-story-4-read",
+          "type": "read",
+          "skill": "jp.reading.passage",
+          "title": {
+            "en": "Read the whole story",
+            "es": "Lee el cuento entero"
+          },
+          "pages": [
+            {
+              "id": "p-story-4-text",
+              "kind": "table",
+              "title": {
+                "en": "狐のつかい",
+                "es": "狐のつかい"
+              },
+              "columns": [
+                {
+                  "en": "One paragraph a row, first to last",
+                  "es": "Un párrafo por fila, del primero al último"
+                }
+              ],
+              "items": "data/reading/kitsune.json#paragraphs",
+              "fields": [
+                "text"
+              ]
+            }
+          ]
+        },
         {
           "id": "e-story-4-order",
           "type": "order",
@@ -517,8 +644,8 @@
           "type": "typed",
           "skill": "jp.reading.passage",
           "title": {
-            "en": "Type the reading the text prints beside it",
-            "es": "Escribe la lectura que el texto imprime al lado"
+            "en": "Type the reading Aozora prints beside it",
+            "es": "Escribe la lectura que Aozora imprime al lado"
           },
           "items": "data/reading/kitsune.json#ruby",
           "prompt": "word",
@@ -547,17 +674,17 @@
           "id": "p-finish-line",
           "kind": "prose",
           "title": {
-            "en": "The two every schoolchild in Japan has read",
-            "es": "Los dos que ha leído todo escolar en Japón"
+            "en": "The one every schoolchild in Japan reads, and its companion",
+            "es": "El que lee todo escolar en Japón, y su compañero"
           },
           "body": {
             "en": [
-              "ごん狐 and 手袋を買いに are by the same author and sit on Aozora under the same conditions as the four above: card 628 and card 637, both in the modern spelling, both out of copyright. They are the two stories a Japanese primary schooler meets in class, so finishing one is not a percentage, it is the thing itself.",
+              "ごん狐 and 手袋を買いに are by the same author and sit on Aozora under the same conditions as the four above: card 628 and card 637, both in the modern spelling, both out of copyright. ごん狐 is the story a Japanese fourth-grader meets in class, and it has been in primary readers for more than half a century; 手袋を買いに was a third-grade text from 1954 to 2011 and is the same author's other famous story. Finishing either is not a percentage, it is the thing itself.",
               "Both cards are at the foot of this page.",
               "Neither is built into this site. They are longer and carry far more kanji than the four rungs above, so a chapter that included them would be a second pass over this one rather than the end of it. That second pass is the honest next chapter, and it does not exist yet."
             ],
             "es": [
-              "ごん狐 y 手袋を買いに son del mismo autor y están en Aozora en las mismas condiciones que los cuatro de arriba: ficha 628 y ficha 637, las dos en la ortografía moderna y las dos fuera de derechos. Son los dos cuentos que un escolar japonés lee en clase, así que terminar uno no es un porcentaje, es la cosa misma.",
+              "ごん狐 y 手袋を買いに son del mismo autor y están en Aozora en las mismas condiciones que los cuatro de arriba: ficha 628 y ficha 637, las dos en la ortografía moderna y las dos fuera de derechos. ごん狐 es el cuento que un escolar japonés lee en clase, en cuarto de primaria, y lleva más de medio siglo en los libros de lectura; 手袋を買いに fue texto de tercero de 1954 a 2011 y es el otro cuento famoso del mismo autor. Terminar cualquiera de los dos no es un porcentaje, es la cosa misma.",
               "Las dos fichas están al pie de esta página.",
               "Ninguno está construido en este sitio. Son más largos y llevan muchos más kanji que los cuatro escalones de arriba, así que un capítulo que los incluyera sería una segunda vuelta sobre este y no su final. Esa segunda vuelta es el capítulo siguiente honesto, y todavía no existe."
             ]
@@ -581,8 +708,8 @@
                 "es": "Aozora Bunko, ficha 637: 手袋を買いに"
               },
               "note": {
-                "en": "The other one, same author, same conditions.",
-                "es": "El otro, mismo autor, mismas condiciones."
+                "en": "The other famous one, a third-grade text from 1954 to 2011, same author, same conditions.",
+                "es": "El otro famoso, texto de tercero de primaria de 1954 a 2011, mismo autor, mismas condiciones."
               }
             }
           ]

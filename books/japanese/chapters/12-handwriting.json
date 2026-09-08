@@ -57,13 +57,13 @@
           "body": {
             "en": [
               "Japan has an official answer to what counts as correct handwriting, and it is wider than most learners expect. The Cultural Council's 2016 report on the shapes of the jōyō kanji separates three words. 字体 is the skeleton that makes a character that character. 字形 is any actual shape that skeleton takes, on paper or on a screen. 書体 is a style system, such as 明朝体 or 教科書体.",
-              "The report's operative line is that a character written so that its skeleton can be read, with nothing missing and nothing added, is not to be judged wrong. Whether a stroke hooks or stops, joins the next one or stands apart from it, sweeps out or ends flat, is 字形. 字形 is not a mistake.",
+              "The report's operative line is that a character written so that its skeleton can be read, with nothing missing and nothing added, is not to be judged wrong. Whether a stroke hooks or stops, joins the next one or stands apart from it, sweeps out or ends flat, is 字形. So is the gap between a printed shape and a handwritten one. 字形 is not a mistake. Only a difference between two style systems, one printed face against another, is 書体.",
               "The famous case is 令. Most people write it in a shape the printed form does not show, and the report records counter staff at municipal offices telling citizens that their own handwritten name was a different character. The report exists because that kept happening.",
               "Opinion inside Japan is not settled either. In the 2015 national survey on the language, people were shown two handwritten forms of nine common kanji and asked which was correct. Opinion split every time, and on 保 and 女 it split by generation. Only 32.2 percent knew that a handwriting habit may be followed instead of the printed shape, and 66.5 percent said both forms should be marked correct in an exam."
             ],
             "es": [
               "Japón tiene una respuesta oficial sobre qué cuenta como escritura correcta a mano, y es más amplia de lo que casi todos esperan. El informe del Consejo de Cultura de 2016 sobre las formas de los kanji jōyō separa tres palabras. 字体 es el esqueleto que hace que un carácter sea ese carácter. 字形 es cualquier forma concreta que ese esqueleto toma, en papel o en pantalla. 書体 es un sistema de estilo, como el 明朝体 o el 教科書体.",
-              "La frase operativa del informe es que un carácter escrito de modo que su esqueleto se pueda leer, sin que falte ni sobre nada, no debe juzgarse incorrecto. Que un trazo lleve gancho o se detenga, que se una al siguiente o quede aparte, que barra hacia afuera o termine plano, es 字形. El 字形 no es un error.",
+              "La frase operativa del informe es que un carácter escrito de modo que su esqueleto se pueda leer, sin que falte ni sobre nada, no debe juzgarse incorrecto. Que un trazo lleve gancho o se detenga, que se una al siguiente o quede aparte, que barra hacia afuera o termine plano, es 字形. También lo es la distancia entre una forma impresa y una manuscrita. El 字形 no es un error. Solo una diferencia entre dos sistemas de estilo, una tipografía frente a otra, es 書体.",
               "El caso famoso es 令. Casi todo el mundo lo escribe con una forma que la versión impresa no muestra, y el informe registra que personal de ventanilla en oficinas municipales dijo a ciudadanos que su propio nombre escrito a mano era otro carácter. El informe existe porque eso seguía ocurriendo.",
               "Dentro de Japón la opinión tampoco está zanjada. En la encuesta nacional sobre la lengua de 2015 se mostraron a las personas dos formas manuscritas de nueve kanji comunes y se les preguntó cuál era la correcta. La opinión se dividió todas las veces, y en 保 y 女 se dividió por generación. Solo el 32,2 por ciento sabía que se puede seguir la costumbre de la mano en lugar de la forma impresa, y el 66,5 por ciento dijo que ambas formas deberían darse por buenas en un examen."
             ]
@@ -87,10 +87,10 @@
           },
           "body": {
             "en": [
-              "Some differences reach the skeleton, and the same guideline is explicit about them. 士 and 土 differ only in which horizontal stroke is longer, and 末 and 未 differ in the same way. 輸 and 輪 differ in the part on the right, and 永 and 氷 differ by a single dot. Relative length and a missing part are 字体, not 字形."
+              "Some differences reach the skeleton, and the same guideline is explicit about them. 士 and 土 differ only in which horizontal stroke is longer, and 末 and 未 differ in the same way. 輸 and 輪 differ in the part on the right, and 永 and 氷 differ only in where the dot sits. Relative length, a different part and a moved dot are 字体, not 字形."
             ],
             "es": [
-              "Algunas diferencias llegan al esqueleto, y la misma guía lo dice de forma explícita. 士 y 土 se diferencian solo en cuál trazo horizontal es más largo, y 末 y 未 se diferencian igual. 輸 y 輪 se diferencian en la parte de la derecha, y 永 y 氷 se diferencian por un solo punto. La longitud relativa y una parte que falta son 字体, no 字形."
+              "Algunas diferencias llegan al esqueleto, y la misma guía lo dice de forma explícita. 士 y 土 se diferencian solo en cuál trazo horizontal es más largo, y 末 y 未 se diferencian igual. 輸 y 輪 se diferencian en la parte de la derecha, y 永 y 氷 se diferencian solo en dónde va el punto. La longitud relativa, una parte distinta y un punto desplazado son 字体, no 字形."
             ]
           }
         }
@@ -131,8 +131,8 @@
                 "es": "el mismo carácter, y la diferencia es 字形"
               },
               "explain": {
-                "en": "Joined or separate is one of the three variations the guideline names as 字形. It is why the same kana is three strokes in one hand and four in another.",
-                "es": "Unido o separado es una de las tres variaciones que la guía nombra como 字形. Por eso el mismo kana tiene tres trazos en una mano y cuatro en otra."
+                "en": "Joined or separate is one of the variations the guideline names as 字形. It is why the same kana is one stroke fewer in one hand than in another.",
+                "es": "Unido o separado es una de las variaciones que la guía nombra como 字形. Por eso el mismo kana tiene un trazo menos en una mano que en otra."
               }
             },
             {
@@ -146,23 +146,23 @@
                 "es": "el mismo carácter, y la diferencia es 字形"
               },
               "explain": {
-                "en": "Sweeping or stopping is the third of the guideline's named variations, and it changes no skeleton.",
-                "es": "Barrer o detenerse es la tercera de las variaciones que la guía nombra, y no cambia ningún esqueleto."
+                "en": "Sweeping or stopping is another of the guideline's named variations, and it changes no skeleton.",
+                "es": "Barrer o detenerse es otra de las variaciones que la guía nombra, y no cambia ningún esqueleto."
               }
             },
             {
               "id": "hand:令",
               "difference": {
-                "en": "令 as it is printed, and 令 as most people write it by hand",
-                "es": "令 tal como se imprime, y 令 tal como lo escribe a mano casi todo el mundo"
+                "en": "令 as 明朝体 prints it, and 令 as most people write it by hand",
+                "es": "令 tal como lo imprime el 明朝体, y 令 tal como lo escribe a mano casi todo el mundo"
               },
               "verdict": {
                 "en": "the same character, and the difference is 字形",
                 "es": "el mismo carácter, y la diferencia es 字形"
               },
               "explain": {
-                "en": "This is the case the 2016 guideline was written for. It records counter staff at municipal offices telling citizens that their own handwritten name was a different character.",
-                "es": "Este es el caso para el que se escribió la guía de 2016. Registra que personal de ventanilla en oficinas municipales dijo a ciudadanos que su propio nombre escrito a mano era otro carácter."
+                "en": "This is the case the 2016 guideline was written for. A printed shape against a handwritten one is 字形, however far apart the two look, and only two printed faces put side by side would be 書体. The guideline records counter staff at municipal offices telling citizens that their own handwritten name was a different character.",
+                "es": "Este es el caso para el que se escribió la guía de 2016. Una forma impresa frente a una manuscrita es 字形, por lejos que se vean la una de la otra, y solo dos tipografías puestas lado a lado serían 書体. La guía registra que personal de ventanilla en oficinas municipales dijo a ciudadanos que su propio nombre escrito a mano era otro carácter."
               }
             },
             {
@@ -213,76 +213,76 @@
             {
               "id": "face:り",
               "difference": {
-                "en": "り in 明朝体, with its two strokes connected, and り as a child is taught to write it",
-                "es": "り en 明朝体, con sus dos trazos unidos, y り como se le enseña a escribirlo a un niño"
+                "en": "り in 明朝体, with its two strokes connected, and り in 教科書体, with them apart",
+                "es": "り en 明朝体, con sus dos trazos unidos, y り en 教科書体, con ellos separados"
               },
               "verdict": {
                 "en": "the same character, and the difference is 書体",
                 "es": "el mismo carácter, y la diferencia es 書体"
               },
               "explain": {
-                "en": "The connected shape comes from the brush and stayed in some printed faces. Both are り, and the separated form is the one taught by hand.",
-                "es": "La forma conectada viene del pincel y se quedó en algunas fuentes impresas. Ambas son り, y la forma separada es la que se enseña a mano."
+                "en": "Two printed faces, so the difference is 書体 rather than 字形. The connected shape stayed in 明朝体; 教科書体 separates the strokes because that is the hand a child is taught.",
+                "es": "Dos tipografías, así que la diferencia es 書体 y no 字形. La forma conectada se quedó en el 明朝体; el 教科書体 separa los trazos porque esa es la mano que se enseña a un niño."
               }
             },
             {
               "id": "body:士土",
               "difference": {
-                "en": "士 and 土, where the longer horizontal stroke is on top or on the bottom",
-                "es": "士 y 土, donde el trazo horizontal más largo está arriba o abajo"
+                "en": "Two horizontals and a vertical, drawn once with the top stroke longer and once with the bottom stroke longer",
+                "es": "Dos horizontales y una vertical, trazadas una vez con el trazo de arriba más largo y otra con el de abajo más largo"
               },
               "verdict": {
                 "en": "a different character, and the difference reaches 字体",
                 "es": "otro carácter, y la diferencia llega al 字体"
               },
               "explain": {
-                "en": "Relative length is the whole distinction here, so it reaches the skeleton. 士 is a gentleman, 土 is earth.",
-                "es": "La longitud relativa es toda la distinción aquí, así que llega al esqueleto. 士 es caballero, 土 es tierra."
+                "en": "That is 士 against 土. Relative length is the whole distinction here, so it reaches the skeleton. 士 is a gentleman, 土 is earth.",
+                "es": "Eso es 士 frente a 土. La longitud relativa es toda la distinción aquí, así que llega al esqueleto. 士 es caballero, 土 es tierra."
               }
             },
             {
               "id": "body:末未",
               "difference": {
-                "en": "末 and 未, the same question of which horizontal stroke is longer",
-                "es": "末 y 未, la misma cuestión de cuál trazo horizontal es más largo"
+                "en": "A tree with two crossbars, drawn once with the upper crossbar longer and once with the lower one longer",
+                "es": "Un árbol con dos travesaños, trazado una vez con el travesaño de arriba más largo y otra con el de abajo más largo"
               },
               "verdict": {
                 "en": "a different character, and the difference reaches 字体",
                 "es": "otro carácter, y la diferencia llega al 字体"
               },
               "explain": {
-                "en": "The guideline names this pair beside 士 and 土. 末 is an end, 未 is not yet.",
-                "es": "La guía nombra este par junto a 士 y 土. 末 es final, 未 es todavía no."
+                "en": "That is 末 against 未, and the guideline names the pair beside 士 and 土. 末 is an end, 未 is not yet.",
+                "es": "Eso es 末 frente a 未, y la guía nombra el par junto a 士 y 土. 末 es final, 未 es todavía no."
               }
             },
             {
               "id": "body:輸輪",
               "difference": {
-                "en": "輸 and 輪, which differ in the part on the right",
-                "es": "輸 y 輪, que se diferencian en la parte de la derecha"
+                "en": "The same cart on the left, with one of two different parts on the right",
+                "es": "El mismo carro a la izquierda, con una de dos partes distintas a la derecha"
               },
               "verdict": {
                 "en": "a different character, and the difference reaches 字体",
                 "es": "otro carácter, y la diferencia llega al 字体"
               },
               "explain": {
-                "en": "A different part is a different skeleton. 輸 is to transport, 輪 is a wheel or a ring.",
-                "es": "Una parte distinta es un esqueleto distinto. 輸 es transportar, 輪 es rueda o aro."
+                "en": "That is 輸 against 輪. A different part is a different skeleton. 輸 is to transport, 輪 is a wheel or a ring.",
+                "es": "Eso es 輸 frente a 輪. Una parte distinta es un esqueleto distinto. 輸 es transportar, 輪 es rueda o aro."
               }
             },
             {
               "id": "body:永氷",
               "difference": {
-                "en": "永 and 氷, which differ by one dot",
-                "es": "永 y 氷, que se diferencian por un punto"
+                "en": "The same five strokes, with the one dot sitting on top or at the upper left",
+                "es": "Los mismos cinco trazos, con el único punto arriba o en la parte superior izquierda"
               },
               "verdict": {
                 "en": "a different character, and the difference reaches 字体",
                 "es": "otro carácter, y la diferencia llega al 字体"
               },
               "explain": {
-                "en": "One dot, and the guideline still counts it as 字体. 永 is eternal, 氷 is ice.",
-                "es": "Un punto, y aun así la guía lo cuenta como 字体. 永 es eterno, 氷 es hielo."
+                "en": "That is 永 against 氷. One moved dot, and the guideline still counts it as 字体. 永 is eternal, 氷 is ice.",
+                "es": "Eso es 永 frente a 氷. Un punto desplazado, y aun así la guía lo cuenta como 字体. 永 es eterno, 氷 es hielo."
               }
             }
           ],
@@ -318,14 +318,16 @@
           },
           "body": {
             "en": [
-              "Top to bottom. Left to right. At a crossing, the horizontal before the vertical. An enclosure before what it holds, with the bottom of the box closed last. The centre before the strokes that flank it. Sweeping strokes and small dots last.",
+              "Top to bottom. Left to right. At a crossing, the horizontal before the vertical. An enclosure before what it holds, with the bottom of the box closed last. The centre before the strokes that flank it. A left sweep before a right sweep, and a stroke that pierces the whole character last.",
               "The standard is 筆順指導の手びき, published by the Ministry of Education in 1958. It is prescriptive inside schools and advisory everywhere else, editors are free to follow orders widely accepted in society, and Japan, Taiwan and mainland China disagree about specific characters. So the order is a norm with a book behind it, not a law.",
-              "It earns its place for three reasons that have nothing to do with obedience. A character written in the taught order stays legible when written fast. The stroke count is how a character is found in a paper dictionary. And handwriting recognition on a phone expects the taught order, which is why your finger produces the wrong character when you draw it your own way."
+              "It earns its place for three reasons that have nothing to do with obedience. A character written in the taught order stays legible when written fast. The stroke count is how a character is found in a paper dictionary. And handwriting recognition on a phone expects the taught order, which is why your finger produces the wrong character when you draw it your own way.",
+              "The two counting drills below ask for the count in the taught hand, the one the stroke data draws. き, さ and り each lose a stroke when the last one is joined, as the first rung said, and the joined count is not the number these drills want."
             ],
             "es": [
-              "De arriba abajo. De izquierda a derecha. En un cruce, el horizontal antes que el vertical. El recuadro antes que lo que contiene, y el lado de abajo se cierra al final. El centro antes que los trazos que lo flanquean. Los trazos de barrido y los puntos pequeños, al final.",
+              "De arriba abajo. De izquierda a derecha. En un cruce, el horizontal antes que el vertical. El recuadro antes que lo que contiene, y el lado de abajo se cierra al final. El centro antes que los trazos que lo flanquean. Un barrido a la izquierda antes que uno a la derecha, y el trazo que atraviesa todo el carácter, al final.",
               "El estándar es 筆順指導の手びき, publicado por el Ministerio de Educación en 1958. Es prescriptivo dentro de las escuelas y orientativo fuera de ellas, los editores pueden seguir órdenes ampliamente aceptados en la sociedad, y Japón, Taiwán y China continental no coinciden en algunos caracteres. Así que el orden es una norma con un libro detrás, no una ley.",
-              "Se gana su lugar por tres razones que nada tienen que ver con obedecer. Un carácter escrito en el orden enseñado sigue siendo legible cuando se escribe rápido. El número de trazos es como se busca un carácter en un diccionario de papel. Y el reconocimiento de escritura del teléfono espera el orden enseñado, que es la razón de que tu dedo produzca otro carácter cuando lo dibujas a tu manera."
+              "Se gana su lugar por tres razones que nada tienen que ver con obedecer. Un carácter escrito en el orden enseñado sigue siendo legible cuando se escribe rápido. El número de trazos es como se busca un carácter en un diccionario de papel. Y el reconocimiento de escritura del teléfono espera el orden enseñado, que es la razón de que tu dedo produzca otro carácter cuando lo dibujas a tu manera.",
+              "Los dos ejercicios de conteo de abajo piden el número de la mano que se enseña, la que dibujan los datos de trazos. き, さ y り pierden un trazo cuando el último va unido, como dijo el primer peldaño, y ese número unido no es el que piden estos ejercicios."
             ]
           }
         }
@@ -336,8 +338,8 @@
           "type": "choice",
           "skill": "jp.stroke.count",
           "title": {
-            "en": "How many strokes is this kana?",
-            "es": "¿Cuántos trazos tiene este kana?"
+            "en": "How many strokes is this kana in the taught hand?",
+            "es": "¿Cuántos trazos tiene este kana en la mano que se enseña?"
           },
           "items": "data/kanji/strokes-kana.json#list",
           "prompt": "glyph",
@@ -362,15 +364,6 @@
           "prompt": "literal",
           "answer": "strokes",
           "distractors": {
-            "values": [
-              "2",
-              "3",
-              "4",
-              "5",
-              "6",
-              "7",
-              "8"
-            ],
             "n": 3
           },
           "count": 8,
@@ -401,12 +394,12 @@
           "body": {
             "en": [
               "The shape is already in the box, faint, for you to trace. Tracing is not the test: the order, the direction and the placement of each stroke are, and none of those is visible until you have drawn them.",
-              "Four things are checked against the reference and nothing else is. How many strokes you drew. Whether your third stroke is the reference's third stroke. Which way each one travelled. And whether each one started and ended near where it belongs. Bad handwriting in the taught order passes, which is the right way round: this rung is about the order, and your hand will improve on its own.",
+              "Four things are checked against the reference and nothing else is. How many strokes you drew. Whether your third stroke is the reference's third stroke. Which way each one travelled. And whether each one started and ended near where it belongs. Bad handwriting in the taught order passes, which is the right way round: this rung is about the order, and your hand will improve on its own.", "The reference is the taught hand, the separated one. A き written with its last two strokes joined is three strokes where the box wants four, and the box will say so. That is the box being narrow, not your hand being wrong: the first rung already said both hands are correct.",
               "Show the order is there whenever you want it. Using it is recorded with the attempt and costs you nothing, because a hint you are afraid to take is a hint that does not exist."
             ],
             "es": [
               "La forma ya está en el recuadro, tenue, para que la traces. Trazar no es la prueba: lo son el orden, la dirección y la ubicación de cada trazo, y ninguno de los tres se ve hasta que los has dibujado.",
-              "Se comprueban cuatro cosas contra la referencia y ninguna más. Cuántos trazos dibujaste. Si tu tercer trazo es el tercer trazo de la referencia. Hacia dónde fue cada uno. Y si cada uno empezó y terminó cerca de donde le toca. Una letra fea en el orden enseñado aprueba, y así debe ser: este peldaño trata del orden, y tu mano mejorará sola.",
+              "Se comprueban cuatro cosas contra la referencia y ninguna más. Cuántos trazos dibujaste. Si tu tercer trazo es el tercer trazo de la referencia. Hacia dónde fue cada uno. Y si cada uno empezó y terminó cerca de donde le toca. Una letra fea en el orden enseñado aprueba, y así debe ser: este peldaño trata del orden, y tu mano mejorará sola.", "La referencia es la mano que se enseña, la separada. Una き escrita con sus dos últimos trazos unidos tiene tres trazos donde el recuadro quiere cuatro, y el recuadro lo dirá. Eso es que el recuadro es estrecho, no que tu mano esté mal: el primer peldaño ya dijo que las dos manos son correctas.",
               "Ver el orden está ahí cuando lo quieras. Usarlo queda registrado con el intento y no te cuesta nada, porque una pista que da miedo tomar es una pista que no existe."
             ]
           }
@@ -510,15 +503,15 @@
           "body": {
             "en": [
               "The calligraphic styles are 篆書 (seal), 隷書 (clerical), 楷書 (regular), 行書 (semi cursive) and 草書 (cursive). 楷書 is the one taught, and it is what correct is judged against. The other four are not older mistakes: they are style systems, which is what the word 書体 from the first rung means.",
-              "Kana grew out of cursive kanji, which is why a hiragana looks like a kanji that relaxed. That is a historical fact about the shapes, not a mnemonic.",
+              "Hiragana grew out of cursive kanji, which is why a hiragana looks like a kanji that relaxed; katakana were cut from pieces of regular-script kanji instead. That is a historical fact about the shapes, not a mnemonic.",
               "Calligraphy is a school subject in Japan: 書写 inside Japanese language in compulsory education, and 書道 as an elective art later. 書き初め, the first writing of the new year, is a living custom rather than a museum one.",
-              "One last connection back to the first rung. 明朝体 is a printing style with no hand behind it, invented for metal type. Copying it by hand looks wrong because nobody ever wrote it, and that is the whole reason 教科書体 had to be designed."
+              "One last connection back to the first rung. 明朝体 is a printing style with no hand behind it, cut for woodblocks in Ming China and later for metal type. Copying it by hand looks wrong because nobody ever wrote it, and that is the whole reason 教科書体 had to be designed."
             ],
             "es": [
               "Los estilos caligráficos son 篆書 (de sello), 隷書 (de escriba), 楷書 (regular), 行書 (semicursivo) y 草書 (cursivo). El 楷書 es el que se enseña, y es contra el que se juzga lo correcto. Los otros cuatro no son errores antiguos: son sistemas de estilo, que es lo que significa la palabra 書体 del primer peldaño.",
-              "El kana nació del kanji cursivo, y por eso un hiragana parece un kanji que se relajó. Es un hecho histórico sobre las formas, no una regla mnemotécnica.",
+              "El hiragana nació del kanji cursivo, y por eso un hiragana parece un kanji que se relajó; el katakana, en cambio, se recortó de trozos de kanji en escritura regular. Es un hecho histórico sobre las formas, no una regla mnemotécnica.",
               "La caligrafía es materia escolar en Japón: 書写 dentro de lengua japonesa en la educación obligatoria, y 書道 como arte optativo más adelante. El 書き初め, la primera escritura del año nuevo, es una costumbre viva y no de museo.",
-              "Una última conexión con el primer peldaño. El 明朝体 es un estilo de imprenta sin ninguna mano detrás, inventado para el tipo de metal. Copiarlo a mano se ve mal porque nadie lo escribió nunca, y esa es toda la razón por la que hubo que diseñar el 教科書体."
+              "Una última conexión con el primer peldaño. El 明朝体 es un estilo de imprenta sin ninguna mano detrás, tallado para la xilografía en la China de los Ming y más tarde para el tipo de metal. Copiarlo a mano se ve mal porque nadie lo escribió nunca, y esa es toda la razón por la que hubo que diseñar el 教科書体."
             ]
           },
           "note": {

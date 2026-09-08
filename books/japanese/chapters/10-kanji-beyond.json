@@ -24,8 +24,8 @@
   "estimate": {
     "minutes": 2400,
     "note": {
-      "en": "Two to three months at twenty to thirty characters a week, most of it in the two decks rather than on this page. Grades three to six and the 1,110 that finish the jōyō list are not here, and they are years rather than months.",
-      "es": "Dos o tres meses a veinte o treinta caracteres por semana, casi todo en los dos mazos y no en esta página. Los grados tercero a sexto y los 1.110 que completan la lista jōyō no están aquí, y son años y no meses."
+      "en": "Two to three months at twenty to thirty characters a week, most of it in the two decks rather than on this page. What opens this chapter is the reading half of the goal alone: the guessing half, and the two drills on printed forms, are practised and recorded and gate nothing. Grades three to six and the 1,110 that finish the jōyō list are not here, and they are years rather than months.",
+      "es": "Dos o tres meses a veinte o treinta caracteres por semana, casi todo en los dos mazos y no en esta página. Lo que abre este capítulo es solo la mitad de lectura de la meta: la mitad de adivinar, y los dos ejercicios sobre formas impresas, se practican y se registran y no abren nada. Los grados tercero a sexto y los 1.110 que completan la lista jōyō no están aquí, y son años y no meses."
     }
   },
   "data": [
@@ -125,12 +125,12 @@
           "body": {
             "en": [
               "This rung looks identical to the one before it, and it is: the same set, the same game, a different eighty characters. That repetition is the point. A second pass over one ladder with new material on it is how a habit forms, and a chapter that invented a new kind of exercise here would be teaching you its own cleverness instead of the characters.",
-              "The round is still twelve pairs at a time out of a set of a hundred and sixty-nine words, so the wrong options come from the whole grade rather than from the twelve on the board. A wrong option nobody would pick is a free point.",
+              "The round is still twelve pairs, four on the board at a time, drawn from the single-character words of this half rather than from the whole set. A wrong match is one of the other three cards in front of you, which is what makes the board a discrimination rather than a lucky guess.",
               "Every word in both rounds is one character long. That is deliberate and it is also a limit: JMdict holds no common one-character word for thirty-eight of the hundred and sixty, because those characters are verb stems and bound pieces that never stand alone. They still appear in the compounds on the next rung and in the deck at the end."
             ],
             "es": [
               "Este escalón se parece al anterior, y lo es: el mismo conjunto, el mismo juego, otros ochenta caracteres. Esa repetición es el objetivo. Una segunda vuelta por una misma escalera con material nuevo encima es como se forma un hábito, y un capítulo que inventara aquí un tipo nuevo de ejercicio te estaría enseñando su propio ingenio en lugar de los caracteres.",
-              "La ronda sigue siendo de doce parejas cada vez, sacadas de un conjunto de ciento sesenta y nueve palabras, así que las opciones falsas vienen de todo el grado y no de las doce del tablero. Una opción falsa que nadie elegiría es un punto regalado.",
+              "La ronda sigue siendo de doce parejas, cuatro en el tablero a la vez, sacadas de las palabras de un solo carácter de esta mitad y no del conjunto entero. Un emparejamiento falso es una de las otras tres cartas que tienes delante, y eso es lo que hace del tablero una discriminación y no una apuesta.",
               "Todas las palabras de las dos rondas tienen un solo carácter. Es deliberado y también es un límite: JMdict no tiene ninguna palabra común de un carácter para treinta y ocho de los ciento sesenta, porque esos caracteres son raíces verbales y piezas ligadas que nunca van solas. Aparecen igual en los compuestos del escalón siguiente y en el mazo del final."
             ]
           }
@@ -381,11 +381,11 @@
           "body": {
             "en": [
               "Every other exercise in this Book asks for seventy or eighty percent. This one asks for sixty, and the reason is the measurement above: over the characters it draws from, the phonetic part predicts the reading 59 percent of the time. A threshold above the base rate would be marking you down for the language's own irregularity, which is not a thing you can study away.",
-              "The characters in this round are ones the Book has never taught you. Getting six in ten right on a character you have never seen is the skill; getting ten in ten would mean the round was built wrong."
+              "The characters in this round are ones the Book has never taught you. Getting six in ten right on a character you have never seen is the skill; getting ten in ten would mean the round was built wrong.", "It is also the one drill here that counts toward nothing. The chapter opens on how well you read the 240 characters it teaches, and ten answers at a six in ten base rate inside that window would drag it down for the language's irregularity rather than for anything you did. So this round is practised and recorded, and it is not evidence."
             ],
             "es": [
               "Todos los demás ejercicios de este libro piden un setenta u ochenta por ciento. Este pide un sesenta, y la razón es la medición de arriba: en los caracteres de los que saca sus preguntas, la parte fonética predice la lectura el 59 por ciento de las veces. Un umbral por encima de esa tasa base te estaría penalizando por la irregularidad del propio idioma, que no es algo que se pueda estudiar.",
-              "Los caracteres de esta ronda son de los que el libro nunca te ha enseñado. Acertar seis de cada diez en un carácter que no has visto nunca es la destreza; acertar diez de diez querría decir que la ronda está mal construida."
+              "Los caracteres de esta ronda son de los que el libro nunca te ha enseñado. Acertar seis de cada diez en un carácter que no has visto nunca es la destreza; acertar diez de diez querría decir que la ronda está mal construida.", "Es también el único ejercicio de aquí que no cuenta para nada. El capítulo se abre según lo bien que leas los 240 caracteres que enseña, y diez respuestas con una tasa base de seis de cada diez dentro de esa ventana lo hundirían por la irregularidad del idioma y no por nada que hicieras tú. Así que esta ronda se practica y se registra, y no es evidencia."
             ]
           }
         }
@@ -394,7 +394,7 @@
         {
           "id": "e-phon-guess",
           "type": "choice",
-          "skill": "jp.kanji.grade2.read",
+          "skill": "jp.kanji.phon",
           "title": {
             "en": "A character you have not met: how is it read?",
             "es": "Un carácter que no has visto: ¿cómo se lee?"
@@ -434,12 +434,12 @@
             "en": [
               "あつい is 熱い for a hot cup, 暑い for a hot day and 厚い for a thick book. とる is 取る for taking and 撮る for taking a photograph. The sound is one word; the writing makes the distinction. In Japanese, spelling is a semantic act in a way that spelling in Spanish or English is not.",
               "The Cultural Council published a whole report on this in 2014, covering about 136 sets, the first revision of its predecessor in forty-two years. The eleven sets drilled below are the ones a dictionary keeps as separate entries, so a drill can ask for one of them and be right.",
-              "Some famous sets are not drilled and are here as prose instead, because the dictionary holds them as one entry and there is nothing for a drill to choose between: 見る, 観る and 診る for looking, watching and examining; 早い for time against 速い for speed; 聞く and 聴く; 作る and 造る; 計る, 測る and 量る; 表す and 現す; 堅い, 固い and 硬い. Read them, notice them in the wild, and do not expect a score for them."
+              "Some famous sets are not drilled and are here as prose instead, because the dictionary holds them as one entry and there is nothing for a drill to choose between: 見る and 観る for looking and watching, which share an entry with 視る; 早い for time against 速い for speed; 聞く and 聴く; 作る and 造る; 計る, 測る and 量る; 表す and 現す; 堅い, 固い and 硬い. 診る, to examine a patient, does have an entry of its own, and it is left out only because a beginner's reading has no doctors in it. Read them, notice them in the wild, and do not expect a score for them."
             ],
             "es": [
               "あつい es 熱い para una taza caliente, 暑い para un día caluroso y 厚い para un libro grueso. とる es 取る para tomar y 撮る para tomar una foto. El sonido es una sola palabra; la escritura hace la distinción. En japonés, escribir es un acto semántico de un modo que no lo es en español.",
               "El Consejo de Cultura publicó en 2014 un informe entero sobre esto, con unos 136 conjuntos, la primera revisión de su antecesor en cuarenta y dos años. Los once conjuntos que se practican abajo son los que el diccionario guarda como entradas separadas, así que un ejercicio puede preguntar por uno de ellos y tener razón.",
-              "Algunos conjuntos famosos no se practican y están aquí como prosa, porque el diccionario los guarda como una sola entrada y no hay nada entre lo que un ejercicio pueda elegir: 見る, 観る y 診る para mirar, ver con atención y examinar; 早い para el tiempo frente a 速い para la velocidad; 聞く y 聴く; 作る y 造る; 計る, 測る y 量る; 表す y 現す; 堅い, 固い y 硬い. Léelos, fíjate en ellos cuando aparezcan, y no esperes una calificación por ellos."
+              "Algunos conjuntos famosos no se practican y están aquí como prosa, porque el diccionario los guarda como una sola entrada y no hay nada entre lo que un ejercicio pueda elegir: 見る y 観る para mirar y ver con atención, que comparten entrada con 視る; 早い para el tiempo frente a 速い para la velocidad; 聞く y 聴く; 作る y 造る; 計る, 測る y 量る; 表す y 現す; 堅い, 固い y 硬い. 診る, examinar a un paciente, sí tiene entrada propia, y queda fuera solo porque en la lectura de quien empieza no hay médicos. Léelos, fíjate en ellos cuando aparezcan, y no esperes una calificación por ellos."
             ]
           },
           "note": {
@@ -534,12 +534,12 @@
             "en": [
               "The kana that follow a kanji carry the inflection and pick the reading. The national rule for them dates from 1973 and was amended in 1981, and it is written in three tiers: a main rule, a list of exceptions, and a tier of permitted alternatives. That third tier is why 行う and 行なう are both right, and why legal drafting, which refuses the third tier, reads differently from a novel.",
               "The clearest proof a learner can see is a government sign beside a school textbook. Public documents drop the okurigana in 186 compound nouns where nothing can be misread: the sign says 食品売場 and the schoolbook says 食品売り場. Verbs keep the full spelling in both.",
-              "So a spelling you were not taught is usually not an error, it is a different tier. The exercise below asks which of the two you are looking at."
+              "So a spelling you were not taught is usually not an error, it is a different tier. The exercise below asks which of the two you are looking at. Both drills on this rung are about the shape a word is printed in rather than about reading grade two, so neither counts toward the chapter's own goal."
             ],
             "es": [
               "Los kana que siguen a un kanji llevan la flexión y eligen la lectura. La norma nacional sobre ellos es de 1973, con una enmienda de 1981, y está escrita en tres niveles: una regla principal, una lista de excepciones y un nivel de alternativas permitidas. Ese tercer nivel es la razón de que 行う y 行なう sean las dos correctas, y de que la redacción legal, que rechaza el tercer nivel, se lea distinta de una novela.",
               "La prueba más clara que puede ver quien aprende es un letrero oficial junto a un libro de texto escolar. Los documentos públicos quitan el okurigana en 186 sustantivos compuestos donde no cabe una lectura errónea: el letrero dice 食品売場 y el libro dice 食品売り場. Los verbos conservan la escritura completa en los dos casos.",
-              "Así que una escritura que no te enseñaron normalmente no es un error, es otro nivel. El ejercicio de abajo pregunta cuál de los dos estás mirando."
+              "Así que una escritura que no te enseñaron normalmente no es un error, es otro nivel. El ejercicio de abajo pregunta cuál de los dos estás mirando. Los dos ejercicios de este escalón tratan de la forma en que se imprime una palabra y no de leer segundo grado, así que ninguno cuenta para la meta del capítulo."
             ]
           }
         }
@@ -548,7 +548,7 @@
         {
           "id": "e-old-new",
           "type": "match",
-          "skill": "jp.kanji.grade2.read",
+          "skill": "jp.kanji.forms",
           "title": {
             "en": "Pair the old shape with the one in use",
             "es": "Empareja la forma antigua con la que está en uso"
@@ -559,8 +559,8 @@
               "old": "國",
               "new": "国",
               "explain": {
-                "en": "country. The old form encloses a jewel; the 1949 table replaced it with the one inside a box you learned this chapter.",
-                "es": "país. La forma antigua encierra una joya; la tabla de 1949 la sustituyó por la que aprendiste en este capítulo, con la pieza dentro de un cuadro."
+                "en": "country. The old form 國 encloses 或; the 1949 table put a jewel, 玉, inside the box instead, which is the form you learned this chapter.",
+                "es": "país. La forma antigua 國 encierra 或; la tabla de 1949 puso en su lugar una joya, 玉, dentro del cuadro, que es la forma que aprendiste en este capítulo."
               }
             },
             {
@@ -673,7 +673,7 @@
         {
           "id": "e-sign-or-schoolbook",
           "type": "choice",
-          "skill": "jp.kanji.grade2.read",
+          "skill": "jp.kanji.forms",
           "title": {
             "en": "The sign, or the schoolbook?",
             "es": "¿El letrero, o el libro de texto?"
@@ -682,7 +682,7 @@
             {
               "id": "okuri:1",
               "spelling": "食品売場",
-              "where": "the public sign",
+              "where": { "en": "the public sign", "es": "el letrero oficial" },
               "explain": {
                 "en": "Public documents drop the kana inside a compound noun where nothing can be misread. The schoolbook writes 食品売り場.",
                 "es": "Los documentos públicos quitan el kana dentro de un sustantivo compuesto cuando no hay riesgo de leer mal. El libro de texto escribe 食品売り場."
@@ -691,7 +691,7 @@
             {
               "id": "okuri:2",
               "spelling": "食品売り場",
-              "where": "the schoolbook",
+              "where": { "en": "the schoolbook", "es": "el libro de texto" },
               "explain": {
                 "en": "School spelling keeps the kana that shows the verb inside the compound. The sign writes 食品売場.",
                 "es": "La ortografía escolar conserva el kana que muestra el verbo dentro del compuesto. El letrero escribe 食品売場."
@@ -700,7 +700,7 @@
             {
               "id": "okuri:3",
               "spelling": "期限付の職",
-              "where": "the public sign",
+              "where": { "en": "the public sign", "es": "el letrero oficial" },
               "explain": {
                 "en": "The same rule again: a fixed-term post, spelled the way an official document spells it.",
                 "es": "La misma regla otra vez: un puesto de duración determinada, escrito como lo escribe un documento oficial."
@@ -709,7 +709,7 @@
             {
               "id": "okuri:4",
               "spelling": "期限付きの職",
-              "where": "the schoolbook",
+              "where": { "en": "the schoolbook", "es": "el libro de texto" },
               "explain": {
                 "en": "The school form keeps き, which is the kana the verb ends in.",
                 "es": "La forma escolar conserva き, que es el kana en que termina el verbo."
@@ -718,7 +718,7 @@
             {
               "id": "okuri:5",
               "spelling": "解約の手続",
-              "where": "the public sign",
+              "where": { "en": "the public sign", "es": "el letrero oficial" },
               "explain": {
                 "en": "A cancellation procedure. The official list names 186 compound nouns treated this way.",
                 "es": "Un trámite de cancelación. La lista oficial nombra 186 sustantivos compuestos tratados así."
@@ -727,7 +727,7 @@
             {
               "id": "okuri:6",
               "spelling": "解約の手続き",
-              "where": "the schoolbook",
+              "where": { "en": "the schoolbook", "es": "el libro de texto" },
               "explain": {
                 "en": "The same word with its okurigana, which is what you were taught and what a novel prints.",
                 "es": "La misma palabra con su okurigana, que es lo que te enseñaron y lo que imprime una novela."
@@ -767,12 +767,12 @@
           "body": {
             "en": [
               "Some words take their meaning from the characters and their sound from nowhere in particular. 大人 is おとな, 今日 is きょう, 昨日 is きのう, 明日 is あした. Splitting the reading between the characters does not work, because the reading belongs to the whole word.",
-              "There is no rule for these, only a list. The jōyō table carries an appendix of them, and that appendix is the reason a Japanese reader knows あした on sight. The opposite trick also exists: characters chosen for sound alone, discarding the meaning, which is how 珈琲 came to spell coffee on an old cafe sign. Official writing spells most of those in kana now and keeps the appendix words in characters.",
+              "There is no rule for these, only a list. The jōyō table carries an appendix of them, and it is the reason a Japanese reader knows おとな and きのう on sight. 明日 is the one to watch: the appendix lists it as あす, while あした, the reading you will hear every day, comes from no rule and no table at all. The opposite trick also exists: characters chosen for sound alone, discarding the meaning, which is how 珈琲 came to spell coffee on an old cafe sign. Official writing spells most of those in kana now and keeps the appendix words in characters.",
               "Ten of the appendix words are drilled here. The rest of grade two comes back in the two decks below, spaced over weeks, which is the only part of kanji study that survives contact with a calendar."
             ],
             "es": [
               "Algunas palabras toman su significado de los caracteres y su sonido de ninguna parte en concreto. 大人 es おとな, 今日 es きょう, 昨日 es きのう, 明日 es あした. Repartir la lectura entre los caracteres no funciona, porque la lectura pertenece a la palabra entera.",
-              "Para estas no hay regla, solo una lista. La tabla jōyō lleva un apéndice con ellas, y ese apéndice es la razón de que un lector japonés reconozca あした de un vistazo. También existe el truco contrario: caracteres elegidos solo por su sonido, descartando el significado, que es como 珈琲 llegó a escribir café en el letrero de una cafetería antigua. La escritura oficial pone hoy casi todos esos en kana y mantiene en caracteres las palabras del apéndice.",
+              "Para estas no hay regla, solo una lista. La tabla jōyō lleva un apéndice con ellas, y es la razón de que un lector japonés reconozca おとな y きのう de un vistazo. 明日 es la que hay que vigilar: el apéndice la recoge como あす, mientras que あした, la lectura que vas a oír a diario, no sale de ninguna regla ni de ninguna tabla. También existe el truco contrario: caracteres elegidos solo por su sonido, descartando el significado, que es como 珈琲 llegó a escribir café en el letrero de una cafetería antigua. La escritura oficial pone hoy casi todos esos en kana y mantiene en caracteres las palabras del apéndice.",
               "Aquí se practican diez palabras del apéndice. El resto de segundo grado vuelve en los dos mazos de abajo, repartido en semanas, que es la única parte del estudio de kanji que sobrevive al contacto con un calendario."
             ]
           }

@@ -15,15 +15,15 @@
 "id": "theory",
 "title": "The four groups a scheduler can hold",
 "fields": {
- "signature": "the time signature as written, top over bottom.",
- "beats": "how many of the note the lower number names fit in one bar. A plain string, because it is an answer.",
- "written": "the key signature counted in sharps or flats.",
- "key": "the major key that signature names.",
- "relative": "the minor key sharing the same signature. Shown after the answer, never asked.",
- "pair": "two letters, low to high.",
- "interval": "what they are apart.",
- "chord": "the triad by name.",
- "notes": "the accepted spellings of its three letters, low to high, spaces between. A list, because a sharp may be typed as # or as the word, and compare.js grades any member right."
+ "signature": "the time signature as written, top over bottom. One string in both languages: a number over a number is the same in each.",
+ "beats": "how many of the note the lower number names fit in one bar. One string in both languages, because it is a numeral.",
+ "written": "the key signature counted in sharps or flats. { en, es }.",
+ "key": "the major key that signature names. { en, es }, because the Spanish half of this Book names notes in solfege and the page it sits under does too.",
+ "relative": "the minor key sharing the same signature. { en, es }. Shown after the answer, never asked.",
+ "pair": "two letters, low to high. { en, es }.",
+ "interval": "what they are apart. { en, es }.",
+ "chord": "the triad by name. { en, es }.",
+ "notes": "the accepted spellings of its three letters, low to high, spaces between. A list per language, because a sharp may be typed as # or as the word, and compare.js grades any member right. A typed answer is graded against the language on screen, so the Spanish list is the one a Spanish reader is marked against."
 },
 "counts": { "meter": 10, "keys": 9, "intervals": 10, "triads": 9 },
 "order": ["meter", "keys", "intervals", "triads"],
@@ -41,38 +41,38 @@
 {"id":"me-64","signature":"6/4","beats":"6","note":"Six quarter notes. The same grouping question as 6/8, one note value slower."}
 ],
 "keys": [
-{"id":"ky-0","written":"no sharps and no flats","key":"C major","relative":"A minor","note":"The only signature that prints nothing at all."},
-{"id":"ky-1s","written":"one sharp","key":"G major","relative":"E minor","note":"The sharp is F, and the sharps always arrive in the order F C G D A E B."},
-{"id":"ky-2s","written":"two sharps","key":"D major","relative":"B minor","note":"F and C."},
-{"id":"ky-3s","written":"three sharps","key":"A major","relative":"F sharp minor","note":"F, C and G."},
-{"id":"ky-4s","written":"four sharps","key":"E major","relative":"C sharp minor","note":"F, C, G and D."},
-{"id":"ky-1f","written":"one flat","key":"F major","relative":"D minor","note":"The flat is B, and the flats arrive in the order B E A D G C F, which is the sharps backwards."},
-{"id":"ky-2f","written":"two flats","key":"B flat major","relative":"G minor","note":"B and E. Tchaikovsky's Old French Song is in the minor of this pair."},
-{"id":"ky-3f","written":"three flats","key":"E flat major","relative":"C minor","note":"B, E and A."},
-{"id":"ky-4f","written":"four flats","key":"A flat major","relative":"F minor","note":"B, E, A and D."}
+{"id": "ky-0", "written": {"en": "no sharps and no flats", "es": "sin sostenidos ni bemoles"}, "key": {"en": "C major", "es": "do mayor"}, "relative": {"en": "A minor", "es": "la menor"}, "note": "The only signature that prints nothing at all."},
+{"id": "ky-1s", "written": {"en": "one sharp", "es": "un sostenido"}, "key": {"en": "G major", "es": "sol mayor"}, "relative": {"en": "E minor", "es": "mi menor"}, "note": "The sharp is F, and the sharps always arrive in the order F C G D A E B."},
+{"id": "ky-2s", "written": {"en": "two sharps", "es": "dos sostenidos"}, "key": {"en": "D major", "es": "re mayor"}, "relative": {"en": "B minor", "es": "si menor"}, "note": "F and C."},
+{"id": "ky-3s", "written": {"en": "three sharps", "es": "tres sostenidos"}, "key": {"en": "A major", "es": "la mayor"}, "relative": {"en": "F sharp minor", "es": "fa sostenido menor"}, "note": "F, C and G."},
+{"id": "ky-4s", "written": {"en": "four sharps", "es": "cuatro sostenidos"}, "key": {"en": "E major", "es": "mi mayor"}, "relative": {"en": "C sharp minor", "es": "do sostenido menor"}, "note": "F, C, G and D."},
+{"id": "ky-1f", "written": {"en": "one flat", "es": "un bemol"}, "key": {"en": "F major", "es": "fa mayor"}, "relative": {"en": "D minor", "es": "re menor"}, "note": "The flat is B, and the flats arrive in the order B E A D G C F, which is the sharps backwards."},
+{"id": "ky-2f", "written": {"en": "two flats", "es": "dos bemoles"}, "key": {"en": "B flat major", "es": "si bemol mayor"}, "relative": {"en": "G minor", "es": "sol menor"}, "note": "B and E. Tchaikovsky's Old French Song is in the minor of this pair."},
+{"id": "ky-3f", "written": {"en": "three flats", "es": "tres bemoles"}, "key": {"en": "E flat major", "es": "mi bemol mayor"}, "relative": {"en": "C minor", "es": "do menor"}, "note": "B, E and A."},
+{"id": "ky-4f", "written": {"en": "four flats", "es": "cuatro bemoles"}, "key": {"en": "A flat major", "es": "la bemol mayor"}, "relative": {"en": "F minor", "es": "fa menor"}, "note": "B, E, A and D."}
 ],
 "intervals": [
-{"id":"in-c-d","pair":"C to D","interval":"major second","note":"One letter apart, two semitones."},
-{"id":"in-c-e","pair":"C to E","interval":"major third","note":"Two letters apart, four semitones. The bottom of a major triad."},
-{"id":"in-c-eb","pair":"C to E flat","interval":"minor third","note":"Two letters apart, three semitones. The bottom of a minor triad."},
-{"id":"in-c-f","pair":"C to F","interval":"perfect fourth","note":"Three letters apart, five semitones."},
-{"id":"in-c-g","pair":"C to G","interval":"perfect fifth","note":"Four letters apart, seven semitones. The outer notes of any plain triad."},
-{"id":"in-c-a","pair":"C to A","interval":"major sixth","note":"Five letters apart, nine semitones."},
-{"id":"in-c-b","pair":"C to B","interval":"major seventh","note":"Six letters apart, eleven semitones, one semitone short of the octave."},
-{"id":"in-c-c","pair":"C to the C above","interval":"perfect octave","note":"Twelve semitones, and the same letter again."},
-{"id":"in-e-g","pair":"E to G","interval":"minor third","note":"Two letters apart, three semitones. The same size as C to E flat and spelled with no accidental."},
-{"id":"in-b-f","pair":"B to F","interval":"diminished fifth","note":"Four letters apart but only six semitones, because the white keys are not evenly spaced. The one fifth in the major scale that is not perfect."}
+{"id": "in-c-d", "pair": {"en": "C to D", "es": "de do a re"}, "interval": {"en": "major second", "es": "segunda mayor"}, "note": "One letter apart, two semitones."},
+{"id": "in-c-e", "pair": {"en": "C to E", "es": "de do a mi"}, "interval": {"en": "major third", "es": "tercera mayor"}, "note": "Two letters apart, four semitones. The bottom of a major triad."},
+{"id": "in-c-eb", "pair": {"en": "C to E flat", "es": "de do a mi bemol"}, "interval": {"en": "minor third", "es": "tercera menor"}, "note": "Two letters apart, three semitones. The bottom of a minor triad."},
+{"id": "in-c-f", "pair": {"en": "C to F", "es": "de do a fa"}, "interval": {"en": "perfect fourth", "es": "cuarta justa"}, "note": "Three letters apart, five semitones."},
+{"id": "in-c-g", "pair": {"en": "C to G", "es": "de do a sol"}, "interval": {"en": "perfect fifth", "es": "quinta justa"}, "note": "Four letters apart, seven semitones. The outer notes of any plain triad."},
+{"id": "in-c-a", "pair": {"en": "C to A", "es": "de do a la"}, "interval": {"en": "major sixth", "es": "sexta mayor"}, "note": "Five letters apart, nine semitones."},
+{"id": "in-c-b", "pair": {"en": "C to B", "es": "de do a si"}, "interval": {"en": "major seventh", "es": "séptima mayor"}, "note": "Six letters apart, eleven semitones, one semitone short of the octave."},
+{"id": "in-c-c", "pair": {"en": "C to the C above", "es": "de do al do siguiente"}, "interval": {"en": "perfect octave", "es": "octava justa"}, "note": "Twelve semitones, and the same letter again."},
+{"id": "in-e-g", "pair": {"en": "E to G", "es": "de mi a sol"}, "interval": {"en": "minor third", "es": "tercera menor"}, "note": "Two letters apart, three semitones. The same size as C to E flat and spelled with no accidental."},
+{"id": "in-b-f", "pair": {"en": "B to F", "es": "de si a fa"}, "interval": {"en": "diminished fifth", "es": "quinta disminuida"}, "note": "Four letters apart but only six semitones, because the white keys are not evenly spaced. The one fifth in the major scale that is not perfect."}
 ],
 "triads": [
-{"id":"tri-c","chord":"C major","notes":["C E G"],"note":"Root, major third, perfect fifth."},
-{"id":"tri-g","chord":"G major","notes":["G B D"],"note":"Root, major third, perfect fifth."},
-{"id":"tri-f","chord":"F major","notes":["F A C"],"note":"Root, major third, perfect fifth."},
-{"id":"tri-d","chord":"D major","notes":["D F# A","D F sharp A"],"note":"The third is F sharp, which is why D major carries two sharps."},
-{"id":"tri-am","chord":"A minor","notes":["A C E"],"note":"Root, minor third, perfect fifth."},
-{"id":"tri-dm","chord":"D minor","notes":["D F A"],"note":"Root, minor third, perfect fifth."},
-{"id":"tri-em","chord":"E minor","notes":["E G B"],"note":"Root, minor third, perfect fifth."},
-{"id":"tri-bdim","chord":"B diminished","notes":["B D F"],"note":"A minor third stacked on a minor third, so the fifth is diminished."},
-{"id":"tri-caug","chord":"C augmented","notes":["C E G#","C E G sharp"],"note":"A major third stacked on a major third, so the fifth is augmented."}
+{"id": "tri-c", "chord": {"en": "C major", "es": "do mayor"}, "notes": {"en": ["C E G"], "es": ["do mi sol"]}, "note": "Root, major third, perfect fifth."},
+{"id": "tri-g", "chord": {"en": "G major", "es": "sol mayor"}, "notes": {"en": ["G B D"], "es": ["sol si re"]}, "note": "Root, major third, perfect fifth."},
+{"id": "tri-f", "chord": {"en": "F major", "es": "fa mayor"}, "notes": {"en": ["F A C"], "es": ["fa la do"]}, "note": "Root, major third, perfect fifth."},
+{"id": "tri-d", "chord": {"en": "D major", "es": "re mayor"}, "notes": {"en": ["D F# A", "D F sharp A"], "es": ["re fa# la", "re fa sostenido la"]}, "note": "The third is F sharp, which is one of the two sharps D major carries. The other is C sharp, the seventh degree, and no triad on the tonic reaches it."},
+{"id": "tri-am", "chord": {"en": "A minor", "es": "la menor"}, "notes": {"en": ["A C E"], "es": ["la do mi"]}, "note": "Root, minor third, perfect fifth."},
+{"id": "tri-dm", "chord": {"en": "D minor", "es": "re menor"}, "notes": {"en": ["D F A"], "es": ["re fa la"]}, "note": "Root, minor third, perfect fifth."},
+{"id": "tri-em", "chord": {"en": "E minor", "es": "mi menor"}, "notes": {"en": ["E G B"], "es": ["mi sol si"]}, "note": "Root, minor third, perfect fifth."},
+{"id": "tri-bdim", "chord": {"en": "B diminished", "es": "si disminuido"}, "notes": {"en": ["B D F"], "es": ["si re fa"]}, "note": "A minor third stacked on a minor third, so the fifth is diminished."},
+{"id": "tri-caug", "chord": {"en": "C augmented", "es": "do aumentado"}, "notes": {"en": ["C E G#", "C E G sharp"], "es": ["do mi sol#", "do mi sol sostenido"]}, "note": "A major third stacked on a major third, so the fifth is augmented."}
 ]
 }
 }

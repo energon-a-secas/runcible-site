@@ -6,11 +6,11 @@
 // the pictures.
 //
 // It grades four numbers against the KanjiVG paths the Book already declares:
-// stroke count, order (the nth drawn stroke against the nth reference path),
-// direction (the sign of the start-to-end vector) and position (start to start,
-// end to end). Shape fidelity is deliberately not among them, so a learner with
-// bad handwriting and the correct order passes: the shape is on the screen to
-// trace, and the order is the thing being taught.
+// stroke count, order (drawn strokes matched one to one to the reference paths,
+// so a swapped pair reads as a swap), direction (the sign of the start-to-end
+// vector) and position (start to start, end to end). Shape fidelity is not
+// among them, so bad handwriting in the taught order passes. The count is the
+// taught hand's: a き whose last two strokes are joined is three here, not four.
 //
 // The reference geometry comes from getTotalLength and getPointAtLength on the
 // paths already on the screen, because a KanjiVG d string is an absolute M plus
@@ -65,7 +65,7 @@ const T = {
     es: 'Los números son el orden. Leerlos está bien, y queda registrado con el intento.' },
   right: { en: 'Correct order.', es: 'Orden correcto.' },
   wrong: { en: 'Not the taught order.', es: 'No es el orden enseñado.' },
-  count: { en: 'You drew {drew}. {glyph} has {want}.', es: 'Dibujaste {drew}. {glyph} tiene {want}.' },
+  count: { en: 'You drew {drew}. In the taught hand, {glyph} has {want}.', es: 'Dibujaste {drew}. En la mano que se enseña, {glyph} tiene {want}.' },
   direction: { en: '{stroke} went {was}. It goes {want}.', es: '{stroke} fue {was}. Va {want}.' },
   order: { en: '{stroke} is where stroke {n} goes.', es: '{stroke} está donde va el trazo {n}.' },
   offStart: { en: '{stroke} started too far from where that stroke begins.',
@@ -154,15 +154,18 @@ function referenceOf(paths) {
   }
 }
 
-/** The reference stroke a drawn one sits closest to, or -1 when none is close. */
-function nearest(drawn, ref, tol) {
-  let best = -1;
-  let score = tol * 2;
-  ref.forEach((r, j) => {
-    const d = gap(drawn.start, r.start) + gap(drawn.end, r.end);
-    if (d < score) { score = d; best = j; }
-  });
-  return best;
+/** Which reference stroke each drawn one belongs to, one to one: pairs ranked by
+ *  start-to-start plus end-to-end distance, closest claiming each other first,
+ *  so no reference answers twice. Two adjacent parallel strokes in the wrong
+ *  order then read as a swap, which a per-stroke nearest match cannot see, since
+ *  each is inside the other's tolerance; an untidy stroke keeps its own, its
+ *  neighbour having claimed the neighbour first. */
+function assign(ends, ref) {
+  const pairs = [];
+  ends.forEach((m, i) => ref.forEach((r, j) => pairs.push([gap(m.start, r.start) + gap(m.end, r.end), i, j])));
+  const to = new Array(ends.length).fill(-1);
+  for (const [, i, j] of pairs.sort((a, b) => a[0] - b[0])) if (to[i] < 0 && !to.includes(j)) to[i] = j;
+  return to;
 }
 
 /** The four numbers, count first: a character with the wrong number of strokes
@@ -171,9 +174,11 @@ function judge(strokes, ref, tol) {
   if (strokes.length !== ref.length) {
     return { ok: false, misses: [{ kind: 'count', drew: strokes.length, want: ref.length }] };
   }
+  const ends = strokes.map(endsOf);
+  const to = assign(ends, ref);
   const misses = [];
   for (let i = 0; i < ref.length; i++) {
-    const mine = endsOf(strokes[i]);
+    const mine = ends[i];
     const want = ref[i];
     const wantVec = vec(want.start, want.end);
     const myVec = vec(mine.start, mine.end);
@@ -181,12 +186,10 @@ function judge(strokes, ref, tol) {
       misses.push({ kind: 'direction', i, was: headingOf(myVec), want: headingOf(wantVec) });
       continue;
     }
+    if (to[i] >= 0 && to[i] !== i) { misses.push({ kind: 'order', i, j: to[i] }); continue; }
     const fromStart = gap(mine.start, want.start);
     const fromEnd = gap(mine.end, want.end);
-    if (fromStart <= tol && fromEnd <= tol) continue;
-    const j = nearest(mine, ref, tol);
-    if (j >= 0 && j !== i) misses.push({ kind: 'order', i, j });
-    else misses.push({ kind: fromStart > fromEnd ? 'offStart' : 'offEnd', i });
+    if (fromStart > tol || fromEnd > tol) misses.push({ kind: fromStart > fromEnd ? 'offStart' : 'offEnd', i });
   }
   return { ok: misses.length === 0, misses };
 }

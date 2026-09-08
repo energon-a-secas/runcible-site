@@ -71,6 +71,42 @@
           }
         },
         {
+          "id": "p-three-scripts-words",
+          "kind": "table",
+          "title": { "en": "The thirteen words the drill asks about", "es": "Las trece palabras que pregunta el ejercicio" },
+          "columns": [
+            { "en": "Written", "es": "Se escribe" },
+            { "en": "Reading", "es": "Lectura" },
+            { "en": "Meaning, as the dictionary gives it", "es": "Significado, tal como lo da el diccionario" },
+            { "en": "Script", "es": "Escritura" }
+          ],
+          "rows": [
+            ["パソコン", "パソコン", "personal computer; PC", "katakana"],
+            ["コンビニ", "コンビニ", "convenience store", "katakana"],
+            ["テレビ", "テレビ", "television; TV", "katakana"],
+            ["コーヒー", "コーヒー", "coffee", "katakana"],
+            ["事件", "じけん", "event; affair; incident", "kanji"],
+            ["時間", "じかん", "time", "kanji"],
+            ["場所", "ばしょ", "room; space", "kanji"],
+            ["名前", "なまえ", "name", "kanji"],
+            ["こと", "こと", "thing; matter", "hiragana"],
+            ["ところ", "ところ", "place; spot; scene", "hiragana"],
+            ["ください", "ください", "please (give me)", "hiragana"],
+            ["たくさん", "たくさん", "a lot; lots; plenty", "hiragana"],
+            ["ちょうど", "ちょうど", "exactly; precisely; just", "hiragana"]
+          ],
+          "note": {
+            "en": [
+              "Read the fourth column against the first three before the drill, because the drill shows you the meaning alone, in the dictionary's own English, whichever language you are reading this in. The four katakana words are borrowings. The four kanji words are compound nouns naming a thing. The five hiragana words are the ones that fill a grammatical slot or modify a verb, and a real text leaves those in kana whatever kanji the dictionary lists for them.",
+              "ところ and 場所 are one character apart and go opposite ways, which is the whole reason this rung exists: the script follows the job the word does in the sentence, not the meaning."
+            ],
+            "es": [
+              "Lee la cuarta columna junto a las tres primeras antes del ejercicio, porque el ejercicio te enseña solo el significado, en el inglés del propio diccionario, sea cual sea el idioma en el que estés leyendo esto. Las cuatro palabras en katakana son préstamos. Las cuatro en kanji son sustantivos compuestos que nombran una cosa. Las cinco en hiragana son las que rellenan una casilla gramatical o modifican a un verbo, y un texto real las deja en kana por mucho kanji que les dé el diccionario.",
+              "ところ y 場所 se diferencian en un carácter y van a lados opuestos, y esa es toda la razón de este peldaño: la escritura sigue al trabajo que hace la palabra en la frase, no al significado."
+            ]
+          }
+        },
+        {
           "id": "p-six-percent",
           "kind": "callout",
           "tone": "note",
@@ -109,8 +145,8 @@
         "es": "La palabra tiene kanji y se escribe igualmente en kana"
       },
       "unlocks": {
-        "en": "the sentences of chapter 5, where こと and ところ arrive in hiragana and look like words nobody taught you",
-        "es": "las frases del capítulo 5, donde こと y ところ llegan en hiragana y parecen palabras que nadie te enseñó"
+        "en": "the stories of chapter 9, where こと and ところ arrive in hiragana and look like words nobody taught you",
+        "es": "los cuentos del capítulo 9, donde こと y ところ llegan en hiragana y parecen palabras que nadie te enseñó"
       },
       "pages": [
         {
@@ -146,25 +182,25 @@
             ["所", "ところ", "kana for a slot in a sentence, kanji inside a compound: 場所"],
             ["出来る", "できる", "kana in almost all writing, kanji only in set phrases"],
             ["有る", "ある", "kana, and the kanji reads as old-fashioned"],
-            ["下さい", "ください", "kana after a te-form, kanji when it means give me this thing"],
+            ["下さい", "ください", "kana, which is what a published text uses; the kanji 下さい still turns up for the plain verb"],
             ["など", "など", "always kana, and 等 is on the list of forms to drop"],
             ["事件", "じけん", "kanji, a compound noun no list touches"],
             ["時間", "じかん", "kanji"],
             ["場所", "ばしょ", "kanji"],
-            ["是非", "ぜひ", "kanji as a noun, often kana as the adverb meaning by all means"],
+            ["是非", "ぜひ", "kanji, which is what the dictionary lists; the adverb by all means is often seen in kana too"],
             ["名前", "なまえ", "kanji"],
-            ["明日", "あした", "kanji, with a reading that lives in an appendix rather than in a rule"]
+            ["明日", "あした", "kanji, and neither of its readings comes from a rule: the table's appendix lists this word as あす"]
           ],
           "note": {
             "en": [
               "The first six are the ones the 2022 guidance writes in kana. The last six are ordinary compound nouns no list touches, and they share the drill so that the answer is a decision rather than a habit.",
-              "The third column, in short: the kana form is what you will read whenever the word is filling a grammatical slot, and the kanji comes back when a specific thing is being named. 事 is the clearest pair, kana for a matter in general and kanji in 事は重大である. 所 keeps its kanji inside the compound 場所. など is always kana and its character 等 is on the list of forms to drop. 明日 is a special case with no rule at all: its reading is listed in an appendix to the everyday character table.",
-              "所 and 場所 sit on opposite sides and mean nearly the same thing in English. That is the point of the rung: the spelling follows the published list and the grammar, never the meaning."
+              "The third column, in short: the kana form is what you will read whenever the word is filling a grammatical slot, and the kanji comes back when a specific thing is being named. 事 is the clearest pair, kana for a matter in general and kanji in 事は重大である. 所 keeps its kanji inside the compound 場所. など is always kana and its character 等 is on the list of forms to drop. 明日 is a special case with no rule at all: the appendix to the everyday character table lists it as あす, and あした, the reading you will actually hear, is not in the table under any rule either.",
+              "所 and 場所 sit on opposite sides and mean nearly the same thing in English, which is why the drill prompts you with the reading rather than the meaning. That is the point of the rung: the spelling follows the published list and the grammar, never the meaning. Two rows have both spellings alive, 下さい and 是非, and the drill asks for the one a published text and the dictionary give."
             ],
             "es": [
               "Las seis primeras son las que la guía de 2022 escribe en kana. Las seis últimas son sustantivos compuestos corrientes que ninguna lista toca, y comparten el ejercicio para que la respuesta sea una decisión y no una costumbre.",
-              "La tercera columna, en corto: la forma en kana es la que vas a leer siempre que la palabra rellene una casilla gramatical, y el kanji vuelve cuando se nombra una cosa concreta. 事 es el par más claro, kana para un asunto en general y kanji en 事は重大である. 所 conserva su kanji dentro del compuesto 場所. など va siempre en kana y su carácter 等 está en la lista de formas que se dejan caer. 明日 es un caso aparte sin ninguna regla: su lectura figura en un apéndice de la tabla de caracteres de uso común.",
-              "所 y 場所 caen en lados opuestos y significan casi lo mismo en español. Ese es el sentido del peldaño: la grafía sigue a la lista publicada y a la gramática, nunca al significado."
+              "La tercera columna, en corto: la forma en kana es la que vas a leer siempre que la palabra rellene una casilla gramatical, y el kanji vuelve cuando se nombra una cosa concreta. 事 es el par más claro, kana para un asunto en general y kanji en 事は重大である. 所 conserva su kanji dentro del compuesto 場所. など va siempre en kana y su carácter 等 está en la lista de formas que se dejan caer. 明日 es un caso aparte sin ninguna regla: el apéndice de la tabla de caracteres de uso común lo recoge como あす, y あした, la lectura que vas a oír de verdad, tampoco sale de ninguna regla.",
+              "所 y 場所 caen en lados opuestos y significan casi lo mismo en español, y por eso el ejercicio te da la lectura y no el significado. Ese es el sentido del peldaño: la grafía sigue a la lista publicada y a la gramática, nunca al significado. Dos filas tienen vivas las dos grafías, 下さい y 是非, y el ejercicio pide la que dan un texto publicado y el diccionario."
             ]
           }
         }
@@ -176,7 +212,7 @@
           "skill": "jp.writing.choose",
           "title": { "en": "Kana or kanji?", "es": "¿Kana o kanji?" },
           "items": "data/vocab/ch13.json#groups.kana-preferred",
-          "prompt": "gloss.0",
+          "prompt": "kana",
           "answer": "spelling",
           "distractors": { "n": 1 },
           "count": 10,
@@ -215,16 +251,16 @@
           "title": { "en": "The sound words come in shapes", "es": "Las palabras de sonido vienen en formas" },
           "body": {
             "en": [
-              "Japanese has a large class of words that describe a sound, a manner or a feeling by their shape, and the shape carries information. Four shapes cover the ten words below, and the drill asks for the shape by name. Reduplicated is one piece said twice: きらきら, くるくる. Sokuon-final ends in a small っ: じっと, そっと. Ri-final ends in り: ぐっすり, こっそり. N-final ends in ん: ちゃんと, きちんと.",
+              "Japanese has a large class of words that describe a sound, a manner or a feeling by their shape, and the shape carries information. Four shapes cover the ten words below, and the drill asks for the shape by name. Reduplicated is one piece said twice: きらきら, くるくる. Sokuon-final ends in a small っ, usually with the quoting と after it: じっと, そっと. Ri-final ends in り: ぐっすり, こっそり. N-final ends in ん, again with と after it: ちゃんと, きちんと. That closing と is the adverbial particle rather than part of the shape, which is why it is discounted before the shape is read.",
               "Voicing the first consonant makes the thing bigger, heavier or coarser. きらきら is a sparkle and ぎらぎら is a glare, and that one pair carries more than a page of definitions would.",
               "There is a script convention on top of the shapes, and it is a tendency rather than a rule. A Ministry of Education teaching manual of 1989 lists only loans and living-sound words as katakana words, and a count reported in the same 2018 paper found that about 56 percent of manner words are written in katakana regardless. Style guides for journalists allow both. Read the shape, and do not read the script as a signal.",
-              "The four families are from the Wikipedia article on Japanese sound symbolism. The ten words drilled below are dictionary entries tagged as sound-symbolic, and each one's shape is worked out from its own kana rather than assigned by hand."
+              "The four families are from the Wikipedia article on Japanese sound symbolism. The ten words drilled below are dictionary entries tagged as sound-symbolic, and each one's shape is worked out from its own kana rather than assigned by hand. Because the shape is read off the kana, that drill is a reading exercise as much as a sound-symbolism one, so it is recorded as practice and counts toward nothing this chapter gates."
             ],
             "es": [
-              "El japonés tiene una clase grande de palabras que describen un sonido, una manera o un sentimiento por su forma, y la forma lleva información. Cuatro formas cubren las diez palabras de abajo, y el ejercicio pide la forma por su nombre. Reduplicated es una pieza dicha dos veces: きらきら, くるくる. Sokuon-final termina en っ pequeña: じっと, そっと. Ri-final termina en り: ぐっすり, こっそり. N-final termina en ん: ちゃんと, きちんと.",
+              "El japonés tiene una clase grande de palabras que describen un sonido, una manera o un sentimiento por su forma, y la forma lleva información. Cuatro formas cubren las diez palabras de abajo, y el ejercicio pide la forma por su nombre; los cuatro nombres salen en inglés en el ejercicio, porque son las etiquetas del propio corpus. Reduplicated, la reduplicada, es una pieza dicha dos veces: きらきら, くるくる. Sokuon-final termina en っ pequeña, normalmente con la と de cita detrás: じっと, そっと. Ri-final termina en り: ぐっすり, こっそり. N-final termina en ん, otra vez con と detrás: ちゃんと, きちんと. Esa と final es la partícula adverbial y no parte de la forma, y por eso se descuenta antes de leer la forma.",
               "Sonorizar la primera consonante hace la cosa más grande, más pesada o más basta. きらきら es un destello y ぎらぎら es un resplandor que deslumbra, y ese solo par carga más que una página de definiciones.",
               "Sobre las formas hay además una convención de escritura, y es una tendencia y no una regla. Un manual docente del Ministerio de Educación de 1989 solo cuenta como palabras de katakana los préstamos y los sonidos de seres vivos, y un recuento citado en ese mismo artículo de 2018 encontró que cerca del 56 por ciento de las palabras de manera se escriben en katakana de todos modos. Los libros de estilo para periodistas admiten las dos. Lee la forma, y no leas la escritura como una señal.",
-              "Las cuatro familias vienen del artículo de Wikipedia sobre el simbolismo sonoro japonés. Las diez palabras del ejercicio son entradas de diccionario marcadas como simbólicas del sonido, y la forma de cada una se deduce de sus propios kana en vez de asignarse a mano."
+              "Las cuatro familias vienen del artículo de Wikipedia sobre el simbolismo sonoro japonés. Las diez palabras del ejercicio son entradas de diccionario marcadas como simbólicas del sonido, y la forma de cada una se deduce de sus propios kana en vez de asignarse a mano. Como la forma se lee de los kana, ese ejercicio es tanto de lectura como de simbolismo sonoro, así que se registra como práctica y no cuenta para nada de lo que este capítulo abre."
             ]
           }
         }
@@ -233,7 +269,7 @@
         {
           "id": "e-mimetic-shape",
           "type": "choice",
-          "skill": "jp.writing.choose",
+          "skill": "jp.writing.mimetic",
           "title": { "en": "What shape is this one?", "es": "¿De qué forma es esta?" },
           "items": "data/vocab/ch13.json#groups.mimetics",
           "prompt": "word",
@@ -306,12 +342,12 @@
           "body": {
             "en": [
               "Novels, newspapers, magazines and most manga run vertically: top to bottom, with the columns going right to left. The spine is on the right and the pages turn the other way from a European book. Academic and technical writing runs horizontally, left to right, because it has to take foreign words and formulae.",
-              "Official documents settled the question in 2022: horizontal, left to right, except where there is a reason not to be. Before the war, horizontal Japanese ran right to left, which is why an old shop sign reads backwards to a modern eye.",
+              "Official documents have run horizontally, left to right, since the 1952 公用文作成の要領 asked for it as widely as possible; the 2022 guidance restates it as the default and names the exceptions. Before the war, horizontal Japanese ran right to left, which is why an old shop sign reads backwards to a modern eye.",
               "Two mechanical consequences. Brackets, the long vowel mark and the wave dash all rotate ninety degrees with the text. And numbers change script with the direction: horizontal writing uses Arabic numerals and writes ３か所, vertical writing uses kanji numerals and writes 三箇所. The same 2022 guidance gives the conversions both ways."
             ],
             "es": [
               "Las novelas, los periódicos, las revistas y casi todo el manga corren en vertical: de arriba abajo, con las columnas de derecha a izquierda. El lomo queda a la derecha y las páginas pasan al revés que en un libro europeo. La escritura académica y técnica corre en horizontal, de izquierda a derecha, porque tiene que admitir palabras extranjeras y fórmulas.",
-              "Los documentos oficiales zanjaron la cuestión en 2022: horizontal, de izquierda a derecha, salvo que haya un motivo para no hacerlo. Antes de la guerra, el japonés horizontal corría de derecha a izquierda, y por eso un cartel antiguo se lee al revés para un ojo de hoy.",
+              "Los documentos oficiales corren en horizontal, de izquierda a derecha, desde que el 公用文作成の要領 de 1952 lo pidió en todo lo posible; la guía de 2022 lo repite como norma por defecto y nombra las excepciones. Antes de la guerra, el japonés horizontal corría de derecha a izquierda, y por eso un cartel antiguo se lee al revés para un ojo de hoy.",
               "Dos consecuencias mecánicas. Los paréntesis, la barra de vocal larga y la raya ondulada giran noventa grados con el texto. Y los números cambian de escritura con la dirección: en horizontal se usan cifras árabes y se escribe ３か所, en vertical se usan cifras en kanji y se escribe 三箇所. Esa misma guía de 2022 da las conversiones en los dos sentidos."
             ]
           }
@@ -343,86 +379,86 @@
             {
               "id": "mk-end",
               "group": "mark",
-              "q": "Which mark ends a sentence?",
+              "q": { "en": "Which mark ends a sentence?", "es": "¿Qué signo termina una frase?" },
               "a": "。",
-              "explain": "句点. A small circle, and no space follows it."
+              "explain": { "en": "句点. A small circle, and no space follows it.", "es": "句点. Un circulito, y detrás no va espacio." }
             },
             {
               "id": "mk-comma",
               "group": "mark",
-              "q": "Which mark separates parts inside a sentence?",
+              "q": { "en": "Which mark separates parts inside a sentence?", "es": "¿Qué signo separa las partes dentro de una frase?" },
               "a": "、",
-              "explain": "読点. The 2022 guidance makes this the standard comma for public documents and still permits the Western one, as long as a document keeps to one of them."
+              "explain": { "en": "読点. The 2022 guidance makes this the standard comma for public documents and still permits the Western one, as long as a document keeps to one of them.", "es": "読点. La guía de 2022 hace de este la coma estándar de los documentos públicos y sigue permitiendo la occidental, siempre que un documento se quede con una de las dos." }
             },
             {
               "id": "mk-long",
               "group": "mark",
-              "q": "Which mark holds a katakana vowel for a second beat?",
+              "q": { "en": "Which mark holds a katakana vowel for a second beat?", "es": "¿Qué signo sostiene una vocal de katakana un segundo tiempo?" },
               "a": "ー",
-              "explain": "長音符. It is a kana character of its own, not a dash, and it rotates with the text in vertical writing."
+              "explain": { "en": "長音符. It is a kana character of its own, not a dash, and it rotates with the text in vertical writing.", "es": "長音符. Es un carácter kana propio, no una raya, y gira con el texto en la escritura vertical." }
             },
             {
               "id": "mk-repeat",
               "group": "mark",
-              "q": "Which mark repeats the kanji before it?",
+              "q": { "en": "Which mark repeats the kanji before it?", "es": "¿Qué signo repite el kanji anterior?" },
               "a": "々",
-              "explain": "踊り字. 人々 is 人 doubled, and the sound change comes with it."
+              "explain": { "en": "踊り字. 人々 is 人 doubled, and the sound change comes with it.", "es": "踊り字. 人々 es 人 duplicado, y el cambio de sonido viene con él." }
             },
             {
               "id": "lay-novel",
               "group": "layout",
-              "q": "Which way does a Japanese novel run?",
-              "a": "top to bottom, columns right to left",
-              "explain": "Vertical writing, which is still normal in novels, newspapers, magazines and most manga."
+              "q": { "en": "Which way does a Japanese novel run?", "es": "¿En qué dirección corre una novela japonesa?" },
+              "a": { "en": "top to bottom, columns right to left", "es": "de arriba abajo, con las columnas de derecha a izquierda" },
+              "explain": { "en": "Vertical writing, which is still normal in novels, newspapers, magazines and most manga.", "es": "Escritura vertical, que sigue siendo lo normal en novelas, periódicos, revistas y casi todo el manga." }
             },
             {
               "id": "lay-paper",
               "group": "layout",
-              "q": "Which way does a technical paper run?",
-              "a": "left to right, in horizontal lines",
-              "explain": "Horizontal writing, because it has to take foreign words and formulae. Official documents have run this way by default since 2022."
+              "q": { "en": "Which way does a technical paper run?", "es": "¿En qué dirección corre un artículo técnico?" },
+              "a": { "en": "left to right, in horizontal lines", "es": "de izquierda a derecha, en renglones horizontales" },
+              "explain": { "en": "Horizontal writing, because it has to take foreign words and formulae. Official documents have run this way by default since 2022.", "es": "Escritura horizontal, porque tiene que admitir palabras extranjeras y fórmulas. Los documentos oficiales corren así por defecto desde que el 要領 de 1952 lo pidió, y la guía de 2022 lo repite." }
             },
             {
               "id": "lay-spine",
               "group": "layout",
-              "q": "Where is the spine of a Japanese novel?",
-              "a": "on the right, and the pages turn to the left",
-              "explain": "It follows from the columns running right to left. The book opens the other way from a European one."
+              "q": { "en": "Where is the spine of a Japanese novel?", "es": "¿Dónde está el lomo de una novela japonesa?" },
+              "a": { "en": "on the right, and the pages turn to the left", "es": "a la derecha, y cada página se pasa de izquierda a derecha" },
+              "explain": { "en": "It follows from the columns running right to left. The book opens the other way from a European one.", "es": "Se sigue de que las columnas corren de derecha a izquierda. El libro se abre al revés que uno europeo." }
             },
             {
               "id": "lay-prewar",
               "group": "layout",
-              "q": "Which way did horizontal Japanese run before the war?",
-              "a": "right to left, one line at a time",
-              "explain": "Which is why an old shop sign reads backwards to a modern eye."
+              "q": { "en": "Which way did horizontal Japanese run before the war?", "es": "¿En qué dirección corría el japonés horizontal antes de la guerra?" },
+              "a": { "en": "right to left, one line at a time", "es": "de derecha a izquierda, un renglón cada vez" },
+              "explain": { "en": "Which is why an old shop sign reads backwards to a modern eye.", "es": "Y por eso un cartel antiguo de tienda se lee al revés para un ojo de hoy." }
             },
             {
               "id": "sp-none",
               "group": "spaces",
-              "q": "How are words separated in ordinary Japanese text?",
-              "a": "they are not separated at all, the change of script marks the boundary",
-              "explain": "A run of kanji is a content word and the hiragana after it is the grammar. That is why the script mix is load bearing rather than decorative."
+              "q": { "en": "How are words separated in ordinary Japanese text?", "es": "¿Cómo se separan las palabras en un texto japonés corriente?" },
+              "a": { "en": "they are not separated at all, the change of script marks the boundary", "es": "no se separan, el cambio de escritura marca el límite" },
+              "explain": { "en": "A run of kanji is a content word and the hiragana after it is the grammar. That is why the script mix is load bearing rather than decorative.", "es": "Una tirada de kanji es una palabra de contenido y el hiragana que la sigue es la gramática. Por eso la mezcla de escrituras sostiene el texto y no lo decora." }
             },
             {
               "id": "sp-textbook",
               "group": "spaces",
-              "q": "Where do spaces between phrases appear?",
-              "a": "in textbooks for grades one to three",
-              "explain": "分かち書き, a teaching aid. It appears in learner material too, and it is gone from ordinary text."
+              "q": { "en": "In which printed books do spaces between phrases appear?", "es": "¿En qué libros impresos aparecen espacios entre sintagmas?" },
+              "a": { "en": "in textbooks for grades one to three", "es": "en los libros de texto de primero a tercero" },
+              "explain": { "en": "分かち書き, a teaching aid. It appears in learner material too, and it is gone from ordinary text.", "es": "分かち書き, una ayuda didáctica. Aparece también en el material para estudiantes, y no está en el texto corriente." }
             },
             {
               "id": "sp-songs",
               "group": "spaces",
-              "q": "What are the spaces in this Book's song lines?",
-              "a": "分かち書き, the same teaching aid",
-              "explain": "Chapter 3 prints them for readability. Chapter 5 drops them, which is what a real page looks like."
+              "q": { "en": "What is the practice this Book's song lines follow called?", "es": "¿Cómo se llama la práctica que siguen las líneas de canción de este libro?" },
+              "a": { "en": "分かち書き, the same teaching aid", "es": "分かち書き, la misma ayuda didáctica" },
+              "explain": { "en": "Chapter 3 prints them for readability. Chapter 5 drops them, which is what a real page looks like.", "es": "El capítulo 3 los imprime para que se lean. El capítulo 5 los quita, y así es una página de verdad." }
             },
             {
               "id": "sp-braille",
               "group": "spaces",
-              "q": "Where does a line of Japanese braille break?",
-              "a": "at a phrase boundary",
-              "explain": "The same boundary the textbooks use, for the same reason: with no script mix to read, the reader needs the break."
+              "q": { "en": "Where does a line of Japanese braille break?", "es": "¿Dónde corta un renglón de braille japonés?" },
+              "a": { "en": "at a phrase boundary", "es": "en un límite de sintagma" },
+              "explain": { "en": "The same boundary the textbooks use, for the same reason: with no script mix to read, the reader needs the break.", "es": "El mismo límite que usan los libros de texto, y por la misma razón: sin mezcla de escrituras que leer, quien lee necesita el corte." }
             }
           ],
           "prompt": "q",
@@ -499,11 +535,11 @@
           "title": { "en": "The same kana, drawn two ways", "es": "El mismo kana, trazado de dos maneras" },
           "body": {
             "en": [
-              "き, さ, り and ふ are each drawn with the last stroke either joined to the one above it or separate, so the same character is three strokes or four depending on the typeface and on the hand. Both are correct, and neither is a variant of the other.",
+              "き, さ, り and ふ are each drawn with two of their strokes either joined or separate, so the same character has one stroke fewer in one hand than in another: き is four strokes or three, さ three or two, り two or one, and ふ joins its first two rather than its last. Both hands are correct, and neither is a variant of the other.",
               "Japan built a typeface class for this. 教科書体 is designed so that the printed shape matches what a child is taught to write, because Meiji metal type differed from the handwritten 楷書 and children could not reconcile the shape they read with the shape they were told to draw. The Cultural Council's 2016 guideline on character shapes says the general form of it: a character written so that its skeleton can be read is not a wrong character."
             ],
             "es": [
-              "き, さ, り y ふ se trazan cada una con el último trazo unido al anterior o separado de él, así que el mismo carácter tiene tres trazos o cuatro según la tipografía y según la mano. Las dos formas son correctas, y ninguna es una variante de la otra.",
+              "き, さ, り y ふ se trazan cada una con dos de sus trazos unidos o separados, así que el mismo carácter tiene un trazo menos en una mano que en otra: き tiene cuatro trazos o tres, さ tres o dos, り dos o uno, y ふ une los dos primeros y no el último. Las dos manos son correctas, y ninguna es una variante de la otra.",
               "Japón construyó una clase tipográfica para esto. 教科書体 está diseñada para que la forma impresa coincida con lo que se enseña a escribir a un niño, porque los tipos de metal de la era Meiji no coincidían con el 楷書 manuscrito y los niños no lograban conciliar la forma que leían con la forma que se les mandaba trazar. La guía de 2016 del Consejo de Cultura sobre las formas de los caracteres lo dice en general: un carácter escrito de modo que se lea su esqueleto no es un carácter equivocado."
             ]
           }
@@ -544,51 +580,51 @@
           "items": [
             {
               "id": "jz-chijimu",
-              "cue": "chijimu, to shrink: chi, and then the same consonant again",
+              "cue": { "en": "chijimu, to shrink: chi, and then the same consonant again", "es": "chijimu, encogerse: chi, y otra vez la misma consonante" },
               "kana": "ぢ",
-              "explain": "ちぢむ. The consonant of ち repeats inside one word, which is the first of the notification's two cases."
+              "explain": { "en": "ちぢむ. The consonant of ち repeats inside one word, which is the first of the notification's two cases.", "es": "ちぢむ. La consonante de ち se repite dentro de una misma palabra, que es el primero de los dos casos de la notificación." }
             },
             {
               "id": "jz-tsuzuku",
-              "cue": "tsuzuku, to continue: tsu, and then the same consonant again",
+              "cue": { "en": "tsuzuku, to continue: tsu, and then the same consonant again", "es": "tsuzuku, continuar: tsu, y otra vez la misma consonante" },
               "kana": "づ",
-              "explain": "つづく. The same case in the つ row."
+              "explain": { "en": "つづく. The same case in the つ row.", "es": "つづく. El mismo caso en la fila de つ." }
             },
             {
               "id": "jz-hanaji",
-              "cue": "hanaji, a nosebleed: hana, nose, joined to chi, blood",
+              "cue": { "en": "hanaji, a nosebleed: hana, nose, joined to chi, blood", "es": "hanaji, una hemorragia nasal: hana, nariz, unido a chi, sangre" },
               "kana": "ぢ",
-              "explain": "はなぢ. Two words joined, and the second one's ち voiced. That is the second case."
+              "explain": { "en": "はなぢ. Two words joined, and the second one's ち voiced. That is the second case.", "es": "はなぢ. Dos palabras unidas, y la ち de la segunda sonorizada. Ese es el segundo caso." }
             },
             {
               "id": "jz-mikazuki",
-              "cue": "mikazuki, a crescent moon: mika joined to tsuki, moon",
+              "cue": { "en": "mikazuki, a crescent moon: mika joined to tsuki, moon", "es": "mikazuki, una luna creciente: mika unido a tsuki, luna" },
               "kana": "づ",
-              "explain": "みかづき. The same case, from つき."
+              "explain": { "en": "みかづき. The same case, from つき.", "es": "みかづき. El mismo caso, a partir de つき." }
             },
             {
               "id": "jz-jimen",
-              "cue": "jimen, the ground, from the characters for earth and surface",
+              "cue": { "en": "jimen, the ground, from the characters for earth and surface", "es": "jimen, el suelo, de los caracteres de tierra y superficie" },
               "kana": "じ",
-              "explain": "じめん. The sound belongs to a borrowed reading of 地 that was already voiced, so neither case applies. The notification names this word itself."
+              "explain": { "en": "じめん. The sound belongs to a borrowed reading of 地 that was already voiced, so neither case applies. The notification names this word itself.", "es": "じめん. El sonido pertenece a una lectura prestada de 地 que ya venía sonorizada, así que no se aplica ninguno de los dos casos. La notificación nombra esta palabra ella misma." }
             },
             {
               "id": "jz-nunoji",
-              "cue": "nunoji, cloth, from the characters for cloth and ground",
+              "cue": { "en": "nunoji, cloth, from the characters for cloth and ground", "es": "nunoji, tela, de los caracteres de tela y suelo" },
               "kana": "じ",
-              "explain": "ぬのじ. It looks like a joining and it is not treated as one: the same 地 reading again, and the notification lists it by name."
+              "explain": { "en": "ぬのじ. It looks like a joining and it is not treated as one: the same 地 reading again, and the notification lists it by name.", "es": "ぬのじ. Parece una unión y no se trata como tal: otra vez la misma lectura de 地, y la notificación la recoge por su nombre." }
             },
             {
               "id": "jz-zuga",
-              "cue": "zuga, drawing as a school subject, from the characters for diagram and picture",
+              "cue": { "en": "zuga, drawing as a school subject, from the characters for diagram and picture", "es": "zuga, el dibujo como asignatura, de los caracteres de diagrama y pintura" },
               "kana": "ず",
-              "explain": "ずが. The sound belongs to a borrowed reading of 図 that was already voiced. Another of the notification's own examples."
+              "explain": { "en": "ずが. The sound belongs to a borrowed reading of 図 that was already voiced. Another of the notification's own examples.", "es": "ずが. El sonido pertenece a una lectura prestada de 図 que ya venía sonorizada. Otro de los ejemplos de la propia notificación." }
             },
             {
               "id": "jz-ryakuzu",
-              "cue": "ryakuzu, a sketch map, from the characters for abbreviated and diagram",
+              "cue": { "en": "ryakuzu, a sketch map, from the characters for abbreviated and diagram", "es": "ryakuzu, un croquis, de los caracteres de abreviado y diagrama" },
               "kana": "ず",
-              "explain": "りゃくず. 図 again, and no joining of two Japanese words to trigger the other case."
+              "explain": { "en": "りゃくず. 図 again, and no joining of two Japanese words to trigger the other case.", "es": "りゃくず. Otra vez 図, y ninguna unión de dos palabras japonesas que dispare el otro caso." }
             }
           ],
           "prompt": "cue",

@@ -130,32 +130,32 @@
       {
         "id": "p-intro-1",
         "frame": "[ ] から きました",
-        "slot": "だいがく",
+        "slot": "にほん",
         "register": "polite",
-        "kana": "だいがく から きました",
-        "en": "I have come from the university.",
-        "es": "Vengo de la universidad.",
-        "words": "大学"
+        "kana": "にほん から きました",
+        "en": "I am from Japan.",
+        "es": "Soy de Japón.",
+        "words": "日本"
       },
       {
         "id": "p-intro-2",
         "frame": "[ ] から きました",
-        "slot": "がっこう",
+        "slot": "まち",
         "register": "polite",
-        "kana": "がっこう から きました",
-        "en": "I have come from the school.",
-        "es": "Vengo de la escuela.",
-        "words": "学校"
+        "kana": "まち から きました",
+        "en": "I am from a town.",
+        "es": "Soy de un pueblo.",
+        "words": "町"
       },
       {
         "id": "p-intro-3",
         "frame": "[ ] から きました",
-        "slot": "えき",
+        "slot": "むら",
         "register": "polite",
-        "kana": "えき から きました",
-        "en": "I have come from the station.",
-        "es": "Vengo de la estación.",
-        "words": "駅"
+        "kana": "むら から きました",
+        "en": "I am from a village.",
+        "es": "Soy de un pueblo pequeño.",
+        "words": "村"
       }
     ],
     "thanks": [
@@ -270,12 +270,12 @@
         "register": "polite",
         "kana": "ありがとうございます",
         "en": "Thank you.",
-        "es": "Muchas gracias.",
+        "es": "Gracias.",
         "words": "ありがとうございます"
       },
       {
         "id": "r-greetings-3",
-        "register": "short",
+        "register": "plain",
         "kana": "どうも",
         "en": "Thanks, in one word.",
         "es": "Gracias, en una palabra.",
@@ -320,7 +320,7 @@
         "register": "polite",
         "kana": "かいしゃいん です",
         "en": "I am a company employee.",
-        "es": "Soy empleado de una empresa.",
+        "es": "Soy oficinista.",
         "words": "会社員"
       }
     ],
@@ -331,7 +331,7 @@
         "register": "polite",
         "kana": "ありがとうございます",
         "en": "Thank you.",
-        "es": "Muchas gracias.",
+        "es": "Gracias.",
         "words": "ありがとうございます"
       },
       {
@@ -349,19 +349,19 @@
         "id": "x-classroom-a",
         "turn": "A",
         "register": "polite",
-        "kana": "すみません もういちど おねがいします",
-        "en": "Excuse me, once more please.",
-        "es": "Disculpe, una vez más, por favor.",
-        "words": "すみません もう一度 お願いします"
+        "kana": "これ は にほんご で なん ですか",
+        "en": "What is this called in Japanese?",
+        "es": "¿Cómo se dice esto en japonés?",
+        "words": "日本語"
       },
       {
         "id": "x-classroom-b",
         "turn": "B",
         "register": "polite",
-        "kana": "はい しつもん は なん ですか",
-        "en": "Yes. What is your question?",
-        "es": "Sí. ¿Cuál es tu pregunta?",
-        "words": "はい 質問"
+        "kana": "つくえ です",
+        "en": "It is a desk.",
+        "es": "Es un escritorio.",
+        "words": "机"
       }
     ],
     "shopping": [
@@ -371,7 +371,7 @@
         "register": "polite",
         "kana": "いらっしゃいませ",
         "en": "Welcome to the shop.",
-        "es": "Bienvenida a la tienda.",
+        "es": "Bienvenido a la tienda.",
         "words": "いらっしゃいませ"
       },
       {

@@ -117,6 +117,154 @@
           ]
         },
         {
+          "id": "fx-read-links",
+          "type": "read",
+          "skill": "fixture.atlas.read",
+          "itemIdPrefix": "atlas",
+          "title": {
+            "en": "read: a page that cites, in both languages",
+            "es": "lectura: una página que cita, en los dos idiomas"
+          },
+          "pages": [
+            {
+              "id": "p-links-prose",
+              "kind": "prose",
+              "title": {
+                "en": "Where a citation goes",
+                "es": "Dónde va una cita"
+              },
+              "body": {
+                "en": [
+                  "Any page kind may carry links[], and the list closes the page. This one carries four, and the last two are wrong on purpose.",
+                  "A label and a note resolve to the reader's language, the same way a paragraph does. Switch the picker to es and read this page again."
+                ],
+                "es": [
+                  "Cualquier tipo de página puede llevar links[], y la lista cierra la página. Esta lleva cuatro, y las dos últimas están mal a propósito.",
+                  "La etiqueta y la nota se resuelven en el idioma del lector, igual que un párrafo. Cambia el selector a es y vuelve a leer esta página."
+                ]
+              },
+              "note": {
+                "en": "The note of the page, which is not a link.",
+                "es": "La nota de la página, que no es un enlace."
+              },
+              "links": [
+                {
+                  "href": "https://example.org/atlas",
+                  "label": {
+                    "en": "The atlas this fixture reads",
+                    "es": "El atlas que lee esta prueba"
+                  },
+                  "note": {
+                    "en": "opens in a new tab",
+                    "es": "se abre en una pestaña nueva"
+                  }
+                },
+                {
+                  "href": "https://example.org/moons",
+                  "label": {
+                    "es": "Sólo en español"
+                  }
+                },
+                {
+                  "href": "https://example.org/unlabelled"
+                },
+                {
+                  "href": "http://example.org/insecure",
+                  "label": {
+                    "en": "Refused: http, not https",
+                    "es": "Rechazado: http, no https"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "p-links-callout",
+              "kind": "callout",
+              "tone": "note",
+              "body": {
+                "en": [
+                  "A callout cites too. The list sits after the box, never inside it."
+                ],
+                "es": [
+                  "Una llamada también cita. La lista va después de la caja, nunca dentro."
+                ]
+              },
+              "links": [
+                {
+                  "href": "https://example.org/callout",
+                  "label": {
+                    "en": "After the box",
+                    "es": "Después de la caja"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "p-links-table",
+              "kind": "table",
+              "title": {
+                "en": "A table that cites its source",
+                "es": "Una tabla que cita su fuente"
+              },
+              "columns": [
+                {
+                  "en": "Name",
+                  "es": "Nombre"
+                },
+                {
+                  "en": "Moons",
+                  "es": "Lunas"
+                }
+              ],
+              "rows": [
+                [
+                  "Mercury",
+                  "0"
+                ],
+                [
+                  "Mars",
+                  "2"
+                ]
+              ],
+              "links": [
+                {
+                  "href": "https://example.org/table-source",
+                  "label": {
+                    "en": "Where these two rows come from",
+                    "es": "De dónde salen estas dos filas"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "p-links-figure",
+              "kind": "figure",
+              "title": {
+                "en": "A figure page that cites",
+                "es": "Una página de figura que cita"
+              },
+              "figure": {
+                "kind": "svg",
+                "src": "fixtures/data/atlas.json#planets",
+                "render": "orbit",
+                "caption": {
+                  "en": "Still not drawn here, and it still says so.",
+                  "es": "Aquí sigue sin dibujarse, y sigue diciéndolo."
+                }
+              },
+              "links": [
+                {
+                  "href": "https://example.org/figure-source",
+                  "label": {
+                    "en": "The notation this figure would use",
+                    "es": "La notación que usaría esta figura"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
           "id": "fx-choice",
           "type": "choice",
           "skill": "fixture.atlas.recognise",

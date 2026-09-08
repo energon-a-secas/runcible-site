@@ -15,30 +15,31 @@
 "id": "keys",
 "title": "The twelve keys of one octave, by where they sit",
 "fields": {
- "name": "what the key is called. The answer a drill asks for, so it is a plain string.",
- "position": "where the key is, said without naming another key. The prompt.",
+ "name": "what the key is called. One string in both languages, and the reason is not that a name has no Spanish: it does, and chapter 1 prints it. It is that books/piano/exercises/staff.js reads this field raw to build the expected answer, the option labels and the label pool of the drawn drill, so an { en, es } here would put [object Object] on four buttons. Making it bilingual is a change to that module and to this file together.",
+ "position": "where the key is, said without naming another key. The prompt of the choice drill, read through the shell's own field reader, so it is { en, es } and a Spanish reader is asked in Spanish.",
  "pc": "0 for C up to 11 for B, so a drawn keyboard needs no lookup table.",
  "white": "true for a white key.",
- "note": "one line the drill can show after the answer."
+ "note": "one line the drill can show after the answer. One string in both languages, for the same reason as name: the drawn drill passes it through untouched.",
+ "_bilingual": "An item field named by prompt, answer, left, right, speak, expect or sequence resolves to the reader's language through js/exercises/items.js. A field a Book module reads for itself does not, unless that module resolves it, so the two halves of this file are split on exactly that line."
 },
 "counts": { "white": 7, "black": 5 },
 "order": ["white", "black"],
 "groups": {
 "white": [
-{"id":"key-c","name":"C","position":"the white key just to the left of a pair of black keys","pc":0,"white":true,"note":"C is the anchor. Find the pair of black keys anywhere on the instrument and C is immediately left of it."},
-{"id":"key-d","name":"D","position":"the white key between the two black keys of a pair","pc":2,"white":true,"note":"D sits inside the pair, so it is the one white key with a black key on each side and nothing but the pair around it."},
-{"id":"key-e","name":"E","position":"the white key just to the right of a pair of black keys","pc":4,"white":true,"note":"E closes the pair. C left, D inside, E right."},
-{"id":"key-f","name":"F","position":"the white key just to the left of a group of three black keys","pc":5,"white":true,"note":"F opens the group of three the way C opens the pair."},
-{"id":"key-g","name":"G","position":"the white key between the first and second black keys of a group of three","pc":7,"white":true,"note":"G and A are the two white keys buried inside the group of three."},
-{"id":"key-a","name":"A","position":"the white key between the second and third black keys of a group of three","pc":9,"white":true,"note":"A is the second of the two white keys inside the group of three."},
-{"id":"key-b","name":"B","position":"the white key just to the right of a group of three black keys","pc":11,"white":true,"note":"B closes the group of three, and the next white key to the right is C again."}
+{"id": "key-c", "name": "C", "position": {"en": "the white key just to the left of a pair of black keys", "es": "la tecla blanca justo a la izquierda de un par de teclas negras"}, "pc": 0, "white": true, "note": "C is the anchor. Find the pair of black keys anywhere on the instrument and C is immediately left of it."},
+{"id": "key-d", "name": "D", "position": {"en": "the white key between the two black keys of a pair", "es": "la tecla blanca entre las dos teclas negras de un par"}, "pc": 2, "white": true, "note": "D sits inside the pair, so it is the one white key with a black key on each side and nothing but the pair around it."},
+{"id": "key-e", "name": "E", "position": {"en": "the white key just to the right of a pair of black keys", "es": "la tecla blanca justo a la derecha de un par de teclas negras"}, "pc": 4, "white": true, "note": "E closes the pair. C left, D inside, E right."},
+{"id": "key-f", "name": "F", "position": {"en": "the white key just to the left of a group of three black keys", "es": "la tecla blanca justo a la izquierda de un grupo de tres teclas negras"}, "pc": 5, "white": true, "note": "F opens the group of three the way C opens the pair."},
+{"id": "key-g", "name": "G", "position": {"en": "the white key between the first and second black keys of a group of three", "es": "la tecla blanca entre la primera y la segunda tecla negra de un grupo de tres"}, "pc": 7, "white": true, "note": "G and A are the two white keys buried inside the group of three."},
+{"id": "key-a", "name": "A", "position": {"en": "the white key between the second and third black keys of a group of three", "es": "la tecla blanca entre la segunda y la tercera tecla negra de un grupo de tres"}, "pc": 9, "white": true, "note": "A is the second of the two white keys inside the group of three."},
+{"id": "key-b", "name": "B", "position": {"en": "the white key just to the right of a group of three black keys", "es": "la tecla blanca justo a la derecha de un grupo de tres teclas negras"}, "pc": 11, "white": true, "note": "B closes the group of three, and the next white key to the right is C again."}
 ],
 "black": [
-{"id":"key-cs","name":"C sharp or D flat","position":"the lower of the two black keys in a pair","pc":1,"white":false,"note":"One key, two names. It is C sharp when it is a raised C and D flat when it is a lowered D, and which one is printed depends on the key the music is in."},
-{"id":"key-ds","name":"D sharp or E flat","position":"the upper of the two black keys in a pair","pc":3,"white":false,"note":"E flat is the name you meet first, because it belongs to the flat keys a beginner plays in."},
-{"id":"key-fs","name":"F sharp or G flat","position":"the lowest of the three black keys in a group","pc":6,"white":false,"note":"F sharp is the single sharp of G major, which is why it is the first black key most players learn by name."},
-{"id":"key-gs","name":"G sharp or A flat","position":"the middle of the three black keys in a group","pc":8,"white":false,"note":"The middle key of the three, and the only black key with a black key on both sides."},
-{"id":"key-as","name":"A sharp or B flat","position":"the highest of the three black keys in a group","pc":10,"white":false,"note":"B flat is the single flat of F major, and it is spelled B flat far more often than A sharp."}
+{"id": "key-cs", "name": "C sharp or D flat", "position": {"en": "the lower of the two black keys in a pair", "es": "la más grave de las dos teclas negras de un par"}, "pc": 1, "white": false, "note": "One key, two names. It is C sharp when it is a raised C and D flat when it is a lowered D, and which one is printed depends on the key the music is in."},
+{"id": "key-ds", "name": "D sharp or E flat", "position": {"en": "the upper of the two black keys in a pair", "es": "la más aguda de las dos teclas negras de un par"}, "pc": 3, "white": false, "note": "E flat is the name you meet first, because it belongs to the flat keys a beginner plays in."},
+{"id": "key-fs", "name": "F sharp or G flat", "position": {"en": "the lowest of the three black keys in a group", "es": "la más grave de las tres teclas negras de un grupo"}, "pc": 6, "white": false, "note": "F sharp is the single sharp of G major, which is why it is the first black key most players learn by name."},
+{"id": "key-gs", "name": "G sharp or A flat", "position": {"en": "the middle of the three black keys in a group", "es": "la del medio de las tres teclas negras de un grupo"}, "pc": 8, "white": false, "note": "The middle key of the three, and the only black key with a black key on both sides."},
+{"id": "key-as", "name": "A sharp or B flat", "position": {"en": "the highest of the three black keys in a group", "es": "la más aguda de las tres teclas negras de un grupo"}, "pc": 10, "white": false, "note": "B flat is the single flat of F major, and it is spelled B flat far more often than A sharp."}
 ]
 }
 }

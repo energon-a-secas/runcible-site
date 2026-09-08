@@ -105,10 +105,56 @@ function acceptFor(word, form, reading) {
   return ordered.slice(0, 2);
 }
 
-function glossesFor(word, pos) {
-  const senses = word.sense.filter((s) => !pos || s.partOfSpeech.includes(pos));
-  const use = (senses.length ? senses : word.sense).slice(0, MAX_SENSES);
-  return use.map((s) => s.gloss.slice(0, MAX_GLOSSES).map((g) => g.text).join('; '));
+/**
+ * The meanings this item ships, one string per JMdict sense.
+ *
+ * The default is the first two senses carrying the queried part of speech,
+ * three glosses each, and it is right nearly everywhere. Two knobs steer the
+ * rest, and both of them SELECT from what JMdict already wrote: neither one can
+ * put a word on the page that the entry does not carry, which is the line
+ * between choosing a sense and writing a gloss.
+ *
+ *   `senses`  which senses, by index, in this order. JMdict orders senses by
+ *             how common the ENTRY is, not by what a chapter teaches, so the
+ *             first sense of the expression that waves away praise is
+ *             "absolutely not!" and the one the rung means is the third.
+ *   `glosses` which of a sense's own glosses to keep, by index, instead of the
+ *             first three. Two spellings of one reading can share their opening
+ *             gloss ("to return" is the first word of both かえる entries), and
+ *             a drill whose prompt is that string has two right answers; the
+ *             narrower cut names each one with the dictionary's own words.
+ *
+ * An index that resolves to nothing stops the run rather than quietly shipping
+ * a shorter item: a stale pin is exactly what an assertion is for.
+ */
+function glossesFor(word, spec) {
+  let use;
+  if (Array.isArray(spec.glosses) && !Array.isArray(spec.senses)) {
+    // `glosses` cuts inside one sense, so it needs to know which one. Applied
+    // to a default pair of senses it would cut the second one down to nothing
+    // and stop the run on a pin that is not wrong.
+    throw new Error(`${spec.q}: glosses needs senses beside it, so it is clear which sense is being cut`);
+  }
+  if (Array.isArray(spec.senses)) {
+    use = spec.senses.map((i) => word.sense[i]);
+    if (use.some((sense) => !sense)) {
+      throw new Error(`${spec.q}: senses [${spec.senses.join(', ')}] but JMdict ${word.id} has ${word.sense.length}`);
+    }
+  } else {
+    const pos = spec.pos;
+    const senses = word.sense.filter((s) => !pos || s.partOfSpeech.includes(pos));
+    use = (senses.length ? senses : word.sense).slice(0, MAX_SENSES);
+  }
+  return use.map((sense) => {
+    const texts = sense.gloss.map((g) => g.text);
+    const keep = Array.isArray(spec.glosses)
+      ? spec.glosses.filter((i) => i < texts.length).map((i) => texts[i])
+      : texts.slice(0, MAX_GLOSSES);
+    if (!keep.length) {
+      throw new Error(`${spec.q}: glosses [${(spec.glosses || []).join(', ')}] name nothing in "${texts.join('; ')}"`);
+    }
+    return keep.join('; ');
+  });
 }
 
 function pickEntry(byForm, spec) {
@@ -225,7 +271,11 @@ function decorate(item, word, spec, group) {
   if (want.has('misc')) item.misc = misc;
   if (want.has('spelling')) item.spelling = misc.includes('uk') ? 'kana' : 'kanji';
   if (want.has('script')) item.script = scriptOf(word);
-  if (want.has('register')) item.register = registerOf(misc);
+  // A per-word `register` overrides the tag-derived label. JMdict tags a sense,
+  // and the formal apology of a call centre carries no tag at all, so the
+  // derived label for it is `plain`, which is the opposite of what the page
+  // teaches. The override is the selection file saying so out loud.
+  if (want.has('register')) item.register = spec.register || registerOf(misc);
   if (want.has('shape')) {
     const shape = shapeOf(item.kana);
     if (!shape) throw new Error(`${spec.q}: kana ${item.kana} fits none of the mimetic families`);
@@ -285,7 +335,7 @@ function toItem(word, spec, id) {
   } else {
     kana = headword;
   }
-  const gloss = glossesFor(word, spec.pos);
+  const gloss = glossesFor(word, spec);
   const pos = [...new Set(word.sense.flatMap((s) => s.partOfSpeech))];
   const item = {
     id,

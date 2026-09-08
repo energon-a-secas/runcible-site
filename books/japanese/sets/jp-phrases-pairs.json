@@ -21,10 +21,10 @@
 },
 "items": [
 {"id":"w_0001","left":"どういたしまして","right":{"en":"you're welcome","es":"de nada"},"group":"greetings-exp"},
-{"id":"w_0002","left":"おかげさまで","right":{"en":"thankfully","es":"afortunadamente"},"group":"greetings-exp"},
+{"id":"w_0002","left":"おかげさまで","right":{"en":"thanks to your kindness","es":"gracias a ti"},"group":"greetings-exp"},
 {"id":"w_0003","left":"お疲れ様","right":{"en":"thank you (for your hard work)","es":"gracias por tu trabajo"},"group":"greetings-exp","note":"おつかれさま"},
 {"id":"w_0004","left":"久しぶり","right":{"en":"it's been a long time","es":"hace mucho que no nos vemos"},"group":"greetings-exp","note":"ひさしぶり"},
-{"id":"w_0005","left":"いらっしゃいませ","right":{"en":"welcome","es":"bienvenido a la tienda"},"group":"greetings-exp"},
+{"id":"w_0005","left":"いらっしゃいませ","right":{"en":"welcome","es":"bienvenido"},"group":"greetings-exp"},
 {"id":"w_0006","left":"おめでとうございます","right":{"en":"congratulations","es":"felicitaciones"},"group":"greetings-exp"},
 {"id":"w_0007","left":"お先に","right":{"en":"pardon me for leaving","es":"perdón por irme primero"},"group":"greetings-exp","note":"おさきに"},
 {"id":"w_0008","left":"お大事に","right":{"en":"take care of yourself","es":"que te mejores"},"group":"greetings-exp","note":"おだいじに"},
@@ -41,8 +41,8 @@
 {"id":"w_0020","left":"お世話になる","right":{"en":"to receive favor","es":"recibir ayuda de alguien"},"group":"intro-exp","note":"おせわになる"},
 {"id":"w_0021","left":"ごめんください","right":{"en":"may I come in?","es":"¿se puede pasar?"},"group":"intro-exp"},
 {"id":"w_0022","left":"お邪魔します","right":{"en":"please excuse the intrusion","es":"con permiso, entro"},"group":"intro-exp","note":"おじゃまします"},
-{"id":"w_0023","left":"お礼","right":{"en":"thanks","es":"agradecimiento"},"group":"thanks","note":"おれい"},
-{"id":"w_0024","left":"感謝","right":{"en":"gratitude","es":"gratitud"},"group":"thanks","note":"かんしゃ"},
+{"id":"w_0023","left":"お礼","right":{"en":"gratitude","es":"gratitud"},"group":"thanks","note":"おれい"},
+{"id":"w_0024","left":"お詫び","right":{"en":"apology","es":"disculpa"},"group":"thanks","note":"おわび"},
 {"id":"w_0025","left":"親切","right":{"en":"kind","es":"amable"},"group":"thanks","note":"しんせつ"},
 {"id":"w_0026","left":"迷惑","right":{"en":"trouble","es":"molestia"},"group":"thanks","note":"めいわく"},
 {"id":"w_0027","left":"失礼","right":{"en":"discourtesy","es":"descortesía"},"group":"thanks","note":"しつれい"},
@@ -53,7 +53,7 @@
 {"id":"w_0032","left":"ありがとうございました","right":{"en":"thank you","es":"gracias por lo hecho"},"group":"thanks-exp"},
 {"id":"w_0033","left":"失礼しました","right":{"en":"my apologies","es":"mis disculpas"},"group":"thanks-exp","note":"しつれいしました"},
 {"id":"w_0034","left":"お手数ですが","right":{"en":"sorry to bother you, but...","es":"perdón por la molestia, pero..."},"group":"thanks-exp","note":"おてすうですが"},
-{"id":"w_0035","left":"とんでもない","right":{"en":"absolutely not!","es":"¡de ninguna manera!"},"group":"thanks-exp"},
+{"id":"w_0035","left":"とんでもない","right":{"en":"no bother at all","es":"no hay de qué"},"group":"thanks-exp"},
 {"id":"w_0036","left":"すまない","right":{"en":"excuse me","es":"perdona"},"group":"thanks-exp"},
 {"id":"w_0037","left":"教科書","right":{"en":"textbook","es":"libro de texto"},"group":"classroom","note":"きょうかしょ"},
 {"id":"w_0038","left":"鉛筆","right":{"en":"pencil","es":"lápiz"},"group":"classroom","note":"えんぴつ"},
@@ -67,7 +67,7 @@
 {"id":"w_0046","left":"えっと","right":{"en":"let me see","es":"a ver"},"group":"classroom-exp"},
 {"id":"w_0047","left":"ええ","right":{"en":"yes","es":"sí"},"group":"classroom-exp"},
 {"id":"w_0048","left":"なるほど","right":{"en":"I see","es":"ya veo"},"group":"classroom-exp"},
-{"id":"w_0049","left":"ちょっと","right":{"en":"hey!","es":"¡oye!"},"group":"classroom-exp"},
+{"id":"w_0049","left":"ちょっと","right":{"en":"thanks, but no","es":"gracias, pero no"},"group":"classroom-exp"},
 {"id":"w_0050","left":"了解","right":{"en":"OK","es":"entendido"},"group":"classroom-exp","note":"りょうかい"},
 {"id":"w_0051","left":"店","right":{"en":"store","es":"tienda"},"group":"shopping","note":"みせ"},
 {"id":"w_0052","left":"値段","right":{"en":"price","es":"precio"},"group":"shopping","note":"ねだん"},
@@ -81,7 +81,7 @@
 {"id":"w_0060","left":"ちょうだい","right":{"en":"please (give me; do for me)","es":"dame, por favor"},"group":"shopping-exp"},
 {"id":"w_0061","left":"毎度","right":{"en":"thank you for your continued patronage","es":"gracias por su preferencia"},"group":"shopping-exp","note":"まいど"},
 {"id":"w_0062","left":"お願いいたします","right":{"en":"please","es":"por favor, se lo pido"},"group":"shopping-exp","note":"おねがいいたします"},
-{"id":"w_0063","left":"大丈夫","right":{"en":"no thanks","es":"no, gracias"},"group":"shopping-exp","note":"だいじょうぶ"},
-{"id":"w_0064","left":"どうも","right":{"en":"greetings","es":"saludos"},"group":"shopping-exp"}
+{"id":"w_0063","left":"大丈夫","right":{"en":"all right","es":"está bien"},"group":"shopping-exp","note":"だいじょうぶ"},
+{"id":"w_0064","left":"どうも","right":{"en":"thanks","es":"gracias"},"group":"shopping-exp"}
 ]
 }

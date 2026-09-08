@@ -6,7 +6,18 @@
     "exactly; `pos` disambiguates when a form has several entries (は is a",
     "particle and also a tooth); `reading` picks one kana form when JMdict lists",
     "several and the first is not the one a beginner should learn (four is よん,",
-    "not し, in a counting drill). `senses` caps how many glosses are kept.",
+    "not し, in a counting drill).",
+    "`senses` names which JMdict senses to keep, by index, in the order given,",
+    "and `glosses` names which of a kept sense's own glosses to keep, also by",
+    "index, instead of the first three. Both SELECT from what JMdict wrote and",
+    "neither can put a word on a page that the entry does not carry: that is the",
+    "line between choosing a sense and writing a gloss. They exist because JMdict",
+    "orders senses by how common the ENTRY is, not by what a chapter teaches, and",
+    "because two spellings of one reading can open on the same gloss, which makes",
+    "a drill prompted with it have two right answers. `glosses` needs `senses`",
+    "beside it, so it is clear which sense is being cut.",
+    "`register` overrides the tag-derived politeness label for one word, for the",
+    "handful JMdict tags nothing at all.",
     "A word that resolves to nothing is reported by name and the run fails, so a",
     "typo here can never become a silently shorter deck.",
     "`jmdict` pins one entry by id, and it is the only thing that tells 事 the",
@@ -314,7 +325,7 @@
             { "q": "コーヒー", "jmdict": "1049180" },
             { "q": "事件", "pos": "n" },
             { "q": "時間", "pos": "n" },
-            { "q": "場所", "pos": "n" },
+            { "q": "場所", "pos": "n", "senses": [1] },
             { "q": "名前", "pos": "n" },
             { "q": "こと", "jmdict": "1313580" },
             { "q": "ところ", "jmdict": "1343100" },
@@ -338,7 +349,7 @@
             { "q": "など", "jmdict": "1582300" },
             { "q": "事件", "pos": "n" },
             { "q": "時間", "pos": "n" },
-            { "q": "場所", "pos": "n" },
+            { "q": "場所", "pos": "n", "senses": [1] },
             { "q": "是非", "pos": "adv" },
             { "q": "名前", "pos": "n" },
             { "q": "明日", "pos": "n", "reading": "あした" }
@@ -377,7 +388,7 @@
           "min_items": 8,
           "words": [
             { "q": "どういたしまして", "pos": "int", "jmdict": "1009030" },
-            { "q": "おかげさまで", "pos": "exp", "jmdict": "1270220" },
+            { "q": "おかげさまで", "pos": "exp", "jmdict": "1270220", "senses": [1] },
             { "q": "お疲れ様", "pos": "int", "jmdict": "1002570" },
             { "q": "久しぶり", "pos": "exp", "jmdict": "1227370" },
             { "q": "いらっしゃいませ", "pos": "exp", "jmdict": "1000930" },
@@ -420,7 +431,7 @@
           "min_items": 8,
           "words": [
             { "q": "お礼", "pos": "n" },
-            { "q": "感謝", "pos": "n" },
+            { "q": "お詫び", "pos": "n" },
             { "q": "親切", "pos": "adj-na" },
             { "q": "迷惑", "pos": "n" },
             { "q": "失礼", "pos": "n" },
@@ -438,7 +449,7 @@
             { "q": "ありがとうございました", "pos": "exp", "jmdict": "2845468" },
             { "q": "失礼しました", "pos": "exp", "jmdict": "1320240" },
             { "q": "お手数ですが", "pos": "exp", "jmdict": "2830449" },
-            { "q": "とんでもない", "pos": "int", "jmdict": "1008790" },
+            { "q": "とんでもない", "pos": "int", "jmdict": "1008790", "senses": [2] },
             { "q": "すまない", "pos": "int", "jmdict": "1610020" }
           ]
         },
@@ -466,7 +477,7 @@
             { "q": "えっと", "pos": "int", "jmdict": "1001150" },
             { "q": "ええ", "pos": "int", "jmdict": "1001140" },
             { "q": "なるほど", "pos": "int", "jmdict": "1375820" },
-            { "q": "ちょっと", "pos": "int", "jmdict": "1163940" },
+            { "q": "ちょっと", "pos": "int", "jmdict": "1163940", "senses": [5] },
             { "q": "了解", "pos": "int", "jmdict": "1553310" }
           ]
         },
@@ -494,7 +505,7 @@
             { "q": "ちょうだい", "pos": "exp", "jmdict": "1430230" },
             { "q": "毎度", "pos": "int", "jmdict": "1524710" },
             { "q": "お願いいたします", "pos": "exp", "jmdict": "1001730" },
-            { "q": "大丈夫", "pos": "int", "jmdict": "1414150" },
+            { "q": "大丈夫", "pos": "int", "jmdict": "1414150", "senses": [0], "glosses": [5, 6] },
             { "q": "どうも", "pos": "int", "jmdict": "1009000" }
           ]
         }
@@ -509,24 +520,29 @@
         {
           "id": "singles-2a",
           "label": { "en": "Grade two, one kanji one word", "es": "Segundo grado, un kanji una palabra" },
-          "min_items": 50,
+          "min_items": 45,
           "auto": {
             "single_kanji_from_set": "grade2a",
             "_note": "One word per grade 2 kanji of the first slice, taken from JMdict rather than hand-listed, so the vocabulary and the kanji table cannot disagree about which characters exist. Same rule as ch6 singles: JMdict orders senses by frequency of the entry and not by what a learner should meet first, so a few are steered by hand and the ones with no standalone word worth teaching are dropped.",
-            "overrides": {},
-            "exclude": [],
-            "exclude_note": "empty on purpose. The auto pass returned a word for 55 of the first eighty and 67 of the second eighty; the rest are characters JMdict holds no common standalone word for (bound morphemes and verb stems), so there is nothing to exclude and nothing to steer. They still ship in the kanji table and the stroke set, exactly as the three excluded grade 1 characters do."
+            "overrides": {
+              "前": { "reading": "まえ", "pos": "n" }
+            },
+            "exclude": ["行", "合", "高", "通", "多", "午", "画", "直"],
+            "exclude_note": "The rung promises the words a Japanese seven-year-old reads, and JMdict's first common one-character entry is not always one of them: the eight excluded here resolved to a line of text, a traditional unit of volume, a quantity, a connoisseur, the prefix multi-, the zodiac sign of the Horse, one stroke of a kanji, and the adverb soon. None of them is a standalone word a beginner meets, so the one-word drill drops them exactly as ch6 drops the three grade 1 characters. The one steered instead is the character for front, which does have a beginner word under another reading. All nine still ship in the kanji table, the stroke set and the grade 2 deck, and the compounds rung two down carries the noon, afternoon and high school compounds built on two of them."
           }
         },
         {
           "id": "singles-2b",
           "label": { "en": "Grade two, the next eighty in words", "es": "Segundo grado, los ochenta siguientes en palabras" },
-          "min_items": 50,
+          "min_items": 60,
           "auto": {
             "single_kanji_from_set": "grade2b",
-            "overrides": {},
-            "exclude": [],
-            "exclude_note": "empty on purpose. The auto pass returned a word for 55 of the first eighty and 67 of the second eighty; the rest are characters JMdict holds no common standalone word for (bound morphemes and verb stems), so there is nothing to exclude and nothing to steer. They still ship in the kanji table and the stroke set, exactly as the three excluded grade 1 characters do."
+            "overrides": {
+              "頭": { "reading": "あたま", "pos": "n" },
+              "園": { "jmdict": "2854424", "reading": "えん", "pos": "n-suf" }
+            },
+            "exclude": ["毎", "古", "弱", "才", "里"],
+            "exclude_note": "Same rule as the first slice. The five excluded here resolved to a bound suffix read one way alone and another way in every compound a learner meets, to antiquity, to the suffix meaning a little less than, to the colloquial substitute for the age counter, and to a pre-metric unit of distance. The two steered instead are the character for head, taken to its own noun rather than to the counter for large animals, and the character for garden, taken to the reading its compounds use rather than to the poetic one. All seven still ship in the kanji table, the stroke set and the grade 2 deck."
           }
         },
         {
@@ -558,8 +574,8 @@
             { "q": "厚い" },
             { "q": "会う" },
             { "q": "合う" },
-            { "q": "帰る", "reading": "かえる" },
-            { "q": "返る", "reading": "かえる" },
+            { "q": "帰る", "reading": "かえる", "senses": [0], "glosses": [1, 2] },
+            { "q": "返る", "reading": "かえる", "senses": [0], "glosses": [1, 2] },
             { "q": "直す" },
             { "q": "治す" },
             { "q": "取る" },
@@ -572,9 +588,9 @@
             { "q": "書く" },
             { "q": "描く", "reading": "かく" },
             { "q": "泣く" },
-            { "q": "鳴く" },
+            { "q": "鳴く", "senses": [0], "glosses": [0, 1] },
             { "q": "努める" },
-            { "q": "勤める" },
+            { "q": "勤める", "senses": [0], "glosses": [0, 1] },
             { "q": "務める" },
             { "q": "止まる", "jmdict": "1310620" },
             { "q": "泊まる" }
@@ -641,7 +657,7 @@
             { "q": "かしこまりました", "pos": "exp", "jmdict": "1002790", "situation": {"en": "A customer has asked for something and you accept", "es": "Un cliente pide algo y aceptas"} },
             { "q": "もしもし", "pos": "int", "jmdict": "1012550", "situation": {"en": "You pick up the telephone", "es": "Levantas el teléfono"} },
             { "q": "お待たせしました", "pos": "exp", "jmdict": "2149640", "situation": {"en": "You come back to a customer who waited", "es": "Vuelves con un cliente que esperó"} },
-            { "q": "申し訳ありません", "pos": "exp", "jmdict": "1612030", "situation": {"en": "You apologise to a customer for a mistake", "es": "Te disculpas con un cliente por un error"} },
+            { "q": "申し訳ありません", "pos": "exp", "jmdict": "1612030", "register": "pol", "situation": {"en": "You apologise to a customer for a mistake", "es": "Te disculpas con un cliente por un error"} },
             { "q": "ご苦労様", "pos": "exp", "jmdict": "1005030", "situation": {"en": "You thank a delivery driver for the work", "es": "Agradeces el trabajo a un repartidor"} }
           ]
         }

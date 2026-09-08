@@ -21,7 +21,11 @@
     "than as themselves. It is set on one row, and the reason is in writeData in",
     "tools/lib/corpus.mjs: one character of KANJIDIC's grade 2 list is also the",
     "whole title of a banned song, so a deck built over that slice would be a hit",
-    "for check-licence.mjs. The parsed value is identical either way."
+    "for check-licence.mjs. The parsed value is identical either way.",
+    "A vocab row's optional qualify names a second field the recall card is",
+    "fronted with, group or register. Without one, a typed card fronted with a",
+    "meaning alone accepts one of two right answers wherever two notes share that",
+    "meaning, and says nothing about it."
   ],
   "decks": [
     {
@@ -76,6 +80,7 @@
       "name": { "en": "Everyday phrases", "es": "Frases de todos los días" },
       "skill_read": "vocab.phrases.read",
       "skill_write": "vocab.phrases.write",
+      "qualify": "group",
       "budget_kb": 150
     },
     {
@@ -107,6 +112,7 @@
       "name": { "en": "Politeness, three distances", "es": "Cortesía, tres distancias" },
       "skill_read": "vocab.register.read",
       "skill_write": "vocab.register.write",
+      "qualify": "register",
       "budget_kb": 150
     }
   ],

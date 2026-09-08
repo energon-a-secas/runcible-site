@@ -272,8 +272,8 @@
           "type": "typed",
           "skill": "jp.expression.read",
           "title": {
-            "en": "Type what you would say",
-            "es": "Escribe lo que dirías"
+            "en": "Type the expression",
+            "es": "Escribe la expresión"
           },
           "items": "data/vocab/ch14.json#groups.greetings-exp",
           "prompt": "gloss.0",
@@ -290,12 +290,12 @@
           "type": "choice",
           "skill": "jp.expression.read",
           "title": {
-            "en": "Which sentence uses it?",
-            "es": "¿Qué frase la usa?"
+            "en": "What does this sentence say?",
+            "es": "¿Qué dice esta frase?"
           },
           "items": "data/sentences/ch14.json#groups.greetings-exp",
-          "prompt": "word",
-          "answer": "ja",
+          "prompt": "ja",
+          "answer": "en",
           "distractors": {
             "n": 3
           },
@@ -398,12 +398,12 @@
     {
       "id": "intro-say",
       "title": {
-        "en": "Giving your name, your origin and your job",
-        "es": "Dar tu nombre, tu origen y tu trabajo"
+        "en": "Arriving, saying where you came from, and what you do",
+        "es": "Llegar, decir de dónde vienes, y a qué te dedicas"
       },
       "unlocks": {
-        "en": "an introduction that does not stop after your name",
-        "es": "una presentación que no se acaba en tu nombre"
+        "en": "the part of an introduction that comes after your name",
+        "es": "la parte de una presentación que viene después de tu nombre"
       },
       "pages": [
         {
@@ -417,12 +417,12 @@
             "en": [
               "よろしくお願いします closes an introduction and has no equivalent anywhere in Spanish or English. It is somewhere between pleased to meet you, please look after me and I hope this goes well, and leaving it out is the thing that marks a foreigner faster than an accent does.",
               "The other five are the doorway: ようこそ welcomes somebody, そうです confirms what they guessed, お世話になる is being in someone's care, ごめんください is calling into a house from the entrance, お邪魔します is what you say as you step in.",
-              "The pattern swaps the place you came from. Every filler in it is a word this Book has already taught, which is the test of a pattern worth learning: you should be able to rebuild it with your own nouns before you leave the page."
+              "The pattern swaps the place you have come from, and its three fillers are all places you can walk out of, so it says where you have just arrived from rather than which country you are from. Every filler in it is a word this Book has already taught, which is the test of a pattern worth learning: you should be able to rebuild it with your own nouns before you leave the page.", "Your own name is not on this rung. はじめまして and 名前 belong to chapter 4, and what this rung adds is everything that comes after them. On the pairs board below you will see five of the six expressions and not six: ようこそ and いらっしゃいませ from the greetings rung share the one meaning welcome, the board keeps one card per meaning, and ようこそ is still asked for in the typed round."
             ],
             "es": [
               "よろしくお願いします cierra una presentación y no tiene equivalente en español. Está entre encantado de conocerte, cuídame un poco y espero que esto salga bien, y omitirla es lo que delata a un extranjero más rápido que el acento.",
               "Las otras cinco son el umbral: ようこそ da la bienvenida, そうです confirma lo que la otra persona supuso, お世話になる es estar al cuidado de alguien, ごめんください es llamar hacia dentro de una casa desde la entrada, お邪魔します es lo que dices al pasar.",
-              "El patrón cambia el lugar del que vienes. Todos sus rellenos son palabras que este libro ya enseñó, que es la prueba de un patrón que vale la pena: deberías poder reconstruirlo con tus propios sustantivos antes de salir de la página."
+              "El patrón cambia el lugar del que acabas de venir, y sus tres rellenos son sitios de los que se sale andando, así que dice de dónde acabas de llegar y no de qué país eres. Todos sus rellenos son palabras que este libro ya enseñó, que es la prueba de un patrón que vale la pena: deberías poder reconstruirlo con tus propios sustantivos antes de salir de la página.", "Tu nombre no está en este escalón. はじめまして y 名前 son del capítulo 4, y lo que este escalón añade es todo lo que viene después. En el tablero de parejas de abajo verás cinco de las seis expresiones y no seis: ようこそ e いらっしゃいませ, del escalón de saludos, comparten el único significado bienvenida, el tablero guarda una carta por significado, y ようこそ se sigue pidiendo en la ronda de escritura."
             ]
           }
         },
@@ -520,7 +520,7 @@
           },
           "src": "books/japanese/sets/jp-phrases-pairs.json",
           "filter": "group:intro-exp",
-          "limit": 6,
+          "limit": 5,
           "pass": {
             "accuracy": 0.8
           }
@@ -530,8 +530,8 @@
           "type": "typed",
           "skill": "jp.expression.read",
           "title": {
-            "en": "Type what you would say",
-            "es": "Escribe lo que dirías"
+            "en": "Type the expression",
+            "es": "Escribe la expresión"
           },
           "items": "data/vocab/ch14.json#groups.intro-exp",
           "prompt": "gloss.0",
@@ -548,12 +548,12 @@
           "type": "choice",
           "skill": "jp.expression.read",
           "title": {
-            "en": "Which sentence uses it?",
-            "es": "¿Qué frase la usa?"
+            "en": "What does this sentence say?",
+            "es": "¿Qué dice esta frase?"
           },
           "items": "data/sentences/ch14.json#groups.intro-exp",
-          "prompt": "word",
-          "answer": "ja",
+          "prompt": "ja",
+          "answer": "en",
           "distractors": {
             "n": 3
           },
@@ -652,8 +652,8 @@
     {
       "id": "thanks-say",
       "title": {
-        "en": "Thanking, apologising, and using すみません as both",
-        "es": "Agradecer, disculparse, y usar すみません para las dos cosas"
+        "en": "Thanking, apologising, and the two distances of ありがとう",
+        "es": "Agradecer, disculparse, y las dos distancias de ありがとう"
       },
       "unlocks": {
         "en": "getting out of a small mistake without making it larger",
@@ -670,11 +670,11 @@
           "body": {
             "en": [
               "どうもありがとう and ありがとうございました are the same thanks at two distances, and the second one is in the past: it is what you say for something already done. 失礼しました is an apology for a discourtesy just committed, お手数ですが opens a request by naming the trouble it will cause, とんでもない waves away praise, and すまない is the plain, close version of sorry.",
-              "The pattern is the politest way to ask for anything at all: a noun, を, and お願いします. It works in a cafe, at a counter and on the telephone, and it is the sentence to reach for when you do not know the verb."
+              "The pattern is the politest way to ask for anything at all: a noun, を, and お願いします. It works in a cafe, at a counter and on the telephone, and it is the sentence to reach for when you do not know the verb.", "The typed round asks for these by their dictionary gloss, and two of them come out close in English. When it says thank you it wants the past form, ありがとうございました, for something already done; when it says thank you very much it wants どうもありがとう. ありがとうございます from chapter 4 is a right answer to neither, because it is a third entry in the dictionary this Book is built from."
             ],
             "es": [
               "どうもありがとう y ありがとうございました son el mismo agradecimiento a dos distancias, y el segundo va en pasado: es lo que dices por algo ya hecho. 失礼しました se disculpa por una descortesía recién cometida, お手数ですが abre una petición nombrando la molestia que va a causar, とんでもない rechaza un elogio, y すまない es la versión llana y cercana de perdón.",
-              "El patrón es la forma más cortés de pedir cualquier cosa: un sustantivo, を y お願いします. Sirve en una cafetería, en un mostrador y por teléfono, y es la frase a la que recurrir cuando no sabes el verbo."
+              "El patrón es la forma más cortés de pedir cualquier cosa: un sustantivo, を y お願いします. Sirve en una cafetería, en un mostrador y por teléfono, y es la frase a la que recurrir cuando no sabes el verbo.", "La ronda de escritura pide estas expresiones por su glosa de diccionario, y dos de ellas quedan muy parecidas en inglés. Cuando dice thank you quiere la forma en pasado, ありがとうございました, por algo ya hecho; cuando dice thank you very much quiere どうもありがとう. El ありがとうございます del capítulo 4 no es respuesta correcta a ninguna de las dos, porque es una tercera entrada del diccionario con el que está construido este libro."
             ]
           }
         },
@@ -782,8 +782,8 @@
           "type": "typed",
           "skill": "jp.expression.read",
           "title": {
-            "en": "Type what you would say",
-            "es": "Escribe lo que dirías"
+            "en": "Type the expression",
+            "es": "Escribe la expresión"
           },
           "items": "data/vocab/ch14.json#groups.thanks-exp",
           "prompt": "gloss.0",
@@ -800,12 +800,12 @@
           "type": "choice",
           "skill": "jp.expression.read",
           "title": {
-            "en": "Which sentence uses it?",
-            "es": "¿Qué frase la usa?"
+            "en": "What does this sentence say?",
+            "es": "¿Qué dice esta frase?"
           },
           "items": "data/sentences/ch14.json#groups.thanks-exp",
-          "prompt": "word",
-          "answer": "ja",
+          "prompt": "ja",
+          "answer": "en",
           "distractors": {
             "n": 3
           },
@@ -904,8 +904,8 @@
     {
       "id": "classroom-say",
       "title": {
-        "en": "Asking for a repeat, a slower pace and a word",
-        "es": "Pedir que lo repitan, que vayan más despacio, y una palabra"
+        "en": "Asking for a repeat, and asking for a word",
+        "es": "Pedir que lo repitan, y pedir una palabra"
       },
       "unlocks": {
         "en": "staying in a conversation you have half understood",
@@ -923,12 +923,12 @@
             "en": [
               "もう一度 asks for it again. なるほど says you have followed. ええ agrees, えっと buys you a second while you think, ちょっと softens a refusal into almost nothing, and 了解 accepts an instruction.",
               "Four of those six are not really vocabulary, they are the noises a conversation is held together with, and a learner who has none of them goes silent whenever they need a moment. Silence reads as not understanding. えっと reads as thinking.",
-              "The pattern asks for the word itself, which makes it the most useful sentence on this page: point at anything, name it これ, それ or あれ depending on how far away it is, and the answer is a new word you did not have to look up."
+              "The pattern asks for the word itself, which makes it the most useful sentence on this page: point at anything, name it これ, それ or あれ depending on how far away it is, and the answer is a new word you did not have to look up.", "Asking somebody to slow down is not on this rung, because no expression for it is in the word list this chapter is built from. NHK's lesson 7, linked at the foot of this page, is where to get it."
             ],
             "es": [
               "もう一度 pide que lo repitan. なるほど dice que has seguido el hilo. ええ asiente, えっと te compra un segundo mientras piensas, ちょっと convierte una negativa en casi nada, y 了解 acepta una instrucción.",
               "Cuatro de esas seis no son vocabulario propiamente dicho, son los ruidos con los que se sostiene una conversación, y quien no tiene ninguno se queda callado cada vez que necesita un momento. El silencio se lee como no entender. えっと se lee como pensar.",
-              "El patrón pide la palabra misma, lo que lo convierte en la frase más útil de esta página: señala cualquier cosa, nómbrala これ, それ o あれ según lo lejos que esté, y la respuesta es una palabra nueva que no tuviste que buscar."
+              "El patrón pide la palabra misma, lo que lo convierte en la frase más útil de esta página: señala cualquier cosa, nómbrala これ, それ o あれ según lo lejos que esté, y la respuesta es una palabra nueva que no tuviste que buscar.", "Pedir que alguien vaya más despacio no está en este escalón, porque no hay ninguna expresión para eso en la lista de palabras con la que está construido este capítulo. La lección 7 de NHK, enlazada al pie de esta página, es donde conseguirla."
             ]
           }
         },
@@ -1036,8 +1036,8 @@
           "type": "typed",
           "skill": "jp.expression.read",
           "title": {
-            "en": "Type what you would say",
-            "es": "Escribe lo que dirías"
+            "en": "Type the expression",
+            "es": "Escribe la expresión"
           },
           "items": "data/vocab/ch14.json#groups.classroom-exp",
           "prompt": "gloss.0",
@@ -1054,12 +1054,12 @@
           "type": "choice",
           "skill": "jp.expression.read",
           "title": {
-            "en": "Which sentence uses it?",
-            "es": "¿Qué frase la usa?"
+            "en": "What does this sentence say?",
+            "es": "¿Qué dice esta frase?"
           },
           "items": "data/sentences/ch14.json#groups.classroom-exp",
-          "prompt": "word",
-          "answer": "ja",
+          "prompt": "ja",
+          "answer": "en",
           "distractors": {
             "n": 3
           },
@@ -1177,12 +1177,12 @@
             "en": [
               "どのくらい asks how much or how long in the loose sense, ちょうだい is the close, informal give me, 毎度 is what a shopkeeper says to a regular, お願いいたします is the most formal please on this page, 大丈夫 declines an offer as easily as it accepts one, and どうも is thanks in a single word on the way out.",
               "大丈夫 is worth a warning. It means fine, and it is used both to accept and to refuse, so answering a shop assistant with it can mean yes please or no thank you depending on the situation and the tone. When it matters, say the other five words instead.",
-              "The pattern is the question the whole situation turns on, and after it the deck below takes every expression in this chapter and puts it on a schedule."
+              "The pattern is the question the whole situation turns on, and after it the deck below takes every expression in this chapter and puts it on a schedule.", "Two of the six are glossed please, and the typed round tells them apart by the rest of the gloss. Bare please wants お願いいたします, the counter form. Please, give me wants ちょうだい, which you say to a friend or a child and never at a counter. お願いします from chapter 4 is a third entry again, so it is not what either prompt is asking for."
             ],
             "es": [
               "どのくらい pregunta cuánto o cuánto tiempo en sentido amplio, ちょうだい es el dame cercano e informal, 毎度 es lo que dice quien atiende a un cliente habitual, お願いいたします es el por favor más formal de esta página, 大丈夫 rechaza una oferta con la misma facilidad con que la acepta, y どうも son las gracias en una sola palabra al salir.",
               "大丈夫 merece un aviso. Significa bien, y se usa tanto para aceptar como para rechazar, así que responder con ella a quien atiende puede querer decir sí, por favor o no, gracias según la situación y el tono. Cuando importe, di cualquiera de las otras cinco palabras.",
-              "El patrón es la pregunta sobre la que gira toda la situación, y después el mazo de abajo toma todas las expresiones del capítulo y las pone en un calendario."
+              "El patrón es la pregunta sobre la que gira toda la situación, y después el mazo de abajo toma todas las expresiones del capítulo y las pone en un calendario.", "Dos de las seis se glosan como please, y la ronda de escritura las distingue por el resto de la glosa. El please a secas quiere お願いいたします, la forma de mostrador. El please, give me quiere ちょうだい, que se le dice a un amigo o a un niño y nunca en un mostrador. El お願いします del capítulo 4 vuelve a ser una tercera entrada, así que no es lo que pide ninguna de las dos."
             ]
           }
         },
@@ -1319,8 +1319,8 @@
           "type": "typed",
           "skill": "jp.expression.read",
           "title": {
-            "en": "Type what you would say",
-            "es": "Escribe lo que dirías"
+            "en": "Type the expression",
+            "es": "Escribe la expresión"
           },
           "items": "data/vocab/ch14.json#groups.shopping-exp",
           "prompt": "gloss.0",
@@ -1337,12 +1337,12 @@
           "type": "choice",
           "skill": "jp.expression.read",
           "title": {
-            "en": "Which sentence uses it?",
-            "es": "¿Qué frase la usa?"
+            "en": "What does this sentence say?",
+            "es": "¿Qué dice esta frase?"
           },
           "items": "data/sentences/ch14.json#groups.shopping-exp",
-          "prompt": "word",
-          "answer": "ja",
+          "prompt": "ja",
+          "answer": "en",
           "distractors": {
             "n": 3
           },

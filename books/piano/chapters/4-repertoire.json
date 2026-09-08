@@ -41,13 +41,13 @@
           "body": {
             "en": [
               "Grades come from The Royal Conservatory Piano Syllabus, 2022 Edition, which was fetched and searched directly. ABRSM's syllabus refused the request twice, so no ABRSM grade appears anywhere in this Book, and where a piece is not in the RCM lists this chapter says so instead of inventing a number.",
-              "The ladder below starts at Level 2 and not at the beginning, and the reason is a fact about the source rather than a teaching choice. The Royal Conservatory's preparatory and Level 1 lists are full of Turk, Duncombe, Hassler, Gurlitt, Kohler, Krieger, Leopold Mozart and Clementi's Op. 42, and the Mutopia Project has engraved none of them. The graded public-domain repertoire that exists as machine-readable music starts around Level 2, which is why two Czerny exercises open the chapter rather than a piece.",
-              "The two rungs at the end are the finish line and the trap. Satie's Gymnopedie No. 1 is public domain, slow, sparse and the piece a self-taught adult actually wants; it is also deceptively hard and appears in no RCM list found. Fur Elise is RCM Level 7, which is several years past the end of this chapter. Both are named here so that wanting them is not mistaken for being ready for them."
+              "The ladder below starts at Level 2 and not at the beginning, and the reason is a fact about the source rather than a teaching choice. The Royal Conservatory's preparatory and Level 1 lists are full of Türk, Duncombe, Hässler, Gurlitt, Köhler, Krieger and Leopold Mozart, and the Mutopia Project has engraved none of them. There is one exception, and it should be said plainly: Clementi's Op. 42, whose lesson 5 is the RCM's Preparatory B entry and whose lesson 48 is its Level 1 entry, was engraved by Mutopia in 2014 under CC BY-SA 4.0. It ships as one archive of LilyPond files rather than as a single score, and reading it into this chapter's corpus is work nobody has done yet. Everything else that exists as machine-readable graded music starts around Level 2, which is why two Czerny exercises open the chapter rather than a piece.",
+              "The two rungs at the end are the finish line and the trap. Satie's Gymnopédie No. 1 is public domain, slow, sparse and the piece a self-taught adult actually wants; it is also deceptively hard and appears in no RCM list found. Für Elise is RCM Level 7, which is several years past the end of this chapter. Both are named here so that wanting them is not mistaken for being ready for them."
             ],
             "es": [
               "Los grados vienen del Royal Conservatory Piano Syllabus, edición 2022, que se descargó y se consultó directamente. El temario de ABRSM rechazó la petición dos veces, así que ningún grado de ABRSM aparece en este libro, y donde una pieza no está en las listas del RCM este capítulo lo dice en lugar de inventar un número.",
-              "La escalera de abajo empieza en el nivel 2 y no en el principio, y la razón es un hecho sobre la fuente y no una decisión pedagógica. Las listas preparatorias y de nivel 1 del Royal Conservatory están llenas de Turk, Duncombe, Hassler, Gurlitt, Kohler, Krieger, Leopold Mozart y el Op. 42 de Clementi, y el Mutopia Project no ha grabado ninguna de ellas. El repertorio graduado de dominio público que existe como música legible por máquina empieza alrededor del nivel 2, y por eso el capítulo abre con dos ejercicios de Czerny y no con una pieza.",
-              "Los dos extremos del final son la meta y la trampa. La Gymnopedie n.º 1 de Satie es de dominio público, lenta, despojada y la pieza que de verdad quiere un adulto autodidacta; también es engañosamente difícil y no aparece en ninguna lista del RCM que se haya encontrado. Fur Elise es nivel 7 del RCM, varios años más allá del final de este capítulo. Ambas se nombran aquí para que querer tocarlas no se confunda con estar listo para ellas."
+              "La escalera de abajo empieza en el nivel 2 y no en el principio, y la razón es un hecho sobre la fuente y no una decisión pedagógica. Las listas preparatorias y de nivel 1 del Royal Conservatory están llenas de Türk, Duncombe, Hässler, Gurlitt, Köhler, Krieger y Leopold Mozart, y el Mutopia Project no ha grabado ninguna de ellas. Hay una excepción, y conviene decirla con claridad: el Op. 42 de Clementi, cuya lección 5 es la entrada de nivel Preparatorio B del RCM y cuya lección 48 es la de nivel 1, lo grabó Mutopia en 2014 con licencia CC BY-SA 4.0. Se publica como un archivo comprimido de ficheros LilyPond y no como una sola partitura, y meterlo en el corpus de este capítulo es trabajo que nadie ha hecho todavía. Todo lo demás que existe como música graduada legible por máquina empieza alrededor del nivel 2, y por eso el capítulo abre con dos ejercicios de Czerny y no con una pieza.",
+              "Los dos extremos del final son la meta y la trampa. La Gymnopédie n.º 1 de Satie es de dominio público, lenta, despojada y la pieza que de verdad quiere un adulto autodidacta; también es engañosamente difícil y no aparece en ninguna lista del RCM que se haya encontrado. Für Elise es nivel 7 del RCM, varios años más allá del final de este capítulo. Ambas se nombran aquí para que querer tocarlas no se confunda con estar listo para ellas."
             ]
           }
         },
@@ -58,11 +58,11 @@
           "title": { "en": "Two of these menuets are not by Bach", "es": "Dos de estos minuetos no son de Bach" },
           "body": {
             "en": [
-              "The Menuet in G, BWV Anh. 114, and the Menuet in G minor, BWV Anh. 115, are by Christian Petzold, an organist in Dresden who died in 1733. They sit in the Notebook for Anna Magdalena Bach because that is where the family copied them, and a nineteenth-century catalogue filed everything in the notebook under Bach.",
+              "The Menuet in G, BWV Anh. 114, and the Menuet in G minor, BWV Anh. 115, are by Christian Petzold, an organist in Dresden who died in 1733. They sit in the Notebook for Anna Magdalena Bach because that is where the family copied them, the nineteenth-century Bach-Gesellschaft edition printed the whole notebook under Bach's name, and Schmieder's catalogue of 1950 kept the pieces in its appendix, which is what the Anh. in their numbers means.",
               "The Royal Conservatory lists them under Petzold. The Mutopia Project's directory tree still files them under BachJS, and this Book keeps the directory path because the licence is attached to it, while naming the composer the way the syllabus does."
             ],
             "es": [
-              "El Minueto en sol mayor, BWV Anh. 114, y el Minueto en sol menor, BWV Anh. 115, son de Christian Petzold, organista de Dresde que murió en 1733. Están en el Cuaderno de Anna Magdalena Bach porque ahí los copió la familia, y un catálogo del siglo diecinueve archivó bajo Bach todo lo que había en el cuaderno.",
+              "El Minueto en sol mayor, BWV Anh. 114, y el Minueto en sol menor, BWV Anh. 115, son de Christian Petzold, organista de Dresde que murió en 1733. Están en el Cuaderno de Anna Magdalena Bach porque ahí los copió la familia, la edición decimonónica de la Bach-Gesellschaft imprimió el cuaderno entero bajo el nombre de Bach, y el catálogo de Schmieder de 1950 conservó las piezas en su apéndice, que es lo que significa el Anh. de sus números.",
               "El Royal Conservatory los lista bajo Petzold. El árbol de directorios del Mutopia Project los sigue archivando bajo BachJS, y este libro conserva esa ruta porque la licencia va unida a ella, pero nombra al compositor como lo hace el temario."
             ]
           }
@@ -75,12 +75,12 @@
           "body": {
             "en": [
               "The bars you will be shown were read out of each piece's own engraving by tools/build-piano.mjs, which follows one staff and keeps a bar only when it holds no chord, no second voice, no grace note and no tuplet, and only when the written durations add up to the time signature exactly. A bar it cannot follow is dropped and counted rather than guessed at.",
-              "That leaves five pieces with nothing to drill: Czerny Op. 821 No. 2, whose upper staff is chords from the first bar, the Clementi sonatina, whose source marks its bars with comments instead of bar checks, and Schumann's Wild Horseman, Happy Farmer and Siciliano, whose right hand is chordal throughout. They keep their place in the ladder, their grade and their credits, and they are here to be played from the printed score rather than read on this screen.",
+              "That leaves five pieces with nothing to drill, and for two different reasons. Czerny Op. 821 No. 2 and Schumann's Happy Farmer are chords in the right hand from the first bar, the Happy Farmer because its melody is in the left hand instead. The Clementi sonatina, Schumann's Wild Horseman and Schumann's Siciliano are refused for the other reason: their engravings open with a pickup and then mark almost no bar ends, so the reader met one enormous bar in each and kept nothing of it. Both Schumann pieces are a single line in the right hand for most of their length, and a source that closed its bars would have made them readable. They keep their place in the ladder, their grade and their credits, and they are here to be played from the printed score rather than read on this screen.",
               "The five files hold 128 bars and 569 notes between them, which is more than this chapter's gate asks for twice over."
             ],
             "es": [
               "Los compases que verás fueron leídos de la partitura grabada de cada pieza por tools/build-piano.mjs, que sigue un solo pentagrama y conserva un compás solo cuando no tiene acordes, ni una segunda voz, ni notas de adorno, ni grupos irregulares, y solo cuando las duraciones escritas suman exactamente lo que indica el compás. Un compás que no puede seguir se descarta y se cuenta, en vez de adivinarse.",
-              "Eso deja cinco piezas sin nada que ejercitar: el Op. 821 n.º 2 de Czerny, cuyo pentagrama superior son acordes desde el primer compás, la sonatina de Clementi, cuya fuente marca los compases con comentarios en vez de con barras de control, y El jinete salvaje, El campesino alegre y la Siciliana de Schumann, cuya mano derecha es de acordes de principio a fin. Conservan su lugar en la escalera, su grado y sus créditos, y están aquí para tocarse desde la partitura impresa y no para leerse en esta pantalla.",
+              "Eso deja cinco piezas sin nada que ejercitar, y por dos razones distintas. El Op. 821 n.º 2 de Czerny y El campesino alegre de Schumann llevan acordes en la mano derecha desde el primer compás, y el segundo porque su melodía está en la izquierda. La sonatina de Clementi, El jinete salvaje y la Siciliana se rechazan por la otra razón: sus partituras empiezan con anacrusa y luego casi no marcan el final de los compases, así que el lector se encontró en cada una con un compás enorme y no conservó nada de él. Las dos piezas de Schumann son una sola línea en la mano derecha durante casi toda su extensión, y una fuente que cerrara sus compases las habría hecho legibles. Conservan su lugar en la escalera, su grado y sus créditos, y están aquí para tocarse desde la partitura impresa y no para leerse en esta pantalla.",
               "Los cinco archivos suman 128 compases y 569 notas, más del doble de lo que pide la evaluación de este capítulo."
             ]
           }
@@ -101,28 +101,17 @@
           "title": { "en": "An exercise is not a piece, and that is the point", "es": "Un ejercicio no es una pieza, y de eso se trata" },
           "body": {
             "en": [
-              "Czerny's 160 Eight-Measure Exercises are eight bars each and appear in no RCM list, because technique is graded separately from repertoire. One of them is the shortest continuous line of notes in this chapter, which makes it the easiest first read.",
-              "Schumann's Soldier's March, Op. 68 No. 2, is the lowest graded piece Mutopia has engraved at Level 2. Its right hand is mostly chords, so five of its thirty-two bars survive the reader, and those five are what you will see."
+              "Schumann's Soldier's March, Op. 68 No. 2, is the lowest graded piece Mutopia has engraved at Level 2, and it reads first here because its surviving bars are two or three notes each. Its right hand is mostly chords, so five of its thirty-two bars survive the reader, and those five are what you will see.",
+              "Czerny's 160 Eight-Measure Exercises are eight bars each and appear in no RCM list, because technique is graded separately from repertoire. One of them is the shortest piece in this chapter, which is not the same as the easiest to read: all five of its readable bars are sixteen sixteenth notes, drawn one flagged note at a time, so a Czerny bar is the densest thing on this screen. It is second on this rung for that reason."
             ],
             "es": [
-              "Los 160 ejercicios de ocho compases de Czerny tienen ocho compases cada uno y no aparecen en ninguna lista del RCM, porque la técnica se gradúa aparte del repertorio. Uno de ellos es la línea de notas continua más corta de este capítulo, lo que lo convierte en la primera lectura más fácil.",
-              "La Marcha de los soldados de Schumann, Op. 68 n.º 2, es la pieza graduada más baja que Mutopia ha grabado, de nivel 2. Su mano derecha es casi toda de acordes, así que cinco de sus treinta y dos compases sobreviven al lector, y esos cinco son los que verás."
+              "La Marcha de los soldados de Schumann, Op. 68 n.º 2, es la pieza graduada más baja que Mutopia ha grabado, de nivel 2, y se lee aquí primero porque los compases que sobreviven tienen dos o tres notas cada uno. Su mano derecha es casi toda de acordes, así que cinco de sus treinta y dos compases sobreviven al lector, y esos cinco son los que verás.",
+              "Los 160 ejercicios de ocho compases de Czerny tienen ocho compases cada uno y no aparecen en ninguna lista del RCM, porque la técnica se gradúa aparte del repertorio. Uno de ellos es la pieza más corta de este capítulo, que no es lo mismo que la más fácil de leer: sus cinco compases legibles son dieciséis semicorcheas cada uno, dibujadas una a una con su corchete, así que un compás de Czerny es lo más denso de esta pantalla. Va segundo en este peldaño por esa razón."
             ]
           }
         }
       ],
       "exercises": [
-        {
-          "id": "e-czerny-1",
-          "type": "custom",
-          "module": "piano.staff",
-          "skill": "piano.score.read",
-          "title": { "en": "Czerny, Op. 821 No. 1", "es": "Czerny, Op. 821 n.º 1" },
-          "items": "data/piano/pieces-pd-czerny.json#pieces.czerny-821-1.bars",
-          "props": { "piece": "data/piano/pieces-pd-czerny.json#pieces.czerny-821-1" },
-          "count": 6,
-          "pass": { "accuracy": 0.85 }
-        },
         {
           "id": "e-schumann-2",
           "type": "custom",
@@ -132,13 +121,24 @@
           "items": "data/piano/pieces-ccbysa.json#pieces.schumann-68-2.bars",
           "props": { "piece": "data/piano/pieces-ccbysa.json#pieces.schumann-68-2" },
           "count": 5,
-          "pass": { "accuracy": 0.85 }
+          "pass": { "accuracy": 0.8 }
+        },
+        {
+          "id": "e-czerny-1",
+          "type": "custom",
+          "module": "piano.staff",
+          "skill": "piano.score.read",
+          "title": { "en": "Czerny, Op. 821 No. 1", "es": "Czerny, Op. 821 n.º 1" },
+          "items": "data/piano/pieces-pd-czerny.json#pieces.czerny-821-1.bars",
+          "props": { "piece": "data/piano/pieces-pd-czerny.json#pieces.czerny-821-1" },
+          "count": 6,
+          "pass": { "accuracy": 0.8 }
         }
       ]
     },
     {
       "id": "menuets",
-      "title": { "en": "Three menuets, Level 3", "es": "Tres minuetos, nivel 3" },
+      "title": { "en": "Two menuets, Level 3", "es": "Dos minuetos, nivel 3" },
       "unlocks": {
         "en": "everything after them, because a single melodic line in three time is the shape most of this repertoire has. Playing each one to the end at a steady tempo is yours to judge",
         "es": "todo lo que viene después, porque una sola línea melódica en compás ternario es la forma que tiene casi todo este repertorio. Tocar cada uno hasta el final a tempo estable lo juzgas tú"
@@ -147,15 +147,15 @@
         {
           "id": "p-menuets",
           "kind": "prose",
-          "title": { "en": "Ninety-eight bars of one line each", "es": "Noventa y ocho compases de una sola línea cada uno" },
+          "title": { "en": "Fifty-nine bars of one line each", "es": "Cincuenta y nueve compases de una sola línea cada uno" },
           "body": {
             "en": [
-              "All three menuets keep the melody in one voice in the right hand for almost their whole length, which is why the reader could follow ninety-eight of their hundred and four bars. They are the densest drilling material in this Book and the reason this chapter's gate is reachable.",
-              "All three are in three time and two of the three are in G, so the same key signature and the same one sharp carry across them. Reading the second after the first is mostly a matter of noticing what changed."
+              "Both menuets keep the melody in one voice in the right hand for almost their whole length, which is why the reader could follow fifty-nine of their sixty-four bars. With their companion, BWV Anh. 116, on the Level 4 rung, the three of them are the densest drilling material in this Book and the reason this chapter's gate is reachable.",
+              "Both are in three time and both are on G, in opposite modes: the first carries one sharp and the second two flats. Reading the second after the first is mostly a matter of noticing that the signature turned over, which is the cheapest way there is to meet a minor key."
             ],
             "es": [
-              "Los tres minuetos mantienen la melodía en una sola voz de la mano derecha casi de principio a fin, y por eso el lector pudo seguir noventa y ocho de sus ciento cuatro compases. Son el material de práctica más denso de este libro y la razón por la que la evaluación de este capítulo es alcanzable.",
-              "Los tres están en compás ternario y dos de los tres están en sol, así que la misma armadura y el mismo sostenido único los atraviesan. Leer el segundo después del primero es sobre todo notar qué cambió."
+              "Los dos minuetos mantienen la melodía en una sola voz de la mano derecha casi de principio a fin, y por eso el lector pudo seguir cincuenta y nueve de sus sesenta y cuatro compases. Junto con su compañero, el BWV Anh. 116, que está en el peldaño de nivel 4, los tres son el material de práctica más denso de este libro y la razón por la que la evaluación de este capítulo es alcanzable.",
+              "Los dos están en compás ternario y los dos están sobre sol, en modos opuestos: el primero lleva un sostenido y el segundo dos bemoles. Leer el segundo después del primero es sobre todo notar que la armadura se dio la vuelta, que es la forma más barata que hay de encontrarse con una tonalidad menor."
             ]
           }
         }
@@ -180,17 +180,6 @@
           "title": { "en": "Petzold, Menuet in G minor", "es": "Petzold, Minueto en sol menor" },
           "items": "data/piano/pieces-pd-anna-magdalena.json#pieces.petzold-anh115.bars",
           "props": { "piece": "data/piano/pieces-pd-anna-magdalena.json#pieces.petzold-anh115" },
-          "count": 10,
-          "pass": { "accuracy": 0.85 }
-        },
-        {
-          "id": "e-anh116",
-          "type": "custom",
-          "module": "piano.staff",
-          "skill": "piano.score.read",
-          "title": { "en": "Menuet, BWV Anh. 116", "es": "Minueto, BWV Anh. 116" },
-          "items": "data/piano/pieces-pd-anna-magdalena.json#pieces.bach-anh116.bars",
-          "props": { "piece": "data/piano/pieces-pd-anna-magdalena.json#pieces.bach-anh116" },
           "count": 10,
           "pass": { "accuracy": 0.85 }
         }
@@ -238,8 +227,8 @@
       "id": "level-four",
       "title": { "en": "Level 4", "es": "Nivel 4" },
       "unlocks": {
-        "en": "the last rung, and a first piece in a minor key",
-        "es": "el último peldaño, y una primera pieza en tonalidad menor"
+        "en": "the last rung, and the longest single line this Book can put in front of you",
+        "es": "el último peldaño, y la línea melódica más larga que este libro te puede poner delante"
       },
       "pages": [
         {
@@ -248,17 +237,28 @@
           "title": { "en": "Two flats, and a slower kind of difficulty", "es": "Dos bemoles, y una dificultad más lenta" },
           "body": {
             "en": [
-              "Tchaikovsky's Old French Song, Op. 39 No. 16, is Level 4 and the first piece here in a minor key: two flats, G minor, and a melody that moves in even eighth notes. It is slow, which is a different kind of hard from fast, because nothing hides an unsteady beat.",
-              "Schumann's Wild Horseman and Happy Farmer are the other two Level 4 pieces on the list. Both are chordal in the right hand from the first bar, so both are here to be played from the printed score rather than read on this screen."
+              "Tchaikovsky's Old French Song, Op. 39 No. 16, is Level 4: two flats, G minor, and a melody whose even eighths are broken by a dotted quarter, a pair of sixteenths and one double-dotted quarter. It is slow, which is a different kind of hard from fast, because nothing hides an unsteady beat.",
+              "The Menuet in G, BWV Anh. 116, is the third Level 4 piece, listed there under Bach beside Anh. 113, 120, 121 and 128, and it is the one this rung drills hardest: thirty-eight readable bars, more than any other piece in this Book. Its own corpus file still records no level, because the first search of the syllabus missed the entry. Schumann's Wild Horseman and Happy Farmer are the other two on the list and neither can be read here. The Happy Farmer puts its melody in the left hand and chords in the right from the first bar. The Wild Horseman is a single line in the right hand until its middle section, and what stopped the reader was the engraving rather than the texture: it marks almost no bar ends, so four bars were seen and none was kept. Both are here to be played from the printed score."
             ],
             "es": [
-              "La Canción antigua francesa, Op. 39 n.º 16, de Tchaikovsky es de nivel 4 y la primera pieza de aquí en tonalidad menor: dos bemoles, sol menor, y una melodía que avanza en corcheas iguales. Es lenta, que es una dificultad distinta de la rapidez, porque nada disimula un pulso inestable.",
-              "El jinete salvaje y El campesino alegre de Schumann son las otras dos piezas de nivel 4 de la lista. Las dos llevan acordes en la mano derecha desde el primer compás, así que las dos están aquí para tocarse desde la partitura impresa y no para leerse en esta pantalla."
+              "La Canción antigua francesa, Op. 39 n.º 16, de Tchaikovsky es de nivel 4: dos bemoles, sol menor, y una melodía cuyas corcheas iguales rompen una negra con puntillo, un par de semicorcheas y una negra con doble puntillo. Es lenta, que es una dificultad distinta de la rapidez, porque nada disimula un pulso inestable.",
+              "El Minueto en sol mayor, BWV Anh. 116, es la tercera pieza de nivel 4, listada ahí bajo Bach junto al Anh. 113, 120, 121 y 128, y es la que más ejercita este peldaño: treinta y ocho compases legibles, más que ninguna otra pieza de este libro. Su propio archivo de corpus sigue sin registrar ningún nivel, porque la primera búsqueda en el temario no dio con la entrada. El jinete salvaje y El campesino alegre de Schumann son las otras dos de la lista y ninguna se puede leer aquí. El campesino alegre pone su melodía en la mano izquierda y acordes en la derecha desde el primer compás. El jinete salvaje es una sola línea en la mano derecha hasta su sección central, y lo que detuvo al lector fue la partitura y no la textura: casi no marca el final de los compases, así que se vieron cuatro y no se conservó ninguno. Las dos están aquí para tocarse desde la partitura impresa."
             ]
           }
         }
       ],
       "exercises": [
+        {
+          "id": "e-anh116",
+          "type": "custom",
+          "module": "piano.staff",
+          "skill": "piano.score.read",
+          "title": { "en": "Menuet, BWV Anh. 116", "es": "Minueto, BWV Anh. 116" },
+          "items": "data/piano/pieces-pd-anna-magdalena.json#pieces.bach-anh116.bars",
+          "props": { "piece": "data/piano/pieces-pd-anna-magdalena.json#pieces.bach-anh116" },
+          "count": 10,
+          "pass": { "accuracy": 0.85 }
+        },
         {
           "id": "e-tchaikovsky",
           "type": "custom",
@@ -286,12 +286,12 @@
           "title": { "en": "The half of the goal a browser cannot see", "es": "La mitad de la meta que un navegador no puede ver" },
           "body": {
             "en": [
-              "Schumann's Siciliano, Op. 68 No. 11, is Level 5 and the top of this ladder. Its right hand is chordal, so like four other pieces here it is read from the printed score.",
+              "Schumann's Siciliano, Op. 68 No. 11, is Level 5 and the top of this ladder. Its right hand is a single line for most of its length, and it is unreadable here for the Clementi's reason rather than the Happy Farmer's: the engraving marks almost no bar ends. Like four other pieces here it is read from the printed score.",
               "This chapter's goal was narrowed on purpose. Reading every note off the staff is something a screen can watch and this chapter grades it. Playing a piece to the end at a steady tempo is the thing you actually came for, and no browser can hear a piano. Set a metronome slower than feels dignified, play the piece through without stopping, and raise it when nothing breaks. That is the whole method, and it is yours rather than this Book's.",
               "The Mutopia Project publishes a MIDI file beside each engraving, which is a reference performance and not a recording of anybody. They are at www.mutopiaproject.org/ftp/ under BachJS/BWVAnh114/anna-magdalena-04/, BachJS/BWVAnh115/anna-magdalena-05/, BachJS/BWVAnh116/anna-magdalena-07/, CzernyC/Op_821/Czerny_Op_821_No_001/, CzernyC/Op_821/Czerny_Op_821_No_002/, ClementiM/O36/sonatina-1/, TchaikovskyPI/O39/16OldFrenchSong/ and SchumannR/O68/, each directory holding the score as a PDF as well."
             ],
             "es": [
-              "La Siciliana, Op. 68 n.º 11, de Schumann es de nivel 5 y la cima de esta escalera. Su mano derecha es de acordes, así que, como otras cuatro piezas de aquí, se lee desde la partitura impresa.",
+              "La Siciliana, Op. 68 n.º 11, de Schumann es de nivel 5 y la cima de esta escalera. Su mano derecha es una sola línea durante casi toda su extensión, y aquí no se puede leer por la razón de la sonatina de Clementi y no por la de El campesino alegre: la partitura casi no marca el final de los compases. Como otras cuatro piezas de aquí, se lee desde la partitura impresa.",
               "La meta de este capítulo se estrechó a propósito. Leer cada nota del pentagrama es algo que una pantalla puede observar, y este capítulo lo califica. Tocar una pieza hasta el final a tempo estable es lo que de verdad viniste a hacer, y ningún navegador puede oír un piano. Pon un metrónomo más lento de lo que parece digno, toca la pieza entera sin detenerte y súbelo cuando nada se rompa. Ese es todo el método, y es tuyo y no de este libro.",
               "El Mutopia Project publica un archivo MIDI junto a cada partitura grabada, que es una interpretación de referencia y no la grabación de nadie. Están en www.mutopiaproject.org/ftp/ bajo BachJS/BWVAnh114/anna-magdalena-04/, BachJS/BWVAnh115/anna-magdalena-05/, BachJS/BWVAnh116/anna-magdalena-07/, CzernyC/Op_821/Czerny_Op_821_No_001/, CzernyC/Op_821/Czerny_Op_821_No_002/, ClementiM/O36/sonatina-1/, TchaikovskyPI/O39/16OldFrenchSong/ y SchumannR/O68/, y cada directorio guarda además la partitura en PDF."
             ]
@@ -304,11 +304,11 @@
           "title": { "en": "Five of these engravings are share-alike", "es": "Cinco de estas partituras son de tipo compartir igual" },
           "body": {
             "en": [
-              "The Schumann engravings are licensed CC BY-SA 2.5 by their typesetter, Philippe Hezaine, and share-alike travels with anything made from them. They are kept in a file of their own for that reason, and because nobody has yet resolved whether 2.5 material may be combined with the 4.0 material elsewhere in this corpus.",
+              "The Schumann engravings are licensed CC BY-SA 2.5 by their typesetter, Philippe Hézaine, and share-alike travels with anything made from them. They are kept in a file of their own for that reason, and because nobody has yet resolved whether 2.5 material may be combined with the 4.0 material elsewhere in this corpus.",
               "The other seven were placed in the public domain by their typesetters. Mutopia licences each piece separately, so this is a fact per file and never per composer, and tools/build-piano.mjs reads it out of each piece's own licence file rather than trusting anything written by hand."
             ],
             "es": [
-              "Las partituras de Schumann están licenciadas CC BY-SA 2.5 por su tipógrafo, Philippe Hezaine, y la cláusula de compartir igual viaja con todo lo que se haga a partir de ellas. Por eso se guardan en un archivo propio, y porque todavía nadie ha resuelto si el material 2.5 puede combinarse con el material 4.0 que hay en otras partes de este corpus.",
+              "Las partituras de Schumann están licenciadas CC BY-SA 2.5 por su tipógrafo, Philippe Hézaine, y la cláusula de compartir igual viaja con todo lo que se haga a partir de ellas. Por eso se guardan en un archivo propio, y porque todavía nadie ha resuelto si el material 2.5 puede combinarse con el material 4.0 que hay en otras partes de este corpus.",
               "Las otras siete fueron puestas en dominio público por sus tipógrafos. Mutopia licencia cada pieza por separado, así que este es un hecho por archivo y nunca por compositor, y tools/build-piano.mjs lo lee del propio archivo de licencia de cada pieza en vez de confiar en algo escrito a mano."
             ]
           }

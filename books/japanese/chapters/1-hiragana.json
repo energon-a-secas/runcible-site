@@ -582,25 +582,31 @@
     },
     {
       "id": "particles",
-      "title": { "en": "The three that are read wrong on purpose", "es": null },
+      "title": { "en": "The three that are read wrong on purpose", "es": "Los tres que se leen mal a propósito" },
       "unlocks": {
         "en": "reading a real sentence rather than a word list",
-        "es": null
+        "es": "leer una frase de verdad y no una lista de palabras"
       },
       "pages": [
         {
           "id": "p-particles",
           "kind": "prose",
-          "title": { "en": "Three leftovers from before 1946", "es": null },
+          "title": { "en": "Three leftovers from before 1946", "es": "Tres restos de antes de 1946" },
           "body": {
             "en": [
               "Modern kana is otherwise one character to one sound. These three are not, and they are the only three.",
               "ha is read wa when it marks the topic. he is read e when it marks a direction. wo is read o, and in contemporary Japanese it is used for nothing except marking the direct object.",
               "The trap the Notice flags itself: a wa inside a word is a real wa, not the particle. Two of the commonest greetings you will meet, konnichiha and konbanha, end in the particle and are said with wa.",
               "The why, which is worth more than the rule. Until 1946 Japanese was spelled by history rather than by sound, and a Cabinet order that year re-spelled the whole language by how it is said. These three were kept back deliberately, and 現代仮名遣い, the 1986 Notice that replaced that order, states each of them in one line of its own. They survived because they mark grammar rather than sound: change their spelling and you lose the only signal that a topic, a direction or an object is being marked.",
-              "So konnichiha is not an irregularity. It is the topic particle of a sentence about today that nobody has finished since the Meiji era, still spelled the way it was when the rest of the sentence was there."
+              "So konnichiha is not an irregularity. It is the topic particle of a sentence about today that nobody ever finished, still spelled the way it was when the rest of the sentence was there."
             ],
-            "es": null
+            "es": [
+              "Por lo demás el kana moderno es un carácter para un sonido. Estos tres no lo son, y son los únicos tres.",
+              "ha se lee wa cuando marca el tema. he se lee e cuando marca una dirección. wo se lee o, y en japonés contemporáneo no sirve para nada más que para marcar el complemento directo.",
+              "La trampa la señala la propia notificación: un wa dentro de una palabra es un wa de verdad, no la partícula. Dos de los saludos más frecuentes que vas a encontrar, konnichiha y konbanha, terminan en la partícula y se dicen con wa.",
+              "El porqué, que vale más que la regla. Hasta 1946 el japonés se escribía por historia y no por sonido, y una orden del gabinete de ese año reescribió toda la lengua según como se dice. Estos tres se dejaron aparte a propósito, y 現代仮名遣い, la notificación de 1986 que sustituyó a aquella orden, enuncia cada uno en una línea propia. Sobrevivieron porque marcan gramática y no sonido: cámbiales la grafía y pierdes la única señal de que se está marcando un tema, una dirección o un complemento.",
+              "Así que konnichiha no es una irregularidad. Es la partícula de tema de una frase sobre el día de hoy que nadie terminó nunca, escrita todavía como se escribía cuando el resto de la frase estaba ahí."
+            ]
           }
         }
       ],
@@ -681,12 +687,12 @@
           },
           "body": {
             "en": [
-              "The pairs above are two characters that look alike. This one is worse and nobody warns you about it: one character that looks like two. ki, sa, ri and fu are each drawn with their last stroke either joined to the one above it or left separate, so the same character is three strokes in one font and four in another, and either way in a person's hand. Neither is a variant and neither is a mistake.",
+              "The pairs above are two characters that look alike. This one is worse and nobody warns you about it: one character that looks like two. ki, sa, ri and fu are each drawn with two of their strokes either joined or left separate, so the same character has one stroke fewer in one font than in another, and either way in a person's hand: ki is four strokes or three, sa three or two, ri two or one, and fu joins its first two rather than its last. Neither hand is a variant and neither is a mistake.",
               "Japan made a typeface class rather than pick a side. 教科書体 is designed so that the printed shape matches what a child is taught to draw, because the metal type of the Meiji era did not match the handwritten form and children could not reconcile the two. The Cultural Council's 2016 guideline on character shapes states the principle in general: a character written so that its skeleton can be read is not a wrong character.",
               "The figure below this note is drawn from the stroke data, which is the taught hand. Compare it with the same character in this sentence, which is the printed one."
             ],
             "es": [
-              "Los pares de arriba son dos caracteres que se parecen. Este es peor y nadie te avisa: un carácter que parece dos. ki, sa, ri y fu se trazan cada uno con el último trazo unido al anterior o separado de él, así que el mismo carácter tiene tres trazos en una tipografía y cuatro en otra, y cualquiera de las dos formas en la mano de una persona. Ninguna es una variante y ninguna es un error.",
+              "Los pares de arriba son dos caracteres que se parecen. Este es peor y nadie te avisa: un carácter que parece dos. ki, sa, ri y fu se trazan cada uno con dos de sus trazos unidos o separados, así que el mismo carácter tiene un trazo menos en una tipografía que en otra, y cualquiera de las dos formas en la mano de una persona: ki tiene cuatro trazos o tres, sa tres o dos, ri dos o uno, y fu une los dos primeros y no el último. Ninguna mano es una variante y ninguna es un error.",
               "Japón hizo una clase tipográfica en vez de elegir un bando. 教科書体 está diseñada para que la forma impresa coincida con lo que se enseña a trazar a un niño, porque los tipos de metal de la era Meiji no coincidían con la forma manuscrita y los niños no lograban conciliar las dos. La guía de 2016 del Consejo de Cultura sobre las formas de los caracteres enuncia el principio en general: un carácter escrito de modo que se lea su esqueleto no es un carácter equivocado.",
               "La figura que sigue a esta nota está trazada con los datos de trazos, que son la mano que se enseña. Compárala con el mismo carácter de esta frase, que es la forma impresa."
             ]

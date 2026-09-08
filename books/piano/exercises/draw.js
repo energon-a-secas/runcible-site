@@ -159,6 +159,25 @@ function noteHead(svg, note, clef, x, marked) {
  * One bar of one staff, with the note at `markAt` circled.
  * `bar.notes` is what tools/build-piano.mjs read out of the engraving.
  */
+/**
+ * Where a note sits, as a strings.js key and its placeholders, so the sentence
+ * a wrong answer is told is built in both languages rather than in English.
+ * The subtraction is the same one yOf does: a position is the diatonic index
+ * minus the clef's bottom line, even for a line and odd for a space.
+ * @returns {{ key: string, vars: object|null }}
+ */
+export function placeOf(d, clef) {
+  const p = d - (CLEFS[clef] || CLEFS.treble).bottom;
+  if (p >= 0 && p <= 8) {
+    return { key: p % 2 === 0 ? `posL${(p / 2) + 1}` : `posS${((p - 1) / 2) + 1}`, vars: null };
+  }
+  const below = p < 0;
+  const off = below ? -p : p - 8;
+  if (off === 1) return { key: below ? 'posJustBelow' : 'posJustAbove', vars: null };
+  if (off % 2 === 0) return { key: below ? 'posLedgerBelow' : 'posLedgerAbove', vars: { n: off / 2 } };
+  return { key: below ? 'posUnderLedgerBelow' : 'posOverLedgerAbove', vars: { n: (off - 1) / 2 } };
+}
+
 export function drawBar(bar, { clef = 'treble', fifths = 0, time = null, markAt = 0, t = null }) {
   const notes = bar.notes || [];
   const left = 8;

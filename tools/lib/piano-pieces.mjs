@@ -98,6 +98,17 @@ export function buildPiece(base, row) {
     }
   }
   const sig = keySignature(st && st.key);
+  // A key signature names two keys, and an engraving declares only the one its
+  // typesetter chose to write. The Wild Horseman is engraved as \key c \major
+  // and is in A minor: it opens on E and A, uses G sharp as a leading note and
+  // cadences on A. A row may therefore name the key itself, and the assertion
+  // is what keeps that a reading of the same signature rather than a second
+  // opinion about it: an override whose fifths differ from the engraving's
+  // stops the run, because `fifths` is what draws the accidentals.
+  const named = row.key ? keySignature(row.key) : null;
+  if (named && named.fifths !== sig.fifths) {
+    throw new Error(`${row.id}: key override ${named.tonic} ${named.mode} is ${named.fifths} fifths, and the engraving declares ${sig.fifths}`);
+  }
   return {
     piece: {
       id: row.id,
@@ -108,8 +119,8 @@ export function buildPiece(base, row) {
       rcm_note: row.rcm_note,
       readable: bars.length > 0,
       clef: (st && st.clef) || 'treble',
-      key: sig.tonic,
-      mode: sig.mode,
+      key: (named || sig).tonic,
+      mode: (named || sig).mode,
       fifths: sig.fifths,
       time: st && st.time ? st.time : null,
       voice: row.voice,

@@ -29,6 +29,31 @@ export function refuse(card, why) {
 }
 
 /**
+ * A sentence with no word in it: a closing bracket left alone by the splitter.
+ * `splitSentences` counts quote depth per paragraph, so a quotation opened in
+ * one paragraph and closed two later has its full stop seen at depth 0 and is
+ * cut there, leaving the bracket as a "sentence" of its own. Carrying the depth
+ * across paragraphs would let one unbalanced opener swallow the rest of a story
+ * into a single sentence, so the fragment is joined back onto the sentence
+ * before it instead. See `sentences.push` below.
+ */
+const HAS_WORD = /[\u3041-\u309f\u30a1-\u30ff\u3400-\u9fff\u30fc\u3005]/;
+
+/**
+ * A bare speech tag: `と` plus a reporting clause, sitting right after a line
+ * of dialogue. Two of them after two lines of the same speaker are the same
+ * continuation in everything but the verb the author happened to use, so one is
+ * a right answer to the other's question and the round tests recall of a word,
+ * not comprehension. The test is structural rather than a list of verbs: the
+ * sentence begins with と and the one before it ends in a closing quote. It
+ * leaves とうとう alone, which starts with the same character and follows
+ * narration rather than speech.
+ */
+export function isSpeechTag(text, before) {
+  return Boolean(before) && /[\u300d\u300f]$/.test(before) && text.startsWith('\u3068');
+}
+
+/**
  * Non-overlapping windows of 3 to 6 consecutive sentences, lengths cycling so
  * a re-run produces the same file. `sequence` is an ARRAY of sentences, not a
  * space-joined string: order.js splits a string on whitespace, and three of
@@ -94,9 +119,21 @@ export function build(sel, index, selection) {
       const { plain, found } = parseRuby(raw);
       const trimmed = plain.trim();
       if (trimmed === '') continue;
-      const sid = `s_${String(sentences.length + 1).padStart(3, '0')}`;
-      sentences.push({ id: sid, seq: sentences.length + 1, p: pid, text: trimmed });
-      ids.push(sid);
+      // A fragment with no kana and no kanji in it is not a sentence. It is the
+      // closing bracket of a quotation the splitter could not see the opener
+      // of, and shipped as a sentence it becomes a one-character token in an
+      // order round and a zero-word option in a next-sentence round. Joined
+      // back on, the bracket ends up where the story prints it.
+      let sid;
+      if (!HAS_WORD.test(trimmed) && sentences.length) {
+        const prev = sentences[sentences.length - 1];
+        prev.text += trimmed;
+        sid = prev.id;
+      } else {
+        sid = `s_${String(sentences.length + 1).padStart(3, '0')}`;
+        sentences.push({ id: sid, seq: sentences.length + 1, p: pid, text: trimmed });
+      }
+      if (!ids.includes(sid)) ids.push(sid);
       for (const r of found) {
         const key = `${r.base} ${r.reading}`;
         if (!rubyBy.has(key)) rubyBy.set(key, { base: r.base, reading: r.reading, n: 0, at: [] });
@@ -118,11 +155,21 @@ export function build(sel, index, selection) {
   }));
   const rubyOccurrences = ruby.reduce((a, r) => a + r.n, 0);
 
-  const pairs = sentences.slice(0, -1).map((s, i) => ({
-    id: `n_${String(i + 1).padStart(3, '0')}`,
-    text: s.text,
-    next: sentences[i + 1].text,
-  }));
+  // The pairs are struck in twos and never overlap, so no sentence is both a
+  // prompt and an answer. Consecutive pairs put s(i) in the next of one pair
+  // and the text of the following one, and the choice round draws its wrong
+  // options from every pair's next with the correct answer removed, so the
+  // sentence on the learner's screen was one of the four options. Stepping by
+  // two costs half the pairs and each story keeps more than the round asks for.
+  // A pair whose answer is a bare speech tag is dropped for the reason on
+  // isSpeechTag.
+  const pairs = [];
+  for (let i = 0; i + 1 < sentences.length; i += 2) {
+    const text = sentences[i].text;
+    const next = sentences[i + 1].text;
+    if (isSpeechTag(next, text)) continue;
+    pairs.push({ id: `n_${String(pairs.length + 1).padStart(3, '0')}`, text, next });
+  }
 
   const chunks = chunksOf(sentences);
   const chars = sentences.reduce((a, s) => a + s.text.replace(/\s/g, '').length, 0);

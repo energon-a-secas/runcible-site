@@ -68,6 +68,45 @@ export const STRINGS = Object.freeze({
   },
   barAt: { en: '{title}, bar {n}.', es: '{title}, compás {n}.' },
   thatIs: { en: 'That is {cue}.', es: 'Eso es {cue}.' },
+
+  // Where a note sits, for the line a wrong answer is told. The stave has five
+  // lines and four spaces, so the nine of them are written out one by one: an
+  // ordinal assembled in code is an ordinal in one language, and Spanish wants
+  // primera línea beside primer espacio. Off the stave the count is a number,
+  // which needs no gender.
+  posL1: { en: 'first line', es: 'primera línea' },
+  posL2: { en: 'second line', es: 'segunda línea' },
+  posL3: { en: 'third line', es: 'tercera línea' },
+  posL4: { en: 'fourth line', es: 'cuarta línea' },
+  posL5: { en: 'fifth line', es: 'quinta línea' },
+  posS1: { en: 'first space', es: 'primer espacio' },
+  posS2: { en: 'second space', es: 'segundo espacio' },
+  posS3: { en: 'third space', es: 'tercer espacio' },
+  posS4: { en: 'fourth space', es: 'cuarto espacio' },
+  posJustBelow: {
+    en: 'in the space just below the stave',
+    es: 'en el espacio justo debajo del pentagrama',
+  },
+  posJustAbove: {
+    en: 'in the space just above the stave',
+    es: 'en el espacio justo encima del pentagrama',
+  },
+  posLedgerBelow: {
+    en: 'on ledger line {n} below the stave',
+    es: 'en la línea adicional {n} por debajo del pentagrama',
+  },
+  posLedgerAbove: {
+    en: 'on ledger line {n} above the stave',
+    es: 'en la línea adicional {n} por encima del pentagrama',
+  },
+  posUnderLedgerBelow: {
+    en: 'in the space below ledger line {n}, under the stave',
+    es: 'en el espacio debajo de la línea adicional {n}, bajo el pentagrama',
+  },
+  posOverLedgerAbove: {
+    en: 'in the space above ledger line {n}, over the stave',
+    es: 'en el espacio encima de la línea adicional {n}, sobre el pentagrama',
+  },
   barsNote: {
     en: 'Every bar here was read out of the engraving of {title}. The reader drops any bar it cannot follow, so what you were shown is what the score prints.',
     es: 'Cada compás de aquí se leyó de la partitura grabada de {title}. El lector descarta cualquier compás que no pueda seguir, así que lo que viste es lo que imprime la partitura.',

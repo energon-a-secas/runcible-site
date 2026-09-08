@@ -14,6 +14,8 @@
   "reader": {
     "note": "The reader is deliberate about refusing. A bar is kept only when it carries no chord, no polyphony block, no grace note, no tuplet and no ottava bracket, and only when its written durations add up to the time signature exactly. Anything else is dropped and counted, so a piece the reader cannot follow ships as a named gap rather than as a guess.",
     "voice": "The staff whose notes are read. It is named per piece because the sources do not agree on a name.",
+    "key": "Optional, and only where the engraving declares the relative major of the key the piece is actually in. A key signature names two keys and a .ly file records one of them; the generator checks that an override counts the same number of sharps or flats as the engraving, so it can correct the name and never the signature.",
+    "rest": "A bar carrying a rest is refused. The reader counts a rest toward the bar and the drawing module draws only notes, so such a bar reaches the screen a beat or two short under a page that promises the written durations add up. Seven bars across three pieces go this way, and they come back the day a rest can be drawn.",
     "context": "The variable holding the piece's key and time signature when they are not inside the voice itself."
   },
   "files": [
@@ -169,7 +171,9 @@
           "composer": "Robert Schumann",
           "composer_dates": "1810 to 1856",
           "rcm": 4,
-          "rcm_note": "RCM 2022 Level 4."
+          "rcm_note": "RCM 2022 Level 4.",
+          "key": { "letter": "a", "alter": 0, "mode": "minor" },
+          "key_note": "The engraving declares C major, which is the relative major and the same empty signature. The piece is in A minor: the upper voice opens on E and A, spells G sharp as a leading note throughout, and cadences on A."
         },
         {
           "id": "schumann-68-10",

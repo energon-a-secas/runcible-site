@@ -20,8 +20,8 @@
 // pointers name a file the manifest permits, which is what C1 rule 2 is for.
 
 import { frame, summary, askDrawn, resolveList, pick, shuffle, el } from './ui.js';
-import { drawBar, drawNote, drawKeyboard } from './draw.js';
-import { say } from './strings.js';
+import { drawBar, drawNote, drawKeyboard, placeOf } from './draw.js';
+import { say, clefWord } from './strings.js';
 
 /** Resolve `items` plus any extra pointers in `props.also`, in order. */
 async function poolFor(api, spec) {
@@ -143,11 +143,19 @@ export default function register(runcible) {
           questions = pick(pool, spec.count).map((bar) => {
             const at = Math.floor(Math.random() * bar.notes.length);
             const note = bar.notes[at];
+            // Where it sat, not only which bar it was in: a wrong answer told
+            // only the letter has nothing to read the next one from, and the
+            // lead above asks for exactly this, a landmark.
+            const place = placeOf(note.d, clef);
+            const where = `${clefWord(t, clef, 'name')}, ${say(t, place.key, place.vars)}`;
             return {
               itemId: note.id,
               expected: note.name,
               options: optionsFor(note.name, labels),
-              after: piece ? say(t, 'barAt', { title: piece.title, n: bar.n }) : null,
+              after: [
+                piece ? say(t, 'barAt', { title: piece.title, n: bar.n }) : null,
+                say(t, 'thatIs', { cue: where }),
+              ].filter(Boolean).join(' '),
               prompt: [
                 drawBar(bar, { clef, fifths, time, markAt: at, t }),
                 el('p', { class: 'pf-cue', text: say(t, 'staffCue') }),

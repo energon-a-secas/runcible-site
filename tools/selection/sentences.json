@@ -12,7 +12,15 @@
     "prompt is the word and whose answer is the whole sentence draws its wrong",
     "options from the sibling sentences, so a second sentence for the same word",
     "is a second right answer: asked which sentence uses ようこそ, the learner",
-    "sees two that do and is marked wrong for picking either one."
+    "sees two that do and is marked wrong for picking either one.",
+    "`pins` names a Tatoeba Japanese id for one word id of the slice's vocabulary",
+    "file, and it is checked against the pool rather than trusted: an id that no",
+    "longer resolves stops the run. It exists because the automatic search is a",
+    "substring test on the dictionary form, which has no word boundary to work",
+    "with: it matched an adverb for the humble verb of saying and a noun for the",
+    "humble verb of doing, and it found nothing at all for the honorific verb of",
+    "looking and the humble verb of knowing, because those appear in the corpus",
+    "only conjugated. Where a pin is set, the search does not run for that word."
   ],
   "slices": [
     {
@@ -46,7 +54,11 @@
       "groups": ["greetings-exp", "intro-exp", "thanks-exp", "classroom-exp", "shopping-exp"],
       "max_chars": 24,
       "per_word": 1,
-      "max_per_group": 12
+      "max_per_group": 12,
+      "pins": {
+        "w_0007": 226989
+      },
+      "pins_note": "w_0007 is the expression for leaving before the others. The automatic pick was the one sentence in the corpus that uses it the other way round, waving somebody else through a door, which is the opposite of the move the rung teaches. The pinned line is the one every office says at the end of the day."
     },
     {
       "file": "ch11.json",
@@ -57,7 +69,16 @@
       "groups": ["register", "work"],
       "max_chars": 24,
       "per_word": 1,
-      "max_per_group": 24
+      "max_per_group": 24,
+      "pins": {
+        "w_0002": 10621296,
+        "w_0006": 2796257,
+        "w_0008": 187552,
+        "w_0012": 10982402,
+        "w_0016": 198312,
+        "w_0018": 233595
+      },
+      "pins_note": "Six of the eighteen register verbs. Two were matched by substring to a sentence that does not contain them at all, two had no sentence of any kind because they never appear unconjugated, and two had one that is a poor model for a politeness chapter: an archaic imperative and a piece of rude slang. Each pin is a short, ordinary, polite line that uses the verb the way the rung describes."
     }
   ]
 }

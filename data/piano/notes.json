@@ -15,8 +15,8 @@
 "id": "notes",
 "title": "The grand staff, one position at a time",
 "fields": {
- "cue": "the position in words. The prompt, and a plain string because a prompt that resolves to an object renders blank.",
- "name": "the letter. The answer, one character, no octave number.",
+ "cue": "the position in words. The prompt of the typed drill, and one string in both languages. That is not because a bilingual prompt cannot be read: js/exercises/items.js resolves one to the reader's language, and data/piano/keys.json prints its own prompt in Spanish because of it. It is because books/piano/exercises/staff.js reads this same field raw for the line it shows after a drawn answer, so an { en, es } here would print [object Object] there. Making it bilingual is a change to that module and to this file together.",
+ "name": "the letter. The answer, one character, no octave number. One string in both languages for the same reason: the drawn drill builds its expected answer and its option labels straight out of this field.",
  "clef": "treble or bass.",
  "d": "the diatonic index: the letter (C is 0 up to B is 6) plus seven times the octave, so middle C is 28. A staff position is one subtraction from it, which is why no drawing code carries a lookup table.",
  "octave": "the scientific octave number, middle C being C4.",

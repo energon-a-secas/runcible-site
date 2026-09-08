@@ -114,6 +114,7 @@ function main() {
 
   const pool = buildPool(jpn, eng, byJpn, maxChars);
   process.stdout.write(`${pool.length} pairs at or under ${maxChars} characters\n`);
+  const byJaId = new Map(pool.map((c) => [c.jaId, c]));
 
   for (const slice of sel.slices) {
     const vocab = vocabSlice(slice.vocab);
@@ -133,6 +134,47 @@ function main() {
       const picked = [];
       for (const item of words) {
         if (picked.length >= slice.max_per_group) break;
+        // A pin, before the search. The search is a substring test on the
+        // dictionary form, which is the only tool available without a
+        // tokenizer, and it is wrong twice over: it matches a longer word that
+        // happens to start with the same kana (the verb for saying humbly is
+        // inside the adverb for "any minute now", and the verb for doing humbly
+        // is inside the noun for "agreement"), and it misses every conjugated
+        // use, which is most of them. A pinned Tatoeba id is the only thing
+        // that puts a sentence beside the honorific and humble verbs of chapter
+        // 11 at all: they appear in the corpus almost exclusively conjugated.
+        // A pin that no longer resolves stops the run rather than quietly
+        // leaving the word with no sentence.
+        const pin = (slice.pins || {})[item.id];
+        if (pin !== undefined) {
+          const c = byJaId.get(String(pin));
+          if (!c) {
+            process.stderr.write(`  ${slice.file} ${groupId} ${item.id}: pinned Tatoeba ${pin} is not in the pool (too long, unlinked, or gone upstream)\n`);
+            process.exitCode = 1;
+            continue;
+          }
+          usedJa.add(c.jaId);
+          seq += 1;
+          // `word` is the span the sentence actually prints, and a pinned
+          // sentence usually prints the verb conjugated, so there is no span to
+          // name. The field is then left off rather than filled with the
+          // dictionary form: it is the field that says "this exact string is in
+          // this sentence", the corpus validator checks exactly that, and a
+          // drill prompted with it would show a run of kana the sentence does
+          // not contain. `for` still points at the word, so nothing is lost but
+          // a claim that was not true.
+          const form = [item.word, item.kana].find((f) => c.ja.includes(f));
+          const row = {
+            id: `s_${String(seq).padStart(4, '0')}`,
+            ja: c.ja,
+            en: c.en,
+            for: item.id,
+            tatoeba: [Number(c.jaId), Number(c.enId)],
+          };
+          if (form) row.word = form;
+          picked.push(row);
+          continue;
+        }
         let taken = 0;
         for (const form of [...new Set([item.word, item.kana])]) {
           if (taken >= slice.per_word) break;

@@ -101,12 +101,12 @@
           "title": { "en": "The two subjects resolve the same tension in opposite directions", "es": "Las dos materias resuelven la misma tensión en direcciones opuestas" },
           "body": {
             "en": [
-              "Japanese teaching says read before you write, because writing triples the time for very little real benefit and a browser cannot grade a stroke anyway.",
+              "Japanese teaching says read before you write, because writing triples the time for very little real benefit. A browser can grade a stroke, up to a point: the Japanese Book's handwriting box checks the count, the order and the direction of each stroke against reference geometry, and leaves the shape alone.",
               "Piano teaching says play before you read. Hoffman puts twenty lessons of playing ahead of the first note on a staff.",
               "Both are the same decision: put the skill that pays first, and let the notation follow it. They only look opposite because in one subject the notation is the product and in the other it is the packaging."
             ],
             "es": [
-              "La enseñanza del japonés dice: lee antes de escribir, porque escribir triplica el tiempo a cambio de muy poco beneficio real y, de todos modos, un navegador no puede calificar un trazo.",
+              "La enseñanza del japonés dice: lee antes de escribir, porque escribir triplica el tiempo a cambio de muy poco beneficio real. Un navegador sí puede calificar un trazo hasta cierto punto: el recuadro de escritura del libro de japonés comprueba el número, el orden y la dirección de cada trazo contra una geometría de referencia, y deja en paz la forma.",
               "La enseñanza del piano dice: toca antes de leer. Hoffman pone veinte lecciones de tocar antes de la primera nota en un pentagrama.",
               "Ambas son la misma decisión: pon primero la destreza que rinde y deja que la notación la siga. Solo parecen opuestas porque en una materia la notación es el producto y en la otra es el envoltorio."
             ]
@@ -150,6 +150,23 @@
               "Las teclas negras vienen en un grupo de dos y un grupo de tres, y ese patrón se repite sin interrupción desde el extremo grave del instrumento hasta el agudo. Encuentra un grupo y sabrás dónde estás, sea cual sea la octava en la que cayó tu mano.",
               "Una tecla negra tiene dos nombres, y los dos son correctos. La tecla entre do y re es do sostenido cuando la música sube un do, y re bemol cuando baja un re. Cuál se imprime depende de la tonalidad de la pieza, que es asunto del capítulo 3.",
               "El ejercicio de abajo marca una tecla en una octava dibujada y pide su nombre. Es la misma pregunta que hace la opción múltiple del armazón, con el dibujo como enunciado, y ese dibujo es la razón por la que este libro trae un módulo propio."
+            ]
+          }
+        },
+        {
+          "id": "p-sit-and-play",
+          "kind": "prose",
+          "title": { "en": "Sitting down, and the first five notes under each hand", "es": "Sentarse, y las cinco primeras notas bajo cada mano" },
+          "body": {
+            "en": [
+              "Posture in three lines. Sit at the middle of the keyboard, the bench far enough back that your forearms come in level with the keys and your elbows sit a little in front of your body. Curve the fingers so the knuckles stay up and the fingertip, not the pad, meets the key. Wrist loose, feet flat on the floor, on a box if they do not reach.",
+              "Then the two patterns unit one asks for, played by rote rather than read. The C pentascale is C, D, E, F, G: in the right hand the thumb takes C and the fifth finger takes G, and in the left hand the fifth finger takes C and the thumb takes G, so the same five notes are numbered the other way round. The D pentascale is D, E, F sharp, G, A with the same fingering, and its one black key is the leftmost of the group of three, which you can now find without counting.",
+              "Neither of those two acts is observed anywhere in this Book. Nothing here can watch you sit and nothing here can hear you play: the drills grade key names and nothing else. They are in the chapter's goal because they are what unit one is for, and they are said plainly here so that the goal is not a promise the software quietly drops."
+            ],
+            "es": [
+              "La postura, en tres líneas. Siéntate en el centro del teclado, con la banqueta lo bastante atrás para que los antebrazos queden a la altura de las teclas y los codos algo por delante del cuerpo. Curva los dedos para que los nudillos se mantengan altos y sea la punta del dedo, no la yema, la que toca la tecla. Muñeca suelta, pies planos en el suelo, sobre una caja si no llegan.",
+              "Y luego los dos patrones que pide la unidad uno, tocados de memoria y no leídos. El pentacordio de do es do, re, mi, fa, sol: en la mano derecha el pulgar toma el do y el quinto dedo el sol, y en la izquierda el quinto dedo toma el do y el pulgar el sol, así que las mismas cinco notas van numeradas al revés. El pentacordio de re es re, mi, fa sostenido, sol, la con la misma digitación, y su única tecla negra es la más a la izquierda del grupo de tres, que ya sabes encontrar sin contar.",
+              "Ninguno de esos dos actos se observa en ninguna parte de este libro. Nada de aquí puede verte sentarte y nada de aquí puede oírte tocar: los ejercicios califican nombres de teclas y nada más. Están en la meta del capítulo porque son para lo que sirve la unidad uno, y se dicen aquí con claridad para que la meta no sea una promesa que el software abandona en silencio."
             ]
           }
         }

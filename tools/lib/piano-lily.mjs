@@ -222,7 +222,14 @@ export function readVoice(src) {
         if (st.ottava) refuse('an ottava bracket');
         continue;
       }
-      if (w === 'rest') { if (cur.notes.length) cur.notes.pop(); continue; }
+      if (w === 'rest') {
+        // `a4\\rest` is a rest drawn at the height of a pitch. The pitch was
+        // already counted, so the note comes back off the bar and the ticks
+        // stay: the bar still adds up and is one silence short of what it draws.
+        if (cur.notes.length) cur.notes.pop();
+        refuse('a rest');
+        continue;
+      }
       if (LINE_CMD.has(w)) { skipLine(); continue; }
       if (REFUSE.has(w)) { refuse(`\\${w}`); continue; }
       if (HARMLESS.has(w)) continue;
@@ -277,9 +284,26 @@ export function readVoice(src) {
       if (!useDen) { refuse('a rest with no duration'); continue; }
       lastDur = { den: useDen, dots: useDots };
       cur.ticks += durTicks(useDen, useDots);
+      // A rest is counted and not drawn: books/piano/exercises/draw.js draws
+      // bar.notes and nothing else, so a bar with a rest in it adds up in ticks
+      // and comes out short on the stave. Three eighth notes were being shown
+      // in four four, nine sixteenths in four four and two beats in three four,
+      // under a chapter that says the durations add up and a drill that says
+      // what you were shown is what the score prints. Until a rest can be
+      // drawn, the bar is refused, which is what makes both sentences true.
+      refuse('a rest');
       continue;
     }
-    if ('[]()~{}*!?='.includes(c)) { i += 1; continue; }
+    if (c === '~') {
+      // A tie joins two written notes into one sound. Drawn without it, the
+      // second head is a note to be struck again, which is not what the score
+      // says. No read voice in the shipped corpus carries one, so this refuses
+      // nothing today and stops the first one that arrives.
+      i += 1;
+      refuse('a tie');
+      continue;
+    }
+    if ('[](){}*!?='.includes(c)) { i += 1; continue; }
     if (c === '-' || c === '^' || c === '_') {
       i += 1;
       const m = /^\d+/.exec(t.slice(i));

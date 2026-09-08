@@ -39,7 +39,7 @@
               "Three landmarks are enough to start: middle C, which both staves share, the G the treble clef curls around, and the F the bass clef's two dots straddle. Each clef is named after the note it points at, which is the only mnemonic here that is also a fact."
             ],
             "es": [
-              "El sistema de piano son un pentagrama en clave de sol y otro en clave de fa unidos por una llave, con el do central en una línea adicional corta entre los dos. La unidad dos de Hoffman presenta las dos claves y un pequeño conjunto de notas guía.",
+              "El sistema de piano es un pentagrama en clave de sol y otro en clave de fa unidos por una llave, con el do central en una línea adicional corta entre los dos. La unidad dos de Hoffman presenta las dos claves y un pequeño conjunto de notas guía.",
               "Una nota guía es un punto de referencia que reconoces al instante, de modo que cada otra nota se lee como uno o dos pasos desde una referencia y no contando desde el do central. Contar funciona en reposo y se derrumba a tempo, que es la misma razón por la que a quien aprende kana se le ejercita el reconocimiento y no recitar la tabla gojuon.",
               "Tres referencias bastan para empezar: el do central, que ambos pentagramas comparten, el sol que rodea la clave de sol y el fa que enmarcan los dos puntos de la clave de fa. Cada clave lleva el nombre de la nota que señala, y ese es el único recurso mnemotécnico de aquí que además es un hecho."
             ]
@@ -55,7 +55,7 @@
               "It is free to read online and carries a plain copyright notice with no licence grant, so this Book links to it and never rehosts it. That is the same rule the Japanese Book applies to Tofugu and to Tadoku."
             ],
             "es": [
-              "musictheory.net publica The Basics como seis lecciones gratuitas sobre el pentagrama, la duración de las notas, los compases y el compás escrito, la duración de los silencios, los puntillos y las ligaduras, y los grados y las alteraciones. Está en musictheory.net/lessons.",
+              "musictheory.net publica The Basics como seis lecciones gratuitas sobre el pentagrama, la duración de las notas, los compases y el compás escrito, la duración de los silencios, los puntillos y las ligaduras, y los tonos y semitonos y las alteraciones. Está en musictheory.net/lessons.",
               "Se puede leer gratis en línea y lleva un aviso de derechos de autor sin ninguna licencia concedida, así que este libro lo enlaza y nunca lo rehospeda. Es la misma regla que el libro de japonés aplica a Tofugu y a Tadoku."
             ]
           }
@@ -108,11 +108,11 @@
           "title": { "en": "The bass staff is not the treble staff moved down", "es": "El pentagrama en clave de fa no es el de sol movido hacia abajo" },
           "body": {
             "en": [
-              "Its bottom line is G, not E, and every line and space differs from the treble by one position. A reader who learned the treble first and assumes the pattern repeats will be a third out on every note, consistently enough to feel right.",
+              "Its bottom line is G, not E, and every line and space differs from the treble by one line, which is a third. A reader who learned the treble first and assumes the pattern repeats will be a third out on every note, consistently enough to feel right.",
               "That is why the drill below mixes the two clefs instead of finishing one and then starting the other."
             ],
             "es": [
-              "Su línea inferior es sol, no mi, y cada línea y cada espacio difieren en una posición respecto de la clave de sol. Quien aprendió primero la clave de sol y supone que el patrón se repite quedará a una tercera de distancia en cada nota, con la suficiente constancia como para que se sienta correcto.",
+              "Su línea inferior es sol, no mi, y cada línea y cada espacio difieren en una línea respecto de la clave de sol, que es una tercera. Quien aprendió primero la clave de sol y supone que el patrón se repite quedará a una tercera de distancia en cada nota, con la suficiente constancia como para que se sienta correcto.",
               "Por eso el ejercicio de abajo mezcla las dos claves en lugar de terminar una y después empezar la otra."
             ]
           }

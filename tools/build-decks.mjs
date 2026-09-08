@@ -54,35 +54,83 @@ function licenceFields(id) {
   };
 }
 
+/**
+ * The politeness label a deck prints, from the tag-derived code the corpus
+ * carries. A card that says "hum" is a card that teaches the abbreviation.
+ */
+const REGISTER_WORD = { plain: 'plain', pol: 'polite', hon: 'honorific', hum: 'humble' };
+
+/**
+ * The second field a `recall` card is fronted with, when a deck asks for one.
+ *
+ * A typed card fronted with a meaning alone is unanswerable wherever two notes
+ * share that meaning, and it does not fail loudly: it accepts one of the two
+ * right answers and marks the other wrong. Two decks hit it. The everyday
+ * phrases deck has two notes glossed "welcome", one said to you in a shop and
+ * one you say at a door, and its groups are what tell them apart. The politeness
+ * deck is worse, because it is eighteen words for six acts: three of them mean
+ * "to do" and all eighteen sit in one group, so only the register separates
+ * them, and the register is the thing the chapter teaches and the one thing the
+ * card did not carry.
+ *
+ *   "group"     the rung's own label, already a field
+ *   "register"  hon / hum / pol / plain from the corpus, spelled out
+ *
+ * A row that asks for the register over a slice that does not emit one stops the
+ * run: a blank qualifier is the same unanswerable card with a bracket after it.
+ */
+function qualifierOf(spec, items) {
+  if (!spec.qualify) return null;
+  if (spec.qualify === 'group') return 'Group';
+  if (spec.qualify !== 'register') {
+    throw new Error(`${spec.id}: qualify is "${spec.qualify}", which is not group or register`);
+  }
+  const bare = items.find((item) => !item.register);
+  if (bare) {
+    throw new Error(`${spec.id}: qualify is register and ${bare.id} ${bare.word} carries none. Add "register" to the group's emit in tools/selection/vocab.json`);
+  }
+  return 'Register';
+}
+
 function vocabDeck(spec) {
   const src = readData(spec.from);
+  const all = src.order.flatMap((groupId) => src.groups[groupId]);
+  const qualifier = qualifierOf(spec, all);
   const notes = [];
   for (const groupId of src.order) {
     for (const item of src.groups[groupId]) {
+      const f = {
+        Word: item.word,
+        Kana: item.kana,
+        Meaning: item.gloss.join(' / '),
+        Group: src.labels[groupId].en,
+      };
+      if (qualifier === 'Register') f.Register = REGISTER_WORD[item.register] || item.register;
       notes.push({
         id: `n_${item.id.slice(2)}`,
-        f: {
-          Word: item.word,
-          Kana: item.kana,
-          Meaning: item.gloss.join(' / '),
-          Group: src.labels[groupId].en,
-        },
+        f,
         tags: [groupId],
         templates: ['recognition', 'recall', 'pick'],
       });
     }
   }
+  const qualified = qualifier ? `{{Meaning}} ({{${qualifier}}})` : '{{Meaning}}';
   return {
     licenceId: 'edrdg',
-    fields: ['Word', 'Kana', 'Meaning', 'Group'],
+    fields: qualifier === 'Register'
+      ? ['Word', 'Kana', 'Meaning', 'Group', 'Register']
+      : ['Word', 'Kana', 'Meaning', 'Group'],
     templates: [
       {
+        // The register is on the back of the recognition card as well, because
+        // reading the word is not the whole of knowing it when six words mean
+        // "to do" and the distance is the lesson.
         id: 'recognition', kind: 'basic', skill: spec.skill_read,
-        front: '{{Word}}', back: '{{Meaning}}',
+        front: '{{Word}}', back: qualifier === 'Register' ? qualified : '{{Meaning}}',
       },
       {
         id: 'recall', kind: 'typed', skill: spec.skill_write,
-        answer_field: 'Kana', front: '{{Meaning}}', back: '{{Kana}}',
+        answer_field: 'Kana', front: qualified, back: '{{Kana}}',
         transform: 'kana', compare: 'trim|kana',
       },
       {

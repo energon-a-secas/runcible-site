@@ -36,12 +36,12 @@
             "en": [
               "musictheory.net groups two to five are rhythm and meter, scales and key signatures, intervals, and chords. All four are closed sets, all four are small, and all four reward being asked at increasing intervals rather than being read once.",
               "This is the piano equivalent of the kanji and vocabulary engine: a few hundred items with a prerequisite order, where the value is that the learner never decides what to practise today.",
-              "The first of the four is meter. The lower number of a time signature says which note gets counted and the upper number says how many of them fill a bar. A player counting 6/8 counts two beats of three rather than six, which is a fact about how it is felt and not about what is written. The drill asks what is written."
+              "The first of the four is meter. The lower number of a time signature names the note that gets counted, 4 for a quarter note, 8 for an eighth, 2 for a half, and the upper number says how many of them fill a bar. So 3/4 is three quarter notes and 6/8 is six eighths, and the number that has to be learned is the lower one, because it is the one that is a code rather than a count.", "Simple and compound meter is the other half of the same fact, and it is about the beat rather than the bar. A meter is simple when the beat divides in two: 2/4, 3/4 and 4/4 are counted one, two, three, four with each count splitting in half. A meter is compound when the beat divides in three, which is what a 6, a 9 or a 12 over an 8 is telling you: 6/8 is written as six eighth notes and felt as two beats of three, 9/8 as three, 12/8 as four. Clap a bar of 3/4 and a bar of 6/8 back to back and the difference is the whole lesson.", "Nothing here can hear you clap, so the drill below asks the half of this a screen can check: which note the lower number names. The felt beat is yours to do away from the page, and it is in the goal because it is what the chapter is for."
             ],
             "es": [
               "Los grupos dos a cinco de musictheory.net son ritmo y métrica, escalas y armaduras, intervalos y acordes. Los cuatro son conjuntos cerrados, los cuatro son pequeños y los cuatro se benefician de que se pregunten a intervalos crecientes en lugar de leerse una vez.",
               "Es el equivalente pianístico del motor de kanji y vocabulario: unos pocos cientos de ítems con un orden de prerrequisitos, donde el valor está en que quien aprende nunca decide qué practicar hoy.",
-              "El primero de los cuatro es la métrica. El número inferior de la cifra de compás dice qué figura se cuenta y el superior dice cuántas de ellas llenan un compás. Quien toca un 6/8 cuenta dos pulsos de tres y no seis, lo que es un hecho sobre cómo se siente y no sobre lo que está escrito. El ejercicio pregunta por lo escrito."
+              "El primero de los cuatro es la métrica. El número inferior de la cifra de compás nombra la figura que se cuenta, 4 para la negra, 8 para la corchea, 2 para la blanca, y el superior dice cuántas de ellas llenan un compás. Así que un 3/4 son tres negras y un 6/8 son seis corcheas, y el número que hay que aprender es el de abajo, porque es el que es un código y no un recuento.", "El compás simple y el compuesto son la otra mitad del mismo hecho, y tratan del pulso y no del compás. Un compás es simple cuando el pulso se divide en dos: el 2/4, el 3/4 y el 4/4 se cuentan uno, dos, tres, cuatro y cada cuenta se parte por la mitad. Un compás es compuesto cuando el pulso se divide en tres, que es lo que te dice un 6, un 9 o un 12 sobre un 8: el 6/8 se escribe como seis corcheas y se siente como dos pulsos de tres, el 9/8 como tres, el 12/8 como cuatro. Marca con palmas un compás de 3/4 y uno de 6/8 seguidos y ahí está toda la lección.", "Nada de aquí puede oírte dar palmas, así que el ejercicio de abajo pregunta la mitad que una pantalla sí puede comprobar: qué figura nombra el número de abajo. El pulso sentido te toca hacerlo lejos de la página, y está en la meta porque es para lo que sirve el capítulo."
             ]
           }
         },
@@ -98,11 +98,81 @@
           "id": "e-meter",
           "type": "choice",
           "skill": "piano.theory.name",
-          "title": { "en": "How many fit in one bar?", "es": "¿Cuántas caben en un compás?" },
-          "items": "data/piano/theory.json#groups.meter",
+          "title": { "en": "Which note does the lower number name?", "es": "¿Qué figura nombra el número de abajo?" },
+          "items": [
+            {
+              "id": "me-24",
+              "signature": "2/4",
+              "value": { "en": "quarter note", "es": "negra" },
+              "explain": { "en": "Two quarter notes to a bar. March time, and the meter of Schumann's Soldier's March.", "es": "Dos negras por compás. Tiempo de marcha, y el compás de la Marcha del soldado de Schumann." }
+            },
+            {
+              "id": "me-34",
+              "signature": "3/4",
+              "value": { "en": "quarter note", "es": "negra" },
+              "explain": { "en": "Three quarter notes to a bar. Every menuet in chapter 4 is in it.", "es": "Tres negras por compás. Todos los minuetos del capítulo 4 están en él." }
+            },
+            {
+              "id": "me-44",
+              "signature": "4/4",
+              "value": { "en": "quarter note", "es": "negra" },
+              "explain": { "en": "Four quarter notes to a bar, and the one often written as a C.", "es": "Cuatro negras por compás, y el que a menudo se escribe como una C." }
+            },
+            {
+              "id": "me-22",
+              "signature": "2/2",
+              "value": { "en": "half note", "es": "blanca" },
+              "explain": { "en": "The lower 2 names the half note, so it is two half notes to a bar: the same length as 4/4, counted half as often.", "es": "El 2 de abajo nombra la blanca, así que son dos blancas por compás: la misma duración que un 4/4, contada la mitad de veces." }
+            },
+            {
+              "id": "me-38",
+              "signature": "3/8",
+              "value": { "en": "eighth note", "es": "corchea" },
+              "explain": { "en": "Three eighth notes to a bar. Clementi's third movement is in it.", "es": "Tres corcheas por compás. El tercer movimiento de Clementi está en él." }
+            },
+            {
+              "id": "me-68",
+              "signature": "6/8",
+              "value": { "en": "eighth note", "es": "corchea" },
+              "explain": { "en": "Six eighth notes to a bar, and a player feels them as two beats of three. The lower number still names the eighth note.", "es": "Seis corcheas por compás, y quien toca las siente como dos pulsos de tres. El número de abajo sigue nombrando la corchea." }
+            },
+            {
+              "id": "me-98",
+              "signature": "9/8",
+              "value": { "en": "eighth note", "es": "corchea" },
+              "explain": { "en": "Nine eighth notes, felt as three beats of three.", "es": "Nueve corcheas, sentidas como tres pulsos de tres." }
+            },
+            {
+              "id": "me-128",
+              "signature": "12/8",
+              "value": { "en": "eighth note", "es": "corchea" },
+              "explain": { "en": "Twelve eighth notes, felt as four beats of three.", "es": "Doce corcheas, sentidas como cuatro pulsos de tres." }
+            },
+            {
+              "id": "me-54",
+              "signature": "5/4",
+              "value": { "en": "quarter note", "es": "negra" },
+              "explain": { "en": "Five quarter notes. Five does not divide evenly, so the composer usually says how to group them.", "es": "Cinco negras. El cinco no se divide en partes iguales, así que quien compone suele indicar cómo agruparlas." }
+            },
+            {
+              "id": "me-64",
+              "signature": "6/4",
+              "value": { "en": "quarter note", "es": "negra" },
+              "explain": { "en": "Six quarter notes. The same grouping question as 6/8, one note value slower.", "es": "Seis negras. La misma cuestión de agrupación que el 6/8, una figura más lenta." }
+            }
+          ],
           "prompt": "signature",
-          "answer": "beats",
-          "distractors": { "from": "siblings", "n": 3 },
+          "answer": "value",
+          "distractors": {
+            "values": [
+              { "en": "whole note", "es": "redonda" },
+              { "en": "half note", "es": "blanca" },
+              { "en": "quarter note", "es": "negra" },
+              { "en": "eighth note", "es": "corchea" },
+              { "en": "sixteenth note", "es": "semicorchea" }
+            ],
+            "n": 3
+          },
           "count": 10,
           "pass": { "accuracy": 0.8 }
         }
@@ -139,12 +209,12 @@
           "title": { "en": "Count the letters first, then the semitones", "es": "Cuenta primero las letras, después los semitonos" },
           "body": {
             "en": [
-              "An interval is named twice over. The letters give the number: C to E is a third because C, D, E is three letters, whatever accidentals are on them. The semitones give the quality: four of them make that third major, three make it minor.",
-              "The white keys are not evenly spaced, which is the whole reason quality exists. B to F spans four letters like every other fifth and only six semitones, so it is the one fifth in a major scale that is diminished rather than perfect."
+              "An interval is named twice over. The letters give the number, counted inclusively, the first letter and the last both counted: C to E is a third because C, D, E is three letters, whatever accidentals are on them. The semitones give the quality: four of them make that third major, three make it minor.",
+              "The white keys are not evenly spaced, which is the whole reason quality exists. B to F covers five letters, B C D E F, like every other fifth, and only six semitones, so it is the one fifth in a major scale that is diminished rather than perfect."
             ],
             "es": [
-              "Un intervalo se nombra dos veces. Las letras dan el número: de do a mi hay una tercera porque do, re, mi son tres letras, sean cuales sean sus alteraciones. Los semitonos dan la calidad: cuatro hacen esa tercera mayor, tres la hacen menor.",
-              "Las teclas blancas no están espaciadas de manera uniforme, y esa es toda la razón de que exista la calidad. De si a fa hay cuatro letras, como en cualquier otra quinta, y solo seis semitonos, así que es la única quinta de una escala mayor que es disminuida y no justa."
+              "Un intervalo se nombra dos veces. Las letras dan el número, contadas de forma inclusiva, con la primera y la última incluidas: de do a mi hay una tercera porque do, re, mi son tres letras, sean cuales sean sus alteraciones. Los semitonos dan la calidad: cuatro hacen esa tercera mayor, tres la hacen menor.",
+              "Las teclas blancas no están espaciadas de manera uniforme, y esa es toda la razón de que exista la calidad. De si a fa hay cinco letras, si do re mi fa, como en cualquier otra quinta, y solo seis semitonos, así que es la única quinta de una escala mayor que es disminuida y no justa."
             ]
           }
         }
