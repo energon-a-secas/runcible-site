@@ -377,6 +377,9 @@ export function validateChapter(doc, book = null) {
         usePointer(`${eat}.src`, ex.src, false);
         if (ex.mode !== undefined && !['review', 'cram', 'browse'].includes(ex.mode)) r.err(`${eat}.mode`, 'must be review, cram or browse (C6.1)');
         if (ex.limit !== undefined && !(Number.isInteger(ex.limit) && ex.limit > 0)) r.err(`${eat}.limit`, 'must be a positive integer');
+        // A quiz's `timed` is judged by validateExerciseSpec above, which the
+        // shell runs too, so a chapter with a clock the engine would discard
+        // fails here and at load time from one definition rather than two.
       }
     }
   }

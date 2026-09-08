@@ -100,7 +100,7 @@ export function quizOrigin(loc = location) {
 
 /**
  * The engine URL for a quiz spec. With embed it is the frame's src:
- * ?embed=1&game=&set=<absolute src>&skill=&lang=&limit=&filter=[&theme=].
+ * ?embed=1&game=&set=<absolute src>&skill=&lang=&limit=&filter=[&timed=][&theme=].
  * Without it it is the escape link: the same URL minus embed and skill, which
  * is what the engine's own bar offers, so both links land on one standalone
  * round.
@@ -112,6 +112,12 @@ export function quizOrigin(loc = location) {
  * different exercise. It is sent trimmed because the engine matches a value
  * exactly after trim, and a stray space in a chapter file would otherwise be
  * the difference between a round and the filter-empty screen.
+ *
+ * The clock is on both for the same reason, and it is the one parameter the
+ * engine will not take from anywhere else: a Quiz frame never times a round
+ * off the visitor's own saved preference, only off what its host wrote here.
+ * The learner can still turn it off inside the round, which the engine then
+ * remembers against every later URL, this one included.
  *
  * The env argument exists so a node test can build the URL with no DOM.
  */
@@ -129,6 +135,11 @@ export function quizUrl(spec, { embed = true } = {}, env = {}) {
   if (lang) p.set('lang', lang);
   if (Number.isInteger(spec.limit) && spec.limit > 0) p.set('limit', String(spec.limit));
   if (typeof spec.filter === 'string' && spec.filter.trim()) p.set('filter', spec.filter.trim());
+  // The engine writes its default budget as timed=1, so true travels as 1 and
+  // a number as itself. Anything else was refused by validateExerciseSpec
+  // before the chapter loaded, and the engine discards a bad value in any case.
+  if (spec.timed === true) p.set('timed', '1');
+  else if (Number.isInteger(spec.timed)) p.set('timed', String(spec.timed));
   if (theme) p.set('theme', theme);
   return url.href;
 }
@@ -153,6 +164,12 @@ export function acceptable(event, origin, frameWindow) {
  * 2026-09-04). chosen and expected are strings in the contract and are kept
  * only as strings, because a recorded answer is what weak-item review shows
  * back to the learner.
+ *
+ * A timed round's timeout arrives here as any other miss: correct false with
+ * an empty chosen, plus timedOut and budgetMs, which this host does not
+ * record. Evidence is what the learner answered, and an item the clock took
+ * is an item they did not answer; keeping the reason would make two kinds of
+ * wrong out of one, and nothing in C2.3 reads it.
  */
 export function readAnswer(m, spec) {
   if (!m || typeof m !== 'object') return { ok: false, reason: 'not an object' };

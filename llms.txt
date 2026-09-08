@@ -161,7 +161,7 @@ The ten types and their required fields (from spec.js, verbatim):
 | listen | items, speak, answer, respond      | yes    | respond "choice" or "typed"; speak is the field read aloud; audioOnly: true; transform allowed with respond typed |
 | speak  | items, expect                      | never  | correct: null always. A transcript is shown as feedback, not a score |
 | deck   | src                                | yes    | limit (positive integer), mode is review, cram or browse |
-| quiz   | game, src                          | yes    | game is beats, sound, pairs or order; limit (positive integer); filter narrows the set to one row or group; src is a neo-quiz-set/1 document declared in data[] |
+| quiz   | game, src                          | yes    | game is beats, sound, pairs or order; limit (positive integer); filter narrows the set to one row or group; timed clocks each item; src is a neo-quiz-set/1 document declared in data[] |
 | custom | module                             | module decides | props passed through. module is an id the Book registered |
 
 compare: pipe-separated tokens applied in order, from the closed set trim,
@@ -224,16 +224,29 @@ different exercise. The engine still draws distractors and the sound game's row
 strip from the WHOLE set, so a five item round of the k row still shows the
 five cells of that row.
 
-Both halves are checked before a learner sees one. The grammar is checked by
-js/exercises/spec.js, which the shell and the CLI share, and a filter on any
-type but quiz is an error rather than a field the engine will never read. Then
-tools/validate-book.mjs opens the set named by src and counts the items the
-filter matches: fewer than four is an error for pairs, whose board is four
-pairs, and fewer than three for the other games, because a set ships a kana row
-whole even when it is short and ya yu yo is a real row. A filter matching
-nothing is the engine's filter-empty screen, which is a build mistake, never a
-learner's. A group the set does not name in its groups{} is a warning: the
-round header then shows the label instead of the words.
+timed (optional) puts a clock on every item of the round: true for the
+engine's default eight seconds, or an integer 3 to 30 for the seconds. Omit it
+and the round is untimed, which is the default and stays the default: a Book
+asks for a clock, it never gets one by accident. false is not a value, because
+turning a clock off belongs to the learner (WCAG 2.2.1) and not to a chapter.
+The shell puts it on the frame's URL and on the Open in Quiz link, true as
+timed=1, so the escape link is the same round the exercise is. A learner who
+turns the clock off inside the round has that saved by the engine, and neither
+this URL nor any later one starts it again. A timeout arrives as any other
+miss, correct false with an empty answer, and is recorded like one. The value
+is checked by js/exercises/spec.js, so a clock the engine would discard is a
+build error and not a round that quietly runs untimed.
+
+Both halves of a filter are checked before a learner sees one. The grammar is
+checked by js/exercises/spec.js, which the shell and the CLI share, and a
+filter on any type but quiz is an error rather than a field the engine will
+never read. Then tools/validate-book.mjs opens the set named by src and counts
+the items the filter matches: fewer than four is an error for pairs, whose
+board is four pairs, and fewer than three for the other games, because a set
+ships a kana row whole even when it is short and ya yu yo is a real row. A
+filter matching nothing is the engine's filter-empty screen, which is a build
+mistake, never a learner's. A group the set does not name in its groups{} is a
+warning: the round header then shows the label instead of the words.
 
 ### Custom exercises and transforms (modules[])
 

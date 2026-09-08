@@ -35,6 +35,20 @@ export const NEVER_GRADED = Object.freeze(['read', 'speak']);
  */
 export const QUIZ_FILTER_FIELDS = Object.freeze(['row', 'column', 'group', 'rule']);
 
+/**
+ * The clock a quiz exercise may ask for (quiz.neorgon.com/llms.txt, "Timed
+ * rounds"): true is the engine's own default budget, a number is seconds. The
+ * range is the engine's, and it is checked here rather than left to the engine
+ * because a value the engine discards is a chapter that silently runs untimed.
+ *
+ * An untimed round omits the field. `false` is not a value: turning a clock
+ * off is the learner's own control on the round, under WCAG 2.2.1, and a Book
+ * writing it would be making that choice for them.
+ */
+export const QUIZ_TIMED_DEFAULT = 8;
+export const QUIZ_TIMED_MIN = 3;
+export const QUIZ_TIMED_MAX = 30;
+
 /** A label, as the set format defines one: ASCII letters, digits and dashes. */
 const LABEL = /^[A-Za-z0-9-]+$/;
 
@@ -129,6 +143,16 @@ export function validateExerciseSpec(spec, known) {
     else {
       const { problem } = parseQuizFilter(spec.filter);
       if (problem) out.push(`"filter" ${problem}`);
+    }
+  }
+  if (spec.timed !== undefined) {
+    // Same reasoning as filter: a clock on any other type is a field the
+    // engine that reads it will never see, so it is said here.
+    if (type !== 'quiz') out.push('"timed" belongs to a quiz exercise: no other type carries a clock');
+    else if (spec.timed !== true
+      && !(Number.isInteger(spec.timed) && spec.timed >= QUIZ_TIMED_MIN && spec.timed <= QUIZ_TIMED_MAX)) {
+      out.push(`"timed" must be true (${QUIZ_TIMED_DEFAULT} seconds) or an integer ${QUIZ_TIMED_MIN} to `
+        + `${QUIZ_TIMED_MAX}, the seconds each item gets. An untimed round omits it`);
     }
   }
   if (spec.pass !== undefined) {
