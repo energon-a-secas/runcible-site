@@ -8,10 +8,11 @@
  *
  * 1. It is dormant by default. With no <meta name="clerk-publishable-key"> on
  *    the page, every function returns the "no account" result below and NOTHING
- *    is fetched: no Clerk, no Convex, no esm.sh. The client import is dynamic
- *    and lives inside the guard, unlike memes-site/js/state.js:7 which imports
- *    it statically at module top level and pays for it on every anonymous load.
- * 2. Nothing throws. A network failure, a missing vendored auth client, a
+ *    is fetched: no Clerk, no Convex, no esm.sh, no auth kit. The client and
+ *    kit imports are dynamic and live inside the guard, unlike
+ *    memes-site/js/state.js:7 which imports the client statically at module top
+ *    level and pays for it on every anonymous load.
+ * 2. Nothing throws. A network failure, a missing auth kit, a
  *    malformed document: all of them return a result, because the shell is
  *    local-first and a sync failure must never cost the learner a chapter.
  * 3. pull() runs before push() on sign-in, always, inside this file, so the
@@ -25,8 +26,12 @@ const CONVEX_URL = 'https://knowing-pheasant-276.convex.cloud';
 /** Pinned, matching this project's convex dependency. Fetched only when a Clerk key is present. */
 const CONVEX_CLIENT = 'https://esm.sh/convex@1.43.0/browser';
 
-/** Vendored by packages/neorgon-ui/sync-auth.sh. Absent until that has run. */
-const AUTH_CLIENT = './vendor/neorgon-auth.js';
+/**
+ * The Neorgon Auth Kit, vendored as js/neorgon-auth.js by
+ * packages/neorgon-ui/sync-auth.sh and never edited here. Imported only when a
+ * Clerk key is present, the same as the Convex client.
+ */
+const AUTH_KIT = './neorgon-auth.js';
 
 /** Function names, C7.5. Strings at runtime, so there is no build step. */
 const FN = {
@@ -49,6 +54,8 @@ let client = null;
 let scope = { bookId: null };
 let hooks = {};
 let auth = { signedIn: false, subject: null };
+let booting = null;     // boot()'s promise, shared by every initSync call
+let offSession = null;  // the one NeoAuth.onChange listener's unsubscribe, and its guard
 const listeners = new Set();
 
 function warn(...args) {
@@ -86,13 +93,15 @@ export function syncAvailable() {
 }
 
 /**
- * Start sync. Safe to call with no account: it returns null and touches the
- * network zero times.
+ * Start sync, or point it at another Book. Safe to call with no account: it
+ * returns null and touches the network zero times.
+ *
+ * Called again, it replaces the scope and the hooks and does nothing else, so
+ * the next sign-in merge reads the new Book. The Convex client, the auth kit
+ * and the kit's one onChange listener come from boot(), which runs once.
  *
  * @param {object} [opts]
  * @param {string} [opts.bookId] scope for pull, push and clearRemote.
- * @param {string|Element} [opts.signInHost] where Clerk mounts its sign-in form.
- * @param {string|Element} [opts.userButtonHost] where Clerk mounts the account button.
  * @param {(remote: object|null) => object|null} [opts.applyRemote] merge the
  *        server document into local state on sign-in and return what to push back.
  * @param {() => object|null} [opts.readLocal] used when applyRemote is absent or
@@ -112,36 +121,49 @@ export async function initSync(opts = {}) {
     onSync: opts.onSync,
   };
 
-  const pk = clerkKey();
-  if (!pk) return null; // dormant. No import, no request, no error.
+  if (!clerkKey()) return null; // dormant. No import, no request, no error.
 
+  booting ??= boot();
+  return (await booting) ? { ...auth } : null;
+}
+
+/**
+ * Create the client, start the kit, listen once. Every initSync call shares
+ * this while it runs and after it succeeds; a failure clears it, so the next
+ * call tries again.
+ *
+ * The listener has a guard of its own, because start() being idempotent does
+ * not make a listener so: the pre-kit helper, called once per Book, stacked a
+ * Clerk listener for every Book opened.
+ */
+async function boot() {
   try {
     const { ConvexHttpClient } = await import(CONVEX_CLIENT);
     client = new ConvexHttpClient(CONVEX_URL);
-    const { initNeorgonClerkConvex } = await import(AUTH_CLIENT);
-    await initNeorgonClerkConvex({
-      convex: client,
-      publishableKey: pk,
-      signInHost: opts.signInHost,
-      userButtonHost: opts.userButtonHost,
-      // js/router.js owns location.hash; Clerk's default hash routing would
-      // rewrite it on every sign-in step and the shell would repaint mid-form.
-      signInProps: { routing: 'virtual' },
-      onSession: ({ hasSession }) => {
-        void onSession(hasSession);
-      },
+    const { NeoAuth } = await import(AUTH_KIT);
+    // Called with the settled state, then on real changes only, never on
+    // Clerk's token refresh ticks, so whoami runs once per sign-in.
+    offSession ??= NeoAuth.onChange(({ signedIn }) => {
+      void onSession(signedIn);
     });
-    return { ...auth };
+    // The kit mounts Clerk with virtual routing, which js/router.js needs: it
+    // owns location.hash, and hash routing would repaint the shell mid-form.
+    await NeoAuth.start({ convex: client });
+    return true;
   } catch (err) {
     warn('init failed, staying local-only', err);
     client = null;
-    return null;
+    booting = null;
+    return false;
   }
 }
 
-/** Sign-in and sign-out. The subject comes from the server, never from Clerk. */
-async function onSession(hasSession) {
-  if (!hasSession) {
+/**
+ * The body of the one NeoAuth.onChange listener: sign-in and sign-out. The
+ * subject comes from the server, never from Clerk.
+ */
+async function onSession(signedIn) {
+  if (!signedIn) {
     if (auth.signedIn) setAuth(false, null);
     return;
   }

@@ -12,7 +12,6 @@ import { setOverride } from './progress.js';
 import { start, go } from './router.js';
 import { showToast } from './utils.js';
 import { ui } from './i18n.js';
-import { syncAvailable, onAuthChange } from './sync.js';
 
 /** Close the contents disclosure, which is only ever open below the rail width. */
 function closeContents() {
@@ -125,21 +124,8 @@ export function bindEvents() {
   document.addEventListener('keydown', onKeydown);
   const langBtn = document.getElementById('langToggle');
   if (langBtn) langBtn.setAttribute('data-action', 'toggle-lang');
-  // The account button (C7.2) stays hidden with no Clerk key on the page, so a
-  // visitor with no account never meets a dead control. Clerk owns the sheet's
-  // contents; this only opens and closes it.
-  const authBtn = document.getElementById('authToggle');
-  const authPanel = document.getElementById('authPanel');
-  if (authBtn && authPanel) {
-    authBtn.hidden = !syncAvailable();
-    authPanel.hidden = authBtn.hidden;
-    authBtn.addEventListener('click', () => {
-      const open = !authPanel.classList.contains('open');
-      authPanel.classList.toggle('open', open);
-      authBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-    onAuthChange((auth) => authBtn.classList.toggle('logged-in', !!(auth && auth.signedIn)));
-  }
+  // The account control (C7.2) is the Neorgon Auth Kit's header slot, which the
+  // kit wires itself once js/sync.js starts it, so nothing is bound here for it.
   // The router owns the paint: every view change goes through the hash, so a
   // deep link and a click follow the same path.
   start((route) => {

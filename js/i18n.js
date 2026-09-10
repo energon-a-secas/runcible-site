@@ -222,11 +222,13 @@ const UI = {
     en: 'Runs in your browser. Progress is stored on this device until you sign in.',
     es: 'Funciona en tu navegador. El progreso se guarda en este dispositivo hasta que inicies sesión.',
   },
+  // The sign-in dialog's reason. index.html's <meta name="neo-auth-reason">
+  // carries it as data-ui="authNote" data-ui-attr="content", and the auth kit
+  // reads that meta each time its dialog opens.
   authNote: {
     en: 'Sign in to keep your progress on every device. With no account, everything stays in this browser.',
     es: 'Inicia sesión para conservar tu progreso en todos tus dispositivos. Sin cuenta, todo se queda en este navegador.',
   },
-  account: { en: 'Account', es: 'Cuenta' },
 };
 
 /**
@@ -253,7 +255,9 @@ export function ui(key, vars, lang = state.prefs.lang) {
  * language is current: the current code is a <strong>, and the accessible
  * name says what is on and what a press switches to. render.js calls this on
  * every paint, so a language change reaches the header and the footer as well
- * as the page.
+ * as the page. A node in <head> counts too: the auth kit's
+ * <meta name="neo-auth-reason"> gets its content attribute this way, and
+ * <html lang>, set first, is what the kit follows for its own strings.
  */
 export function applyChrome(lang = state.prefs.lang) {
   if (typeof document === 'undefined') return;

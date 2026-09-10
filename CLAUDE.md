@@ -33,16 +33,16 @@ engine's own rig is `/js/exercises/fixtures/harness.html`.
 | Module | Lines | Owns |
 |---|---:|---|
 | `js/misses.js` | 498 | MISS_CAP, DECK_FIELDS, TEMPLATE_ID, MISSES_EXERCISE_ID, missesDeckId, and more |
+| `js/sync.js` | 367 | syncAvailable, initSync, pull, push, pushBatch, and more |
 | `js/quiz-host.js` | 361 | PROTOCOL_VERSION, GAMES, quizOrigin, quizUrl, acceptable, and more |
 | `js/render-today.js` | 353 | todayView |
-| `js/sync.js` | 345 | syncAvailable, initSync, pull, push, pushBatch, and more |
-| `js/state.js` | 344 | PREFS_KEY, PROGRESS_KEY, EVIDENCE_CAP, state, loadSaved, and more |
+| `js/state.js` | 342 | PREFS_KEY, PROGRESS_KEY, EVIDENCE_CAP, state, loadSaved, and more |
 | `js/books.js` | 335 | CATALOG_SRC, LoadError, loadCatalog, openBook, declaredEntry, and more |
 | `js/exercises/feedback.js` | 318 | explainWrong, explainRight |
 | `js/exercises/items.js` | 311 | useLanguage, itemLanguage, stableValue, resolveList, shuffle, and more |
 | `js/progress.js` | 297 | recordAttempt, attemptsFor, evidenceStatus, requiresFor, currentTrack, and more |
 | `js/exercises/fixtures/harness.js` | 292 | none |
-| `js/i18n.js` | 282 | LANGS, beginPage, hadFallback, onFallback, t, and more |
+| `js/i18n.js` | 286 | LANGS, beginPage, hadFallback, onFallback, t, and more |
 | `js/embed.js` | 274 | rappelOrigin, deckUrl, mountDeckEmbed |
 | `js/exercises/types/match.js` | 272 | mount |
 | `js/exercises/spec.js` | 252 | PERSONAL_DECK_PREFIX, DECK_FORMAT, GENERIC_TYPES, REQUIRED_FIELDS, NEVER_GRADED, and more |
@@ -55,9 +55,9 @@ engine's own rig is `/js/exercises/fixtures/harness.html`.
 | `js/exercises/strings.js` | 188 | STRINGS, chrome |
 | `js/exercises/types/order.js` | 188 | mount |
 | `js/exercises/ask.js` | 174 | questionFrame, advance, optionList, roving, digitPicker |
-| `js/events.js` | 149 | bindEvents |
 | `js/exercises/types/listen.js` | 144 | mount |
 | `js/render-pages.js` | 143 | pageNode, linksNode, tableNode, figureNode |
+| `js/events.js` | 135 | bindEvents |
 | `js/exercises/types/choice.js` | 123 | askChoice, mount |
 | `js/today.js` | 122 | composeToday, firstUnfinishedRung |
 | `js/exercises/types/speak.js` | 117 | mount |
@@ -80,7 +80,7 @@ engine's own rig is `/js/exercises/fixtures/harness.html`.
 | `js/exercises/index.js` | 33 | none |
 | `js/exercises/types/custom.js` | 23 | mountWith |
 | `js/app.js` | 19 | none |
-| the six vendored files below | 3645 | none, and never edited here |
+| the seven vendored files below | 4464 | none, and never edited here |
 
 Import direction, which the contracts freeze: the shell imports
 `js/exercises/index.js` and nothing else under that directory; a Book module
@@ -93,9 +93,10 @@ the browser, so the CLI validator and the load-time check are one module.
 
 Vendored from `packages/neorgon-ui/`, never edited in place, refreshed by the
 sync scripts: `js/neorgon-header.js`, `js/neorgon-footer.js`,
-`js/neorgon-beacon.js`, `js/neorgon-persist.js`, `js/vendor/neorgon-auth.js`
-and the matching `css/neorgon-*.css`. `js/vendor/wanakana.js` is upstream
-5.3.1 with a licence header, refreshed by `node tools/vendor-wanakana.mjs`.
+`js/neorgon-beacon.js`, `js/neorgon-persist.js`, `js/neorgon-auth.js`,
+`js/neorgon-auth-sites.js` and the matching `css/neorgon-*.css`.
+`js/vendor/wanakana.js` is upstream 5.3.1 with a licence header, refreshed by
+`node tools/vendor-wanakana.mjs`.
 
 ## Data
 
@@ -267,7 +268,10 @@ is the migration counter inside that generation.
 
 **Sync is dormant, and the client import must stay dynamic.** With no
 `<meta name="clerk-publishable-key">` an anonymous load issues zero requests to
-esm.sh, convex.cloud or Clerk (measured, 51 requests, none off the fleet CDN).
+esm.sh, convex.cloud or Clerk (measured before the auth kit landed: 51
+requests, none off the fleet CDN; the kit's stylesheet link has since added one
+same-origin request). `sync.js` imports the Convex client and
+`js/neorgon-auth.js` inside that guard, so neither file is fetched either.
 `memes-site` imports the Convex client statically at module top and pays on
 every visit; do not copy that. `pull()` runs before `push()` on sign-in inside
 `sync.js`, because this repo once shipped a sync that pushed for months with
@@ -306,12 +310,31 @@ Book uses a `read` with a figure), Safari, Firefox, audio output, the three
 other deck embeds, a drill played to a real pass, `?ledger=host`, themes, and
 the forge skills' output. Treat those paths as unproven rather than as working.
 
-**Sync mounts at boot, before any Book is open.** `scopeSyncTo(null)` runs
-`initSync` with no scope so the account button, when a key is present, opens a
-mounted sheet rather than an empty one; `pull()` and `push()` refuse with
-`no-book-scope` until a Book is chosen, and choosing one re-scopes the same
-client. Clerk is mounted with `routing: 'virtual'` because `js/router.js` owns
-`location.hash`.
+**Accounts are the Neorgon Auth Kit, and stay dormant until a key meta is
+added.** The header slot (`div.neo-auth[data-neo-auth]`), the sign-in dialog,
+the avatar menu and the Convex token all come from the kit
+(`packages/neorgon-ui/auth/README.md`). This site has no auth markup or auth CSS
+of its own, and `packages/neorgon-ui/sync-auth.sh --check` fails if any comes
+back. With no `clerk-publishable-key` meta, `sync.js` never imports the kit and
+the slot keeps its `hidden` attribute. Adding the meta, with the key the kit
+README names, is the whole switch-on; then run a plain
+`packages/neorgon-ui/sync-auth.sh` so the "Your Neorgon sites" list on every
+site learns about this one. A production key refuses localhost, so sign-in is
+verified on the live domain.
+
+**Sync starts at boot, before any Book is open, and listens once.**
+`scopeSyncTo(null)` runs `initSync` with no scope so that, with a key, the slot
+is in the header before a Book is chosen; `pull()` and `push()` refuse with
+`no-book-scope` until one is. Opening another Book calls `initSync` again, which
+only swaps the scope and the hooks: `boot()` in `sync.js` creates the one
+Convex client and registers the one `NeoAuth.onChange` listener per page, so
+the next sign-in merge reads the new Book. The pre-kit helper was re-run per
+Book and stacked a Clerk listener each time. The listener runs whoami and the
+merge on real changes only, never on token refresh ticks. The dialog's reason
+is `<meta name="neo-auth-reason">`, relabelled by `applyChrome` through
+`data-ui`, and the kit's own strings follow `<html lang>`, which `applyChrome`
+sets on every paint. The kit mounts Clerk with virtual routing, which
+`js/router.js` needs because it owns `location.hash`.
 
 **A custom module that never grades says so at registration.**
 `registerExercise(id, { graded: false, mount })` is what keeps Today from
@@ -418,7 +441,7 @@ the real Book, run through **Rappel's own** `tools/validate-deck.mjs`, in
 
 ## Do not touch
 
-- `js/neorgon-*.js`, `js/vendor/neorgon-auth.js` and `css/neorgon-*.css`: vendored kits, regenerated by `packages/neorgon-ui/sync-*.sh`.
+- `js/neorgon-*.js` and `css/neorgon-*.css`: vendored kits, regenerated by `packages/neorgon-ui/sync-*.sh`.
 - `js/vendor/wanakana.js`: upstream, refreshed by `node tools/vendor-wanakana.mjs` after changing the pin in `tools/lib/sources.mjs`.
 - `convex/_generated/`: rebuilt by `npx convex dev`.
 - `data/**` and `books/japanese/decks/*.json`: emitted by `tools/build-*.mjs` from pinned upstreams, or hand-verified from Unicode names. Rebuild, do not hand edit; every output is committed so a bad run is `git checkout`.

@@ -295,8 +295,8 @@ async function pushPrefs() {
  * their scope, and without it they refuse with 'no-book-scope'.
  */
 export async function scopeSyncTo(bookId) {
-  // No Book yet is still a reason to mount: a visitor who has not opened one
-  // would otherwise see the account button with an empty sheet behind it.
+  // No Book yet is still a reason to start: with a key on the page, the auth
+  // kit's sign-in slot belongs in the header before any Book is opened.
   // pull() and push() refuse with no-book-scope until a Book is chosen.
   const next = bookId || null;
   if (_syncBooted && next === _scoped) return null;
@@ -305,14 +305,12 @@ export async function scopeSyncTo(bookId) {
   _scoped = next;
   const res = await initSync({
     bookId: next || undefined,
-    signInHost: '#neorgon-signin-mount',
-    userButtonHost: '#neorgon-user-mount',
     applyRemote,
     readLocal,
     onSync: () => { void flushEvidence(); },
   });
   // Switching Book inside a signed-in session re-scopes a client that is
-  // already mounted, and sync.js only runs its sign-in merge when the subject
+  // already started, and sync.js only runs its sign-in merge when the subject
   // changes, so nothing would read the new scope. Pull for it explicitly.
   // Merging is idempotent (per-row LWW, and an evidence window is replaced
   // rather than added to), so the cost of doing it twice is one request.

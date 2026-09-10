@@ -1,8 +1,7 @@
 # js/vendor
 
-Third-party runtime code, vendored, plus one Neorgon kit. Nothing here is
-edited by hand: `neorgon-auth.js` is the fleet's Clerk and Convex client,
-refreshed by `packages/neorgon-ui/sync-auth.sh`, and the rest is upstream.
+Third-party runtime code, vendored from upstream and never edited by hand. The
+Neorgon kits, the auth kit included, live one level up as `js/neorgon-*.js`.
 
 | File | Version | Licence | Upstream |
 |---|---|---|---|
