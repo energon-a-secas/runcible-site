@@ -44,6 +44,11 @@ export async function todayView() {
       h('div', { class: 'rn-spine', 'aria-hidden': 'true' }),
       rightPage(book, plan),
     ]),
+    // C11.3: the acknowledgement is owed on every screen that shows the data,
+    // and a card built from a licensed set is one of those screens. It sits at
+    // the end of the spread, where a chapter puts its own, rather than between
+    // Your misses and One drill, where it split today's list in two.
+    plan.misses ? missesAttribution(plan.misses) : null,
   ];
 }
 
@@ -169,10 +174,9 @@ function missesItem(book, built) {
       }, ui('openInRappel')),
     ]),
     host,
-    // C11.3: the acknowledgement is owed on every screen that shows the data,
-    // and a card built from a licensed set is one of those screens. The deck
-    // carries the same wording into the frame (js/misses.js mergeLicence).
-    missesAttribution(built),
+    // The acknowledgement for these cards is drawn at the end of the spread
+    // (todayView); the deck carries the same wording into the frame
+    // (js/misses.js mergeLicence).
   ]);
 }
 
@@ -202,15 +206,18 @@ function leftPage(book, plan) {
   const go = rung
     ? action(ui('continueReading'), 'open-rung', { book: book.id, chapter: next.id, rung: rung.id }, 'btn btn--primary')
     : h('a', { class: 'btn btn--primary', href: href('chapter', { bookId: book.id, chapterId: next.id }) }, ui('continueReading'));
+  // Outermost first: the chapter, what it asks of you and how far along you
+  // are, then the page inside it the bookmark is on. It used to put the rung
+  // and its paragraph between the title and the goal, so the goal read as a
+  // second heading under a quotation.
   return h('section', { class: 'rn-open-page' }, [
     h('p', { class: 'rn-open-kicker' }, ui('leftOffAt')),
     h('div', { class: 'rn-title-block' }, [
       h('h2', { class: 'rn-open-title' }, doc ? t(doc.title) : next.id),
       next.evidence ? hairline(next.evidence) : null,
     ]),
-    rung ? h('p', { class: 'rn-open-rung' }, t(rung.title)) : null,
-    openQuote(rung),
     doc ? h('p', { class: 'rn-goal' }, t(doc.goal && doc.goal.statement)) : null,
+    evidenceLine(next.evidence),
     // The loader's own words are for whoever is writing the Book, not for the
     // person reading it: the reader is told the chapter did not load, and the
     // detail keeps the file name it names.
@@ -220,7 +227,8 @@ function leftPage(book, plan) {
           h('pre', { class: 'rn-detail' }, plan.nextError),
         ])
       : null,
-    evidenceLine(next.evidence),
+    rung ? h('p', { class: 'rn-open-rung' }, t(rung.title)) : null,
+    openQuote(rung),
     h('div', { class: 'toolbar' }, go),
   ]);
 }
