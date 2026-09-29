@@ -105,6 +105,553 @@
       ]
     },
     {
+      "id": "two-dialogues",
+      "title": {
+        "en": "Two conversations, one afternoon",
+        "es": "Dos conversaciones, una tarde"
+      },
+      "unlocks": {
+        "en": "seeing the distances inside an exchange rather than a word list, before the rest of the chapter takes them apart",
+        "es": "ver las distancias dentro de un intercambio y no en una lista de palabras, antes de que el resto del capítulo las desmonte"
+      },
+      "pages": [
+        {
+          "id": "p-dialogues",
+          "kind": "prose",
+          "title": {
+            "en": "The same person, two distances",
+            "es": "La misma persona, dos distancias"
+          },
+          "body": {
+            "en": [
+              "Two short conversations from one afternoon. In the first, Mari meets a friend and every line is plain. In the second, she orders at a café, and the server answers in the service register the rest of this chapter takes apart. Mari is the same person in both; what changes is who she is talking to.",
+              "Read each dialogue aloud before you look at the translation, which comes after both of them, the way a textbook sets out a lesson's dialogues. The lines are this Book's own, written for this page. Anything you have not met yet is in the translation, and the note under each dialogue says which lines carry the register."
+            ],
+            "es": [
+              "Dos conversaciones cortas de una misma tarde. En la primera, Mari se encuentra con un amigo y todas las frases son llanas. En la segunda, pide en una cafetería, y la empleada le contesta en el registro de servicio que el resto de este capítulo desmonta. Mari es la misma persona en las dos; lo que cambia es con quién habla.",
+              "Lee cada diálogo en voz alta antes de mirar la traducción, que va después de los dos, como un manual presenta los diálogos de una lección. Las frases son del propio libro, escritas para esta página. Lo que todavía no conoces está en la traducción, y la nota bajo cada diálogo dice qué frases llevan el registro."
+            ]
+          }
+        },
+        {
+          "id": "p-dialogue-friends",
+          "kind": "table",
+          "title": {
+            "en": "Dialogue 1: running late",
+            "es": "Diálogo 1: con retraso"
+          },
+          "body": {
+            "en": [
+              "Saturday, outside a station. Mari and Ken are friends from the same class, and Mari arrives a few minutes late."
+            ],
+            "es": [
+              "Sábado, delante de una estación. Mari y Ken son amigos de la misma clase, y Mari llega unos minutos tarde."
+            ]
+          },
+          "columns": [
+            {
+              "en": "#",
+              "es": "#"
+            },
+            {
+              "en": "Speaker",
+              "es": "Quién"
+            },
+            {
+              "en": "Line",
+              "es": "Frase"
+            }
+          ],
+          "rows": [
+            [
+              "1",
+              "Mari",
+              "ごめん、おそくなって。"
+            ],
+            [
+              "2",
+              "Ken",
+              "だいじょうぶ。"
+            ],
+            [
+              "",
+              "",
+              "ぼくも いま きたところ。"
+            ],
+            [
+              "3",
+              "Mari",
+              "えいがは なんじから？"
+            ],
+            [
+              "4",
+              "Ken",
+              "さんじから。"
+            ],
+            [
+              "",
+              "",
+              "まだ じかん あるよ。"
+            ],
+            [
+              "5",
+              "Mari",
+              "じゃあ、コーヒー のまない？"
+            ],
+            [
+              "6",
+              "Ken",
+              "いいね。"
+            ],
+            [
+              "",
+              "",
+              "いこう。"
+            ]
+          ],
+          "note": {
+            "en": [
+              "Every line is plain. There is no です and no ます anywhere, ごめん stands where a stranger would hear すみません, and the question in line 3 is carried by a rising voice rather than by か. Between friends the polite forms would sound like distance, not courtesy."
+            ],
+            "es": [
+              "Todas las frases son llanas. No hay ningún です ni ningún ます, ごめん está donde un desconocido oiría すみません, y la pregunta de la frase 3 la lleva la voz que sube y no か. Entre amigos, las formas corteses sonarían a distancia y no a cortesía."
+            ]
+          }
+        },
+        {
+          "id": "p-dialogue-cafe",
+          "kind": "table",
+          "title": {
+            "en": "Dialogue 2: the wrong drink",
+            "es": "Diálogo 2: la bebida equivocada"
+          },
+          "body": {
+            "en": [
+              "Ten minutes later, at the counter of a café. The server speaks to Mari in the service register, and Mari answers in ordinary polite Japanese."
+            ],
+            "es": [
+              "Diez minutos después, en el mostrador de una cafetería. La empleada le habla a Mari en el registro de servicio, y Mari contesta en japonés cortés corriente."
+            ]
+          },
+          "columns": [
+            {
+              "en": "#",
+              "es": "#"
+            },
+            {
+              "en": "Speaker",
+              "es": "Quién"
+            },
+            {
+              "en": "Line",
+              "es": "Frase"
+            }
+          ],
+          "rows": [
+            [
+              "1",
+              {
+                "en": "Server",
+                "es": "Empleada"
+              },
+              "いらっしゃいませ。"
+            ],
+            [
+              "2",
+              "Mari",
+              "コーヒー ふたつ ください。"
+            ],
+            [
+              "3",
+              {
+                "en": "Server",
+                "es": "Empleada"
+              },
+              "かしこまりました。"
+            ],
+            [
+              "",
+              "",
+              "しょうしょう おまちください。"
+            ],
+            [
+              "4",
+              {
+                "en": "Server",
+                "es": "Empleada"
+              },
+              "お待たせしました。"
+            ],
+            [
+              "",
+              "",
+              "コーヒーです。"
+            ],
+            [
+              "5",
+              "Mari",
+              "あの、これ、こうちゃですよね。"
+            ],
+            [
+              "6",
+              {
+                "en": "Server",
+                "es": "Empleada"
+              },
+              "申し訳ありません。"
+            ],
+            [
+              "",
+              "",
+              "すぐに おとりかえ いたします。"
+            ]
+          ],
+          "note": {
+            "en": [
+              "Three of the five fixed expressions from the work rung turn up here, in the order a real exchange uses them: かしこまりました accepts the order, お待たせしました comes back with it, 申し訳ありません apologises for it. The いたします in line 6 is 致す, the humble do from the next rung, lowering the server's own action. Mari's lines are polite, with ください and です, and nothing more: a customer raises nobody and lowers nobody."
+            ],
+            "es": [
+              "Tres de las cinco expresiones fijas del peldaño de trabajo aparecen aquí, en el orden en que las usa un intercambio real: かしこまりました acepta el pedido, お待たせしました vuelve con él, 申し訳ありません se disculpa por él. El いたします de la frase 6 es 致す, el hacer humilde del peldaño siguiente, que rebaja la acción de la propia empleada. Las frases de Mari son corteses, con ください y です, y nada más: una clienta no eleva ni rebaja a nadie."
+            ]
+          }
+        },
+        {
+          "id": "p-dialogue-meaning",
+          "kind": "table",
+          "title": {
+            "en": "What they said",
+            "es": "Lo que dijeron"
+          },
+          "columns": [
+            {
+              "en": "#",
+              "es": "#"
+            },
+            {
+              "en": "Meaning",
+              "es": "Significado"
+            }
+          ],
+          "rows": [
+            [
+              "1.1",
+              {
+                "en": "Sorry I'm late.",
+                "es": "Perdón por llegar tarde."
+              }
+            ],
+            [
+              "1.2",
+              {
+                "en": "It's fine.",
+                "es": "No pasa nada."
+              }
+            ],
+            [
+              "",
+              {
+                "en": "I only just got here myself.",
+                "es": "Yo también acabo de llegar."
+              }
+            ],
+            [
+              "1.3",
+              {
+                "en": "What time does the film start?",
+                "es": "¿A qué hora empieza la película?"
+              }
+            ],
+            [
+              "1.4",
+              {
+                "en": "At three.",
+                "es": "A las tres."
+              }
+            ],
+            [
+              "",
+              {
+                "en": "We still have time.",
+                "es": "Todavía tenemos tiempo."
+              }
+            ],
+            [
+              "1.5",
+              {
+                "en": "Then shall we get a coffee?",
+                "es": "Entonces, ¿tomamos un café?"
+              }
+            ],
+            [
+              "1.6",
+              {
+                "en": "Good idea.",
+                "es": "Buena idea."
+              }
+            ],
+            [
+              "",
+              {
+                "en": "Let's go.",
+                "es": "Vamos."
+              }
+            ],
+            [
+              "2.1",
+              {
+                "en": "Welcome.",
+                "es": "Bienvenida."
+              }
+            ],
+            [
+              "2.2",
+              {
+                "en": "Two coffees, please.",
+                "es": "Dos cafés, por favor."
+              }
+            ],
+            [
+              "2.3",
+              {
+                "en": "Certainly.",
+                "es": "Con gusto."
+              }
+            ],
+            [
+              "",
+              {
+                "en": "Please wait a moment.",
+                "es": "Espere un momento, por favor."
+              }
+            ],
+            [
+              "2.4",
+              {
+                "en": "Thank you for waiting.",
+                "es": "Perdone la espera."
+              }
+            ],
+            [
+              "",
+              {
+                "en": "Here are your coffees.",
+                "es": "Aquí tiene sus cafés."
+              }
+            ],
+            [
+              "2.5",
+              {
+                "en": "Um, this is tea, isn't it?",
+                "es": "Disculpe, esto es té, ¿no?"
+              }
+            ],
+            [
+              "2.6",
+              {
+                "en": "I'm very sorry.",
+                "es": "Lo siento muchísimo."
+              }
+            ],
+            [
+              "",
+              {
+                "en": "I'll change it for you right away.",
+                "es": "Se lo cambio enseguida."
+              }
+            ]
+          ],
+          "note": {
+            "en": [
+              "1.3 is line 3 of the first dialogue, so the speaker is the one named there. The translation keeps the register where English can: the friends are brief, the server is formal."
+            ],
+            "es": [
+              "1.3 es la frase 3 del primer diálogo, así que quien habla es quien aparece allí. La traducción conserva el registro donde el español puede: los amigos son breves, la empleada es formal."
+            ]
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-dialogue-register",
+          "type": "choice",
+          "skill": "jp.register.pick",
+          "title": {
+            "en": "Who is talking to whom?",
+            "es": "¿Quién le habla a quién?"
+          },
+          "items": [
+            {
+              "id": "dlg:1-1",
+              "line": "ごめん、おそくなって。",
+              "register": {
+                "en": "plain: friend to friend",
+                "es": "llano: entre amigos"
+              },
+              "explain": {
+                "en": "ごめん is the apology between friends, and the sentence stops on a て-form with nothing polite after it.",
+                "es": "ごめん es la disculpa entre amigos, y la frase se detiene en una forma en て sin nada cortés detrás."
+              }
+            },
+            {
+              "id": "dlg:1-2",
+              "line": "だいじょうぶ。ぼくも いま きたところ。",
+              "register": {
+                "en": "plain: friend to friend",
+                "es": "llano: entre amigos"
+              },
+              "explain": {
+                "en": "ぼく and a bare verb, きた: no です and no ます anywhere.",
+                "es": "ぼく y un verbo desnudo, きた: ni です ni ます en ninguna parte."
+              }
+            },
+            {
+              "id": "dlg:1-3",
+              "line": "えいがは なんじから？",
+              "register": {
+                "en": "plain: friend to friend",
+                "es": "llano: entre amigos"
+              },
+              "explain": {
+                "en": "A question with no か and no です, carried by a rising voice. That is how friends ask.",
+                "es": "Una pregunta sin か y sin です, sostenida por la voz que sube. Así preguntan los amigos."
+              }
+            },
+            {
+              "id": "dlg:1-4",
+              "line": "さんじから。まだ じかん あるよ。",
+              "register": {
+                "en": "plain: friend to friend",
+                "es": "llano: entre amigos"
+              },
+              "explain": {
+                "en": "ある with よ on the end is the plain form of あります.",
+                "es": "ある con よ al final es la forma llana de あります."
+              }
+            },
+            {
+              "id": "dlg:1-5",
+              "line": "じゃあ、コーヒー のまない？",
+              "register": {
+                "en": "plain: friend to friend",
+                "es": "llano: entre amigos"
+              },
+              "explain": {
+                "en": "のまない is the plain negative of のみます, used here as an invitation.",
+                "es": "のまない es la negativa llana de のみます, usada aquí como invitación."
+              }
+            },
+            {
+              "id": "dlg:1-6",
+              "line": "いいね。いこう。",
+              "register": {
+                "en": "plain: friend to friend",
+                "es": "llano: entre amigos"
+              },
+              "explain": {
+                "en": "いこう is the plain way to say let us go; politely it would be いきましょう.",
+                "es": "いこう es la forma llana de decir vamos; en forma cortés sería いきましょう."
+              }
+            },
+            {
+              "id": "dlg:2-1",
+              "line": "いらっしゃいませ。",
+              "register": {
+                "en": "service: server to customer",
+                "es": "de servicio: de la empleada a la clienta"
+              },
+              "explain": {
+                "en": "The shop greeting to anyone who walks in, and only the staff say it.",
+                "es": "El saludo de la tienda a quien entra, y solo lo dice el personal."
+              }
+            },
+            {
+              "id": "dlg:2-2",
+              "line": "コーヒー ふたつ ください。",
+              "register": {
+                "en": "polite: customer to server",
+                "es": "cortés: de la clienta a la empleada"
+              },
+              "explain": {
+                "en": "ください is polite and nothing more: a customer asking, with nobody raised or lowered.",
+                "es": "ください es cortés y nada más: una clienta que pide, sin elevar ni rebajar a nadie."
+              }
+            },
+            {
+              "id": "dlg:2-3",
+              "line": "かしこまりました。しょうしょう おまちください。",
+              "register": {
+                "en": "service: server to customer",
+                "es": "de servicio: de la empleada a la clienta"
+              },
+              "explain": {
+                "en": "かしこまりました accepts an order from a customer, and おまちください asks the customer to wait with the honorific お.",
+                "es": "かしこまりました acepta el pedido de un cliente, y おまちください le pide esperar con la お honorífica."
+              }
+            },
+            {
+              "id": "dlg:2-4",
+              "line": "お待たせしました。コーヒーです。",
+              "register": {
+                "en": "service: server to customer",
+                "es": "de servicio: de la empleada a la clienta"
+              },
+              "explain": {
+                "en": "お待たせしました is how staff come back to someone who waited.",
+                "es": "お待たせしました es como el personal vuelve con alguien que esperó."
+              }
+            },
+            {
+              "id": "dlg:2-5",
+              "line": "あの、これ、こうちゃですよね。",
+              "register": {
+                "en": "polite: customer to server",
+                "es": "cortés: de la clienta a la empleada"
+              },
+              "explain": {
+                "en": "です with よね checks a fact politely: courteous, with nobody raised or lowered.",
+                "es": "です con よね comprueba un dato con cortesía: amable, sin elevar ni rebajar a nadie."
+              }
+            },
+            {
+              "id": "dlg:2-6",
+              "line": "申し訳ありません。すぐに おとりかえ いたします。",
+              "register": {
+                "en": "service: server to customer",
+                "es": "de servicio: de la empleada a la clienta"
+              },
+              "explain": {
+                "en": "申し訳ありません is the apology that belongs at work, and いたします lowers the server's own action.",
+                "es": "申し訳ありません es la disculpa del trabajo, y いたします rebaja la acción de la propia empleada."
+              }
+            }
+          ],
+          "prompt": "line",
+          "answer": "register",
+          "distractors": {
+            "values": [
+              {
+                "en": "plain: friend to friend",
+                "es": "llano: entre amigos"
+              },
+              {
+                "en": "polite: customer to server",
+                "es": "cortés: de la clienta a la empleada"
+              },
+              {
+                "en": "service: server to customer",
+                "es": "de servicio: de la empleada a la clienta"
+              }
+            ],
+            "n": 2
+          },
+          "count": 8,
+          "pass": {
+            "accuracy": 0.75
+          }
+        }
+      ]
+    },
+    {
       "id": "three-distances",
       "title": {
         "en": "One act, three distances",

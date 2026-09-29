@@ -76,8 +76,8 @@
           "body": {
             "en": [
               "Japanese puts the verb last. Everything else is arranged in front of it by particles, and the particles rather than the order tell you what each piece is doing.",
-              "The simplest sentence is a noun, the topic particle, another noun, and desu: watashi wa gakusei desu, I am a student. desu is the polite copula. In plain speech it is da, and in casual speech it is often nothing at all.",
-              "There is no verb to be in the English sense here, and there are no articles. gakusei is student, a student, and the student."
+              "The simplest sentence is a noun, the topic particle, another noun, and desu: watashi wa gakusee desu, I am a student. desu is the polite copula. In plain speech it is da, and in casual speech it is often nothing at all.",
+              "There is no verb to be in the English sense here, and there are no articles. gakusee is student, a student, and the student."
             ],
             "es": null
           }
@@ -138,7 +138,7 @@
             "en": [
               "wa marks the topic: what the sentence is about, often something already in the conversation. ga marks the subject: who or what is doing the verb, often something new.",
               "watashi wa is as for me. watashi ga is I am the one who. The difference is real and it is not a beginner's problem to solve today. Learn the shapes now and let the feel arrive from reading.",
-              "wa is written with the ha character, which is the first of chapter 1's three particle exceptions turning up again."
+              "wa is written は, the ha character, which is the first of chapter 1's three particle exceptions turning up again."
             ],
             "es": null
           }
@@ -153,12 +153,12 @@
             { "en": "In a sentence", "es": null }
           ],
           "rows": [
-            ["wa, written ha", "the topic", "watashi wa, as for me"],
+            ["wa, written は", "the topic", "watashi wa, as for me"],
             ["ga", "the subject", "neko ga iru, there is a cat"],
-            ["wo, written wo and said o", "the direct object", "mizu wo nomu, drink water"],
-            ["ni", "a destination, a time, an indirect object", "gakkou ni iku, go to school"],
+            ["o, written を", "the direct object", "mizu o nomu, drink water"],
+            ["ni", "a destination, a time, an indirect object", "gakkoo ni iku, go to school"],
             ["de", "where an action happens, or by what means", "ie de yomu, read at home"],
-            ["ka", "a question, at the very end", "gakusei desu ka, are you a student"]
+            ["ka", "a question, at the very end", "gakusee desu ka, are you a student"]
           ],
           "note": {
             "en": [
@@ -175,16 +175,16 @@
           "skill": "jp.grammar.particles",
           "title": { "en": "What does this particle mark?", "es": null },
           "items": [
-            { "id": "w_0001", "kana": "は", "marks": "the topic, what the sentence is about", "explain": "watashi wa gakusei desu: as for me, a student. Written ha, read wa." },
+            { "id": "w_0001", "kana": "は", "marks": "the topic, what the sentence is about", "explain": "watashi wa gakusee desu: as for me, a student. Written ha, read wa." },
             { "id": "w_0002", "kana": "が", "marks": "the subject, who or what does it", "explain": "neko ga iru: there is a cat. ga points at the thing itself, wa at what the sentence is about." },
             { "id": "w_0003", "kana": "を", "marks": "the direct object", "explain": "mizu o nomu: drink water. Written wo, read o, and used for nothing else." },
-            { "id": "w_0004", "kana": "に", "marks": "a destination, a time, or where something is", "explain": "gakkou ni iku: go to school. ni is where something is or where it goes." },
+            { "id": "w_0004", "kana": "に", "marks": "a destination, a time, or where something is", "explain": "gakkoo ni iku: go to school. ni is where something is or where it goes." },
             { "id": "w_0005", "kana": "で", "marks": "where an action happens, or by what means", "explain": "ie de yomu: read at home. de is where something happens, ni is where something is." },
-            { "id": "w_0006", "kana": "へ", "marks": "a direction, towards", "explain": "gakkou e iku: towards school. Written he, read e, and close to ni for destinations." },
+            { "id": "w_0006", "kana": "へ", "marks": "a direction, towards", "explain": "gakkoo e iku: towards school. Written he, read e, and close to ni for destinations." },
             { "id": "w_0007", "kana": "と", "marks": "and, joining two nouns, or with", "explain": "pan to mizu: bread and water. tomodachi to: with a friend." },
             { "id": "w_0008", "kana": "も", "marks": "too, also", "explain": "watashi mo: me too. It replaces wa or ga rather than following it." },
             { "id": "w_0009", "kana": "の", "marks": "belonging to, possession", "explain": "watashi no tomodachi: my friend. The owner comes first." },
-            { "id": "w_0010", "kana": "か", "marks": "a question, at the very end", "explain": "gakusei desu ka: are you a student? The word order does not change." },
+            { "id": "w_0010", "kana": "か", "marks": "a question, at the very end", "explain": "gakusee desu ka: are you a student? The word order does not change." },
             { "id": "w_0011", "kana": "ね", "marks": "seeking agreement, right?", "explain": "ii tenki desu ne: nice weather, isn't it. At the end of the sentence." },
             { "id": "w_0012", "kana": "よ", "marks": "emphasis at the end, I'm telling you", "explain": "iku yo: I'm going, I'm telling you. It adds force or news to what was just said." },
             { "id": "w_0013", "kana": "から", "marks": "from, since", "explain": "eki kara: from the station. itsu kara: since when." },
@@ -221,9 +221,9 @@
           "title": { "en": "Which particle goes in the gap?", "es": null },
           "items": [
             { "id": "gap:wo", "en": "mizu ___ nomu, to drink water", "particle": "を" },
-            { "id": "gap:ni", "en": "gakkou ___ iku, to go to school", "particle": "に" },
+            { "id": "gap:ni", "en": "gakkoo ___ iku, to go to school", "particle": "に" },
             { "id": "gap:de", "en": "ie ___ yomu, to read at home", "particle": "で" },
-            { "id": "gap:ka", "en": "gakusei desu ___, are you a student", "particle": "か" },
+            { "id": "gap:ka", "en": "gakusee desu ___, are you a student", "particle": "か" },
             { "id": "gap:wa", "en": "watashi ___ tanaka desu, I am Tanaka", "particle": "は" },
             { "id": "gap:no", "en": "watashi ___ hon, my book", "particle": "の" },
             { "id": "gap:mo", "en": "watashi ___, me too", "particle": "も" },
@@ -251,8 +251,8 @@
           "title": { "en": "A question is a statement with ka on the end", "es": null },
           "body": {
             "en": [
-              "The word order does not change and nothing is inverted. gakusei desu becomes gakusei desu ka. In writing the question mark is often left off entirely, because ka has already done the job.",
-              "The question words go where the answer would go, not at the front: nani wo tabemasu ka is literally what do you eat, with nani sitting exactly where the food would."
+              "The word order does not change and nothing is inverted. gakusee desu becomes gakusee desu ka. In writing the question mark is often left off entirely, because ka has already done the job.",
+              "The question words go where the answer would go, not at the front: nani o tabemasu ka is literally what do you eat, with nani sitting exactly where the food would."
             ],
             "es": null
           }
@@ -422,7 +422,7 @@
             "en": [
               "ookii, big, does not need a copula to be a sentence. ookii desu is polite, but ookii on its own is already a complete statement.",
               "It also has a past tense. ookii becomes ookikatta, was big. The negative is ookikunai, and the past negative is ookikunakatta.",
-              "The other family, the na-adjectives, behaves like a noun instead and takes the copula: kirei desu, kirei deshita."
+              "The other family, the na-adjectives, behaves like a noun instead and takes the copula: kiree desu, kiree deshita."
             ],
             "es": null
           }

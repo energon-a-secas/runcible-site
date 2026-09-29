@@ -35,11 +35,11 @@
           "title": { "en": "About the two languages", "es": "Sobre los dos idiomas" },
           "body": {
             "en": [
-              "This chapter and the study plan are written in English and in Spanish. The other chapters are English only for now, and the page tells you so when you meet one.",
+              "This chapter is written in English and in Spanish, and so are most of the others. Where a page is still English only, it tells you so when you meet it.",
               "The drills are mostly a separate matter: their prompts and options come from the word lists, which carry English glosses and no Spanish ones, so an exercise screen is in English even here. The beats game below is the one exception, because the set it plays carries both languages. The rest is a gap in the data rather than a decision, and it is said out loud rather than hidden."
             ],
             "es": [
-              "Este capítulo y el plan de estudio están escritos en inglés y en español. Los demás capítulos están solo en inglés por ahora, y la página te lo dice cuando llegas a uno.",
+              "Este capítulo está escrito en inglés y en español, y también la mayoría de los demás. Donde una página sigue solo en inglés, te lo dice cuando llegas a ella.",
               "Los ejercicios son casi siempre otra cosa: sus preguntas y opciones salen de las listas de palabras, que llevan glosas en inglés y ninguna en español, así que una pantalla de ejercicio está en inglés incluso aquí. El juego de tiempos de abajo es la única excepción, porque el conjunto que usa lleva los dos idiomas. El resto es un hueco en los datos y no una decisión, y se dice en voz alta en vez de esconderlo."
             ]
           }
@@ -141,7 +141,7 @@
               "Nothing else is permitted at the end of a beat. That is why the n in Gundam stands and the m does not."
             ],
             "es": [
-              "La primera es la nasal n, que se lleva un tiempo propio. La segunda es el tsu pequeño, que no suena y en su lugar sostiene la consonante siguiente, duplicandola.",
+              "La primera es la nasal n, que se lleva un tiempo propio. La segunda es el tsu pequeño, que no suena y en su lugar sostiene la consonante siguiente, duplicándola.",
               "Nada más puede cerrar un tiempo. Por eso la n de Gundam se sostiene y la m no."
             ]
           }
@@ -344,12 +344,12 @@
             "en": [
               "Everything in the game below is a word Japanese borrowed and re-timed. You are not learning them. You are recognising them through the re-timing, which is the only skill this chapter taught.",
               "Every one of these forty was looked up in the JMdict dictionary before it was allowed into the list. One of them, McDonald's, is a brand the dictionary knows only as a surname, so its spelling was confirmed on the company's own site instead. The game grades against that list and against nothing else, because the rules above explain a word after the fact and cannot generate one reliably.",
-              "One thing about the spelling. This chapter has written a long vowel with the letter doubled, keeki, kameera, baggu. The games write it with a bar over the letter instead, kēki, kōhī, hanbāgā, which is the standard way and the way the dictionary does it. It is one sound held for two beats, and either spelling counts it the same."
+              "One thing about the spelling. This Book writes romaji the way the Genki textbooks do: a long vowel is the letter doubled and never a letter with a bar, so cake is keeki, card is kaado and coffee is koohii, and chapter 1 sets the whole convention out. The game below comes from a dictionary that writes the long vowel with a bar over the letter instead, kēki and kōhī. It is one sound held for two beats, and either spelling counts it the same. A doubled consonant is a different thing: the gg of baggu and the tt of robotto are the small tsu, a held consonant rather than a held vowel."
             ],
             "es": [
               "Todo lo que hay en el juego de abajo es una palabra que el japonés tomó prestada y volvió a medir en el tiempo. No las estás aprendiendo. Las estás reconociendo a través de esa nueva medida, que es la única habilidad que enseñó este capítulo.",
               "Cada una de estas cuarenta se buscó en el diccionario JMdict antes de entrar en la lista. Una de ellas, McDonald's, es una marca que el diccionario solo conoce como apellido, así que su grafía se confirmó en el sitio de la propia empresa. El juego califica contra esa lista y contra nada más, porque las reglas de arriba explican una palabra después de los hechos y no pueden generarla de forma fiable.",
-              "Una cosa sobre la grafía. Este capítulo ha escrito una vocal larga con la letra doblada, keeki, kameera, baggu. Los juegos la escriben con una barra sobre la letra, kēki, kōhī, hanbāgā, que es la forma estándar y la que usa el diccionario. Es un solo sonido sostenido dos tiempos, y las dos grafías lo cuentan igual."
+              "Una cosa sobre la grafía. Este libro escribe el romaji como lo hacen los manuales Genki: una vocal larga es la letra doblada y nunca una letra con una raya encima, así que cake es keeki, card es kaado y coffee es koohii, y el capítulo 1 explica la convención entera. El juego de abajo viene de un diccionario que escribe la vocal larga con una raya sobre la letra, kēki y kōhī. Es un solo sonido sostenido dos tiempos, y las dos grafías lo cuentan igual. Una consonante doblada es otra cosa: la gg de baggu y la tt de robotto son el tsu pequeño, una consonante sostenida y no una vocal sostenida."
             ]
           }
         },
@@ -365,7 +365,7 @@
             ],
             "es": [
               "Porque no todas son reglas. Si una palabra duplica una consonante, si una vocal larga final conserva su barra, y todo préstamo anterior a 1950 más o menos son convención, no regla.",
-              "Camera es kamera, no kameera. Cake es keeki, no keeku. Bread es pan, del portugués, y nunca pasó por el inglés. Un motor de reglas marcaria las tres como incorrectas, con total seguridad."
+              "Camera es kamera, no kameera. Cake es keeki, no keeku. Bread es pan, del portugués, y nunca pasó por el inglés. Un motor de reglas marcaría las tres como incorrectas, con total seguridad."
             ]
           }
         }

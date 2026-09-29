@@ -15,7 +15,7 @@
     "minutes": 240,
     "note": {
       "en": "Tofugu reports a day to a week. Four hours is the optimistic end of that and it is a real number, not encouragement.",
-      "es": null
+      "es": "Tofugu habla de entre un día y una semana. Cuatro horas es el extremo optimista de ese rango, y es un número real, no un ánimo."
     }
   },
   "data": ["data/kana/hiragana.json", "data/kana/ladder.json", "data/kanji/strokes-kana.json"],
@@ -31,33 +31,82 @@
         {
           "id": "p-vowels",
           "kind": "prose",
-          "title": { "en": "Five sounds, and everything else is built from them", "es": null },
+          "title": {
+            "en": "Five sounds, and everything else is built from them",
+            "es": "Cinco sonidos, y todo lo demás se construye con ellos"
+          },
           "body": {
             "en": [
-              "Japanese has five vowel sounds and they do not change. a as in father, i as in machine, u as in flute, e as in bet, o as in for.",
+              "Japanese has five vowel sounds and they do not change: あ (a) as in father, い (i) as in machine, う (u) as in flute but with the lips relaxed, え (e) as in bet, お (o) as in for.",
               "Every other kana in the table is one consonant plus one of these five, in that order, always. Learn the five and you have learned the second half of forty more."
             ],
-            "es": null
+            "es": [
+              "El japonés tiene cinco vocales y no cambian: あ (a), い (i), う (u), え (e), お (o). Suenan casi como las cinco del español; la única que pide cuidado es う, que se dice con los labios menos redondeados que la u española.",
+              "Todos los demás kana de la tabla son una consonante más una de estas cinco, en ese orden, siempre. Aprende las cinco y ya tienes la segunda mitad de otros cuarenta."
+            ]
+          }
+        },
+        {
+          "id": "p-vowels-chart",
+          "kind": "table",
+          "title": { "en": "The vowel row", "es": "La fila de las vocales" },
+          "columns": [{ "en": "a", "es": "a" }, { "en": "i", "es": "i" }, { "en": "u", "es": "u" }, { "en": "e", "es": "e" }, { "en": "o", "es": "o" }],
+          "rows": [
+            ["あ a", "い i", "う u", "え e", "お o"]
+          ],
+          "note": {
+            "en": [
+              "Every chart in this chapter prints the romaji beside the kana, because the kana is new. The drills do not: they show the kana alone and ask for the sound."
+            ],
+            "es": [
+              "Cada cuadro de este capítulo imprime el romaji junto al kana, porque el kana es nuevo. Los ejercicios no: muestran el kana solo y piden el sonido."
+            ]
+          }
+        },
+        {
+          "id": "p-romaji",
+          "kind": "callout",
+          "tone": "note",
+          "title": { "en": "How this Book writes romaji", "es": "Cómo escribe el romaji este libro" },
+          "body": {
+            "en": [
+              "This Book writes romaji the way the Genki textbooks do. A long vowel is the letter doubled and never a letter with a bar over it: さようなら is sayoonara, せんせい is sensee, コーヒー is koohii. A particle is written as it is said, so は, へ and を are wa, e and o when they are particles. A small っ doubles the consonant after it: きって is kitte.",
+              "That makes the romaji a record of how a word sounds, where the kana is a record of how it is spelled. The two part company in exactly two places, the long vowels and the particles, and each has a rung in this chapter.",
+              "Typing is the one place where the spelling wins. The drills turn letters into kana one for one, so to get おとうさん you type otousan, and to get を you type wo. Typed as otoosan, the same word comes out as おとおさん, which is misspelled.",
+              "Romaji is a crutch, and this Book takes it away as the kana arrive. The charts print it beside every kana; the drills never do. One list prints a different romaji, and it is worth knowing why: the loanword games in chapters 0 and 2 come from a dictionary that writes a long vowel with a bar over the letter, kōhī for koohii. It is the same sound written another way."
+            ],
+            "es": [
+              "Este libro escribe el romaji como lo hacen los manuales Genki. Una vocal larga es la letra doblada y nunca una letra con una raya encima: さようなら es sayoonara, せんせい es sensee, コーヒー es koohii. Una partícula se escribe como se dice, así que は, へ y を son wa, e y o cuando son partículas. Una っ pequeña dobla la consonante que la sigue: きって es kitte.",
+              "Eso hace del romaji un registro de cómo suena una palabra, mientras que el kana es un registro de cómo se escribe. Los dos se separan en exactamente dos sitios, las vocales largas y las partículas, y cada uno tiene su peldaño en este capítulo.",
+              "Escribir con el teclado es el único sitio donde gana la grafía. Los ejercicios convierten letras en kana una a una, así que para obtener おとうさん escribes otousan, y para obtener を escribes wo. Escrita como otoosan, la misma palabra sale como おとおさん, que está mal escrita.",
+              "El romaji es una muleta, y este libro te la quita a medida que llegan los kana. Los cuadros lo imprimen junto a cada kana; los ejercicios nunca. Hay una lista que imprime otro romaji, y conviene saber por qué: los juegos de préstamos de los capítulos 0 y 2 vienen de un diccionario que escribe la vocal larga con una raya sobre la letra, kōhī por koohii. Es el mismo sonido escrito de otra manera."
+            ]
           }
         },
         {
           "id": "p-order",
           "kind": "prose",
-          "title": { "en": "Why this order and not the common ones first", "es": null },
+          "title": {
+            "en": "Why this order and not the common ones first",
+            "es": "Por qué este orden y no primero los más frecuentes"
+          },
           "body": {
             "en": [
-              "This is gojuon order, the order the table itself is in, five to a row. No guide in the research recommended frequency order for kana and no study was found comparing the two.",
-              "The reason to keep gojuon is that dakuten, yoon and the whole romanisation system are column rules. Column order is therefore the rule-teaching order, and shuffling forty-six items by frequency throws that structure away to save nothing."
+              "This is gojuuon order, the order the table itself is in, five to a row. No guide in the research recommended frequency order for kana and no study was found comparing the two.",
+              "The reason to keep gojuuon is that dakuten, yoon and the whole romanisation system are column rules. Column order is therefore the rule-teaching order, and shuffling forty-six items by frequency throws that structure away to save nothing."
             ],
-            "es": null
+            "es": [
+              "Este es el orden gojuuon, el orden en el que está la propia tabla, cinco por fila. Ninguna guía de la investigación recomendó ordenar los kana por frecuencia, y no se encontró ningún estudio que compare los dos órdenes.",
+              "La razón para mantener el gojuuon es que los dakuten, los yoon y todo el sistema de romanización son reglas de columna. El orden por columnas es entonces el orden en que se enseñan las reglas, y barajar cuarenta y seis elementos por frecuencia tira esa estructura sin ahorrar nada."
+            ]
           },
           "figure": {
             "kind": "svg",
             "src": "data/kanji/strokes-kana.json#あ",
             "render": "stroke-order",
             "caption": {
-              "en": "a, three strokes. Stroke order is shown throughout this Book and graded nowhere in it.",
-              "es": null
+              "en": "あ (a), three strokes. Stroke order is shown throughout this Book, and chapter 12 is where it is graded.",
+              "es": "あ (a), tres trazos. El orden de los trazos se muestra en todo el libro, y el capítulo 12 es donde se califica."
             }
           }
         },
@@ -84,6 +133,15 @@
         }
       ],
       "exercises": [
+        {
+          "id": "e-vowels-hints",
+          "type": "custom",
+          "module": "jp.kanahints",
+          "skill": "kana.hiragana.read",
+          "title": { "en": "Learn this row with pictures", "es": "Aprende esta fila con imágenes" },
+          "props": { "rows": ["vowels"], "script": "hiragana" },
+          "pass": { "accuracy": 0.8 }
+        },
         {
           "id": "e-vowels-read",
           "type": "quiz",
@@ -112,33 +170,61 @@
     },
     {
       "id": "k-s-t",
-      "title": { "en": "k, s and t, and the three cells that lie", "es": null },
+      "title": { "en": "k, s and t, and the three cells that lie", "es": "k, s y t, y las tres casillas que mienten" },
       "unlocks": {
         "en": "most of the words you will meet first, and the habit of reading a row rather than a character",
-        "es": null
+        "es": "casi todas las palabras que vas a ver primero, y la costumbre de leer una fila y no un carácter suelto"
       },
       "pages": [
         {
           "id": "p-kst",
           "kind": "prose",
-          "title": { "en": "Three rows, three exceptions", "es": null },
+          "title": { "en": "Three rows, three exceptions", "es": "Tres filas, tres excepciones" },
           "body": {
             "en": [
-              "The k row is regular: ka ki ku ke ko.",
-              "The s row is not. The i cell is shi, not si. The t row breaks twice: the i cell is chi and the u cell is tsu.",
+              "The k row is regular: か (ka), き (ki), く (ku), け (ke), こ (ko).",
+              "The s row is not. Its i cell is し (shi), not si. The t row breaks twice: its i cell is ち (chi) and its u cell is つ (tsu). The chart below marks all three with an asterisk.",
               "Those three are the reason romaji arguments exist, and they are also the reason chapter 0 spent its time on beats. Japanese tu is physically tsu, which is why a stranded t in a foreign word takes an o instead."
             ],
-            "es": null
+            "es": [
+              "La fila k es regular: か (ka), き (ki), く (ku), け (ke), こ (ko).",
+              "La fila s no lo es. Su casilla i es し (shi), no si. La fila t se rompe dos veces: su casilla i es ち (chi) y su casilla u es つ (tsu). El cuadro de abajo marca las tres con un asterisco.",
+              "Esas tres son la razón de que existan las discusiones sobre el romaji, y también la razón de que el capítulo 0 dedicara su tiempo a los tiempos. El tu japonés suena físicamente tsu, y por eso una t suelta en una palabra extranjera toma una o."
+            ]
+          }
+        },
+        {
+          "id": "p-kst-chart",
+          "kind": "table",
+          "title": { "en": "The k, s and t rows", "es": "Las filas k, s y t" },
+          "columns": [{ "en": "a", "es": "a" }, { "en": "i", "es": "i" }, { "en": "u", "es": "u" }, { "en": "e", "es": "e" }, { "en": "o", "es": "o" }],
+          "rows": [
+            ["か ka", "き ki", "く ku", "け ke", "こ ko"],
+            ["さ sa", "し shi*", "す su", "せ se", "そ so"],
+            ["た ta", "ち chi*", "つ tsu*", "て te", "と to"]
+          ],
+          "note": {
+            "en": ["* The row's consonant changes in this cell. Say the romaji as written: shi, chi, tsu."],
+            "es": ["* En esta casilla cambia la consonante de la fila. Di el romaji tal como está escrito: shi, chi, tsu."]
           }
         }
       ],
       "exercises": [
         {
+          "id": "e-kst-hints",
+          "type": "custom",
+          "module": "jp.kanahints",
+          "skill": "kana.hiragana.read",
+          "title": { "en": "Learn the k, s and t rows with pictures", "es": "Aprende las filas k, s y t con imágenes" },
+          "props": { "rows": ["k", "s", "t"], "script": "hiragana" },
+          "pass": { "accuracy": 0.8 }
+        },
+        {
           "id": "e-k-read",
           "type": "quiz",
           "game": "sound",
           "skill": "kana.hiragana.read",
-          "title": { "en": "The k row", "es": null },
+          "title": { "en": "The k row", "es": "La fila k" },
           "src": "books/japanese/sets/jp-hiragana-sound.json",
           "filter": "row:k",
           "limit": 5,
@@ -149,7 +235,7 @@
           "type": "quiz",
           "game": "sound",
           "skill": "kana.hiragana.read",
-          "title": { "en": "The s row", "es": null },
+          "title": { "en": "The s row", "es": "La fila s" },
           "src": "books/japanese/sets/jp-hiragana-sound.json",
           "filter": "row:s",
           "limit": 5,
@@ -160,7 +246,7 @@
           "type": "quiz",
           "game": "sound",
           "skill": "kana.hiragana.read",
-          "title": { "en": "The t row", "es": null },
+          "title": { "en": "The t row", "es": "La fila t" },
           "src": "books/japanese/sets/jp-hiragana-sound.json",
           "filter": "row:t",
           "limit": 5,
@@ -170,7 +256,7 @@
           "id": "e-t-type",
           "type": "typed",
           "skill": "kana.hiragana.write",
-          "title": { "en": "Type the t row, including the two that lie", "es": null },
+          "title": { "en": "Type the t row, including the two that lie", "es": "Escribe la fila t, con las dos que mienten" },
           "items": "data/kana/hiragana.json#rows.t",
           "prompt": "romaji",
           "answer": "glyph",
@@ -183,32 +269,59 @@
     },
     {
       "id": "n-h-m",
-      "title": { "en": "n, h and m", "es": null },
+      "title": { "en": "n, h and m", "es": "n, h y m" },
       "unlocks": {
         "en": "the h row, which is where the b and p rows come from later",
-        "es": null
+        "es": "la fila h, que es de donde salen más adelante las filas b y p"
       },
       "pages": [
         {
           "id": "p-nhm",
           "kind": "prose",
-          "title": { "en": "One more cell that lies", "es": null },
+          "title": { "en": "One more cell that lies", "es": "Una casilla más que miente" },
           "body": {
             "en": [
-              "The n and m rows are regular. The h row breaks once: the u cell is fu, and the sound is neither an English f nor an English h but a breath between the lips.",
-              "Hold on to the h row. Add two dots and it becomes the b row. Add a small circle and it becomes the p row. Twenty of the marked kana you meet next come out of these five."
+              "The n and m rows are regular: な (na) to の (no), and ま (ma) to も (mo). The h row breaks once: its u cell is ふ (fu), and the sound is neither an English f nor an English h but a breath between the lips.",
+              "Hold on to the h row. Add two dots and it becomes the b row: は (ha) becomes ば (ba). Add a small circle and it becomes the p row: ぱ (pa). Ten of the marked kana you meet next come out of these five."
             ],
-            "es": null
+            "es": [
+              "Las filas n y m son regulares: de な (na) a の (no), y de ま (ma) a も (mo). La fila h se rompe una vez: su casilla u es ふ (fu), y el sonido no es ni una f ni una j del español, sino un soplo entre los labios.",
+              "Guarda bien la fila h. Ponle dos puntos y se convierte en la fila b: は (ha) pasa a ser ば (ba). Ponle un circulito y se convierte en la fila p: ぱ (pa). Diez de los kana con marca que vienen después salen de estos cinco."
+            ]
+          }
+        },
+        {
+          "id": "p-nhm-chart",
+          "kind": "table",
+          "title": { "en": "The n, h and m rows", "es": "Las filas n, h y m" },
+          "columns": [{ "en": "a", "es": "a" }, { "en": "i", "es": "i" }, { "en": "u", "es": "u" }, { "en": "e", "es": "e" }, { "en": "o", "es": "o" }],
+          "rows": [
+            ["な na", "に ni", "ぬ nu", "ね ne", "の no"],
+            ["は ha", "ひ hi", "ふ fu*", "へ he", "ほ ho"],
+            ["ま ma", "み mi", "む mu", "め me", "も mo"]
+          ],
+          "note": {
+            "en": ["* The row's consonant changes in this cell: fu, not hu."],
+            "es": ["* En esta casilla cambia la consonante de la fila: fu, no hu."]
           }
         }
       ],
       "exercises": [
         {
+          "id": "e-nhm-hints",
+          "type": "custom",
+          "module": "jp.kanahints",
+          "skill": "kana.hiragana.read",
+          "title": { "en": "Learn the n, h and m rows with pictures", "es": "Aprende las filas n, h y m con imágenes" },
+          "props": { "rows": ["n", "h", "m"], "script": "hiragana" },
+          "pass": { "accuracy": 0.8 }
+        },
+        {
           "id": "e-n-read",
           "type": "quiz",
           "game": "sound",
           "skill": "kana.hiragana.read",
-          "title": { "en": "The n row", "es": null },
+          "title": { "en": "The n row", "es": "La fila n" },
           "src": "books/japanese/sets/jp-hiragana-sound.json",
           "filter": "row:n",
           "limit": 5,
@@ -219,7 +332,7 @@
           "type": "quiz",
           "game": "sound",
           "skill": "kana.hiragana.read",
-          "title": { "en": "The h row", "es": null },
+          "title": { "en": "The h row", "es": "La fila h" },
           "src": "books/japanese/sets/jp-hiragana-sound.json",
           "filter": "row:h",
           "limit": 5,
@@ -230,7 +343,7 @@
           "type": "quiz",
           "game": "sound",
           "skill": "kana.hiragana.read",
-          "title": { "en": "The m row", "es": null },
+          "title": { "en": "The m row", "es": "La fila m" },
           "src": "books/japanese/sets/jp-hiragana-sound.json",
           "filter": "row:m",
           "limit": 5,
@@ -240,7 +353,7 @@
           "id": "e-h-type",
           "type": "typed",
           "skill": "kana.hiragana.write",
-          "title": { "en": "Type the h row", "es": null },
+          "title": { "en": "Type the h row", "es": "Escribe la fila h" },
           "items": "data/kana/hiragana.json#rows.h",
           "prompt": "romaji",
           "answer": "glyph",
@@ -253,46 +366,78 @@
     },
     {
       "id": "y-r-w",
-      "title": { "en": "y, r, w, and the one that stands alone", "es": null },
+      "title": { "en": "y, r, w, and the one that stands alone", "es": "y, r, w, y la que va sola" },
       "unlocks": {
         "en": "the whole basic table, all forty-six of it",
-        "es": null
+        "es": "la tabla básica entera, los cuarenta y seis"
       },
       "pages": [
         {
           "id": "p-yrw",
           "kind": "prose",
-          "title": { "en": "The short rows", "es": null },
+          "title": { "en": "The short rows", "es": "Las filas cortas" },
           "body": {
             "en": [
-              "The y row has three, not five: ya, yu, yo. yi and ye never existed as standard kana. The r row is full, and its sound sits between an English r, l and d.",
-              "The w row has two left: wa, and wo. The second is read o and is used for exactly one thing, which the particles rung covers.",
-              "Then there is n, which sits outside the grid entirely. It is the nasal from chapter 0, it takes a whole beat, and no standard Japanese word begins with it."
+              "The y row has three, not five: や (ya), ゆ (yu), よ (yo). yi and ye never existed as standard kana. The r row is full, ら (ra) to ろ (ro), and its sound sits between an English r, l and d.",
+              "The w row has two left: わ (wa), and を (o). The second is read o and is used for exactly one thing, which the particles rung covers.",
+              "Then there is ん (n), which sits outside the grid entirely. It is the nasal from chapter 0, it takes a whole beat, and no standard Japanese word begins with it. What it sounds like depends on the sound after it, and that has a rung of its own after the long vowels."
             ],
-            "es": null
+            "es": [
+              "La fila y tiene tres, no cinco: や (ya), ゆ (yu), よ (yo). yi y ye nunca existieron como kana estándar. La fila r está completa, de ら (ra) a ろ (ro), y su sonido es la r suave del español, la de pero, nunca la de perro.",
+              "A la fila w le quedan dos: わ (wa), y を (o). La segunda se lee o y sirve exactamente para una cosa, que cubre el peldaño de las partículas.",
+              "Luego está ん (n), que queda fuera de la cuadrícula. Es la nasal del capítulo 0, ocupa un tiempo entero, y ninguna palabra japonesa estándar empieza con ella. Cómo suena depende del sonido que la sigue, y eso tiene su propio peldaño después de las vocales largas."
+            ]
+          }
+        },
+        {
+          "id": "p-yrw-chart",
+          "kind": "table",
+          "title": { "en": "The y, r and w rows, and ん", "es": "Las filas y, r y w, y ん" },
+          "columns": [{ "en": "a", "es": "a" }, { "en": "i", "es": "i" }, { "en": "u", "es": "u" }, { "en": "e", "es": "e" }, { "en": "o", "es": "o" }],
+          "rows": [
+            ["や ya", "", "ゆ yu", "", "よ yo"],
+            ["ら ra", "り ri", "る ru", "れ re", "ろ ro"],
+            ["わ wa", "", "", "", "を o"],
+            ["ん n", "", "", "", ""]
+          ],
+          "note": {
+            "en": ["The gaps are real: the y row has no i or e cell, and the w row keeps only its a and o cells. ん sits on a line of its own because it belongs to no row."],
+            "es": ["Los huecos son reales: la fila y no tiene casillas i ni e, y la fila w conserva solo sus casillas a y o. ん va en una línea aparte porque no pertenece a ninguna fila."]
           }
         },
         {
           "id": "p-moraic-n",
           "kind": "callout",
           "tone": "note",
-          "title": { "en": "n is a beat, not a letter", "es": null },
+          "title": { "en": "ん is a beat, not a letter", "es": "ん es un tiempo, no una letra" },
           "body": {
             "en": [
               "It has no exercise here because there is nothing to choose between: there is one of it. It gets drilled inside every word that contains it, which is most of them.",
-              "This is why Gundam is four beats. ga, n, da, mu."
+              "This is why Gundam is four beats: ga, n, da, mu."
             ],
-            "es": null
+            "es": [
+              "Aquí no tiene ejercicio porque no hay nada entre lo que elegir: solo hay una. Se practica dentro de cada palabra que la contiene, que son casi todas.",
+              "Por eso Gundam son cuatro tiempos: ga, n, da, mu."
+            ]
           }
         }
       ],
       "exercises": [
         {
+          "id": "e-yrw-hints",
+          "type": "custom",
+          "module": "jp.kanahints",
+          "skill": "kana.hiragana.read",
+          "title": { "en": "Learn the y, r and w rows, and the lone n, with pictures", "es": "Aprende las filas y, r y w, y la n sola, con imágenes" },
+          "props": { "rows": ["y", "r", "w", "moraic-n"], "script": "hiragana" },
+          "pass": { "accuracy": 0.8 }
+        },
+        {
           "id": "e-y-read",
           "type": "quiz",
           "game": "sound",
           "skill": "kana.hiragana.read",
-          "title": { "en": "The y row", "es": null },
+          "title": { "en": "The y row", "es": "La fila y" },
           "src": "books/japanese/sets/jp-hiragana-sound.json",
           "filter": "row:y",
           "limit": 3,
@@ -303,7 +448,7 @@
           "type": "quiz",
           "game": "sound",
           "skill": "kana.hiragana.read",
-          "title": { "en": "The r row", "es": null },
+          "title": { "en": "The r row", "es": "La fila r" },
           "src": "books/japanese/sets/jp-hiragana-sound.json",
           "filter": "row:r",
           "limit": 5,
@@ -313,7 +458,7 @@
           "id": "e-r-type",
           "type": "typed",
           "skill": "kana.hiragana.write",
-          "title": { "en": "Type the r row", "es": null },
+          "title": { "en": "Type the r row", "es": "Escribe la fila r" },
           "items": "data/kana/hiragana.json#rows.r",
           "prompt": "romaji",
           "answer": "glyph",
@@ -326,34 +471,63 @@
     },
     {
       "id": "dakuten",
-      "title": { "en": "Two dots, and a small circle", "es": null },
+      "title": { "en": "Two dots, and a small circle", "es": "Dos puntos, y un circulito" },
       "unlocks": {
         "en": "most native vocabulary, and the full sound inventory",
-        "es": null
+        "es": "casi todo el vocabulario nativo, y el inventario completo de sonidos"
       },
       "pages": [
         {
           "id": "p-dakuten",
           "kind": "prose",
-          "title": { "en": "Twenty-five more characters, and no new shapes", "es": null },
+          "title": { "en": "Twenty-five more characters, and no new shapes", "es": "Veinticinco caracteres más, y ninguna forma nueva" },
           "body": {
             "en": [
-              "Two small dots voice the consonant. k becomes g, s becomes z, t becomes d, h becomes b. A small circle in the same corner turns h into p instead.",
+              "Two small dots voice the consonant, k to g, s to z, t to d and h to b, and a small circle in the same corner turns h into p instead: か (ka) becomes が (ga), and は (ha) becomes ば (ba) or ぱ (pa).",
               "Nothing here is a new shape. It is the same forty-six with a mark, which is why this rung comes after all of them and not woven through."
             ],
-            "es": null
+            "es": [
+              "Dos puntitos sonorizan la consonante, de k a g, de s a z, de t a d y de h a b, y un circulito en la misma esquina convierte la h en p: か (ka) pasa a ser が (ga), y は (ha) pasa a ser ば (ba) o ぱ (pa).",
+              "Aquí no hay ninguna forma nueva. Son los mismos cuarenta y seis con una marca, y por eso este peldaño viene después de todos ellos y no mezclado entre ellos."
+            ]
+          }
+        },
+        {
+          "id": "p-dakuten-chart",
+          "kind": "table",
+          "title": { "en": "The g, z, d, b and p rows", "es": "Las filas g, z, d, b y p" },
+          "columns": [{ "en": "a", "es": "a" }, { "en": "i", "es": "i" }, { "en": "u", "es": "u" }, { "en": "e", "es": "e" }, { "en": "o", "es": "o" }],
+          "rows": [
+            ["が ga", "ぎ gi", "ぐ gu", "げ ge", "ご go"],
+            ["ざ za", "じ ji*", "ず zu", "ぜ ze", "ぞ zo"],
+            ["だ da", "ぢ (ji)", "づ (zu)", "で de", "ど do"],
+            ["ば ba", "び bi", "ぶ bu", "べ be", "ぼ bo"],
+            ["ぱ pa", "ぴ pi", "ぷ pu", "ぺ pe", "ぽ po"]
+          ],
+          "note": {
+            "en": [
+              "* The consonant changes in this cell, as it did in し: ji, not zi.",
+              "( ) This cell sounds exactly like the z-row kana above it, and it is rare. The next page says when it is used."
+            ],
+            "es": [
+              "* En esta casilla cambia la consonante, como en し: ji, no zi.",
+              "( ) Esta casilla suena exactamente igual que el kana de la fila z que tiene encima, y es poco frecuente. La página siguiente dice cuándo se usa."
+            ]
           }
         },
         {
           "id": "p-rare",
           "kind": "prose",
-          "title": { "en": "The two you can almost ignore", "es": null },
+          "title": { "en": "The two you can almost ignore", "es": "Las dos que casi puedes ignorar" },
           "body": {
             "en": [
-              "The d row's i and u cells sound identical to the z row's, and the 1986 Cabinet Notice restricts them to two cases: a repeated sound in the same word, and a compound where the second word's consonant voiced.",
-              "So a word like inazuma takes the z row by default, and hanaji takes the d row because it is hana plus chi. Recognise them and move on."
+              "The d row's i and u cells, ぢ and づ, sound identical to the z row's じ and ず, and the 1986 Cabinet Notice restricts them to two cases: a repeated sound in the same word, and a compound where the second word's consonant voiced.",
+              "So いなずま (inazuma, lightning) takes the z row by default, and はなぢ (hanaji, a nosebleed) takes the d row because it is はな (hana, nose) plus ち (chi, blood). Recognise them and move on."
             ],
-            "es": null
+            "es": [
+              "Las casillas i y u de la fila d, ぢ y づ, suenan igual que じ y ず de la fila z, y el aviso del gabinete de 1986 las reserva para dos casos: un sonido que se repite dentro de la misma palabra, y un compuesto donde la consonante de la segunda palabra se sonorizó.",
+              "Así que いなずま (inazuma, relámpago) toma la fila z por defecto, y はなぢ (hanaji, sangrado de nariz) toma la fila d porque es はな (hana, nariz) más ち (chi, sangre). Reconócelas y sigue adelante."
+            ]
           }
         },
         {
@@ -384,7 +558,7 @@
           "type": "quiz",
           "game": "sound",
           "skill": "kana.hiragana.read",
-          "title": { "en": "The g row", "es": null },
+          "title": { "en": "The g row", "es": "La fila g" },
           "src": "books/japanese/sets/jp-hiragana-sound.json",
           "filter": "row:g",
           "limit": 5,
@@ -395,7 +569,7 @@
           "type": "quiz",
           "game": "sound",
           "skill": "kana.hiragana.read",
-          "title": { "en": "The z row", "es": null },
+          "title": { "en": "The z row", "es": "La fila z" },
           "src": "books/japanese/sets/jp-hiragana-sound.json",
           "filter": "row:z",
           "limit": 5,
@@ -406,7 +580,7 @@
           "type": "quiz",
           "game": "sound",
           "skill": "kana.hiragana.read",
-          "title": { "en": "The b row", "es": null },
+          "title": { "en": "The b row", "es": "La fila b" },
           "src": "books/japanese/sets/jp-hiragana-sound.json",
           "filter": "row:b",
           "limit": 5,
@@ -416,7 +590,7 @@
           "id": "e-p-type",
           "type": "typed",
           "skill": "kana.hiragana.write",
-          "title": { "en": "Type the p row", "es": null },
+          "title": { "en": "Type the p row", "es": "Escribe la fila p" },
           "items": "data/kana/hiragana.json#dakuten.p",
           "prompt": "romaji",
           "answer": "glyph",
@@ -429,22 +603,48 @@
     },
     {
       "id": "yoon",
-      "title": { "en": "Small ya, yu and yo", "es": null },
+      "title": { "en": "Small ya, yu and yo", "es": "ya, yu y yo pequeñas" },
       "unlocks": {
         "en": "counting beats correctly, which is the difference between two words",
-        "es": null
+        "es": "contar bien los tiempos, que es la diferencia entre dos palabras"
       },
       "pages": [
         {
           "id": "p-yoon",
           "kind": "prose",
-          "title": { "en": "Two characters, one beat", "es": null },
+          "title": { "en": "Two characters, one beat", "es": "Dos caracteres, un tiempo" },
           "body": {
             "en": [
-              "An i-row kana followed by a small ya, yu or yo is one beat, not two. kyou, meaning today, is two beats. kiyou, meaning skillful, is three, and it is written with a full-size yo.",
-              "Size is the whole distinction. If the second character is small it joins the one before it; if it is full size it stands on its own."
+              "A kana from the i column, any of them except い itself, followed by a small ゃ, ゅ or ょ is one beat, not two: き (ki) and a small ゃ make きゃ (kya). きょう (kyoo), meaning today, is two beats. きよう (kiyoo), meaning skilful, is three, and it is written with a full-size よ.",
+              "Size is the whole distinction. びょういん (byooin) is a hospital and びよういん (biyooin) is a hair salon, and nothing separates them but the size of one よ. If the second character is small it joins the one before it; if it is full size it stands on its own."
             ],
-            "es": null
+            "es": [
+              "Un kana de la columna i, cualquiera menos la propia い, seguido de una ゃ, ゅ o ょ pequeña es un solo tiempo, no dos: き (ki) y una ゃ pequeña forman きゃ (kya). きょう (kyoo), que significa hoy, son dos tiempos. きよう (kiyoo), que significa hábil, son tres, y se escribe con una よ de tamaño normal.",
+              "El tamaño es toda la diferencia. びょういん (byooin) es un hospital y びよういん (biyooin) es una peluquería, y lo único que los separa es el tamaño de una よ. Si el segundo carácter es pequeño se une al de delante; si es de tamaño normal va solo."
+            ]
+          }
+        },
+        {
+          "id": "p-yoon-chart",
+          "kind": "table",
+          "title": { "en": "Every pair, row by row", "es": "Todos los pares, fila por fila" },
+          "columns": [{ "en": "ya", "es": "ya" }, { "en": "yu", "es": "yu" }, { "en": "yo", "es": "yo" }],
+          "rows": [
+            ["きゃ kya", "きゅ kyu", "きょ kyo"],
+            ["しゃ sha", "しゅ shu", "しょ sho"],
+            ["ちゃ cha", "ちゅ chu", "ちょ cho"],
+            ["にゃ nya", "にゅ nyu", "にょ nyo"],
+            ["ひゃ hya", "ひゅ hyu", "ひょ hyo"],
+            ["みゃ mya", "みゅ myu", "みょ myo"],
+            ["りゃ rya", "りゅ ryu", "りょ ryo"],
+            ["ぎゃ gya", "ぎゅ gyu", "ぎょ gyo"],
+            ["じゃ ja", "じゅ ju", "じょ jo"],
+            ["びゃ bya", "びゅ byu", "びょ byo"],
+            ["ぴゃ pya", "ぴゅ pyu", "ぴょ pyo"]
+          ],
+          "note": {
+            "en": ["Each cell is two characters and one beat. The s, t and z rows spell theirs sha, cha and ja, following shi, chi and ji."],
+            "es": ["Cada casilla son dos caracteres y un tiempo. Las filas s, t y z escriben las suyas sha, cha y ja, siguiendo a shi, chi y ji."]
           }
         }
       ],
@@ -454,7 +654,7 @@
           "type": "quiz",
           "game": "sound",
           "skill": "kana.hiragana.read",
-          "title": { "en": "Read the pair as one beat", "es": null },
+          "title": { "en": "Read the pair as one beat", "es": "Lee el par como un solo tiempo" },
           "src": "books/japanese/sets/jp-hiragana-sound.json",
           "filter": "column:ya,yu,yo",
           "limit": 12,
@@ -464,7 +664,7 @@
           "id": "e-yoon-type",
           "type": "typed",
           "skill": "kana.hiragana.write",
-          "title": { "en": "Type the pair", "es": null },
+          "title": { "en": "Type the pair", "es": "Escribe el par" },
           "items": "data/kana/hiragana.json#yoon",
           "prompt": "romaji",
           "answer": "glyph",
@@ -477,61 +677,172 @@
     },
     {
       "id": "sokuon-and-long",
-      "title": { "en": "Small tsu, and long vowels", "es": null },
+      "title": { "en": "Small tsu, and long vowels", "es": "La tsu pequeña, y las vocales largas" },
       "unlocks": {
         "en": "spelling a word you can already say, which is where hiragana stops being a decoder ring",
-        "es": null
+        "es": "escribir una palabra que ya sabes decir, que es donde el hiragana deja de ser un anillo decodificador"
       },
       "pages": [
         {
           "id": "p-sokuon",
           "kind": "prose",
-          "title": { "en": "A beat of silence", "es": null },
+          "title": { "en": "A beat of silence", "es": "Un tiempo de silencio" },
           "body": {
             "en": [
-              "The small tsu makes no sound. It holds the following consonant for one beat: saka is a hill, sakka is an author.",
-              "It never starts a word and never comes before a vowel. In native words it never precedes g, z, d, b or h. Loanwords are the licensed exception, which is exactly why beddo and baggu exist and look wrong."
+              "A small っ doubles the consonant after it. It makes no sound of its own: it holds that consonant for one silent beat before letting it go. きて (kite) means come, and きって (kitte) is a postage stamp; さか (saka) is a hill, and さっか (sakka) is an author. Say each pair aloud and the pause is the whole difference.",
+              "It never starts a word and never comes before a vowel. In native words it never precedes g, z, d, b or h. Loanwords are the licensed exception, which is exactly why beddo and baggu exist and look wrong. One spelling to know: before ch, romaji doubles it as t, so まっちゃ is matcha."
             ],
-            "es": null
+            "es": [
+              "Una っ pequeña dobla la consonante que la sigue. No tiene sonido propio: sostiene esa consonante durante un tiempo de silencio antes de soltarla. きて (kite) significa ven, y きって (kitte) es un sello postal; さか (saka) es una cuesta, y さっか (sakka) es un autor. Di cada par en voz alta y la pausa es toda la diferencia.",
+              "Nunca empieza una palabra y nunca va delante de una vocal. En las palabras nativas nunca va delante de g, z, d, b o h. Los préstamos son la excepción permitida, y por eso existen beddo y baggu y parecen mal escritas. Una grafía que conviene saber: delante de ch, el romaji la dobla como t, así que まっちゃ es matcha."
+            ]
+          }
+        },
+        {
+          "id": "p-sokuon-words",
+          "kind": "table",
+          "title": { "en": "Four everyday words with a small っ", "es": "Cuatro palabras de todos los días con っ pequeña" },
+          "columns": [
+            { "en": "Word", "es": "Palabra" },
+            { "en": "Said", "es": "Se dice" },
+            { "en": "Meaning", "es": "Significado" }
+          ],
+          "rows": [
+            ["がっこう", "gakkoo", { "en": "a school", "es": "una escuela" }],
+            ["ざっし", "zasshi", { "en": "a magazine", "es": "una revista" }],
+            ["いっしょ", "issho", { "en": "together", "es": "juntos" }],
+            ["ちょっと", "chotto", { "en": "a little", "es": "un poco" }]
+          ],
+          "note": {
+            "en": ["The doubled letter in the romaji is the held beat: gak-koo, zas-shi, is-sho, chot-to. Each word has one beat more than its letters suggest."],
+            "es": ["La letra doblada del romaji es el tiempo sostenido: gak-koo, zas-shi, is-sho, chot-to. Cada palabra tiene un tiempo más de lo que sugieren sus letras."]
           }
         },
         {
           "id": "p-long",
           "kind": "prose",
-          "title": { "en": "Hiragana has no bar", "es": null },
+          "title": { "en": "The same vowel, held for two beats", "es": "La misma vocal, sostenida dos tiempos" },
           "body": {
             "en": [
-              "Katakana writes a long vowel with a bar. Hiragana does not: it adds a vowel kana. a takes a, i takes i, u takes u, e takes e.",
-              "The o row is the one that trips people. The default is to add u, not another o: otousan, toudai, kyou, happyou.",
-              "The exception list is closed, short, and worth reading once. It is the words whose historical spelling had ho or wo after the o-row kana."
+              "A long vowel is the same vowel held for a second beat, and the length changes the word: おばさん (obasan) is an aunt and おばあさん (obaasan) is a grandmother. Katakana writes the second beat with a bar, which chapter 2 covers. Hiragana has no bar: it writes the second beat as a vowel kana.",
+              "Which kana it adds depends on the vowel, and it is easiest taken one vowel at a time. a, i and u add themselves: あ, い, う. e normally adds い, and o normally adds う. Each of the tables below pairs words that differ only in length, so read them aloud.",
+              "e and o are where the spelling and the sound part company, and that is why this Book's romaji writes what you say: せんせい is spelled se-n-se-i and said sensee, おとうさん is spelled o-to-u-sa-n and said otoosan."
             ],
-            "es": null
+            "es": [
+              "Una vocal larga es la misma vocal sostenida un segundo tiempo, y la duración cambia la palabra: おばさん (obasan) es una tía y おばあさん (obaasan) es una abuela. El katakana escribe el segundo tiempo con una barra, que ve el capítulo 2. El hiragana no tiene barra: escribe el segundo tiempo con un kana de vocal.",
+              "Qué kana añade depende de la vocal, y es más fácil verlo vocal por vocal. La a, la i y la u se añaden a sí mismas: あ, い, う. La e añade normalmente い, y la o añade normalmente う. Cada tabla de abajo junta palabras que solo se diferencian en la duración, así que léelas en voz alta.",
+              "La e y la o son donde la grafía y el sonido se separan, y por eso el romaji de este libro escribe lo que dices: せんせい se escribe se-n-se-i y se dice sensee, おとうさん se escribe o-to-u-sa-n y se dice otoosan."
+            ]
           }
         },
         {
-          "id": "p-oo-list",
+          "id": "p-long-aiu",
           "kind": "table",
-          "title": { "en": "The complete oo exception list", "es": null },
-          "columns": [{ "en": "Written with a second o, not with u", "es": null }],
-          "items": "data/kana/hiragana.json#long_vowels.oo_exceptions.words",
+          "title": { "en": "aa, ii and uu: the vowel adds itself", "es": "aa, ii y uu: la vocal se añade a sí misma" },
+          "columns": [
+            { "en": "Word", "es": "Palabra" },
+            { "en": "Said", "es": "Se dice" },
+            { "en": "Meaning", "es": "Significado" }
+          ],
+          "rows": [
+            ["おかあさん", "okaasan", { "en": "a mother", "es": "una madre" }],
+            ["おばさん", "obasan", { "en": "an aunt", "es": "una tía" }],
+            ["おばあさん", "obaasan", { "en": "a grandmother", "es": "una abuela" }],
+            ["おにいさん", "oniisan", { "en": "an older brother", "es": "un hermano mayor" }],
+            ["おじさん", "ojisan", { "en": "an uncle", "es": "un tío" }],
+            ["おじいさん", "ojiisan", { "en": "a grandfather", "es": "un abuelo" }],
+            ["くうき", "kuuki", { "en": "air", "es": "el aire" }],
+            ["ゆき", "yuki", { "en": "snow", "es": "la nieve" }],
+            ["ゆうき", "yuuki", { "en": "courage", "es": "el valor" }]
+          ],
           "note": {
-            "en": [
-              "Twenty-two words, from the 1986 Cabinet Notice. Everything else with a long o takes u. There is no rule behind the list, only history, so it is a list and it is short on purpose."
-            ],
-            "es": null
+            "en": ["Three pairs differ only in length: おばさん and おばあさん, おじさん and おじいさん, ゆき and ゆうき. Get the length wrong and you have said the other word."],
+            "es": ["Tres pares solo se diferencian en la duración: おばさん y おばあさん, おじさん y おじいさん, ゆき y ゆうき. Si te equivocas en la duración, has dicho la otra palabra."]
           }
         },
         {
           "id": "p-ei",
           "kind": "callout",
           "tone": "note",
-          "title": { "en": "And the e row does the same thing with i", "es": null },
+          "title": { "en": "ee: normally written with い", "es": "ee: normalmente se escribe con い" },
           "body": {
             "en": [
-              "The Notice's appendix writes a long e with i whether it is said as a long e or as ei: eiga, tokei, teinei, hei, mei, rei.",
-              "So tokei is spelled tokei and commonly said tokee. neesan and ee are counter-examples and sit in the main rule rather than the appendix."
+              "A long e is normally written as an e-row kana plus い, and said as a long e: せんせい (sensee, a teacher), えいが (eega, a film), とけい (tokee, a clock), きれい (kiree, pretty). This is the ordinary case. The 1986 Notice orders it the other way round, stating え as its rule and listing the い words in an appendix that writes them with い whether a speaker says the vowel long or as e then i; counted by the words you will actually meet, the い spelling is the common one, and that is the order this page teaches.",
+              "The exception is a short list of words written with え instead: おねえさん (oneesan, an older sister) and ええ (ee, yes) are the two a beginner meets. So when you hear a long e, write い unless the word is one of those."
             ],
-            "es": null
+            "es": [
+              "Una e larga se escribe normalmente como un kana de la fila e más い, y se dice como una e larga: せんせい (sensee, profesor), えいが (eega, película), とけい (tokee, reloj), きれい (kiree, bonito). Este es el caso corriente. El aviso de 1986 lo ordena al revés: enuncia え como regla y pone las palabras con い en un apéndice que las escribe con い tanto si quien habla dice la vocal larga como si dice e y luego i; contadas por las palabras que de verdad vas a encontrar, la grafía con い es la frecuente, y ese es el orden que enseña esta página.",
+              "La excepción es una lista corta de palabras escritas con え: おねえさん (oneesan, hermana mayor) y ええ (ee, sí) son las dos que encuentra quien empieza. Así que cuando oigas una e larga, escribe い salvo que la palabra sea una de esas."
+            ]
+          }
+        },
+        {
+          "id": "p-long-e",
+          "kind": "table",
+          "title": { "en": "ee, as written and as said", "es": "ee, como se escribe y como se dice" },
+          "columns": [
+            { "en": "Word", "es": "Palabra" },
+            { "en": "Said", "es": "Se dice" },
+            { "en": "Meaning", "es": "Significado" }
+          ],
+          "rows": [
+            ["せんせい", "sensee", { "en": "a teacher", "es": "un profesor" }],
+            ["えいが", "eega", { "en": "a film", "es": "una película" }],
+            ["とけい", "tokee", { "en": "a clock", "es": "un reloj" }],
+            ["せき", "seki", { "en": "a seat", "es": "un asiento" }],
+            ["せいき", "seeki", { "en": "a century", "es": "un siglo" }],
+            ["おねえさん", "oneesan", { "en": "an older sister", "es": "una hermana mayor" }],
+            ["ええ", "ee", { "en": "yes", "es": "sí" }]
+          ],
+          "note": {
+            "en": ["せき and せいき are the pair to read aloud: the い is not said as i, it is the second beat of the e. The last two rows, おねえさん and ええ, are the exceptions, written with え."],
+            "es": ["せき y せいき son el par para leer en voz alta: la い no se dice como i, es el segundo tiempo de la e. Las dos últimas filas, おねえさん y ええ, son las excepciones, escritas con え."]
+          }
+        },
+        {
+          "id": "p-long-o",
+          "kind": "table",
+          "title": { "en": "oo: normally written with う", "es": "oo: normalmente se escribe con う" },
+          "body": {
+            "en": [
+              "A long o is normally written as an o-row kana plus う, and said as a long o. The exceptions are written with お, and there is a closed list of them, printed in full after this table. There is no rule behind it, only history: they are the words whose old spelling had ほ or を after the o-row kana."
+            ],
+            "es": [
+              "Una o larga se escribe normalmente como un kana de la fila o más う, y se dice como una o larga. Las excepciones se escriben con お, y forman una lista cerrada, impresa entera después de esta tabla. Detrás no hay ninguna regla, solo historia: son las palabras cuya grafía antigua tenía ほ o を después del kana de la fila o."
+            ]
+          },
+          "columns": [
+            { "en": "Word", "es": "Palabra" },
+            { "en": "Said", "es": "Se dice" },
+            { "en": "Meaning", "es": "Significado" }
+          ],
+          "rows": [
+            ["おとうさん", "otoosan", { "en": "a father", "es": "un padre" }],
+            ["さようなら", "sayoonara", { "en": "goodbye", "es": "adiós" }],
+            ["きょう", "kyoo", { "en": "today", "es": "hoy" }],
+            ["ひこうき", "hikooki", { "en": "a plane", "es": "un avión" }],
+            ["おい", "oi", { "en": "a nephew", "es": "un sobrino" }],
+            ["おおい", "ooi", { "en": "many", "es": "muchos" }],
+            ["おおきい", "ookii", { "en": "big", "es": "grande" }]
+          ],
+          "note": {
+            "en": ["おい and おおい are the pair: one beat more, and a nephew becomes many. The last two rows, おおい and おおきい, are written with お: both are on the exception list."],
+            "es": ["おい y おおい son el par: un tiempo más, y un sobrino se convierte en muchos. Las dos últimas filas, おおい y おおきい, se escriben con お: las dos están en la lista de excepciones."]
+          }
+        },
+        {
+          "id": "p-oo-list",
+          "kind": "table",
+          "title": { "en": "The complete oo exception list", "es": "La lista completa de excepciones de oo" },
+          "columns": [{ "en": "Written with a second お, not with う", "es": "Se escribe con una segunda お, no con う" }],
+          "items": "data/kana/hiragana.json#long_vowels.oo_exceptions.words",
+          "note": {
+            "en": [
+              "Twenty-two words, from the 1986 Cabinet Notice. Everything else with a long o takes う. There is no rule behind the list, only history, so it is a list and it is short on purpose."
+            ],
+            "es": [
+              "Veintidós palabras, del aviso del gabinete de 1986. Todo lo demás con o larga lleva う. Detrás de la lista no hay ninguna regla, solo historia, así que es una lista y es corta a propósito."
+            ]
           }
         }
       ],
@@ -540,16 +851,16 @@
           "id": "e-long-o",
           "type": "choice",
           "skill": "kana.hiragana.read",
-          "title": { "en": "u or a second o? (ō is a long o)", "es": null },
+          "title": { "en": "Said oo: written with う, or with a second お?", "es": "Se dice oo: ¿se escribe con う o con una segunda お?" },
           "items": [
-            { "id": "lv:おとうさん", "word": "otōsan, father", "spelling": "with u", "explain": "おとうさん. The o row lengthens with u unless the word is on the exception list, and this one is not." },
-            { "id": "lv:きょう", "word": "kyō, today", "spelling": "with u", "explain": "きょう. The default: a long o is written with u." },
-            { "id": "lv:とうだい", "word": "tōdai, lighthouse", "spelling": "with u", "explain": "とうだい. Not on the exception list, so u." },
-            { "id": "lv:はっぴょう", "word": "happyō, announcement", "spelling": "with u", "explain": "はっぴょう. Not on the exception list, so u." },
-            { "id": "lv:こおり", "word": "kōri, ice", "spelling": "with a second o, it is on the exception list", "explain": "こおり. One of the twenty-two words whose long o is written with a second o." },
-            { "id": "lv:おおきい", "word": "ōkii, big", "spelling": "with a second o, it is on the exception list", "explain": "おおきい. On the exception list: a second o, not u." },
-            { "id": "lv:とおい", "word": "tōi, far", "spelling": "with a second o, it is on the exception list", "explain": "とおい. On the exception list: a second o, not u." },
-            { "id": "lv:おおかみ", "word": "ōkami, wolf", "spelling": "with a second o, it is on the exception list", "explain": "おおかみ. On the exception list: a second o, not u." }
+            { "id": "lv:おとうさん", "word": { "en": "otoosan, a father", "es": "otoosan, un padre" }, "spelling": { "en": "with う", "es": "con う" }, "explain": { "en": "おとうさん. A long o is written with う unless the word is on the exception list, and this one is not.", "es": "おとうさん. Una o larga se escribe con う salvo que la palabra esté en la lista de excepciones, y esta no lo está." } },
+            { "id": "lv:きょう", "word": { "en": "kyoo, today", "es": "kyoo, hoy" }, "spelling": { "en": "with う", "es": "con う" }, "explain": { "en": "きょう. The normal case: a long o is written with う.", "es": "きょう. El caso normal: una o larga se escribe con う." } },
+            { "id": "lv:とうだい", "word": { "en": "toodai, a lighthouse", "es": "toodai, un faro" }, "spelling": { "en": "with う", "es": "con う" }, "explain": { "en": "とうだい. Not on the exception list, so う.", "es": "とうだい. No está en la lista de excepciones, así que う." } },
+            { "id": "lv:はっぴょう", "word": { "en": "happyoo, an announcement", "es": "happyoo, un anuncio" }, "spelling": { "en": "with う", "es": "con う" }, "explain": { "en": "はっぴょう. Not on the exception list, so う.", "es": "はっぴょう. No está en la lista de excepciones, así que う." } },
+            { "id": "lv:こおり", "word": { "en": "koori, ice", "es": "koori, hielo" }, "spelling": { "en": "with a second お, it is on the exception list", "es": "con una segunda お, está en la lista de excepciones" }, "explain": { "en": "こおり. One of the twenty-two words whose long o is written with a second お.", "es": "こおり. Una de las veintidós palabras cuya o larga se escribe con una segunda お." } },
+            { "id": "lv:おおきい", "word": { "en": "ookii, big", "es": "ookii, grande" }, "spelling": { "en": "with a second お, it is on the exception list", "es": "con una segunda お, está en la lista de excepciones" }, "explain": { "en": "おおきい. On the exception list: a second お, not う.", "es": "おおきい. Está en la lista de excepciones: una segunda お, no う." } },
+            { "id": "lv:とおい", "word": { "en": "tooi, far", "es": "tooi, lejos" }, "spelling": { "en": "with a second お, it is on the exception list", "es": "con una segunda お, está en la lista de excepciones" }, "explain": { "en": "とおい. On the exception list: a second お, not う.", "es": "とおい. Está en la lista de excepciones: una segunda お, no う." } },
+            { "id": "lv:おおかみ", "word": { "en": "ookami, a wolf", "es": "ookami, un lobo" }, "spelling": { "en": "with a second お, it is on the exception list", "es": "con una segunda お, está en la lista de excepciones" }, "explain": { "en": "おおかみ. On the exception list: a second お, not う.", "es": "おおかみ. Está en la lista de excepciones: una segunda お, no う." } }
           ],
           "prompt": "word",
           "answer": "spelling",
@@ -561,21 +872,117 @@
           "id": "e-words-read",
           "type": "choice",
           "skill": "kana.hiragana.read",
-          "title": { "en": "Read the word", "es": null },
+          "title": { "en": "Read the word", "es": "Lee la palabra" },
           "items": [
-            { "id": "word:さか", "word": "さか", "romaji": "saka, a hill", "explain": "No small tsu, so the k is not held: sa-ka. With one it would be sakka, an author." },
-            { "id": "word:さっか", "word": "さっか", "romaji": "sakka, an author", "explain": "The small tsu holds the k for a beat: sa, small tsu, ka. Without it, saka is a hill." },
-            { "id": "word:きょう", "word": "きょう", "romaji": "kyou, today", "explain": "The small yo rides on ki, so kyo is one beat, and the u makes it long: kyo-u, two beats." },
-            { "id": "word:きよう", "word": "きよう", "romaji": "kiyou, skilful", "explain": "A full-size yo is its own beat: ki-yo-u, three beats. The size of the yo is the whole difference from kyou." },
-            { "id": "word:おばあさん", "word": "おばあさん", "romaji": "obaasan, grandmother", "explain": "The a row lengthens with a: ba-a. Say the long a or it becomes obasan, an aunt." },
-            { "id": "word:おじいさん", "word": "おじいさん", "romaji": "ojiisan, grandfather", "explain": "The i row lengthens with i: ji-i. Short, ojisan, is an uncle." },
-            { "id": "word:ねえさん", "word": "ねえさん", "romaji": "neesan, elder sister", "explain": "One of the few words whose long e is written with e rather than i." },
-            { "id": "word:とけい", "word": "とけい", "romaji": "tokei, a clock", "explain": "Spelled with i, as the appendix writes a long e, and commonly said tokee." }
+            { "id": "word:さか", "word": "さか", "romaji": { "en": "saka, a hill", "es": "saka, una cuesta" }, "explain": { "en": "No small っ, so the k is not held: sa-ka. With one it would be さっか (sakka), an author.", "es": "No hay っ pequeña, así que la k no se sostiene: sa-ka. Con una sería さっか (sakka), un autor." } },
+            { "id": "word:さっか", "word": "さっか", "romaji": { "en": "sakka, an author", "es": "sakka, un autor" }, "explain": { "en": "The small っ holds the k for a beat: sa, small tsu, ka. Without it, さか (saka) is a hill.", "es": "La っ pequeña sostiene la k un tiempo: sa, tsu pequeña, ka. Sin ella, さか (saka) es una cuesta." } },
+            { "id": "word:きて", "word": "きて", "romaji": { "en": "kite, come", "es": "kite, ven" }, "explain": { "en": "No small っ: ki-te, two beats. With one, きって (kitte), it is a postage stamp.", "es": "No hay っ pequeña: ki-te, dos tiempos. Con una, きって (kitte), es un sello postal." } },
+            { "id": "word:きって", "word": "きって", "romaji": { "en": "kitte, a postage stamp", "es": "kitte, un sello postal" }, "explain": { "en": "The small っ holds the t for a beat: ki, small tsu, te, three beats. Without it, きて (kite) means come.", "es": "La っ pequeña sostiene la t un tiempo: ki, tsu pequeña, te, tres tiempos. Sin ella, きて (kite) significa ven." } },
+            { "id": "word:きょう", "word": "きょう", "romaji": { "en": "kyoo, today", "es": "kyoo, hoy" }, "explain": { "en": "The small ょ rides on き, so kyo is one beat, and the う makes it long: kyo-o, two beats.", "es": "La ょ pequeña va montada sobre き, así que kyo es un tiempo, y la う la alarga: kyo-o, dos tiempos." } },
+            { "id": "word:きよう", "word": "きよう", "romaji": { "en": "kiyoo, skilful", "es": "kiyoo, hábil" }, "explain": { "en": "A full-size よ is its own beat: ki-yo-o, three beats. The size of the よ is the whole difference from きょう (kyoo).", "es": "Una よ de tamaño normal es un tiempo propio: ki-yo-o, tres tiempos. El tamaño de la よ es toda la diferencia con きょう (kyoo)." } },
+            { "id": "word:おばあさん", "word": "おばあさん", "romaji": { "en": "obaasan, a grandmother", "es": "obaasan, una abuela" }, "explain": { "en": "The a lengthens with あ: ba-a. Say the long a or it becomes おばさん (obasan), an aunt.", "es": "La a se alarga con あ: ba-a. Di la a larga o se convierte en おばさん (obasan), una tía." } },
+            { "id": "word:おじいさん", "word": "おじいさん", "romaji": { "en": "ojiisan, a grandfather", "es": "ojiisan, un abuelo" }, "explain": { "en": "The i lengthens with い: ji-i. Short, おじさん (ojisan), is an uncle.", "es": "La i se alarga con い: ji-i. Corta, おじさん (ojisan), es un tío." } },
+            { "id": "word:ゆうき", "word": "ゆうき", "romaji": { "en": "yuuki, courage", "es": "yuuki, valor" }, "explain": { "en": "The u lengthens with う: yu-u-ki, three beats. Short, ゆき (yuki), is snow.", "es": "La u se alarga con う: yu-u-ki, tres tiempos. Corta, ゆき (yuki), es nieve." } },
+            { "id": "word:せんせい", "word": "せんせい", "romaji": { "en": "sensee, a teacher", "es": "sensee, un profesor" }, "explain": { "en": "Spelled with い and said with a long e: se-n-se-e, four beats. That is the normal way to write a long e.", "es": "Se escribe con い y se dice con una e larga: se-n-se-e, cuatro tiempos. Es la forma normal de escribir una e larga." } },
+            { "id": "word:ねえさん", "word": "ねえさん", "romaji": { "en": "neesan, an older sister", "es": "neesan, una hermana mayor" }, "explain": { "en": "One of the few words whose long e is written with え rather than い. The normal spelling is い, as in せんせい (sensee).", "es": "Una de las pocas palabras cuya e larga se escribe con え y no con い. La grafía normal es い, como en せんせい (sensee)." } },
+            { "id": "word:とけい", "word": "とけい", "romaji": { "en": "tokee, a clock", "es": "tokee, un reloj" }, "explain": { "en": "Spelled と-け-い and said tokee: an e-row kana plus い is the normal way to write a long e.", "es": "Se escribe と-け-い y se dice tokee: un kana de la fila e más い es la forma normal de escribir una e larga." } }
           ],
           "prompt": "word",
           "answer": "romaji",
           "distractors": { "n": 3 },
-          "count": 8,
+          "count": 10,
+          "pass": { "accuracy": 0.8 }
+        }
+      ]
+    },
+    {
+      "id": "n-and-whispers",
+      "title": { "en": "How ん sounds, and the vowels you whisper", "es": "Cómo suena ん, y las vocales que se susurran" },
+      "unlocks": {
+        "en": "saying a word the way it is said rather than the way it is spelled",
+        "es": "decir una palabra como se dice y no como se escribe"
+      },
+      "pages": [
+        {
+          "id": "p-n-sound",
+          "kind": "prose",
+          "title": { "en": "ん is a whole beat, and it takes its shape from the next sound", "es": "ん es un tiempo entero, y toma su forma del sonido siguiente" },
+          "body": {
+            "en": [
+              "ん is a beat of its own, as long as any other kana: しんぶん (shinbun, a newspaper) is four beats, shi, n, bu, n. Hold it for the full beat. Clipping it is the quickest way to sound foreign.",
+              "What your mouth does during that beat depends on the sound after it, and you do not have to plan it: aim for the next sound and ん gets there first. Before m, b or p the lips close and it is said m, so さんぽ (sanpo, a walk) sounds like sampo and しんぶん like shimbun. Before k or g it is said at the back of the mouth, like the n in ink or sing: げんき (genki), りんご (ringo). Before n, t, d, s or z it is an ordinary n: みんな (minna), こんど (kondo). Before a vowel, and at the end of a word, it is a nasal hum with the tongue touching nothing.",
+              "Romaji writes it n whatever it sounds like, with one mark to know. Before a vowel or a y it takes an apostrophe, so the n cannot be read as the start of the next beat: きんえん (kin'en, no smoking) is four beats, ki, n, e, n, and きねん (kinen, a commemoration) is three, ki, ne, n. ほんや (hon'ya, a bookshop) is ho, n, ya, never ho, nya."
+            ],
+            "es": [
+              "ん es un tiempo propio, tan largo como cualquier otro kana: しんぶん (shinbun, periódico) son cuatro tiempos, shi, n, bu, n. Sostenla el tiempo entero. Recortarla es la forma más rápida de sonar extranjero.",
+              "Lo que hace la boca durante ese tiempo depende del sonido que viene después, y no hace falta planearlo: apunta al sonido siguiente y ん llega antes. Delante de m, b o p los labios se cierran y se dice m, así que さんぽ (sanpo, paseo) suena sampo y しんぶん suena shimbun, igual que en español un beso se dice um beso. Delante de k o g se dice en el fondo de la boca, como la n de tengo: げんき (genki), りんご (ringo). Delante de n, t, d, s o z es una n normal: みんな (minna), こんど (kondo). Delante de una vocal, y al final de una palabra, es un zumbido nasal sin que la lengua toque nada.",
+              "El romaji la escribe n suene como suene, con una marca que conviene conocer. Delante de una vocal o de una y lleva un apóstrofo, para que la n no se lea como el principio del tiempo siguiente: きんえん (kin'en, prohibido fumar) son cuatro tiempos, ki, n, e, n, y きねん (kinen, conmemoración) son tres, ki, ne, n. ほんや (hon'ya, librería) es ho, n, ya, nunca ho, nya."
+            ]
+          }
+        },
+        {
+          "id": "p-n-examples",
+          "kind": "table",
+          "title": { "en": "One kana, four sounds", "es": "Un kana, cuatro sonidos" },
+          "columns": [
+            { "en": "Word", "es": "Palabra" },
+            { "en": "Romaji", "es": "Romaji" },
+            { "en": "ん sounds like", "es": "ん suena como" }
+          ],
+          "rows": [
+            ["さんぽ", "sanpo", "m"],
+            ["しんぶん", "shinbun", { "en": "m, then a hum", "es": "m, y luego un zumbido" }],
+            ["げんき", "genki", "ng"],
+            ["りんご", "ringo", "ng"],
+            ["みんな", "minna", "n"],
+            ["こんど", "kondo", "n"],
+            ["きんえん", "kin'en", { "en": "a hum", "es": "un zumbido" }],
+            ["ほんや", "hon'ya", { "en": "a hum", "es": "un zumbido" }]
+          ],
+          "note": {
+            "en": ["The romaji column never changes its n, and that is on purpose: the sound follows from the next letter, so writing it twice would be writing the same fact twice."],
+            "es": ["La columna del romaji nunca cambia su n, y es a propósito: el sonido se deduce de la letra siguiente, así que escribirlo dos veces sería escribir el mismo dato dos veces."]
+          }
+        },
+        {
+          "id": "p-devoicing",
+          "kind": "prose",
+          "title": { "en": "The vowels you whisper", "es": "Las vocales que se susurran" },
+          "body": {
+            "en": [
+              "i and u often lose their voice when they sit between two voiceless consonants, which are k, s, sh, t, ch, ts, h, f and p, and at the end of a sentence after one. The vowel still takes its beat. It is whispered rather than sung, and in quick speech you may hear nothing at all.",
+              "すきです (sukidesu, I like it) is said s(u)kides(u), the brackets marking the whispered vowels. That is why です and ます sound like des and mas, and why した (shita) can sound like shta. The kana and the romaji both keep the vowel, and so should your spelling: only your ear should stop expecting it.",
+              "It is a habit of standard Tokyo speech, strongest there and weaker in some other regions, Kansai among them, and nothing in this Book grades it. Knowing it exists is what stops a word you know from sounding like one you do not."
+            ],
+            "es": [
+              "La i y la u suelen perder la voz cuando quedan entre dos consonantes sordas, que son k, s, sh, t, ch, ts, h, f y p, y al final de una frase detrás de una de ellas. La vocal sigue ocupando su tiempo. Se susurra en vez de sonar, y en el habla rápida puede que no oigas nada.",
+              "すきです (sukidesu, me gusta) se dice s(u)kides(u), y los paréntesis marcan las vocales susurradas. Por eso です y ます suenan des y mas, y por eso した (shita) puede sonar shta. El kana y el romaji conservan la vocal, y tu escritura también debe conservarla: solo tu oído tiene que dejar de esperarla.",
+              "Es un hábito del habla estándar de Tokio, más fuerte allí y más débil en otras regiones, Kansai entre ellas, y nada en este libro lo califica. Saber que existe es lo que evita que una palabra que conoces suene como una que no conoces."
+            ]
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "e-n-sound",
+          "type": "choice",
+          "skill": "kana.hiragana.read",
+          "title": { "en": "How is the ん in this word said?", "es": "¿Cómo se dice la ん de esta palabra?" },
+          "items": [
+            { "id": "nn:さんぽ", "word": "さんぽ", "said": "m", "explain": { "en": "p comes next, so the lips close early and さんぽ (sanpo, a walk) sounds like sampo.", "es": "Después viene p, así que los labios se cierran antes y さんぽ (sanpo, paseo) suena sampo." } },
+            { "id": "nn:かんぱい", "word": "かんぱい", "said": "m", "explain": { "en": "p comes next, so かんぱい (kanpai, cheers) sounds like kampai.", "es": "Después viene p, así que かんぱい (kanpai, salud) suena kampai." } },
+            { "id": "nn:えんぴつ", "word": "えんぴつ", "said": "m", "explain": { "en": "p comes next, so えんぴつ (enpitsu, a pencil) sounds like empitsu.", "es": "Después viene p, así que えんぴつ (enpitsu, lápiz) suena empitsu." } },
+            { "id": "nn:げんき", "word": "げんき", "said": "ng", "explain": { "en": "k comes next, so ん moves to the back of the mouth: げんき (genki, well), with the n of ink.", "es": "Después viene k, así que ん se va al fondo de la boca: げんき (genki, bien), con la n de tengo." } },
+            { "id": "nn:りんご", "word": "りんご", "said": "ng", "explain": { "en": "g comes next: りんご (ringo, an apple), with the ng of sing.", "es": "Después viene g: りんご (ringo, manzana), con la n de tengo." } },
+            { "id": "nn:ぎんこう", "word": "ぎんこう", "said": "ng", "explain": { "en": "k comes next: ぎんこう (ginkoo, a bank), with the n of ink.", "es": "Después viene k: ぎんこう (ginkoo, banco), con la n de tengo." } },
+            { "id": "nn:みんな", "word": "みんな", "said": "n", "explain": { "en": "n comes next, so ん stays an ordinary n: みんな (minna, everyone).", "es": "Después viene n, así que ん se queda en una n normal: みんな (minna, todos)." } },
+            { "id": "nn:こんど", "word": "こんど", "said": "n", "explain": { "en": "d comes next, so ん stays an ordinary n: こんど (kondo, next time).", "es": "Después viene d, así que ん se queda en una n normal: こんど (kondo, la próxima vez)." } },
+            { "id": "nn:おんな", "word": "おんな", "said": "n", "explain": { "en": "n comes next, so ん stays an ordinary n: おんな (onna, a woman).", "es": "Después viene n, así que ん se queda en una n normal: おんな (onna, mujer)." } }
+          ],
+          "prompt": "word",
+          "answer": "said",
+          "distractors": { "values": ["m", "ng", "n"], "n": 2 },
+          "count": 6,
           "pass": { "accuracy": 0.8 }
         }
       ]
@@ -595,17 +1002,45 @@
           "body": {
             "en": [
               "Modern kana is otherwise one character to one sound. These three are not, and they are the only three.",
-              "ha is read wa when it marks the topic. he is read e when it marks a direction. wo is read o, and in contemporary Japanese it is used for nothing except marking the direct object.",
-              "The trap the Notice flags itself: a wa inside a word is a real wa, not the particle. Two of the commonest greetings you will meet, konnichiha and konbanha, end in the particle and are said with wa.",
+              "は is read wa when it marks the topic. へ is read e when it marks a direction. を is read o, and in contemporary Japanese it is used for nothing except marking the direct object. The table after this page shows each one inside a short sentence, with the romaji written the way the sentence is said.",
+              "The trap the Notice flags itself: a wa inside a word is a real わ, not the particle, and a は inside a word is a plain ha, as in はな (hana, a flower). Two of the commonest greetings you will meet, こんにちは and こんばんは, end in the particle and are said with wa: konnichiwa, konbanwa.",
               "The why, which is worth more than the rule. Until 1946 Japanese was spelled by history rather than by sound, and a Cabinet order that year re-spelled the whole language by how it is said. These three were kept back deliberately, and 現代仮名遣い, the 1986 Notice that replaced that order, states each of them in one line of its own. They survived because they mark grammar rather than sound: change their spelling and you lose the only signal that a topic, a direction or an object is being marked.",
-              "So konnichiha is not an irregularity. It is the topic particle of a sentence about today that nobody ever finished, still spelled the way it was when the rest of the sentence was there."
+              "So こんにちは is not an irregularity. It is the topic particle of a sentence about today that nobody ever finished, still spelled the way it was when the rest of the sentence was there."
             ],
             "es": [
               "Por lo demás el kana moderno es un carácter para un sonido. Estos tres no lo son, y son los únicos tres.",
-              "ha se lee wa cuando marca el tema. he se lee e cuando marca una dirección. wo se lee o, y en japonés contemporáneo no sirve para nada más que para marcar el complemento directo.",
-              "La trampa la señala la propia notificación: un wa dentro de una palabra es un wa de verdad, no la partícula. Dos de los saludos más frecuentes que vas a encontrar, konnichiha y konbanha, terminan en la partícula y se dicen con wa.",
+              "は se lee wa cuando marca el tema. へ se lee e cuando marca una dirección. を se lee o, y en japonés contemporáneo no sirve para nada más que para marcar el complemento directo. La tabla que sigue a esta página muestra cada uno dentro de una frase corta, con el romaji escrito como se dice la frase.",
+              "La trampa la señala la propia notificación: un wa dentro de una palabra es una わ de verdad, no la partícula, y una は dentro de una palabra es una ha normal, como en はな (hana, flor). Dos de los saludos más frecuentes que vas a encontrar, こんにちは y こんばんは, terminan en la partícula y se dicen con wa: konnichiwa, konbanwa.",
               "El porqué, que vale más que la regla. Hasta 1946 el japonés se escribía por historia y no por sonido, y una orden del gabinete de ese año reescribió toda la lengua según como se dice. Estos tres se dejaron aparte a propósito, y 現代仮名遣い, la notificación de 1986 que sustituyó a aquella orden, enuncia cada uno en una línea propia. Sobrevivieron porque marcan gramática y no sonido: cámbiales la grafía y pierdes la única señal de que se está marcando un tema, una dirección o un complemento.",
-              "Así que konnichiha no es una irregularidad. Es la partícula de tema de una frase sobre el día de hoy que nadie terminó nunca, escrita todavía como se escribía cuando el resto de la frase estaba ahí."
+              "Así que こんにちは no es una irregularidad. Es la partícula de tema de una frase sobre el día de hoy que nadie terminó nunca, escrita todavía como se escribía cuando el resto de la frase estaba ahí."
+            ]
+          }
+        },
+        {
+          "id": "p-particles-said",
+          "kind": "table",
+          "title": { "en": "Written one way, said another", "es": "Se escribe de una manera, se dice de otra" },
+          "columns": [
+            { "en": "Written", "es": "Se escribe" },
+            { "en": "Said", "es": "Se dice" }
+          ],
+          "rows": [
+            ["わたしは がくせいです", "watashi wa gakusee desu"],
+            ["がっこうへ いきます", "gakkoo e ikimasu"],
+            ["ほんを よみます", "hon o yomimasu"],
+            ["こんにちは", "konnichiwa"],
+            ["こんばんは", "konbanwa"],
+            ["はな", "hana"],
+            ["へや", "heya"]
+          ],
+          "note": {
+            "en": [
+              "In order: I am a student; I go to school; I read a book; hello; good evening; a flower; a room.",
+              "In the first three the kana is a particle, so it is said wa, e and o. The two greetings end in that same は. In the last two, は and へ sit inside a word, so they are a plain ha and he. The spaces in the sentences mark where one phrase ends, the way beginners' books print them."
+            ],
+            "es": [
+              "En orden: soy estudiante; voy a la escuela; leo un libro; hola; buenas noches; una flor; una habitación.",
+              "En las tres primeras el kana es una partícula, así que se dice wa, e y o. Los dos saludos terminan en esa misma は. En las dos últimas, は y へ están dentro de una palabra, así que son una ha y una he normales. Los espacios de las frases marcan dónde termina cada bloque, como los imprimen los libros para principiantes."
             ]
           }
         }
@@ -615,16 +1050,16 @@
           "id": "e-particles",
           "type": "choice",
           "skill": "kana.hiragana.read",
-          "title": { "en": "How is it read here?", "es": null },
+          "title": { "en": "How is it read here?", "es": "¿Cómo se lee aquí?" },
           "items": [
-            { "id": "prt:wa-topic", "written": "は in わたしはがくせいです", "read": "wa", "explain": "This は marks the topic, so it is read wa: watashi wa gakusei desu, I am a student." },
-            { "id": "prt:ha-word", "written": "は in はな", "read": "ha", "explain": "Inside a word は is a plain ha: hana, a flower. Only the particle is read wa." },
-            { "id": "prt:e-direction", "written": "へ in がっこうへいく", "read": "e", "explain": "This へ marks a direction, so it is read e: gakkou e iku, go to school." },
-            { "id": "prt:he-word", "written": "へ in へや", "read": "he", "explain": "Inside a word へ is a plain he: heya, a room." },
-            { "id": "prt:o-object", "written": "を in ほんをよむ", "read": "o", "explain": "を marks the direct object and is read o: hon o yomu, read a book. It is used for nothing else." },
-            { "id": "prt:wa-greeting", "written": "は in こんにちは", "read": "wa", "explain": "The greeting ends in the topic particle of a sentence nobody finishes, so it is wa: konnichiwa." },
-            { "id": "prt:ha-hai", "written": "は in はい", "read": "ha", "explain": "hai, yes, is a word, not a particle: plain ha." },
-            { "id": "prt:wa-evening", "written": "は in こんばんは", "read": "wa", "explain": "Same as konnichiwa: the greeting ends in the topic particle, so it is wa." }
+            { "id": "prt:wa-topic", "written": { "en": "は in わたしは がくせいです", "es": "は en わたしは がくせいです" }, "read": "wa", "explain": { "en": "This は marks the topic, so it is read wa: watashi wa gakusee desu, I am a student.", "es": "Esta は marca el tema, así que se lee wa: watashi wa gakusee desu, soy estudiante." } },
+            { "id": "prt:ha-word", "written": { "en": "は in はな", "es": "は en はな" }, "read": "ha", "explain": { "en": "Inside a word は is a plain ha: hana, a flower. Only the particle is read wa.", "es": "Dentro de una palabra は es una ha normal: hana, una flor. Solo la partícula se lee wa." } },
+            { "id": "prt:e-direction", "written": { "en": "へ in がっこうへ いきます", "es": "へ en がっこうへ いきます" }, "read": "e", "explain": { "en": "This へ marks a direction, so it is read e: gakkoo e ikimasu, I go to school.", "es": "Esta へ marca una dirección, así que se lee e: gakkoo e ikimasu, voy a la escuela." } },
+            { "id": "prt:he-word", "written": { "en": "へ in へや", "es": "へ en へや" }, "read": "he", "explain": { "en": "Inside a word へ is a plain he: heya, a room.", "es": "Dentro de una palabra へ es una he normal: heya, una habitación." } },
+            { "id": "prt:o-object", "written": { "en": "を in ほんを よみます", "es": "を en ほんを よみます" }, "read": "o", "explain": { "en": "を marks the direct object and is read o: hon o yomimasu, I read a book. It is used for nothing else.", "es": "を marca el complemento directo y se lee o: hon o yomimasu, leo un libro. No sirve para nada más." } },
+            { "id": "prt:wa-greeting", "written": { "en": "は in こんにちは", "es": "は en こんにちは" }, "read": "wa", "explain": { "en": "The greeting ends in the topic particle of a sentence nobody finishes, so it is wa: konnichiwa.", "es": "El saludo termina en la partícula de tema de una frase que nadie termina, así que es wa: konnichiwa." } },
+            { "id": "prt:ha-hai", "written": { "en": "は in はい", "es": "は en はい" }, "read": "ha", "explain": { "en": "hai, yes, is a word, not a particle: plain ha.", "es": "hai, sí, es una palabra y no una partícula: una ha normal." } },
+            { "id": "prt:wa-evening", "written": { "en": "は in こんばんは", "es": "は en こんばんは" }, "read": "wa", "explain": { "en": "Same as konnichiwa: the greeting ends in the topic particle, so it is wa: konbanwa.", "es": "Igual que konnichiwa: el saludo termina en la partícula de tema, así que es wa: konbanwa." } }
           ],
           "prompt": "written",
           "answer": "read",
@@ -636,25 +1071,31 @@
     },
     {
       "id": "confusables",
-      "title": { "en": "The pairs that catch everyone", "es": null },
+      "title": { "en": "The pairs that catch everyone", "es": "Los pares que confunden a todo el mundo" },
       "unlocks": {
         "en": "reading at speed, which is where a near-miss stops being harmless",
-        "es": null
+        "es": "leer con rapidez, que es donde un casi acierto deja de ser inofensivo"
       },
       "pages": [
         {
           "id": "p-confusables",
           "kind": "prose",
-          "title": { "en": "Learn them as contrasts, never one at a time", "es": null },
+          "title": { "en": "Learn them as contrasts, never one at a time", "es": "Apréndelos como contrastes, nunca de uno en uno" },
           "body": {
             "en": [
-              "sa against ki: ki has two crossbars, sa has one.",
-              "nu against me: nu ends in a loop, me does not.",
-              "wa, re and ne: the tail decides. wa curves in, re hooks out, ne loops.",
-              "ru against ro: ru closes into a loop, ro does not.",
+              "さ (sa) against き (ki): き has two crossbars, さ has one.",
+              "ぬ (nu) against め (me): ぬ ends in a loop, め does not.",
+              "わ (wa), れ (re) and ね (ne): the tail decides. わ curves in, れ hooks out, ね loops.",
+              "る (ru) against ろ (ro): る closes into a loop, ろ does not.",
               "The list of hiragana pairs is the researcher's own. No source enumerating them was found, which is worth knowing before you treat it as complete."
             ],
-            "es": null
+            "es": [
+              "さ (sa) frente a き (ki): き tiene dos travesaños, さ tiene uno.",
+              "ぬ (nu) frente a め (me): ぬ termina en un lazo, め no.",
+              "わ (wa), れ (re) y ね (ne): decide la cola. わ se curva hacia dentro, れ se engancha hacia fuera, ね hace un lazo.",
+              "る (ru) frente a ろ (ro): る se cierra en un lazo, ろ no.",
+              "La lista de pares del hiragana es de quien hizo la investigación. No se encontró ninguna fuente que los enumere, y conviene saberlo antes de darla por completa."
+            ]
           }
         },
         {
@@ -664,7 +1105,7 @@
             "kind": "svg",
             "src": "data/kanji/strokes-kana.json#さ",
             "render": "stroke-order",
-            "caption": { "en": "sa. One crossbar.", "es": null }
+            "caption": { "en": "さ (sa). One crossbar.", "es": "さ (sa). Un travesaño." }
           }
         },
         {
@@ -674,7 +1115,7 @@
             "kind": "svg",
             "src": "data/kanji/strokes-kana.json#き",
             "render": "stroke-order",
-            "caption": { "en": "ki. Two crossbars. The difference is the whole of it.", "es": null }
+            "caption": { "en": "き (ki). Two crossbars. The difference is the whole of it.", "es": "き (ki). Dos travesaños. La diferencia es toda esa." }
           }
         },
         {
@@ -715,13 +1156,16 @@
           "id": "p-speed",
           "kind": "callout",
           "tone": "note",
-          "title": { "en": "About timed rounds", "es": null },
+          "title": { "en": "About timed rounds", "es": "Sobre las rondas cronometradas" },
           "body": {
             "en": [
               "Every answer you give anywhere in this Book records how long it took, so speed is measured. Nothing here enforces it: there is no countdown and no round that fails you for being slow.",
               "That is a gap rather than a decision, and it is named here rather than dressed up. What exists today is the measurement."
             ],
-            "es": null
+            "es": [
+              "Cada respuesta que das en cualquier parte de este libro registra cuánto tardaste, así que la velocidad se mide. Nada aquí la exige: no hay cuenta atrás ni ninguna ronda que te suspenda por lento.",
+              "Eso es un hueco y no una decisión, y se nombra aquí en vez de disfrazarlo. Lo que existe hoy es la medición."
+            ]
           }
         },
         {
@@ -749,54 +1193,66 @@
           "id": "e-contrast-flip",
           "type": "read",
           "skill": "kana.hiragana.read",
-          "title": { "en": "One contrast at a time", "es": null },
+          "title": { "en": "One contrast at a time", "es": "Un contraste cada vez" },
           "pages": [
             {
               "id": "c-sa-ki",
               "kind": "prose",
-              "title": { "en": "sa against ki", "es": null },
+              "title": { "en": "さ against き", "es": "さ frente a き" },
               "body": {
                 "en": [
-                  "Both start with a horizontal stroke and both curve away to the left underneath it. ki has two crossbars where sa has one.",
-                  "Say them next to each other now: sa, ki, sa, ki. Learning them apart is what makes them fuse later."
+                  "Both start with a horizontal stroke and both curve away to the left underneath it. き (ki) has two crossbars where さ (sa) has one.",
+                  "Say them next to each other now: sa, ki, sa, ki. Learning them one at a time is what makes them fuse later."
                 ],
-                "es": null
+                "es": [
+                  "Las dos empiezan con un trazo horizontal y las dos se curvan hacia la izquierda por debajo. き (ki) tiene dos travesaños donde さ (sa) tiene uno.",
+                  "Dilas una junto a otra ahora: sa, ki, sa, ki. Aprenderlas de una en una es justo lo que hace que luego se fundan."
+                ]
               }
             },
             {
               "id": "c-nu-me",
               "kind": "prose",
-              "title": { "en": "nu against me", "es": null },
+              "title": { "en": "ぬ against め", "es": "ぬ frente a め" },
               "body": {
                 "en": [
-                  "The same body, and one of them ties a knot. nu finishes with a loop, me does not.",
+                  "The same body, and one of them ties a knot. ぬ (nu) finishes with a loop, め (me) does not.",
                   "nu, me, nu, me."
                 ],
-                "es": null
+                "es": [
+                  "El mismo cuerpo, y una de las dos hace un nudo. ぬ (nu) termina con un lazo, め (me) no.",
+                  "nu, me, nu, me."
+                ]
               }
             },
             {
               "id": "c-wa-re-ne",
               "kind": "prose",
-              "title": { "en": "wa, re and ne", "es": null },
+              "title": { "en": "わ, れ and ね", "es": "わ, れ y ね" },
               "body": {
                 "en": [
-                  "Three characters, one left-hand stroke, and the whole difference is what the tail does. wa curves back in. re hooks out. ne loops.",
+                  "Three characters, one left-hand stroke, and the whole difference is what the tail does. わ (wa) curves back in. れ (re) hooks out. ね (ne) loops.",
                   "This is the trio that costs beginners the most time, and it is the one where reading them as a set rather than one at a time actually pays."
                 ],
-                "es": null
+                "es": [
+                  "Tres caracteres, un mismo trazo a la izquierda, y toda la diferencia está en lo que hace la cola. わ (wa) se curva de vuelta hacia dentro. れ (re) se engancha hacia fuera. ね (ne) hace un lazo.",
+                  "Este es el trío que más tiempo cuesta a quien empieza, y es donde leerlos como un conjunto y no de uno en uno de verdad compensa."
+                ]
               }
             },
             {
               "id": "c-ru-ro",
               "kind": "prose",
-              "title": { "en": "ru against ro", "es": null },
+              "title": { "en": "る against ろ", "es": "る frente a ろ" },
               "body": {
                 "en": [
-                  "ru closes into a loop at the bottom. ro stops.",
+                  "る (ru) closes into a loop at the bottom. ろ (ro) stops.",
                   "Nothing is scored on these four pages. They are here to be looked at slowly, which is a different activity from being tested."
                 ],
-                "es": null
+                "es": [
+                  "る (ru) se cierra en un lazo abajo. ろ (ro) se detiene.",
+                  "En estas cuatro páginas no se califica nada. Están aquí para mirarlas despacio, que es una actividad distinta de que te pongan a prueba."
+                ]
               }
             }
           ]
@@ -805,7 +1261,7 @@
           "id": "e-mixed-type",
           "type": "typed",
           "skill": "kana.hiragana.write",
-          "title": { "en": "Type the s row from memory", "es": null },
+          "title": { "en": "Type the s row from memory", "es": "Escribe de memoria la fila s" },
           "items": "data/kana/hiragana.json#rows.s",
           "prompt": "romaji",
           "answer": "glyph",

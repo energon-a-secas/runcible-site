@@ -15,7 +15,7 @@
     "minutes": 180,
     "note": {
       "en": "Tofugu reports two days to two weeks, and frames three or four hours here as saving twenty later.",
-      "es": null
+      "es": "Tofugu habla de entre dos días y dos semanas, y presenta tres o cuatro horas aquí como un ahorro de veinte más adelante."
     }
   },
   "data": [
@@ -27,35 +27,56 @@
   "rungs": [
     {
       "id": "re-skin",
-      "title": { "en": "The same forty-six sounds, wearing different shapes", "es": null },
+      "title": { "en": "The same forty-six sounds, wearing different shapes", "es": "Los mismos cuarenta y seis sonidos, con otras formas" },
       "unlocks": {
         "en": "everything foreign, which is most of what a beginner can actually read in public",
-        "es": null
+        "es": "todo lo extranjero, que es casi todo lo que quien empieza puede leer de verdad en la calle"
       },
       "pages": [
         {
           "id": "p-reskin",
           "kind": "prose",
-          "title": { "en": "Nothing new is being learned here", "es": null },
+          "title": { "en": "Nothing new is being learned here", "es": "Aquí no se aprende nada nuevo" },
           "body": {
             "en": [
-              "Katakana is the same table in the same order with the same exceptions. shi, chi, tsu and fu still break their rows. The y row still has three. n still stands outside the grid.",
+              "Katakana is the same table in the same order with the same exceptions. シ (shi), チ (chi), ツ (tsu) and フ (fu) still break their rows. The y row still has three. ン (n) still stands outside the grid.",
               "This is why hiragana comes first everywhere. The second script is a re-skin, and it costs hours rather than days.",
               "It is also slower to stick, for one reason worth knowing in advance: katakana shows up less often, so there is less incidental practice. The drilling has to make up the difference."
             ],
-            "es": null
+            "es": [
+              "El katakana es la misma tabla en el mismo orden con las mismas excepciones. シ (shi), チ (chi), ツ (tsu) y フ (fu) siguen rompiendo sus filas. La fila y sigue teniendo tres. ン (n) sigue fuera de la cuadrícula.",
+              "Por eso el hiragana va primero en todas partes. La segunda escritura es la misma tabla con otra piel, y cuesta horas y no días.",
+              "También tarda más en fijarse, por una razón que conviene saber de antemano: el katakana aparece con menos frecuencia, así que hay menos práctica de paso. Los ejercicios tienen que compensar la diferencia."
+            ]
+          }
+        },
+        {
+          "id": "p-kata-chart-a-k",
+          "kind": "table",
+          "title": { "en": "The vowels and the k row", "es": "Las vocales y la fila k" },
+          "columns": [{ "en": "a", "es": "a" }, { "en": "i", "es": "i" }, { "en": "u", "es": "u" }, { "en": "e", "es": "e" }, { "en": "o", "es": "o" }],
+          "rows": [
+            ["ア a", "イ i", "ウ u", "エ e", "オ o"],
+            ["カ ka", "キ ki", "ク ku", "ケ ke", "コ ko"]
+          ],
+          "note": {
+            "en": ["Every chart in this chapter is laid out exactly like its hiragana twin in chapter 1, cell for cell, with the romaji beside each kana."],
+            "es": ["Cada cuadro de este capítulo está dispuesto exactamente como su gemelo en hiragana del capítulo 1, casilla por casilla, con el romaji junto a cada kana."]
           }
         },
         {
           "id": "p-when",
           "kind": "prose",
-          "title": { "en": "When a word is written in katakana", "es": null },
+          "title": { "en": "When a word is written in katakana", "es": "Cuándo se escribe una palabra en katakana" },
           "body": {
             "en": [
               "Foreign words and foreign names. Onomatopoeia. The names of animals and plants in scientific writing. Emphasis, roughly where English would use italics.",
               "For a beginner the first of those is the one that pays. It is the whole of chapter 0's win, made readable."
             ],
-            "es": null
+            "es": [
+              "Las palabras extranjeras y los nombres extranjeros. Las onomatopeyas. Los nombres de animales y plantas en textos científicos. El énfasis, más o menos donde el español usaría la cursiva.",
+              "Para quien empieza, la primera es la que compensa. Es toda la victoria del capítulo 0, ahora legible."
+            ]
           }
         },
         {
@@ -81,11 +102,20 @@
       ],
       "exercises": [
         {
+          "id": "e-kata-a-k-hints",
+          "type": "custom",
+          "module": "jp.kanahints",
+          "skill": "kana.katakana.read",
+          "title": { "en": "Learn the vowels and the k row with pictures", "es": "Aprende las vocales y la fila k con imágenes" },
+          "props": { "rows": ["vowels", "k"], "script": "katakana" },
+          "pass": { "accuracy": 0.8 }
+        },
+        {
           "id": "e-kata-vowels",
           "type": "quiz",
           "game": "sound",
           "skill": "kana.katakana.read",
-          "title": { "en": "The five vowels again", "es": null },
+          "title": { "en": "The five vowels again", "es": "Otra vez las cinco vocales" },
           "src": "books/japanese/sets/jp-katakana-sound.json",
           "filter": "row:vowels",
           "limit": 5,
@@ -96,7 +126,7 @@
           "type": "quiz",
           "game": "sound",
           "skill": "kana.katakana.read",
-          "title": { "en": "The k row", "es": null },
+          "title": { "en": "The k row", "es": "La fila k" },
           "src": "books/japanese/sets/jp-katakana-sound.json",
           "filter": "row:k",
           "limit": 5,
@@ -106,7 +136,7 @@
           "id": "e-kata-vowels-type",
           "type": "typed",
           "skill": "kana.katakana.write",
-          "title": { "en": "Type them in katakana", "es": null },
+          "title": { "en": "Type them in katakana", "es": "Escríbelas en katakana" },
           "items": "data/kana/katakana.json#rows.vowels",
           "prompt": "romaji",
           "answer": "glyph",
@@ -119,32 +149,61 @@
     },
     {
       "id": "middle-rows",
-      "title": { "en": "s, t, n, h and m", "es": null },
+      "title": { "en": "s, t, n, h and m", "es": "s, t, n, h y m" },
       "unlocks": {
         "en": "the middle of every borrowed word",
-        "es": null
+        "es": "el centro de toda palabra prestada"
       },
       "pages": [
         {
           "id": "p-pairs",
           "kind": "prose",
-          "title": { "en": "Read them against the hiragana you already have", "es": null },
+          "title": { "en": "Read them against the hiragana you already have", "es": "Léelos junto al hiragana que ya tienes" },
           "body": {
             "en": [
-              "Each of these characters carries the hiragana with the same sound alongside it in the data, because that pairing is the fastest way in. You are not learning sa, you are learning a second way to write sa.",
-              "Five shapes are close enough to their hiragana to feel free: he, which is practically the same character, and ka, se, mo and ya. The rest are not, and pretending otherwise wastes the hour."
+              "Each of these characters carries the hiragana with the same sound alongside it in the data, because that pairing is the fastest way in. You are not learning sa, you are learning a second way to write sa: サ beside さ.",
+              "Five shapes are close enough to their hiragana to feel free: ヘ (he), which is practically the same character as へ, and カ (ka), セ (se), モ (mo) and ヤ (ya). The rest are not, and pretending otherwise wastes the hour."
             ],
-            "es": null
+            "es": [
+              "Cada uno de estos caracteres lleva a su lado, en los datos, el hiragana con el mismo sonido, porque ese emparejamiento es la entrada más rápida. No estás aprendiendo sa, estás aprendiendo una segunda forma de escribir sa: サ junto a さ.",
+              "Cinco formas se parecen lo bastante a su hiragana como para salir gratis: ヘ (he), que es prácticamente el mismo carácter que へ, y カ (ka), セ (se), モ (mo) y ヤ (ya). Las demás no, y fingir lo contrario desperdicia la hora."
+            ]
+          }
+        },
+        {
+          "id": "p-kata-chart-middle",
+          "kind": "table",
+          "title": { "en": "The s, t, n, h and m rows", "es": "Las filas s, t, n, h y m" },
+          "columns": [{ "en": "a", "es": "a" }, { "en": "i", "es": "i" }, { "en": "u", "es": "u" }, { "en": "e", "es": "e" }, { "en": "o", "es": "o" }],
+          "rows": [
+            ["サ sa", "シ shi*", "ス su", "セ se", "ソ so"],
+            ["タ ta", "チ chi*", "ツ tsu*", "テ te", "ト to"],
+            ["ナ na", "ニ ni", "ヌ nu", "ネ ne", "ノ no"],
+            ["ハ ha", "ヒ hi", "フ fu*", "ヘ he", "ホ ho"],
+            ["マ ma", "ミ mi", "ム mu", "メ me", "モ mo"]
+          ],
+          "note": {
+            "en": ["* The row's consonant changes in this cell, exactly as it does in hiragana: shi, chi, tsu, fu."],
+            "es": ["* En esta casilla cambia la consonante de la fila, exactamente como en hiragana: shi, chi, tsu, fu."]
           }
         }
       ],
       "exercises": [
         {
+          "id": "e-kata-middle-hints",
+          "type": "custom",
+          "module": "jp.kanahints",
+          "skill": "kana.katakana.read",
+          "title": { "en": "Learn the s, t, n, h and m rows with pictures", "es": "Aprende las filas s, t, n, h y m con imágenes" },
+          "props": { "rows": ["s", "t", "n", "h", "m"], "script": "katakana" },
+          "pass": { "accuracy": 0.8 }
+        },
+        {
           "id": "e-kata-s",
           "type": "quiz",
           "game": "sound",
           "skill": "kana.katakana.read",
-          "title": { "en": "The s row", "es": null },
+          "title": { "en": "The s row", "es": "La fila s" },
           "src": "books/japanese/sets/jp-katakana-sound.json",
           "filter": "row:s",
           "limit": 5,
@@ -155,7 +214,7 @@
           "type": "quiz",
           "game": "sound",
           "skill": "kana.katakana.read",
-          "title": { "en": "The t row", "es": null },
+          "title": { "en": "The t row", "es": "La fila t" },
           "src": "books/japanese/sets/jp-katakana-sound.json",
           "filter": "row:t",
           "limit": 5,
@@ -166,7 +225,7 @@
           "type": "quiz",
           "game": "sound",
           "skill": "kana.katakana.read",
-          "title": { "en": "The n row", "es": null },
+          "title": { "en": "The n row", "es": "La fila n" },
           "src": "books/japanese/sets/jp-katakana-sound.json",
           "filter": "row:n",
           "limit": 5,
@@ -177,7 +236,7 @@
           "type": "quiz",
           "game": "sound",
           "skill": "kana.katakana.read",
-          "title": { "en": "The h row", "es": null },
+          "title": { "en": "The h row", "es": "La fila h" },
           "src": "books/japanese/sets/jp-katakana-sound.json",
           "filter": "row:h",
           "limit": 5,
@@ -188,7 +247,7 @@
           "type": "quiz",
           "game": "sound",
           "skill": "kana.katakana.read",
-          "title": { "en": "The m row", "es": null },
+          "title": { "en": "The m row", "es": "La fila m" },
           "src": "books/japanese/sets/jp-katakana-sound.json",
           "filter": "row:m",
           "limit": 5,
@@ -198,24 +257,45 @@
     },
     {
       "id": "kata-y-r-w",
-      "title": { "en": "y, r, w, and the four that look alike", "es": null },
+      "title": { "en": "y, r, w, and the four that look alike", "es": "y, r, w, y las cuatro que se parecen" },
       "unlocks": {
         "en": "reading at speed without guessing from context",
-        "es": null
+        "es": "leer con rapidez sin adivinar por el contexto"
       },
       "pages": [
         {
+          "id": "p-kata-chart-yrw",
+          "kind": "table",
+          "title": { "en": "The y, r and w rows, and ン", "es": "Las filas y, r y w, y ン" },
+          "columns": [{ "en": "a", "es": "a" }, { "en": "i", "es": "i" }, { "en": "u", "es": "u" }, { "en": "e", "es": "e" }, { "en": "o", "es": "o" }],
+          "rows": [
+            ["ヤ ya", "", "ユ yu", "", "ヨ yo"],
+            ["ラ ra", "リ ri", "ル ru", "レ re", "ロ ro"],
+            ["ワ wa", "", "", "", "ヲ o"],
+            ["ン n", "", "", "", ""]
+          ],
+          "note": {
+            "en": ["ヲ is in the chart because it is in the table, and you will almost never read it: the particle is written in hiragana."],
+            "es": ["ヲ está en el cuadro porque está en la tabla, y casi nunca la vas a leer: la partícula se escribe en hiragana."]
+          }
+        },
+        {
           "id": "p-confusable",
           "kind": "prose",
-          "title": { "en": "shi, tsu, so and n", "es": null },
+          "title": { "en": "シ, ツ, ソ and ン", "es": "シ, ツ, ソ y ン" },
           "body": {
             "en": [
               "These four are the reason katakana feels harder than it is. In print they differ only by the slant of the short strokes and by the direction the long stroke is drawn.",
-              "shi's short strokes come in low and flat, and its long stroke sweeps up from the bottom left. tsu's come down steep from the top, and its long stroke sweeps down from the top right.",
-              "so and n are the same contrast with one short stroke instead of two. Wikipedia states this case explicitly and adds that the difference is much clearer written with a brush than set in type.",
-              "wo exists in katakana and is almost never used. The particle is written in hiragana."
+              "シ (shi): its short strokes come in low and flat, and its long stroke sweeps up from the bottom left. ツ (tsu): its short strokes come down steep from the top, and its long stroke sweeps down from the top right.",
+              "ソ (so) and ン (n) are the same contrast with one short stroke instead of two. Wikipedia states this case explicitly and adds that the difference is much clearer written with a brush than set in type.",
+              "ヲ (o) exists in katakana and is almost never used. The particle is written in hiragana."
             ],
-            "es": null
+            "es": [
+              "Estas cuatro son la razón de que el katakana parezca más difícil de lo que es. En letra impresa solo se diferencian por la inclinación de los trazos cortos y por la dirección en que se traza el largo.",
+              "シ (shi): sus trazos cortos entran bajos y planos, y su trazo largo sube desde abajo a la izquierda. ツ (tsu): sus trazos cortos bajan empinados desde arriba, y su trazo largo baja desde arriba a la derecha.",
+              "ソ (so) y ン (n) son el mismo contraste con un trazo corto en vez de dos. Wikipedia menciona este caso de forma explícita y añade que la diferencia se ve mucho más clara escrita con pincel que en letra de imprenta.",
+              "ヲ (o) existe en katakana y casi nunca se usa. La partícula se escribe en hiragana."
+            ]
           }
         },
         {
@@ -225,7 +305,7 @@
             "kind": "svg",
             "src": "data/kanji/strokes-kana.json#シ",
             "render": "stroke-order",
-            "caption": { "en": "shi. Short strokes low and flat, long stroke upward.", "es": null }
+            "caption": { "en": "シ (shi). Short strokes low and flat, long stroke upward.", "es": "シ (shi). Trazos cortos bajos y planos, trazo largo hacia arriba." }
           }
         },
         {
@@ -235,17 +315,26 @@
             "kind": "svg",
             "src": "data/kanji/strokes-kana.json#ツ",
             "render": "stroke-order",
-            "caption": { "en": "tsu. Short strokes steep from above, long stroke downward.", "es": null }
+            "caption": { "en": "ツ (tsu). Short strokes steep from above, long stroke downward.", "es": "ツ (tsu). Trazos cortos empinados desde arriba, trazo largo hacia abajo." }
           }
         }
       ],
       "exercises": [
         {
+          "id": "e-kata-yrw-hints",
+          "type": "custom",
+          "module": "jp.kanahints",
+          "skill": "kana.katakana.read",
+          "title": { "en": "Learn the y, r and w rows, and the lone n, with pictures", "es": "Aprende las filas y, r y w, y la n sola, con imágenes" },
+          "props": { "rows": ["y", "r", "w", "moraic-n"], "script": "katakana" },
+          "pass": { "accuracy": 0.8 }
+        },
+        {
           "id": "e-kata-y",
           "type": "quiz",
           "game": "sound",
           "skill": "kana.katakana.read",
-          "title": { "en": "The y row", "es": null },
+          "title": { "en": "The y row", "es": "La fila y" },
           "src": "books/japanese/sets/jp-katakana-sound.json",
           "filter": "row:y",
           "limit": 3,
@@ -256,7 +345,7 @@
           "type": "quiz",
           "game": "sound",
           "skill": "kana.katakana.read",
-          "title": { "en": "The r row", "es": null },
+          "title": { "en": "The r row", "es": "La fila r" },
           "src": "books/japanese/sets/jp-katakana-sound.json",
           "filter": "row:r",
           "limit": 5,
@@ -266,7 +355,7 @@
           "id": "e-kata-t-type",
           "type": "typed",
           "skill": "kana.katakana.write",
-          "title": { "en": "Type the t row, where two of the four live", "es": null },
+          "title": { "en": "Type the t row, where two of the four live", "es": "Escribe la fila t, donde viven dos de las cuatro" },
           "items": "data/kana/katakana.json#rows.t",
           "prompt": "romaji",
           "answer": "glyph",
@@ -279,34 +368,99 @@
     },
     {
       "id": "kata-marked",
-      "title": { "en": "Marks, pairs, and the one katakana has that hiragana does not", "es": null },
+      "title": { "en": "Marks, pairs, and the one katakana has that hiragana does not", "es": "Marcas, pares, y el que tiene el katakana y no el hiragana" },
       "unlocks": {
         "en": "ordinary loanwords, the ones on a menu",
-        "es": null
+        "es": "los préstamos corrientes, los de un menú"
       },
       "pages": [
         {
+          "id": "p-kata-voiced-chart",
+          "kind": "table",
+          "title": { "en": "The marked rows, and ヴ", "es": "Las filas con marca, y ヴ" },
+          "columns": [{ "en": "a", "es": "a" }, { "en": "i", "es": "i" }, { "en": "u", "es": "u" }, { "en": "e", "es": "e" }, { "en": "o", "es": "o" }],
+          "rows": [
+            ["ガ ga", "ギ gi", "グ gu", "ゲ ge", "ゴ go"],
+            ["ザ za", "ジ ji*", "ズ zu", "ゼ ze", "ゾ zo"],
+            ["ダ da", "ヂ (ji)", "ヅ (zu)", "デ de", "ド do"],
+            ["バ ba", "ビ bi", "ブ bu", "ベ be", "ボ bo"],
+            ["パ pa", "ピ pi", "プ pu", "ペ pe", "ポ po"],
+            ["", "", "ヴ vu", "", ""]
+          ],
+          "note": {
+            "en": ["* The consonant changes in this cell: ji, not zi.", "( ) Sounds exactly like the z-row kana above it, and it is rare.", "ヴ sits alone in the last row because it is the only kana of its row. The page after the next one explains it."],
+            "es": ["* En esta casilla cambia la consonante: ji, no zi.", "( ) Suena exactamente igual que el kana de la fila z que tiene encima, y es poco frecuente.", "ヴ va sola en la última fila porque es el único kana de su fila. La página que sigue a la próxima la explica."]
+          }
+        },
+        {
+          "id": "p-kata-yoon-chart",
+          "kind": "table",
+          "title": { "en": "Small ャ, ュ and ョ", "es": "ャ, ュ y ョ pequeñas" },
+          "columns": [{ "en": "ya", "es": "ya" }, { "en": "yu", "es": "yu" }, { "en": "yo", "es": "yo" }],
+          "rows": [
+            ["キャ kya", "キュ kyu", "キョ kyo"],
+            ["シャ sha", "シュ shu", "ショ sho"],
+            ["チャ cha", "チュ chu", "チョ cho"],
+            ["ニャ nya", "ニュ nyu", "ニョ nyo"],
+            ["ヒャ hya", "ヒュ hyu", "ヒョ hyo"],
+            ["ミャ mya", "ミュ myu", "ミョ myo"],
+            ["リャ rya", "リュ ryu", "リョ ryo"],
+            ["ギャ gya", "ギュ gyu", "ギョ gyo"],
+            ["ジャ ja", "ジュ ju", "ジョ jo"],
+            ["ビャ bya", "ビュ byu", "ビョ byo"],
+            ["ピャ pya", "ピュ pyu", "ピョ pyo"]
+          ],
+          "note": {
+            "en": ["The same pairs as hiragana, with the same rule: a small ャ, ュ or ョ joins the kana before it, and the two are one beat."],
+            "es": ["Los mismos pares que en hiragana, con la misma regla: una ャ, ュ o ョ pequeña se une al kana de delante, y los dos son un solo tiempo."]
+          }
+        },
+        {
           "id": "p-v",
           "kind": "prose",
-          "title": { "en": "The v row exists here and nowhere else", "es": null },
+          "title": { "en": "The v row exists here and nowhere else", "es": "La fila v existe aquí y en ningún otro sitio" },
           "body": {
             "en": [
-              "Dakuten and handakuten work exactly as they do in hiragana. Katakana adds one character hiragana has no use for: u with two dots, which writes a v.",
-              "It is optional in practice. The same word is often written with the b row instead, and both spellings are correct: violin is baiorin or vaiorin, and the dictionary lists both."
+              "Dakuten and handakuten work exactly as they do in hiragana. Katakana adds one character hiragana has no use for: ウ with two dots, ヴ, which writes a v.",
+              "It is optional in practice. The same word is often written with the b row instead, and both spellings are correct: violin is バイオリン (baiorin) or ヴァイオリン (vaiorin), and the dictionary lists both."
             ],
-            "es": null
+            "es": [
+              "El dakuten y el handakuten funcionan exactamente como en hiragana. El katakana añade un carácter que el hiragana no necesita: ウ con dos puntos, ヴ, que escribe una v.",
+              "En la práctica es opcional. La misma palabra se escribe a menudo con la fila b, y las dos grafías son correctas: violín es バイオリン (baiorin) o ヴァイオリン (vaiorin), y el diccionario recoge las dos."
+            ]
           }
         },
         {
           "id": "p-bar",
           "kind": "prose",
-          "title": { "en": "The long vowel bar", "es": null },
+          "title": { "en": "The long vowel bar", "es": "La barra de vocal larga" },
           "body": {
             "en": [
-              "Katakana writes a long vowel with a bar rather than by adding a vowel kana. It is one beat of its own, so coffee is four beats and not two.",
-              "The bar is a kana character in its own right. It is not a dash and it is not punctuation, and it does not turn into one when a text checker sweeps a file."
+              "Katakana writes a long vowel with a bar, ー, rather than by adding a vowel kana. The bar is one beat of its own, so コーヒー (koohii, coffee) is four beats and not two: ko, o, hi, i.",
+              "In romaji the bar becomes the vowel doubled, the same as a long vowel in hiragana. The bar is a kana character in its own right. It is not a dash and it is not punctuation, and it does not turn into one when a text checker sweeps a file."
             ],
-            "es": null
+            "es": [
+              "El katakana escribe una vocal larga con una barra, ー, en vez de añadir un kana de vocal. La barra es un tiempo propio, así que コーヒー (koohii, café) son cuatro tiempos y no dos: ko, o, hi, i.",
+              "En romaji la barra se convierte en la vocal doblada, igual que una vocal larga en hiragana. La barra es un carácter kana por derecho propio. No es un guion ni un signo de puntuación, y no se convierte en uno cuando un corrector de texto repasa un archivo."
+            ]
+          }
+        },
+        {
+          "id": "p-bar-words",
+          "kind": "table",
+          "title": { "en": "Six words with the bar", "es": "Seis palabras con la barra" },
+          "columns": [{ "en": "Word", "es": "Palabra" }, { "en": "Said", "es": "Se dice" }, { "en": "Meaning", "es": "Significado" }],
+          "rows": [
+            ["コーヒー", "koohii", { "en": "coffee", "es": "café" }],
+            ["ケーキ", "keeki", { "en": "cake", "es": "pastel" }],
+            ["ビール", "biiru", { "en": "beer", "es": "cerveza" }],
+            ["ノート", "nooto", { "en": "notebook", "es": "cuaderno" }],
+            ["カード", "kaado", { "en": "card", "es": "tarjeta" }],
+            ["ゲーム", "geemu", { "en": "game", "es": "juego" }]
+          ],
+          "note": {
+            "en": ["Every bar is a beat: ケーキ is ke, e, ki, three beats, and ノート is no, o, to."],
+            "es": ["Cada barra es un tiempo: ケーキ es ke, e, ki, tres tiempos, y ノート es no, o, to."]
           }
         },
         {
@@ -334,13 +488,16 @@
           "id": "p-sokuon-kata",
           "kind": "callout",
           "tone": "note",
-          "title": { "en": "Small tsu, again", "es": null },
+          "title": { "en": "Small tsu, again", "es": "La tsu pequeña, otra vez" },
           "body": {
             "en": [
               "Same character, same silent beat, same doubling. In katakana it turns up constantly, because English words end in sharp consonants and Japanese hears them as a hold.",
-              "beddo, baggu, netto, poketto. In native words a small tsu never precedes g, z, d or b. Loanwords are the exception the writing system grants itself."
+              "ベッド (beddo), バッグ (baggu), ネット (netto), ポケット (poketto). In native words a small ッ never precedes g, z, d or b. Loanwords are the exception the writing system grants itself."
             ],
-            "es": null
+            "es": [
+              "El mismo carácter, el mismo tiempo de silencio, la misma duplicación. En katakana aparece constantemente, porque las palabras inglesas terminan en consonantes cortantes y el japonés las oye como una pausa sostenida.",
+              "ベッド (beddo), バッグ (baggu), ネット (netto), ポケット (poketto). En las palabras nativas una ッ pequeña nunca va delante de g, z, d o b. Los préstamos son la excepción que se concede el propio sistema de escritura."
+            ]
           }
         },
         {
@@ -371,7 +528,7 @@
           "type": "quiz",
           "game": "sound",
           "skill": "kana.katakana.read",
-          "title": { "en": "The g row", "es": null },
+          "title": { "en": "The g row", "es": "La fila g" },
           "src": "books/japanese/sets/jp-katakana-sound.json",
           "filter": "row:g",
           "limit": 5,
@@ -382,7 +539,7 @@
           "type": "quiz",
           "game": "sound",
           "skill": "kana.katakana.read",
-          "title": { "en": "The b row", "es": null },
+          "title": { "en": "The b row", "es": "La fila b" },
           "src": "books/japanese/sets/jp-katakana-sound.json",
           "filter": "row:b",
           "limit": 5,
@@ -393,7 +550,7 @@
           "type": "quiz",
           "game": "sound",
           "skill": "kana.katakana.read",
-          "title": { "en": "The p row", "es": null },
+          "title": { "en": "The p row", "es": "La fila p" },
           "src": "books/japanese/sets/jp-katakana-sound.json",
           "filter": "row:p",
           "limit": 5,
@@ -404,7 +561,7 @@
           "type": "quiz",
           "game": "sound",
           "skill": "kana.katakana.read",
-          "title": { "en": "Small ya, yu and yo", "es": null },
+          "title": { "en": "Small ya, yu and yo", "es": "ya, yu y yo pequeñas" },
           "src": "books/japanese/sets/jp-katakana-sound.json",
           "filter": "column:ya,yu,yo",
           "limit": 10,
@@ -414,7 +571,7 @@
           "id": "e-kata-yoon-type",
           "type": "typed",
           "skill": "kana.katakana.write",
-          "title": { "en": "Type the pair", "es": null },
+          "title": { "en": "Type the pair", "es": "Escribe el par" },
           "items": "data/kana/katakana.json#yoon",
           "prompt": "romaji",
           "answer": "glyph",
@@ -445,62 +602,104 @@
     },
     {
       "id": "extended",
-      "title": { "en": "The digraphs that only exist for foreign sounds", "es": null },
+      "title": { "en": "The digraphs that only exist for foreign sounds", "es": "Los dígrafos que solo existen para sonidos extranjeros" },
       "unlocks": {
         "en": "converting an unknown English word yourself, which is the last rung of the whole kana ladder",
-        "es": null
+        "es": "convertir tú mismo una palabra inglesa desconocida, que es el último peldaño de toda la escalera del kana"
       },
       "pages": [
         {
           "id": "p-extended",
           "kind": "prose",
-          "title": { "en": "A full-size kana plus a small vowel", "es": null },
+          "title": { "en": "A full-size kana plus a small vowel", "es": "Un kana de tamaño normal más una vocal pequeña" },
           "body": {
             "en": [
               "Japanese has no fa, fi, fe or fo beat, no ti, no di, no wi, no we. Katakana builds them: a full-size kana that has the right consonant, followed by a small vowel that overrides its own.",
-              "fu plus a small a is fa. te plus a small i is ti. u plus a small i is wi. That is the whole mechanism, and once you see it the table stops needing to be memorised.",
+              "フ (fu) plus a small ァ is ファ (fa). テ (te) plus a small ィ is ティ (ti). ウ (u) plus a small ィ is ウィ (wi). That is the whole mechanism, and once you see it the table stops needing to be memorised.",
               "The 1991 Cabinet Notice splits them in two. Table 1 is the general-purpose set that ordinary writing uses. Table 2 is for writing as close to the original as possible, and the Notice explicitly sanctions falling back to table 1."
             ],
-            "es": null
+            "es": [
+              "El japonés no tiene los tiempos fa, fi, fe ni fo, ni ti, ni di, ni wi, ni we. El katakana los construye: un kana de tamaño normal que tiene la consonante adecuada, seguido de una vocal pequeña que sustituye a la suya.",
+              "フ (fu) más una ァ pequeña es ファ (fa). テ (te) más una ィ pequeña es ティ (ti). ウ (u) más una ィ pequeña es ウィ (wi). Ese es todo el mecanismo, y en cuanto lo ves la tabla deja de necesitar memorizarse.",
+              "El aviso del gabinete de 1991 los divide en dos. La tabla 1 es el conjunto de uso general que usa la escritura corriente. La tabla 2 es para escribir lo más cerca posible del original, y el aviso permite de forma explícita volver a la tabla 1."
+            ]
           }
         },
         {
           "id": "p-extended-table",
           "kind": "table",
-          "title": { "en": "The ones worth recognising", "es": null },
-          "columns": [
-            { "en": "Built from", "es": null },
-            { "en": "Reads as", "es": null },
-            { "en": "In a word you know", "es": null }
-          ],
+          "title": { "en": "Table 1: the general-purpose set", "es": "Tabla 1: el conjunto de uso general" },
+          "columns": [{ "en": "Kana", "es": "Kana" }, { "en": "In a word", "es": "En una palabra" }],
           "rows": [
-            ["fu plus small a, i, e, o", "fa, fi, fe, fo", "fooku, a fork"],
-            ["te plus small i", "ti", "paatii, a party"],
-            ["de plus small i", "di", "dijitaru, digital"],
-            ["shi plus small e", "she", "shefu, a chef"],
-            ["chi plus small e", "che", "chesu, chess"],
-            ["ji plus small e", "je", "jetto, a jet"],
-            ["u plus small i, e, o", "wi, we, wo", "uisukii or wisukii, whisky"],
-            ["u with two dots", "v", "baiorin or vaiorin, a violin"]
+            ["ティ ti", { "en": "パーティー (paatii), party", "es": "パーティー (paatii), fiesta" }],
+            ["ディ di", { "en": "ディスコ (disuko), disco", "es": "ディスコ (disuko), discoteca" }],
+            ["ファ fa", { "en": "ファン (fan), fan", "es": "ファン (fan), aficionado" }],
+            ["フィ fi", { "en": "フィルム (firumu), film", "es": "フィルム (firumu), película" }],
+            ["フェ fe", { "en": "カフェ (kafe), café", "es": "カフェ (kafe), cafetería" }],
+            ["フォ fo", { "en": "フォーク (fooku), fork", "es": "フォーク (fooku), tenedor" }],
+            ["シェ she", { "en": "シェフ (shefu), chef", "es": "シェフ (shefu), chef" }],
+            ["ジェ je", { "en": "ジェット (jetto), jet", "es": "ジェット (jetto), jet" }],
+            ["チェ che", { "en": "チェス (chesu), chess", "es": "チェス (chesu), ajedrez" }],
+            ["ツァ tsa", { "en": "モーツァルト (mootsaruto), Mozart", "es": "モーツァルト (mootsaruto), Mozart" }],
+            ["ツェ tse", { "en": "rare", "es": "poco frecuente" }],
+            ["ツォ tso", { "en": "カンツォーネ (kantsoone), canzone", "es": "カンツォーネ (kantsoone), canzone" }],
+            ["デュ dyu", { "en": "デュエット (dyuetto), duet", "es": "デュエット (dyuetto), dúo" }]
           ],
           "note": {
             "en": [
-              "The data file carries thirty-three of these with no romaji at all, because the research report lists the characters and never spells them. That is left as it is rather than filled in from memory, so this table is the smaller, sourced half."
+              "The data file behind the drills carries these characters with no romaji, because the research report never spelled them. The romaji here is this Book's own, built the way the kana is: the consonant of the full-size kana plus the small vowel, so テ plus ィ is ti. Party, chess and jet are the examples the loanword rules behind this chapter give for table 1, and Venice, quark and cartoon the ones they give for table 2; the other words are common borrowings, picked so that each digraph appears once."
             ],
-            "es": null
+            "es": [
+              "El archivo de datos que hay detrás de los ejercicios trae estos caracteres sin romaji, porque el informe de investigación nunca los deletreó. El romaji de aquí es del propio libro, construido como el kana: la consonante del kana de tamaño normal más la vocal pequeña, así que テ más ィ es ti. Fiesta, ajedrez y jet son los ejemplos que dan para la tabla 1 las reglas de préstamos que hay detrás de este capítulo, y Venecia, quark y dibujos animados los que dan para la tabla 2; las demás palabras son préstamos corrientes, elegidos para que cada dígrafo aparezca una vez."
+            ]
+          }
+        },
+        {
+          "id": "p-extended-table-2",
+          "kind": "table",
+          "title": { "en": "Table 2: closer to the original", "es": "Tabla 2: más cerca del original" },
+          "columns": [{ "en": "Kana", "es": "Kana" }, { "en": "In a word", "es": "En una palabra" }],
+          "rows": [
+            ["トゥ tu", { "en": "カートゥーン (kaatuun), cartoon", "es": "カートゥーン (kaatuun), caricatura" }],
+            ["ドゥ du", { "en": "rare", "es": "poco frecuente" }],
+            ["ウィ wi", { "en": "ウィスキー (wisukii), whisky", "es": "ウィスキー (wisukii), whisky" }],
+            ["ウェ we", { "en": "ウェブ (webu), the web", "es": "ウェブ (webu), la web" }],
+            ["ウォ wo", { "en": "ウォッカ (wokka), vodka", "es": "ウォッカ (wokka), vodka" }],
+            ["ツィ tsi", { "en": "ヴェネツィア (venetsia), Venice", "es": "ヴェネツィア (venetsia), Venecia" }],
+            ["テュ tyu", { "en": "rare", "es": "poco frecuente" }],
+            ["フュ fyu", { "en": "フュージョン (fyuujon), fusion", "es": "フュージョン (fyuujon), fusión" }],
+            ["イェ ye", { "en": "rare", "es": "poco frecuente" }],
+            ["クァ kwa", { "en": "rare", "es": "poco frecuente" }],
+            ["クィ kwi", { "en": "rare", "es": "poco frecuente" }],
+            ["クェ kwe", { "en": "rare", "es": "poco frecuente" }],
+            ["クォ kwo", { "en": "クォーク (kwooku), quark", "es": "クォーク (kwooku), quark" }],
+            ["グァ gwa", { "en": "rare", "es": "poco frecuente" }],
+            ["ヴァ va", { "en": "ヴァイオリン (vaiorin), violin", "es": "ヴァイオリン (vaiorin), violín" }],
+            ["ヴィ vi", { "en": "rare", "es": "poco frecuente" }],
+            ["ヴ vu", { "en": "rare", "es": "poco frecuente" }],
+            ["ヴェ ve", { "en": "ヴェネツィア (venetsia), Venice", "es": "ヴェネツィア (venetsia), Venecia" }],
+            ["ヴォ vo", { "en": "rare", "es": "poco frecuente" }],
+            ["ヴュ vyu", { "en": "rare", "es": "poco frecuente" }]
+          ],
+          "note": {
+            "en": ["Every one of these has a table 1 spelling the Notice accepts instead: ヴァ can be バ, トゥ can be ツ or ト, ウォ can be ウオ, イェ can be イエ, so whisky is also ウイスキー and a violin also バイオリン. Most are rare outside names and technical words, which is why several rows have no everyday example."],
+            "es": ["Cada uno de estos tiene una grafía de la tabla 1 que el aviso acepta en su lugar: ヴァ puede ser バ, トゥ puede ser ツ o ト, ウォ puede ser ウオ, イェ puede ser イエ, así que whisky es también ウイスキー y un violín también バイオリン. La mayoría son poco frecuentes fuera de nombres y palabras técnicas, y por eso varias filas no tienen ejemplo de uso diario."]
           }
         },
         {
           "id": "p-both-right",
           "kind": "callout",
           "tone": "win",
-          "title": { "en": "Sometimes two spellings are both correct", "es": null },
+          "title": { "en": "Sometimes two spellings are both correct", "es": "A veces las dos grafías son correctas" },
           "body": {
             "en": [
-              "whisky is uisukii and wisukii. violin is baiorin and vaiorin. computer is konpyuutaa in general use and konpyuuta in industry style.",
+              "whisky is ウイスキー (uisukii) and ウィスキー (wisukii). violin is バイオリン (baiorin) and ヴァイオリン (vaiorin). computer is コンピューター (konpyuutaa) in general use and コンピュータ (konpyuuta) in industry style.",
               "The game below accepts every spelling the dictionary lists. A grader that took only the first would be marking correct Japanese wrong."
             ],
-            "es": null
+            "es": [
+              "whisky es ウイスキー (uisukii) y ウィスキー (wisukii). violín es バイオリン (baiorin) y ヴァイオリン (vaiorin). computadora es コンピューター (konpyuutaa) en el uso general y コンピュータ (konpyuuta) en el estilo técnico.",
+              "El juego de abajo acepta todas las grafías que recoge el diccionario. Un corrector que aceptara solo la primera estaría marcando como incorrecto un japonés correcto."
+            ]
           }
         }
       ],
@@ -509,7 +708,7 @@
           "id": "e-kata-read-words",
           "type": "choice",
           "skill": "kana.katakana.read",
-          "title": { "en": "Read the word, pick the meaning", "es": null },
+          "title": { "en": "Read the word, pick the meaning", "es": "Lee la palabra, elige el significado" },
           "items": "data/loanwords/seed.json#entries",
           "prompt": "katakana",
           "answer": "en",
@@ -521,35 +720,42 @@
     },
     {
       "id": "write-it",
-      "title": { "en": "Write this English word in katakana", "es": null },
+      "title": { "en": "Write this English word in katakana", "es": "Escribe esta palabra inglesa en katakana" },
       "unlocks": {
         "en": "the reverse direction, which is the one that proves you have it",
-        "es": null
+        "es": "la dirección inversa, que es la que demuestra que lo tienes"
       },
       "pages": [
         {
           "id": "p-write",
           "kind": "prose",
-          "title": { "en": "Producing it is a different skill from reading it", "es": null },
+          "title": { "en": "Producing it is a different skill from reading it", "es": "Producirlo es una habilidad distinta de leerlo" },
           "body": {
             "en": [
               "Recognition is cheap and typing it back is not. Every guide that charges money makes the same bet: typed production recall, not multiple choice, is what makes an item stick.",
               "Type romaji and it turns into katakana as you go. The keyboard is the same one you already have, and no operating system input method is needed.",
               "Two things the converter needs from you. A long vowel bar is typed as a hyphen, so coffee is ko-hi-. And a lone n has to be typed twice, because a single n might still be the start of na or ni, so pen is penn."
             ],
-            "es": null
+            "es": [
+              "Reconocer es barato y escribirlo de vuelta no. Todas las guías que cobran hacen la misma apuesta: el recuerdo escrito, no la opción múltiple, es lo que hace que algo se quede.",
+              "Escribe romaji y se convierte en katakana a medida que escribes. El teclado es el mismo que ya tienes, y no hace falta ningún método de entrada del sistema operativo.",
+              "El conversor necesita dos cosas de ti. La barra de vocal larga se escribe con un guion, así que coffee es ko-hi-. Y una n suelta hay que escribirla dos veces, porque una sola n todavía podría ser el principio de na o ni, así que pen es penn."
+            ]
           }
         },
         {
           "id": "p-hints",
           "kind": "prose",
-          "title": { "en": "The hints come from the rules, the marking does not", "es": null },
+          "title": { "en": "The hints come from the rules, the marking does not", "es": "Las pistas salen de las reglas, la corrección no" },
           "body": {
             "en": [
               "Press Hint and the rules that apply to the word are shown: which vowel gets inserted, whether a consonant doubles, whether a long vowel appears.",
               "The marking is against the verified word list only. That is not a shortcut, it is the finding: about eighty percent of the mapping is deterministic and the rest is convention, so a rule engine would confidently mark camera and cake and bread wrong."
             ],
-            "es": null
+            "es": [
+              "Pulsa el botón Hint y se muestran las reglas que se aplican a la palabra: qué vocal se inserta, si una consonante se duplica, si aparece una vocal larga.",
+              "La corrección se hace solo contra la lista de palabras verificadas. No es un atajo, es el hallazgo: cerca del ochenta por ciento de la conversión es determinista y el resto es convención, así que un motor de reglas marcaría como incorrectas camera, cake y bread con total seguridad."
+            ]
           }
         },
         {
@@ -579,7 +785,7 @@
           "type": "custom",
           "module": "jp.loanword",
           "skill": "jp.loanword.write",
-          "title": { "en": "Write it in katakana", "es": null },
+          "title": { "en": "Write it in katakana", "es": "Escríbelo en katakana" },
           "items": "data/loanwords/seed.json#entries",
           "count": 10,
           "props": { "rules": "data/loanwords/rules.json#rules" }
@@ -589,7 +795,7 @@
           "type": "custom",
           "module": "jp.loanword",
           "skill": "jp.loanword.write",
-          "title": { "en": "The harder list, including the two with two right answers", "es": null },
+          "title": { "en": "The harder list, including the two with two right answers", "es": "La lista difícil, con las dos que tienen dos respuestas correctas" },
           "items": "data/loanwords/seed.json#verified.entries",
           "count": 8,
           "props": { "rules": "data/loanwords/rules.json#rules" }
@@ -598,23 +804,27 @@
     },
     {
       "id": "your-name",
-      "title": { "en": "Your name in katakana", "es": null },
+      "title": { "en": "Your name in katakana", "es": "Tu nombre en katakana" },
       "unlocks": {
         "en": "nothing measurable. It is the thing everyone wants on the first day and it is not a test.",
-        "es": null
+        "es": "nada medible. Es lo que todo el mundo quiere el primer día y no es una prueba."
       },
       "pages": [
         {
           "id": "p-name",
           "kind": "prose",
-          "title": { "en": "You supply the sounds, it supplies the kana", "es": null },
+          "title": { "en": "You supply the sounds, it supplies the kana", "es": "Tú pones los sonidos y él pone el kana" },
           "body": {
             "en": [
               "Do not type your name. Type how it sounds, one beat at a time, exactly as chapter 0 taught: Luciano is ru-shi-a-no, Smith is su-mi-su, Kate is ke-i-to.",
               "That split is not a limitation being apologised for. Turning a spelling into a pronunciation needs a pronunciation dictionary, and this site does not carry one, so a converter fed raw letters produces confident nonsense. Feeding it beats is the half of the job that is genuinely deterministic.",
               "Nothing here is scored. There is no dictionary entry to grade a name against, a Japanese speaker would write it by ear, and two people spelled the same can end up written differently and both be right."
             ],
-            "es": null
+            "es": [
+              "No escribas tu nombre. Escribe cómo suena, un tiempo cada vez, exactamente como enseñó el capítulo 0: Luciano es ru-shi-a-no, Smith es su-mi-su, Kate es ke-i-to.",
+              "Esa división no es una limitación por la que se pidan disculpas. Convertir una grafía en una pronunciación necesita un diccionario de pronunciación, y este sitio no lo tiene, así que un conversor alimentado con letras sueltas produce disparates con total seguridad. Alimentarlo con tiempos es la mitad del trabajo que de verdad es determinista.",
+              "Aquí no se califica nada. No hay entrada de diccionario contra la que calificar un nombre, alguien que habla japonés lo escribiría de oído, y dos personas que se escriben igual pueden acabar escritas de forma distinta y estar las dos bien."
+            ]
           }
         }
       ],
@@ -624,7 +834,7 @@
           "type": "custom",
           "module": "jp.namer",
           "skill": "kana.katakana.write",
-          "title": { "en": "Your name in katakana", "es": null },
+          "title": { "en": "Your name in katakana", "es": "Tu nombre en katakana" },
           "props": { "rules": "data/loanwords/rules.json#rules" }
         }
       ]

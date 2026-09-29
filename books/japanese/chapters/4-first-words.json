@@ -31,13 +31,16 @@
         {
           "id": "p-greetings",
           "kind": "prose",
-          "title": { "en": "Two of these end in a particle", "es": null },
+          "title": { "en": "Two of these end in a particle", "es": "Dos de estos terminan en una partícula" },
           "body": {
             "en": [
-              "konnichiha and konbanha are written with the topic particle on the end and said with wa. They are the leftover of a sentence nobody finishes any more.",
+              "こんにちは (konnichiwa) and こんばんは (konbanwa) are written with the topic particle は on the end and said with wa. They are the leftover of a sentence nobody finishes any more.",
               "That is the rule from chapter 1 turning up in the first two words you learn, which is the reason the particles rung came before this chapter rather than after it."
             ],
-            "es": null
+            "es": [
+              "こんにちは (konnichiwa) y こんばんは (konbanwa) se escriben con la partícula de tema は al final y se dicen con wa. Son lo que queda de una frase que ya nadie termina.",
+              "Es la regla del capítulo 1 apareciendo en las dos primeras palabras que aprendes, y por eso el peldaño de las partículas vino antes de este capítulo y no después."
+            ]
           }
         },
         {
@@ -49,13 +52,13 @@
           },
           "body": {
             "en": [
-              "ohayou, ocha, okane: a lot of the first words anybody learns start with a small politeness prefix, and there are two of them. The rule is one line, and 敬語の指針, the Cultural Council's 2007 report on polite language, states it that way: o goes on native Japanese words, go goes on words built from Chinese-derived characters. onamae, oisogashii, otegami, osake against gojuusho, gorippa, gosetsumei, goshuugi.",
-              "The exceptions are the interesting part, and the same report raises them itself. A large slice of everyday o is not honorific at all. The report gives it a category of its own, 美化語, beautification: osake in a sentence about how good a drink is raises nobody, it just speaks of the thing nicely, which is why it turns up with no listener in mind. And beautification breaks the native and Chinese split without apology: oryouri and okeshou take o in front of Chinese-derived words, and so do okagen and ogenki.",
+              "ohayoo, ocha, okane: a lot of the first words anybody learns start with a small politeness prefix, and there are two of them. The rule is one line, and 敬語の指針, the Cultural Council's 2007 report on polite language, states it that way: o goes on native Japanese words, go goes on words built from Chinese-derived characters. onamae, oisogashii, otegami, osake against gojuusho, gorippa, gosetsumee, goshuugi.",
+              "The exceptions are the interesting part, and the same report raises them itself. A large slice of everyday o is not honorific at all. The report gives it a category of its own, 美化語, beautification: osake in a sentence about how good a drink is raises nobody, it just speaks of the thing nicely, which is why it turns up with no listener in mind. And beautification breaks the native and Chinese split without apology: oryoori and okeshoo take o in front of Chinese-derived words, and so do okagen and ogenki.",
               "One more thing to expect on the page. The prefix is written three ways. Public documents write it 御 in front of a Chinese-derived word in kanji, 御案内 and 御礼, and in kana in front of anything else, お願い and ごちそう; ordinary writing often spells it in kana even before a kanji word, and the choice depends partly on word origin, partly on register, and partly on whether the base word contains a character outside the everyday list. So o, go and 御 are one prefix wearing three coats, and none of the three is a different word."
             ],
             "es": [
-              "ohayou, ocha, okane: muchas de las primeras palabras que aprende cualquiera empiezan por un pequeño prefijo de cortesía, y hay dos. La regla es una línea, y 敬語の指針, el informe de 2007 del Consejo de Cultura sobre el lenguaje de cortesía, la enuncia así: o va con palabras japonesas nativas, go va con palabras formadas por caracteres de origen chino. onamae, oisogashii, otegami, osake frente a gojuusho, gorippa, gosetsumei, goshuugi.",
-              "Las excepciones son lo interesante, y el mismo informe las plantea él solo. Buena parte del o cotidiano no es honorífico en absoluto. El informe le da una categoría propia, 美化語, embellecimiento: osake en una frase sobre lo buena que está una bebida no eleva a nadie, solo habla de la cosa con cariño, y por eso aparece sin ningún oyente en mente. Y el embellecimiento rompe la división entre nativo y chino sin pedir permiso: oryouri y okeshou llevan o delante de palabras de origen chino, y también okagen y ogenki.",
+              "ohayoo, ocha, okane: muchas de las primeras palabras que aprende cualquiera empiezan por un pequeño prefijo de cortesía, y hay dos. La regla es una línea, y 敬語の指針, el informe de 2007 del Consejo de Cultura sobre el lenguaje de cortesía, la enuncia así: o va con palabras japonesas nativas, go va con palabras formadas por caracteres de origen chino. onamae, oisogashii, otegami, osake frente a gojuusho, gorippa, gosetsumee, goshuugi.",
+              "Las excepciones son lo interesante, y el mismo informe las plantea él solo. Buena parte del o cotidiano no es honorífico en absoluto. El informe le da una categoría propia, 美化語, embellecimiento: osake en una frase sobre lo buena que está una bebida no eleva a nadie, solo habla de la cosa con cariño, y por eso aparece sin ningún oyente en mente. Y el embellecimiento rompe la división entre nativo y chino sin pedir permiso: oryoori y okeshoo llevan o delante de palabras de origen chino, y también okagen y ogenki.",
               "Una cosa más que esperar en la página. El prefijo se escribe de tres maneras. Los documentos públicos lo escriben 御 delante de una palabra de origen chino en kanji, 御案内 y 御礼, y en kana delante de cualquier otra cosa, お願い y ごちそう; la escritura corriente lo pone a menudo en kana incluso delante de una palabra en kanji, y la elección depende en parte del origen de la palabra, en parte del registro, y en parte de si la palabra base lleva un carácter fuera de la lista de uso común. Así que o, go y 御 son un solo prefijo con tres abrigos, y ninguno de los tres es una palabra distinta."
             ]
           }
@@ -203,13 +206,16 @@
         {
           "id": "p-days",
           "kind": "prose",
-          "title": { "en": "The week is named after the elements", "es": null },
+          "title": { "en": "The week is named after the elements", "es": "La semana lleva el nombre de los elementos" },
           "body": {
             "en": [
-              "Monday is moon, Tuesday is fire, Wednesday is water, Thursday is wood, Friday is metal, Saturday is earth, Sunday is sun. Every one of them ends in the same three beats, yo-u-bi.",
+              "Monday is moon, Tuesday is fire, Wednesday is water, Thursday is wood, Friday is metal, Saturday is earth, Sunday is sun. Every one of them ends in the same three beats, ようび, said yoobi: the う is the second beat of a long o, as chapter 1 showed.",
               "The kanji for these are in chapter 6. Here they are kana, and the kana is enough to say them."
             ],
-            "es": null
+            "es": [
+              "El lunes es la luna, el martes el fuego, el miércoles el agua, el jueves la madera, el viernes el metal, el sábado la tierra y el domingo el sol. Todos terminan en los mismos tres tiempos, ようび, que se dice yoobi: la う es el segundo tiempo de una o larga, como mostró el capítulo 1.",
+              "Los kanji de estos días están en el capítulo 6. Aquí van en kana, y el kana basta para decirlos."
+            ]
           }
         }
       ],
@@ -251,15 +257,20 @@
         {
           "id": "p-counters",
           "kind": "prose",
-          "title": { "en": "A number alone is not a quantity", "es": null },
+          "title": { "en": "A number alone is not a quantity", "es": "Un número solo no es una cantidad" },
           "body": {
             "en": [
               "Japanese puts a classifier between the number and the thing, chosen by the shape or the kind of the thing. Flat things take one counter, long thin things take another, machines take another, people take another.",
               "English does this too and only for some nouns: two sheets of paper, three head of cattle. Japanese does it for all of them.",
-              "The one to learn first is tsu: hitotsu, futatsu, mittsu, yottsu, itsutsu, muttsu, nanatsu, yattsu, kokonotsu, too. It has its own set of number words, which is why it is worth learning as ten fixed words, and it is the escape hatch when you do not know the right counter. The drill below has ko instead, the everyday counter for small objects, which takes the ordinary numbers: ikko, niko, sanko.",
+              "The one to learn first is tsu: hitotsu, futatsu, mittsu, yottsu, itsutsu, muttsu, nanatsu, yattsu, kokonotsu, too. It has its own set of number words, which is why it is worth learning as ten fixed words, and it is the escape hatch when you do not know the right counter. Its everyday partner for small objects is ko, which takes the ordinary numbers and clips the same four the table below clips: ikko, niko, sanko, and further up rokko, hakko and jukko. The drill below asks for ko once, and every prompt names the counter it wants, because an apple counted with tsu is not a wrong answer.",
               "People are the other irregular set worth having from day one: one person is hitori, two is futari, and from three on it is the ordinary number plus nin, sannin."
             ],
-            "es": null
+            "es": [
+              "El japonés pone un clasificador entre el número y la cosa, elegido por la forma o el tipo de la cosa. Las cosas planas llevan un contador, las largas y finas otro, las máquinas otro, las personas otro.",
+              "El español también lo hace, y solo con algunos sustantivos: dos hojas de papel, tres cabezas de ganado. El japonés lo hace con todos.",
+              "El primero que conviene aprender es tsu: hitotsu, futatsu, mittsu, yottsu, itsutsu, muttsu, nanatsu, yattsu, kokonotsu, too. Tiene su propio juego de números, y por eso vale la pena aprenderlo como diez palabras fijas, y es la salida de emergencia cuando no sabes el contador correcto. Su compañero de todos los días para los objetos pequeños es ko, que toma los números normales y recorta los mismos cuatro que recorta la tabla de abajo: ikko, niko, sanko, y más arriba rokko, hakko y jukko. El ejercicio de abajo pide ko una vez, y cada pregunta nombra el contador que quiere, porque una manzana contada con tsu no es una respuesta incorrecta.",
+              "Las personas son el otro juego irregular que vale la pena tener desde el primer día: una persona es hitori, dos es futari, y desde tres es el número normal más nin, sannin."
+            ]
           }
         },
         {
@@ -347,13 +358,14 @@
             { "id": "cnt:にだい", "en": "two cars", "kana": "にだい", "explain": "Machines and vehicles take dai: ni plus dai." },
             { "id": "cnt:さんびき", "en": "three cats", "kana": "さんびき", "explain": "Small animals take hiki, and san plus hiki becomes sanbiki: the h voices after three." },
             { "id": "cnt:ひとつ", "en": "one thing, counted with tsu", "kana": "ひとつ", "explain": "tsu has its own number words: hitotsu, futatsu, mittsu." },
-            { "id": "cnt:ふたつ", "en": "two things, counted with tsu", "kana": "ふたつ", "explain": "tsu has its own number words: hitotsu, futatsu, mittsu." }
+            { "id": "cnt:ふたつ", "en": "two things, counted with tsu", "kana": "ふたつ", "explain": "tsu has its own number words: hitotsu, futatsu, mittsu." },
+            { "id": "cnt:いっこ", "en": { "en": "one apple, counted with ko", "es": "una manzana, contada con ko" }, "kana": "いっこ", "explain": { "en": "ko counts small objects and takes the ordinary numbers, but ichi plus ko clips to ikko, a held k. Six, eight and ten clip the same way: rokko, hakko, jukko.", "es": "ko cuenta objetos pequeños y toma los números normales, pero ichi más ko se recorta en ikko, con la k sostenida. El seis, el ocho y el diez se recortan igual: rokko, hakko, jukko." } }
           ],
           "prompt": "en",
           "answer": "kana",
           "transform": "kana",
           "compare": "trim|kana",
-          "count": 8,
+          "count": 9,
           "pass": { "accuracy": 0.7 }
         }
       ]
