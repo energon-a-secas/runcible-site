@@ -153,8 +153,16 @@ const UI = {
   needsFirst: { en: 'It opens after {chapters}.', es: 'Se abre después de {chapters}.' },
   openAnywayShort: { en: 'Open it anyway', es: 'Ábrelo igual' },
   // The rail is 204px wide, so the override rides on the chapter's own line as
-  // one word. The sentence stays as its accessible name.
-  openAnywayWord: { en: 'open', es: 'abrir' },
+  // two words. The bare "open" it used to be read as a state beside a locked
+  // chapter, not as an action. The sentence stays as its accessible name.
+  openAnywayWord: { en: 'Open anyway', es: 'Abrir igual' },
+  // A locked chapter, read-only: its pages are open, its drills say what opens them.
+  previewLead: {
+    en: 'You can read every page of this chapter now. Its drills open with it.',
+    es: 'Ya puedes leer todas las páginas de este capítulo. Sus ejercicios se abren con él.',
+  },
+  drillsLocked: { en: 'Locked: this drill opens after {chapters}.', es: 'Bloqueado: este ejercicio se abre después de {chapters}.' },
+  drillsLockedPlain: { en: 'Locked: this drill opens with the chapter.', es: 'Bloqueado: este ejercicio se abre con el capítulo.' },
 
   // The exercise marker in the prose, and the facing page that answers it.
   tryIt: { en: 'Try it', es: 'Pruébalo' },

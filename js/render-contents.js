@@ -75,7 +75,9 @@ function contentsRow(book, row) {
   const title = titleOf(row);
   const statement = doc ? t(doc.goal && doc.goal.statement) : t(row.entry.note);
   const ev = evidenceSentence(row.evidence) || null;
-  const openable = row.state === 'available' || row.state === 'passed';
+  // A locked chapter opens read-only, so it is a link too; only a planned one,
+  // which has no file, is not.
+  const openable = row.state !== 'planned';
   const head = openable
     ? h('a', { class: 'rn-contents-title', href: href('chapter', { bookId: book.id, chapterId: row.id }), title: ev }, title)
     : h('span', { class: 'rn-contents-title', title: ev }, title);

@@ -670,6 +670,19 @@ button:active,
 .rn-marker--running .rn-marker-state { color: var(--text-muted); }
 .rn-marker-title { margin-top: var(--space-2); font-size: var(--text-lg); font-weight: 600; color: var(--text-primary); }
 .rn-marker > .toolbar { margin-top: var(--space-3); }
+/* A drill in a locked chapter: named where it was authored, no Start, and one
+   muted line saying what opens it. The title dims with it, so a page of locked
+   markers does not read as a page of things to press. */
+.rn-marker--locked .rn-marker-title { color: var(--text-secondary); }
+.rn-marker-locked {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+  font-size: var(--text-sm);
+  line-height: 1.5;
+  color: var(--text-muted);
+}
 
 /* Margin tick: re-reading a chapter shows what you already earned, where you
    earned it. It needs the gutter, so it appears with the gutter. */
@@ -904,6 +917,10 @@ button:active,
 }
 a.rn-toc-line:hover { color: var(--text-primary); }
 .rn-toc-title { flex: 1 1 auto; min-width: 0; }
+/* A locked chapter's title is its own link beside the override, because a
+   button cannot sit inside a link; it keeps the line's colours. */
+a.rn-toc-title { color: inherit; text-decoration: none; }
+.rn-toc-ch a.rn-toc-title:hover { color: var(--text-primary); }
 .rn-toc-ch[aria-current="page"] > .rn-toc-line { color: var(--text-primary); font-weight: 600; }
 .rn-toc-ch[data-state="locked"] .rn-toc-title,
 .rn-toc-ch[data-state="planned"] .rn-toc-title { color: var(--text-muted); }
@@ -959,6 +976,8 @@ a.rn-toc-line:hover { color: var(--text-primary); }
    twice as tall for no reason. */
 @media (pointer: coarse) {
   .rn-toc-line, .rn-toc-rung-link { min-height: 44px; padding: var(--space-3) 0; }
+  /* The link inside a locked row takes the row's height as its own target. */
+  .rn-toc-line > a.rn-toc-title { padding-block: var(--space-3); margin-block: calc(-1 * var(--space-3)); }
   .rn-toc-override { padding: var(--space-2) 0; }
   .rn-shelf-title, .rn-contents-title { display: block; min-height: var(--control-height); padding: var(--space-2) 0; }
   .rn-bookmark { top: 4px; }
@@ -1134,7 +1153,7 @@ a.rn-shelf-title:hover { color: var(--accent-bright); }
 .rn-contents-text { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-2); }
 .rn-contents-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--space-3); }
 .rn-contents-title { font-size: var(--text-lg); font-weight: 600; color: var(--text-primary); text-decoration: none; }
-a.rn-contents-title:hover { color: var(--accent-bright); }
+.rn-contents-row a.rn-contents-title:hover { color: var(--accent-bright); }
 .rn-contents-row[data-state="locked"] .rn-contents-title,
 .rn-contents-row[data-state="planned"] .rn-contents-title { color: var(--text-muted); font-weight: 500; }
 .rn-contents-note { font-size: var(--text-xs); color: var(--text-muted); }

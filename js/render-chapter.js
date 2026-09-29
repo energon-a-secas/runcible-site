@@ -38,10 +38,20 @@ export async function chapterView(bookId, chapterId) {
   let chapter = null;
   let current = null;
   let prose;
+  const locked = row.state === 'locked';
   if (row.state === 'planned') {
     prose = plannedProse(row, entry);
-  } else if (row.state === 'locked') {
-    prose = lockedProse(book, rows, row, entry);
+  } else if (locked) {
+    // A locked chapter opens read-only: every page can be read, and the drills
+    // say what opens them. Visiting writes nothing: no override, no rung seen.
+    // A chapter file that will not load still shows the head and its button.
+    let loadError = null;
+    try {
+      chapter = await books.loadChapter(book, chapterId);
+    } catch (e) {
+      loadError = e.message;
+    }
+    prose = lockedProse(book, rows, row, entry, chapter, loadError);
   } else {
     chapter = await books.loadChapter(book, chapterId);
     state.chapter = chapter;
@@ -50,10 +60,10 @@ export async function chapterView(bookId, chapterId) {
   }
   const rungs = chapter ? (chapter.rungs || []) : [];
   // The recto is only allocated when there is something to answer on it. A
-  // planned chapter, a locked one and the study plan have no drills at all, and
+  // planned chapter, a locked one and the study plan have no drills to run, and
   // a quarter of the width behind a hairline showing nothing is the emptiness
   // this spread was meant to fill.
-  const facing = chapter ? facingNode(book, chapter, current, row) : null;
+  const facing = chapter && !locked ? facingNode(book, chapter, current, row) : null;
   return [
     railNode({ book, rows, chapterId, rungs, current }),
     h('div', { class: 'rn-spread', 'data-recto': facing ? 'page' : 'none' }, [
@@ -150,23 +160,46 @@ function readingProse(book, chapter, row) {
   ];
 }
 
-function lockedProse(book, rows, row, entry) {
-  const need = progress.requiresFor(book, entry)
-    .map((id) => { const r = rows.find((x) => x.id === id); return r ? titleOf(r) : id; });
-  const doc = row.doc;
-  return [
-    h('header', { class: 'rn-chapter-head' }, [
-      titleBlock(titleOf(row), row.evidence),
-      doc ? h('p', { class: 'rn-goal' }, t(doc.goal && doc.goal.statement)) : null,
-      h('p', { class: 'rn-state' }, [
-        stateGlyph('locked'), ' ', `${ui('locked')}. `,
-        need.length ? ui('needsFirst', { chapters: need.join(', ') }) : '',
-      ]),
-      evidenceLine(row.evidence),
-      row.error ? h('p', { class: 'rn-warn' }, row.error) : null,
-      // C3.4: a gate a self-taught adult cannot open is a wall.
-      h('div', { class: 'toolbar' }, action(ui('openAnyway'), 'override-on', { chapter: row.id }, 'btn btn--secondary btn--sm')),
+/** The titles of the chapters a locked one waits for, or [] when that cannot be read. */
+function neededTitles(book, rows, entry) {
+  try {
+    return progress.requiresFor(book, entry)
+      .map((id) => { const r = rows.find((x) => x.id === id); return r ? titleOf(r) : id; });
+  } catch {
+    return [];   // row.error already says why, on the page
+  }
+}
+
+/**
+ * A locked chapter, read-only. The head says what it waits for and keeps the
+ * C3.4 override; the rungs follow with their pages whole, and every drill
+ * marker says it is locked instead of offering Start. A learner deciding
+ * whether they already know this can read it first, which is the question
+ * the override asks them.
+ */
+function lockedProse(book, rows, row, entry, chapter, loadError) {
+  const need = neededTitles(book, rows, entry);
+  const doc = chapter || row.doc;
+  const drillsLine = need.length ? ui('drillsLocked', { chapters: need.join(', ') }) : ui('drillsLockedPlain');
+  const head = h('header', { class: 'rn-chapter-head' }, [
+    titleBlock(titleOf(row), row.evidence),
+    doc ? h('p', { class: 'rn-goal' }, t(doc.goal && doc.goal.statement)) : null,
+    h('p', { class: 'rn-state' }, [
+      stateGlyph('locked'), ' ', `${ui('locked')}. `,
+      need.length ? ui('needsFirst', { chapters: need.join(', ') }) : '',
     ]),
+    chapter ? h('p', { class: 'rn-lead' }, ui('previewLead')) : null,
+    evidenceLine(row.evidence),
+    row.error ? h('p', { class: 'rn-warn' }, row.error) : null,
+    loadError ? h('p', { class: 'rn-warn' }, loadError) : null,
+    // C3.4: a gate a self-taught adult cannot open is a wall.
+    h('div', { class: 'toolbar' }, action(ui('openAnyway'), 'override-on', { chapter: row.id }, 'btn btn--secondary btn--sm')),
+  ]);
+  if (!chapter) return [head];
+  return [
+    head,
+    ...(chapter.rungs || []).map((rung) => rungNode(book, chapter, rung, drillsLine)),
+    attribution(book, chapter),
   ];
 }
 
@@ -180,14 +213,30 @@ function plannedProse(row, entry) {
   ];
 }
 
-function rungNode(book, chapter, rung) {
+/** `lockedLine`, when set, is what every marker in a locked chapter says instead of Start. */
+function rungNode(book, chapter, rung, lockedLine = null) {
   return h('section', { class: 'rn-rung', id: `rung-${rung.id}` }, [
     h('h3', { class: 'rn-rung-title' }, t(rung.title)),
     // C3.1 writes unlocks as the completion of a sentence ("every other row,
     // because..."), so the label is the shell's and the clause is the Book's.
     rung.unlocks ? h('p', { class: 'rn-unlocks' }, `${ui('unlocks')}: ${t(rung.unlocks)}`) : null,
     ...(rung.pages || []).map((p) => pageNode(book, p)),
-    ...(rung.exercises || []).map((ex) => markerNode(book, chapter, ex)),
+    ...(rung.exercises || []).map((ex) => (lockedLine
+      ? lockedMarkerNode(ex, lockedLine)
+      : markerNode(book, chapter, ex))),
+  ]);
+}
+
+/**
+ * A drill in a locked chapter: named where the chapter put it, with no Start
+ * and no host to mount into, and one line saying what opens it. The marker id
+ * stays, so a link that scrolls to it still lands.
+ */
+function lockedMarkerNode(ex, line) {
+  return h('div', { class: 'rn-marker rn-marker--locked', id: `marker-${ex.id}` }, [
+    h('div', { class: 'rn-marker-row' }, [h('span', { class: 'rn-kicker' }, ui('tryIt'))]),
+    h('p', { class: 'rn-marker-title' }, t(ex.title) || ex.id),
+    h('p', { class: 'rn-marker-locked' }, [stateGlyph('locked'), ' ', line]),
   ]);
 }
 
