@@ -216,7 +216,10 @@ must name every declared track or `requiresFor` throws a load error.
 filters to graded attempts before taking the last `window`, so re-reading pages
 can never push earned evidence out of the window. The contract sentence admits
 both readings; this is the humane one, and it is recorded in the function's
-comment.
+comment. The storage under it follows the same rule: `capEvidence` in
+`js/progress.js` drops ungraded records first when a skill's list passes 200,
+so two hundred page reads can no longer push twenty earned answers out and
+re-lock a passed chapter (`js/exercises/fixtures/evidence/evidence.test.mjs`).
 
 **A locked gate opens by hand and never cascades.** `override: true` makes a
 chapter `available`, never `passed`, so a chapter that requires it stays locked
