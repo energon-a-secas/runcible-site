@@ -254,6 +254,14 @@ const UI = {
     es: 'La voz elegida antes no está en este dispositivo, así que el dispositivo elige una.',
   },
 
+  // A Book's tools (js/render-tool.js) and tap to read (js/read-sheet.js).
+  // readerLink labels the header link and readRunHint is index.html's hidden
+  // line every tappable run points at with aria-describedby; both are data-ui.
+  tools: { en: 'Reading tools', es: 'Herramientas de lectura' },
+  backToBook: { en: 'Back to {book}', es: 'Volver a {book}' },
+  readerLink: { en: 'Reader', es: 'Lector' },
+  readRunHint: { en: 'Opens in the reader', es: 'Se abre en el lector' },
+
   // The chrome around the view: header nav, the language toggle, the footer.
   // index.html marks each node with data-ui="<key>" and render.js relabels
   // them on every paint, so a language change reaches the shell as well as

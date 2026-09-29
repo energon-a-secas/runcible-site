@@ -11,6 +11,7 @@ import { firstUnfinishedRung } from './today.js';
 import { deckUrl } from './embed.js';
 import { action, textAction, stateGlyph, evidenceLine, hairline, titleOf, attribution } from './render-shared.js';
 import { pageNode } from './render-pages.js';
+import { langRuns } from './read-sheet.js';
 import { railNode } from './render-rail.js';
 
 /** Every drill in a rung, in the order the chapter authored them. */
@@ -241,7 +242,7 @@ function plannedProse(row, entry) {
  */
 function rungNode(book, chapter, rung, { locked = null, nextId = null } = {}) {
   return h('section', { class: 'rn-rung', id: `rung-${rung.id}` }, [
-    h('h3', { class: 'rn-rung-title' }, t(rung.title)),
+    h('h3', { class: 'rn-rung-title' }, langRuns(book, t(rung.title), { tap: false })),
     // C3.1 writes unlocks as the completion of a sentence ("every other row,
     // because..."), so the label is the shell's and the clause is the Book's.
     rung.unlocks ? h('p', { class: 'rn-unlocks' }, `${ui('unlocks')}: ${t(rung.unlocks)}`) : null,

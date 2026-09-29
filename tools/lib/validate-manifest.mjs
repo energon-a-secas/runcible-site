@@ -1,6 +1,7 @@
 /**
  * books/<id>/book.json: the ladder, the tracks, the data permission list, the
- * credits and the Book modules (C1.2 and C1.3).
+ * credits and the Book modules (C1.2 and C1.3), plus the two optional reader
+ * keys, tools[] and lang.runs, whose shape lives in js/book-tools.js.
  *
  * The manifest is where a Book states what it may fetch and what it may
  * register, so most of what this file refuses is a Book reaching past its own
@@ -11,6 +12,7 @@
  */
 
 import { checkRegisteredId } from '../../js/exercises/index.js';
+import { TOOL_EMBEDS, TOOL_FIELDS, compileRuns } from '../../js/book-tools.js';
 import { FORMATS, STATES, SLUG, DATE, report, isObj, checkBilingual, checkDataPath } from './validate-common.mjs';
 
 /** books/<id>/book.json. C1.2 and C1.3. */
@@ -29,6 +31,13 @@ export function validateManifest(doc) {
   }
   if (!isObj(doc.lang) || typeof doc.lang.content !== 'string') r.err('lang.content', 'is required');
   if (doc.lang && !Array.isArray(doc.lang.ui)) r.err('lang.ui', 'must be an array of language codes');
+  // Optional: a regular-expression source naming runs of the content language
+  // inside mixed text. The page compiles it with the same function, so a
+  // pattern refused here is one the shell would never have used.
+  if (isObj(doc.lang) && doc.lang.runs !== undefined) {
+    const runs = compileRuns(doc.lang.runs);
+    if (runs.error) r.err('lang.runs', runs.error);
+  }
 
   const trackIds = [];
   let defaults = 0;
@@ -90,6 +99,34 @@ export function validateManifest(doc) {
       if (typeof id !== 'string' || !id) r.err(`${at}.provides.transforms`, 'transform ids must be non-empty strings');
       else transforms.add(id);
     }
+  }
+
+  // Tools (optional): a page a sibling site draws in a frame, beside the
+  // chapters. It records nothing, so the only things worth refusing are a
+  // frame this shell has no protocol for and a tool nothing can name.
+  const toolIds = new Set();
+  let reads = false;
+  if (doc.tools !== undefined && !Array.isArray(doc.tools)) r.err('tools', 'must be an array');
+  else for (const [i, tool] of (doc.tools || []).entries()) {
+    const at = `tools[${i}]`;
+    if (!isObj(tool)) { r.err(at, 'must be an object'); continue; }
+    if (!SLUG.test(String(tool.id || ''))) r.err(`${at}.id`, 'must be a lowercase slug');
+    else if (toolIds.has(tool.id)) r.err(`${at}.id`, `is a duplicate: ${tool.id}`);
+    else toolIds.add(tool.id);
+    if (!TOOL_EMBEDS.includes(tool.embed)) {
+      r.err(`${at}.embed`, `must be one of ${TOOL_EMBEDS.join(', ')}, found ${JSON.stringify(tool.embed)}`);
+    }
+    checkBilingual(r, `${at}.title`, tool.title);
+    checkBilingual(r, `${at}.description`, tool.description, { required: false });
+    if (tool.glyph !== undefined && (typeof tool.glyph !== 'string' || !tool.glyph)) r.err(`${at}.glyph`, 'must be a non-empty string');
+    if (tool.reads !== undefined && typeof tool.reads !== 'boolean') r.err(`${at}.reads`, 'must be true or false');
+    if (tool.reads === true) reads = true;
+    for (const key of Object.keys(tool)) {
+      if (!TOOL_FIELDS.includes(key)) r.warn(`${at}.${key}`, 'is not a tool field, so nothing reads it');
+    }
+  }
+  if (reads && !(isObj(doc.lang) && typeof doc.lang.runs === 'string')) {
+    r.warn('tools', 'a tool reads, but lang.runs is not set, so no text on a page opens it');
   }
 
   const chapterIds = new Set();

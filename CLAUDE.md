@@ -5,7 +5,8 @@ A learning book that grades you. Books are data packages under `books/<id>/`
 provides ten generic exercise types, evidence-based chapter unlocking with a
 visible override, a Today view, and a `{en,es}` reader. Two Books ship, both
 `ready`: Japanese, fifteen chapters, and Piano, four, which is what proves the
-shell knows no subject. Rappel decks and Quiz rounds are embedded by iframe.
+shell knows no subject. Rappel decks and Quiz rounds are embedded by iframe,
+and a Book's reading tool is Yomu in a third frame.
 Progress is local-first; Convex sync is dormant until a Clerk key is on the
 page.
 
@@ -22,7 +23,8 @@ npm test         # the Convex merge rules under plain node, no deployment
 It must be served over HTTP. The app is ES modules and `file://` blocks them.
 A `deck` exercise on localhost embeds `http://localhost:8879` and a `quiz`
 exercise embeds `http://localhost:8880`, so serve `projects/rappel-site/` and
-`projects/quiz-site/` as well to see one of each.
+`projects/quiz-site/` as well to see one of each. A Book's tool and a tapped run
+embed Yomu at `http://localhost:8895` (`projects/yomu-site/`).
 
 `make validate` is the definition of done for any change under `books/` or
 `data/`. It is not in the root `make smoke`; nothing runs it for you. The
@@ -39,42 +41,46 @@ engine's own rig is `/js/exercises/fixtures/harness.html`.
 | `js/state.js` | 342 | PREFS_KEY, PROGRESS_KEY, EVIDENCE_CAP, state, loadSaved, and more |
 | `js/books.js` | 335 | CATALOG_SRC, LoadError, loadCatalog, openBook, declaredEntry, and more |
 | `js/exercises/feedback.js` | 318 | explainWrong, explainRight |
+| `js/yomu-host.js` | 317 | PROTOCOL_VERSION, MAX_TEXT, yomuOrigin, yomuUrl, standaloneUrl, and more |
 | `js/exercises/items.js` | 311 | useLanguage, itemLanguage, stableValue, resolveList, shuffle, and more |
 | `js/progress.js` | 297 | recordAttempt, attemptsFor, evidenceStatus, requiresFor, currentTrack, and more |
+| `js/i18n.js` | 294 | LANGS, beginPage, hadFallback, onFallback, t, and more |
 | `js/exercises/fixtures/harness.js` | 292 | none |
-| `js/i18n.js` | 286 | LANGS, beginPage, hadFallback, onFallback, t, and more |
 | `js/embed.js` | 274 | rappelOrigin, deckUrl, mountDeckEmbed |
 | `js/exercises/types/match.js` | 272 | mount |
 | `js/exercises/spec.js` | 252 | PERSONAL_DECK_PREFIX, DECK_FORMAT, GENERIC_TYPES, REQUIRED_FIELDS, NEVER_GRADED, and more |
 | `js/exercises/speech.js` | 240 | synthAvailable, loadVoices, voicesFor, hasVoiceFor, speak, and more |
 | `js/exercises/session.js` | 238 | createSession |
 | `js/exercises/registry.js` | 233 | EXERCISE_VERSION, createExerciseRegistry |
-| `js/render-chapter.js` | 229 | chapterView, drillRow |
+| `js/render-chapter.js` | 230 | chapterView, drillRow |
 | `js/render-mount.js` | 211 | setRepaint, setPending, scrollToId, destroyMounted, startExercise, and more |
 | `js/exercises/types/typed.js` | 208 | askTyped, mount |
+| `js/read-sheet.js` | 205 | langRuns, openReader, closeReader, watchFeedback |
 | `js/exercises/strings.js` | 188 | STRINGS, chrome |
 | `js/exercises/types/order.js` | 188 | mount |
 | `js/exercises/ask.js` | 174 | questionFrame, advance, optionList, roving, digitPicker |
+| `js/render-pages.js` | 151 | pageNode, linksNode, tableNode, figureNode |
+| `js/events.js` | 147 | bindEvents |
 | `js/exercises/types/listen.js` | 144 | mount |
-| `js/render-pages.js` | 143 | pageNode, linksNode, tableNode, figureNode |
-| `js/events.js` | 135 | bindEvents |
 | `js/exercises/types/choice.js` | 123 | askChoice, mount |
 | `js/today.js` | 122 | composeToday, firstUnfinishedRung |
+| `js/book-tools.js` | 120 | TOOL_EMBEDS, TOOL_FIELDS, RUNS_FLAGS, compileRuns, runsFor, and more |
 | `js/exercises/types/speak.js` | 117 | mount |
 | `js/exercises/fixtures/book-module.js` | 111 | PROVIDES |
 | `js/exercises/types/page.js` | 109 | renderPage |
+| `js/render-contents.js` | 108 | catalogView, trackPicker, bookView |
 | `js/render-shared.js` | 105 | action, link, textLink, textAction, stateGlyph, and more |
-| `js/render-contents.js` | 96 | catalogView, trackPicker, bookView |
+| `js/render-tool.js` | 99 | toolView, destroyTool, afterToolPaint, syncToolLink, toolList |
 | `js/exercises/types/read.js` | 94 | mount |
+| `js/render-rail.js` | 94 | railNode |
 | `js/exercises/compare.js` | 93 | DEFAULT_COMPARE, COMPARE_TOKENS, parseCompare, normalise, isCorrect |
+| `js/render.js` | 93 | render |
 | `js/exercises/types/quiz.js` | 91 | mount |
 | `js/exercises/dom.js` | 89 | el, append, button, clear, focus, and more |
-| `js/render-rail.js` | 88 | railNode |
 | `js/utils.js` | 87 | h, append, clear, showToast, debounce, and more |
-| `js/render.js` | 85 | render |
 | `js/exercises/types/deck.js` | 79 | mount |
+| `js/router.js` | 64 | ROUTES, href, parse, go, start |
 | `js/exercises/errors.js` | 54 | locate, ExerciseError |
-| `js/router.js` | 53 | ROUTES, href, parse, go, start |
 | `js/render-settings.js` | 52 | settingsView |
 | `js/exercises/bilingual.js` | 34 | paragraphs |
 | `js/exercises/index.js` | 33 | none |
@@ -418,6 +424,46 @@ only the sources `shell`, `rappel` and `quiz`, so a new host needs that enum
 widened or every answer is refused with "An answer was not recorded". The sets
 under `books/japanese/sets/` are generated by `tools/build-sets.mjs` and must stay
 byte-identical to `projects/quiz-site/data/sets/`; never hand-edit either copy.
+
+### The third embed host: Yomu, and tap to read
+
+`js/yomu-host.js` is `js/quiz-host.js` again with the vocabulary renamed
+(yomu-embed/1, written down in Yomu's own `docs/EMBED.md`): origin and source
+checked first, `yomu:hello` on the iframe's load, `v: 1`, and eight seconds of
+silence swap the frame for "Open in Yomu" in the same slot. Five things that are
+easy to break:
+
+- **A tool records nothing.** No Yomu message becomes an attempt and
+  `js/progress.js` was not widened for it, so reading can neither feed nor
+  dilute a chapter goal. `tools[]` in the manifest (shape in
+  `js/book-tools.js`, checked by `tools/lib/validate-manifest.mjs`) takes an
+  `embed` from the frozen `TOOL_EMBEDS`, the way a quiz takes a game.
+- **Yomu answers only its own allowlist**: `runcible.neorgon.com` and
+  `localhost:8878` / `127.0.0.1:8878`. A worktree served on any other port
+  gets the silence notice, which is the host working, not a bug. The
+  end-to-end check on 2026-09-29 kept 8878 for the main tree and mapped the
+  two origins with Playwright's `context.route` instead.
+- **Text never travels in the frame URL.** It goes by `yomu:load`, clipped to
+  2,000 characters without splitting a surrogate pair. The one URL that carries
+  text is the "Open in Yomu" link's `#t=`, and `standaloneUrl` is only ever
+  handed a run the Book authored, never anything a learner typed.
+- **The first document keeps its ready.** Yomu posts `yomu:ready` at boot,
+  usually before the iframe's `load`, so only a second load (a reload inside
+  the frame) resets `ready` and `sent`. Resetting on every load sent each text
+  twice.
+- **Tap to read never repaints.** `lang.runs` is a regexp source that
+  `compileRuns` compiles with `gu` for the validator and the page alike, and
+  refuses if it can match the empty string. Each run in a page body, a note or
+  a table cell gets `lang="<content>"` (titles, headers and captions get the
+  lang only); with a tool that `reads`, each run is a `<button class="rn-run">`
+  that opens a native `<dialog>` from `js/read-sheet.js`. The sheet never calls
+  `render()` and never touches `js/render-mount.js`, and `js/events.js` leaves
+  Escape to an open dialog, so a drill under the sheet survives both. Runs in
+  `.rx-feedback` are marked from outside the engine by one MutationObserver, as
+  spans; prompts and options are not, since that is the engine's DOM.
+  `tools/book-tools.test.mjs` patches the Japanese manifest in memory with the
+  exact `tools` and `lang.runs` entries, and proves a Book without them
+  validates as before and marks no runs.
 
 ### Your misses: the deck this site builds and sends
 

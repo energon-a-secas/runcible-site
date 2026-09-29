@@ -1,8 +1,13 @@
-// Hash routing. Five routes, no library, no history rewriting.
+// Hash routing. Six routes, no library, no history rewriting.
 //
 // A hash keeps every deep link static-host friendly: GitHub Pages serves
 // index.html and the fragment never reaches the server, so a reload of
 // #/b/japanese/1-hiragana works without a rewrite rule.
+//
+// A Book's tool has its own top-level prefix, #/tool/<book>/<tool>, rather
+// than a segment under #/b/, because everything after the Book id there is a
+// chapter id and chapter ids have no reserved words. Only ids travel in the
+// hash: text a tool reads never does.
 
 /** Route names, and the hash each one builds. */
 export const ROUTES = {
@@ -10,6 +15,7 @@ export const ROUTES = {
   catalog: () => '#/books',
   book: (p) => `#/b/${encodeURIComponent(p.bookId)}`,
   chapter: (p) => `#/b/${encodeURIComponent(p.bookId)}/${encodeURIComponent(p.chapterId)}`,
+  tool: (p) => `#/tool/${encodeURIComponent(p.bookId)}/${encodeURIComponent(p.toolId)}`,
   settings: () => '#/settings',
 };
 
@@ -34,6 +40,11 @@ export function parse(hash = location.hash) {
     return { name: 'chapter', params: { bookId: parts[1], chapterId: parts.slice(2).join('/') } };
   }
   if (parts[0] === 'b' && parts[1]) return { name: 'book', params: { bookId: parts[1] } };
+  // With no tool id the view opens the Book's first tool; a tool id it does
+  // not know is an error naming book.json, never a silent fallback.
+  if (parts[0] === 'tool' && parts[1]) {
+    return { name: 'tool', params: { bookId: parts[1], toolId: parts.slice(2).join('/') || null } };
+  }
   return { name: 'catalog', params: {} };
 }
 

@@ -10,6 +10,7 @@ import { href } from './router.js';
 import * as books from './books.js';
 import * as progress from './progress.js';
 import { action, textAction, stateGlyph, evidenceSentence, titleOf } from './render-shared.js';
+import { toolList } from './render-tool.js';
 
 const BOOK_STATE = { ready: 'bookReady', soon: 'bookSoon', planned: 'planned', draft: 'bookDraft', stub: 'bookStub' };
 
@@ -72,7 +73,18 @@ export async function bookView(bookId) {
     ]),
     trackPicker(book),
     h('ol', { class: 'rn-contents', 'aria-label': ui('chapters') }, rows.map((row) => contentsRow(book, row))),
+    toolsSection(book),
   ];
+}
+
+/** A Book's tools, after its chapters: never locked, so never in the ladder. */
+function toolsSection(book) {
+  const list = toolList(book, { withNotes: true });
+  if (!list) return null;
+  return h('section', { class: 'rn-book-tools', 'aria-labelledby': 'rn-book-tools-title' }, [
+    h('h3', { class: 'rn-book-tools-title', id: 'rn-book-tools-title' }, ui('tools')),
+    list,
+  ]);
 }
 
 function contentsRow(book, row) {

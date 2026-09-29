@@ -10,6 +10,7 @@ import { t, ui } from './i18n.js';
 import { h } from './utils.js';
 import { href } from './router.js';
 import { stateGlyph, textAction, titleOf, chapterPosition, evidenceSentence } from './render-shared.js';
+import { toolList } from './render-tool.js';
 
 /**
  * @param {{ book, rows, chapterId, rungs: Array, current: object|null }} o
@@ -37,9 +38,14 @@ export function railNode({ book, rows, chapterId, rungs, current }) {
     rungAt ? h('span', { class: 'rn-rail-pos' }, ui('pageOf', { at: rungAt, total: rungs.length })) : null,
   ]);
 
+  // A Book's tools sit under the chapters, one line each: the rail is where a
+  // reader already looks for the rest of the Book.
+  const tools = toolList(book, { cls: 'rn-tools rn-tools--rail' });
   const body = h('div', { class: 'rn-rail-body', id: 'rn-contents' }, [
     h('p', { class: 'rn-rail-head' }, ui('chapterOf', pos)),
     h('ol', { class: 'rn-toc' }, rows.map((r) => tocRow(book, r, r.id === chapterId ? { rungs, current } : null))),
+    tools ? h('p', { class: 'rn-rail-head rn-rail-head--tools' }, ui('tools')) : null,
+    tools,
   ]);
 
   return h('nav', { class: 'rn-rail', 'aria-label': ui('contents') }, [bar, body]);
