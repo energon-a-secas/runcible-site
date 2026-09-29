@@ -13,7 +13,12 @@ import { action, textAction, stateGlyph, evidenceSentence, titleOf } from './ren
 
 const BOOK_STATE = { ready: 'bookReady', soon: 'bookSoon', planned: 'planned', draft: 'bookDraft', stub: 'bookStub' };
 
-/** The shelf: glyph, title, tagline when the index carries one, and state. */
+/**
+ * The shelf: glyph, title, the tagline the index carries, and a state only
+ * when it says something. "Ready" beside every Book was a word that meant
+ * nothing to a learner, so a ready Book shows no state at all; Soon, Draft,
+ * Not written yet and planned still say why a Book is not the usual kind.
+ */
 export async function catalogView() {
   const catalog = await books.loadCatalog();
   const rows = (catalog.books || []).map((b) => {
@@ -27,7 +32,7 @@ export async function catalogView() {
           : h('a', { class: 'rn-shelf-title', href: href('book', { bookId: b.id }) }, title),
         b.tagline ? h('p', { class: 'rn-shelf-tag' }, t(b.tagline)) : null,
       ]),
-      h('span', { class: 'rn-shelf-state' }, ui(BOOK_STATE[b.state] || 'planned')),
+      b.state === 'ready' ? null : h('span', { class: 'rn-shelf-state' }, ui(BOOK_STATE[b.state] || 'planned')),
     ]);
   });
   return [

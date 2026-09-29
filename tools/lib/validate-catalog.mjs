@@ -22,6 +22,10 @@ export function validateCatalog(doc) {
     if (seen.has(b.id)) r.err(`${at}.id`, `is a duplicate of an earlier entry: ${b.id}`);
     seen.add(b.id);
     checkBilingual(r, `${at}.title`, b.title);
+    // The shelf line. Optional, and the manifest's own tagline word for word
+    // when present: the CLI (validate-cli.mjs) compares the two, because the
+    // shelf shows this copy and the contents page shows the manifest's.
+    checkBilingual(r, `${at}.tagline`, b.tagline, { required: false });
     if (typeof b.glyph !== 'string' || !b.glyph) r.err(`${at}.glyph`, 'is required and identifies the Book, C1.3 rule 1');
     if (!STATES.includes(b.state)) r.err(`${at}.state`, `must be one of ${STATES.join(', ')}`);
   }

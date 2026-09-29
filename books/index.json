@@ -4,12 +4,20 @@
     {
       "id": "japanese",
       "title": { "en": "Japanese", "es": "Japonés" },
+      "tagline": {
+        "en": "From why they say gandamu to reading a song line",
+        "es": "Desde por qué dicen gandamu hasta leer una línea de canción"
+      },
       "glyph": "あ",
       "state": "ready"
     },
     {
       "id": "piano",
       "title": { "en": "Piano", "es": "Piano" },
+      "tagline": {
+        "en": "The same ladder, in a subject the shell has never heard of",
+        "es": "La misma escalera, en un tema que el armazón no conoce"
+      },
       "glyph": "♪",
       "state": "ready"
     }
