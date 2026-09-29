@@ -13,6 +13,7 @@ import { clear } from './utils.js';
 import * as books from './books.js';
 import * as progress from './progress.js';
 import { action } from './render-shared.js';
+import { paintChrome } from './render-chrome.js';
 
 // Must match the .rn-spread breakpoint in css/style.css exactly. It is the
 // width at which a 66ch column and a 320px drill both fit, measured; below it
@@ -202,6 +203,7 @@ function watchRail() {
 
 /** Called by render() after every paint: honour a pending scroll or start. */
 export async function afterPaint(route) {
+  paintChrome(route);
   watchRail();
   const p = pending;
   pending = null;

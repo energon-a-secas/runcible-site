@@ -234,6 +234,15 @@ main#main {
 }
 .btn--danger:hover { background: var(--danger-hover); }
 
+/* The link for the page you are on (js/render-chrome.js sets aria-current).
+   Keyed on the site's own .btn, which is what the header links are dressed
+   in, rather than on the kit's .header-* classes. A firmer border and a
+   wash, no accent: the accent is for the one thing to press. */
+.btn--ghost[aria-current="page"] {
+  background: color-mix(in srgb, var(--text-primary) 14%, transparent);
+  border-color: color-mix(in srgb, var(--text-primary) 55%, transparent);
+}
+
 /* ── Card ──────────────────────────────────────────────────── */
 /*
  * GOTCHA: backdrop-filter creates a stacking context, so dropdowns inside
