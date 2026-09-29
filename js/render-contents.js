@@ -82,7 +82,7 @@ function contentsRow(book, row) {
     ? h('a', { class: 'rn-contents-title', href: href('chapter', { bookId: book.id, chapterId: row.id }), title: ev }, title)
     : h('span', { class: 'rn-contents-title', title: ev }, title);
   return h('li', { class: 'rn-contents-row', 'data-state': row.state }, [
-    stateGlyph(row.state),
+    stateGlyph(row.state, row.override),
     h('div', { class: 'rn-contents-text' }, [
       h('div', { class: 'rn-contents-head' }, [head, row.override ? h('span', { class: 'rn-contents-note' }, ui('opened')) : null]),
       statement ? h('p', { class: 'rn-contents-statement' }, statement) : null,

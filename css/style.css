@@ -464,13 +464,52 @@ button:active,
 }
 .rn-textlink:hover { color: var(--text-primary); }
 
-/* Chapter state: the glyph carries the colour, the sr-only text carries the
-   meaning, because a coloured dot is not a message. */
+/* Chapter state: the mark carries the colour and the shape, the sr-only text
+   carries the meaning, because a coloured dot is not a message. Four shapes,
+   so no two states are told apart by contrast alone: a disc (passed), a ring
+   (open), a diamond (opened by you) and a padlock (locked). Drawn here rather
+   than taken from a font: the dotted circle rendered as a plain ring. */
 .rn-glyph-state { flex: 0 0 auto; font-size: var(--text-sm); line-height: 1.4; }
 .rn-glyph-state[data-state="passed"] { color: var(--accent-bright); }
-.rn-glyph-state[data-state="available"] { color: var(--text-secondary); }
+.rn-glyph-state[data-state="available"],
+.rn-glyph-state[data-state="opened"] { color: var(--text-secondary); }
 .rn-glyph-state[data-state="locked"],
 .rn-glyph-state[data-state="planned"] { color: var(--text-muted); }
+.rn-glyph-mark {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 0.72em;
+  height: 0.72em;
+  border: 1.5px solid currentColor;
+  border-radius: 50%;
+  vertical-align: -0.02em;
+}
+.rn-glyph-state[data-state="passed"] .rn-glyph-mark { background: currentColor; }
+.rn-glyph-state[data-state="opened"] .rn-glyph-mark {
+  border-radius: 1.5px;
+  transform: rotate(45deg) scale(0.84);
+}
+/* The padlock: a squat body, and its shackle standing on the body's top edge. */
+.rn-glyph-state[data-state="locked"] .rn-glyph-mark {
+  width: 0.66em;
+  height: 0.5em;
+  border-radius: 2px;
+}
+.rn-glyph-state[data-state="locked"] .rn-glyph-mark::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% - 1px);
+  width: 0.4em;
+  height: 0.32em;
+  box-sizing: border-box;
+  border: 1.5px solid currentColor;
+  border-bottom: 0;
+  border-radius: 0.2em 0.2em 0 0;
+  transform: translateX(-50%);
+}
+.rn-glyph-state[data-state="planned"] .rn-glyph-mark { width: auto; height: auto; border: 0; border-radius: 0; }
 
 /* Evidence is a sentence and a hairline the width of the title it belongs to,
    never a bar with a percentage pair. */

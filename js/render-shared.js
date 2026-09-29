@@ -34,15 +34,23 @@ export function textAction(label, act, data = {}, cls = 'rn-textlink') {
 }
 
 /**
- * Chapter state as a glyph, plus the spelled state for assistive tech. The
- * glyph carries the colour; the sr-only text carries the meaning, because a
- * red dot is not a message.
+ * Chapter state as a mark, plus the spelled state for assistive tech. The
+ * sr-only text carries the meaning, because a red dot is not a message.
+ *
+ * The four marks differ in shape, not only in colour: a filled disc (passed),
+ * a ring (open), a diamond (opened by you, without the evidence) and a
+ * padlock (locked). They were three circles, told apart by contrast alone,
+ * and the one for a chapter you opened yourself was the same white ring as an
+ * open one. The shapes are drawn by css/style.css rather than taken from a
+ * font, because the dotted circle rendered as a plain ring in the system
+ * face. Planned keeps its ellipsis, which no font gets wrong.
  */
-const GLYPH = { passed: '●', available: '○', locked: '◌', planned: '…' };
-export function stateGlyph(st) {
-  const key = GLYPH[st] ? st : 'locked';
+const MARKS = ['passed', 'available', 'opened', 'locked', 'planned'];
+export function stateGlyph(st, override = false) {
+  let key = MARKS.includes(st) && st !== 'opened' ? st : 'locked';
+  if (key === 'available' && override) key = 'opened';
   return h('span', { class: 'rn-glyph-state', 'data-state': key }, [
-    h('span', { 'aria-hidden': 'true' }, GLYPH[key]),
+    h('span', { class: 'rn-glyph-mark', 'aria-hidden': 'true' }, key === 'planned' ? '\u2026' : ''),
     h('span', { class: 'sr-only' }, ui('stateGlyph', { state: ui(key) })),
   ]);
 }

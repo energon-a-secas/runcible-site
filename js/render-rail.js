@@ -47,7 +47,7 @@ export function railNode({ book, rows, chapterId, rungs, current }) {
 
 /** One chapter as a line: glyph, title, and for the open chapter its rungs. */
 function tocRow(book, row, open) {
-  const glyph = stateGlyph(row.state);
+  const glyph = stateGlyph(row.state, row.override);
   const attrs = { class: 'rn-toc-ch', 'data-state': row.state };
   if (open) attrs['aria-current'] = 'page';
   const ev = evidenceSentence(row.evidence) || null;
