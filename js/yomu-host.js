@@ -157,7 +157,7 @@ export function acceptable(event, origin, frameWindow) {
  * @param {{ host: HTMLElement, title: string, lang?: string, cls?: string }} arg
  * @returns {{ load(text: string): void, setLang(lang: string): void, destroy(): void }}
  */
-export function mountYomuEmbed({ host, title, lang, cls }) {
+export function mountYomuEmbed({ host, title, lang, cls, onEscape }) {
   const origin = yomuOrigin();
   const urlLang = lang || state.prefs.lang;   // what the frame document boots in
   let wantLang = urlLang;                      // what the page is in now
@@ -254,6 +254,12 @@ export function mountYomuEmbed({ host, title, lang, cls }) {
       const unknown = Number.isFinite(m.unknown) ? m.unknown : 0;
       if (tokens === 1) say(s(unknown > 0 ? 'readOneUnknown' : 'readOne'));
       else say(unknown > 0 ? s('readUnknown', { tokens, unknown }) : s('read', { tokens }));
+      return;
+    }
+    // Escape inside the frame reaches Yomu's document, not this one; Yomu
+    // passes it on so the sheet around it can close.
+    if (m.type === 'yomu:escape') {
+      if (typeof onEscape === 'function') onEscape();
       return;
     }
     if (m.type === 'yomu:error') {

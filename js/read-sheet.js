@@ -84,7 +84,7 @@ function buildSheet(book, tool) {
   dialog.addEventListener('close', () => returnFocus());
 
   const mount = EMBEDS[tool.embed];
-  const embed = mount({ host, title: `${t(tool.title)} - Yomu`, cls: 'rn-yomu--sheet' });
+  const embed = mount({ host, title: `${t(tool.title)} - Yomu`, cls: 'rn-yomu--sheet', onEscape: () => closeReader() });
   return { dialog, title, closeBtn, run, embed, bookId: book.id, toolId: tool.id, returnTo: null };
 }
 

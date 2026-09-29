@@ -76,7 +76,8 @@ export async function render() {
   // Turning a page is worth 180ms; answering a question and repainting the same
   // page is not, so the entry motion is armed only when the route changed.
   const key = `${route.name}:${JSON.stringify(route.params || {})}`;
-  root.classList.toggle('rn-enter', key !== lastKey);
+  const turned = key !== lastKey;
+  root.classList.toggle('rn-enter', turned);
   lastKey = key;
   root.dataset.view = route.name;
 
@@ -86,6 +87,10 @@ export async function render() {
   const note = fallbackNote();
   if (note) root.appendChild(note);
   root.removeAttribute('aria-busy');
+  // A new page opens at its top. The window kept the old page's offset, which
+  // put the reader route's text box under the sticky header on a phone; a
+  // pending jump (Continue reading, a rule to wash) still wins in afterPaint.
+  if (turned && typeof window !== 'undefined') window.scrollTo(0, 0);
   afterToolPaint(route);
   await afterPaint(route);
 }
