@@ -4,20 +4,28 @@
 // the learner just failed can be scrolled to and washed; the element id is
 // page-<id>. Tables run to the column edge inside a scrolling wrapper; text
 // keeps to the measure (css: .rn-prose).
+//
+// Paragraphs, notes and table cells go through langRuns (js/read-sheet.js):
+// with a Book that declares lang.runs, each run of the content language in
+// them carries lang="<content>", and is a button that opens the Book's
+// reading tool when it has one. A page title, a column header and a caption
+// get the language only (tap: false), because they label the text rather
+// than being read through. Still text nodes only, split, never parsed.
 
 import { t, tList } from './i18n.js';
 import { h } from './utils.js';
 import * as books from './books.js';
+import { langRuns } from './read-sheet.js';
 
 export function pageNode(book, page) {
   const parts = [];
-  if (page.title) parts.push(h('h4', {}, t(page.title)));
-  for (const para of tList(page.body)) parts.push(h('p', {}, para));
+  if (page.title) parts.push(h('h4', {}, langRuns(book, t(page.title), { tap: false })));
+  for (const para of tList(page.body)) parts.push(h('p', {}, langRuns(book, para)));
   if (page.kind === 'table') parts.push(h('div', { class: 'rn-scroll' }, tableNode(book, page)));
   if (page.figure) parts.push(figureNode(book, page.figure));
   const links = linksNode(page.links);
   if (links) parts.push(links);
-  for (const para of tList(page.note)) parts.push(h('p', { class: 'rn-note' }, para));
+  for (const para of tList(page.note)) parts.push(h('p', { class: 'rn-note' }, langRuns(book, para)));
   const cls = page.kind === 'callout' ? `rn-page rn-callout rn-callout--${page.tone || 'note'}` : 'rn-page';
   return h('div', { class: cls, id: page.id ? `page-${page.id}` : null }, parts);
 }
@@ -82,8 +90,8 @@ export function tableNode(book, page) {
     return row && typeof row === 'object' ? row[key] : row;
   };
   return h('table', { class: 'rn-table' }, [
-    h('thead', {}, h('tr', {}, cols.map((c) => h('th', {}, t(c))))),
-    h('tbody', {}, rows.map((row) => h('tr', {}, cols.map((c, i) => h('td', {}, cellText(cell(row, i))))))),
+    h('thead', {}, h('tr', {}, cols.map((c) => h('th', {}, langRuns(book, t(c), { tap: false }))))),
+    h('tbody', {}, rows.map((row) => h('tr', {}, cols.map((c, i) => h('td', {}, langRuns(book, cellText(cell(row, i)))))))),
   ]);
 }
 
@@ -138,6 +146,6 @@ export function figureNode(book, figure) {
   } else {
     parts.push(h('p', { class: 'rn-warn' }, `no renderer for a ${figure.kind} figure`));
   }
-  if (figure.caption) parts.push(h('figcaption', {}, t(figure.caption)));
+  if (figure.caption) parts.push(h('figcaption', {}, langRuns(book, t(figure.caption), { tap: false })));
   return h('figure', { class: 'rn-figure' }, parts);
 }

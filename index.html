@@ -73,6 +73,10 @@
 <body>
 
   <a class="skip-link" href="#main" data-ui="skipToContent">Skip to content</a>
+  <!-- What a tappable run in a page does, for assistive tech: every run button
+       points here with aria-describedby (js/read-sheet.js). Hidden, and still
+       read as a description, because it is referenced by id. -->
+  <span id="rn-run-hint" hidden data-ui="readRunHint">Opens in the reader</span>
 
   <!-- Neorgon Header Kit contract (PROJECTS.md section 10). content mode: the
        sticky 68px gradient, which is what a reading site takes. -->
@@ -92,6 +96,9 @@
       <div class="header-actions">
         <a class="btn btn--ghost btn--sm" href="#/" data-keep-mobile data-ui="today">Today</a>
         <a class="btn btn--ghost btn--sm" href="#/books" data-keep-mobile data-ui="books">Books</a>
+        <!-- A Book's first tool (js/render-tool.js syncToolLink). Hidden until the
+             chosen Book declares one; the href is written after every paint. -->
+        <a class="btn btn--ghost btn--sm" href="#/books" data-ui="readerLink" data-rn-tool-link hidden>Reader</a>
         <!-- The current language is the <strong>, and the accessible name says
              which is on and what a press switches to. js/i18n.js applyChrome
              rewrites both on every paint. -->

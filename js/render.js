@@ -14,6 +14,8 @@ import { catalogView, bookView } from './render-contents.js';
 import { chapterView } from './render-chapter.js';
 import { todayView } from './render-today.js';
 import { settingsView } from './render-settings.js';
+import { toolView, destroyTool, afterToolPaint } from './render-tool.js';
+import { watchFeedback } from './read-sheet.js';
 import { setRepaint, destroyMounted, afterPaint } from './render-mount.js';
 
 export { startExercise, closeExercise, scrollToId, setPending } from './render-mount.js';
@@ -29,6 +31,7 @@ const VIEWS = {
   catalog: () => catalogView(),
   book: (p) => bookView(p.bookId),
   chapter: (p) => chapterView(p.bookId, p.chapterId),
+  tool: (p) => toolView(p.bookId, p.toolId),
   settings: () => settingsView(),
 };
 
@@ -52,6 +55,10 @@ export async function render() {
   const root = view();
   if (!root) return;
   destroyMounted();
+  destroyTool();
+  // Once, on the element that outlives every paint: runs in an exercise's
+  // feedback are marked from outside the engine (js/read-sheet.js).
+  watchFeedback(root);
   beginPage();
   applyChrome();
   root.setAttribute('aria-busy', 'true');
@@ -79,6 +86,7 @@ export async function render() {
   const note = fallbackNote();
   if (note) root.appendChild(note);
   root.removeAttribute('aria-busy');
+  afterToolPaint(route);
   await afterPaint(route);
 }
 

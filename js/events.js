@@ -12,6 +12,7 @@ import { setOverride } from './progress.js';
 import { start, go } from './router.js';
 import { showToast } from './utils.js';
 import { ui } from './i18n.js';
+import { openReader, closeReader } from './read-sheet.js';
 
 /** Close the contents disclosure, which is only ever open below the rail width. */
 function closeContents() {
@@ -83,6 +84,10 @@ const ACTIONS = {
     showToast(ui('resetDone'));
     return render();
   },
+  // Tap to read (js/read-sheet.js). The text sent is the run's own, which is
+  // the Book's content; no repaint, so a running drill stays mounted.
+  'read-run': (d, el) => { openReader(el.textContent, el); },
+  'close-reader': () => closeReader(),
 };
 
 /**
@@ -94,10 +99,17 @@ const ACTIONS = {
  * inside an IME cancels the conversion in progress. Closing the drill out from
  * under that would lose the half-typed answer to a key the learner pressed at
  * the IME, not at us. Those drills still show Close on the marker.
+ *
+ * An open dialog keeps its Escape too: the reading sheet closes on it
+ * natively, and a drill running under the sheet must survive that key. It is
+ * asked of the document, not of the focused node, because a press on plain
+ * text inside a dialog can leave focus on <body>, and preventDefault here
+ * would then cancel the dialog's own close as well as closing the drill.
  */
 function onKeydown(e) {
   if (e.key !== 'Escape' || e.defaultPrevented || e.isComposing) return;
   if (!document.body.dataset.exerciseOpen) return;
+  if (document.querySelector('dialog[open]')) return;
   const active = document.activeElement;
   if (active && active.closest && active.closest('input, textarea, select, [contenteditable=""], [contenteditable="true"]')) return;
   e.preventDefault();
