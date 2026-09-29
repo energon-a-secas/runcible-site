@@ -142,7 +142,10 @@ export const STRINGS = Object.freeze({
   sayIt: { en: 'Say it', es: 'Decirlo' },
   listening: { en: 'Listening', es: 'Escuchando' },
   listeningNow: { en: 'Listening.', es: 'Escuchando.' },
-  heard: { en: 'This browser heard: {transcript}', es: 'Este navegador oyó: {transcript}' },
+  // What the recogniser heard, set beside the line (compare.js sameWords).
+  // Two neutral lines, never a score: speak never grades (C2.5).
+  heardSame: { en: 'Heard the same words: {transcript}', es: 'Se oyeron las mismas palabras: {transcript}' },
+  heardVs: { en: 'Heard: {transcript}, expected: {expected}', es: 'Se oyó: {transcript}; se esperaba: {expected}' },
   ownFeedback: { en: 'Your own feedback, not a score.', es: 'Tu propia retroalimentación, no una puntuación.' },
   micBlocked: {
     en: 'The microphone is blocked for this site. Allow it in the browser\'s site settings, then try again.',

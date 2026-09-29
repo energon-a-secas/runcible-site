@@ -91,3 +91,31 @@ export function isCorrect(produced, expected, compare) {
   const wanted = Array.isArray(expected) ? expected : [expected];
   return wanted.some((w) => normalise(w, tokens) === got && got !== '');
 }
+
+/**
+ * Did a heard transcript say the same words as the line it was asked for?
+ *
+ * For speak, which never grades (C2.1, C2.5): the answer picks which neutral
+ * line the learner sees, and never becomes an attempt's `correct`. So it is
+ * forgiving where a grader is exact, and only about things a recogniser does
+ * on its own: width is folded (NFKC), punctuation and symbols are dropped
+ * (a recogniser adds a full stop, or does not), and spaces are ignored. Then
+ * the spec's own compare tokens run, so `kana` folds the two syllabaries only
+ * when the chapter asked for it, exactly as it would for a typed answer.
+ *
+ * @param {string} heard the transcript
+ * @param {string|string[]} expected the line, or every accepted form of it
+ * @param {string} [compare] the raw compare string from the spec
+ * @returns {boolean}
+ */
+export function sameWords(heard, expected, compare) {
+  const { tokens } = parseCompare(compare);
+  const fold = (v) => normalise(
+    String(v === null || v === undefined ? '' : v).normalize('NFKC').replace(/[\p{P}\p{S}]/gu, ' '),
+    tokens,
+  ).replace(/\s+/g, '');
+  const got = fold(heard);
+  if (!got) return false;
+  const wanted = Array.isArray(expected) ? expected : [expected];
+  return wanted.some((w) => fold(w) === got);
+}

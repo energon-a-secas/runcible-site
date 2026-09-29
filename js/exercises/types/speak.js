@@ -8,13 +8,16 @@
 // 14.1, and caniuse lists Edge unsupported where MDN lists it supported. Two
 // authorities disagreeing is not a foundation for a chapter gate. Where
 // recognition exists the transcript is shown to the learner as their own
-// feedback; where it does not, the exercise says so in one line and offers the
-// model to compare against.
+// feedback, set beside the line it was asked for (compare.js sameWords: the
+// same words, or what was heard and what was expected, never a score); where
+// it does not, the exercise says so in one line and offers the model to
+// compare against.
 
 import { createSession } from '../session.js';
 import { questionFrame, advance } from '../ask.js';
 import { el, append, button } from '../dom.js';
-import { resolveList, pickItems, fieldValue, displayValue, itemIdOf } from '../items.js';
+import { resolveList, pickItems, fieldValue, displayValue, acceptedValues, itemIdOf } from '../items.js';
+import { sameWords } from '../compare.js';
 import {
   cancelSpeech, synthAvailable, hasVoiceFor, speakOpts, warnMissingLang,
   recognitionAvailable, listenOnce,
@@ -37,10 +40,12 @@ export function mount(host, spec, api, ctx) {
     for (let i = 0; i < chosen.length && alive; i++) {
       session.step();
       const item = chosen[i];
-      const line = displayValue(fieldValue(item, spec.expect));
+      const raw = fieldValue(item, spec.expect);
+      const line = displayValue(raw);
       await askSpeak(session, spec, api, {
         itemId: itemIdOf(item, spec, spec.expect, i),
         line,
+        accepted: acceptedValues(raw),
         canSpeak,
         canHear,
       });
@@ -87,7 +92,12 @@ function askSpeak(session, spec, api, q) {
       listen.textContent = session.s('sayIt');
       if (got && got.transcript) {
         transcript = got.transcript;
-        heard.textContent = session.s('heard', { transcript: got.transcript });
+        // A comparison, never a score: which of two neutral lines to show.
+        // Nothing here reaches session.record, which stays correct: null.
+        const same = sameWords(got.transcript, q.accepted.length ? q.accepted : [q.line], spec.compare);
+        heard.textContent = same
+          ? session.s('heardSame', { transcript: got.transcript })
+          : session.s('heardVs', { transcript: got.transcript, expected: q.line });
         session.say(session.s('ownFeedback'));
       } else {
         heard.textContent = got && (got.error === 'not-allowed' || got.error === 'service-not-allowed')

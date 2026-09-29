@@ -193,7 +193,7 @@ The ten types and their required fields (from spec.js, verbatim):
 | match  | items, left, right, n              | yes    | n pairs shown; one attempt per pairing, keyed on the left item |
 | order  | items, sequence                    | yes    | sequence names a field holding an array, or a string split on whitespace; prompt optional |
 | listen | items, speak, answer, respond      | yes    | respond "choice" or "typed"; speak is the field read aloud; audioOnly: true; transform allowed with respond typed |
-| speak  | items, expect                      | never  | correct: null always. A transcript is shown as feedback, not a score |
+| speak  | items, expect                      | never  | correct: null always. The transcript is shown beside the line (same words, or heard and expected; `compare` tokens apply), never as a score |
 | deck   | src, or load                       | yes    | limit (positive integer), mode is review, cram or browse. A Book authors src, the file to embed; load is a whole neo-deck/1 document in place of a file and only the shell builds one (see Your misses) |
 | quiz   | game, src                          | yes    | game is beats, sound, pairs or order; limit (positive integer); filter narrows the set to one row or group; timed clocks each item; src is a neo-quiz-set/1 document declared in data[] |
 | custom | module                             | module decides | props passed through. module is an id the Book registered |
