@@ -30,8 +30,8 @@ const bare = structuredClone(shipped);
 delete bare.tools;
 delete bare.lang.runs;
 
-// Exactly what books/japanese/book.json declares (the test above checks it
-// quotes): one tool, and runs for kana and kanji with the punctuation that
+// Exactly what books/japanese/book.json declares (a test below checks that the
+// two agree): one tool, and runs for kana and kanji with the punctuation that
 // belongs to them, joined across a single space so a spaced teaching line such
 // as the kana column of a pattern table is one run.
 const TOOL = {

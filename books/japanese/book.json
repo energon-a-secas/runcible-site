@@ -1,14 +1,14 @@
 {
   "format": "neo-book/1",
   "id": "japanese",
-  "version": "2026-09-08",
+  "version": "2026-09-29",
   "title": { "en": "Japanese", "es": "Japonés" },
   "tagline": {
     "en": "From why they say gandamu to reading a song line",
     "es": "Desde por qué dicen gandamu hasta leer una línea de canción"
   },
   "glyph": "あ",
-  "lang": { "content": "ja", "ui": ["en", "es"] },
+  "lang": { "content": "ja", "ui": ["en", "es"], "runs": "[\\u300c\\u300e]?[\\p{sc=Hira}\\p{sc=Kana}\\p{sc=Han}][\\p{sc=Hira}\\p{sc=Kana}\\p{sc=Han}\\u30fc\\u30fb\\u3001\\u3002\\u300c-\\u300f\\uff01\\uff1f\\u301c\\uff5e]*(?:[ \\u3000]+[\\u300c\\u300e]?[\\p{sc=Hira}\\p{sc=Kana}\\p{sc=Han}][\\p{sc=Hira}\\p{sc=Kana}\\p{sc=Han}\\u30fc\\u30fb\\u3001\\u3002\\u300c-\\u300f\\uff01\\uff1f\\u301c\\uff5e]*)*" },
   "goal": {
     "en": "Read hiragana and katakana without romaji, and hold the first hundred words",
     "es": "Leer hiragana y katakana sin romaji, y sostener las primeras cien palabras"
@@ -84,6 +84,11 @@
     { "path": "exercises/pitch.js", "provides": { "exercises": ["jp.pitch"] } },
     { "path": "exercises/tegaki.js", "provides": { "exercises": ["jp.tegaki"] } },
     { "path": "exercises/kanahints.js", "provides": { "exercises": ["jp.kanahints"] } }
+  ],
+  "tools": [
+    { "id": "reader", "embed": "yomu", "title": {"en": "Reader", "es": "Lector"}, "glyph": "読",
+      "description": {"en": "Paste any Japanese, or tap a phrase in a chapter, to see how it is read and built.", "es": "Pega cualquier texto en japonés, o toca una frase en un capítulo, para ver cómo se lee y cómo está hecho."},
+      "reads": true }
   ],
   "data": [
     {"src":"data/kana/hiragana.json","licence":"public-domain","screen":"none"},
