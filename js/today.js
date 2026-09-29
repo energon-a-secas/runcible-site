@@ -8,33 +8,16 @@
 //
 // Nothing here names a subject. A lesson is the first available chapter, a game
 // is a graded exercise from a chapter that is already open, and a review is a
-// deck the engine told us was due.
+// deck the engine told us was due. Which rung the bookmark is on and which drill
+// is the game are js/next-up.js's, which the chapter view asks too, so the rail
+// and Today cannot disagree about where a learner stopped.
 
-import { loadChapter, loadLadder, cachedChapters, LoadError } from './books.js';
-import { ladder, weakSkills, weakItems, deckCounts, overrides, exerciseState } from './progress.js';
-import { engine } from './books.js';
-import { GENERIC_TYPES, NEVER_GRADED } from './exercises/index.js';
+import { loadChapter, loadLadder, cachedChapters, LoadError, engine } from './books.js';
+import { ladder, weakSkills, weakItems, deckCounts, overrides } from './progress.js';
+import { isGraded, firstUnfinishedRung, pickGame } from './next-up.js';
 
-/**
- * Types that grade: every generic type the engine knows except the two C2.1
- * says record correct: null (read and speak). Derived rather than listed,
- * because the hand list here missed `quiz` when it became the tenth type, so
- * every rung whose drills were Quiz rounds read as finished: Today, the
- * bookmark and Next up all skipped them and started a fresh Book on rung 2.
- */
-const GRADED = GENERIC_TYPES.filter((type) => !NEVER_GRADED.includes(type));
-
-/**
- * A custom module grades unless it said `graded: false` when it registered
- * (the Japanese Book's lyrics, pitch and namer modules do), so Today never
- * offers an ungraded module as the day's game or counts it as a drill.
- */
-function isGraded(ex) {
-  if (!GRADED.includes(ex.type)) return false;
-  if (ex.type !== 'custom') return true;
-  const impl = engine().exerciseImpl(ex.module);
-  return !(impl && impl.graded === false);
-}
+/** The page's registry lookup, which js/next-up.js reads a module's graded flag through. */
+const implOf = (id) => engine().exerciseImpl(id);
 
 /**
  * Compose the Today view. Loads at most one chapter file: the next lesson's.
@@ -65,7 +48,7 @@ export async function composeToday(book) {
     if (!reachable.has(doc.id)) continue;
     for (const rung of doc.rungs || []) {
       for (const ex of rung.exercises || []) {
-        if (isGraded(ex)) pool.push({ chapterId: doc.id, rungId: rung.id, exercise: ex });
+        if (isGraded(ex, implOf)) pool.push({ chapterId: doc.id, rungId: rung.id, exercise: ex });
       }
     }
   }
@@ -75,22 +58,12 @@ export async function composeToday(book) {
     next,
     nextDoc,
     nextError,
-    nextRung: nextDoc ? firstUnfinishedRung(book.id, nextDoc) : null,
+    nextRung: nextDoc ? firstUnfinishedRung(book.id, nextDoc, implOf) : null,
     reviews: reviewsFor(book, pool),
     game: pickGame(book.id, pool),
     overrides: overrides(book.id).map((id) => rows.find((r) => r.id === id)).filter(Boolean),
     allPassed: rows.length > 0 && rows.every((r) => r.state === 'passed' || r.state === 'planned'),
   };
-}
-
-/** The first rung whose exercises are not all finished, else the first rung. */
-export function firstUnfinishedRung(bookId, doc) {
-  for (const rung of doc.rungs || []) {
-    const graded = (rung.exercises || []).filter(isGraded);
-    if (!graded.length) continue;
-    if (graded.some((ex) => !exerciseState(bookId, doc.id, ex.id))) return rung;
-  }
-  return (doc.rungs || [])[0] || null;
 }
 
 /**
@@ -109,21 +82,4 @@ function reviewsFor(book, pool) {
   }
   decks.sort((a, b) => b.due - a.due);
   return { decks, skills: weakSkills(book.id, 3), items: weakItems(book.id, 6) };
-}
-
-/**
- * One game: a graded exercise from a chapter the learner can already open,
- * preferring whichever practises their weakest skill. "Weakest" is measured, so
- * on a first visit with no attempts this is simply the first drill available.
- */
-function pickGame(bookId, pool) {
-  const playable = pool.filter((item) => item.exercise.type !== 'deck');
-  if (!playable.length) return null;
-  const weak = weakSkills(bookId, 5);
-  for (const row of weak) {
-    const hit = playable.find((item) => item.exercise.skill === row.skill);
-    if (hit) return { ...hit, because: row };
-  }
-  const fresh = playable.find((item) => !exerciseState(bookId, item.chapterId, item.exercise.id));
-  return fresh ? { ...fresh, because: null } : { ...playable[0], because: null };
 }

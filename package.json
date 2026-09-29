@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "convex": "convex dev",
-    "test": "node --test convex/merge.test.ts js/exercises/fixtures/misses/misses.test.mjs js/exercises/fixtures/evidence/evidence.test.mjs js/exercises/fixtures/compare/same-words.test.mjs tools/book-tools.test.mjs"
+    "test": "node --test convex/merge.test.ts js/exercises/fixtures/misses/misses.test.mjs js/exercises/fixtures/evidence/evidence.test.mjs js/exercises/fixtures/compare/same-words.test.mjs tools/book-tools.test.mjs tools/next-up.test.mjs"
   },
   "license": "MIT",
   "dependencies": {

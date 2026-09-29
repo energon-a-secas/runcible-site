@@ -191,7 +191,18 @@ recorded under it), title (bilingual, optional). Optional on any type:
 count (number of items to ask; default all), pass: { accuracy } (the tick
 beside the drill, never the chapter gate; forbidden on read and speak),
 compare, itemIdPrefix, itemIdField, lang (BCP 47; defaults to
-book.lang.content).
+book.lang.content), optional (true or false, default false).
+
+AN OPTIONAL EXERCISE NEVER DECIDES WHAT IS NEXT. optional: true draws the
+exercise where the chapter put it, runs it, and records its attempts under its
+skill as before, so its evidence counts toward the goal like any other. It is
+never what makes a rung unfinished: the bookmark, Continue reading and the
+rail pass a rung whose other drills are done. The facing page's Next up passes
+over it while the rung holds anything else, and it is never offered as the
+day's drill. Use it for a drill added to rungs learners may already have
+finished (a warm-up, a hint pass): without it, every such learner is sent back
+to the first of those rungs. Only the boolean is accepted; "yes" or 1 is an
+error, because a truthy string would otherwise count the drill with no message.
 
 items is a data pointer to a list, or an inline array of objects. Field names
 in the spec (prompt, answer, left, ...) name fields of those objects; dotted

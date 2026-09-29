@@ -63,7 +63,6 @@ engine's own rig is `/js/exercises/fixtures/harness.html`.
 | `js/events.js` | 147 | bindEvents |
 | `js/exercises/types/listen.js` | 144 | mount |
 | `js/exercises/types/choice.js` | 123 | askChoice, mount |
-| `js/today.js` | 122 | composeToday, firstUnfinishedRung |
 | `js/book-tools.js` | 120 | TOOL_EMBEDS, TOOL_FIELDS, RUNS_FLAGS, compileRuns, runsFor, and more |
 | `js/exercises/types/speak.js` | 117 | mount |
 | `js/exercises/fixtures/book-module.js` | 111 | PROVIDES |
@@ -71,6 +70,7 @@ engine's own rig is `/js/exercises/fixtures/harness.html`.
 | `js/render-contents.js` | 108 | catalogView, trackPicker, bookView |
 | `js/render-shared.js` | 105 | action, link, textLink, textAction, stateGlyph, and more |
 | `js/render-tool.js` | 99 | toolView, destroyTool, afterToolPaint, syncToolLink, toolList |
+| `js/next-up.js` | 99 | isOptional, isGraded, countsTowardDone, firstUnfinishedRung, nextDrill, pickGame |
 | `js/exercises/types/read.js` | 94 | mount |
 | `js/render-rail.js` | 94 | railNode |
 | `js/exercises/compare.js` | 93 | DEFAULT_COMPARE, COMPARE_TOKENS, parseCompare, normalise, isCorrect |
@@ -78,6 +78,7 @@ engine's own rig is `/js/exercises/fixtures/harness.html`.
 | `js/exercises/types/quiz.js` | 91 | mount |
 | `js/exercises/dom.js` | 89 | el, append, button, clear, focus, and more |
 | `js/utils.js` | 87 | h, append, clear, showToast, debounce, and more |
+| `js/today.js` | 85 | composeToday |
 | `js/exercises/types/deck.js` | 79 | mount |
 | `js/router.js` | 64 | ROUTES, href, parse, go, start |
 | `js/exercises/errors.js` | 54 | locate, ExerciseError |
@@ -352,13 +353,32 @@ them as drills (`engine().exerciseImpl(id)`); a module that omits the flag is
 graded. A skipped or crashed exercise (`api.done({ skipped })`,
 `api.done({ error })`) is not marked done.
 
+**An optional drill is shown and recorded, and never decides what is next.**
+`optional: true` on an exercise spec (a boolean: `validateExerciseSpec`
+refuses anything else, so `make validate` and the page at load both do) keeps
+it out of every "next" and "done" decision, and every one of those lives in
+`js/next-up.js`: `firstUnfinishedRung` (the bookmark, Continue reading, the
+rail's ribbon) counts only graded drills that are not optional, `nextDrill`
+(the facing page's Next up and the view's one primary Start) passes over them
+while the rung holds another, and `pickGame` never offers one as the day's
+drill. It still records attempts under its skill, so its evidence counts
+toward the goal, and it still gets its tick when finished. The seven kana hint
+drills carry it: added at the head of rungs learners had already finished,
+they sent every such bookmark back to the first row, with no error anywhere.
+`tools/next-up.test.mjs` proves, over the real chapters, that every progress
+store yields the bookmark of a copy with the optional drills removed. Reviews
+due still lists an optional deck with cards due, because a review is not a
+drill picked for you. A new place that decides "next" belongs in
+`next-up.js`, never as a second filter in a render file: the hand list of
+graded types that once read every Quiz rung as finished is why.
+
 **The kana hints record only in their check phase, and only what they are.**
 `jp.kanahints` (`books/japanese/exercises/kanahints.js`, its drawing in
-`kanahints-view.js`) opens each row rung of chapters 1 and 2: a learn card per
-kana that records nothing, then one question per kana under the spec's own
-`skill` (the chapter goal's, which the rung's Quiz rounds feed too) with the
-kana table's id as `itemId` (`kana:X`, as the typed drills carry; the Quiz
-sets use their own ids). `props.rows` takes the table's own row ids (`vowels`, `k`, ...,
+`kanahints-view.js`) opens each row rung of chapters 1 and 2 as an optional
+drill (see the Gotcha above): a learn card per kana that records nothing,
+then one question per kana under the spec's own `skill` (the chapter goal's,
+which the rung's Quiz rounds feed too) with the kana table's id as `itemId`
+(`kana:X`, as the typed drills carry; the Quiz sets use their own ids). `props.rows` takes the table's own row ids (`vowels`, `k`, ...,
 `moraic-n`; `a` is accepted for `vowels`). A sound question exists only when
 the device has a Japanese voice, and one the voice fails to play is skipped
 unrecorded; a look-alike question never offers a kana with the same sound.

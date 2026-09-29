@@ -189,6 +189,11 @@ export function validateExerciseSpec(spec, known) {
       out.push('"pass" must be an object with a numeric "accuracy"');
     }
   }
+  if (spec.optional !== undefined && typeof spec.optional !== 'boolean') {
+    // The shell reads only `true` (js/next-up.js), so "yes" or 1 would leave
+    // the drill counted toward its rung and say nothing. Refused instead.
+    out.push(`"optional" must be true or false, got ${JSON.stringify(spec.optional)}`);
+  }
 
   if (spec.transform !== undefined) {
     if (typeof spec.transform !== 'string' || spec.transform === '') {

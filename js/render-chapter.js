@@ -7,7 +7,7 @@ import { t, ui } from './i18n.js';
 import { h, pct } from './utils.js';
 import * as books from './books.js';
 import * as progress from './progress.js';
-import { firstUnfinishedRung } from './today.js';
+import { firstUnfinishedRung, nextDrill } from './next-up.js';
 import { deckUrl } from './embed.js';
 import { action, textAction, stateGlyph, evidenceLine, hairline, titleOf, attribution } from './render-shared.js';
 import { pageNode } from './render-pages.js';
@@ -24,13 +24,13 @@ function facingRung(chapter, current) {
 
 /**
  * The one drill a chapter view offers as its primary action: the first one on
- * the facing rung not yet finished, else that rung's first. DESIGN.md allows
- * one primary per view, and a chapter used to draw every Start in the accent,
- * twenty-six of them down one chapter of the shipping Book.
+ * the facing rung not yet finished, else that rung's first, passing over an
+ * optional one (js/next-up.js). DESIGN.md allows one primary per view, and a
+ * chapter used to draw every Start in the accent, twenty-six of them down one
+ * chapter of the shipping Book.
  */
 function nextDrillId(book, chapter, current) {
-  const drills = drillsIn(facingRung(chapter, current));
-  const next = drills.find((ex) => !progress.exerciseState(book.id, chapter.id, ex.id)) || drills[0];
+  const next = nextDrill(book.id, chapter.id, drillsIn(facingRung(chapter, current)));
   return next ? next.id : null;
 }
 
@@ -73,7 +73,7 @@ export async function chapterView(bookId, chapterId) {
   } else {
     chapter = await books.loadChapter(book, chapterId);
     state.chapter = chapter;
-    current = firstUnfinishedRung(book.id, chapter);
+    current = firstUnfinishedRung(book.id, chapter, books.engine().exerciseImpl);
     prose = readingProse(book, chapter, row, nextDrillId(book, chapter, current));
   }
   const rungs = chapter ? (chapter.rungs || []) : [];

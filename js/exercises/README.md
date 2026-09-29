@@ -66,7 +66,11 @@ host.
 Every spec carries `id`, `type` and `skill`. `skill` is required by C2.3.
 Optional on any type: `count` (how many items to ask, default all),
 `pass: { accuracy }` (the tick beside the exercise, never the chapter gate),
-`itemIdPrefix`, `itemIdField`, `compare`.
+`itemIdPrefix`, `itemIdField`, `compare`, and `optional` (a boolean). The
+engine mounts an optional exercise like any other; it is the shell
+(`js/next-up.js`) that never counts one toward its rung, never makes it Next
+up and never picks it as the day's drill. `validateExerciseSpec` refuses any
+value but true or false.
 
 | `type` | Fields | Notes |
 |---|---|---|
