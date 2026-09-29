@@ -55,6 +55,9 @@ Adding a Book is one entry here plus one directory. No file under js/ changes.
 - lang.content (required) BCP 47 tag of what is taught; filled into every
   listen and speak exercise that does not state its own lang
 - lang.ui (required) array of UI language codes
+- lang.runs (optional) a regular-expression source naming runs of the content
+  language inside mixed text. Compiled with the u and g flags; it must compile
+  and must not be able to match the empty string. See "Tools and tap to read"
 - tracks[] (optional) { id (slug), label (bilingual), description, default }.
   At most one default; with none, the first track is used
 - chapters[] (required), in ladder order:
@@ -73,12 +76,45 @@ Adding a Book is one entry here plus one directory. No file under js/ changes.
   "public-domain"), screen "required" | "none", attribution (a credits[] id,
   required when screen is "required") }. No src twice
 - credits[] { id, name }. Every attribution must name one of these
+- tools[] (optional) { id (slug, unique), embed (required, one of "yomu"),
+  title (required, bilingual), glyph (one string), description (bilingual),
+  reads (true | false) }. Any other key warns. A tool that reads with no
+  lang.runs warns: nothing on a page can open it
 
 data[] is a permission list. The shell resolves a pointer, a table's items,
 a figure's src, a deck's src or a quiz's src ONLY if its path is declared
 here. An undeclared path is a load error naming book.json. A data file's own
 _licence block can raise the obligation (screen "required" wins over "none")
 and never lower it; the validator names any disagreement.
+
+### Tools and tap to read
+
+    "lang": { "content": "ja", "ui": ["en", "es"],
+              "runs": "[\\p{sc=Hira}\\p{sc=Kana}\\p{sc=Han}][\\p{sc=Hira}\\p{sc=Kana}\\p{sc=Han}\\u30fc]*" },
+    "tools": [ { "id": "reader", "embed": "yomu", "glyph": "読",
+                 "title": { "en": "Reader", "es": "Lector" },
+                 "description": { "en": "...", "es": "..." }, "reads": true } ]
+
+A tool is a page a sibling site draws in a frame, beside the chapters: its own
+route #/tool/<bookId>/<toolId>, a header link while the Book is the chosen
+one, a line under the chapters on the contents page and in the chapter rail.
+embed names the site from a frozen list, the way a quiz names its game; "yomu"
+is https://yomu.neorgon.com, spoken to with the yomu-embed/1 postMessage
+protocol (Yomu's docs/EMBED.md). A tool is never in the ladder and never
+locked.
+
+A TOOL RECORDS NOTHING. No attempt, no evidence, no progress row, whatever the
+frame says, so reading can never feed or dilute a chapter goal.
+
+lang.runs marks text. Every run it matches in a page body, a note or a table
+cell is wrapped in lang="<lang.content>", so the device draws it in a face for
+that language and a screen reader speaks it in that voice; a page title, a
+rung title, a column header and a figure caption get the lang only, and so
+does an exercise's feedback after an answer. When a tool also has reads: true,
+each run in a body, note or cell is a button: pressing it opens a side sheet
+holding that tool, loaded with the run's text. Whitespace at either end of a
+match stays outside the run. Only the Book's own text is ever sent, never what
+a learner typed.
 
 ## 3. A chapter: books/<id>/chapters/<file>.json (neo-chapter/1)
 
