@@ -164,6 +164,13 @@ const UI = {
   drillsLocked: { en: 'Locked: this drill opens after {chapters}.', es: 'Bloqueado: este ejercicio se abre después de {chapters}.' },
   drillsLockedPlain: { en: 'Locked: this drill opens with the chapter.', es: 'Bloqueado: este ejercicio se abre con el capítulo.' },
 
+  // A table wider than the column (js/render-shared.js tableScroll).
+  table: { en: 'Table', es: 'Tabla' },
+  scrollTable: {
+    en: 'Scroll the table sideways for the other columns.',
+    es: 'Desplaza la tabla hacia los lados para ver las demás columnas.',
+  },
+
   // The exercise marker in the prose, and the facing page that answers it.
   tryIt: { en: 'Try it', es: 'Pruébalo' },
   nextUp: { en: 'Next up', es: 'Lo siguiente' },

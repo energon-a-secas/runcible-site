@@ -101,6 +101,21 @@ export function errorBlock(message, detail) {
   ]);
 }
 
+/**
+ * A wide table in a scroller a keyboard and a thumb can both reach. On a
+ * phone a four-column table is wider than the column, and the columns past
+ * the edge were simply missing: no focus stop, no name, no sign there was
+ * more. The scroller is a named, focusable region (arrow keys scroll it), and
+ * js/render-mount.js marks which edges hide columns, which css/style.css
+ * fades, and shows the one-line hint under it only while something is hidden.
+ */
+export function tableScroll(title, table) {
+  return h('div', { class: 'rn-scroll-wrap' }, [
+    h('div', { class: 'rn-scroll', tabindex: '0', role: 'region', 'aria-label': title || ui('table') }, table),
+    h('p', { class: 'rn-scroll-hint', hidden: true }, ui('scrollTable')),
+  ]);
+}
+
 /** C11.3: the acknowledgement block, at the foot of the main content region. */
 export function attribution(book, chapter) {
   const rows = books.attributionsFor(book, chapter);

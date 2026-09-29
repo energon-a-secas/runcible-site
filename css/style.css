@@ -671,7 +671,26 @@ button:active,
   background: var(--surface-1);
 }
 
-.rn-scroll { margin-top: var(--space-4); overflow-x: auto; }
+.rn-scroll-wrap { margin-top: var(--space-4); }
+.rn-scroll { overflow-x: auto; border-radius: var(--radius-sm); }
+/* An edge that hides columns fades out (js/render-mount.js sets the two
+   attributes from the scroll position), so a table cut by the column reads as
+   one that continues rather than one that ends. A mask, not an overlay, so it
+   works on a callout's wash as well as on the page. It lifts while the
+   scroller has keyboard focus, so the focus ring is drawn whole. */
+.rn-scroll[data-more-right]:not(:focus-visible) {
+  -webkit-mask-image: linear-gradient(to right, currentColor calc(100% - 48px), transparent);
+  mask-image: linear-gradient(to right, currentColor calc(100% - 48px), transparent);
+}
+.rn-scroll[data-more-left]:not(:focus-visible) {
+  -webkit-mask-image: linear-gradient(to left, currentColor calc(100% - 48px), transparent);
+  mask-image: linear-gradient(to left, currentColor calc(100% - 48px), transparent);
+}
+.rn-scroll[data-more-left][data-more-right]:not(:focus-visible) {
+  -webkit-mask-image: linear-gradient(to right, transparent, currentColor 48px, currentColor calc(100% - 48px), transparent);
+  mask-image: linear-gradient(to right, transparent, currentColor 48px, currentColor calc(100% - 48px), transparent);
+}
+.rn-scroll-hint { margin-top: var(--space-2); font-size: var(--text-xs); line-height: 1.5; color: var(--text-muted); }
 .rn-table { width: 100%; border-collapse: collapse; font-size: var(--text-sm); }
 .rn-table th, .rn-table td {
   padding: var(--space-2) var(--space-3);
