@@ -13,9 +13,16 @@
 import { loadChapter, loadLadder, cachedChapters, LoadError } from './books.js';
 import { ladder, weakSkills, weakItems, deckCounts, overrides, exerciseState } from './progress.js';
 import { engine } from './books.js';
+import { GENERIC_TYPES, NEVER_GRADED } from './exercises/index.js';
 
-/** Types that grade. read records nothing and speak is never graded (C2.1). */
-const GRADED = ['choice', 'typed', 'match', 'order', 'listen', 'deck', 'custom'];
+/**
+ * Types that grade: every generic type the engine knows except the two C2.1
+ * says record correct: null (read and speak). Derived rather than listed,
+ * because the hand list here missed `quiz` when it became the tenth type, so
+ * every rung whose drills were Quiz rounds read as finished: Today, the
+ * bookmark and Next up all skipped them and started a fresh Book on rung 2.
+ */
+const GRADED = GENERIC_TYPES.filter((type) => !NEVER_GRADED.includes(type));
 
 /**
  * A custom module grades unless it said `graded: false` when it registered
