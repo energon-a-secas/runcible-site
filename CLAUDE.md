@@ -382,8 +382,10 @@ which the rung's Quiz rounds feed too) with the kana table's id as `itemId`
 `moraic-n`; `a` is accepted for `vowels`). A sound question exists only when
 the device has a Japanese voice, and one the voice fails to play is skipped
 unrecorded; a look-alike question never offers a kana with the same sound.
-The hints themselves are `data/kana/mnemonics.json`, authored and CC0, and
-every keyword was checked against the Tofugu and Japan Foundation sets
+The hints themselves are `data/kana/mnemonics.json`, authored and CC0 and
+built by `node tools/build-mnemonics.mjs` from the text in
+`tools/lib/mnemonics-content.mjs` (edit the text, rebuild, never hand-edit
+the JSON), and every keyword was checked against the Tofugu and Japan Foundation sets
 (`data/README.md` says how); a hint borrowed from any published set is a
 licence breach, not a shortcut. The module's two display classes,
 `.rx-picture` and `.rx-glyph`, live in `css/exercises.css` because a Book

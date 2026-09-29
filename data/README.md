@@ -291,7 +291,9 @@ a keyword in both languages, a one or two line story that places every stroke,
 an emoji for the keyword's picture, and the look-alikes with the tell between
 them, plus a rule mnemonic for dakuten, handakuten, youon, small tsu and long
 vowels. `CC0-1.0`, `derived: false`, `screen: none`. The module
-`books/japanese/exercises/kanahints.js` is its one reader.
+`books/japanese/exercises/kanahints.js` is its one reader. It is built by
+`node tools/build-mnemonics.mjs` from the authored text in
+`tools/lib/mnemonics-content.mjs`; change the text there and rebuild.
 
 Four rules keep it honest:
 
