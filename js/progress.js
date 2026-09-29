@@ -54,7 +54,7 @@ export function recordAttempt(input, ctx) {
   const slot = bookSlot(bookId);
   const list = slot.evidence[a.skill] || (slot.evidence[a.skill] = []);
   list.push(record);
-  if (list.length > EVIDENCE_CAP) list.splice(0, list.length - EVIDENCE_CAP);
+  capEvidence(list);
   // C12 A1: the server sums evidence, so it is told about this one attempt and
   // never about the running total the line above maintains. The two are
   // different numbers on purpose, and confusing them inflates attempt counts
@@ -67,6 +67,37 @@ export function recordAttempt(input, ctx) {
   }
   saveProgress();
   return record;
+}
+
+/**
+ * Hold a skill's stored attempts to C8.2's cap of EVIDENCE_CAP, in place.
+ *
+ * Ungraded records go first, oldest first, and a graded one goes only when
+ * there is no ungraded one left to drop. Trimming the plain oldest used to let
+ * correct: null attempts (a page read, a line spoken, a song sung along to)
+ * push earned answers out of the list: twenty right answers followed by two
+ * hundred ungraded ones left a passed chapter locked with nothing graded, and
+ * C3.4's "null counts toward nothing" was true of the window and false of the
+ * storage under it. The cap still bounds the list; what it spends the room on
+ * is the evidence.
+ *
+ * Exported for the node test. The C12 A1 delta queue is untouched by this: a
+ * record leaves for the server once, when it is recorded, whatever happens to
+ * the local copy afterwards.
+ */
+export function capEvidence(list, cap = EVIDENCE_CAP) {
+  let over = list.length - cap;
+  if (over <= 0) return list;
+  const kept = [];
+  for (const rec of list) {
+    const graded = rec && (rec.correct === true || rec.correct === false);
+    if (over > 0 && !graded) { over -= 1; continue; }
+    kept.push(rec);
+  }
+  if (over > 0) kept.splice(0, over);
+  list.length = 0;
+  for (const rec of kept) list.push(rec);
+  return list;
 }
 
 /** Every stored attempt for a skill, oldest first. */

@@ -16,6 +16,23 @@ import { railNode } from './render-rail.js';
 /** Every drill in a rung, in the order the chapter authored them. */
 function drillsIn(rung) { return (rung && rung.exercises) || []; }
 
+/** The rung the facing page shows: the bookmark's, else the first with drills. */
+function facingRung(chapter, current) {
+  return current || (chapter.rungs || []).find((r) => drillsIn(r).length) || null;
+}
+
+/**
+ * The one drill a chapter view offers as its primary action: the first one on
+ * the facing rung not yet finished, else that rung's first. DESIGN.md allows
+ * one primary per view, and a chapter used to draw every Start in the accent,
+ * twenty-six of them down one chapter of the shipping Book.
+ */
+function nextDrillId(book, chapter, current) {
+  const drills = drillsIn(facingRung(chapter, current));
+  const next = drills.find((ex) => !progress.exerciseState(book.id, chapter.id, ex.id)) || drills[0];
+  return next ? next.id : null;
+}
+
 /** What the marker says about an exercise, so the recto says the same thing. */
 function earnedOf(book, chapter, ex) {
   const done = progress.exerciseState(book.id, chapter.id, ex.id);
@@ -38,22 +55,32 @@ export async function chapterView(bookId, chapterId) {
   let chapter = null;
   let current = null;
   let prose;
+  const locked = row.state === 'locked';
   if (row.state === 'planned') {
     prose = plannedProse(row, entry);
-  } else if (row.state === 'locked') {
-    prose = lockedProse(book, rows, row, entry);
+  } else if (locked) {
+    // A locked chapter opens read-only: every page can be read, and the drills
+    // say what opens them. Visiting writes nothing: no override, no rung seen.
+    // A chapter file that will not load still shows the head and its button.
+    let loadError = null;
+    try {
+      chapter = await books.loadChapter(book, chapterId);
+    } catch (e) {
+      loadError = e.message;
+    }
+    prose = lockedProse(book, rows, row, entry, chapter, loadError);
   } else {
     chapter = await books.loadChapter(book, chapterId);
     state.chapter = chapter;
     current = firstUnfinishedRung(book.id, chapter);
-    prose = readingProse(book, chapter, row);
+    prose = readingProse(book, chapter, row, nextDrillId(book, chapter, current));
   }
   const rungs = chapter ? (chapter.rungs || []) : [];
   // The recto is only allocated when there is something to answer on it. A
-  // planned chapter, a locked one and the study plan have no drills at all, and
+  // planned chapter, a locked one and the study plan have no drills to run, and
   // a quarter of the width behind a hairline showing nothing is the emptiness
   // this spread was meant to fill.
-  const facing = chapter ? facingNode(book, chapter, current, row) : null;
+  const facing = chapter && !locked ? facingNode(book, chapter, current, row) : null;
   return [
     railNode({ book, rows, chapterId, rungs, current }),
     h('div', { class: 'rn-spread', 'data-recto': facing ? 'page' : 'none' }, [
@@ -80,8 +107,9 @@ export async function chapterView(bookId, chapterId) {
  * drills are already in the prose, three lines under the reader's thumb.
  */
 function facingNode(book, chapter, current, row) {
-  const rung = current || (chapter.rungs || []).find((r) => drillsIn(r).length) || null;
+  const rung = facingRung(chapter, current);
   const drills = drillsIn(rung);
+  const nextId = nextDrillId(book, chapter, current);
   const evidence = evidenceLine(row && row.evidence);
   if (!drills.length && !evidence) return null;
 
@@ -89,7 +117,7 @@ function facingNode(book, chapter, current, row) {
     h('p', { class: 'rn-open-kicker', id: 'facing-kicker' }, ui('nextUp')),
     rung ? h('p', { class: 'rn-facing-rung' }, t(rung.title)) : null,
     drills.length
-      ? h('ul', { class: 'rn-facing-list' }, drills.map((ex) => drillRow(book, chapter, ex)))
+      ? h('ul', { class: 'rn-facing-list' }, drills.map((ex) => drillRow(book, chapter, ex, 'start-exercise', ex.id === nextId)))
       : null,
     evidence,
   ]);
@@ -109,18 +137,22 @@ function facingNode(book, chapter, current, row) {
 }
 
 /**
- * One drill as a line: press it and it opens. On the recto that is
+ * One drill as a button: press it and it opens. On the recto that is
  * `start-exercise`, which mounts it beside the prose you are already reading.
  * Today draws the same row for the bookmarked rung, and there the drill is in a
  * chapter that is not on screen, so it takes `open-exercise`: the route change
  * first, the mount on the paint that follows (js/events.js).
+ *
+ * A real button, secondary, and the view's one primary when `primary` is set.
+ * It was dotted text, which read as a list rather than as things to press.
  */
-export function drillRow(book, chapter, ex, act = 'start-exercise') {
+export function drillRow(book, chapter, ex, act = 'start-exercise', primary = false) {
   const st = earnedOf(book, chapter, ex);
   const data = act === 'open-exercise'
     ? { book: book.id, chapter: chapter.id, exercise: ex.id }
     : { chapter: chapter.id, exercise: ex.id };
-  const btn = action(t(ex.title) || ex.id, act, data, 'rn-facing-drill');
+  const btn = action(t(ex.title) || ex.id, act, data,
+    `btn ${primary ? 'btn--primary' : 'btn--secondary'} btn--sm rn-facing-drill`);
   return h('li', { class: st.passed ? 'rn-facing-item rn-facing-item--passed' : 'rn-facing-item' }, [
     h('span', { class: 'rn-facing-tick', 'aria-hidden': 'true' }, st.passed ? '\u2713' : '\u00b7'),
     btn,
@@ -135,7 +167,7 @@ function titleBlock(title, status) {
   ]);
 }
 
-function readingProse(book, chapter, row) {
+function readingProse(book, chapter, row, nextId) {
   return [
     h('header', { class: 'rn-chapter-head' }, [
       titleBlock(t(chapter.title), row.evidence),
@@ -145,28 +177,51 @@ function readingProse(book, chapter, row) {
         ? h('p', { class: 'rn-state' }, [ui('opened'), ' ', textAction(ui('relock'), 'override-off', { chapter: chapter.id })])
         : null,
     ]),
-    ...(chapter.rungs || []).map((rung) => rungNode(book, chapter, rung)),
+    ...(chapter.rungs || []).map((rung) => rungNode(book, chapter, rung, { nextId })),
     attribution(book, chapter),
   ];
 }
 
-function lockedProse(book, rows, row, entry) {
-  const need = progress.requiresFor(book, entry)
-    .map((id) => { const r = rows.find((x) => x.id === id); return r ? titleOf(r) : id; });
-  const doc = row.doc;
-  return [
-    h('header', { class: 'rn-chapter-head' }, [
-      titleBlock(titleOf(row), row.evidence),
-      doc ? h('p', { class: 'rn-goal' }, t(doc.goal && doc.goal.statement)) : null,
-      h('p', { class: 'rn-state' }, [
-        stateGlyph('locked'), ' ', `${ui('locked')}. `,
-        need.length ? ui('needsFirst', { chapters: need.join(', ') }) : '',
-      ]),
-      evidenceLine(row.evidence),
-      row.error ? h('p', { class: 'rn-warn' }, row.error) : null,
-      // C3.4: a gate a self-taught adult cannot open is a wall.
-      h('div', { class: 'toolbar' }, action(ui('openAnyway'), 'override-on', { chapter: row.id }, 'btn btn--secondary btn--sm')),
+/** The titles of the chapters a locked one waits for, or [] when that cannot be read. */
+function neededTitles(book, rows, entry) {
+  try {
+    return progress.requiresFor(book, entry)
+      .map((id) => { const r = rows.find((x) => x.id === id); return r ? titleOf(r) : id; });
+  } catch {
+    return [];   // row.error already says why, on the page
+  }
+}
+
+/**
+ * A locked chapter, read-only. The head says what it waits for and keeps the
+ * C3.4 override; the rungs follow with their pages whole, and every drill
+ * marker says it is locked instead of offering Start. A learner deciding
+ * whether they already know this can read it first, which is the question
+ * the override asks them.
+ */
+function lockedProse(book, rows, row, entry, chapter, loadError) {
+  const need = neededTitles(book, rows, entry);
+  const doc = chapter || row.doc;
+  const drillsLine = need.length ? ui('drillsLocked', { chapters: need.join(', ') }) : ui('drillsLockedPlain');
+  const head = h('header', { class: 'rn-chapter-head' }, [
+    titleBlock(titleOf(row), row.evidence),
+    doc ? h('p', { class: 'rn-goal' }, t(doc.goal && doc.goal.statement)) : null,
+    h('p', { class: 'rn-state' }, [
+      stateGlyph('locked'), ' ', `${ui('locked')}. `,
+      need.length ? ui('needsFirst', { chapters: need.join(', ') }) : '',
     ]),
+    chapter ? h('p', { class: 'rn-lead' }, ui('previewLead')) : null,
+    evidenceLine(row.evidence),
+    row.error ? h('p', { class: 'rn-warn' }, row.error) : null,
+    loadError ? h('p', { class: 'rn-warn' }, loadError) : null,
+    // C3.4: a gate a self-taught adult cannot open is a wall.
+    h('div', { class: 'toolbar' }, action(ui('openAnyway'), 'override-on', { chapter: row.id }, 'btn btn--secondary btn--sm')),
+  ]);
+  if (!chapter) return [head];
+  return [
+    head,
+    ...(chapter.rungs || []).map((rung) => rungNode(book, chapter, rung, { locked: drillsLine })),
+    attribution(book, chapter),
   ];
 }
 
@@ -180,14 +235,33 @@ function plannedProse(row, entry) {
   ];
 }
 
-function rungNode(book, chapter, rung) {
+/**
+ * `locked`, when set, is what every marker in a locked chapter says instead of
+ * Start; `nextId` names the drill whose Start is the view's primary action.
+ */
+function rungNode(book, chapter, rung, { locked = null, nextId = null } = {}) {
   return h('section', { class: 'rn-rung', id: `rung-${rung.id}` }, [
     h('h3', { class: 'rn-rung-title' }, t(rung.title)),
     // C3.1 writes unlocks as the completion of a sentence ("every other row,
     // because..."), so the label is the shell's and the clause is the Book's.
     rung.unlocks ? h('p', { class: 'rn-unlocks' }, `${ui('unlocks')}: ${t(rung.unlocks)}`) : null,
     ...(rung.pages || []).map((p) => pageNode(book, p)),
-    ...(rung.exercises || []).map((ex) => markerNode(book, chapter, ex)),
+    ...(rung.exercises || []).map((ex) => (locked
+      ? lockedMarkerNode(ex, locked)
+      : markerNode(book, chapter, ex, ex.id === nextId))),
+  ]);
+}
+
+/**
+ * A drill in a locked chapter: named where the chapter put it, with no Start
+ * and no host to mount into, and one line saying what opens it. The marker id
+ * stays, so a link that scrolls to it still lands.
+ */
+function lockedMarkerNode(ex, line) {
+  return h('div', { class: 'rn-marker rn-marker--locked', id: `marker-${ex.id}` }, [
+    h('div', { class: 'rn-marker-row' }, [h('span', { class: 'rn-kicker' }, ui('tryIt'))]),
+    h('p', { class: 'rn-marker-title' }, t(ex.title) || ex.id),
+    h('p', { class: 'rn-marker-locked' }, [stateGlyph('locked'), ' ', line]),
   ]);
 }
 
@@ -198,12 +272,16 @@ function rungNode(book, chapter, rung) {
  * only other place it appears. A finished exercise shows "Done · 88%" here
  * and never in the rail; a passed one also gets a pencil tick in the margin.
  */
-function markerNode(book, chapter, ex) {
+function markerNode(book, chapter, ex, next = false) {
   const done = progress.exerciseState(book.id, chapter.id, ex.id);
   const earned = done ? (done.best === null ? ui('doneMark') : ui('earned', { pct: pct(done.best) })) : '';
   const bar = ex.pass && Number.isFinite(ex.pass.accuracy) ? ex.pass.accuracy : null;
   const passed = !!done && (bar === null || (done.best ?? 0) >= bar);
-  const start = action(ui('start'), 'start-exercise', { chapter: chapter.id, exercise: ex.id }, 'btn btn--primary btn--sm');
+  // Secondary, all of them. The view's one primary is the Next up drill on the
+  // facing page; below 980px that page is hidden, so the same drill's Start
+  // carries data-next and css/style.css gives it the primary fill there only.
+  const start = action(ui('start'), 'start-exercise', { chapter: chapter.id, exercise: ex.id }, 'btn btn--secondary btn--sm');
+  if (next) start.dataset.next = '';
   // "Start" is one word repeated down a chapter. The title beside it is what
   // tells a screen reader which drill this one starts.
   start.setAttribute('aria-describedby', `marker-title-${ex.id}`);

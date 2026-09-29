@@ -232,15 +232,27 @@ export function mountQuizEmbed({ host, spec, api, ctx }) {
     title: `${title} - Quiz`,
     loading: 'lazy',
   });
-  clear(host);
-  host.appendChild(h('div', { class: 'rn-deck-wrap' }, [
+  const wrap = h('div', { class: 'rn-deck-wrap' }, [
     frame,
     h('div', { class: 'rn-deck-bar' }, [status, open]),
     warn,
-  ]));
+  ]);
+  clear(host);
+  host.appendChild(wrap);
 
   const say = (text) => { status.textContent = text; };
   const shout = (text) => { warn.textContent = text; warn.hidden = false; };
+  // A frame that never answered, or said it failed, is a 420px grey box with a
+  // broken-page icon, and the explanation used to sit under it, near the
+  // bottom of a phone screen. The frame collapses instead, and the message and
+  // the Open in Quiz link are what is left in its place. A late answer after
+  // silence brings the frame back; an error does not.
+  let collapsed = null;   // null | 'silent' | 'error'
+  const collapse = (why) => {
+    collapsed = why;
+    frame.hidden = true;
+    wrap.dataset.failed = why;
+  };
   let heard = false;
   let total = null;
   let answered = 0;
@@ -251,6 +263,12 @@ export function mountQuizEmbed({ host, spec, api, ctx }) {
     if (!acceptable(e, origin, frame.contentWindow)) return;
     heard = true;
     const m = e.data;
+    if (collapsed === 'silent') {
+      collapsed = null;
+      frame.hidden = false;
+      delete wrap.dataset.failed;
+      warn.hidden = true;
+    }
 
     if (m.type === 'quiz:ready') {
       total = Number.isFinite(m.total) ? m.total : null;
@@ -316,6 +334,7 @@ export function mountQuizEmbed({ host, spec, api, ctx }) {
       // The status line stops saying "Loading" beside an error: the two would
       // contradict each other, and the silence path below already sets both.
       console.error('[runcible] quiz:error', m.code, m.message);
+      collapse('error');
       say(s('error'));
       shout(`${m.code}${typeof m.message === 'string' && m.message ? `. ${m.message}` : ''}`);
       return;
@@ -346,6 +365,7 @@ export function mountQuizEmbed({ host, spec, api, ctx }) {
   // frame.
   const silence = setTimeout(() => {
     if (heard) return;
+    collapse('silent');
     say(s('silent'));
     shout(s('silentDetail'));
   }, SILENCE_MS);

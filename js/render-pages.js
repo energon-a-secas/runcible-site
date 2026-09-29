@@ -8,12 +8,13 @@
 import { t, tList } from './i18n.js';
 import { h } from './utils.js';
 import * as books from './books.js';
+import { tableScroll } from './render-shared.js';
 
 export function pageNode(book, page) {
   const parts = [];
   if (page.title) parts.push(h('h4', {}, t(page.title)));
   for (const para of tList(page.body)) parts.push(h('p', {}, para));
-  if (page.kind === 'table') parts.push(h('div', { class: 'rn-scroll' }, tableNode(book, page)));
+  if (page.kind === 'table') parts.push(tableScroll(t(page.title), tableNode(book, page)));
   if (page.figure) parts.push(figureNode(book, page.figure));
   const links = linksNode(page.links);
   if (links) parts.push(links);

@@ -12,6 +12,7 @@ import { setOverride } from './progress.js';
 import { start, go } from './router.js';
 import { showToast } from './utils.js';
 import { ui } from './i18n.js';
+import { testVoice } from './render-settings.js';
 
 /** Close the contents disclosure, which is only ever open below the rail width. */
 function closeContents() {
@@ -34,6 +35,12 @@ const ACTIONS = {
     document.documentElement.lang = state.prefs.lang;
     return render();
   },
+  'set-motion': (d) => {
+    setPref('reduceMotion', d.motion === 'on');
+    document.documentElement.toggleAttribute('data-reduce-motion', state.prefs.reduceMotion);
+    return render();
+  },
+  'test-voice': () => testVoice(),
   'set-track': (d) => {
     setPref('track', d.track);
     return render();
@@ -86,6 +93,25 @@ const ACTIONS = {
 };
 
 /**
+ * data-change -> handler(element), for the few form controls a click does not
+ * settle. Only the voice picker today; it saves and does not repaint, so focus
+ * stays on the select a keyboard reader is working.
+ */
+const CHANGES = {
+  'set-voice': (el) => {
+    setPref('ttsVoice', el.value || null);
+    const gone = el.closest('.rn-voice') && el.closest('.rn-voice').querySelector('.rn-voice-gone');
+    if (gone) gone.hidden = true;
+  },
+};
+
+function onChange(e) {
+  const el = e.target.closest && e.target.closest('[data-change]');
+  const handler = el && CHANGES[el.dataset.change];
+  if (handler) handler(el);
+}
+
+/**
  * Escape closes a running drill. It is the second way out, beside the Close
  * button the marker and the facing bar carry, and the one a keyboard reader
  * reaches for first.
@@ -122,6 +148,7 @@ function onClick(e) {
 export function bindEvents() {
   document.addEventListener('click', onClick);
   document.addEventListener('keydown', onKeydown);
+  document.addEventListener('change', onChange);
   const langBtn = document.getElementById('langToggle');
   if (langBtn) langBtn.setAttribute('data-action', 'toggle-lang');
   // The account control (C7.2) is the Neorgon Auth Kit's header slot, which the

@@ -126,7 +126,14 @@ export function optionList(session, options, onChoose) {
       const cap = b.querySelector('.rx-key');
       // Only a decorative cap may become a tick. In numeral mode the cap is
       // the answer, and replacing it would delete what the row is saying.
-      if (cap && cap.getAttribute('aria-hidden') === 'true') cap.textContent = '✓';
+      if (cap && cap.getAttribute('aria-hidden') === 'true') {
+        cap.textContent = '✓';
+        // The fill is the accent, which is a red, and a red row under "Not
+        // that one" was read as the wrong one. The word says which it is, and
+        // it is part of the row's name, so a screen reader hears it too. A
+        // numeral tile has no room for it; the answer line below names it.
+        append(b, [' ', el('span', { class: 'rx-option-mark', text: session.s('rightMark') })]);
+      }
     }
   };
 

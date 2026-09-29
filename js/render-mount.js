@@ -13,6 +13,7 @@ import { clear } from './utils.js';
 import * as books from './books.js';
 import * as progress from './progress.js';
 import { action } from './render-shared.js';
+import { paintChrome } from './render-chrome.js';
 
 // Must match the .rn-spread breakpoint in css/style.css exactly. It is the
 // width at which a 66ch column and a 320px drill both fit, measured; below it
@@ -188,20 +189,44 @@ function markRailOverflow() {
   rail.toggleAttribute('data-overflow', rail.scrollHeight - rail.scrollTop - rail.clientHeight > 4);
 }
 
+/**
+ * The same promise for a wide table: which of its edges hide columns, as
+ * attributes the CSS fades, and the hint under it shown only while any do.
+ */
+function markTableScroll(el) {
+  const left = el.scrollLeft > 2;
+  const right = el.scrollWidth - el.clientWidth - el.scrollLeft > 2;
+  el.toggleAttribute('data-more-left', left);
+  el.toggleAttribute('data-more-right', right);
+  const hint = el.nextElementSibling;
+  if (hint && hint.classList.contains('rn-scroll-hint')) hint.hidden = !(left || right);
+}
+
+function markAllTables() {
+  for (const el of document.querySelectorAll('.rn-scroll')) markTableScroll(el);
+}
+
 let railResizeBound = false;
 function watchRail() {
-  // Views are rebuilt wholesale, so the rail is a new element on every paint
-  // and takes its own scroll listener. The window is bound once.
+  // Views are rebuilt wholesale, so the rail and every table scroller are new
+  // elements on every paint and take their own scroll listeners. The window
+  // is bound once.
   const rail = document.querySelector('.rn-rail');
   if (rail) rail.addEventListener('scroll', markRailOverflow, { passive: true });
   markRailOverflow();
+  for (const el of document.querySelectorAll('.rn-scroll')) {
+    el.addEventListener('scroll', () => markTableScroll(el), { passive: true });
+    markTableScroll(el);
+  }
   if (railResizeBound) return;
   railResizeBound = true;
   addEventListener('resize', markRailOverflow, { passive: true });
+  addEventListener('resize', markAllTables, { passive: true });
 }
 
 /** Called by render() after every paint: honour a pending scroll or start. */
 export async function afterPaint(route) {
+  paintChrome(route);
   watchRail();
   const p = pending;
   pending = null;

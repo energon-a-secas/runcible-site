@@ -44,8 +44,21 @@ async function fetchJson(url) {
   }
 }
 
+/**
+ * Is this page served from a machine someone is writing the Book on. A
+ * validator warning (a chapter with no goal.evidence, say) is addressed to the
+ * author, and it used to print in every learner's console on every chapter:
+ * make validate already reports each one, so the browser repeats them only
+ * where an author is looking. Errors still throw everywhere.
+ */
+function authoring(loc = globalThis.location) {
+  const host = (loc && loc.hostname) || '';
+  return host === 'localhost' || host === '127.0.0.1' || host === '[::1]' || host.endsWith('.localhost');
+}
+
 function refuse(report, file) {
   if (report.ok) {
+    if (!authoring()) return;
     for (const w of report.warnings) console.warn(`[runcible] ${file}: ${w.path} ${w.message}`);
     return;
   }

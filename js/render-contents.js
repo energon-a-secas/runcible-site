@@ -13,7 +13,12 @@ import { action, textAction, stateGlyph, evidenceSentence, titleOf } from './ren
 
 const BOOK_STATE = { ready: 'bookReady', soon: 'bookSoon', planned: 'planned', draft: 'bookDraft', stub: 'bookStub' };
 
-/** The shelf: glyph, title, tagline when the index carries one, and state. */
+/**
+ * The shelf: glyph, title, the tagline the index carries, and a state only
+ * when it says something. "Ready" beside every Book was a word that meant
+ * nothing to a learner, so a ready Book shows no state at all; Soon, Draft,
+ * Not written yet and planned still say why a Book is not the usual kind.
+ */
 export async function catalogView() {
   const catalog = await books.loadCatalog();
   const rows = (catalog.books || []).map((b) => {
@@ -27,7 +32,7 @@ export async function catalogView() {
           : h('a', { class: 'rn-shelf-title', href: href('book', { bookId: b.id }) }, title),
         b.tagline ? h('p', { class: 'rn-shelf-tag' }, t(b.tagline)) : null,
       ]),
-      h('span', { class: 'rn-shelf-state' }, ui(BOOK_STATE[b.state] || 'planned')),
+      b.state === 'ready' ? null : h('span', { class: 'rn-shelf-state' }, ui(BOOK_STATE[b.state] || 'planned')),
     ]);
   });
   return [
@@ -75,12 +80,14 @@ function contentsRow(book, row) {
   const title = titleOf(row);
   const statement = doc ? t(doc.goal && doc.goal.statement) : t(row.entry.note);
   const ev = evidenceSentence(row.evidence) || null;
-  const openable = row.state === 'available' || row.state === 'passed';
+  // A locked chapter opens read-only, so it is a link too; only a planned one,
+  // which has no file, is not.
+  const openable = row.state !== 'planned';
   const head = openable
     ? h('a', { class: 'rn-contents-title', href: href('chapter', { bookId: book.id, chapterId: row.id }), title: ev }, title)
     : h('span', { class: 'rn-contents-title', title: ev }, title);
   return h('li', { class: 'rn-contents-row', 'data-state': row.state }, [
-    stateGlyph(row.state),
+    stateGlyph(row.state, row.override),
     h('div', { class: 'rn-contents-text' }, [
       h('div', { class: 'rn-contents-head' }, [head, row.override ? h('span', { class: 'rn-contents-note' }, ui('opened')) : null]),
       statement ? h('p', { class: 'rn-contents-statement' }, statement) : null,

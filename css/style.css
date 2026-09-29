@@ -234,6 +234,15 @@ main#main {
 }
 .btn--danger:hover { background: var(--danger-hover); }
 
+/* The link for the page you are on (js/render-chrome.js sets aria-current).
+   Keyed on the site's own .btn, which is what the header links are dressed
+   in, rather than on the kit's .header-* classes. A firmer border and a
+   wash, no accent: the accent is for the one thing to press. */
+.btn--ghost[aria-current="page"] {
+  background: color-mix(in srgb, var(--text-primary) 14%, transparent);
+  border-color: color-mix(in srgb, var(--text-primary) 55%, transparent);
+}
+
 /* ── Card ──────────────────────────────────────────────────── */
 /*
  * GOTCHA: backdrop-filter creates a stacking context, so dropdowns inside
@@ -464,13 +473,52 @@ button:active,
 }
 .rn-textlink:hover { color: var(--text-primary); }
 
-/* Chapter state: the glyph carries the colour, the sr-only text carries the
-   meaning, because a coloured dot is not a message. */
+/* Chapter state: the mark carries the colour and the shape, the sr-only text
+   carries the meaning, because a coloured dot is not a message. Four shapes,
+   so no two states are told apart by contrast alone: a disc (passed), a ring
+   (open), a diamond (opened by you) and a padlock (locked). Drawn here rather
+   than taken from a font: the dotted circle rendered as a plain ring. */
 .rn-glyph-state { flex: 0 0 auto; font-size: var(--text-sm); line-height: 1.4; }
 .rn-glyph-state[data-state="passed"] { color: var(--accent-bright); }
-.rn-glyph-state[data-state="available"] { color: var(--text-secondary); }
+.rn-glyph-state[data-state="available"],
+.rn-glyph-state[data-state="opened"] { color: var(--text-secondary); }
 .rn-glyph-state[data-state="locked"],
 .rn-glyph-state[data-state="planned"] { color: var(--text-muted); }
+.rn-glyph-mark {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 0.72em;
+  height: 0.72em;
+  border: 1.5px solid currentColor;
+  border-radius: 50%;
+  vertical-align: -0.02em;
+}
+.rn-glyph-state[data-state="passed"] .rn-glyph-mark { background: currentColor; }
+.rn-glyph-state[data-state="opened"] .rn-glyph-mark {
+  border-radius: 1.5px;
+  transform: rotate(45deg) scale(0.84);
+}
+/* The padlock: a squat body, and its shackle standing on the body's top edge. */
+.rn-glyph-state[data-state="locked"] .rn-glyph-mark {
+  width: 0.66em;
+  height: 0.5em;
+  border-radius: 2px;
+}
+.rn-glyph-state[data-state="locked"] .rn-glyph-mark::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% - 1px);
+  width: 0.4em;
+  height: 0.32em;
+  box-sizing: border-box;
+  border: 1.5px solid currentColor;
+  border-bottom: 0;
+  border-radius: 0.2em 0.2em 0 0;
+  transform: translateX(-50%);
+}
+.rn-glyph-state[data-state="planned"] .rn-glyph-mark { width: auto; height: auto; border: 0; border-radius: 0; }
 
 /* Evidence is a sentence and a hairline the width of the title it belongs to,
    never a bar with a percentage pair. */
@@ -623,7 +671,26 @@ button:active,
   background: var(--surface-1);
 }
 
-.rn-scroll { margin-top: var(--space-4); overflow-x: auto; }
+.rn-scroll-wrap { margin-top: var(--space-4); }
+.rn-scroll { overflow-x: auto; border-radius: var(--radius-sm); }
+/* An edge that hides columns fades out (js/render-mount.js sets the two
+   attributes from the scroll position), so a table cut by the column reads as
+   one that continues rather than one that ends. A mask, not an overlay, so it
+   works on a callout's wash as well as on the page. It lifts while the
+   scroller has keyboard focus, so the focus ring is drawn whole. */
+.rn-scroll[data-more-right]:not(:focus-visible) {
+  -webkit-mask-image: linear-gradient(to right, currentColor calc(100% - 48px), transparent);
+  mask-image: linear-gradient(to right, currentColor calc(100% - 48px), transparent);
+}
+.rn-scroll[data-more-left]:not(:focus-visible) {
+  -webkit-mask-image: linear-gradient(to left, currentColor calc(100% - 48px), transparent);
+  mask-image: linear-gradient(to left, currentColor calc(100% - 48px), transparent);
+}
+.rn-scroll[data-more-left][data-more-right]:not(:focus-visible) {
+  -webkit-mask-image: linear-gradient(to right, transparent, currentColor 48px, currentColor calc(100% - 48px), transparent);
+  mask-image: linear-gradient(to right, transparent, currentColor 48px, currentColor calc(100% - 48px), transparent);
+}
+.rn-scroll-hint { margin-top: var(--space-2); font-size: var(--text-xs); line-height: 1.5; color: var(--text-muted); }
 .rn-table { width: 100%; border-collapse: collapse; font-size: var(--text-sm); }
 .rn-table th, .rn-table td {
   padding: var(--space-2) var(--space-3);
@@ -670,6 +737,27 @@ button:active,
 .rn-marker--running .rn-marker-state { color: var(--text-muted); }
 .rn-marker-title { margin-top: var(--space-2); font-size: var(--text-lg); font-weight: 600; color: var(--text-primary); }
 .rn-marker > .toolbar { margin-top: var(--space-3); }
+/* Every Start is secondary; the view's one primary is the Next up drill on the
+   facing page. Below 980px that page is hidden, so the same drill's Start
+   (data-next) takes the primary fill there and nowhere else. */
+@media (max-width: 979px) {
+  .rn-marker .btn[data-next] { background: var(--accent); color: var(--on-accent); border-color: transparent; }
+  .rn-marker .btn[data-next]:hover { background: color-mix(in srgb, var(--accent) 85%, black); }
+  .rn-marker .btn[data-next]:focus-visible { outline-color: var(--text-primary); }
+}
+/* A drill in a locked chapter: named where it was authored, no Start, and one
+   muted line saying what opens it. The title dims with it, so a page of locked
+   markers does not read as a page of things to press. */
+.rn-marker--locked .rn-marker-title { color: var(--text-secondary); }
+.rn-marker-locked {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+  font-size: var(--text-sm);
+  line-height: 1.5;
+  color: var(--text-muted);
+}
 
 /* Margin tick: re-reading a chapter shows what you already earned, where you
    earned it. It needs the gutter, so it appears with the gutter. */
@@ -716,12 +804,20 @@ button:active,
 
 .rn-facing { min-width: 0; }
 @media (min-width: 980px) {
+  /* A scroll container clips at its padding edge, and the focus ring is drawn
+     2px outside a control with a 2px offset, so a control flush with the
+     column's edge (Next, Close, a Next up button) lost the outer half of its
+     ring. The column gets that much padding and gives it back as a negative
+     margin, so the ring has room and nothing inside it moves. */
   .rn-facing {
+    --rn-ring-room: 6px;
     position: sticky;
-    top: calc(var(--rn-top) + var(--rn-bar));
+    top: calc(var(--rn-top) + var(--rn-bar) - var(--rn-ring-room));
     align-self: start;
-    max-width: 22rem;
-    max-height: calc(100dvh - var(--rn-top) - var(--rn-bar) - var(--space-6));
+    max-width: calc(22rem + 2 * var(--rn-ring-room));
+    max-height: calc(100dvh - var(--rn-top) - var(--rn-bar) - var(--space-6) + var(--rn-ring-room));
+    margin: calc(-1 * var(--rn-ring-room)) calc(-1 * var(--rn-ring-room)) 0;
+    padding: var(--rn-ring-room);
     overflow: auto;
     overscroll-behavior: contain;
     animation: rn-slide-in 220ms var(--ease-out) both;
@@ -755,35 +851,29 @@ button:active,
    to, so it reads as a page and not as a sidebar of controls. */
 .rn-facing-idle { display: flex; flex-direction: column; gap: var(--space-3); }
 .rn-facing-rung { font-size: var(--text-lg); font-weight: 600; line-height: 1.3; color: var(--text-primary); }
-.rn-facing-list { list-style: none; display: flex; flex-direction: column; gap: var(--space-1); margin-top: var(--space-1); }
+.rn-facing-list { list-style: none; display: flex; flex-direction: column; gap: var(--space-2); margin-top: var(--space-1); }
 .rn-facing-item {
   display: grid;
   grid-template-columns: 1rem minmax(0, 1fr);
-  align-items: baseline;
-  gap: var(--space-2);
-  padding: var(--space-1) 0;
-  border-top: 1px solid var(--border-subtle);
+  align-items: center;
+  gap: var(--space-1) var(--space-2);
 }
-.rn-facing-item:first-child { border-top: 0; }
-.rn-facing-tick { color: var(--text-muted); font-size: var(--text-sm); line-height: 1.5; }
+.rn-facing-tick { color: var(--text-muted); font-size: var(--text-sm); line-height: 1.5; text-align: center; }
 .rn-facing-item--passed .rn-facing-tick { color: var(--accent-bright); }
+/* Each drill is a real button from the design system, secondary, with the
+   view's one primary on the next one to do. It was dotted text, which read
+   as a list of titles rather than as things to press. A long title wraps
+   inside the button instead of stretching it. */
 .rn-facing-drill {
-  display: block;
-  min-height: 32px;
-  padding: var(--space-1) 0;
-  border: 0;
-  background: none;
-  font: inherit;
-  font-size: var(--text-sm);
-  line-height: 1.5;
+  width: 100%;
+  justify-content: flex-start;
+  padding-block: var(--space-2);
   text-align: left;
-  color: var(--text-secondary);
-  cursor: pointer;
+  white-space: normal;
+  line-height: 1.35;
 }
-.rn-facing-drill:hover { color: var(--accent-bright); }
 .rn-facing-earned { grid-column: 2; font-size: var(--text-xs); color: var(--text-muted); }
 .rn-facing-idle > .rn-evidence { margin-top: var(--space-2); padding-top: var(--space-3); border-top: 1px solid var(--border-subtle); }
-@media (pointer: coarse) { .rn-facing-drill { min-height: 44px; padding: var(--space-2) 0; } }
 
 /* ── The rail: one nav, two shapes ───────────────────────────── */
 /* From 1180px a 220px sticky column beside the prose. Below that a 40px bar
@@ -904,6 +994,10 @@ button:active,
 }
 a.rn-toc-line:hover { color: var(--text-primary); }
 .rn-toc-title { flex: 1 1 auto; min-width: 0; }
+/* A locked chapter's title is its own link beside the override, because a
+   button cannot sit inside a link; it keeps the line's colours. */
+a.rn-toc-title { color: inherit; text-decoration: none; }
+.rn-toc-ch a.rn-toc-title:hover { color: var(--text-primary); }
 .rn-toc-ch[aria-current="page"] > .rn-toc-line { color: var(--text-primary); font-weight: 600; }
 .rn-toc-ch[data-state="locked"] .rn-toc-title,
 .rn-toc-ch[data-state="planned"] .rn-toc-title { color: var(--text-muted); }
@@ -959,6 +1053,8 @@ a.rn-toc-line:hover { color: var(--text-primary); }
    twice as tall for no reason. */
 @media (pointer: coarse) {
   .rn-toc-line, .rn-toc-rung-link { min-height: 44px; padding: var(--space-3) 0; }
+  /* The link inside a locked row takes the row's height as its own target. */
+  .rn-toc-line > a.rn-toc-title { padding-block: var(--space-3); margin-block: calc(-1 * var(--space-3)); }
   .rn-toc-override { padding: var(--space-2) 0; }
   .rn-shelf-title, .rn-contents-title { display: block; min-height: var(--control-height); padding: var(--space-2) 0; }
   .rn-bookmark { top: 4px; }
@@ -998,7 +1094,7 @@ a.rn-toc-line:hover { color: var(--text-primary); }
   color: var(--text-muted);
 }
 .rn-open-title { font-size: var(--text-2xl); font-weight: 600; line-height: 1.25; color: var(--text-primary); }
-.rn-open-rung { font-size: var(--text-base); color: var(--text-secondary); }
+.rn-open-rung { margin-top: var(--space-2); font-size: var(--text-base); font-weight: 600; color: var(--text-primary); }
 /* The words the bookmark is sitting on, four lines of them. Clamped rather than
    truncated with a rule: this is a reminder of the page, and the page itself is
    one press away. */
@@ -1134,7 +1230,7 @@ a.rn-shelf-title:hover { color: var(--accent-bright); }
 .rn-contents-text { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-2); }
 .rn-contents-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--space-3); }
 .rn-contents-title { font-size: var(--text-lg); font-weight: 600; color: var(--text-primary); text-decoration: none; }
-a.rn-contents-title:hover { color: var(--accent-bright); }
+.rn-contents-row a.rn-contents-title:hover { color: var(--accent-bright); }
 .rn-contents-row[data-state="locked"] .rn-contents-title,
 .rn-contents-row[data-state="planned"] .rn-contents-title { color: var(--text-muted); font-weight: 500; }
 .rn-contents-note { font-size: var(--text-xs); color: var(--text-muted); }
@@ -1157,6 +1253,38 @@ a.rn-contents-title:hover { color: var(--accent-bright); }
 .rn-setting:first-of-type { border-top: 1px solid var(--border-subtle); }
 .rn-setting-title { font-size: var(--text-lg); font-weight: 600; color: var(--text-primary); }
 .rn-setting .rn-tracks { margin-bottom: 0; }
+/* The voice picker: a native select dressed like the site's controls, with
+   Test beside it, wrapping under it on a phone. */
+.rn-voice-row { width: 100%; align-items: center; }
+.rn-select {
+  flex: 1 1 16rem;
+  min-width: 0;
+  max-width: 28rem;
+  min-height: 36px;
+  padding: 0 var(--space-3);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--surface-1);
+  color: var(--text-primary);
+  font: inherit;
+  font-size: var(--text-sm);
+}
+/* The Book's module ids are for its authors, behind a disclosure. Block, not
+   the section's flex column: a details element keeps its own layout. */
+.rn-authors { display: block; }
+.rn-authors.rn-setting:first-of-type { border-top: 0; }
+.rn-authors > .rn-lead { margin-top: var(--space-3); }
+.rn-authors-summary {
+  cursor: pointer;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+.rn-authors-summary:hover { color: var(--text-primary); }
+@media (pointer: coarse) {
+  .rn-select { min-height: var(--control-height); }
+  .rn-authors-summary { padding-block: var(--space-3); }
+}
 
 /* ── The Rappel embed ────────────────────────────────────────── */
 /* The escape link sits beside every deck, always: a link to the unpartitioned
@@ -1180,6 +1308,16 @@ a.rn-contents-title:hover { color: var(--accent-bright); }
 .rn-deck-status { font-size: var(--text-sm); color: var(--text-muted); }
 .rn-deck-out { font-size: var(--text-sm); color: var(--accent-bright); }
 .rn-deck-warn { font-size: var(--text-sm); color: var(--danger-hover); }
+/* The frame failed (silence or an error) and has collapsed: the status, the
+   escape link and the reason stand where it was, as one bordered panel, so the
+   drill still reads as a thing in its place rather than a line under a gap. */
+.rn-deck-wrap[data-failed] {
+  padding: var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-1);
+}
+.rn-deck-wrap[data-failed] .rn-deck-status { color: var(--text-primary); font-weight: 600; }
 
 /* C11.3: the licence acknowledgement, at the foot of the main content region,
    in this site's own copy. Not in the footer kit, which is shared by 60 sites

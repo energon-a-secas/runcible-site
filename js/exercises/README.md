@@ -193,7 +193,12 @@ or on the verdict, never on `body`.
 
 `speak` is never graded, on any browser, whatever the learner does. Where
 `SpeechRecognition` exists the transcript is shown as the learner's own
-feedback; where it does not, the exercise says so in one line. MDN and Apple's
+feedback, set beside the line it asked for: "Heard the same words", or "Heard:
+X, expected: Y". `compare.js` `sameWords` picks the line: width folded (NFKC),
+punctuation and spaces dropped, then the spec's own `compare` tokens, so `kana`
+folds the two syllabaries only when the chapter asks for it. It is never a
+score and never reaches `correct`. Where recognition does not exist, the
+exercise says so in one line. MDN and Apple's
 own WebKit blog disagree about Safari, and caniuse and MDN disagree about Edge.
 Two authorities disagreeing is not a foundation for a chapter gate.
 

@@ -47,25 +47,31 @@ export function railNode({ book, rows, chapterId, rungs, current }) {
 
 /** One chapter as a line: glyph, title, and for the open chapter its rungs. */
 function tocRow(book, row, open) {
-  const line = [stateGlyph(row.state), h('span', { class: 'rn-toc-title' }, titleOf(row))];
+  const glyph = stateGlyph(row.state, row.override);
   const attrs = { class: 'rn-toc-ch', 'data-state': row.state };
   if (open) attrs['aria-current'] = 'page';
   const ev = evidenceSentence(row.evidence) || null;
+  const to = href('chapter', { bookId: book.id, chapterId: row.id });
   const parts = [];
   if (row.state === 'available' || row.state === 'passed') {
-    parts.push(h('a', { class: 'rn-toc-line', href: href('chapter', { bookId: book.id, chapterId: row.id }), title: ev }, line));
+    parts.push(h('a', { class: 'rn-toc-line', href: to, title: ev }, [glyph, h('span', { class: 'rn-toc-title' }, titleOf(row))]));
+  } else if (row.state === 'locked') {
+    // A locked chapter opens read-only, so its title is a link like any other.
+    // C3.4: it also carries its override, as a small text link rather than a
+    // 36px button repeated down the rail, and on the chapter's own line rather
+    // than a second one: thirteen chapters spending two rows each is what
+    // pushed the rail past the height of its sticky box. The two are siblings,
+    // because a button inside a link is not a thing a page may hold.
+    const override = textAction(ui('openAnywayWord'), 'override-on', { chapter: row.id }, 'rn-textlink rn-toc-override');
+    override.setAttribute('aria-label', `${ui('openAnywayShort')}: ${titleOf(row)}`);
+    parts.push(h('span', { class: 'rn-toc-line' }, [
+      glyph,
+      h('a', { class: 'rn-toc-title', href: to, title: ev }, titleOf(row)),
+      h('span', { class: 'rn-toc-sep', 'aria-hidden': 'true' }, '\u00b7'),
+      override,
+    ]));
   } else {
-    // C3.4: every locked chapter carries its override, here as a small text
-    // link rather than a 36px button repeated down the rail, and on the
-    // chapter's own line rather than a second one: thirteen chapters spending
-    // two rows each is what pushed the rail past the height of its sticky box.
-    if (row.state === 'locked') {
-      const open = textAction(ui('openAnywayWord'), 'override-on', { chapter: row.id }, 'rn-textlink rn-toc-override');
-      open.setAttribute('aria-label', `${ui('openAnywayShort')}: ${titleOf(row)}`);
-      line.push(h('span', { class: 'rn-toc-sep', 'aria-hidden': 'true' }, '\u00b7'));
-      line.push(open);
-    }
-    parts.push(h('span', { class: 'rn-toc-line', title: ev }, line));
+    parts.push(h('span', { class: 'rn-toc-line', title: ev }, [glyph, h('span', { class: 'rn-toc-title' }, titleOf(row))]));
   }
   if (open && open.rungs.length) {
     parts.push(h('ol', { class: 'rn-toc-rungs' },

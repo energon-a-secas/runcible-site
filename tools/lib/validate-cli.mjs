@@ -86,6 +86,13 @@ export async function main(argv) {
       continue;
     }
     say(`${rel}/book.json`, validateManifest(manifest));
+    // The shelf reads its tagline from the catalog, which is fetched before
+    // any manifest, and the contents page reads the manifest's. One sentence
+    // in two files drifts, so a catalog tagline must be the manifest's own.
+    const shelf = (catalog.books || []).find((b) => b && b.id === manifest.id);
+    if (shelf && shelf.tagline !== undefined && JSON.stringify(shelf.tagline) !== JSON.stringify(manifest.tagline)) {
+      fail(`books/index.json: books[${manifest.id}].tagline differs from ${rel}/book.json tagline; the shelf and the contents page would say different things`);
+    }
     const goals = new Map();
     const emitted = new Set();
     const decks = [];

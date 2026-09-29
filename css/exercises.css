@@ -132,6 +132,15 @@
   background: color-mix(in srgb, var(--accent) 40%, transparent);
   color: var(--text-primary);
 }
+/* The word beside the tick, so the accent fill cannot be read as "wrong". */
+.rx-option-mark {
+  flex: 0 0 auto;
+  margin-left: auto;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--text-primary);
+}
 /* The keycap of the chosen wrong row keeps its number: which key did that is
    still the useful fact, and the struck label already says it was wrong. */
 .rx-option[data-state="wrong"] .rx-key { border-color: var(--border-strong); }
