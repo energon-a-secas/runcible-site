@@ -112,16 +112,30 @@ export function mountDeckEmbed({ host, spec, api, ctx }) {
   });
   // C6.5. The escape link is rendered beside every deck exercise by render.js,
   // whether or not a frame is mounted, so this bar carries only the state the
-  // engine reports.
+  // engine reports, until the frame fails (below).
+  const bar = h('div', { class: 'rn-deck-bar' }, [status]);
+  const wrap = h('div', { class: 'rn-deck-wrap' }, [frame, bar, warn]);
   clear(host);
-  host.appendChild(h('div', { class: 'rn-deck-wrap' }, [
-    frame,
-    h('div', { class: 'rn-deck-bar' }, [status]),
-    warn,
-  ]));
+  host.appendChild(wrap);
 
   const say = (text) => { status.textContent = text; };
   const shout = (text) => { warn.textContent = text; warn.hidden = false; };
+  // A frame that never answered, or said it failed, was a 420px grey box with
+  // the explanation under it. It collapses instead, and the message plus an
+  // Open in Rappel link take its place: on the facing page the marker's own
+  // link is in the other column. A late answer after silence brings the frame
+  // back; an error does not.
+  let collapsed = null;   // null | 'silent' | 'error'
+  let escape = null;
+  const collapse = (why) => {
+    collapsed = why;
+    frame.hidden = true;
+    wrap.dataset.failed = why;
+    if (!escape) {
+      escape = h('a', { class: 'rn-deck-out', href: deckUrl(spec, { embed: false }), target: '_blank', rel: 'noopener noreferrer' }, ui('openInRappel'));
+      bar.appendChild(escape);
+    }
+  };
   let heard = false;
   let resends = 0;
 
@@ -146,6 +160,12 @@ export function mountDeckEmbed({ host, spec, api, ctx }) {
     const m = e.data;
     if (!m || typeof m !== 'object' || m.v !== 1) return;
     heard = true;
+    if (collapsed === 'silent') {
+      collapsed = null;
+      frame.hidden = false;
+      delete wrap.dataset.failed;
+      warn.hidden = true;
+    }
 
     if (m.type === 'rappel:ready' || m.type === 'rappel:due') {
       noteDeckCounts(book.id, deckKey, { due: m.due, new: m.new, total: m.total });
@@ -219,6 +239,7 @@ export function mountDeckEmbed({ host, spec, api, ctx }) {
     }
     if (m.type === 'rappel:error') {
       console.error('[runcible] rappel:error', m.code, m.message);
+      collapse('error');
       shout(`${ui('deckError')}: ${m.code}`);
       return;
     }
@@ -251,6 +272,7 @@ export function mountDeckEmbed({ host, spec, api, ctx }) {
   // frame.
   const silence = setTimeout(() => {
     if (heard) return;
+    collapse('silent');
     say(ui('deckSilent'));
     shout(ui('deckSilentDetail'));
   }, 8000);

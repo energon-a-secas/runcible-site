@@ -1276,6 +1276,16 @@ a.rn-shelf-title:hover { color: var(--accent-bright); }
 .rn-deck-status { font-size: var(--text-sm); color: var(--text-muted); }
 .rn-deck-out { font-size: var(--text-sm); color: var(--accent-bright); }
 .rn-deck-warn { font-size: var(--text-sm); color: var(--danger-hover); }
+/* The frame failed (silence or an error) and has collapsed: the status, the
+   escape link and the reason stand where it was, as one bordered panel, so the
+   drill still reads as a thing in its place rather than a line under a gap. */
+.rn-deck-wrap[data-failed] {
+  padding: var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-1);
+}
+.rn-deck-wrap[data-failed] .rn-deck-status { color: var(--text-primary); font-weight: 600; }
 
 /* C11.3: the licence acknowledgement, at the foot of the main content region,
    in this site's own copy. Not in the footer kit, which is shared by 60 sites
