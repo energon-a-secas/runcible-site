@@ -65,8 +65,10 @@ export function mount(host, spec, api, ctx) {
 
       const renderPrompt = (target) => {
         if (canSpeak) {
+          // Secondary: the answer's own control (Check, or the options) is
+          // what this question is for, and one accent per view is the rule.
           const play = button(session.s('playIt'), () => { api.tts(spoken, speakOpts(spec)); }, {
-            class: 'btn btn--primary rx-play',
+            class: 'btn btn--secondary rx-play',
           });
           append(target, [
             play,

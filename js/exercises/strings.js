@@ -56,6 +56,8 @@ export const STRINGS = Object.freeze({
 
   // grading
   correct: { en: 'Correct.', es: 'Correcto.' },
+  // Beside the tick on the right row once a question closes (ask.js).
+  rightMark: { en: 'Right', es: 'Correcto' },
   // The expected answer is the panel's first line, so these do not repeat it.
   // They used to, which put a long gloss twice on a phone screen and read as
   // the interface stuttering.
