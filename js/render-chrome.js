@@ -10,6 +10,7 @@
 import { state } from './state.js';
 import { t, ui } from './i18n.js';
 import { cachedChapters } from './books.js';
+import { findTool } from './book-tools.js';
 
 const SITE = 'Runcible';
 const DEFAULT_TITLE = 'Runcible | A book that teaches back';
@@ -39,6 +40,10 @@ function pageName(route) {
   const book = bookFor(p);
   if (route.name === 'book') return book ? t(book.title) : null;
   if (route.name === 'chapter') return book ? chapterTitle(book, p.chapterId) : null;
+  if (route.name === 'tool') {
+    const tool = book ? findTool(book, p.toolId) : null;
+    return tool ? t(tool.title) : null;
+  }
   return null;
 }
 
@@ -56,7 +61,9 @@ export function paintChrome(route) {
   const name = failed ? ui('loadFailed') : pageName(route);
   document.title = name ? `${name} | ${SITE}` : DEFAULT_TITLE;
 
-  const own = OWN_LINK[route.name] || null;
+  // A tool's link has no fixed hash (it names the Book and the tool), so the
+  // current route's own hash is what it is compared with.
+  const own = route.name === 'tool' ? location.hash : (OWN_LINK[route.name] || null);
   for (const a of document.querySelectorAll('.header-bar a[href^="#/"], .neo-footer a[href^="#/"]')) {
     if (own && a.getAttribute('href') === own) a.setAttribute('aria-current', 'page');
     else a.removeAttribute('aria-current');
