@@ -25,6 +25,7 @@ data/
   kana/hiragana.json           curated, eager
   kana/katakana.json           curated, eager
   kana/ladder.json             curated, eager
+  kana/mnemonics.json          authored memory hints, lazy. See below
   kanji/strokes-kana.json      KanjiVG-derived, lazy (moved by A6)
   loanwords/seed.json          curated, the scoring authority for the game
   loanwords/rules.json         curated, hints and explanations only
@@ -36,14 +37,14 @@ data/
   kanji/phon-groups.json       KanjiVG phon tags plus KANJIDIC readings
   sentences/<chapter>.json     Tatoeba slice
   reading/<story>.json         Aozora Bunko story, public domain in both jurisdictions
-  phrases/ch14.json            the one authored file. See below
+  phrases/ch14.json            authored patterns and exchanges. See below
   piano/keys,notes,theory.json authored facts about the instrument and the stave
   piano/pieces-*.json          Mutopia scores, one file per maintainer
 ```
 
-61 files. Nine of them are not a slice of a dictionary and each is its own
-case: the three kana tables, the two loanword files, the song catalog, the
-three Piano fact files. Everything else is derived, and derived means the
+62 files. Ten of them are not a slice of a dictionary and each is its own
+case: the three kana tables, the kana memory hints, the two loanword files,
+the song catalog, the three Piano fact files. Everything else is derived, and derived means the
 licence below is not this repo's.
 
 ## Before you commit anything in here
@@ -59,7 +60,7 @@ done for any change under `data/` or `books/`.
 
 `make validate` runs five gates: `check-licence.mjs`, `validate-book.mjs`,
 the shell rules, `validate-corpus.mjs` over the derived formats, and
-`validate-phrases.mjs` over the one authored file. Each is its own target and
+`validate-phrases.mjs` over the authored phrases file. Each is its own target and
 one schema, so there is never a second opinion about what valid means.
 
 `tools/check-licence.mjs` is the part of `make validate` that this file is
@@ -256,7 +257,7 @@ it carries a reading drill over `#ruby`. `validate-corpus.mjs` fails a chapter
 pointer at a `#ruby` fragment with fewer than eight entries rather than letting
 a drill mount empty.
 
-## The one authored file
+## The authored phrases file
 
 `phrases/ch14.json` is the exception this README has to name out loud, because
 every other rule here exists to prevent it. It holds the sentence patterns and
@@ -281,6 +282,35 @@ Three rules keep it from becoming a corpus:
 
 The page that renders it says on its face that the two turns were written for
 this Book. That sentence is not decoration either.
+
+## The kana memory hints
+
+`kana/mnemonics.json` is the second authored file: one record per basic
+hiragana and katakana, keyed by the same ids as the two kana tables, each with
+a keyword in both languages, a one or two line story that places every stroke,
+an emoji for the keyword's picture, and the look-alikes with the tell between
+them, plus a rule mnemonic for dakuten, handakuten, youon, small tsu and long
+vowels. `CC0-1.0`, `derived: false`, `screen: none`. The module
+`books/japanese/exercises/kanahints.js` is its one reader.
+
+Four rules keep it honest:
+
+1. **No kana in it was typed.** The kana, romaji, row and id of every record,
+   and every kana inside a story or a tell, were copied from
+   `kana/hiragana.json` and `kana/katakana.json` by the authoring script, then
+   checked against their Unicode names.
+2. **Nothing in it is anyone else's.** Every keyword and picture idea was
+   checked against the Tofugu guides and the Japan Foundation Memory Hint
+   worksheets (`checked_against`, `checked_at` on each record) and changed where
+   it collided. Those sources were read as research and none of their words
+   are in the file. Do not add a hint from any published set.
+3. **An emoji is a character, never an image.** The reader's own font draws
+   it, so it looks different on every platform, and that is why the story, not
+   the emoji, carries the shape.
+4. **A hint is shown when a kana is new and after a miss, never after a right
+   answer.** The research behind chapter 8 found a picture helps at those two
+   moments and, in most of the studies, not in the long run, where recall does
+   the work.
 
 ## The Piano corpus
 
@@ -330,6 +360,7 @@ its chapter opens, and the full dumps are never shipped.
 | `kanji/phon-groups.json` | 150 KB | lazy |
 | `reading/<story>.json` | 150 KB, and `build-reading.mjs` refuses a longer story | lazy |
 | `phrases/ch14.json` | 30 KB | lazy |
+| `kana/mnemonics.json` | 80 KB, fetched when a hint exercise starts | lazy |
 | `piano/{keys,notes,theory}.json` | 30 KB each | lazy |
 | `piano/pieces-*.json` | 120 KB | lazy |
 

@@ -367,3 +367,22 @@
 }
 html[data-reduce-motion] .rx-explain, html[data-reduce-motion] .rx-paired { animation-duration: 0.01ms; }
 html[data-reduce-motion] .rx-option:active, html[data-reduce-motion] .rx-pair:active { transform: none; }
+
+/* ── A picture, then a character at display size ─────────────────
+ * For a Book module that teaches a shape: the keyword's emoji, drawn by the
+ * reader's own font, and one character large enough to see its strokes. The
+ * character can start hidden and fade in (data-reveal); with reduced motion it
+ * simply appears. A one-character option row gets the size two look-alikes
+ * are compared at. No colour is set here beyond the text tokens.
+ */
+.rx-picture { font-size: 3.5rem; line-height: 1; }
+.rx-glyph {
+  font-size: clamp(3.5rem, 14vw, 5rem);
+  line-height: 1.1;
+  color: var(--text-primary);
+  transition: opacity 600ms var(--ease-out);
+}
+.rx-glyph[data-reveal="hidden"] { opacity: 0; }
+.rx-option--glyph .rx-option-label { font-size: var(--text-2xl); line-height: 1.2; }
+@media (prefers-reduced-motion: reduce) { .rx-glyph { transition: none; } }
+html[data-reduce-motion] .rx-glyph { transition: none; }

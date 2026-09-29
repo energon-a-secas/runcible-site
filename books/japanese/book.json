@@ -82,12 +82,14 @@
     { "path": "exercises/lyrics.js", "provides": { "exercises": ["jp.lyrics"] } },
     { "path": "exercises/namer.js", "provides": { "exercises": ["jp.namer"] } },
     { "path": "exercises/pitch.js", "provides": { "exercises": ["jp.pitch"] } },
-    { "path": "exercises/tegaki.js", "provides": { "exercises": ["jp.tegaki"] } }
+    { "path": "exercises/tegaki.js", "provides": { "exercises": ["jp.tegaki"] } },
+    { "path": "exercises/kanahints.js", "provides": { "exercises": ["jp.kanahints"] } }
   ],
   "data": [
     {"src":"data/kana/hiragana.json","licence":"public-domain","screen":"none"},
     {"src":"data/kana/katakana.json","licence":"public-domain","screen":"none"},
     {"src":"data/kana/ladder.json","licence":"public-domain","screen":"none"},
+    {"src":"data/kana/mnemonics.json","licence":"public-domain","screen":"none"},
     {"src":"data/loanwords/seed.json","licence":"CC-BY-SA-4.0","screen":"required","attribution":"edrdg"},
     {"src":"data/loanwords/rules.json","licence":"CC-BY-SA-4.0","screen":"required","attribution":"wikipedia"},
     {"src":"data/songs/index.json","licence":"public-domain","screen":"none"},

@@ -104,8 +104,8 @@ sync scripts: `js/neorgon-header.js`, `js/neorgon-footer.js`,
 - `localStorage['runcible:progress:v1']`: `{ books: { <bookId>: { chapters, evidence, decks } } }`, evidence windows capped at 200 attempts per skill
 - `localStorage['runcible:lyrics:v1']`: owned by the Japanese Book's `jp.lyrics` module, never synced, never put in a URL. The Convex schema has no table for it on purpose
 - Convex tables: `evidence`, `prefs`, `progress` (see `convex/schema.ts`). Dev deployment `knowing-pheasant-276`, public URL in `js/sync.js`
-- `books/`: `index.json` (neo-book-index/1), `japanese/` (15 ready chapters, none planned, 7 modules, 8 decks, 28 sets, 89 declared data files), `piano/` (4 ready, 1 planned, 1 module, 8 declared data files)
-- `data/`: 61 JSON files, every one opening with a `_licence` block, plus `data/README.md`, the corpus contract; the format spec for authoring a Book is `llms.txt`
+- `books/`: `index.json` (neo-book-index/1), `japanese/` (15 ready chapters, none planned, 8 modules, 8 decks, 28 sets, 90 declared data files), `piano/` (4 ready, 1 planned, 1 module, 8 declared data files)
+- `data/`: 62 JSON files, every one opening with a `_licence` block, plus `data/README.md`, the corpus contract; the format spec for authoring a Book is `llms.txt`
 - The Japanese ladder is not the file order. `13-writing-system` sits after `2-katakana` and `14-phrases` after `4-first-words`, because array order in `book.json` is display order and the numbers are only ids
 
 ## Conventions
@@ -342,6 +342,23 @@ offering `jp.lyrics`, `jp.pitch` or `jp.namer` as the day's game or counting
 them as drills (`engine().exerciseImpl(id)`); a module that omits the flag is
 graded. A skipped or crashed exercise (`api.done({ skipped })`,
 `api.done({ error })`) is not marked done.
+
+**The kana hints record only in their check phase, and only what they are.**
+`jp.kanahints` (`books/japanese/exercises/kanahints.js`, its drawing in
+`kanahints-view.js`) opens each row rung of chapters 1 and 2: a learn card per
+kana that records nothing, then one question per kana under the spec's own
+`skill` (the chapter goal's, which the rung's Quiz rounds feed too) with the
+kana table's id as `itemId` (`kana:X`, as the typed drills carry; the Quiz
+sets use their own ids). `props.rows` takes the table's own row ids (`vowels`, `k`, ...,
+`moraic-n`; `a` is accepted for `vowels`). A sound question exists only when
+the device has a Japanese voice, and one the voice fails to play is skipped
+unrecorded; a look-alike question never offers a kana with the same sound.
+The hints themselves are `data/kana/mnemonics.json`, authored and CC0, and
+every keyword was checked against the Tofugu and Japan Foundation sets
+(`data/README.md` says how); a hint borrowed from any published set is a
+licence breach, not a shortcut. The module's two display classes,
+`.rx-picture` and `.rx-glyph`, live in `css/exercises.css` because a Book
+cannot ship CSS.
 
 **An item field may be bilingual, and `itemId` may not.** Every field named by
 `prompt`, `answer`, `left`, `right`, `speak`, `expect` or `sequence`, plus a
