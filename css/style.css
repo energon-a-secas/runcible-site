@@ -776,12 +776,20 @@ button:active,
 
 .rn-facing { min-width: 0; }
 @media (min-width: 980px) {
+  /* A scroll container clips at its padding edge, and the focus ring is drawn
+     2px outside a control with a 2px offset, so a control flush with the
+     column's edge (Next, Close, a Next up button) lost the outer half of its
+     ring. The column gets that much padding and gives it back as a negative
+     margin, so the ring has room and nothing inside it moves. */
   .rn-facing {
+    --rn-ring-room: 6px;
     position: sticky;
-    top: calc(var(--rn-top) + var(--rn-bar));
+    top: calc(var(--rn-top) + var(--rn-bar) - var(--rn-ring-room));
     align-self: start;
-    max-width: 22rem;
-    max-height: calc(100dvh - var(--rn-top) - var(--rn-bar) - var(--space-6));
+    max-width: calc(22rem + 2 * var(--rn-ring-room));
+    max-height: calc(100dvh - var(--rn-top) - var(--rn-bar) - var(--space-6) + var(--rn-ring-room));
+    margin: calc(-1 * var(--rn-ring-room)) calc(-1 * var(--rn-ring-room)) 0;
+    padding: var(--rn-ring-room);
     overflow: auto;
     overscroll-behavior: contain;
     animation: rn-slide-in 220ms var(--ease-out) both;
