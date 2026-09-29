@@ -49,6 +49,9 @@ function pageName(route) {
  */
 export function paintChrome(route) {
   if (typeof document === 'undefined' || !route) return;
+  // reduceMotion is a synced pref (C7.3), so a sign-in merge can change it
+  // without a click; the attribute the CSS reads follows it on every paint.
+  document.documentElement.toggleAttribute('data-reduce-motion', !!state.prefs.reduceMotion);
   const failed = !!document.querySelector('#view > .rn-error');
   const name = failed ? ui('loadFailed') : pageName(route);
   document.title = name ? `${name} | ${SITE}` : DEFAULT_TITLE;

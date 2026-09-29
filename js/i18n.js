@@ -222,6 +222,37 @@ const UI = {
   modExercises: { en: 'exercises', es: 'ejercicios' },
   modTransforms: { en: 'transforms', es: 'transformaciones' },
   chooseBookFirst: { en: 'Choose a Book first.', es: 'Elige primero un libro.' },
+  // Settings (js/render-settings.js). The module ids are for whoever writes a
+  // Book, so they sit behind a disclosure; motion and the voice are the
+  // learner's own prefs, which had no control before.
+  forAuthors: { en: 'For Book authors', es: 'Para autores de libros' },
+  motion: { en: 'Motion', es: 'Movimiento' },
+  motionFull: { en: 'Full', es: 'Completo' },
+  motionReduced: { en: 'Reduced', es: 'Reducido' },
+  motionSystem: {
+    en: 'This device already asks for reduced motion, so the page keeps it reduced either way.',
+    es: 'Este dispositivo ya pide menos movimiento, así que la página lo reduce de todos modos.',
+  },
+  voice: { en: 'Voice', es: 'Voz' },
+  voiceLead: {
+    en: 'The voice that reads {lang} aloud in the drills that speak.',
+    es: 'La voz que lee en {lang} en los ejercicios que hablan.',
+  },
+  voiceAuto: { en: 'Automatic: the device picks', es: 'Automática: la elige el dispositivo' },
+  voiceTest: { en: 'Test', es: 'Probar' },
+  voiceLoading: { en: 'Looking for voices.', es: 'Buscando voces.' },
+  voiceNone: {
+    en: 'This device has no voice for {lang}. Drills that would speak it show their text or skip that question. A voice installed in the system settings appears here.',
+    es: 'Este dispositivo no tiene una voz para {lang}. Los ejercicios que la usarían muestran el texto o saltan esa pregunta. Una voz instalada en los ajustes del sistema aparece aquí.',
+  },
+  voiceNoSynth: {
+    en: 'This browser cannot speak aloud, so drills that would speak show their text instead.',
+    es: 'Este navegador no puede hablar en voz alta, así que los ejercicios que hablarían muestran el texto.',
+  },
+  voiceGone: {
+    en: 'The voice chosen before is not on this device, so the device picks one.',
+    es: 'La voz elegida antes no está en este dispositivo, así que el dispositivo elige una.',
+  },
 
   // The chrome around the view: header nav, the language toggle, the footer.
   // index.html marks each node with data-ui="<key>" and render.js relabels

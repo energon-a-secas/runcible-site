@@ -1253,6 +1253,38 @@ a.rn-shelf-title:hover { color: var(--accent-bright); }
 .rn-setting:first-of-type { border-top: 1px solid var(--border-subtle); }
 .rn-setting-title { font-size: var(--text-lg); font-weight: 600; color: var(--text-primary); }
 .rn-setting .rn-tracks { margin-bottom: 0; }
+/* The voice picker: a native select dressed like the site's controls, with
+   Test beside it, wrapping under it on a phone. */
+.rn-voice-row { width: 100%; align-items: center; }
+.rn-select {
+  flex: 1 1 16rem;
+  min-width: 0;
+  max-width: 28rem;
+  min-height: 36px;
+  padding: 0 var(--space-3);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--surface-1);
+  color: var(--text-primary);
+  font: inherit;
+  font-size: var(--text-sm);
+}
+/* The Book's module ids are for its authors, behind a disclosure. Block, not
+   the section's flex column: a details element keeps its own layout. */
+.rn-authors { display: block; }
+.rn-authors.rn-setting:first-of-type { border-top: 0; }
+.rn-authors > .rn-lead { margin-top: var(--space-3); }
+.rn-authors-summary {
+  cursor: pointer;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+.rn-authors-summary:hover { color: var(--text-primary); }
+@media (pointer: coarse) {
+  .rn-select { min-height: var(--control-height); }
+  .rn-authors-summary { padding-block: var(--space-3); }
+}
 
 /* ── The Rappel embed ────────────────────────────────────────── */
 /* The escape link sits beside every deck, always: a link to the unpartitioned
