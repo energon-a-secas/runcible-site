@@ -25,7 +25,7 @@ function facingRung(chapter, current) {
  * The one drill a chapter view offers as its primary action: the first one on
  * the facing rung not yet finished, else that rung's first. DESIGN.md allows
  * one primary per view, and a chapter used to draw every Start in the accent,
- * twenty-six of them down the Hiragana chapter.
+ * twenty-six of them down one chapter of the shipping Book.
  */
 function nextDrillId(book, chapter, current) {
   const drills = drillsIn(facingRung(chapter, current));
