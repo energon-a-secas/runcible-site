@@ -168,10 +168,14 @@ export function mountYomuEmbed({ host, title, lang, cls, onEscape }) {
   let lastHeight = 0;
   let loads = 0;        // documents the frame has finished loading
 
+  // allow="translator" lends the frame the browser's on-device Translator
+  // API (Chrome and Edge on a computer), which a cross-origin frame does not
+  // get by default; Yomu translates there without the text leaving the device.
   const frame = h('iframe', {
     class: 'rn-yomu-frame',
     src: yomuUrl({ lang: urlLang }),
     title,
+    allow: 'translator',
   });
   const deadLink = h('a', { class: 'rn-textlink', href: standaloneUrl(''), target: '_blank', rel: 'noopener noreferrer' }, s('open'));
   // Not a live region of its own: the status line below announces the silence
