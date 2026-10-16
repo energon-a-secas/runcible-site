@@ -373,7 +373,7 @@ button:active,
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+    transition: none !important;
   }
   .card--interactive:hover { transform: none; }
 }
@@ -1546,7 +1546,7 @@ html[data-reduce-motion] .rn-facing,
 html[data-reduce-motion] .rn-ex-host:not(:empty) { animation: none; }
 html[data-reduce-motion] *, html[data-reduce-motion] *::before, html[data-reduce-motion] *::after {
   animation-duration: 0.01ms !important;
-  transition-duration: 0.01ms !important;
+  transition: none !important;
 }
 
 /* The EN / ES toggle's two halves. The kit owns the button; these spans are the
