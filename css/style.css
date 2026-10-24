@@ -939,21 +939,18 @@ button:active,
 }
 
 @media (min-width: 1256px) {
-  /* The beacon kit's control is fixed to the bottom-left corner, which is the
-     rail's column: without the two beacon terms the last chapter sits under it.
-     The fallbacks match css/neorgon-beacon.css, so the rail is still right if
-     the kit is not linked. The last term is --space-6 rather than a hairline
-     because the rail is only pinned at --rn-top once the page has scrolled;
-     unscrolled it sits at the view's own --space-8 padding, 16px lower, and a
-     tighter gap put the last visible row under the beacon before the first
-     scroll. */
+  /* The beacon kit's control used to float in the bottom-left corner, the
+     rail's column, and this height left room for it. It sits in the footer
+     bar now, so the rail runs to the viewport floor. The last term is
+     --space-6 rather than a hairline because the rail is only pinned at
+     --rn-top once the page has scrolled; unscrolled it sits at the view's own
+     --space-8 padding, 16px lower, and a tighter gap pushed the last visible
+     row below the fold before the first scroll. */
   .rn-rail {
     position: sticky;
     top: var(--rn-top);
     align-self: start;
-    max-height: calc(
-      100dvh - var(--rn-top) - var(--beacon-size, 40px) - var(--beacon-offset, 20px) - var(--space-6)
-    );
+    max-height: calc(100dvh - var(--rn-top) - var(--space-6));
     overflow-y: auto;
     margin-bottom: 0;
     padding-right: var(--space-4);
